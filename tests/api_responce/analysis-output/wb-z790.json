@@ -9,7 +9,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401723613/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "411558730",
@@ -18,7 +19,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/411558730/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "436389114",
@@ -27,7 +29,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/436389114/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "418361822",
@@ -36,7 +39,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418361822/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "370339806",
@@ -45,7 +49,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370339806/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975340",
@@ -54,7 +59,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975340/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "414298459",
@@ -63,7 +69,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/414298459/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "412018163",
@@ -72,7 +79,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412018163/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "325289655",
@@ -81,7 +89,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/325289655/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "256886048",
@@ -90,7 +99,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/256886048/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "439786921",
@@ -99,7 +109,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439786921/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "440721904",
@@ -108,25 +119,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440721904/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "242375383",
-        "name": "Материнская плата Z790 D Soc-1700 Intel Z790 4xDDR5",
-        "price": 17311,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/242375383/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "276800795",
-        "name": "Материнская плата PRO Z790-P WIFI Soc-1700",
-        "price": 17297,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/276800795/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "437578381",
@@ -135,7 +129,28 @@
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437578381/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "276800795",
+        "name": "Материнская плата PRO Z790-P WIFI Soc-1700",
+        "price": 17297,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/276800795/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "242375383",
+        "name": "Материнская плата Z790 D Soc-1700 Intel Z790 4xDDR5",
+        "price": 17311,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/242375383/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "240998722",
@@ -144,7 +159,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/240998722/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975202",
@@ -153,16 +169,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975202/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "370347938",
-        "name": "Z790M AORUS ELITE AX материнская плата",
-        "price": 17577,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/370347938/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "370388176",
@@ -171,7 +179,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370388176/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "370347938",
+        "name": "Z790M AORUS ELITE AX материнская плата",
+        "price": 17577,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370347938/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "216770674",
@@ -180,7 +199,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/216770674/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "412016487",
@@ -189,7 +209,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412016487/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "237237206",
@@ -198,7 +219,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/237237206/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "144658035",
@@ -207,7 +229,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/144658035/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428977510",
@@ -216,7 +239,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428977510/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "242375366",
@@ -225,7 +249,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/242375366/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "418994600",
@@ -234,7 +259,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418994600/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "396534841",
@@ -243,16 +269,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/396534841/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "280186343",
-        "name": "Материнская плата PRIME Z790-P LGA1700 4xDDR5 4xSATA3 Raid",
-        "price": 18015,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/280186343/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "198069159",
@@ -261,16 +279,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/198069159/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
-        "id": "348238323",
-        "name": "Материнская плата PRO Z790-S WIFI LGA1700 DDR5",
-        "price": 18123,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/348238323/detail.aspx",
+        "id": "280186343",
+        "name": "Материнская плата PRIME Z790-P LGA1700 4xDDR5 4xSATA3 Raid",
+        "price": 18042,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/280186343/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "237480457",
@@ -279,7 +299,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/237480457/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "348238323",
+        "name": "Материнская плата PRO Z790-S WIFI LGA1700 DDR5",
+        "price": 18123,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348238323/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "242298942",
@@ -288,7 +319,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/242298942/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "357021256",
@@ -297,7 +329,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357021256/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975478",
@@ -306,7 +339,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975478/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "228171817",
@@ -315,7 +349,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/228171817/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "401808592",
@@ -324,7 +359,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401808592/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "174531870",
@@ -333,7 +369,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/174531870/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "357034298",
@@ -342,7 +379,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357034298/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "240998690",
@@ -351,7 +389,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/240998690/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "394141903",
@@ -360,25 +399,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/394141903/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "242499304",
-        "name": "Материнская плата Z790 UD Soc-1700 Intel",
-        "price": 18700,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/242499304/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "240998619",
-        "name": "PRO Z790-A MAX WIFI Soc-1700 Intel Z79",
-        "price": 18700,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/240998619/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "240998754",
@@ -387,7 +409,28 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/240998754/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "240998619",
+        "name": "PRO Z790-A MAX WIFI Soc-1700 Intel Z79",
+        "price": 18700,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998619/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "242499304",
+        "name": "Материнская плата Z790 UD Soc-1700 Intel",
+        "price": 18700,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/242499304/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "412025874",
@@ -396,25 +439,38 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412025874/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "244094637",
+        "name": "Материнская плата mATX PRIME Z790M-PLUS D4 Socket 1700",
+        "price": 18739,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/244094637/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "183505512",
         "name": "Материнская плата Z790M PG LIGHTNING D4",
-        "price": 18342,
+        "price": 18370,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/183505512/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "421012706",
         "name": "Материнская плата Z790 D",
-        "price": 18536,
+        "price": 18565,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421012706/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "448980479",
@@ -423,7 +479,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/448980479/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975499",
@@ -432,7 +489,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975499/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428979174",
@@ -441,7 +499,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428979174/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "368560816",
@@ -450,7 +509,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/368560816/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "219038681",
@@ -459,7 +519,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/219038681/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "316653651",
@@ -468,7 +529,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/316653651/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "394181684",
@@ -477,7 +539,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/394181684/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "438915620",
@@ -486,7 +549,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438915620/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975254",
@@ -495,7 +559,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975254/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975519",
@@ -504,7 +569,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975519/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "231050678",
@@ -513,7 +579,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/231050678/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "447821510",
@@ -522,7 +589,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447821510/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "390420488",
@@ -531,7 +599,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390420488/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "242499236",
@@ -540,7 +609,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/242499236/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "239264604",
@@ -549,7 +619,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/239264604/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "447821506",
@@ -558,7 +629,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447821506/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "449136969",
+        "name": "Материнская плата PRIME Z790-P LGA1700 DDR5",
+        "price": 19380,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449136969/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "401823048",
@@ -567,16 +649,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401823048/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "394142253",
-        "name": "Материнская плата Z790 GAMING X AX LGA 1700 DDR5 ATX б у",
-        "price": 19480,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/394142253/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "394142336",
@@ -585,7 +659,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/394142336/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "394142253",
+        "name": "Материнская плата Z790 GAMING X AX LGA 1700 DDR5 ATX б у",
+        "price": 19480,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/394142253/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "447152064",
@@ -594,7 +679,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447152064/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "447821509",
@@ -603,7 +689,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447821509/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "240998664",
@@ -612,16 +699,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/240998664/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "453230851",
-        "name": "материнская плата LGA1700 Z790 PG Lightning D4 ATX",
-        "price": 19547,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/453230851/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "430837864",
@@ -630,7 +709,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430837864/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "453230851",
+        "name": "материнская плата LGA1700 Z790 PG Lightning D4 ATX",
+        "price": 19547,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/453230851/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "452192088",
@@ -639,7 +729,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/452192088/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "412009868",
@@ -648,7 +739,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412009868/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "447139211",
@@ -657,7 +749,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447139211/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "444600366",
@@ -666,7 +759,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444600366/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "195936032",
@@ -675,7 +769,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/195936032/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "357021257",
@@ -684,7 +779,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357021257/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "357034297",
@@ -693,16 +789,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357034297/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "357021255",
-        "name": "Z790 UD Материнская плата",
-        "price": 19915,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/357021255/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "357021253",
@@ -711,7 +799,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357021253/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "357021255",
+        "name": "Z790 UD Материнская плата",
+        "price": 19915,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/357021255/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "412008272",
@@ -720,7 +819,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412008272/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "437783869",
@@ -729,16 +829,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437783869/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "251196434",
-        "name": "Материнская плата PRIME Z790-P WIFI LGA1700 4xDDR5",
-        "price": 19916,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/251196434/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "240998674",
@@ -747,7 +839,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/240998674/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "419650719",
@@ -756,7 +849,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/419650719/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "251196434",
+        "name": "Материнская плата PRIME Z790-P WIFI LGA1700 4xDDR5",
+        "price": 19947,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/251196434/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "428975396",
@@ -765,7 +869,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428975396/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "262714081",
@@ -774,7 +879,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/262714081/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "448980478",
@@ -783,7 +889,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/448980478/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "448976287",
@@ -792,16 +899,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/448976287/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "453230850",
-        "name": "материнская плата LGA1700 Z790 PG Lightning ATX",
-        "price": 20122,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/453230850/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "430831333",
@@ -810,7 +909,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430831333/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
+      },
+      {
+        "id": "453230850",
+        "name": "материнская плата LGA1700 Z790 PG Lightning ATX",
+        "price": 20122,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/453230850/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "225821006",
@@ -819,7 +929,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/225821006/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "437769587",
@@ -828,7 +939,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437769587/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "394142198",
@@ -837,7 +949,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/394142198/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "229152723",
@@ -846,7 +959,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/229152723/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "438919721",
@@ -855,16 +969,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438919721/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "252610661",
-        "name": "Материнская плата Z790 D AX",
-        "price": 20530,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/252610661/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "401773983",
@@ -873,7 +979,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401773983/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
         "id": "437578374",
@@ -882,25 +989,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437578374/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       },
       {
-        "id": "237479181",
-        "name": "Z790 D DDR5 новая материнская плата LGA1700",
-        "price": 20593,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/237479181/detail.aspx",
+        "id": "252610661",
+        "name": "Материнская плата Z790 D AX",
+        "price": 20560,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/252610661/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "242375305",
-        "name": "Материнская плата ATX Z790 UD AX Socket 1700",
-        "price": 20645,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/242375305/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "Z790"
       }
     ],
     "total_count": 100,

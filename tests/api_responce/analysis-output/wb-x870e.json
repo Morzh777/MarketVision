@@ -9,7 +9,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/280442847/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "350845363",
@@ -18,7 +19,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845363/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "431563706",
@@ -27,7 +29,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/431563706/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "366101212",
@@ -36,7 +39,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/366101212/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "368484638",
@@ -45,7 +49,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/368484638/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "443613037",
@@ -54,7 +59,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/443613037/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "363034954",
@@ -63,7 +69,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034954/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418143089",
@@ -72,16 +79,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418143089/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "447754318",
-        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
-        "price": 30490,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/447754318/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "447754336",
@@ -90,7 +89,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447754336/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "447754318",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
+        "price": 30490,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447754318/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "291811361",
@@ -99,7 +109,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291811361/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "291699707",
@@ -108,7 +119,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291699707/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "350845364",
@@ -117,7 +129,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845364/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "447462384",
@@ -126,7 +139,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447462384/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "445988312",
@@ -135,7 +149,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445988312/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "336234498",
@@ -144,7 +159,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/336234498/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "288608495",
@@ -153,7 +169,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/288608495/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "272696373",
@@ -162,7 +179,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/272696373/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "423272140",
@@ -171,7 +189,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423272140/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "333080131",
@@ -180,7 +199,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/333080131/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "299554314",
@@ -189,7 +209,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/299554314/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "272859106",
@@ -198,7 +219,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/272859106/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418143135",
@@ -207,7 +229,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418143135/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439022541",
@@ -216,7 +239,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439022541/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "350845362",
@@ -225,7 +249,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845362/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418607900",
@@ -234,7 +259,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607900/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418591682",
@@ -243,7 +269,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418591682/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "280292873",
@@ -252,7 +279,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/280292873/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "404431414",
@@ -261,7 +289,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/404431414/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "421575679",
@@ -270,7 +299,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421575679/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "398196430",
@@ -279,7 +309,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398196430/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "363034953",
@@ -288,7 +319,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034953/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "370240871",
@@ -297,7 +329,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370240871/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "417955423",
@@ -306,7 +339,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/417955423/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439019435",
@@ -315,7 +349,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439019435/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418607898",
@@ -324,7 +359,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607898/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439011819",
@@ -333,7 +369,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439011819/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "450916744",
@@ -342,7 +379,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/450916744/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "328168881",
@@ -351,7 +389,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/328168881/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "332327333",
@@ -360,7 +399,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/332327333/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "419638031",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7",
+        "price": 40906,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419638031/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "398308936",
@@ -369,7 +419,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398308936/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "421601233",
@@ -378,7 +429,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421601233/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439785528",
@@ -387,7 +439,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439785528/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "381626812",
@@ -396,7 +449,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/381626812/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "449076026",
@@ -405,7 +459,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449076026/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442855773",
@@ -414,7 +469,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855773/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439171212",
@@ -423,7 +479,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439171212/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "423110887",
+        "name": "Материнская плата X870E AORUS PRO ICE",
+        "price": 44831,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423110887/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "390385276",
@@ -432,7 +499,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390385276/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "336234479",
@@ -441,7 +509,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/336234479/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "419650816",
@@ -450,7 +519,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/419650816/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "430875727",
@@ -459,7 +529,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430875727/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "440997772",
@@ -468,7 +539,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440997772/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "444051829",
@@ -477,7 +549,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444051829/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "366106642",
@@ -486,7 +559,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/366106642/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "450632222",
@@ -495,7 +569,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/450632222/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "441371973",
@@ -504,7 +579,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371973/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "266089760",
@@ -513,7 +589,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/266089760/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "453927336",
@@ -522,7 +599,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/453927336/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "350845365",
@@ -531,7 +609,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845365/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "412068681",
@@ -540,7 +619,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412068681/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439783792",
@@ -549,7 +629,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439783792/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "272994889",
@@ -558,7 +639,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/272994889/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418586937",
@@ -567,7 +649,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418586937/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442857578",
@@ -576,7 +659,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442857578/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "445834650",
@@ -585,7 +669,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445834650/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442855736",
@@ -594,7 +679,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855736/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442855827",
@@ -603,7 +689,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855827/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "343091578",
@@ -612,7 +699,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/343091578/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "441371200",
@@ -621,7 +709,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371200/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "419648945",
@@ -630,7 +719,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/419648945/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "441371214",
@@ -639,7 +729,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371214/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "291696965",
@@ -648,7 +739,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291696965/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439784132",
@@ -657,7 +749,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439784132/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "367389189",
@@ -666,7 +759,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/367389189/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "363034952",
@@ -675,7 +769,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034952/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442857525",
@@ -684,7 +779,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442857525/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "442857587",
@@ -693,7 +789,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442857587/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418923019",
@@ -702,7 +799,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418923019/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418607899",
@@ -711,7 +809,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607899/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418522204",
@@ -720,7 +819,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418522204/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418550568",
@@ -729,7 +829,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418550568/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "270392500",
@@ -738,7 +839,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/270392500/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "449136943",
+        "name": "Материнская плата PROART X870E-CREATOR WIFI",
+        "price": 54942,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449136943/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "432490206",
@@ -747,7 +859,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432490206/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "449136948",
+        "name": "Материнская плата AMD X870E X870E-E GAMING WIFI",
+        "price": 56045,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449136948/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "420033997",
@@ -756,7 +879,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/420033997/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "334665185",
@@ -765,7 +889,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/334665185/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439781181",
@@ -774,7 +899,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439781181/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418518869",
@@ -783,16 +909,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418518869/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "422292030",
-        "name": "Материнская плата ROG STRIX X870E-E GAMING WIFI",
-        "price": 64774,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/422292030/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "418581543",
@@ -801,7 +919,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418581543/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "435527798",
@@ -810,7 +929,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/435527798/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "449185291",
@@ -819,7 +939,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449185291/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "434128765",
@@ -828,7 +949,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/434128765/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "441986273",
@@ -837,7 +959,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441986273/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "370240877",
@@ -846,7 +969,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370240877/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "388725588",
@@ -855,7 +979,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/388725588/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "432070603",
@@ -864,7 +989,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432070603/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       },
       {
         "id": "439786225",
@@ -873,10 +999,11 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439786225/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "X870E"
       }
     ],
-    "total_count": 97,
+    "total_count": 100,
     "source": "wb"
   },
   "query": "X870E",

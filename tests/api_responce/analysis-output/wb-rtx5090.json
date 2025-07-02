@@ -9,7 +9,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421580448/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5090"
       }
     ],
     "total_count": 1,

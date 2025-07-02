@@ -9,7 +9,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449246460/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "449424463",
@@ -18,7 +19,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449424463/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645680",
@@ -27,7 +29,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645680/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "443606210",
@@ -36,7 +39,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/443606210/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "302481864",
@@ -45,7 +49,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/302481864/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418662490",
@@ -54,7 +59,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418662490/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "362461154",
@@ -63,7 +69,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/362461154/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "428890368",
@@ -72,7 +79,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428890368/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418336394",
@@ -81,7 +89,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336394/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "390492959",
@@ -90,7 +99,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390492959/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "449793252",
@@ -99,16 +109,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449793252/detail.aspx",
         "category": "videocards",
-        "source": "wb"
-      },
-      {
-        "id": "428890401",
-        "name": "Видеокарта GeForce RTX 5070 GamingPro 12GB",
-        "price": 62999,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/428890401/detail.aspx",
-        "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "428862662",
@@ -117,7 +119,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/428862662/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
+      },
+      {
+        "id": "428890401",
+        "name": "Видеокарта GeForce RTX 5070 GamingPro 12GB",
+        "price": 62999,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428890401/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "439913869",
@@ -126,7 +139,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439913869/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "393771530",
@@ -135,7 +149,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/393771530/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418336383",
@@ -144,7 +159,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336383/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645949",
@@ -153,7 +169,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645949/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370245680",
@@ -162,7 +179,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370245680/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370262274",
@@ -171,7 +189,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370262274/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418336395",
@@ -180,7 +199,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336395/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445427969",
@@ -189,7 +209,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445427969/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645714",
@@ -198,7 +219,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645714/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "365053539",
@@ -207,7 +229,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
         "product_url": "https://www.wildberries.ru/catalog/365053539/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "386403389",
@@ -216,7 +239,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/386403389/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "386337596",
@@ -225,7 +249,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/386337596/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "432447124",
@@ -234,7 +259,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432447124/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "450818053",
@@ -243,7 +269,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/450818053/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "430024187",
@@ -252,7 +279,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430024187/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418662493",
@@ -261,7 +289,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418662493/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "431809918",
@@ -270,7 +299,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/431809918/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "379337623",
@@ -279,7 +309,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/379337623/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370262242",
@@ -288,7 +319,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370262242/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "430855311",
@@ -297,7 +329,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430855311/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418336733",
@@ -306,7 +339,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336733/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "432661075",
@@ -315,7 +349,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432661075/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280959",
@@ -324,7 +359,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280959/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "386114560",
@@ -333,7 +369,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/386114560/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280943",
@@ -342,7 +379,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280943/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "440736053",
@@ -351,7 +389,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440736053/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "420967276",
@@ -360,7 +399,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/420967276/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280898",
@@ -369,7 +409,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280898/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "413510329",
@@ -378,7 +419,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413510329/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "360428304",
@@ -387,7 +429,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/360428304/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "380622414",
@@ -396,7 +439,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/380622414/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "380622456",
@@ -405,7 +449,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/380622456/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "393771526",
@@ -414,7 +459,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/393771526/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418336742",
@@ -423,7 +469,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336742/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "423169465",
@@ -432,7 +479,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423169465/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "415391792",
@@ -441,7 +489,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/415391792/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280924",
@@ -450,7 +499,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280924/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645716",
@@ -459,7 +509,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645716/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645734",
@@ -468,16 +519,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645734/detail.aspx",
         "category": "videocards",
-        "source": "wb"
-      },
-      {
-        "id": "370245677",
-        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLE OC-12GD)",
-        "price": 68081,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/370245677/detail.aspx",
-        "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370245682",
@@ -486,7 +529,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370245682/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
+      },
+      {
+        "id": "370245677",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLE OC-12GD)",
+        "price": 68081,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245677/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "440443658",
@@ -495,7 +549,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440443658/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "355329855",
@@ -504,7 +559,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/355329855/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "423169483",
@@ -513,7 +569,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423169483/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "432650114",
@@ -522,7 +579,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432650114/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "413506439",
@@ -531,7 +589,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413506439/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "437124756",
@@ -540,7 +599,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437124756/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "440735520",
@@ -549,7 +609,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440735520/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "382823212",
@@ -558,7 +619,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/382823212/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "343865967",
@@ -567,7 +629,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/343865967/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370263211",
@@ -576,7 +639,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370263211/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "432647016",
@@ -585,7 +649,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432647016/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "351070085",
@@ -594,7 +659,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/351070085/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "387556698",
@@ -603,7 +669,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/387556698/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "379337583",
@@ -612,7 +679,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/379337583/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "349899462",
@@ -621,7 +689,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/349899462/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "430855322",
@@ -630,7 +699,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430855322/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "393520666",
@@ -639,7 +709,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/393520666/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "402403380",
@@ -648,7 +719,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/402403380/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280887",
@@ -657,7 +729,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280887/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "438255091",
@@ -666,7 +739,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438255091/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "430855305",
@@ -675,16 +749,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430855305/detail.aspx",
         "category": "videocards",
-        "source": "wb"
-      },
-      {
-        "id": "370245671",
-        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070GAMING OC-12GD)",
-        "price": 71430,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/370245671/detail.aspx",
-        "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370245679",
@@ -693,7 +759,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370245679/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
+      },
+      {
+        "id": "370245671",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070GAMING OC-12GD)",
+        "price": 71430,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245671/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "351046858",
@@ -702,7 +779,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/351046858/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370245674",
@@ -711,7 +789,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370245674/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "370245681",
@@ -720,7 +799,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370245681/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "384970088",
@@ -729,7 +809,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384970088/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "423068503",
@@ -738,7 +819,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423068503/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "374066567",
@@ -747,7 +829,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/374066567/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645937",
@@ -756,7 +839,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645937/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "390385342",
@@ -765,7 +849,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390385342/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645960",
@@ -774,7 +859,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645960/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "451820707",
@@ -783,7 +869,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/451820707/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "421771621",
@@ -792,7 +879,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421771621/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "431809920",
@@ -801,7 +889,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/431809920/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "423156368",
@@ -810,7 +899,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423156368/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "430855331",
@@ -819,7 +909,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/430855331/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "421453806",
@@ -828,7 +919,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421453806/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "438255097",
@@ -837,7 +929,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438255097/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "452358574",
@@ -846,7 +939,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/452358574/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "423156340",
@@ -855,7 +949,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423156340/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "349899459",
@@ -864,7 +959,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/349899459/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "440704767",
@@ -873,7 +969,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440704767/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "413446884",
@@ -882,7 +979,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413446884/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "445280913",
@@ -891,7 +989,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445280913/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       },
       {
         "id": "418645979",
@@ -900,7 +999,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645979/detail.aspx",
         "category": "videocards",
-        "source": "wb"
+        "source": "wb",
+        "query": "RTX5070"
       }
     ],
     "total_count": 100,

@@ -9,7 +9,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432440843/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "439375178",
@@ -18,7 +19,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439375178/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "438944814",
@@ -27,7 +29,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438944814/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "398913713",
@@ -36,7 +39,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398913713/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "312626156",
@@ -45,7 +49,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312626156/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "312626296",
@@ -54,7 +59,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312626296/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "312654570",
@@ -63,7 +69,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312654570/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445277351",
@@ -72,7 +79,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445277351/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "328052424",
@@ -81,7 +89,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/328052424/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "384955670",
@@ -90,7 +99,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384955670/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "398913712",
@@ -99,7 +109,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398913712/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "316719854",
@@ -108,7 +119,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/316719854/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "433440973",
@@ -117,7 +129,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/433440973/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "432674636",
@@ -126,7 +139,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432674636/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "398907217",
@@ -135,7 +149,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398907217/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445273374",
@@ -144,7 +159,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445273374/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445300575",
@@ -153,16 +169,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445300575/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "311006542",
-        "name": "Материнская плата B850M DS3H AM5 AMD B850 mATX RTL",
-        "price": 13605,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/311006542/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "311007308",
@@ -171,7 +179,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/311007308/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "311006542",
+        "name": "Материнская плата B850M DS3H AM5 AMD B850 mATX RTL",
+        "price": 13605,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/311006542/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "437626798",
@@ -180,7 +199,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/437626798/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445300576",
@@ -189,7 +209,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445300576/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "442855839",
@@ -198,7 +219,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855839/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "304857953",
@@ -207,7 +229,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/304857953/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445263976",
@@ -216,7 +239,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445263976/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "384955729",
@@ -225,16 +249,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384955729/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "312653656",
-        "name": "Gigabyte B850M DS3H Сокет AM5 DDR5",
-        "price": 14356,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/312653656/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "328051316",
@@ -243,7 +259,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/328051316/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "312653656",
+        "name": "Gigabyte B850M DS3H Сокет AM5 DDR5",
+        "price": 14356,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/312653656/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445252379",
@@ -252,7 +279,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445252379/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "413566561",
@@ -261,7 +289,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413566561/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "329412672",
@@ -270,7 +299,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/329412672/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444564005",
@@ -279,7 +309,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444564005/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "432659978",
@@ -288,7 +319,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432659978/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "441371275",
@@ -297,7 +329,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371275/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "398907216",
@@ -306,7 +339,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398907216/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445094105",
@@ -315,7 +349,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445094105/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "386418351",
+        "name": "Материнская плата B850M D3HP",
+        "price": 15111,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386418351/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "442857705",
@@ -324,7 +369,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442857705/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444564004",
@@ -333,7 +379,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444564004/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "439310390",
@@ -342,16 +389,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439310390/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "386418351",
-        "name": "Материнская плата B850M D3HP",
-        "price": 15357,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/386418351/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "312652882",
@@ -360,7 +399,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312652882/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "449598053",
@@ -369,7 +409,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449598053/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "431513049",
@@ -378,7 +419,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/431513049/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "357175684",
@@ -387,7 +429,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357175684/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "363111773",
@@ -396,7 +439,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363111773/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "327982348",
@@ -405,7 +449,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/327982348/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444580742",
@@ -414,7 +459,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444580742/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445284757",
@@ -423,7 +469,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445284757/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "451547604",
@@ -432,7 +479,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/451547604/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "423173346",
@@ -441,7 +489,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423173346/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444587720",
@@ -450,7 +499,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444587720/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "440367972",
@@ -459,7 +509,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440367972/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "304859660",
@@ -468,7 +519,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/304859660/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "432637467",
@@ -477,7 +529,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432637467/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "356639694",
@@ -486,7 +539,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/356639694/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "398962267",
@@ -495,7 +549,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398962267/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "449599804",
@@ -504,7 +559,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449599804/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444532431",
@@ -513,7 +569,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444532431/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444571919",
@@ -522,7 +579,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444571919/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "384831367",
@@ -531,7 +589,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384831367/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "384578182",
@@ -540,7 +599,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384578182/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "446204484",
@@ -549,7 +609,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446204484/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "439008052",
@@ -558,7 +619,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439008052/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "432070659",
@@ -567,7 +629,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432070659/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "447462386",
@@ -576,7 +639,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447462386/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "311061227",
@@ -585,7 +649,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/311061227/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "311062032",
@@ -594,16 +659,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/311062032/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "401392480",
-        "name": "B850M AORUS ELITE WIFI6E ICE материнская плата",
-        "price": 17530,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/401392480/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "401391941",
@@ -612,16 +669,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401391941/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
-        "id": "449634863",
-        "name": "B850M AORUS ELITE WIFI ICE",
-        "price": 17572,
+        "id": "401392480",
+        "name": "B850M AORUS ELITE WIFI6E ICE материнская плата",
+        "price": 17530,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/449634863/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/401392480/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "312651634",
@@ -630,7 +689,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312651634/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "449634863",
+        "name": "B850M AORUS ELITE WIFI ICE",
+        "price": 17572,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449634863/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "370530376",
@@ -639,7 +709,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370530376/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "401391146",
@@ -648,7 +719,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401391146/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "444554582",
@@ -657,7 +729,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444554582/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "334665024",
@@ -666,7 +739,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/334665024/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "363111772",
@@ -675,7 +749,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363111772/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "334638674",
@@ -684,7 +759,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/334638674/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "357081806",
@@ -693,7 +769,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/357081806/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "432626153",
@@ -702,7 +779,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432626153/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "390385298",
@@ -711,7 +789,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390385298/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "419650757",
@@ -720,7 +799,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/419650757/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "331431364",
@@ -729,7 +809,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/331431364/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "365684256",
@@ -738,7 +819,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/365684256/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "305361524",
@@ -747,16 +829,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/305361524/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
-      },
-      {
-        "id": "311038444",
-        "name": "Материнская плата B850 GAMING X WIFI6E AM5 AMD B850 ATX RTL",
-        "price": 18321,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/311038444/detail.aspx",
-        "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "311039198",
@@ -765,7 +839,18 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/311039198/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "311038444",
+        "name": "Материнская плата B850 GAMING X WIFI6E AM5 AMD B850 ATX RTL",
+        "price": 18321,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/311038444/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445067729",
@@ -774,7 +859,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445067729/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "445988331",
@@ -783,7 +869,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445988331/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "286295669",
@@ -792,7 +879,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/286295669/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "288608555",
@@ -801,7 +889,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/288608555/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "415318890",
@@ -810,7 +899,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/415318890/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "333080404",
@@ -819,7 +909,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/333080404/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "447462385",
@@ -828,7 +919,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447462385/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "327980270",
@@ -837,7 +929,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/327980270/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "334638673",
@@ -846,7 +939,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/334638673/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "440626639",
@@ -855,7 +949,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440626639/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "363125118",
@@ -864,7 +959,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363125118/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "447754140",
@@ -873,7 +969,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447754140/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "447754132",
@@ -882,7 +979,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447754132/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "446030117",
@@ -891,7 +989,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446030117/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       },
       {
         "id": "384955744",
@@ -900,7 +999,8 @@
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/384955744/detail.aspx",
         "category": "motherboards",
-        "source": "wb"
+        "source": "wb",
+        "query": "B850"
       }
     ],
     "total_count": 100,

@@ -156,11 +156,11 @@ export class ProductsService {
           
           fileLogger.log(`📦 WB API "${request.query}": найдено ${response.products.length} товаров`);
           
-          // Добавляем source и query к каждому товару
+          // Парсеры уже возвращают query, добавляем только source
           return response.products.map((p: any) => ({ 
             ...p, 
-            query: request.query,
             source: 'wb' as const
+            // query уже есть в p от парсера
           }));
         } catch (error) {
           fileLogger.error(`❌ Ошибка WB API запроса "${request.query}":`, error);
@@ -192,11 +192,11 @@ export class ProductsService {
             fileLogger.warn(`⚠️ Ozon API "${request.query}": только ${matchingProducts.length} из ${response.products.length} товаров содержат "${request.query}" в названии!`);
           }
           
-          // Добавляем source и query к каждому товару
+          // Парсеры уже возвращают query, добавляем только source
           return response.products.map((p: any) => ({ 
             ...p, 
-            query: request.query,
             source: 'ozon' as const
+            // query уже есть в p от парсера
           }));
         } catch (error) {
           fileLogger.error(`❌ Ошибка Ozon API запроса "${request.query}":`, error);
@@ -659,11 +659,11 @@ export class ProductsService {
           });
 
           if (response.products && Array.isArray(response.products)) {
-            // Добавляем source и query к каждому продукту
+            // Парсеры уже возвращают query, добавляем только source
             const productsWithSource = response.products.map((product: any) => ({
               ...product,
-              source: 'wb',
-              query: query
+              source: 'wb'
+              // query уже есть в product от парсера
             }));
             allProducts.push(...productsWithSource);
           }
@@ -698,11 +698,11 @@ export class ProductsService {
           });
 
           if (response.products && Array.isArray(response.products)) {
-            // Добавляем source и query к каждому продукту
+            // Парсеры уже возвращают query, добавляем только source
             const productsWithSource = response.products.map((product: any) => ({
               ...product,
-              source: 'ozon',
-              query: query
+              source: 'ozon'
+              // query уже есть в product от парсера
             }));
             allProducts.push(...productsWithSource);
           }
