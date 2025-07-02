@@ -26,7 +26,8 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
                     image_url=product.image_url or "",
                     product_url=product.product_url or "",
                     category=category,
-                    source="ozon"
+                    source="ozon",
+                    query=query  # Добавляем query к каждому товару
                 )
                 grpc_products.append(grpc_product)
             return raw_product_pb2.GetRawProductsResponse(

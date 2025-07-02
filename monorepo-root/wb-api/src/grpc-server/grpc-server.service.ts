@@ -88,7 +88,8 @@ export class GrpcServerService implements OnModuleInit {
         image_url: product.image_url || '',
         product_url: product.product_url || '',
         category: categoryOut,
-        source: 'wb'
+        source: 'wb',
+        query: query  // Добавляем query к каждому товару
       }));
 
       this.logger.log(`✅ gRPC ответ: ${rawProducts.length} продуктов от WB API`);

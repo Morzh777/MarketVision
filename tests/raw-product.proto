@@ -19,6 +19,7 @@ message RawProduct {
   string product_url = 5;
   string category = 6;
   string source = 7; // 'ozon', 'wb', ...
+  string query = 8; // Запрос, по которому найден товар
 }
 
 message GetRawProductsResponse {
