@@ -2,7 +2,7 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as path from 'path';
 
-const PROTO_PATH = path.join(__dirname, '../../proto/product.proto');
+const PROTO_PATH = path.join(__dirname, '../../proto/raw-product.proto');
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   keepCase: true,
@@ -12,7 +12,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   oneofs: true,
 });
 
-const productProto = grpc.loadPackageDefinition(packageDefinition).product_filter as any;
+const productProto = grpc.loadPackageDefinition(packageDefinition).raw_product as any;
 
 export class OzonApiClient {
   private client: any;
@@ -23,7 +23,7 @@ export class OzonApiClient {
     const credentials = useSSL
       ? grpc.credentials.createSsl()
       : grpc.credentials.createInsecure();
-    this.client = new productProto.ProductFilterService(
+    this.client = new productProto.RawProductService(
       serverAddress,
       credentials
     );
@@ -34,7 +34,7 @@ export class OzonApiClient {
     return new Promise((resolve, reject) => {
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 30);
-      this.client.FilterProducts(request, { deadline }, (error: any, response: any) => {
+      this.client.GetRawProducts(request, { deadline }, (error: any, response: any) => {
         if (error) {
           reject(error);
         } else {

@@ -4,6 +4,7 @@ import { PhotoService } from './photo.service';
 import { OzonApiClient } from '../grpc-clients/ozon-api.client';
 import { WbApiClient } from '../grpc-clients/wb-api.client';
 import { fileLogger } from '../utils/logger';
+import { ValidatorFactory, ValidationResult } from '../validators';
 
 interface ProductResult {
   id: string;
@@ -55,22 +56,17 @@ export class ProductsService {
   // 🎯 ЦЕНТРАЛИЗОВАННЫЕ ЗАПРОСЫ: Перенесено из WB-API для полного контроля
   private readonly VIDEOCARD_QUERIES = [
     // 🎮 Короткие запросы для видеокарт
-    'RTX4090',
-    'RTX4080', 
-    'RTX4070',
-    'RX7900XTX',
-    'RX7900XT'
+    'RTX5070',
+    'RTX5070TI', 
+    'RTX5080',
+    'RTX5090'
   ];
 
   private readonly PROCESSOR_QUERIES = [
     // 🔧 Короткие запросы для процессоров
-    '14900KF',
-    '14900K',
-    '14700KF', 
-    '14700K',
     '7800X3D',
-    '7700X',
-    '7950X'
+    '9800X3D',
+    '9950X3D'
   ];
 
   private readonly MOTHERBOARD_QUERIES = [
@@ -80,6 +76,13 @@ export class ProductsService {
     'X870E',
     'B850'
   ];
+
+  // 🎯 КАРТА КАТЕГОРИЙ: Централизованное управление категориями
+  private readonly CATEGORY_MAP = {
+    videocards: { ozon: 'videokarty-15721', wb: '3274' },
+    processors: { ozon: 'protsessory-15726', wb: '3698' },
+    motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' }
+  };
 
   constructor(
     private readonly redisService: RedisService,
@@ -107,20 +110,16 @@ export class ProductsService {
     try {
       // 🎯 ВЫБИРАЕМ ЗАПРОСЫ ДЛЯ КАТЕГОРИИ
       let queries: string[] = [];
-      let xsubject: number = 0;
       
       switch (category) {
         case 'videocards':
           queries = this.VIDEOCARD_QUERIES;
-          xsubject = 3274;
           break;
         case 'processors':
           queries = this.PROCESSOR_QUERIES;
-          xsubject = 3698;
           break;
         case 'motherboards':
           queries = this.MOTHERBOARD_QUERIES;
-          xsubject = 3690;
           break;
         default:
           fileLogger.error(`❌ Неизвестная категория: ${category}`);
@@ -132,29 +131,30 @@ export class ProductsService {
       // 🎯 ПАРАЛЛЕЛЬНЫЕ ЗАПРОСЫ К WB API И OZON API
       const allProducts: any[] = [];
 
-      // Создаем запросы для gRPC
-      const gRPCRequests = queries.map(query => ({
-        products: [], // Пустой массив, так как парсеры сами получают данные
-        query: query, // Основной запрос для WB API
-        all_queries: [query], // Массив с одним запросом
-        exclude_keywords: [],
-        config: {},
-        source: 'wb',
-        category
-      }));
-
       // Параллельные запросы к WB API и Ozon API
-      const wbPromises = gRPCRequests.map(async (request) => {
+      const wbPromises = queries.map(async (query) => {
         try {
-          fileLogger.debug(`🔍 WB API запрос: ${request.query}`);
+          fileLogger.debug(`🔍 WB API gRPC: ${category} - "${query}"`);
+          
+          const request = {
+            query: query,
+            category: this.CATEGORY_MAP[category].wb,
+            categoryKey: category
+          };
+          
           const response = await this.wbApiClient.filterProducts(request);
           
           if (!response.products || !Array.isArray(response.products)) {
-            fileLogger.warn(`⚠️ WB API "${request.query}": получен неправильный формат данных`);
+            fileLogger.warn(`⚠️ WB API "${query}": получен неправильный формат данных`);
             return [];
           }
           
-          fileLogger.log(`📦 WB API "${request.query}": найдено ${response.products.length} товаров`);
+          fileLogger.log(`📦 WB API "${query}": найдено ${response.products.length} товаров`);
+          
+          // В ответе подменяем category на categoryKey для единообразия
+          if (response && response.products) {
+            response.products.forEach(p => p.category = category);
+          }
           
           // Парсеры уже возвращают query, добавляем только source
           return response.products.map((p: any) => ({ 
@@ -163,33 +163,33 @@ export class ProductsService {
             // query уже есть в p от парсера
           }));
         } catch (error) {
-          fileLogger.error(`❌ Ошибка WB API запроса "${request.query}":`, error);
+          fileLogger.error(`❌ Ошибка WB API запроса "${query}":`, error);
           return [];
         }
       });
 
-      const ozonPromises = gRPCRequests.map(async (request) => {
+      const ozonPromises = queries.map(async (query) => {
         try {
-          fileLogger.debug(`🔍 Ozon API запрос: ${request.query}`);
+          fileLogger.debug(`🔍 Ozon API gRPC: ${category} - "${query}"`);
+          
+          const request = {
+            query: query,
+            category: this.CATEGORY_MAP[category].ozon,
+            categoryKey: category
+          };
+          
           const response = await this.ozonApiClient.filterProducts(request);
           
           if (!response.products || !Array.isArray(response.products)) {
-            fileLogger.warn(`⚠️ Ozon API "${request.query}": получен неправильный формат данных`);
+            fileLogger.warn(`⚠️ Ozon API "${query}": получен неправильный формат данных`);
             return [];
           }
           
-          fileLogger.log(`📦 Ozon API "${request.query}": найдено ${response.products.length} товаров`);
+          fileLogger.log(`📦 Ozon API "${query}": найдено ${response.products.length} товаров`);
           
-          // Проверяем первые товары чтобы увидеть что возвращает Ozon
-          if (response.products.length > 0) {
-            const firstProduct = response.products[0];
-            fileLogger.debug(`🔍 Ozon API "${request.query}" - первый товар: "${firstProduct.name}" (${firstProduct.price}₽)`);
-            
-            // Проверяем сколько товаров содержат искомый запрос
-            const matchingProducts = response.products.filter((p: any) => 
-              p.name?.toLowerCase().includes(request.query.toLowerCase())
-            );
-            fileLogger.warn(`⚠️ Ozon API "${request.query}": только ${matchingProducts.length} из ${response.products.length} товаров содержат "${request.query}" в названии!`);
+          // В ответе подменяем category на categoryKey для единообразия
+          if (response && response.products) {
+            response.products.forEach(p => p.category = category);
           }
           
           // Парсеры уже возвращают query, добавляем только source
@@ -199,7 +199,7 @@ export class ProductsService {
             // query уже есть в p от парсера
           }));
         } catch (error) {
-          fileLogger.error(`❌ Ошибка Ozon API запроса "${request.query}":`, error);
+          fileLogger.error(`❌ Ошибка Ozon API запроса "${query}":`, error);
           return [];
         }
       });
@@ -551,24 +551,40 @@ export class ProductsService {
     return selectedProducts;
   }
 
-  // 🔍 ВАЛИДАЦИЯ: Простая проверка соответствия запросу
-  private validateProduct(product: any, category: string): { isValid: boolean; reason?: string } {
+  // 🔍 ВАЛИДАЦИЯ: Универсальная умная проверка соответствия запросу
+  private validateProduct(product: any, category: string): ValidationResult {
     const productName = product.name || '';
     const query = product.query || '';
 
-    // 🎯 ПРОСТАЯ ВАЛИДАЦИЯ: проверяем что товар соответствует запросу
+    // 🎯 ИСПОЛЬЗУЕМ ФАБРИКУ ВАЛИДАТОРОВ
+    const validator = ValidatorFactory.getValidator(category);
+    
+    if (validator) {
+      const result = validator.validate(query, productName);
+      
+      if (result.isValid) {
+        this.logger.log(`[VALIDATION] ✅ ${result.reason}: "${query}" соответствует "${productName}"`);
+      } else {
+        this.logger.log(`[VALIDATION] ❌ ${result.reason}: "${query}" НЕ соответствует "${productName}"`);
+      }
+      
+      return result;
+    }
+    
+    // 🎯 FALLBACK: простая проверка если нет специализированного валидатора
     const productUpper = productName.toUpperCase();
     const queryUpper = query.toUpperCase();
     
-    // Ищем запрос в названии товара
     if (productUpper.includes(queryUpper)) {
-      this.logger.log(`[VALIDATION] ✅ Соответствует запросу "${query}": "${productName}"`);
+      this.logger.log(`[VALIDATION] ✅ Простая проверка: "${query}" соответствует "${productName}"`);
       return { isValid: true, reason: 'Соответствует запросу' };
     }
     
-    this.logger.log(`[VALIDATION] ❌ НЕ соответствует запросу "${query}": "${productName}"`);
+    this.logger.log(`[VALIDATION] ❌ Простая проверка: "${query}" НЕ соответствует "${productName}"`);
     return { isValid: false, reason: 'Не соответствует запросу' };
   }
+
+
 
   // Генерация стабильного ID (fallback если WB-API не предоставил)
   private generateStableId(name: string): string {
@@ -651,10 +667,12 @@ export class ProductsService {
       
       for (const query of request.queries) {
         try {
+          // WB API нужны цифры (xsubject)
+          const wbCategory = this.getWbCategory(request.category);
           const response = await this.wbApiClient.filterProducts({
             query: query, // Основной запрос
             all_queries: [query], // Массив с одним запросом
-            category: request.category,
+            category: wbCategory, // Цифры для WB API
             exclude_keywords: request.exclude_keywords || []
           });
 
@@ -690,10 +708,12 @@ export class ProductsService {
       
       for (const query of request.queries) {
         try {
+          // Ozon API нужны названия категорий (category_slug)
+          const ozonCategory = this.getOzonCategory(request.category);
           const response = await this.ozonApiClient.filterProducts({
             query: query, // Основной запрос
             all_queries: [query], // Массив с одним запросом
-            category: request.category,
+            category: ozonCategory, // Названия для Ozon API
             exclude_keywords: request.exclude_keywords || []
           });
 
@@ -960,6 +980,20 @@ export class ProductsService {
         fromCache: false
       };
     }
+  }
+
+  /**
+   * Получает WB категорию (xsubject) по логической категории
+   */
+  private getWbCategory(logicalCategory: string): string {
+    return this.CATEGORY_MAP[logicalCategory]?.wb || logicalCategory;
+  }
+
+  /**
+   * Получает Ozon категорию (category_slug) по логической категории
+   */
+  private getOzonCategory(logicalCategory: string): string {
+    return this.CATEGORY_MAP[logicalCategory]?.ozon || logicalCategory;
   }
 
   /**
