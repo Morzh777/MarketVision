@@ -153,6 +153,42 @@ async function testCacheBehavior() {
 }
 
 /**
+ * Тестирует статистику по query и источникам
+ */
+async function testQueryStatistics() {
+  console.log('📊 Тестирование статистики по query...\n');
+
+  const testRequest = {
+    queries: ['rtx 4090', '14900kf', 'z790'],
+    category: 'videocards'
+  };
+
+  try {
+    const response = await axios.post(`${PRODUCT_FILTER_URL}/products/statistics`, testRequest);
+    const data = response.data;
+    
+    console.log(`📈 Общая статистика:`);
+    console.log(`  - Запросов: ${data.total_queries}`);
+    console.log(`  - Всего товаров: ${data.total_products}`);
+    
+    console.log(`\n📋 Статистика по запросам:`);
+    data.queries_stats.forEach(stat => {
+      console.log(`  ${stat.query}:`);
+      console.log(`    - Всего товаров: ${stat.total_products}`);
+      console.log(`    - WB: ${stat.wb_products}, Ozon: ${stat.ozon_products}`);
+      if (stat.cheapest_price) {
+        console.log(`    - Самая низкая цена: ${stat.cheapest_price}₽ (${stat.cheapest_source})`);
+      }
+    });
+    
+  } catch (error) {
+    console.error('❌ Ошибка получения статистики:', error.response?.data || error.message);
+  }
+  
+  console.log('');
+}
+
+/**
  * Основная функция тестирования
  */
 async function runTests() {
@@ -162,6 +198,7 @@ async function runTests() {
   try {
     await testHealthCheck();
     await testProductSearch();
+    await testQueryStatistics();
     await testCacheBehavior();
     await testCacheStats();
     await testCacheClear();
@@ -183,5 +220,6 @@ module.exports = {
   testHealthCheck,
   testCacheClear,
   testCacheStats,
-  testCacheBehavior
+  testCacheBehavior,
+  testQueryStatistics
 }; 

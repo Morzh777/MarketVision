@@ -138,6 +138,52 @@ export class ProductsController {
   }
 
   /**
+   * Получение статистики по query и источникам
+   * POST /products/statistics
+   */
+  @Post('statistics')
+  async getQueryStatistics(@Body() request: ProductRequest): Promise<{
+    total_queries: number;
+    total_products: number;
+    queries_stats: Array<{
+      query: string;
+      total_products: number;
+      wb_products: number;
+      ozon_products: number;
+      cheapest_price?: number;
+      cheapest_source?: string;
+    }>;
+  }> {
+    try {
+      // Валидация запроса
+      if (!request.queries || request.queries.length === 0) {
+        throw new HttpException('Не указаны запросы для поиска', HttpStatus.BAD_REQUEST);
+      }
+
+      if (!request.category) {
+        throw new HttpException('Не указана категория', HttpStatus.BAD_REQUEST);
+      }
+
+      // Проверяем валидность категории
+      const validCategories = ['videocards', 'processors', 'motherboards'];
+      if (!validCategories.includes(request.category)) {
+        throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
+      }
+
+      return await this.productsService.getQueryStatistics(request);
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+      
+      throw new HttpException(
+        `Ошибка получения статистики: ${error.message}`, 
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+
+  /**
    * Проверка подключения к Redis
    */
   private async checkRedisConnection(): Promise<{ status: string; error?: string }> {

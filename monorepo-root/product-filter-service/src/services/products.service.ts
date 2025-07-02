@@ -779,14 +779,30 @@ export class ProductsService {
     
     // Отладочная информация о группах
     this.logger.log(`🔍 Создано ${groups.size} групп товаров:`);
+    
+    // Статистика по источникам
+    const sourceStats = new Map<string, number>();
+    
     for (const [modelKey, groupProducts] of groups) {
       this.logger.log(`  ${modelKey}: ${groupProducts.length} товаров`);
+      
+      // Подсчитываем статистику по источникам
+      groupProducts.forEach(p => {
+        const source = p.source || 'unknown';
+        sourceStats.set(source, (sourceStats.get(source) || 0) + 1);
+      });
       
       if (groupProducts.length > 1) {
         groupProducts.forEach(p => {
           this.logger.debug(`    - "${p.name}" (${p.price}₽, query: "${p.query}", source: ${p.source})`);
         });
       }
+    }
+    
+    // Выводим статистику по источникам
+    this.logger.log(`📊 Статистика по источникам:`);
+    for (const [source, count] of sourceStats) {
+      this.logger.log(`  ${source}: ${count} товаров`);
     }
     
     const selectedProducts: ProcessedProduct[] = [];
@@ -807,7 +823,10 @@ export class ProductsService {
           return product.price < min.price ? product : min;
         });
         
+        // Дополнительная информация о выборе
+        const allPrices = groupProducts.map(p => `${p.price}₽ (${p.source})`).join(', ');
         this.logger.log(`💰 Выбран самый дешевый из группы ${modelKey}: "${cheapest.name}" за ${cheapest.price}₽ (${cheapest.source})`);
+        this.logger.debug(`   Все варианты: ${allPrices}`);
         selectedProducts.push(cheapest);
       }
     }
@@ -820,19 +839,44 @@ export class ProductsService {
    * 🎯 УМНАЯ ГРУППИРОВКА: получаем modelKey для группировки
    */
   private getModelKey(product: ProcessedProduct): string {
-    // Группируем по query - каждый запрос уникален
+    // Приоритет 1: Группируем по query - каждый запрос уникален
     const query = product.query || '';
     if (query) {
-      return query.toLowerCase().trim();
+      // Нормализуем query для лучшей группировки
+      const normalizedQuery = this.normalizeQuery(query);
+      this.logger.debug(`🔍 Группировка по query: "${query}" → "${normalizedQuery}"`);
+      return normalizedQuery;
     }
     
-    // Fallback на нормализованное название
+    // Приоритет 2: Fallback на нормализованное название
     const modelKey = this.normalizeProductName(product.name);
     if (modelKey) {
       this.logger.debug(`⚠️ Fallback на name: query="${product.query}", name="${product.name}", modelKey="${modelKey}"`);
     }
     
     return modelKey;
+  }
+
+  /**
+   * Нормализация query для лучшей группировки
+   */
+  private normalizeQuery(query: string): string {
+    let norm = query.toLowerCase().trim();
+    
+    // Убираем лишние пробелы и символы
+    norm = norm.replace(/\s+/g, ' ').trim();
+    
+    // Нормализуем RTX модели
+    norm = norm.replace(/rtx\s*(\d+)/i, 'rtx$1');
+    
+    // Нормализуем процессоры
+    norm = norm.replace(/(\d+)\s*k\s*f?/i, '$1k');
+    norm = norm.replace(/(\d+)\s*x\s*(\d+)/i, '$1x$2');
+    
+    // Нормализуем материнские платы
+    norm = norm.replace(/([a-z])\s*(\d+)/i, '$1$2');
+    
+    return norm;
   }
 
   /**
@@ -938,6 +982,76 @@ export class ProductsService {
         fromCache: false
       };
     }
+  }
+
+  /**
+   * Получает статистику по query и источникам
+   */
+  async getQueryStatistics(request: ProductRequest): Promise<{
+    total_queries: number;
+    total_products: number;
+    queries_stats: Array<{
+      query: string;
+      total_products: number;
+      wb_products: number;
+      ozon_products: number;
+      cheapest_price?: number;
+      cheapest_source?: string;
+    }>;
+  }> {
+    this.logger.log(`📊 Получение статистики для ${request.queries.length} запросов`);
+
+    // Получаем данные от всех API параллельно
+    const [wbProducts, ozonProducts] = await Promise.all([
+      this.getProductsFromWbApi(request),
+      this.getProductsFromOzonApi(request)
+    ]);
+
+    // Объединяем все продукты
+    const allProducts = [...wbProducts, ...ozonProducts];
+
+    // Группируем по query
+    const queryGroups = new Map<string, ProcessedProduct[]>();
+    
+    for (const product of allProducts) {
+      const query = product.query || 'unknown';
+      if (!queryGroups.has(query)) {
+        queryGroups.set(query, []);
+      }
+      queryGroups.get(query)!.push(product);
+    }
+
+    // Формируем статистику
+    const queriesStats = [];
+    
+    for (const [query, products] of queryGroups) {
+      const wbProducts = products.filter(p => p.source === 'wb');
+      const ozonProducts = products.filter(p => p.source === 'ozon');
+      
+      let cheapestPrice: number | undefined;
+      let cheapestSource: string | undefined;
+      
+      if (products.length > 0) {
+        const cheapest = products.reduce((min, p) => p.price < min.price ? p : min);
+        cheapestPrice = cheapest.price;
+        cheapestSource = cheapest.source;
+      }
+
+      queriesStats.push({
+        query,
+        total_products: products.length,
+        wb_products: wbProducts.length,
+        ozon_products: ozonProducts.length,
+        cheapest_price: cheapestPrice,
+        cheapest_source: cheapestSource
+      });
+    }
+
+    return {
+      total_queries: request.queries.length,
+      total_products: allProducts.length,
+      queries_stats: queriesStats
+    };
   }
 
   /**
