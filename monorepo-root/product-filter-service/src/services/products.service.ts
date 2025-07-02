@@ -746,8 +746,8 @@ export class ProductsService {
   }
 
   /**
-   * Группирует продукты по модели и выбирает самый дешевый
-   * 🎯 УМНАЯ ГРУППИРОВКА: используем нормализацию и modelKey
+   * Группирует продукты по query и выбирает самый дешевый
+   * 🎯 ГРУППИРОВКА ТОЛЬКО ПО QUERY: каждый запрос = одна группа
    */
   private groupByQueryAndSelectCheapest(products: ProcessedProduct[]): ProcessedProduct[] {
     if (products.length === 0) return [];
@@ -763,11 +763,11 @@ export class ProductsService {
         continue;
       }
       
-      // 🎯 УМНАЯ ГРУППИРОВКА: используем нормализацию
+      // 🎯 ГРУППИРОВКА ТОЛЬКО ПО QUERY
       const modelKey = this.getModelKey(product);
       
       if (!modelKey) {
-        this.logger.debug(`⛔️ Пропущен товар "${product.name}" - не удалось нормализовать название`);
+        this.logger.warn(`⛔️ Пропущен товар "${product.name}" - нет query для группировки`);
         continue;
       }
       
@@ -836,10 +836,10 @@ export class ProductsService {
   }
 
   /**
-   * 🎯 УМНАЯ ГРУППИРОВКА: получаем modelKey для группировки
+   * 🎯 ГРУППИРОВКА ТОЛЬКО ПО QUERY: получаем modelKey для группировки
    */
   private getModelKey(product: ProcessedProduct): string {
-    // Приоритет 1: Группируем по query - каждый запрос уникален
+    // Группируем ТОЛЬКО по query - каждый запрос уникален
     const query = product.query || '';
     if (query) {
       // Нормализуем query для лучшей группировки
@@ -848,13 +848,9 @@ export class ProductsService {
       return normalizedQuery;
     }
     
-    // Приоритет 2: Fallback на нормализованное название
-    const modelKey = this.normalizeProductName(product.name);
-    if (modelKey) {
-      this.logger.debug(`⚠️ Fallback на name: query="${product.query}", name="${product.name}", modelKey="${modelKey}"`);
-    }
-    
-    return modelKey;
+    // Если query нет - товар не может быть сгруппирован
+    this.logger.warn(`⚠️ Товар без query не может быть сгруппирован: "${product.name}" (${product.source})`);
+    return null;
   }
 
   /**
@@ -879,25 +875,7 @@ export class ProductsService {
     return norm;
   }
 
-  /**
-   * Нормализация названия товара для группировки
-   */
-  private normalizeProductName(name: string): string {
-    let norm = name.toLowerCase().trim();
-    
-    // Убираем лишние слова
-    norm = norm.replace(/процессор|processor|cpu|центральный\s+процессор/gi, '');
-    norm = norm.replace(/видеокарта|видео\s+карта|graphics\s+card/gi, '');
-    norm = norm.replace(/материнская\s+плата|motherboard/gi, '');
-    
-    // Убираем бренды в начале
-    norm = norm.replace(/^(intel|amd|nvidia|asus|msi|gigabyte|asrock)\s+/i, '');
-    
-    // Убираем лишние символы
-    norm = norm.replace(/[^\w\s-]/g, ' ').replace(/\s+/g, ' ').trim();
-    
-    return norm;
-  }
+
 
   /**
    * Обрабатывает кэш для одного продукта
