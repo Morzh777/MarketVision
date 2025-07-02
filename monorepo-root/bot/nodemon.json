@@ -1,0 +1,23 @@
+{
+  "watch": ["src"],
+  "ext": "ts,js,json",
+  "ignore": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "dist/**/*",
+    "node_modules/**/*"
+  ],
+  "exec": "ts-node src/main.ts",
+  "env": {
+    "NODE_ENV": "development",
+    "DEV_MODE": "true"
+  },
+  "delay": "1000",
+  "verbose": true,
+  "restartable": "rs",
+  "colours": true,
+  "events": {
+    "restart": "echo '🔄 Бот перезапускается...'",
+    "crash": "echo '💥 Бот упал, перезапускаем...'"
+  }
+} 

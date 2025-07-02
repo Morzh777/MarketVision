@@ -1,0 +1,335 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2087137304",
+        "name": "Материнская плата S1700 B760 AFOX B760D4-MA5-V2",
+        "price": 4875,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7598351588.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-afox-b760d4-ma5-v2-2087137304/?at=83tBm9GDqsz33JlLTWw04rZt2G9vqU9qo3Ggt7LvJRj",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2367093177",
+        "name": "AFOX , Материнская плата",
+        "price": 6112,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7654531795.jpg",
+        "product_url": "https://www.ozon.ru/product/afox-materinskaya-plata-2367093177/?at=k2toDgE8Bhk5P18OFkGW97pIEO1KR9H53Dr3I5qgQo",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1623732239",
+        "name": "XIAODIAO B760M Материнская плата B760M DDR4 Абсолютно новый, в цветной упаковочной коробке + инструкция, гарантия один год",
+        "price": 6216,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7312337876.jpg",
+        "product_url": "https://www.ozon.ru/product/xiaodiao-b760m-materinskaya-plata-b760m-ddr4-absolyutno-novyy-v-tsvetnoy-upakovochnoy-korobke-1623732239/?at=k2toDgE8BhrvrqV4TjVkQwQHrJW3QKH1Mvqn4s6RrZ5K",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1231432129",
+        "name": "Материнская плата Maxsun MS-Challenger B760M-N D5 1700, B760, 2xDDR5, mATX, RTL",
+        "price": 6603,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-5/6794667689.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-n-d5-1700-b760-2xddr5-matx-rtl-1231432129/?at=r2t4yxqPZt7z3onyt1BE56Ef3pr2Y6i7v7R80hp1AkJ7",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2371828050",
+        "name": "Gigabyte B760M H LGA 1700 DDR4 Материнская плата Уцененный товар",
+        "price": 6868,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7349595496.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-b760m-h-lga-1700-ddr4-materinskaya-plata-utsenennyy-tovar-2371828050/?at=r2t4yxqPZtDpLZQmUQ4qlnDFZ1yjolsVE5G5ySvKqWoJ",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1580666590",
+        "name": "Материнская плата MSI PRO B760M-E DDR4 Soc-1700",
+        "price": 6905,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-w/6708747812.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-b760m-e-ddr4-soc-1700-1580666590/?at=qQtJg9QKNc71DN0t1pwL7Lc1ZZp1JFymmoZMiGO9EJ6",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2086472769",
+        "name": "maxsun Материнская плата",
+        "price": 7139,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7057948494.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-materinskaya-plata-2086472769/?at=Y7tjK57EluWozR5Atk2Aq4rUN8jgVmHpQ6pVwfPN9XRp",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1687672596",
+        "name": "Материнская плата MSI PRO B760M-P DDR4, Soc-1700, Intel B760, mATX",
+        "price": 7209,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7048426668.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-b760m-p-ddr4-soc-1700-intel-b760-matx-1687672596/?at=99trJ80LquNM00mUND3zZMf6zOqVrtNWOQrkfLmo08K",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1851033003",
+        "name": "Материнская плата MAXSUN MS-Challenger B760M-F LGA1700, mATX, 2xDDR4, HDMI+VGA, 1хM.2, LAN 1Gb, RTL",
+        "price": 7252,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7448428934.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-f-lga1700-matx-2xddr4-hdmi-vga-1hm-2-lan-1gb-rtl-1851033003/?at=lRt6WLr0EIE8QLozIQzZVmJFlNQX73tx2DggVsKwAGEA",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1852788961",
+        "name": "Материнская плата Maxsun MS-Challenger B760M-F",
+        "price": 7262,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7297696488.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-f-1852788961/?at=79tnrLg4NTl80x4Lir7KxwyHo60rrNTmQDOP9uN5PjJ",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1614509942",
+        "name": "Материнская плата MSI PRO B760M-P DDR4, Soc-1700, Intel B760, mATX",
+        "price": 7371,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7048426668.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-b760m-p-ddr4-soc-1700-intel-b760-matx-1614509942/?at=79tnrLg4NT5NXQgWCwgm3pyF0qGJw9C2qOLo1CEX0xjM",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1748817002",
+        "name": "Материнская плата ASRock B760M-HDV&#x2F;M.2 D4",
+        "price": 7395,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7184533888.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asrock-b760m-hdv-m-2-d4-1748817002/?at=oZt6AknjYIpOK3qPtZ2xR1wfYX17pWt0MBJ5NSPmw2Rn",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2377248633",
+        "name": "MSI PRO B760M-E LGA 1700 DDR5 Материнская плата Уцененный товар",
+        "price": 7430,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7393842926.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-pro-b760m-e-lga-1700-ddr5-materinskaya-plata-utsenennyy-tovar-2377248633/?at=46tRZrVM5Cx9JR4Jswy9VDYCOKZv52FZzJ5mLFWO16NR",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1687677768",
+        "name": "Материнская плата Asrock B760M-HDV&#x2F;M.2 D4, Soc-1700, Intel B760, mATX",
+        "price": 7442,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7014608475.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asrock-b760m-hdv-m-2-d4-soc-1700-intel-b760-matx-1687677768/?at=08tYnjxqBcw82MMpcMJwDr0T1X15Znu1JZzzMf9l40Xx",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2082610643",
+        "name": "Материнская плата Maxsun MS-Terminator B550M",
+        "price": 7492,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7646861149.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-terminator-b550m-2082610643/?at=jYtZzgrKmHZPMWAMipvRQzQsV3L38LuQXpgKnsNrvPk9",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1790590827",
+        "name": "Материнская плата Gigabyte B760M H DDR4 (LGA1700, mATX)",
+        "price": 7516,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7234982034.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-h-ddr4-lga1700-matx-1790590827/?at=EqtkwB7VxhZ2rB8kcWqnKg1H845J89TgKL6jwIG0GBmJ",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1844158019",
+        "name": "Материнская плата MAXSUN MS-Challenger B760M-N D5 LGA1700, mATX, 2xDDR5, HDMI+VGA, 2хM.2, LAN 1Gb, RTL",
+        "price": 7552,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7448430820.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-n-d5-lga1700-matx-2xddr5-hdmi-vga-2hm-2-lan-1gb-rtl-1844158019/?at=Y7tjK57Elu3DovkvIGknzY3c7V6GRzCjpBWKOu4v9Qn",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2082216545",
+        "name": "Материнская плата AFOX B760D4-MA5-V2 , RTL",
+        "price": 7557,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7451329339.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-afox-b760d4-ma5-v2-rtl-2082216545/?at=k2toDgE8BhyykKYJFk5lMvPSNKL5pVhZGYv3AHD6EMkA",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1696197687",
+        "name": "Gigabyte B760M D3HP LGA 1700 DDR4 Материнская плата",
+        "price": 7602,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7133272526.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-b760m-d3hp-lga-1700-ddr4-materinskaya-plata-1696197687/?at=ywtAGY1qoTKJ6P3YHm2jm0RF2Yx2G0Uk2oQkGILK0RRZ",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1739240706",
+        "name": "Материнская плата Gigabyte B760M H DDR4",
+        "price": 7603,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-t/6736912409.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-h-ddr4-1739240706/?at=k2toDgE8Bh7lWBZ0CJ0BO14izkoZkAcz8JMoxt0n7NZ6",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1580676448",
+        "name": "Материнская плата Asrock B760M-HDV&#x2F;M.2 D4, Soc-1700, Intel B760, mATX",
+        "price": 7609,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7014608475.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asrock-b760m-hdv-m-2-d4-soc-1700-intel-b760-matx-1580676448/?at=qQtJg9QKNcvy35p7hZvjKJltYZz4rgc6Y78jZF7RxRAW",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1688702038",
+        "name": "Материнская плата Gigabyte B760M D3HP DDR4",
+        "price": 7675,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7112416788.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-d3hp-ddr4-1688702038/?at=MZtvpjrM3hYXoLE3sPkN02qFVWpZOQCoBqzKxuLVl30Z",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2106647090",
+        "name": "Материнская плата Maxsun MS-Challenger B760M-F",
+        "price": 7728,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7646618879.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-f-2106647090/?at=RltywN6jWTo7Q6oUEzQRXGfGxjqRUA95k70fwDg2jK",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1739103656",
+        "name": "Материнская плата MSI B760 S1700 MATX PRO B760M-E DDR4",
+        "price": 7746,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-a/6571643842.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-b760-s1700-matx-pro-b760m-e-ddr4-1739103656/?at=Z8tX1z6rgIMpwLlliVqz47GI8V3LVlSGgvw42f2kprQl",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2272146343",
+        "name": "MACHINIST Материнская плата",
+        "price": 7797,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7612088147.jpg",
+        "product_url": "https://www.ozon.ru/product/machinist-materinskaya-plata-2272146343/?at=vQtrJv9p8unBP5Lmu9BAnXzTXmZzr4uO2AQLjIKwB6l7",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1687676981",
+        "name": "Материнская плата ASUS PRIME B760M-K D4, LGA 1700, Intel B760, mATX, Ret",
+        "price": 7814,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/6991653758.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b760m-k-d4-lga-1700-intel-b760-matx-ret-1687676981/?at=BrtzxvGpKHGxOPLGhm75LgnSODmE0Xi5x95DzT30OXPg",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2174304315",
+        "name": "Материнская плата PCWINMAX B760-N Micro-ATX LGA1700 motherboard support 2*DDR4 and 2xM.2 slots",
+        "price": 7818,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7566800357.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-pcwinmax-b760-n-micro-atx-lga1700-motherboard-support-2-ddr4-and-2xm-2-slots-2174304315/?at=VvtzVMJNyH2rGwp8fOpog2kf0L6DAOF5MYypEC6k3BGO",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2174320075",
+        "name": "Материнская плата Pcwinmax B760 D5 Plus, LGA1700, 2*DDR5, microATX",
+        "price": 7818,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7566799991.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-pcwinmax-b760-d5-plus-lga1700-2-ddr5-microatx-2174320075/?at=qQtJg9QKNcwK2y4wcokq4Q2TmJvWyyUyqyB5PTr2myVX",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1726535424",
+        "name": "Материнская плата Gigabyte B760M D3HP DDR4",
+        "price": 7846,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7112416788.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-d3hp-ddr4-1726535424/?at=57twyAJ59c9Z64XYUMkZlDqij2MNJYCEGGxJMhlO6xYn",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2086994548",
+        "name": "Gigabyte Материнская плата",
+        "price": 7852,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7105263865.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-2086994548/?at=gpt4v83Oytk0QrJ4UA9AkQ0HJO8glWSnjl6E6C4K048N",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1674641518",
+        "name": "Материнская плата S1700 B760 MAXSUN MS-Challenger B760M-N D5",
+        "price": 7879,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7114876764.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-maxsun-ms-challenger-b760m-n-d5-1674641518/?at=ywtAGY1qoTMJJExzt3qQnpDh5yE7KRu6PM0J5uxM72gZ",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2086640669",
+        "name": "Материнская плата Maxsun MS-Challenger B760M-N D5 V2",
+        "price": 7886,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7646620212.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-n-d5-v2-2086640669/?at=oZt6AknjYIr59MG5IKRMgBVTVZPW8wcRjW13Vh4P3Y5k",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1239645646",
+        "name": "Материнская плата MSI PRO B760M-E DDR4",
+        "price": 7932,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-o/6597340548.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-b760m-e-ddr4-1239645646/?at=Z8tX1z6rgIKXElZOsn4jrwru21NXjGTKXBQpAIn35wxM",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "2132991738",
+        "name": "MSI Материнская плата",
+        "price": 7987,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7540847431.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-materinskaya-plata-2132991738/?at=J8tgkxJ3wsE8Z1zPcrG4LXpfL0WRR6UD7pl9xiX9ml48",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1850990128",
+        "name": "Материнская плата MAXSUN MS-Challenger B760M LGA1700, mATX, 2xDDR4, HDMI+VGA, 2хM.2, LAN 1Gb, RTL",
+        "price": 7994,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7448477565.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-challenger-b760m-lga1700-matx-2xddr4-hdmi-vga-2hm-2-lan-1gb-rtl-1850990128/?at=WPtN10ERqCnz9m2Xh96JgkNtY8KLm8SARGwqEt14MogB",
+        "category": "motherboards",
+        "source": "ozon"
+      },
+      {
+        "id": "1856293579",
+        "name": "MSI Материнская плата",
+        "price": 8154,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7304409754.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-materinskaya-plata-1856293579/?at=NOtwYoWD3cLWMAQOhBZ6g2ZFykjryvu059qy1sLWkLPA",
+        "category": "motherboards",
+        "source": "ozon"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "B760",
+  "category": "motherboards"
+}

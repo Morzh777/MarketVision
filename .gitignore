@@ -1,0 +1,84 @@
+# --- Node.js ---
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+.eggs/
+*.egg
+
+# --- Build & Dist ---
+dist/
+build/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+*.tgz
+
+# --- Env & Config ---
+.env*
+*.env*
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# --- OS & Misc ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- Temp & Cache ---
+tmp/
+temp/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.out/
+.storybook-out/
+logs/
+*.pid
+*.pid.lock
+pids/
+
+# --- Test & Reports ---
+nyc_output/
+coverage/
+report.*.json
+
+# --- Bower ---
+bower_components/
+
+# --- Optional npm/yarn/pnpm cache ---
+.npm/
+.yarn-integrity
+
+# --- Misc ---
+.lock-wscript
+.grunt/
+jspm_packages/
+typings/
+
+# --- Exclude local Docker files ---
+*.local.yml 

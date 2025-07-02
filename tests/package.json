@@ -1,0 +1,31 @@
+{
+  "name": "wbinfo-tests",
+  "version": "1.0.0",
+  "description": "Тесты для gRPC Product Filter Service и WB API",
+  "scripts": {
+    "test:grpc": "node test-grpc-service.js",
+    "test:wb-api": "node test-wb-api-grpc.js",
+    "test:categories": "node test-all-categories.js",
+    "test:architecture": "node test-full-architecture.js",
+    "test:all": "npm run test:grpc && npm run test:wb-api",
+    "test:full": "npm run test:grpc && npm run test:categories",
+    "debug:failed-queries": "node debug/debug-failed-queries.js",
+    "debug:real-wb-data": "node debug/debug-real-wb-data.js",
+    "analyze:optimize-queries": "node debug/optimize-queries.js",
+    "analyze:final-optimization": "node debug/final-optimization.js",
+    "debug:all": "npm run debug:failed-queries && npm run debug:real-wb-data && npm run analyze:optimize-queries",
+    "clear:all-caches": "node clear-all-caches.js",
+    "analyze:api-responses": "node analyze-api-responses.js",
+    "analyze:grpc-requests": "node analyze-grpc-requests.js",
+    "analyze:product-filter": "node analyze-product-filter-data.js",
+    "analyze:all": "npm run analyze:api-responses && npm run analyze:grpc-requests && npm run analyze:product-filter"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.7.15",
+    "axios": "^1.6.2",
+    "node-fetch": "^2.7.0",
+    "redis": "^4.6.12",
+    "sharp": "^0.34.2"
+  }
+}

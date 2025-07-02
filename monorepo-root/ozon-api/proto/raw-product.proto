@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package raw_product;
+
+service RawProductService {
+  rpc GetRawProducts(GetRawProductsRequest) returns (GetRawProductsResponse);
+}
+
+message GetRawProductsRequest {
+  string query = 1;
+  string category = 2; // 'videocards', 'processors', 'motherboards'
+}
+
+message RawProduct {
+  string id = 1;
+  string name = 2;
+  int32 price = 3;
+  string image_url = 4;
+  string product_url = 5;
+  string category = 6;
+  string source = 7; // 'ozon', 'wb', ...
+}
+
+message GetRawProductsResponse {
+  repeated RawProduct products = 1;
+  int32 total_count = 2;
+  string source = 3;
+} 

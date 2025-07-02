@@ -1,0 +1,335 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1902656162",
+        "name": "Процессор AMD Ryzen 7 7800X3D",
+        "price": 33227,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7360973308.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-1902656162/?at=OgtED38zxhjzDODxi6wAvy5f1LmjMguwwLLDETRDm1mJ",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2273543459",
+        "name": "Процессор AMD Ryzen 7 7800X3D AM5, 8 x 4200 МГц, OEM (без кулера)",
+        "price": 33349,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7612807420.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-am5-8-x-4200-mgts-oem-bez-kulera-2273543459/?at=79tnrLg4NTzR3XERIgvxNWEU3y33wquxZm1ynujO6WmZ",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1759552469",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D OEM (без кулера)",
+        "price": 33486,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7657766363.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-oem-bez-kulera-1759552469/?at=83tBm9GDqsKEXoEpCA5lQW7uz4LLZyH7kym7Kc07Ok6Z",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1939228356",
+        "name": "AMD Процессор Ryzen 7 7800X3D OEM (без кулера)",
+        "price": 34005,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7558139459.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-7800x3d-oem-bez-kulera-1939228356/?at=GRt2rw7K4fW0Wvq6TqolEYJFYqp5yxUZR1mliXPJQEX",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1940026030",
+        "name": "Процессор AMD Ryzen 7 7800X3D OEM (100-000000910)",
+        "price": 34230,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7125900146.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-oem-100-000000910-1940026030/?at=OgtED38zxh9mkDPlSozG8LSnMPXo2sG3DopMIOopZKy",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2203357662",
+        "name": "Процессор AMD Ryzen 7 7800X3D, OEM",
+        "price": 34364,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7611354427.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-oem-2203357662/?at=gpt4v83OytGDvmRAFn5N1GBS3DR0x5sz6kkmVTzz12k5",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2120772656",
+        "name": "Процессор CPU AM5 AMD Ryzen 7 7800X3D (8C&#x2F;16T, 3.8&#x2F;5.1GHz, 96MB, 120W) OEM, 100-000000910",
+        "price": 34390,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7228006848.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-am5-amd-ryzen-7-7800x3d-8c-16t-3-8-5-1ghz-96mb-120w-oem-100-000000910-2120772656/?at=A6tGxjQLOcQ2w00Zs4KDgk2tP5QjLVswL88wXIqnRnNo",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2015169820",
+        "name": "Процессор AMD Ryzen 7 7800X3D, 4.2ГГц, (Turbo 5.0ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 34747,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-u/6887085510.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-4-2ggts-turbo-5-0ggts-8-yadernyy-l3-96mb-soket-am5-oem-2015169820/?at=lRt6WLr0EIvY1yN8h3DrOlhlZqRYZi4yJLPXCj59xEw",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1444527124",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D OEM (без кулера)",
+        "price": 35054,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/6938256342.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-oem-bez-kulera-1444527124/?at=K8tZQLozWHZMNxqOTg20XKLs61J9YsJ2o8JnU6MVAyY",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1687670818",
+        "name": "Процессор CPU AMD Ryzen 7 7800X3D AM5 (100-000000910) (4.2GHz&#x2F;AMD Radeon) OEM",
+        "price": 35244,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7657574238.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-amd-ryzen-7-7800x3d-am5-100-000000910-4-2ghz-amd-radeon-oem-1687670818/?at=z6tOXK1Qqc4gV8k7IrzzLx3u60pxO1SMmyOwDIr2BZjA",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2258826296",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D OEM (без кулера)",
+        "price": 35907,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7425643610.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-oem-bez-kulera-2258826296/?at=Z8tX1z6rgI31RRZLi6XMm7EukxrMWEUMV5v5osnAk3lA",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1303799429",
+        "name": "Процессор CPU AMD Ryzen 7 7800X3D OEM 100-000000910",
+        "price": 36217,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7513821565.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-amd-ryzen-7-7800x3d-oem-100-000000910-1303799429/?at=WPtN10ERqC8VDM8KtA4Ww8ps8zW39nUopm8Gys1An64O",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1590029445",
+        "name": "Процессор AMD Ryzen 7 7800X3D, 4.2ГГц, (Turbo 5.0ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 36229,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7587210866.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-4-2ggts-turbo-5-0ggts-8-yadernyy-l3-96mb-soket-am5-oem-1590029445/?at=6WtZRXNjmHL7JO2Rig3RZzXFPMr1qkCNBKKVNcgGWL9G",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2154065653",
+        "name": "Процессор&#x2F; CPU AM5 AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM",
+        "price": 36806,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7553801831.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-am5-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-2154065653/?at=k2toDgE8BhGo487Jc6E3Jrxh6O3ql8HLzx3MvImJlpOy",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1595515698",
+        "name": "Процессор AMD Ryzen 7 7800X3D AM5, 8 x 4200 МГц, OEM (без кулера)",
+        "price": 36842,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7636533494.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-am5-8-x-4200-mgts-oem-bez-kulera-1595515698/?at=BrtzxvGpKH0A0y2NtVmBA27irooGA5HwzzpBJFJr5RP9",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1982982391",
+        "name": "Центральный Процессор AMD Ryzen 7 7800X3D AM5, 8 ядер 16 потоков, 4200 - 5000 МГц, OEM 100-000000910 без кулера",
+        "price": 37041,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7425643610.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-7-7800x3d-am5-8-yader-16-potokov-4200-5000-mgts-oem-100-000000910-1982982391/?at=16tLr842GHL0vyDncWA0vgJC2N5ODqHD0L5gKUlOA2Ny",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1903490596",
+        "name": "Процессор AMD RYZEN 7 7800X3D, AM5, OEM",
+        "price": 37108,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7233929856.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-am5-oem-1903490596/?at=J8tgkxJ3ws3060Y6FV8rvJmhgv6E3DSjEQvM0f2XK6v5",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2015171178",
+        "name": "Процессор AMD Ryzen 7 7800X3D, 4.2ГГц, (Turbo 5.0ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 37749,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-u/6887085510.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-4-2ggts-turbo-5-0ggts-8-yadernyy-l3-96mb-soket-am5-oem-2015171178/?at=NOtwYoWD3c3x56pzuj0g0ELtJEn9WMhn9W34uL19q1V",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1740013034",
+        "name": "Центральный процессор AMD RYZEN 7 7800X3D OEM",
+        "price": 38048,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-i/6887188134.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-7-7800x3d-oem-1740013034/?at=GRt2rw7K4fMgEK5rSmO6loVIzOAjXnf53LrvrIA03NZx",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1880940924",
+        "name": "Процессор CPU AMD Ryzen 7 7800X3D AM5 OEM (без кулера)",
+        "price": 38221,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7338177503.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-amd-ryzen-7-7800x3d-am5-oem-bez-kulera-1880940924/?at=jYtZzgrKmH4JOXJzhXymkBVTKQj50AtQ1RLwZFNZqV7L",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2008897380",
+        "name": "AMD Процессор Ryzen 7 7800X3D OEM (без кулера)",
+        "price": 38750,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7472153518.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-7800x3d-oem-bez-kulera-2008897380/?at=WPtN10ERqCnvg6mJtpvwx01s4J9960S9o7rrRcJkGB0D",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2340086345",
+        "name": "Процессор AMD Ryzen 7 7800X3D",
+        "price": 38755,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7642277483.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-2340086345/?at=oZt6AknjYI3oxwELtk2R1gfr7lnXjUvGLEAGSlMPX6r",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2153657476",
+        "name": "Процессор AMD Ryzen 7 7800X3D, 4.2ГГц, (Turbo 5.0ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 38792,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7587210866.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-4-2ggts-turbo-5-0ggts-8-yadernyy-l3-96mb-soket-am5-oem-2153657476/?at=LZtl0LWy9CqB6wvvurXRGY3hMy51vrh55ppgtvOWGAV",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2277294860",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) (Процессор) OEM (без кулера)",
+        "price": 39121,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7582225353.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-2277294860/?at=99trJ80LquYXkjvGSgk5OMESloPy0rHAlRo6VTvnRk8V",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2304004344",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) OEM (без кулера)",
+        "price": 39134,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7563207356.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-oem-2304004344/?at=K8tZQLozWHGVO0pqUEOQogktoq9W6XC66BQANUnz0AW9",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1857982132",
+        "name": "Процессор AMD Ryzen 7 7800X3D 100-000000910",
+        "price": 39164,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7306325635.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-100-000000910-1857982132/?at=36tWjZk6KsEOEgQzsgJk5wGi1lZDQYtMrE2RjsK305NP",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1200693047",
+        "name": "Центральный Процессор AMD RYZEN 7 7800X3D OEM (100-000000910)",
+        "price": 39265,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7552084551.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-7-7800x3d-oem-100-000000910-1200693047/?at=GRt2rw7K4fYZk4PluqApnRotrG3VwRtO28ykPiENVrXn",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2324471846",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) (Процессор) OEM (без кулера)",
+        "price": 39281,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7582225353.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-2324471846/?at=28t0L7YP3HN104mt89pL3Osxp8wROf4lnYy5fpXkEJZ",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2324570908",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) (Процессор) OEM (без кулера)",
+        "price": 39472,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7582225353.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-2324570908/?at=OgtED38zxhNRyM6vFQjN0YIGNv4oyIjYLLZBTQkLr9K",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1239556139",
+        "name": "Процессор CPU AM5 AMD Ryzen 7 7800X3D (8C&#x2F;16T, 3.8&#x2F;5.1GHz, 96MB, 120W) OEM, 100-000000910",
+        "price": 39483,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7228006848.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-am5-amd-ryzen-7-7800x3d-8c-16t-3-8-5-1ghz-96mb-120w-oem-100-000000910-1239556139/?at=28t0L7YP3H8Mq06Mc1MjY6RHvkvwMOUl36WLF5Xk7Pz",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2263655509",
+        "name": "Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM))",
+        "price": 39531,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7563207356.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-2263655509/?at=6WtZRXNjmH5xzvgrc0pmyVltjnK15YHO69D6VFzrZqmx",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2030761150",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (Гарантия 12 месяцев) OEM (без кулера)",
+        "price": 39713,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7466666109.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-garantiya-12-mesyatsev-oem-bez-kulera-2030761150/?at=MZtvpjrM3hXlgox6Hl2GGDzfO14rxgfY3VG1BsBY6E8N",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1743172458",
+        "name": "Процессор AMD Ryzen7 7800X3D, 8 ядер,16 потоков&#x2F;4.4-5.0 ГГц,5hm технологии&#x2F;105W&#x2F;OEM(без орг.коробки)",
+        "price": 39801,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7178072786.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen7-7800x3d-8-yader-16-potokov-4-4-5-0-ggts-5hm-tehnologii-105w-oem-bez-1743172458/?at=pZtpg521oukRO9QoFMnV6KQFnZ4voMUo2jAZGCmJ8G8P",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2202924753",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) OEM (без кулера)",
+        "price": 39930,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7563207356.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-oem-2202924753/?at=LZtl0LWy9Cg8D7x2hr88nvJU666NJjT3wj7YWi7x5ALx",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "2202753191",
+        "name": "AMD Процессор AMD Ryzen 7 7800X3D (8C&#x2F;16T, 4.2&#x2F;5.0GHz, 96MB, 120W) OEM (AMD Ryzen 7 7800X3D (OEM)) (Процессор) OEM (без кулера)",
+        "price": 39957,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7563171378.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-7800x3d-8c-16t-4-2-5-0ghz-96mb-120w-oem-amd-ryzen-7-7800x3d-oem-2202753191/?at=46tRZrVM5CY5Zv7Fv6Dok6Cxn5mLLsYK9DmIw1opOg",
+        "category": "processors",
+        "source": "ozon"
+      },
+      {
+        "id": "1949328211",
+        "name": "Процессор AMD Ryzen 7 7800X3D 100-000000910",
+        "price": 40339,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7306325635.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-7800x3d-100-000000910-1949328211/?at=83tBm9GDqsgDgQX9fMkY1RQcPJ8B5AUyJlKOvsLKJgBx",
+        "category": "processors",
+        "source": "ozon"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "7800X3D",
+  "category": "processors"
+}

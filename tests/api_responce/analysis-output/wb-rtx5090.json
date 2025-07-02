@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "421580448",
+        "name": "Видеокарта GeForce RTX 5090 GAMING OC",
+        "price": 369641,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421580448/detail.aspx",
+        "category": "videocards",
+        "source": "wb"
+      }
+    ],
+    "total_count": 1,
+    "source": "wb"
+  },
+  "query": "RTX5090",
+  "category": "videocards"
+}

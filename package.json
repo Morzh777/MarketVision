@@ -1,0 +1,26 @@
+{
+  "name": "wbinfo-testing",
+  "version": "1.0.0",
+  "description": "Тестирование gRPC Product Filter Service и WB API",
+  "scripts": {
+    "test:grpc": "node test-grpc-service.js",
+    "test:wb-api": "node test-wb-api-grpc.js",
+    "test:all": "npm run test:grpc && npm run test:wb-api",
+    "test:architecture": "node tests/test-full-architecture.js",
+    "start:services": "docker-compose up -d",
+    "stop:services": "docker-compose down",
+    "logs:filter": "docker-compose logs -f product-filter-service",
+    "logs:wb-api": "docker-compose logs -f wb-api"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.14",
+    "@grpc/proto-loader": "^0.7.10",
+    "axios": "^1.6.2",
+    "ioredis": "^5.6.1",
+    "node-fetch": "^2.7.0",
+    "redis": "^4.6.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
