@@ -2,7 +2,7 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as path from 'path';
 
-const PROTO_PATH = path.join(__dirname, '../../proto/raw-product.proto');
+const PROTO_PATH = path.join(process.cwd(), 'proto/raw-product.proto');
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   keepCase: true,
