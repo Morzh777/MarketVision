@@ -78,11 +78,16 @@ export class ProductsService {
     'B850'
   ];
 
+  private readonly PLAYSTATION_QUERIES = [
+    'PlayStation 5 Pro',
+  ];
+
   // 🎯 КАРТА КАТЕГОРИЙ: Централизованное управление категориями
   private readonly CATEGORY_MAP = {
     videocards: { ozon: 'videokarty-15721', wb: '3274' },
     processors: { ozon: 'protsessory-15726', wb: '3698' },
-    motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' }
+    motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' },
+    playstation: { ozon: 'konsoli-playstation-31751', wb: '8829' }
   };
 
   constructor(
@@ -105,6 +110,10 @@ export class ProductsService {
     return this.getProductsByCategory('motherboards', testMode, limit, showAllMode);
   }
 
+  async getPlaystations(testMode = false, limit?: number, showAllMode = false): Promise<ProductResult[]> {
+    return this.getProductsByCategory('playstation', testMode, limit, showAllMode);
+  }
+
   private async getProductsByCategory(category: string, testMode = false, limit?: number, showAllMode = false): Promise<ProductResult[]> {
     const startTime = Date.now();
     fileLogger.log(`🚀 Запрос ${category} через новую архитектуру с gRPC`);
@@ -122,6 +131,9 @@ export class ProductsService {
           break;
         case 'motherboards':
           queries = this.MOTHERBOARD_QUERIES;
+          break;
+        case 'playstation':
+          queries = this.PLAYSTATION_QUERIES;
           break;
         default:
           fileLogger.error(`❌ Неизвестная категория: ${category}`);
