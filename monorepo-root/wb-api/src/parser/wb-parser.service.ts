@@ -1,16 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { WildberriesApiClientImpl } from '../wb-api.client';
-
-interface RawProduct {
-  id: string;
-  name: string;
-  price: number;
-  image_url: string;
-  product_url: string;
-  category: string;
-  source: string;
-  query: string;
-}
+import { RawProduct } from '../types/raw-product.interface';
 
 @Injectable()
 export class WbParserService {
