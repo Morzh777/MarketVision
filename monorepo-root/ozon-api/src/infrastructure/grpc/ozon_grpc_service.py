@@ -14,9 +14,14 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
     async def GetRawProducts(self, request, context):
         query = request.query
         category = request.category
+        platform_id = getattr(request, 'platform_id', None)  # Новое поле для платформы
+        
         print(f"🔍 gRPC GetRawProducts запрос: {query} в категории {category}")
+        if platform_id:
+            print(f"🎮 С платформой: {platform_id}")
+            
         try:
-            products = await self.parser_service.parse_products(query, category)
+            products = await self.parser_service.parse_products(query, category, platform_id)
             grpc_products = []
             for product in products:
                 grpc_product = raw_product_pb2.RawProduct(

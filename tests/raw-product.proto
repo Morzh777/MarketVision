@@ -9,6 +9,7 @@ service RawProductService {
 message GetRawProductsRequest {
   string query = 1;
   string category = 2; // 'videocards', 'processors', 'motherboards'
+  string platform_id = 3; // ID платформы (например, '101858153' для Nintendo)
 }
 
 message RawProduct {

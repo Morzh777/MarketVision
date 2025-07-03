@@ -825,7 +825,7 @@
       {
         "id": "422247591",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 187354,
+        "price": 187660,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/422247591/detail.aspx",
         "category": "videocards",
@@ -845,9 +845,19 @@
       {
         "id": "422247640",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 189580,
+        "price": 189886,
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/422247640/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "421930368",
+        "name": "Видеокарта GeForce RTX 5080 16 Гб",
+        "price": 190287,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421930368/detail.aspx",
         "category": "videocards",
         "source": "wb",
         "query": "rtx 5080"
@@ -865,7 +875,7 @@
       {
         "id": "451350960",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 195709,
+        "price": 196023,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/451350960/detail.aspx",
         "category": "videocards",
@@ -895,7 +905,7 @@
       {
         "id": "438004280",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 205731,
+        "price": 206062,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438004280/detail.aspx",
         "category": "videocards",
@@ -988,16 +998,6 @@
         "price": 151172,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440735283/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "rtx 5080"
-      },
-      {
-        "id": "350921946",
-        "name": "Видеокарта ROG Astral RTX 5080 16 ГБ GDDR7",
-        "price": 250075,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/350921946/detail.aspx",
         "category": "videocards",
         "source": "wb",
         "query": "rtx 5080"

@@ -12,13 +12,17 @@ class OzonParserService(ParserService):
         self.parser = OzonParser()
         self._is_available = True
     
-    async def parse_products(self, query: str, category_slug: str) -> List[Product]:
+    async def parse_products(self, query: str, category_slug: str, platform_id: str = None) -> List[Product]:
         """Парсить продукты с Ozon"""
         try:
             print(f"🔍 Парсинг Ozon для запроса: {query} в категории {category_slug}")
             
-            # Получаем продукты напрямую через парсер с указанной категорией
-            products = await self.parser.get_products(query, category_slug)
+            # Принимаем платформу от Product-Filter-Service
+            if platform_id:
+                print(f"🎮 Получена платформа от Product-Filter-Service: {platform_id}")
+            
+            # Получаем продукты напрямую через парсер с указанной категорией и платформой
+            products = await self.parser.get_products(query, category_slug, platform_id)
             
             print(f"✅ Парсинг завершен. Найдено {len(products)} продуктов")
             return products

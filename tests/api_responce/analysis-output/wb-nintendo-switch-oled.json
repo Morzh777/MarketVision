@@ -1,0 +1,1011 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "361633339",
+        "name": "Чехол для Joycon Nintendo Switch OLED Р set 6",
+        "price": 577,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/361633339/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "324805119",
+        "name": "Радиатор для док-станции Nintendo Switch OLED ЦЧерный",
+        "price": 577,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/324805119/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359342853",
+        "name": "Радиатор для Nintendo Switch OLED док Цв Белый",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359342853/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359342854",
+        "name": "Радиатор для док-станции Nintendo Switch OLED Цв Черный",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359342854/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "224694164",
+        "name": "Защитное стекло для Nintendo Switch OLED",
+        "price": 616,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/224694164/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359636256",
+        "name": "Стекло 9H для Nintendo Switch OLED Lite Цв 2Пк Для Свич",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359636256/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "361402401",
+        "name": "Защитное стекло для Nintendo Switch OLED Цв For Switch Lite",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/361402401/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326205347",
+        "name": "Защитное стекло для Nintendo Switch OLED Цв For Switch",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326205347/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "361402400",
+        "name": "Защитное стекло для Nintendo Switch OLED Цв For Switch Oled",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/361402400/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "361402402",
+        "name": "Защитное стекло для Nintendo Switch OLED Цв For Switch",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/361402402/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359636257",
+        "name": "Стекло 9H для Nintendo Switch Lite OLED Цв 1Пcs Для Свич",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359636257/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326205345",
+        "name": "Защитное стекло для Nintendo Switch OLED Цв For Switch Lite",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326205345/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359493703",
+        "name": "Держатель Nintendo Switch OLED с зарядкой Цв Белый",
+        "price": 592,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359493703/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360104851",
+        "name": "Защитный чехол для Nintendo Switch OLED Р Цв Фиолетовый",
+        "price": 608,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360104851/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444622864",
+        "name": "Сумочка из фетра для консоли Nintendo Switch Oled 0943",
+        "price": 633,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444622864/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444622829",
+        "name": "Тончайшая накладка для Nintendo Switch Oled Poly-C 0974",
+        "price": 633,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444622829/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360104856",
+        "name": "Защитный чехол для Nintendo Switch OLED Р Цв Белый",
+        "price": 608,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360104856/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360104854",
+        "name": "Чехол для Nintendo Switch OLED защита Р Цв Черный",
+        "price": 608,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360104854/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360104857",
+        "name": "Защитный чехол для Nintendo Switch OLED Р Прозрачный",
+        "price": 608,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360104857/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360104853",
+        "name": "Чехол для Nintendo Switch OLED 2023 Р Цв Розовый",
+        "price": 608,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360104853/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444574382",
+        "name": "Тончайшая накладка для Nintendo Switch Oled Poly-X 0967",
+        "price": 661,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444574382/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444570651",
+        "name": "Стильная сумка на молнии для Nintendo Switch OLED 1018",
+        "price": 661,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444570651/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444574381",
+        "name": "Эргономичный чехол-сумка Nintendo Switch Oled E-bag 0950",
+        "price": 661,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444574381/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "323949703",
+        "name": "Защитный чехол для Nintendo Switch OLED Р Прозрачный",
+        "price": 693,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/323949703/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "323949702",
+        "name": "Защитный чехол для Nintendo Switch OLED Р ЦБелый",
+        "price": 693,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/323949702/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "323949699",
+        "name": "Чехол для Nintendo Switch OLED защита Р ЦЧерный",
+        "price": 693,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/323949699/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "363656407",
+        "name": "Интегр чехол для Nintendo Switch OLED Цв Белый",
+        "price": 695,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363656407/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "363656406",
+        "name": "Чехол для Nintendo Switch OLED с защитой Цв Кр",
+        "price": 720,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363656406/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "363656404",
+        "name": "Чехол для Nintendo Switch OLED с охватом Цв Синий",
+        "price": 714,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363656404/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "449924198",
+        "name": "Защитное стекло для Nintendo Switch Oled",
+        "price": 836,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449924198/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "279971544",
+        "name": "Держатель для Joy-Con Nintendo Switch Switch OLED 0829",
+        "price": 851,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/279971544/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "390565572",
+        "name": "Стик Joy Con Cтик для Switch с датчиком холла",
+        "price": 897,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390565572/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "325588505",
+        "name": "Ручка для Nintendo Switch OLED с 6 картами Цв Noir",
+        "price": 816,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/325588505/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "324770507",
+        "name": "Держатель Joy-Con для Nintendo Switch OLED РДр",
+        "price": 900,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/324770507/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "356168770",
+        "name": "Чехол для джойстика Nintendo Switch OLED Р deer dog",
+        "price": 918,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/356168770/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "221073199",
+        "name": "Набор RP2040 (HWFLY) для Nintendo Switch OLED",
+        "price": 929,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/221073199/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "356168776",
+        "name": "Чехол для джойстика Nintendo Switch OLED Р кролик утка",
+        "price": 918,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/356168776/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444578811",
+        "name": "Удобный бокс Nintendo Switch Oled N-Max 0981",
+        "price": 919,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444578811/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360234177",
+        "name": "Вентилятор для Nintendo Switch OLED Р White Цв Multicolor",
+        "price": 891,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360234177/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358412603",
+        "name": "База охлаждения для Nintendo Switch OLED белый Цв Черный",
+        "price": 878,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358412603/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "363889658",
+        "name": "Держатель Joy-Con для Nintendo Switch OLED Р Цв чёрный",
+        "price": 947,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363889658/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "363889659",
+        "name": "Держатель Joy-Con для Nintendo Switch OLED Р Др",
+        "price": 947,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363889659/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "325465284",
+        "name": "Держатель для Joy-Con Nintendo Switch OLED Р Ц БЕЛЫЙ",
+        "price": 1016,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/325465284/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444632742",
+        "name": "Набор для Nintendo Switch Oled Uni-Style 0998",
+        "price": 1064,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444632742/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359493704",
+        "name": "Держатель для Nintendo Switch OLED Цв Черный",
+        "price": 1062,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359493704/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359987993",
+        "name": "Держатель для Joy-Con Nintendo Switch OLED Р Цв БЕЛЫЙ",
+        "price": 1062,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359987993/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359987992",
+        "name": "Держатель для Nintendo Switch OLED Joy-Con Р Цв черный",
+        "price": 1062,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359987992/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360037379",
+        "name": "Держатель для Nintendo Switch OLED Р Цв Белый",
+        "price": 1070,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360037379/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360037377",
+        "name": "Держатель для Joy-Con Nintendo Switch OLED Р Цв Чёрный",
+        "price": 1070,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360037377/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326642835",
+        "name": "Чехол для Nintendo Switch OLED с доком Цв Черный",
+        "price": 1024,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326642835/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326642818",
+        "name": "Чехол для Nintendo Switch OLED с доком Цв Красный",
+        "price": 1024,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326642818/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326642832",
+        "name": "Чехол для Nintendo Switch OLED Цв Синий",
+        "price": 1024,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326642832/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326642819",
+        "name": "Защитный чехол для Nintendo Switch OLED Цв фиолетовый",
+        "price": 1024,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326642819/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326642831",
+        "name": "Чехол для Nintendo Switch OLED Цв Коричневый",
+        "price": 1024,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326642831/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129266",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв F",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129266/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129272",
+        "name": "Док-станция для Nintendo Switch OLED Цв К",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129272/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129274",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв M",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129274/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129262",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв C",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129262/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129271",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв J",
+        "price": 1039,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129271/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129278",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв Белый",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129278/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129267",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв G",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129267/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129263",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв D",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129263/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129261",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв Черный",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129261/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129260",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв A",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129260/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129269",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв I",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129269/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129268",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв H",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129268/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129275",
+        "name": "Зарядка с чехлом для Nintendo Switch OLED Цв Розовый",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129275/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129277",
+        "name": "Док-станция для Nintendo Switch OLED Цв Прозрачный",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129277/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129276",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв Фиолетовый",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129276/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129273",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв Л",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129273/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360129264",
+        "name": "Зарядная станция для Nintendo Switch OLED Цв E",
+        "price": 1047,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360129264/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "324614415",
+        "name": "Вентилятор охлаждения для Nintendo Switch OLED Р Style",
+        "price": 1162,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/324614415/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013631",
+        "name": "Чехол для Nintendo Switch OLED Joy-Con Р 26",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013631/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013621",
+        "name": "Чехол для Nintendo Switch OLED Joy-Con Р 48",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013621/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013629",
+        "name": "Чехол для Nintendo Switch OLED Р 45",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013629/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695375",
+        "name": "Чехол для Nintendo Switch OLED Цв Коричневый",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695375/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695366",
+        "name": "Чехол для Nintendo Switch OLED с доком Цв Красный",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695366/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695367",
+        "name": "Защитный чехол для Nintendo Switch OLED Цв фиолетовый",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695367/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695362",
+        "name": "Чехол для Nintendo Switch OLED с доком Цв белый",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695362/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359341151",
+        "name": "Чехол + 9 акс для Nintendo Switch OLED Цв Черный",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359341151/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695376",
+        "name": "Чехол для Nintendo Switch OLED Цв Синий",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695376/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "358695378",
+        "name": "Чехол для Nintendo Switch OLED с доком Цв Черный",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/358695378/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013620",
+        "name": "Чехол для Nintendo Switch OLED Joy-Con Р 8",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013620/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013634",
+        "name": "Чехол для Nintendo Switch OLED Р 4",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013634/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013630",
+        "name": "Чехол для Nintendo Switch OLED Р 41",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013630/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360013615",
+        "name": "Чехол для Nintendo Switch OLED Р 18",
+        "price": 1209,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360013615/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "444646263",
+        "name": "Набор для Nintendo Switch OLED 1001",
+        "price": 1258,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444646263/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "359341149",
+        "name": "Чехол для Nintendo Switch OLED и аксессуары Цв Белый",
+        "price": 1132,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/359341149/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "360037402",
+        "name": "Геймпад Nintendo Switch с гироскопом Р Цв Белый",
+        "price": 2849,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360037402/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "242255934",
+        "name": "Док-станция Nintendo Switch, OLED, Станд. версия",
+        "price": 3520,
+        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/242255934/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "275244146",
+        "name": "Игровая приставка Switch Lite 32 ГБ, коралловый",
+        "price": 16887,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/275244146/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "313577831",
+        "name": "Игровая консоль Switch Oled Refubished",
+        "price": 18616,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/313577831/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "326247245",
+        "name": "Игровая приставка Switch OLED",
+        "price": 21980,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326247245/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "314960457",
+        "name": "Игровая приставка Switch OLED",
+        "price": 21980,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/314960457/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "378862600",
+        "name": "Игровая приставка Switch OLED 64 ГБ",
+        "price": 23102,
+        "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/378862600/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "379449810",
+        "name": "Игровая приставка Switch OLED 64 ГБ",
+        "price": 23102,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/379449810/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "397033727",
+        "name": "Игровая консоль Nintendo OLED 64GB",
+        "price": 23337,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/397033727/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "313219040",
+        "name": "Консоль игровая Switch OLED Model, Неоновый синий и Неоновый…",
+        "price": 23445,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/313219040/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "313206777",
+        "name": "Консоль игровая Switch OLED Model, с Joy-Con, белая",
+        "price": 23445,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/313206777/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "285178029",
+        "name": "Игровая приставка Switch OLED 64 ГБ, белый",
+        "price": 23716,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/285178029/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch oled"
+      }
+    ],
+    "total_count": 100,
+    "source": "wb"
+  },
+  "query": "nintendo switch oled",
+  "category": "nintendo_switch"
+}

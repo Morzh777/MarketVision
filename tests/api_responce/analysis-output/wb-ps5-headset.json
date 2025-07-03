@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "408719856",
+        "name": "Акриловая 3-слойная подставка для геймпада Черный",
+        "price": 2344,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408719856/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PS5 Headset"
+      },
+      {
+        "id": "406429504",
+        "name": "Акриловая 3-слойная подставка для геймпада Черный",
+        "price": 2482,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/406429504/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PS5 Headset"
+      }
+    ],
+    "total_count": 2,
+    "source": "wb"
+  },
+  "query": "PS5 Headset",
+  "category": "playstation_accessories"
+}

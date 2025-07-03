@@ -1,0 +1,312 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2247570063",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 38633,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2247570063/?at=qQtJg6novcEqoJkYI586lNxCJBXmrWSX9ErVOtVMJGlE",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2128181116",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, русский язык",
+        "price": 39421,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7595519154.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-russkiy-yazyk-2128181116/?at=46tRZAEvxIJ0KW3guKYlgpxcMJYW0io8n5vGt46wmrL",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2350891360",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 39526,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2350891360/?at=08tYn0QLzcgxvx36sEOrX9miQDWzDoIDQ2GW4F7JlOy",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2301342065",
+        "name": "Nintendo Switch 2 серый",
+        "price": 39590,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7622090139.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-seryy-2301342065/?at=K8tZQxPGkc83zBv4uXW9jqu27EjQkHzX4GR4t7W61MW",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2301439347",
+        "name": "Nintendo Switch 2 серый",
+        "price": 39590,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7622090139.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-seryy-2301439347/?at=16tLrwx9XCV96pXzcz9gmvjfGl7AY9iZ5onE0iM8lPnr",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2049259188",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 40422,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2049259188/?at=w0tg5ZkWnIGVoyYkFMzgREgT0xGWpzfAyEAWpuQ6KDzv",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2241473635",
+        "name": "Nintendo Switch 2 + Mario Kart World Bundle 7,9 дюйма Игровая приставка 1080P LCD Экран Для игр Глобальная версия",
+        "price": 40750,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7596921730.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-mario-kart-world-bundle-7-9-dyuyma-igrovaya-pristavka-1080p-lcd-ekran-dlya-igr-2241473635/?at=oZt6Ap50mC5k7KVLs6AqyNotXmk6EKh6ZDp1gt08mMVo",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2296102059",
+        "name": "Nintendo Switch 2 серый",
+        "price": 40953,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7622090139.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-seryy-2296102059/?at=OgtEDrlykcBqELLWHDN3PnxSE59QNAiB4rx7qu3gZG9q",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2296102042",
+        "name": "Nintendo Switch 2 серый",
+        "price": 40953,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7622090139.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-seryy-2296102042/?at=K8tZQxPGkcVwQQxrTgqPRO8FgjXgkkTDKV2v0cnJ8kpy",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2296052014",
+        "name": "Nintendo Switch 2 серый",
+        "price": 40953,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7622090139.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-seryy-2296052014/?at=z6tOXNEAzcG0LW0Af4nwzJZHx6K2qvfOPYY9pFLxjJEK",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2228085955",
+        "name": "Игровая приставка Nintendo Switch 2 + Mario Kart World Bundle 7,9 дюйма 1080P LCD Экран Для игр",
+        "price": 41299,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7596007997.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-mario-kart-world-bundle-7-9-dyuyma-1080p-lcd-ekran-dlya-igr-2228085955/?at=Z8tX1nApYCx8Rkjxtmg6KXwhq9wXxXFpBZwOGclOLBMB",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2102296241",
+        "name": "Игровая приставка Комплект Nintendo Switch 2 256 ГБ + Mario Kart World, глобальная версия, черный",
+        "price": 41615,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7574680814.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-komplekt-nintendo-switch-2-256-gb-mario-kart-world-globalnaya-versiya-chernyy-2102296241/?at=K8tZQxPGkcoywzlrupjAEXZuQKzZGLhLX1L55U817lEZ",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2247555988",
+        "name": "Игровая приставка Комплект Nintendo Switch 2 256 ГБ + Mario Kart World, Получите картридж с игрой WarioWare: Get It Together! глобальная версия, черный",
+        "price": 42344,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7612810769.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-komplekt-nintendo-switch-2-256-gb-mario-kart-world-poluchite-kartridzh-s-2247555988/?at=qQtJg6novc9Z9yLxHBOGorPirW1onvU2NYwlOiEW9zEN",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2128129722",
+        "name": "Игровая приставка Комплект Nintendo Switch 2 256 ГБ + Mario Kart World, глобальная версия, русский язык",
+        "price": 42418,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7595143508.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-komplekt-nintendo-switch-2-256-gb-mario-kart-world-globalnaya-versiya-2128129722/?at=6WtZRl7BJcl6RxKgTAAozrrC4mq0L2h9rPxVYf7VyXVA",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2350889702",
+        "name": "Игровая приставка Комплект Nintendo Switch 2 256 ГБ + Mario Kart World, глобальная версия, черный",
+        "price": 42482,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7574680814.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-komplekt-nintendo-switch-2-256-gb-mario-kart-world-globalnaya-versiya-chernyy-2350889702/?at=83tBm8WKgHoBAp9zIm2GZ9jhkZkWDxUkywzj2S2zk6Oq",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2228064137",
+        "name": "Игровая приставка Nintendo Switch 2 + Mario Kart World Глобальная версия 256 ГБ 7,9-дюймовый ЖК-экран",
+        "price": 42670,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7589985769.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-mario-kart-world-globalnaya-versiya-256-gb-7-9-dyuymovyy-2228064137/?at=x6tPpqD3jc4G6r6qhxgBP2GsZXyx9pTnWDPr8FNYyw2q",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2329639262",
+        "name": "Nintendo Switch 2 Mario Kart World Черный",
+        "price": 45294,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7609235453.jpg",
+        "product_url": "https://www.ozon.ru/product/nintendo-switch-2-mario-kart-world-chernyy-2329639262/?at=K8tZQxPGkc2qx8Jvh8L8y0phyW7jJ5SnNwr4VhkAqROz",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2349727262",
+        "name": "Игровая приставка Комплект Nintendo Switch 2 256 ГБ + Mario Kart World, глобальная версия, черный",
+        "price": 49642,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7655512183.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-komplekt-nintendo-switch-2-256-gb-mario-kart-world-globalnaya-versiya-chernyy-2349727262/?at=w0tg5ZkWnIKxWWVLsDlP8VVcAPBp2jIqV5KY1S4wzZ1y",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2196736040",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ Black",
+        "price": 51180,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7573151090.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-black-2196736040/?at=79tnrj2JYCGNNLwqcQx9B9nUng4nlMiJBM55Zc8xj9z6",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2335510783",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ Black",
+        "price": 54271,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7573151090.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-black-2335510783/?at=r2t4y37GOim5JqYqtMwMrD9cNrnYWvIzGjzmJFBxxP8k",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2323513527",
+        "name": "Портативная игровая приставка Nintendo Switch 2 Mario Kart World Bundle (HK), экран 7.9&#34;, 120Гц, черный",
+        "price": 66244,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7634248369.jpg",
+        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-pristavka-nintendo-switch-2-mario-kart-world-bundle-hk-ekran-7-9-2323513527/?at=LZtl0MVZ2cgmJ3m7sLvxgEmHPAkrLDiREq8r8T58WBMq",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2318000813",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ Black",
+        "price": 67388,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7573151090.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-black-2318000813/?at=NOtwY5JGpcl7pkR3h0zA1OAcARx425SGRvlLrhB5qvZx",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2323776324",
+        "name": "Портативная игровая приставка Nintendo Switch 2 Mario Kart World Bundle (HK), экран 7.9&#34;, 120Гц, черный",
+        "price": 86334,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7634248369.jpg",
+        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-pristavka-nintendo-switch-2-mario-kart-world-bundle-hk-ekran-7-9-2323776324/?at=QktJn4gyLcj4r9qrC09xg3gFAEMNKrioDXKPNiJj7BRN",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "1103828082",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 102851,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-1103828082/?at=36tWjYoEvIXXWjY2t7QqLZgIpQj3KWfE33DyKs6w6NzX",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2323702646",
+        "name": "Портативная игровая приставка Nintendo Switch 2 Mario Kart World Bundle (HK), экран 7.9&#34;, 120Гц, черный",
+        "price": 105784,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7634248369.jpg",
+        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-pristavka-nintendo-switch-2-mario-kart-world-bundle-hk-ekran-7-9-2323702646/?at=A6tGxJBz5c8K9xV6UQDpDlwTlmzX7mc8NZq01ULnOvjL",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2349726483",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 110252,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7655503840.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2349726483/?at=LZtl0MVZ2cGgM5GBHo8WwQKFJL3WVvUJNy09qfVD91J",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2350900260",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 110252,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2350900260/?at=VvtzVjmR8I0lqJPntz3PD8gc331RQKt5vB5JrfPEqYMG",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2350889039",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 110252,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2350889039/?at=qQtJg6novcNPRK2kh044RglHMVVon7sKOX7LGfpl2vAJ",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2349727271",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 110252,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7655503840.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2349727271/?at=jYtZz1Dv0c7KqlXpTDDGz4cz5wy46TM8G2VXCJz4X2V",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      },
+      {
+        "id": "2349724943",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+        "price": 110390,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7655503840.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2349724943/?at=J8tgkLlDoIGxP3BOClK65ryiGJLj88u791v7vt67v3pV",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch oled"
+      }
+    ],
+    "total_count": 30,
+    "source": "ozon"
+  },
+  "query": "nintendo switch oled",
+  "category": "nintendo_switch",
+  "platform_id": "101858153"
+}

@@ -1,0 +1,881 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "449924198",
+        "name": "Защитное стекло для Nintendo Switch Oled",
+        "price": 836,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449924198/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "390565572",
+        "name": "Стик Joy Con Cтик для Switch с датчиком холла",
+        "price": 897,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390565572/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444632742",
+        "name": "Набор для Nintendo Switch Oled Uni-Style 0998",
+        "price": 1064,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444632742/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444646263",
+        "name": "Набор для Nintendo Switch OLED 1001",
+        "price": 1258,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444646263/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "324696856",
+        "name": "Панель для Nintendo Switch в аниме стиле Ц Чёрный Логотип",
+        "price": 2317,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/324696856/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444491200",
+        "name": "Игровая приставка Switch Lite 32 GB",
+        "price": 17600,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444491200/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "440648837",
+        "name": "Игровая приставка Switch Lite 32 GB",
+        "price": 17600,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440648837/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "442101355",
+        "name": "Игровая приставка Switch Lite 32 GB",
+        "price": 17600,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/442101355/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444483305",
+        "name": "Игровая приставка Switch Lite 32 GB",
+        "price": 17600,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444483305/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "442284083",
+        "name": "Игровая приставка Switch Lite 32 GB",
+        "price": 17600,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/442284083/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "314960457",
+        "name": "Игровая приставка Switch OLED",
+        "price": 21980,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/314960457/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "326247245",
+        "name": "Игровая приставка Switch OLED",
+        "price": 21980,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/326247245/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "169733496",
+        "name": "Switch OLED 64 Гб, неоновый",
+        "price": 24200,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/169733496/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "155181247",
+        "name": "Игровая консоль Switch OLED Neon",
+        "price": 24410,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/155181247/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "155179629",
+        "name": "Игровая консоль Switch OLED White",
+        "price": 24410,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/155179629/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447740013",
+        "name": "Nintendo Switch OLED Белый",
+        "price": 24481,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447740013/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "307518844",
+        "name": "Игровая консоль Switch OLED",
+        "price": 24798,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/307518844/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "307518845",
+        "name": "Игровая консоль Switch OLED",
+        "price": 24798,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/307518845/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "362483740",
+        "name": "Игровая консоль Switch OLED White",
+        "price": 26449,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/362483740/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "440597854",
+        "name": "Игровая консоль Switch OLED Neon",
+        "price": 26400,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440597854/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "440592676",
+        "name": "Игровая консоль Switch OLED White",
+        "price": 26400,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440592676/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "180120899",
+        "name": "Nintendo switch v2+ hwfly",
+        "price": 26928,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/180120899/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "430230181",
+        "name": "Игровая приставка Switch OLED 64 ГБ, белый",
+        "price": 27090,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430230181/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "362483744",
+        "name": "Игровая консоль Switch OLED Neon",
+        "price": 27616,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/362483744/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "446081556",
+        "name": "Игровая приставка Switch OLED 64 ГБ, без игр, белый",
+        "price": 27801,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/446081556/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "430219173",
+        "name": "Игровая приставка Switch OLED 64 ГБ, Неон",
+        "price": 27993,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430219173/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444608457",
+        "name": "Прошитая игровая консоль Switch Rev.2 c играми 256",
+        "price": 30764,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444608457/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "238124686",
+        "name": "Портативная приставка OLED 64GB Неон Япония",
+        "price": 31653,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/238124686/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "378752899",
+        "name": "Игровая приставка Switch OLED, неон",
+        "price": 31759,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/378752899/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "333345267",
+        "name": "Игровая приставка OLED (blue red)",
+        "price": 32716,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/333345267/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "378198351",
+        "name": "Прошитая Nintendo Switch OLED Neon Blue Red 128 GB (Новая)",
+        "price": 32731,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/378198351/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "440609668",
+        "name": "Игровая консоль Switch OLED Zelda",
+        "price": 33000,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440609668/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "450897111",
+        "name": "Игровая приставка Switch OLED (Новый)",
+        "price": 33061,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450897111/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "214552516",
+        "name": "Игровая приставка Switch (OLED-модель) синий красный",
+        "price": 33352,
+        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/214552516/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "282958411",
+        "name": "Игровая приставка Switch - OLED Splatoon3 Edition",
+        "price": 34320,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/282958411/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "353629290",
+        "name": "Игровая консоль Switch OLED+Sniper Elite V2",
+        "price": 35191,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/353629290/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "375906324",
+        "name": "Switch 2рев Прошитая Игровая приставка серая",
+        "price": 35795,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/375906324/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "322963440",
+        "name": "Switch Lite Прошитая игровая приставка золотая",
+        "price": 42548,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/322963440/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "146255977",
+        "name": "Switch OLED Прошитая игровая приставка + 25 игр",
+        "price": 42676,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/146255977/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "422760425",
+        "name": "Игровая приставка Switch 2 Без игр",
+        "price": 46070,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422760425/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "423036181",
+        "name": "Игровая консоль Switch 2 Игра в комплекте",
+        "price": 46894,
+        "image_url": "https://images.wbstatic.net/c516x688/17.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423036181/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "422972242",
+        "name": "Игровая приставка Switch 2",
+        "price": 48411,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422972242/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "449548824",
+        "name": "Игровая консоль Switch 2 Игра в комплекте",
+        "price": 48360,
+        "image_url": "https://images.wbstatic.net/c516x688/17.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449548824/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "451726753",
+        "name": "Игровая консоль Switch 2 - глобальная версия",
+        "price": 48753,
+        "image_url": "https://images.wbstatic.net/c516x688/19.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/451726753/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "455347387",
+        "name": "Игровая приставка Switch 2 + игра Mario Kart World",
+        "price": 49818,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/455347387/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "455262052",
+        "name": "Игровая приставка Switch 2 + игра Mario Kart World",
+        "price": 49875,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/455262052/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "422760426",
+        "name": "Игровая приставка Switch 2 Mario Kart World",
+        "price": 50081,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422760426/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "421905029",
+        "name": "Игровая консоль Switch 2",
+        "price": 50160,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421905029/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "425300320",
+        "name": "Игровая консоль Switch 2",
+        "price": 51920,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/425300320/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "438038442",
+        "name": "Игровая консоль Switch 2",
+        "price": 52052,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438038442/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "439926492",
+        "name": "Игровая консоль Switch 2",
+        "price": 52052,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439926492/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "428912205",
+        "name": "Игровая консоль Switch 2",
+        "price": 52078,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428912205/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "428913487",
+        "name": "Игровой набор Switch 2 (включая Mario Kart World)",
+        "price": 52212,
+        "image_url": "https://images.wbstatic.net/c516x688/19.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428913487/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "427373813",
+        "name": "Игровая консоль Switch 2 (включая Mario Kart World)",
+        "price": 52212,
+        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/427373813/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "422767623",
+        "name": "Игровой набор Switch 2 (включая Mario Kart World)HK",
+        "price": 52549,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422767623/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "450716313",
+        "name": "Игровой набор Switch 2 (включая Mario Kart World)HK",
+        "price": 52561,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450716313/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447712974",
+        "name": "Игровая консоль Switch 2",
+        "price": 52852,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447712974/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "452372375",
+        "name": "Игровая консоль Switch 2 Bundle Mario Kart World",
+        "price": 53101,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452372375/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "419979813",
+        "name": "Игровая консоль Switch 2 OLED+Мир Марио Картинга",
+        "price": 53101,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419979813/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "421904961",
+        "name": "Комплект Switch 2 + Mario Kart World, 12 ГБ 256 ГБ черный",
+        "price": 53101,
+        "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421904961/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447209224",
+        "name": "Игровая приставка Switch 2",
+        "price": 54551,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447209224/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "450560877",
+        "name": "Игровая приставка Switch 2",
+        "price": 54551,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450560877/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447342829",
+        "name": "Игровая приставка Switch 2",
+        "price": 54560,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447342829/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "431099972",
+        "name": "Игровая приставка Switch 2",
+        "price": 56760,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/431099972/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "445417388",
+        "name": "Игровая приставка Switch 2 Mario Kart Bundle",
+        "price": 57199,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445417388/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "439893725",
+        "name": "Игровая приставка Switch 2 + Mario Kart World",
+        "price": 57152,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439893725/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "443891210",
+        "name": "Nintendo Switch 2 с игрой Mario Kart World",
+        "price": 57466,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443891210/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "254339905",
+        "name": "Switch OLED Прошитая игровая приставка + 120 игр",
+        "price": 57437,
+        "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/254339905/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447576666",
+        "name": "Игровая приставка Switch 2 + игра Mario Kart World",
+        "price": 57596,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447576666/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "440763415",
+        "name": "Игровая консоль Switch 2 Bundle Mario Kart World",
+        "price": 57638,
+        "image_url": "https://images.wbstatic.net/c516x688/17.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440763415/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447342830",
+        "name": "Игровая приставка Switch 2 + Mario kart World",
+        "price": 58080,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447342830/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "438293764",
+        "name": "Игровая консоль Switch 2",
+        "price": 59840,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438293764/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "438860946",
+        "name": "Игровая приставка Switch 2 256GB + Mario Kart World Bundle",
+        "price": 59840,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438860946/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "454892005",
+        "name": "Игровая консоль Switch 2 Игра в комплекте",
+        "price": 59840,
+        "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/454892005/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "445962049",
+        "name": "Игровая приставка 2",
+        "price": 60588,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445962049/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "443776796",
+        "name": "Приставка Switch 2 (256 Гб)",
+        "price": 60535,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443776796/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "452593187",
+        "name": "Switch 2, 256 ГБ, черный",
+        "price": 62440,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452593187/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "262614279",
+        "name": "Switch OLED Прошитая игровая приставка + 120 игр",
+        "price": 62506,
+        "image_url": "https://images.wbstatic.net/c516x688/17.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/262614279/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444551241",
+        "name": "Игровая приставка Switch 2 256 GB, Чёрный",
+        "price": 63109,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444551241/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "445417488",
+        "name": "Игровая приставка Switch 2 Mario Kart Bundle",
+        "price": 64999,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445417488/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "263211548",
+        "name": "Switch OLED Прошитая игровая приставка + 220 игр",
+        "price": 65533,
+        "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/263211548/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "443739193",
+        "name": "Приставка Switch 2 (256 Гб) + Mario Kart World (код)",
+        "price": 66000,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443739193/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "444553091",
+        "name": "Игровая приставка Switch 2 + Mario Kart World",
+        "price": 67554,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444553091/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "455379096",
+        "name": "Игровой набор Switch 2 (включая Mario Kart World)",
+        "price": 90663,
+        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/455379096/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "438916525",
+        "name": "Игровая приставка Switch 2 Mario Kart World Bundle",
+        "price": 191821,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438916525/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "447229391",
+        "name": "Игровая приставка Switch 2",
+        "price": 57200,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447229391/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      },
+      {
+        "id": "438913971",
+        "name": "Игровая приставка Switch 2",
+        "price": 191923,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438913971/detail.aspx",
+        "category": "nintendo_switch",
+        "source": "wb",
+        "query": "nintendo switch 2"
+      }
+    ],
+    "total_count": 87,
+    "source": "wb"
+  },
+  "query": "nintendo switch 2",
+  "category": "nintendo_switch"
+}

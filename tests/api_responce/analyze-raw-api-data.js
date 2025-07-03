@@ -27,6 +27,20 @@ const testQueries = {
     'B760',
     'X870E',
     'B850'
+  ],
+  playstation: [
+    'PlayStation 5',
+    'PS5',
+    'PlayStation 5 Slim'
+  ],
+  playstation_accessories: [
+    'DualSense',
+    'PlayStation 5 Controller',
+    'PS5 Headset'
+  ],
+  nintendo_switch: [
+    'nintendo switch 2',
+    'nintendo switch oled',
   ]
 };
 
@@ -45,8 +59,21 @@ const rawProductService = protoDescriptor.raw_product;
 const CATEGORY_MAP = {
   videocards: { ozon: 'videokarty-15721', wb: '3274' },
   processors: { ozon: 'protsessory-15726', wb: '3698' },
-  motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' }
+  motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' },
+  playstation: { ozon: 'konsoli-playstation-31751/playstation-79966341', wb: '8829' },
+  playstation_accessories: { ozon: 'aksessuary-dlya-igrovyh-pristavok-15810', wb: '5923' },
+  nintendo_switch: { ozon: 'igrovye-pristavki-15801/nintendo-26667979', wb: '523' }
 };
+
+// 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ (как в Product-Filter-Service)
+const QUERY_PLATFORMS = {
+  'nintendo switch 2': '101858153',
+  'nintendo switch oled': '101858153',
+};
+
+function getPlatformId(query) {
+  return QUERY_PLATFORMS[query] || null;
+}
 
 async function ensureOutputDir() {
   try {
@@ -109,6 +136,12 @@ async function testWBApi(categoryKey, query) {
 async function testOzonApi(categoryKey, query) {
   console.log(`🔍 Ozon API gRPC: ${categoryKey} - "${query}"`);
   
+  // Определяем платформу для запроса
+  const platformId = getPlatformId(query);
+  if (platformId) {
+    console.log(`🎮 Найдена платформа для "${query}": ${platformId}`);
+  }
+  
   return new Promise((resolve) => {
     const client = new rawProductService.RawProductService(
       OZON_API_GRPC_URL,
@@ -118,7 +151,8 @@ async function testOzonApi(categoryKey, query) {
     const request = {
       query: query,
       category: CATEGORY_MAP[categoryKey].ozon,
-      categoryKey
+      categoryKey,
+      platform_id: platformId || undefined
     };
 
     client.GetRawProducts(request, (error, response) => {
@@ -128,7 +162,8 @@ async function testOzonApi(categoryKey, query) {
           success: false,
           error: error.message,
           query,
-          category: categoryKey
+          category: categoryKey,
+          platform_id: platformId
         });
       } else {
         // В ответе подменяем category на categoryKey для единообразия
@@ -139,7 +174,8 @@ async function testOzonApi(categoryKey, query) {
           success: true,
           data: response,
           query,
-          category: categoryKey
+          category: categoryKey,
+          platform_id: platformId
         });
       }
       
@@ -189,7 +225,11 @@ async function analyzeResults(results) {
       const ozonResult = queryResults.ozon;
       if (ozonResult.success) {
         const products = ozonResult.data?.products || [];
+        const platformId = ozonResult.platform_id;
         console.log(`    Ozon API gRPC: ✅ ${products.length} товаров`);
+        if (platformId) {
+          console.log(`      🎮 Платформа: ${platformId}`);
+        }
         
         if (products.length > 0) {
           const sample = products[0];
@@ -261,6 +301,8 @@ async function main() {
   console.log(`   • ozon-rtx5070.json - Ozon API данные для RTX 5070`);
   console.log(`   • wb-7800x3d.json - WB API данные для процессора`);
   console.log(`   • ozon-7800x3d.json - Ozon API данные для процессора`);
+  console.log(`   • wb-nintendo-switch-2.json - WB API данные для Nintendo Switch 2`);
+  console.log(`   • ozon-nintendo-switch-2.json - Ozon API данные для Nintendo Switch 2 (с платформой)`);
   console.log(`   • all-results-${timestamp}.json - общие результаты`);
 }
 

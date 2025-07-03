@@ -263,21 +263,21 @@
         "query": "B850"
       },
       {
-        "id": "328051316",
-        "name": "Материнская плата B850M DS3H с разъемом AM5",
-        "price": 14367,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/328051316/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "312653656",
         "name": "Gigabyte B850M DS3H Сокет AM5 DDR5",
         "price": 14367,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/312653656/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "328051316",
+        "name": "Материнская плата B850M DS3H с разъемом AM5",
+        "price": 14367,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/328051316/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"
@@ -433,16 +433,6 @@
         "query": "B850"
       },
       {
-        "id": "357175684",
-        "name": "B850M GAMING X WIFI6E материнская плата",
-        "price": 16107,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/357175684/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "446204484",
         "name": "Материнская плата B850M D3HP, RTL",
         "price": 16260,
@@ -503,21 +493,21 @@
         "query": "B850"
       },
       {
-        "id": "311061227",
-        "name": "Материнская плата B850M GAMING X WIFI6E AM5 AMD B850 mATX RT",
-        "price": 16409,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/311061227/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "311062032",
         "name": "Материнская плата B850M GAMING X WIFI6E AM5 AMD B850 mATX RT",
         "price": 16409,
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/311062032/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "311061227",
+        "name": "Материнская плата B850M GAMING X WIFI6E AM5 AMD B850 mATX RT",
+        "price": 16409,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/311061227/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"
@@ -673,21 +663,21 @@
         "query": "B850"
       },
       {
-        "id": "401392480",
-        "name": "B850M AORUS ELITE WIFI6E ICE материнская плата",
-        "price": 17543,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/401392480/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "401391941",
         "name": "B850M AORUS ELITE WIFI6E ICE материнская плата",
         "price": 17543,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/401391941/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "401392480",
+        "name": "B850M AORUS ELITE WIFI6E ICE материнская плата",
+        "price": 17543,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/401392480/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"
@@ -713,21 +703,21 @@
         "query": "B850"
       },
       {
-        "id": "288608555",
-        "name": "Материнская плата B850M AORUS ELITE WIFI6E ICE AM5 AMD B850",
-        "price": 17642,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/288608555/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "286295669",
         "name": "Материнская плата B850M AORUS ELITE WIFI6E ICE AM5 AMD B850",
         "price": 17642,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/286295669/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "288608555",
+        "name": "Материнская плата B850M AORUS ELITE WIFI6E ICE AM5 AMD B850",
+        "price": 17642,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/288608555/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"
@@ -953,21 +943,21 @@
         "query": "B850"
       },
       {
-        "id": "447754133",
-        "name": "Материнская плата B850M AORUS ELITE WIFI6E AM5 AMD B850 mATX",
-        "price": 18976,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/447754133/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B850"
-      },
-      {
         "id": "447754141",
         "name": "Материнская плата B850M AORUS ELITE WIFI6E AM5 AMD B850 mATX",
         "price": 18976,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/447754141/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "447754133",
+        "name": "Материнская плата B850M AORUS ELITE WIFI6E AM5 AMD B850 mATX",
+        "price": 18976,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447754133/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"
@@ -998,6 +988,16 @@
         "price": 19244,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440626639/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B850"
+      },
+      {
+        "id": "334665019",
+        "name": "Материнская плата TUF GAMING B850M-PLUS AM5 AMD B850 mATX RT",
+        "price": 19431,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/334665019/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850"

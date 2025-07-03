@@ -143,21 +143,21 @@
         "query": "7800x3d"
       },
       {
-        "id": "221748922",
-        "name": "RYZEN 9 7950X3D",
-        "price": 31814,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/221748922/detail.aspx",
-        "category": "processors",
-        "source": "wb",
-        "query": "7800x3d"
-      },
-      {
         "id": "231028749",
         "name": "7 7800X3D",
         "price": 31814,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/231028749/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "7800x3d"
+      },
+      {
+        "id": "221748922",
+        "name": "RYZEN 9 7950X3D",
+        "price": 31814,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/221748922/detail.aspx",
         "category": "processors",
         "source": "wb",
         "query": "7800x3d"
@@ -313,21 +313,21 @@
         "query": "7800x3d"
       },
       {
-        "id": "371598325",
-        "name": "Ryzen7 7800X3D Процессор",
-        "price": 36780,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/371598325/detail.aspx",
-        "category": "processors",
-        "source": "wb",
-        "query": "7800x3d"
-      },
-      {
         "id": "371570775",
         "name": "Ryzen7 7800X3D BOX Процессор",
         "price": 36780,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/371570775/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "7800x3d"
+      },
+      {
+        "id": "371598325",
+        "name": "Ryzen7 7800X3D Процессор",
+        "price": 36780,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/371598325/detail.aspx",
         "category": "processors",
         "source": "wb",
         "query": "7800x3d"

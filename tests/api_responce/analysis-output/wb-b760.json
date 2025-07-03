@@ -83,16 +83,6 @@
         "query": "B760"
       },
       {
-        "id": "330717385",
-        "name": "Материнская плата B760D5-MA-V4",
-        "price": 5567,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/330717385/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "B760"
-      },
-      {
         "id": "254848370",
         "name": "Материнская плата B760M D4 M-ATX DDR4, поддерживающая 12 и 1…",
         "price": 5876,
@@ -998,6 +988,16 @@
         "price": 8669,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/278325383/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "233623077",
+        "name": "Материнская плата PRO B760M-E",
+        "price": 8654,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/233623077/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B760"
