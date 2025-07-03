@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { RedisService } from './redis.service';
 import { PhotoService } from './photo.service';
+import { PriceStatisticsService, PriceChange } from './price-statistics.service';
 import { OzonApiClient } from '../grpc-clients/ozon-api.client';
 import { WbApiClient } from '../grpc-clients/wb-api.client';
 import { fileLogger } from '../utils/logger';
@@ -87,6 +88,7 @@ export class ProductsService {
   constructor(
     private readonly redisService: RedisService,
     private readonly photoService: PhotoService,
+    private readonly priceStatisticsService: PriceStatisticsService,
     private readonly ozonApiClient: OzonApiClient,
     private readonly wbApiClient: WbApiClient
   ) {}
@@ -608,6 +610,16 @@ export class ProductsService {
     let cacheHits = 0;
     let cacheMisses = 0;
     const allProducts: ProcessedProduct[] = [];
+    const priceChanges: Array<{
+      query: string;
+      category: string;
+      oldPrice: number;
+      newPrice: number;
+      changePercent: number;
+      changeType: 'decrease' | 'increase' | 'no_change';
+      productName: string;
+      source: string;
+    }> = [];
 
     // Получаем данные от всех API параллельно
     const [wbProducts, ozonProducts] = await Promise.all([
@@ -640,12 +652,31 @@ export class ProductsService {
         } else {
           cacheMisses++;
         }
+        
+        // Собираем статистику изменений цен
+        if (cacheResult.priceChange) {
+          priceChanges.push({
+            query: product.query,
+            category: product.category,
+            oldPrice: cacheResult.priceChange.oldPrice,
+            newPrice: cacheResult.priceChange.newPrice,
+            changePercent: cacheResult.priceChange.changePercent,
+            changeType: cacheResult.priceChange.changeType,
+            productName: product.name,
+            source: product.source
+          });
+        }
       }
+    }
+
+    // Сохраняем статистику изменений цен
+    if (priceChanges.length > 0) {
+      await this.priceStatisticsService.savePriceChanges(priceChanges);
     }
 
     const processingTimeMs = Date.now() - startTime;
     
-    this.logger.log(`✅ Готово: ${finalProducts.length} продуктов за ${processingTimeMs}ms (кэш: ${cacheHits} hits, ${cacheMisses} misses)`);
+    this.logger.log(`✅ Готово: ${finalProducts.length} продуктов за ${processingTimeMs}ms (кэш: ${cacheHits} hits, ${cacheMisses} misses, изменений цен: ${priceChanges.length})`);
 
     return {
       products: finalProducts,
@@ -899,35 +930,50 @@ export class ProductsService {
 
   /**
    * Обрабатывает кэш для одного продукта
+   * Кеширование по query, а не по ID товара
    * Возвращает true если продукт нужно отдать боту
    */
   private async processCacheForProduct(product: ProcessedProduct): Promise<{
     shouldReturn: boolean;
     product: ProcessedProduct;
     fromCache: boolean;
+    priceChange?: {
+      oldPrice: number;
+      newPrice: number;
+      changePercent: number;
+      changeType: 'decrease' | 'increase' | 'no_change';
+    };
   }> {
-    const cacheKey = `product:${product.category}:${product.query}:${product.id}`;
-    
-    // Если это WB API товар - обрабатываем фото
-    if (product.source === 'wb' && product.image_url) {
-      try {
-        this.logger.log(`🖼️ Обрабатываем фото для WB товара: ${product.name}`);
-        const processedImageUrl = await this.photoService.processImageUrl(product.image_url);
-        product.image_url = processedImageUrl;
-        this.logger.log(`✅ Фото обработано: ${processedImageUrl}`);
-      } catch (error) {
-        this.logger.error(`❌ Ошибка обработки фото: ${error.message}`);
-      }
-    }
+    const cacheKey = `product:${product.category}:${product.query}`;
     
     try {
-      // Получаем кэшированную цену
+      // Получаем кэшированную цену по query
       const cachedData = await this.redisService.get(cacheKey);
       
       if (!cachedData) {
-        // Новый товар - кэшируем и отдаем
-        await this.redisService.set(cacheKey, product.price.toString());
-        this.logger.debug(`🆕 Новый товар: ${product.name} за ${product.price}₽`);
+        // Новый товар для этого query - кэшируем и отдаем
+        // Обрабатываем фото для WB API товаров перед кешированием
+        if (product.source === 'wb' && product.image_url) {
+          try {
+            this.logger.log(`🖼️ Обрабатываем фото для нового WB товара: ${product.name}`);
+            const processedImageUrl = await this.photoService.processImageUrl(product.image_url);
+            product.image_url = processedImageUrl;
+            this.logger.log(`✅ Фото обработано: ${processedImageUrl}`);
+          } catch (error) {
+            this.logger.error(`❌ Ошибка обработки фото: ${error.message}`);
+          }
+        }
+        
+        // Кешируем товар с обработанным фото
+        await this.redisService.set(cacheKey, JSON.stringify({
+          price: product.price,
+          name: product.name,
+          id: product.id,
+          source: product.source,
+          image_url: product.image_url
+        }));
+        
+        this.logger.debug(`🆕 Новый товар для query "${product.query}": ${product.name} за ${product.price}₽`);
         
         return {
           shouldReturn: true,
@@ -936,42 +982,113 @@ export class ProductsService {
         };
       }
 
-      const cachedPrice = parseInt(cachedData);
+      // Парсим кэшированные данные
+      let cachedProduct;
+      try {
+        cachedProduct = JSON.parse(cachedData);
+      } catch (e) {
+        // Если не удалось распарсить - считаем что это старая версия с только ценой
+        const cachedPrice = parseInt(cachedData);
+        cachedProduct = { price: cachedPrice };
+      }
+
+      const cachedPrice = cachedProduct.price;
       
       if (product.price < cachedPrice) {
         // Цена стала лучше - обновляем кэш и отдаем
-        await this.redisService.set(cacheKey, product.price.toString());
         const discountPercent = ((cachedPrice - product.price) / cachedPrice) * 100;
         
-        this.logger.log(`📉 Цена упала: ${product.name} с ${cachedPrice}₽ до ${product.price}₽ (скидка ${discountPercent.toFixed(1)}%)`);
+        // Обрабатываем фото для WB API товаров перед кешированием
+        if (product.source === 'wb' && product.image_url) {
+          try {
+            this.logger.log(`🖼️ Обрабатываем фото для WB товара с лучшей ценой: ${product.name}`);
+            const processedImageUrl = await this.photoService.processImageUrl(product.image_url);
+            product.image_url = processedImageUrl;
+            this.logger.log(`✅ Фото обработано: ${processedImageUrl}`);
+          } catch (error) {
+            this.logger.error(`❌ Ошибка обработки фото: ${error.message}`);
+          }
+        }
+        
+        // Кешируем новый товар с обработанным фото
+        await this.redisService.set(cacheKey, JSON.stringify({
+          price: product.price,
+          name: product.name,
+          id: product.id,
+          source: product.source,
+          image_url: product.image_url
+        }));
+        
+        this.logger.log(`📉 Цена упала для query "${product.query}": ${product.name} с ${cachedPrice}₽ до ${product.price}₽ (скидка ${discountPercent.toFixed(1)}%)`);
         
         return {
           shouldReturn: true,
           product: { ...product, discount_percent: discountPercent },
-          fromCache: false
+          fromCache: false,
+          priceChange: {
+            oldPrice: cachedPrice,
+            newPrice: product.price,
+            changePercent: discountPercent,
+            changeType: 'decrease'
+          }
         };
       } else if (product.price === cachedPrice) {
         // Цена не изменилась - не отдаем
-        this.logger.debug(`➡️ Цена не изменилась: ${product.name} - ${product.price}₽`);
+        this.logger.debug(`➡️ Цена не изменилась для query "${product.query}": ${product.name} - ${product.price}₽`);
         
         return {
           shouldReturn: false,
           product,
-          fromCache: true
+          fromCache: true,
+          priceChange: {
+            oldPrice: cachedPrice,
+            newPrice: product.price,
+            changePercent: 0,
+            changeType: 'no_change'
+          }
         };
       } else {
-        // Цена выросла - не отдаем
-        this.logger.debug(`📈 Цена выросла: ${product.name} с ${cachedPrice}₽ до ${product.price}₽`);
+        // Цена выросла - обновляем кэш и отдаем (новый товар может быть лучше)
+        const increasePercent = ((product.price - cachedPrice) / cachedPrice) * 100;
+        
+        // Обрабатываем фото для WB API товаров перед кешированием
+        if (product.source === 'wb' && product.image_url) {
+          try {
+            this.logger.log(`🖼️ Обрабатываем фото для WB товара с новой ценой: ${product.name}`);
+            const processedImageUrl = await this.photoService.processImageUrl(product.image_url);
+            product.image_url = processedImageUrl;
+            this.logger.log(`✅ Фото обработано: ${processedImageUrl}`);
+          } catch (error) {
+            this.logger.error(`❌ Ошибка обработки фото: ${error.message}`);
+          }
+        }
+        
+        // Кешируем новый товар с обработанным фото
+        await this.redisService.set(cacheKey, JSON.stringify({
+          price: product.price,
+          name: product.name,
+          id: product.id,
+          source: product.source,
+          image_url: product.image_url
+        }));
+        
+        this.logger.log(`📈 Цена выросла для query "${product.query}": ${product.name} с ${cachedPrice}₽ до ${product.price}₽ (+${increasePercent.toFixed(1)}%)`);
         
         return {
-          shouldReturn: false,
-          product,
-          fromCache: true
+          shouldReturn: true,
+          product: { ...product },
+          fromCache: false,
+          priceChange: {
+            oldPrice: cachedPrice,
+            newPrice: product.price,
+            changePercent: increasePercent,
+            changeType: 'increase'
+          }
         };
       }
       
     } catch (error) {
-      this.logger.error(`❌ Ошибка обработки кэша для ${product.id}:`, error);
+      this.logger.error(`❌ Ошибка обработки кэша для query "${product.query}":`, error);
       
       // В случае ошибки кэша - отдаем продукт
       return {
@@ -1080,4 +1197,6 @@ export class ProductsService {
       return 0;
     }
   }
+
+
 } 

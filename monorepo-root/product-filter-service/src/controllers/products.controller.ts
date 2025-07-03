@@ -183,6 +183,8 @@ export class ProductsController {
     }
   }
 
+
+
   /**
    * Проверка подключения к Redis
    */
