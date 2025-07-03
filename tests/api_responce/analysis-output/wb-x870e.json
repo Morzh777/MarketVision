@@ -15,7 +15,7 @@
       {
         "id": "350845363",
         "name": "X870-P WIFI Материнская плата Сокет AM5",
-        "price": 27186,
+        "price": 27206,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845363/detail.aspx",
         "category": "motherboards",
@@ -23,9 +23,39 @@
         "query": "X870E"
       },
       {
+        "id": "443613037",
+        "name": "Материнская плата X870E GAMING PLUS WIFI AM5 AMD X870E ATX R",
+        "price": 28499,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443613037/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "447754318",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
+        "price": 28776,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447754318/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "447754336",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
+        "price": 28776,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/447754336/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "431563706",
         "name": "X870E AORUS PRO ICE материнская плата",
-        "price": 29069,
+        "price": 29090,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/431563706/detail.aspx",
         "category": "motherboards",
@@ -35,7 +65,7 @@
       {
         "id": "366101212",
         "name": "X870E AORUS PRO ICE материнская плата",
-        "price": 29092,
+        "price": 29113,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/366101212/detail.aspx",
         "category": "motherboards",
@@ -45,7 +75,7 @@
       {
         "id": "368484638",
         "name": "X870E AORUS PRO ICE системная плата",
-        "price": 29919,
+        "price": 29941,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/368484638/detail.aspx",
         "category": "motherboards",
@@ -53,19 +83,9 @@
         "query": "X870E"
       },
       {
-        "id": "443613037",
-        "name": "Материнская плата X870E GAMING PLUS WIFI AM5 AMD X870E ATX R",
-        "price": 30012,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/443613037/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "363034954",
         "name": "AM5 X870E AORUS ELITE WIFI7 Материнская плата",
-        "price": 30206,
+        "price": 30228,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034954/detail.aspx",
         "category": "motherboards",
@@ -83,29 +103,9 @@
         "query": "X870E"
       },
       {
-        "id": "447754336",
-        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
-        "price": 30490,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/447754336/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
-        "id": "447754318",
-        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE AM5 AMD X870E",
-        "price": 30490,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/447754318/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "291811361",
         "name": "Материнская плата X870E A ELITE WIFI7",
-        "price": 30557,
+        "price": 30591,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291811361/detail.aspx",
         "category": "motherboards",
@@ -115,7 +115,7 @@
       {
         "id": "291699707",
         "name": "X870 AORUS ELITE WF7 Материнская плата AM5",
-        "price": 30971,
+        "price": 30994,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291699707/detail.aspx",
         "category": "motherboards",
@@ -123,9 +123,29 @@
         "query": "X870E"
       },
       {
+        "id": "272696373",
+        "name": "Материнская плата X870E AORUS PRO ICE AM5 AMD X870E ATX RTL",
+        "price": 31243,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/272696373/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "288608495",
+        "name": "Материнская плата X870E AORUS PRO ICE AM5 AMD X870E ATX RTL",
+        "price": 31243,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/288608495/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "350845364",
         "name": "X870 GAMING PLUS WIFI Материнская плата Сокет AM5",
-        "price": 31268,
+        "price": 31291,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845364/detail.aspx",
         "category": "motherboards",
@@ -133,11 +153,11 @@
         "query": "X870E"
       },
       {
-        "id": "447462384",
-        "name": "Материнская плата AM5 X870E AORUS PRO ICE",
-        "price": 31687,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/447462384/detail.aspx",
+        "id": "333080131",
+        "name": "Материнская плата MAG X870E TOMAHAWK WIFI AM5 AMD X870E ATX",
+        "price": 31892,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/333080131/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -145,7 +165,7 @@
       {
         "id": "445988312",
         "name": "Материнская плата MAG X870E TOMAHAWK WIFI",
-        "price": 32597,
+        "price": 32691,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/445988312/detail.aspx",
         "category": "motherboards",
@@ -155,7 +175,7 @@
       {
         "id": "336234498",
         "name": "Материнская плата MAG X870E TOMAHAWK WIFI SocketAM5 AMD X870",
-        "price": 32827,
+        "price": 32929,
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/336234498/detail.aspx",
         "category": "motherboards",
@@ -163,29 +183,9 @@
         "query": "X870E"
       },
       {
-        "id": "288608495",
-        "name": "Материнская плата X870E AORUS PRO ICE AM5 AMD X870E ATX RTL",
-        "price": 33226,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/288608495/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
-        "id": "272696373",
-        "name": "Материнская плата X870E AORUS PRO ICE AM5 AMD X870E ATX RTL",
-        "price": 33226,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/272696373/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "423272140",
         "name": "Материнская плата X870E AORUS PRO ICE",
-        "price": 33541,
+        "price": 33643,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423272140/detail.aspx",
         "category": "motherboards",
@@ -193,19 +193,9 @@
         "query": "X870E"
       },
       {
-        "id": "333080131",
-        "name": "Материнская плата MAG X870E TOMAHAWK WIFI AM5 AMD X870E ATX",
-        "price": 33833,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/333080131/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "299554314",
         "name": "Материнская плата X870E AORUS PRO",
-        "price": 33864,
+        "price": 33966,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/299554314/detail.aspx",
         "category": "motherboards",
@@ -213,29 +203,9 @@
         "query": "X870E"
       },
       {
-        "id": "272859106",
-        "name": "Материнская плата ATX X870E A ELITE WIFI7 Socket AM5",
-        "price": 34425,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/272859106/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
-        "id": "418143135",
-        "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E 4xDDR5",
-        "price": 34785,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/418143135/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "439022541",
         "name": "Материнская плата X870E AORUS ELITE WIFI7",
-        "price": 35187,
+        "price": 34814,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439022541/detail.aspx",
         "category": "motherboards",
@@ -243,9 +213,29 @@
         "query": "X870E"
       },
       {
+        "id": "418143135",
+        "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E 4xDDR5",
+        "price": 34893,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418143135/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "370240871",
+        "name": "Материнская плата MPG X870E EDGE TI WIFI AM5 AMD X870E ATX R",
+        "price": 35600,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370240871/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "350845362",
         "name": "X870 TOMAHAWK WIFI Материнская плата Сокет AM5",
-        "price": 35707,
+        "price": 35734,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845362/detail.aspx",
         "category": "motherboards",
@@ -255,7 +245,7 @@
       {
         "id": "418607900",
         "name": "Материнская плата X870E AORUS ELITE WIFI7, AMD X870E",
-        "price": 35776,
+        "price": 35803,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607900/detail.aspx",
         "category": "motherboards",
@@ -263,19 +253,9 @@
         "query": "X870E"
       },
       {
-        "id": "418591682",
-        "name": "Материнская плата X870E GAMING PLUS WIFI, AMD X870E",
-        "price": 36465,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/418591682/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "280292873",
         "name": "Gigabyte-X870E A ELITE WIFI7",
-        "price": 36152,
+        "price": 35819,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/280292873/detail.aspx",
         "category": "motherboards",
@@ -283,9 +263,29 @@
         "query": "X870E"
       },
       {
+        "id": "418591682",
+        "name": "Материнская плата X870E GAMING PLUS WIFI, AMD X870E",
+        "price": 36492,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418591682/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "272859106",
+        "name": "Материнская плата ATX X870E A ELITE WIFI7 Socket AM5",
+        "price": 36887,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/272859106/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "404431414",
         "name": "Материнская плата MAG X870E TOMAHAWK WIFI",
-        "price": 36747,
+        "price": 36859,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/404431414/detail.aspx",
         "category": "motherboards",
@@ -293,19 +293,9 @@
         "query": "X870E"
       },
       {
-        "id": "421575679",
-        "name": "Материнская плата AM5 MAG X870E TOMAHAWK WIFI",
-        "price": 36752,
-        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421575679/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "398196430",
         "name": "Материнская плата MAG X870E TOMAHAWK WIFI,AMD X870E",
-        "price": 36810,
+        "price": 36837,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398196430/detail.aspx",
         "category": "motherboards",
@@ -315,7 +305,7 @@
       {
         "id": "363034953",
         "name": "AM5 X870E AORUS PRO ICE Материнская плата",
-        "price": 37074,
+        "price": 37101,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034953/detail.aspx",
         "category": "motherboards",
@@ -323,11 +313,11 @@
         "query": "X870E"
       },
       {
-        "id": "370240871",
-        "name": "Материнская плата MPG X870E EDGE TI WIFI AM5 AMD X870E ATX R",
-        "price": 37106,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/370240871/detail.aspx",
+        "id": "432070511",
+        "name": "Материнская плата MAG X870E TOMAHAWK WIFI AM5",
+        "price": 37115,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432070511/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -335,7 +325,7 @@
       {
         "id": "417955423",
         "name": "Gigabyte-X870E AORUS PRO ICE",
-        "price": 37824,
+        "price": 37407,
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/417955423/detail.aspx",
         "category": "motherboards",
@@ -345,7 +335,7 @@
       {
         "id": "439019435",
         "name": "Материнская плата X870E AORUS PRO ICE",
-        "price": 38581,
+        "price": 38335,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439019435/detail.aspx",
         "category": "motherboards",
@@ -355,7 +345,7 @@
       {
         "id": "418607898",
         "name": "Материнская плата X870E AORUS PRO ICE, AMD X870E",
-        "price": 38590,
+        "price": 38619,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607898/detail.aspx",
         "category": "motherboards",
@@ -363,19 +353,9 @@
         "query": "X870E"
       },
       {
-        "id": "439011819",
-        "name": "Материнская плата X870E AORUS PRO",
-        "price": 39489,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/439011819/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "450916744",
         "name": "X870E A ELITE WIFI7",
-        "price": 39725,
+        "price": 39425,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/450916744/detail.aspx",
         "category": "motherboards",
@@ -385,7 +365,7 @@
       {
         "id": "328168881",
         "name": "X870E A ELITE WIFI7",
-        "price": 39745,
+        "price": 39444,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/328168881/detail.aspx",
         "category": "motherboards",
@@ -395,7 +375,7 @@
       {
         "id": "332327333",
         "name": "Gigabyte-X870E AORUS PRO",
-        "price": 40230,
+        "price": 38908,
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/332327333/detail.aspx",
         "category": "motherboards",
@@ -403,11 +383,11 @@
         "query": "X870E"
       },
       {
-        "id": "419638031",
-        "name": "Материнская плата X870E AORUS ELITE WIFI7",
-        "price": 40906,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/419638031/detail.aspx",
+        "id": "439011819",
+        "name": "Материнская плата X870E AORUS PRO",
+        "price": 39606,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439011819/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -415,7 +395,7 @@
       {
         "id": "398308936",
         "name": "Материнская плата MPG X870E EDGE TI WIFI, AMD X870",
-        "price": 41002,
+        "price": 41032,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/398308936/detail.aspx",
         "category": "motherboards",
@@ -423,11 +403,11 @@
         "query": "X870E"
       },
       {
-        "id": "421601233",
-        "name": "Материнская плата AM5 MPG X870E EDGE TI WIFI",
-        "price": 41645,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421601233/detail.aspx",
+        "id": "419638031",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7",
+        "price": 41028,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419638031/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -435,7 +415,7 @@
       {
         "id": "439785528",
         "name": "Материнская плата MAG X870E TOMAHAWK WIFI",
-        "price": 42860,
+        "price": 42725,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439785528/detail.aspx",
         "category": "motherboards",
@@ -445,7 +425,7 @@
       {
         "id": "381626812",
         "name": "MicroStar-MAG X870E TOMAHAWK WIFI",
-        "price": 42420,
+        "price": 42483,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/381626812/detail.aspx",
         "category": "motherboards",
@@ -453,11 +433,11 @@
         "query": "X870E"
       },
       {
-        "id": "449076026",
-        "name": "Материнская плата MAG X870E TOMAHAWK WIFI, AMD X870, ATX",
-        "price": 44172,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/449076026/detail.aspx",
+        "id": "266089760",
+        "name": "Материнская плата MPG X870E CARBON WIFI AM5 AMD X870E ATX RT",
+        "price": 43439,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/266089760/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -465,9 +445,19 @@
       {
         "id": "442855773",
         "name": "Материнская плата X870E A ELITE WIFI7 SocketAM5 AMD X870E",
-        "price": 44333,
+        "price": 44257,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855773/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "449076026",
+        "name": "Материнская плата MAG X870E TOMAHAWK WIFI, AMD X870, ATX",
+        "price": 44205,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449076026/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -485,7 +475,7 @@
       {
         "id": "423110887",
         "name": "Материнская плата X870E AORUS PRO ICE",
-        "price": 44831,
+        "price": 44749,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423110887/detail.aspx",
         "category": "motherboards",
@@ -495,7 +485,7 @@
       {
         "id": "390385276",
         "name": "Материнская плата PROART X870E-CREATOR WIFI AM5 AMD X870E AT",
-        "price": 44988,
+        "price": 45123,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/390385276/detail.aspx",
         "category": "motherboards",
@@ -505,7 +495,7 @@
       {
         "id": "336234479",
         "name": "Материнская плата MPG X870E CARBON WIFI SocketAM5 AMD X8",
-        "price": 45297,
+        "price": 45432,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/336234479/detail.aspx",
         "category": "motherboards",
@@ -513,21 +503,21 @@
         "query": "X870E"
       },
       {
-        "id": "419650816",
-        "name": "Материнская плата X870E AORUS PRO",
-        "price": 45410,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/419650816/detail.aspx",
+        "id": "443837472",
+        "name": "Материнская плата X870E Aorus Elite WIFI7 rev. 1.1",
+        "price": 45426,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443837472/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
       },
       {
-        "id": "430875727",
-        "name": "Материнская плата MPG X870E CARBON WIFI",
-        "price": 45585,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/430875727/detail.aspx",
+        "id": "419650816",
+        "name": "Материнская плата X870E AORUS PRO",
+        "price": 45540,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419650816/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -543,9 +533,19 @@
         "query": "X870E"
       },
       {
+        "id": "430875727",
+        "name": "Материнская плата MPG X870E CARBON WIFI",
+        "price": 45721,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430875727/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "444051829",
         "name": "Материнская плата X870E A ELITE WF7 ICE",
-        "price": 45728,
+        "price": 45859,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444051829/detail.aspx",
         "category": "motherboards",
@@ -555,7 +555,7 @@
       {
         "id": "366106642",
         "name": "X870E AORUS MASTER материнская плата",
-        "price": 45885,
+        "price": 45919,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/366106642/detail.aspx",
         "category": "motherboards",
@@ -563,19 +563,9 @@
         "query": "X870E"
       },
       {
-        "id": "450632222",
-        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE",
-        "price": 45410,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/450632222/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "441371973",
         "name": "Материнская плата X870E A ELITE WIFI7 SocketAM5 AMD X870E",
-        "price": 46185,
+        "price": 46104,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371973/detail.aspx",
         "category": "motherboards",
@@ -583,11 +573,31 @@
         "query": "X870E"
       },
       {
-        "id": "266089760",
-        "name": "Материнская плата MPG X870E CARBON WIFI AM5 AMD X870E ATX RT",
-        "price": 46195,
+        "id": "445834650",
+        "name": "Материнская плата X870E GAMING PLUS WIFI",
+        "price": 45557,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/266089760/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/445834650/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "450632222",
+        "name": "Материнская плата X870E AORUS ELITE WIFI7 ICE",
+        "price": 45557,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450632222/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "439783792",
+        "name": "Материнская плата MPG X870E EDGE TI WIFI",
+        "price": 46322,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439783792/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -595,7 +605,7 @@
       {
         "id": "453927336",
         "name": "Материнская плата MPG X870E EDGE TI WIFI, AMD X870, ATX",
-        "price": 46205,
+        "price": 46239,
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/453927336/detail.aspx",
         "category": "motherboards",
@@ -605,7 +615,7 @@
       {
         "id": "350845365",
         "name": "X870E CARBON WIFI Материнская плата Сокет AM5",
-        "price": 46412,
+        "price": 46446,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350845365/detail.aspx",
         "category": "motherboards",
@@ -615,7 +625,7 @@
       {
         "id": "412068681",
         "name": "X870E AORUS MASTER системная плата",
-        "price": 46515,
+        "price": 46549,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/412068681/detail.aspx",
         "category": "motherboards",
@@ -623,19 +633,9 @@
         "query": "X870E"
       },
       {
-        "id": "439783792",
-        "name": "Материнская плата MPG X870E EDGE TI WIFI",
-        "price": 46772,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/439783792/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "272994889",
         "name": "Материнская плата ROG Strix X870-F Gaming WiFi, AM5",
-        "price": 47409,
+        "price": 47552,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/272994889/detail.aspx",
         "category": "motherboards",
@@ -645,7 +645,7 @@
       {
         "id": "418586937",
         "name": "Материнская плата MPG X870E CARBON WIFI, AMD X870",
-        "price": 47664,
+        "price": 47699,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418586937/detail.aspx",
         "category": "motherboards",
@@ -655,7 +655,7 @@
       {
         "id": "442857578",
         "name": "Материнская плата X870E A ELITE WIFI7 SocketAM5 AMD X870E",
-        "price": 47878,
+        "price": 47796,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442857578/detail.aspx",
         "category": "motherboards",
@@ -663,19 +663,9 @@
         "query": "X870E"
       },
       {
-        "id": "445834650",
-        "name": "Материнская плата X870E GAMING PLUS WIFI",
-        "price": 47540,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/445834650/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "442855736",
         "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E",
-        "price": 48619,
+        "price": 48536,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855736/detail.aspx",
         "category": "motherboards",
@@ -685,7 +675,7 @@
       {
         "id": "442855827",
         "name": "Материнская плата X870E AORUS PRO ICE SocketAM5 AMD X870E",
-        "price": 48619,
+        "price": 48536,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442855827/detail.aspx",
         "category": "motherboards",
@@ -695,7 +685,7 @@
       {
         "id": "343091578",
         "name": "MPG X870E CARBON WIFI Материнская плата AM5 DDR5 ATX",
-        "price": 49386,
+        "price": 49423,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/343091578/detail.aspx",
         "category": "motherboards",
@@ -705,7 +695,7 @@
       {
         "id": "441371200",
         "name": "Материнская плата X870E AORUS PRO ICE SocketAM5 AMD X870E",
-        "price": 49699,
+        "price": 49612,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371200/detail.aspx",
         "category": "motherboards",
@@ -713,19 +703,9 @@
         "query": "X870E"
       },
       {
-        "id": "419648945",
-        "name": "Материнская плата MAG X870E TOMAHAWK WIFI",
-        "price": 50094,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/419648945/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "441371214",
         "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E",
-        "price": 50650,
+        "price": 50561,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/441371214/detail.aspx",
         "category": "motherboards",
@@ -733,9 +713,29 @@
         "query": "X870E"
       },
       {
+        "id": "455428757",
+        "name": "Материнская плата X870E NOVA Wi-Fi Phantom Gaming",
+        "price": 50575,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/455428757/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "419648945",
+        "name": "Материнская плата MAG X870E TOMAHAWK WIFI",
+        "price": 50232,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419648945/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "291696965",
         "name": "X870E AORUS MASTER Материнская плата AM5",
-        "price": 51109,
+        "price": 51147,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/291696965/detail.aspx",
         "category": "motherboards",
@@ -745,7 +745,7 @@
       {
         "id": "439784132",
         "name": "Материнская плата MPG X870E CARBON WIFI",
-        "price": 51345,
+        "price": 51498,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439784132/detail.aspx",
         "category": "motherboards",
@@ -755,7 +755,7 @@
       {
         "id": "367389189",
         "name": "PROART X870E-CREATOR WIFI Материнская плата СокетAM5",
-        "price": 52177,
+        "price": 52216,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/367389189/detail.aspx",
         "category": "motherboards",
@@ -765,7 +765,7 @@
       {
         "id": "363034952",
         "name": "Материнская плата AM5 X870E AORUS MASTER",
-        "price": 52177,
+        "price": 52216,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/363034952/detail.aspx",
         "category": "motherboards",
@@ -773,21 +773,21 @@
         "query": "X870E"
       },
       {
-        "id": "442857525",
-        "name": "Материнская плата X870E AORUS PRO ICE SocketAM5 AMD X870E",
-        "price": 52507,
+        "id": "442857587",
+        "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E",
+        "price": 52417,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/442857525/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/442857587/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
       },
       {
-        "id": "442857587",
-        "name": "Материнская плата X870E AORUS PRO SocketAM5 AMD X870E",
-        "price": 52507,
+        "id": "442857525",
+        "name": "Материнская плата X870E AORUS PRO ICE SocketAM5 AMD X870E",
+        "price": 52417,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/442857587/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/442857525/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -805,7 +805,7 @@
       {
         "id": "418607899",
         "name": "Материнская плата X870E AORUS MASTER, AMD X870E",
-        "price": 53693,
+        "price": 53733,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418607899/detail.aspx",
         "category": "motherboards",
@@ -815,7 +815,7 @@
       {
         "id": "418522204",
         "name": "Материнская плата X870E Taichi Lite, AMD X870E Socket AM5",
-        "price": 53693,
+        "price": 53733,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418522204/detail.aspx",
         "category": "motherboards",
@@ -825,7 +825,7 @@
       {
         "id": "418550568",
         "name": "Материнская плата ROG STRIX X870E-E GAMING WIFI, AMD X870E",
-        "price": 54670,
+        "price": 54710,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418550568/detail.aspx",
         "category": "motherboards",
@@ -835,9 +835,19 @@
       {
         "id": "270392500",
         "name": "Материнская плата ROG STRIX X870E-E GAMING WIFI",
-        "price": 54889,
+        "price": 55056,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/270392500/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "432490206",
+        "name": "Материнская плата MPG X870E EDGE TI WIFI",
+        "price": 55161,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432490206/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -848,16 +858,6 @@
         "price": 54942,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449136943/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
-        "id": "432490206",
-        "name": "Материнская плата MPG X870E EDGE TI WIFI",
-        "price": 55520,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/432490206/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -875,9 +875,19 @@
       {
         "id": "420033997",
         "name": "Материнская плата MPG X870E CARBON WIFI",
-        "price": 60367,
+        "price": 60555,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/420033997/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
+        "id": "435527798",
+        "name": "Материнская плата MPG X870E CARBON WIFI",
+        "price": 60481,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/435527798/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -905,7 +915,7 @@
       {
         "id": "418518869",
         "name": "Материнская плата X870E TaiChi, AMD X870E Socket AM5",
-        "price": 62422,
+        "price": 62468,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418518869/detail.aspx",
         "category": "motherboards",
@@ -915,7 +925,7 @@
       {
         "id": "418581543",
         "name": "Материнская плата PROART X870E-CREATOR WIFI, AMD X870E",
-        "price": 67303,
+        "price": 67353,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418581543/detail.aspx",
         "category": "motherboards",
@@ -923,11 +933,11 @@
         "query": "X870E"
       },
       {
-        "id": "435527798",
-        "name": "Материнская плата MPG X870E CARBON WIFI",
-        "price": 66691,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/435527798/detail.aspx",
+        "id": "419648897",
+        "name": "Материнская плата ROG (Republic of Gamers) X870E",
+        "price": 68437,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419648897/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "X870E"
@@ -935,7 +945,7 @@
       {
         "id": "449185291",
         "name": "Материнская плата PROART X870E-CREATOR WIFI X870E",
-        "price": 71481,
+        "price": 71693,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449185291/detail.aspx",
         "category": "motherboards",
@@ -943,29 +953,9 @@
         "query": "X870E"
       },
       {
-        "id": "434128765",
-        "name": "Материнская плата AMD X870E",
-        "price": 92216,
-        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/434128765/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
-        "id": "441986273",
-        "name": "Материнская плата (поддержка 9950x 3D 9800x 3D 7800x 3D)",
-        "price": 110031,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/441986273/detail.aspx",
-        "category": "motherboards",
-        "source": "wb",
-        "query": "X870E"
-      },
-      {
         "id": "370240877",
         "name": "Материнская плата MEG X870E GODLIKE AM5 AMD X870E E-ATX RTL",
-        "price": 118090,
+        "price": 111395,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/370240877/detail.aspx",
         "category": "motherboards",
@@ -973,9 +963,19 @@
         "query": "X870E"
       },
       {
+        "id": "441986273",
+        "name": "Материнская плата (поддержка 9950x 3D 9800x 3D 7800x 3D)",
+        "price": 113142,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/441986273/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "X870E"
+      },
+      {
         "id": "388725588",
         "name": "Материнская плата MEG X870E GODLIKE",
-        "price": 137764,
+        "price": 138151,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/388725588/detail.aspx",
         "category": "motherboards",
@@ -995,7 +995,7 @@
       {
         "id": "439786225",
         "name": "Материнская плата MEG X870E GODLIKE",
-        "price": 144521,
+        "price": 142721,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/439786225/detail.aspx",
         "category": "motherboards",

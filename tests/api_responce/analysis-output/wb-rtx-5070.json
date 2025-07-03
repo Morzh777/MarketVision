@@ -1,0 +1,1011 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "450534948",
+        "name": "Видеокарта GeForce RTX 5070 twin x2",
+        "price": 56949,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450534948/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "362461154",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (N50702-12D7X-195064N)",
+        "price": 57457,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/362461154/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "390492959",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (NE75070019K9-GB2050S)",
+        "price": 58028,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390492959/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "446957555",
+        "name": "Видеокарта Gaming GeForce RTX 5070 SOLID",
+        "price": 58649,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/446957555/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "372730574",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070",
+        "price": 58502,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/372730574/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "449424463",
+        "name": "Видеокарта GeForce RTX 5070 twin x2 oc",
+        "price": 59499,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449424463/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "432447124",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (NE75070S19K9-GB2050S)",
+        "price": 60000,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432447124/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645680",
+        "name": "Видеокарта PCI-E RTX 5070",
+        "price": 60694,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645680/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418662490",
+        "name": "GeForce RTX 5070 GamingPro 12 Гб Видеокарта",
+        "price": 60849,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418662490/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418336394",
+        "name": "GeForce RTX 5070 GamingPro OC 12 Гб Видеокарта",
+        "price": 61952,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418336394/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370262242",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (RTX 5070 12G VENTUS 2X OC)",
+        "price": 61917,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370262242/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "449793252",
+        "name": "Видеокарта PCI-E 5.0 PA-RTX5070 GAMINGPRO-S NV RTX5070 12Gb",
+        "price": 62381,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449793252/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "429977482",
+        "name": "Видеокарта GIGABYTE GeForce RTX 5070 EAGLE OC SFF 12GB",
+        "price": 63036,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/429977482/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "439913869",
+        "name": "GeForce RTX 5070 Infinity 3 12GB GDDR7 Видеокарта",
+        "price": 63178,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439913869/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "393771530",
+        "name": "GeForce RTX 5070 WINDFORCE OC SFF 12G Видеокарта",
+        "price": 63214,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/393771530/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245680",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070WF3OC-12GD)",
+        "price": 63325,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245680/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "380622456",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070WF3-12GD)",
+        "price": 63331,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/380622456/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "380622414",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070WF3-12GD)",
+        "price": 63331,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/380622414/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "412652655",
+        "name": "Видеокарта GeForce RTX 5070 WF3OC-12GD",
+        "price": 63468,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/412652655/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418336395",
+        "name": "GeForce RTX 5070 GamingPro 12 Гб Видеокарта",
+        "price": 63753,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418336395/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445427969",
+        "name": "Видеокарта RTX 5070 12 (RTX 5070 12G SHADOW 2X OC)",
+        "price": 63721,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445427969/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "355329855",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (RTX 5070 12G SHADOW 2X OC)",
+        "price": 63866,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/355329855/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245682",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLE OC-12GD)",
+        "price": 63975,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245682/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245677",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLE OC-12GD)",
+        "price": 63975,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245677/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "386403389",
+        "name": "GeForce RTX 5070 WINDFORCE SFF 12GB GDDR7 Видеокарта",
+        "price": 64353,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386403389/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "365053539",
+        "name": "Видеокарта iGame GeForce RTX 5070 Ultra W OC 12GB-V",
+        "price": 64365,
+        "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/365053539/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645714",
+        "name": "GeForce RTX 5070 WINDFORCE SFF 12GB GDDR7 Видеокарта",
+        "price": 64498,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645714/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "450818053",
+        "name": "Видеокарта PCI-E 5.0 PA-RTX5070 GAMINGPRO-S OC NV RTX5070",
+        "price": 64651,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450818053/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "430024187",
+        "name": "Видеокарта GeForce RTX 5070 GAMING OC 12GB",
+        "price": 65025,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430024187/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418662493",
+        "name": "Видеокарта PCI-E RTX 5070",
+        "price": 65316,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418662493/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370263211",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (NE75070T19K9-GB2050A)",
+        "price": 65246,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370263211/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "431809918",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (RTX 5070 12G SHADOW 2X OC)",
+        "price": 65554,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/431809918/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "343865967",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (RTX 5070 12G GAMING TRIO OC)",
+        "price": 65596,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/343865967/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645639",
+        "name": "GeForce RTX 5070 EAGLE OC SFF 12G Видеокарта",
+        "price": 65973,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645639/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "379337623",
+        "name": "Видеокарта GeForce RTX 5070 GAMING OC 12GB",
+        "price": 65874,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/379337623/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "430855311",
+        "name": "Видеокарта GeForce RTX 5070 12G VENTUS 2X OC",
+        "price": 66164,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430855311/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "430855305",
+        "name": "Видеокарта GeForce RTX 5070 12G SHADOW 2X OC",
+        "price": 66266,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430855305/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "412669843",
+        "name": "Видеокарта GeForce RTX 5070 EAGLE OC SFF-12GD",
+        "price": 66146,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/412669843/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418336733",
+        "name": "Видеокарта PCI-E 5.0 RTX5070",
+        "price": 66417,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418336733/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245671",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070GAMING OC-12GD)",
+        "price": 66238,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245671/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245679",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070GAMING OC-12GD)",
+        "price": 66238,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245679/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "432661075",
+        "name": "Видеокарта GeForce RTX5070 TWIN X2",
+        "price": 66241,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432661075/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "386114560",
+        "name": "Видеокарта GeForce RTX5070 TWIN X2 OC 12 ГБ",
+        "price": 66549,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386114560/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440694478",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 X2 12Gb",
+        "price": 66736,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440694478/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445280959",
+        "name": "Видеокарта RTX 5070 WINDFORCE SFF 12G, 12 Гб GDDR7 UltraHD",
+        "price": 66750,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280959/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440735520",
+        "name": "Видеокарта RTX 5070 12G SHADOW 2X OC",
+        "price": 66942,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440735520/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445280943",
+        "name": "Видеокарта RTX 5070 12G VENTUS 2X OC, 12 Гб GDDR7 UltraHD",
+        "price": 67056,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280943/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "366226276",
+        "name": "Видеокарта GeForce RTX 5070 SHADOW 2X OC 12GB",
+        "price": 67368,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/366226276/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245674",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLEOC ICE-12GD)",
+        "price": 67278,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245674/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245681",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070EAGLEOC ICE-12GD)",
+        "price": 67278,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245681/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "420967276",
+        "name": "Видеокарта MS-RTX5070 (iCraft OC12G T0)",
+        "price": 67399,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/420967276/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "390385342",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (90YV0M10-M0NA00)",
+        "price": 67456,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390385342/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "413510329",
+        "name": "Видеокарта PRIME GeForce RTX 5070 OC 12GB",
+        "price": 67422,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413510329/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440577822",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 TWIN X2 ОС",
+        "price": 67609,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440577822/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445280898",
+        "name": "Видеокарта RTX 5070 EAGLE OC SFF 12G, 12 Гб GDDR7 UltraHD",
+        "price": 67566,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280898/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "412682624",
+        "name": "Видеокарта GeForce RTX 5070 EAGLE OC ICE SFF-12GD",
+        "price": 67457,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/412682624/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "360428304",
+        "name": "GeForce RTX 5070 GamingPro OC 12 ГБ GDDR7 Видеокарта",
+        "price": 67626,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360428304/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "393771526",
+        "name": "GeForce RTX 5070 EAGLE OC SFF 12GB GDDR7 Видеокарта",
+        "price": 67767,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/393771526/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "423169465",
+        "name": "Видеокарта GeForce RTX 5070 PRIME 12GB prime-rtx5070-12g",
+        "price": 67829,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423169465/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "415391792",
+        "name": "Видеокарта GeForce RTX 5070 INSPIRE 3X OC 12G",
+        "price": 67744,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/415391792/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418336742",
+        "name": "GeForce RTX 5070 GamingPro 12 Гб Видеокарта",
+        "price": 68116,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418336742/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445280924",
+        "name": "Видеокарта RTX 5070 WINDFORCE OC SFF 12G, 12 Гб GDDR7",
+        "price": 68076,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280924/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645716",
+        "name": "Видеокарта PCI-E PRIME-RTX5070-O12G NV RTX5070 12Gb 192bit",
+        "price": 68243,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645716/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "413248200",
+        "name": "Видеокарта GeForce RTX 5070 GAMING OC-12GD",
+        "price": 68020,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413248200/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440443658",
+        "name": "RTX5070 AERO OC 12G Видеокарта",
+        "price": 68250,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440443658/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "423169483",
+        "name": "Видеокарта GeForce RTX 5070 PRIME OC Edition 12GB",
+        "price": 68254,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423169483/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645734",
+        "name": "GeForce RTX 5070 GAMING OC 12GB GDDR7 Видеокарта",
+        "price": 68408,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645734/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "387370264",
+        "name": "GeForce RTX 5070 TWIN X2 видеокарта 12ГБ",
+        "price": 68417,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387370264/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "371090103",
+        "name": "Видеокарта GeForce RTX 5070 EAGLE OC 12GB",
+        "price": 68405,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/371090103/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "432650114",
+        "name": "Видеокарта GeForce RTX5070 TWIN X2 OC White",
+        "price": 68561,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432650114/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "432647016",
+        "name": "Видеокарта GeForce RTX5070 X3 OC",
+        "price": 68664,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/432647016/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440706797",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Infinity 3 OC 12Gb",
+        "price": 68803,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440706797/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "413506439",
+        "name": "Видеокарта PRIME GeForce RTX 5070 12GB",
+        "price": 68709,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413506439/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "387386273",
+        "name": "GeForce RTX 5070 TWIN X2 OC WHITE видеокарта 12GB",
+        "price": 69023,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387386273/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "437124756",
+        "name": "Видеокарта DUAL RTX5070 O12G,GDDR7",
+        "price": 69072,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/437124756/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645711",
+        "name": "GeForce RTX 5070 AERO OC 12GB GDDR7 Видеокарта",
+        "price": 69175,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645711/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "349899466",
+        "name": "GeForce RTX 5070 EAGLE OC SFF 12GB GDDR7 Видеокарта",
+        "price": 69164,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/349899466/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "393679964",
+        "name": "AX Gaming GeForce RTX 5070 X3W Видеокарта",
+        "price": 69235,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/393679964/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "418645922",
+        "name": "GeForce RTX 5070 EAGLE OC SFF 12G Видеокарта",
+        "price": 69776,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645922/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "382823212",
+        "name": "Видеокарта GeForce RTX 5070 12G VENTUS 2X OC, 12 ГБ",
+        "price": 69672,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/382823212/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245678",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070AERO OC-12GD)",
+        "price": 69844,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245678/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "370245666",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (GV-N5070AERO OC-12GD)",
+        "price": 69844,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370245666/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "423156368",
+        "name": "Видеокарта GeForce RTX 5070 PRIME 12GB prime-rtx5070-12g",
+        "price": 69999,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423156368/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "351070085",
+        "name": "Видеокарта GeForce RTX 5070 EAGLE OC SFF, 12 ГБ, черный",
+        "price": 70048,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/351070085/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440748241",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Windforce SFF",
+        "price": 70291,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440748241/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "387556698",
+        "name": "Видеокарта RTX5070 WINDFORCE OC SFF 12G GV-N5070WF3OC-12GD",
+        "price": 70380,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387556698/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "379337583",
+        "name": "Видеокарта GeForce RTX 5070 GAMING OC 12GB",
+        "price": 70399,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/379337583/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "349899462",
+        "name": "GeForce RTX 5070 EAGLE OC ICE SFF 12GB GDDR7 Видеокарта",
+        "price": 70490,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/349899462/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440702679",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 GamingPro OC 12ГБ",
+        "price": 70790,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440702679/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "430855322",
+        "name": "Видеокарта GeForce RTX 5070 WINDFORCE OC SFF 12G",
+        "price": 70839,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/430855322/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "393520666",
+        "name": "Видеокарта GeForce RTX 5070 WINDFORCE OC SFF",
+        "price": 71002,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/393520666/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "402403380",
+        "name": "Видеокарта GeForce RTX 5070 TUF Gaming OC Edition 12GB",
+        "price": 71059,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/402403380/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "413248780",
+        "name": "Видеокарта GeForce RTX 5070 AERO OC-12GD",
+        "price": 70962,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413248780/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "440736053",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ventus 2X OC",
+        "price": 71384,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440736053/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "445280887",
+        "name": "Видеокарта RTX 5070 12G GAMING TRIO OC, 12 Гб GDDR7 UltraHD",
+        "price": 71374,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280887/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "387719340",
+        "name": "Видеокарта RTX 5070 X2 OC (N50702-12D7X-195064N)",
+        "price": 71400,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387719340/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "438255091",
+        "name": "MicroStar-RTX 5070 12G VENTUS 2X OC",
+        "price": 71367,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438255091/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "373614011",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070",
+        "price": 70920,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/373614011/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "438255097",
+        "name": "Видеокарта PCIE16 RTX5070 12GB PA - RTX5070 GAMINGPRO",
+        "price": 70927,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438255097/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "413455765",
+        "name": "Видеокарта MSI GeForce RTX 5070 12G VENTUS 2X OC",
+        "price": 71712,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413455765/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070"
+      }
+    ],
+    "total_count": 100,
+    "source": "wb"
+  },
+  "query": "rtx 5070",
+  "category": "videocards"
+}

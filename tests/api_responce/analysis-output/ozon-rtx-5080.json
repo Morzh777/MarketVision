@@ -1,0 +1,371 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2245838324",
+        "name": "GALAX Видеокарта GeForce RTX 4060 Ti 8 ГБ (489514757146)",
+        "price": 39975,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7599286942.jpg",
+        "product_url": "https://www.ozon.ru/product/galax-videokarta-geforce-rtx-4060-ti-8-gb-489514757146-2245838324/?at=MZtvpVv03tQjlAV9HExvnzrIJ0rKPpUBlGjNAh2W7ogJ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1922320577",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO 16 ГБ (NE75080019T2-GB2031A)",
+        "price": 112321,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7306557744.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-16-gb-ne75080019t2-gb2031a-1922320577/?at=oZt6Ap6LYIpwyXXNc0Vg7Dku7Vr2QXSzRgNwqC71ARRp",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1922320292",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO OC 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 115889,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7306550512.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-oc-16-gb-ne75080s19t2-gb2031a-1922320292/?at=6WtZRlZAmTGpQ2X8fo7qKQNSkxQBBDF0350oYS89EyZ3",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858225834",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO OC 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 118119,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7613115330.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-oc-16-gb-ne75080s19t2-gb2031a-1858225834/?at=6WtZRlZAmTvAAqBwu8xPMJYtm5rGxxIrBmAYAh5pY8OG",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2330640567",
+        "name": "ZOTAC Видеокарта GeForce RTX 5080 RTX 5080 SOLID CORE OC 16 ГБ (ZT-B50800J2-10P)",
+        "price": 119717,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7637872556.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5080-rtx-5080-solid-core-oc-16-gb-zt-b50800j2-10p-2330640567/?at=w0tg5Zgzxh4KnzwqhDPzLlGTMGyX9WuwXP3QmH6n1ZEK",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858453491",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO 16 ГБ (NE75080019T2-GB2031A)",
+        "price": 120308,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7306557744.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-16-gb-ne75080019t2-gb2031a-1858453491/?at=w0tg5ZgzxhAAz05xTv92BmBHYyLyxOHMMN1gXSz49Gm4",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1922318862",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMEROCK OC 16 ГБ (NE75080T19T2-GB2030G)",
+        "price": 121412,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7306566249.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamerock-oc-16-gb-ne75080t19t2-gb2030g-1922318862/?at=46tRZARQ5u4qqgnrH6mNzjksW2wkEpt7rkygNi9Bo27X",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858511246",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO 16 ГБ (NE75080019T2-GB2031A)",
+        "price": 121757,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7306557744.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-16-gb-ne75080019t2-gb2031a-1858511246/?at=WPtN1wNgqtrqODEZHMjYxMQTOJ90JOFGB4XVrsRvYyWz",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858453510",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO OC 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 122202,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7534816976.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-oc-16-gb-ne75080s19t2-gb2031a-1858453510/?at=DqtD7rDKAipDxy7DiBnXqJjIvPVX5BtRDoPP2ijLmBZ7",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2104218998",
+        "name": "MSI Видеокарта GeForce RTX 5080 16 ГБ (GeForce RTX 5080 16G VENTUS 3X OC)",
+        "price": 122219,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7522806508.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5080-16-gb-geforce-rtx-5080-16g-ventus-3x-oc-2104218998/?at=08tYn0YDBcoE38R7HPL28kJTxOMO6wc65Y9GZi1wRVAV",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2063381128",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO OC 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 122820,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7613115330.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-oc-16-gb-ne75080s19t2-gb2031a-2063381128/?at=nRtr4prqDSZ89L61T7KvoGETwRRJ1ZiYJ3wVLhx4A9BL",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1843702129",
+        "name": "Palit Видеокарта GeForce RTX 5080 GameRock 16 ГБ (NE75080019T2-GB2030G)",
+        "price": 123499,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7663278017.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-gamerock-16-gb-ne75080019t2-gb2030g-1843702129/?at=28t0Lo0J3tOjlBZvc3mPVxzhNgoKz2F7L700OUW5KN6M",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858511718",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO OC 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 124178,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7534816976.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-oc-16-gb-ne75080s19t2-gb2031a-1858511718/?at=WPtN1wNgqtvQWEV4Spo16PqHg2mODnF2YJ09ZcXBnWXN",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858229599",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMINGPRO 16 ГБ (NE75080019T2-GB2031A)",
+        "price": 124189,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7613146621.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamingpro-16-gb-ne75080019t2-gb2031a-1858229599/?at=DqtD7rDKAiZx2OxVIwo4YQgUX01YR8U1yjZVmum6L3Bq",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2175877388",
+        "name": "MAXSUN Видеокарта GeForce RTX 5080 16 ГБ (T0)",
+        "price": 125504,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7673208712.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-videokarta-geforce-rtx-5080-16-gb-t0-2175877388/?at=k2toD3o6BTJ6VARvIQ3KRBphQq9BrRh1BPkorsP47qZ9",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858242372",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMEROCK OC 16 ГБ (NE75080T19T2-GB2030G)",
+        "price": 126005,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7613112737.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamerock-oc-16-gb-ne75080t19t2-gb2030g-1858242372/?at=VvtzVjzLytz7vWQzcjv10J8CmWvkL3cyELNKgt2yA22o",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2330594236",
+        "name": "ZOTAC Видеокарта GeForce RTX 5080 RTX 5080 SOLID CORE OC 16 ГБ (ZT-B50800J2-10P)",
+        "price": 126922,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7637872556.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5080-rtx-5080-solid-core-oc-16-gb-zt-b50800j2-10p-2330594236/?at=GRt2rZ2p4FE0Ok8VHLVWDD9tzGMglQUYqv2wgswNLgK",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1976949610",
+        "name": "MSI Видеокарта GeForce RTX 5080 16 ГБ (748055)",
+        "price": 127624,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7420582752.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5080-16-gb-748055-1976949610/?at=57twyYwQ9cxJQEvQHyV24o9IvQY8jzt5AMZPJc2wW6wX",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2309414530",
+        "name": "MSI Видеокарта GeForce RTX 5080 16 ГБ (RTX508016GSHADOW3XOC)",
+        "price": 127989,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7627673280.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5080-16-gb-rtx508016gshadow3xoc-2309414530/?at=08tYn0YDBcjDkKz6S557YkEc30kVlnsqy6RP0sJM84AV",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1843702331",
+        "name": "Palit Видеокарта GeForce RTX 5080 GamingPro 16 ГБ (NE75080019T2-GB2031A)",
+        "price": 128240,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7663277965.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-gamingpro-16-gb-ne75080019t2-gb2031a-1843702331/?at=DqtD7rDKAi5wjqWPSo4oPl0c1Ym5R3u52x62JfloxM53",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2364100115",
+        "name": "Gigabyte Видеокарта 16 ГБ (9VN5080GO-00-G10)",
+        "price": 128504,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7653032850.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-16-gb-9vn5080go-00-g10-2364100115/?at=99trJVrgqSVyj1A2fkNBw61CODOGWjFmgg2DEhQklp92",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2258480847",
+        "name": "Gigabyte Видеокарта GeForce RTX 5080 WINDFORCE OC SFF 16 ГБ (GV-N5080WF3OC-16GD)",
+        "price": 130140,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7320120144.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5080-windforce-oc-sff-16-gb-gv-n5080wf3oc-16gd-2258480847/?at=ywtAGmAzoTLEQrkksjwv7WqTKAXNZKu1z0AE0HGmn46k",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858453079",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMEROCK OC 16 ГБ (NE75080T19T2-GB2030G)",
+        "price": 130350,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7534816862.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamerock-oc-16-gb-ne75080t19t2-gb2030g-1858453079/?at=28t0Lo0J3t041GnrH4A241jIvR21APHGrvnDoiNrJjj",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2091785239",
+        "name": "Palit Видеокарта (NE75080019T2-GB2031A)",
+        "price": 130645,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7395417496.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-ne75080019t2-gb2031a-2091785239/?at=pZtpgEpNocXkBMrEs2876ylSOXxqLjTXNJlvES5xXMjr",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2022924245",
+        "name": "Palit Видеокарта GeForce RTX 5080 16 ГБ (NE7507T019T2-GB2030G)",
+        "price": 130837,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7331051163.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-16-gb-ne7507t019t2-gb2030g-2022924245/?at=z6tOXNOpqcWpMmzJSJVX3ZLCr00Q7ruOqlmr0IxL0OxE",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1915977725",
+        "name": "Palit Видеокарта GeForce RTX 5080 16 ГБ (NE75080S19T2-GB2031A)",
+        "price": 131684,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7366471175.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-16-gb-ne75080s19t2-gb2031a-1915977725/?at=6WtZRlZAmTEW40o5S01p2N9Ijj8OYXSKQ2pqycq0Qpw5",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1858511209",
+        "name": "Palit Видеокарта GeForce RTX 5080 PA-RTX5080 GAMEROCK OC 16 ГБ (NE75080T19T2-GB2030G)",
+        "price": 131921,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7534816862.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5080-pa-rtx5080-gamerock-oc-16-gb-ne75080t19t2-gb2030g-1858511209/?at=EqtkwokJxhr24jW9UWBRNqRHqLDPG7iDox9mgcqv0PrD",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2082127499",
+        "name": "MSI Видеокарта GeForce RTX 5080 VENTUS 3X OC 16 ГБ (RTX 5080 16G VENTUS 3X OC)",
+        "price": 132040,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7453665778.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5080-ventus-3x-oc-16-gb-rtx-5080-16g-ventus-3x-oc-2082127499/?at=J8tgkLgmwh8LoyKlsg8Y9vqcql1vmOU1mOm0qiBWrPmN",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1966195578",
+        "name": "ASUS Видеокарта GeForce RTX 5080 PRIME-RTX5080-O16G 16 ГБ (PRIME-RTX5080-O16G)",
+        "price": 133821,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7411105256.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5080-prime-rtx5080-o16g-16-gb-prime-rtx5080-o16g-1966195578/?at=79tnrjnxNfR4jEKPhNMjEg2sAXykLBh9GK0DzSAR2OJy",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2175746841",
+        "name": "MAXSUN Видеокарта GeForce RTX 5080 Видеокарта MS-RTX5080 (iCraft OC16G T0) 12 ГБ (RTX)",
+        "price": 134835,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7593071745.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-videokarta-geforce-rtx-5080-videokarta-ms-rtx5080-icraft-oc16g-t0-12-gb-rtx-2175746841/?at=Y7tjKojJlUZ0E736uwJWRM0uw0Gr1MiD89VzNi1DVNYQ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2240482124",
+        "name": "ASUS Видеокарта GeForce RTX 5080 PRIME GDDR7 16 ГБ (90YV0LX1-M0TA00)",
+        "price": 135185,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7631367184.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5080-prime-gddr7-16-gb-90yv0lx1-m0ta00-2240482124/?at=MZtvpVv03tN6GZzMfy2oKAYiXjQLBJhEryyo3HzN90Ol",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2032305302",
+        "name": "Palit Видеокарта GeForce RTX 5080 16 ГБ (NE7507T019T2-GB2030G)",
+        "price": 135606,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7331051175.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-16-gb-ne7507t019t2-gb2030g-2032305302/?at=ywtAGmAzoTKp3QVLtMymj0F4znxZ4HOPM7K5CV6GggR",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2353829659",
+        "name": "Palit Видеокарта (NE75080S19T2-GB2031A)",
+        "price": 136098,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7394638395.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-ne75080s19t2-gb2031a-2353829659/?at=jYtZz1ZMmTjMgo5qC6O7OyKT45xK5yfNnpDMAhzrJnqy",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2016777197",
+        "name": "MSI Видеокарта GeForce RTX 5080 VENTUS 3X OC PLUS 16 ГБ (RTX 5080 16G VENTUS 3X OC PLUS)",
+        "price": 136125,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7299817045.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5080-ventus-3x-oc-plus-16-gb-rtx-5080-16g-ventus-3x-oc-plus-2016777197/?at=QktJn4JEPcGOLPpxfv0vMEQtpxGnRWTV7EZ6BfZ74R0A",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "2353666906",
+        "name": "MSI Видеокарта (RTX 5080 16G SHADOW 3X OC)",
+        "price": 136933,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7467398791.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-rtx-5080-16g-shadow-3x-oc-2353666906/?at=mqtkVLkKlh77gZAIRxvXgJs7l94kPHqo9355c8jXyNO",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "1966434793",
+        "name": "ASUS Видеокарта GeForce RTX 5080 PRIME-RTX5080-O16G 16 ГБ (PRIME-RTX5080-O16G)",
+        "price": 137387,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7411105256.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5080-prime-rtx5080-o16g-16-gb-prime-rtx5080-o16g-1966434793/?at=57twyYwQ9c3RDKPMuv8l1JGTJWr97mSZQ6KOjfqokqVw",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "rtx 5080",
+  "category": "videocards"
+}

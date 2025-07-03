@@ -1,6 +1,20 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { WildberriesApiClient } from '../../domain/interfaces/wb-api.interface';
-import { Product } from '../../domain/interfaces/parser.interfaces';
+
+// Упрощенные интерфейсы
+interface Product {
+  id: number;
+  name: string;
+  sizes: Array<{
+    price?: {
+      product: number;
+    };
+  }>;
+  pics?: string;
+}
+
+interface WildberriesApiClient {
+  searchProducts(query: string, xsubject: number): Promise<Product[]>;
+}
 
 @Injectable()
 export class WildberriesApiClientImpl implements WildberriesApiClient {

@@ -1,0 +1,1011 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "393679964",
+        "name": "AX Gaming GeForce RTX 5070 X3W Видеокарта",
+        "price": 69235,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/393679964/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "333080329",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (RTX 5070 Ti 16G VENTUS 3X",
+        "price": 87897,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/333080329/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342097517",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TGAMING OC-16GD)",
+        "price": 88589,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342097517/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342097543",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TGAMING OC-16GD)",
+        "price": 88589,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342097543/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342098182",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TWF3OC-16GD)",
+        "price": 88791,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342098182/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342097705",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TEAGLE OC-16GD)",
+        "price": 88841,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342097705/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342097732",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TEAGLE OC-16GD)",
+        "price": 88841,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342097732/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "445317385",
+        "name": "Видеокарта RTX 5070 Ti EAGLE OC SFF 16G, 16 Гб GDDR7",
+        "price": 89760,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445317385/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "206796331",
+        "name": "GeForce RTX 5070 Ti EAGLE OC SFF 16G (GV-N507TEAGLE OC-16GD)",
+        "price": 89887,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/206796331/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "415400115",
+        "name": "Видеокарта GeForce RTX 5070Ti VENTUS 3X OC 16G",
+        "price": 90145,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/415400115/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645731",
+        "name": "Видеокарта PCI-E 5.0 GV-N507TEAGLE",
+        "price": 90786,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645731/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342098243",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TWF3OC-16GD)",
+        "price": 90880,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342098243/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "421837750",
+        "name": "Видеокарта GeForce RTX5070 Ti X3 OC",
+        "price": 92083,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421837750/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "388896037",
+        "name": "Видеокарта RTX 5070 Ti X3 OC (N507T3-16D7X-176068N)",
+        "price": 93075,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388896037/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "372730575",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16384Mb",
+        "price": 92854,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/372730575/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645956",
+        "name": "Видеокарта PCI-E 5.0 RTX5070Ti",
+        "price": 93862,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645956/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "429232024",
+        "name": "GeForce RTX 5070 Ti GAMING OC 16G (GV-N507TGAMING OC-16GD)",
+        "price": 94095,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/429232024/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "380622393",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TWF3-16GD)",
+        "price": 95252,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/380622393/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "386107547",
+        "name": "Видеокарта GeForce RTX5070 Ti X3 OC",
+        "price": 95470,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386107547/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "414215414",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (RTX 5070 Ti 16G GAMING TRI",
+        "price": 95670,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414215414/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "336377896",
+        "name": "Видеокарта GeForce RTX 5070 Ti EAGLE OC",
+        "price": 96392,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/336377896/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645968",
+        "name": "GeForce RTX 5070 Ti GamingPro OC 16 Гб Видеокарта",
+        "price": 96547,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645968/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "380622475",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TWF3-16GD)",
+        "price": 96632,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/380622475/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "412328345",
+        "name": "GeForce RTX 5070 Ti EAGLE OC SFF 16GB GDDR7 Видеокарта",
+        "price": 97272,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/412328345/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413254963",
+        "name": "Видеокарта GeForce RTX 5070Ti GAMING OC-16GD",
+        "price": 97628,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413254963/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "398940055",
+        "name": "AX Gaming GeForce RTX 5070 Ti X3W Видеокарта 16ГБ",
+        "price": 97826,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/398940055/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645978",
+        "name": "GeForce RTX 5070 Ti WINDFORCE SFF 16GB GDDR7 Видеокарта",
+        "price": 98026,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645978/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "420967278",
+        "name": "Видеокарта MS-RTX5070Ti (iCraft OC16G T0)",
+        "price": 98509,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/420967278/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "376516064",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti",
+        "price": 98124,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/376516064/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "445280927",
+        "name": "Видеокарта RTX 5070 Ti 16G INSPIRE 3X OC, 16 Гб GDDR7",
+        "price": 98965,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280927/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413254299",
+        "name": "Видеокарта GeForce RTX 5070 Ti EAGLE OC ICE SFF-16GD",
+        "price": 99226,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413254299/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "446788368",
+        "name": "Видеокарта GeForce RTX 5070 Ti EAGLE OC ICE SFF",
+        "price": 100330,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/446788368/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342098089",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TEAGLEOC ICE-16GD)",
+        "price": 100742,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342098089/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "342098098",
+        "name": "Видеокарта RTX 5070 Ti 16 ГБ RTL (GV-N507TEAGLEOC ICE-16GD)",
+        "price": 100742,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342098098/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440643450",
+        "name": "Видеокарта RTX 5070 Ti 16G SHADOW 3X OC, 16 ГБ GDDR7 UltraHD",
+        "price": 101473,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440643450/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413551336",
+        "name": "Видеокарта PRIME GeForce RTX 5070 Ti OC 16GB",
+        "price": 101524,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413551336/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440734767",
+        "name": "Видеокарта GeForce RTX 5070 Ti Inspire 3X OC Plus",
+        "price": 101821,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440734767/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413454102",
+        "name": "Видеокарта Inno3D GeForce RTX5070 Ti X3 OC 16G",
+        "price": 102399,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413454102/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "423068482",
+        "name": "Видеокарта GeForce RTX 5070 Ti VENTUS 3X OC",
+        "price": 103357,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423068482/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "421771622",
+        "name": "Видеокарта GeForce RTX 5070 Ti SHADOW 3X OC",
+        "price": 103635,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421771622/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413553930",
+        "name": "Видеокарта TUF GAMING GeForce RTX 5070TI O16G",
+        "price": 103731,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413553930/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "414611781",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16G GAMING TRIO OC",
+        "price": 104040,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414611781/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "340461624",
+        "name": "Видеокарта RTX 5070 Ti 16G VENTUS 3X OC 16Gb",
+        "price": 104113,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/340461624/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "367441271",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16G GAMING TRIO OC PLUS",
+        "price": 104099,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/367441271/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "377524338",
+        "name": "Видеокарта GeForce RTX 5070 Ti VENTUS 3X OC",
+        "price": 104131,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/377524338/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "439553413",
+        "name": "Видеокарта RTX 5070 Ti TUF Gaming OC Edition, 16 GB",
+        "price": 104496,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439553413/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "350946545",
+        "name": "Видеокарта Gigabyte RTX 5070 Ti WINDFORCE OC 16G GDDR7",
+        "price": 104985,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350946545/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "367441274",
+        "name": "Видеокарта PRIME-RTX5070TI-O16G (90YV0MF0-M0NA00)",
+        "price": 105017,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/367441274/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "449103803",
+        "name": "Видеокарта GeForce RTX 5070 Ti GAMING OC 16G",
+        "price": 105102,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449103803/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "391080297",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16G SHADOW 3X OC",
+        "price": 105281,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391080297/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "390424016",
+        "name": "Полярная Лисица GeForce RTX 5070 Ti OC 16GB GDDR7 видеокарта",
+        "price": 105410,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390424016/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "438255096",
+        "name": "Palit-NE7507TS19T2-GB2031A",
+        "price": 105255,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438255096/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "414615318",
+        "name": "Видеокарта GeForce RTX 5070 Ti EAGLE OC SFF",
+        "price": 105927,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414615318/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645672",
+        "name": "Видеокарта PCI-E PRIME-RTX5070TI-O16G NV RTX5070TI 16Gb 256b",
+        "price": 107095,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645672/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440748962",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti Windforce SFF",
+        "price": 107055,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440748962/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413458730",
+        "name": "Видеокарта MSI GeForce RTX 5070Ti 16G VENTUS 3X OC",
+        "price": 107063,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413458730/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440705872",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti GamingPro OC 16Gb",
+        "price": 107515,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440705872/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440643445",
+        "name": "Видеокарта RTX 5070 Ti 16G VANGUARD SOC, 16 ГБ GDDR7 UltraHD",
+        "price": 107763,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440643445/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "350894987",
+        "name": "Видеокарта ASUS PRIME RTX 5070 Ti 16 ГБ GDDR7",
+        "price": 108629,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350894987/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "384953023",
+        "name": "Видеокарта GeForce RTX 5070 Ti PRIME OC Edition",
+        "price": 109076,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/384953023/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440735825",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti Shadow 3X OC",
+        "price": 109539,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440735825/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440747424",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti Windforce OC SFF 16GB",
+        "price": 109910,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440747424/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "347283470",
+        "name": "Видеокарта GeForce RTX 5070Ti EAGLE OC SFF 16Gb 16Gb",
+        "price": 109940,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/347283470/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413462219",
+        "name": "Видеокарта ASUS GeForce RTX5070Ti PRIME 16GB GDDR7 OC",
+        "price": 109985,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413462219/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "350887253",
+        "name": "Видеокарта Asus PRIME RTX5070TI OC 16G Новая",
+        "price": 110095,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350887253/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440734864",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti 16G Ventus 3X OC",
+        "price": 110373,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440734864/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440737638",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti Trio OC 16Gb",
+        "price": 110647,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440737638/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "387361662",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16G INSPIRE 3X OC",
+        "price": 110802,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387361662/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440747079",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti Eagle OC SFF 16GB",
+        "price": 111196,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440747079/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "445280883",
+        "name": "Видеокарта RTX 5070 Ti WINDFORCE OC SFF 16G, 16 Гб GDDR7",
+        "price": 111758,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280883/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "390617298",
+        "name": "Видеокарта GeForce RTX 5070 Ti GameRock",
+        "price": 111463,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390617298/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "418645932",
+        "name": "Видеокарта PCI-E PRIME-RTX5070TI-O16G NV RTX5070TI 16Gb 256b",
+        "price": 112135,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/418645932/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "421771644",
+        "name": "Видеокарта GeForce RTX 5070 Ti VENTUS 3X OC",
+        "price": 112537,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421771644/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "387286168",
+        "name": "Видеокарта TUF-RTX5070TI-O16G-GAMING",
+        "price": 113193,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387286168/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "350938150",
+        "name": "Видеокарта Gigabyte RTX 5070 Ti GAMING OC 16G GDDR7",
+        "price": 113739,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350938150/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440746785",
+        "name": "Видеокарта RTX 5070 Ti GAMING OC 16GB",
+        "price": 114405,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440746785/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "355594379",
+        "name": "Видеокарта RTX 5070 Ti 16G VENTUS 3X OC",
+        "price": 114954,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/355594379/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "445280931",
+        "name": "Видеокарта RTX 5070 Ti GAMING OC 16G, 16 Гб GDDR7 UltraHD",
+        "price": 115158,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280931/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "390618326",
+        "name": "Видеокарта GeForce RTX 5070 Ti GameRock OC",
+        "price": 114966,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/390618326/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440728574",
+        "name": "Видеокарта GeForce RTX 5070TI",
+        "price": 117543,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440728574/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "440704735",
+        "name": "Видеокарта RTX5070Ti 16G VENTUS 3X OC",
+        "price": 118161,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440704735/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "381468739",
+        "name": "Видеокарта GeForce RTX 5070 Ti GAMING OC 16G",
+        "price": 117784,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/381468739/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "388321133",
+        "name": "Видеокарта ASUS TUF-RTX5070TI-O16G-GAMING 90YV0MD0-M0NA00",
+        "price": 119340,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388321133/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "363088699",
+        "name": "Видеокарта RTX 5070 Ti GAMING OC 16G",
+        "price": 119715,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/363088699/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "445280880",
+        "name": "Видеокарта RTX 5070 Ti AERO OC 16G, 16 Гб GDDR7 UltraHD",
+        "price": 120385,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445280880/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "360557588",
+        "name": "Видеокарта GeForce RTX 5070 Ti PRIME OC Edition",
+        "price": 120921,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360557588/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "413455547",
+        "name": "Видеокарта MSI GeForce RTX 5070 Ti 16G SHADOW 3X OC",
+        "price": 121812,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413455547/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "350880177",
+        "name": "Видеокарта RTX 5070Ti TUF RTX5070TI O16G GAMING GDDR7",
+        "price": 123215,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350880177/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "423208438",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 124524,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423208438/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "435400464",
+        "name": "Видеокарта NE7507TS19T2-GB2031Y",
+        "price": 125282,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/435400464/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "449569576",
+        "name": "Видеокарта ROG Strix GeForce RTX 5070 Ti 16GB OCEdition",
+        "price": 125988,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449569576/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "431055441",
+        "name": "Видеокарта GeForce RTX 5070 Ti",
+        "price": 126742,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/431055441/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "428673876",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 128226,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428673876/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "422292154",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 128580,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422292154/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "443376677",
+        "name": "Видеокарта NVIDIA GeForce RTX 5070 Ti TUF Gaming OC",
+        "price": 128938,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443376677/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "444226097",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 131186,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444226097/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "421907338",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 132233,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421907338/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "421906906",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 135391,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421906906/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "444226086",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 139596,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444226086/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "443797270",
+        "name": "Видеокарта GeForce RTX 5070 Ti 16 Гб",
+        "price": 141253,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443797270/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070 ti"
+      }
+    ],
+    "total_count": 100,
+    "source": "wb"
+  },
+  "query": "rtx 5070 ti",
+  "category": "videocards"
+}

@@ -1,0 +1,371 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1994101496",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti WINDFORCE OC SFF 16 ГБ (GV-N507TWF3OC-16GD)",
+        "price": 86920,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7365239519.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-windforce-oc-sff-16-gb-gv-n507twf3oc-16gd-1994101496/?at=LZtl0Mlp9SylEKKoIxMpDO7Cr9WL5mHR10J0RUDr0Kpk",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2366557853",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti PA-RTX5070Ti GAMINGPRO-S OC 16 ГБ (NE7507TS19T2-GB2031U)",
+        "price": 87141,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7653102190.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-pa-rtx5070ti-gamingpro-s-oc-16-gb-ne7507ts19t2-gb2031u-2366557853/?at=16tLrwLDGTLmWDpBu66lRX2FVKLGWYu8gkV0pIovw4BB",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2366554392",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti PA-RTX5070Ti GAMINGPRO-S OC 16 ГБ (NE7507TS19T2-GB2031U)",
+        "price": 88191,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7653102190.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-pa-rtx5070ti-gamingpro-s-oc-16-gb-ne7507ts19t2-gb2031u-2366554392/?at=qQtJg6JPNcEOrrg4FDEmAo2FmZkjXJTwYnNo1swLmvwA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2008823665",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TWF3-16GD 1.0 16 ГБ (GV-N507TWF3-16GD 1.0)",
+        "price": 89790,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7613145060.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507twf3-16gd-1-0-16-gb-gv-n507twf3-16gd-1-0-2008823665/?at=28t0Lo0J3tQqymOFrlK1pwiMAkOY2iJE2Lm3TPpKjgQ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1922321560",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TEAGLE OC-16GD 1.0 16 ГБ (GV-N507TEAGLE OC-16GD 1.0)",
+        "price": 89889,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7354442449.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507teagle-oc-16gd-1-0-16-gb-gv-n507teagle-oc-16gd-1-0-1922321560/?at=K8tZQxZvWTZL8jpJcNmKG0VIjxp7j4uNDWqDDfBkKlDQ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2224552549",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti 16 ГБ (NE7507TS19T2-GB2031U)",
+        "price": 90828,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7588262833.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-16-gb-ne7507ts19t2-gb2031u-2224552549/?at=28t0Lo0J3tXjrgqESw0xAlJspNo92BF4B42DEU5Z89W1",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1976684953",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TEAGLE OC-16GD 1.0 16 ГБ (GV-N507TEAGLE OC-16GD 1.0)",
+        "price": 91168,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7475198755.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507teagle-oc-16gd-1-0-16-gb-gv-n507teagle-oc-16gd-1-0-1976684953/?at=08tYn0YDBcoPP6kKSVVRL9BFQ2Y8xzCW7MPvruBxoMOO",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2138300628",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti GamingPro OC V1 16 ГБ (NE7507TS19T2-GB2031Y)",
+        "price": 92149,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7628354064.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-gamingpro-oc-v1-16-gb-ne7507ts19t2-gb2031y-2138300628/?at=Z8tX1nXVgHmPXy0xFVOEZvoF08z1v5cBMrWnDhlk1nXA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1976690929",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TEAGLE OC-16GD 1.0 16 ГБ (GV-N507TEAGLE OC-16GD 1.0)",
+        "price": 92267,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7475198755.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507teagle-oc-16gd-1-0-16-gb-gv-n507teagle-oc-16gd-1-0-1976690929/?at=GRt2rZ2p4FjRx1KmfzyoQGvSzpwwRlHrmpZMNsANpzv9",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1914742832",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GeForce RTX 5070Ti EAGLE OC 16 ГБ (GV-N507TEAGLEOC-16GD)",
+        "price": 93191,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7582194810.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-geforce-rtx-5070ti-eagle-oc-16-gb-gv-n507teagleoc-16gd-1914742832/?at=GRt2rZ2p4Fk9Yx9guzM9m9RhDQ6NZviXYNG4HpMwVxW",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2176423215",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 Ti Solid Core White OC 16 ГБ (ZT-B50710Q2-10P)",
+        "price": 93635,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7565235319.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-ti-solid-core-white-oc-16-gb-zt-b50710q2-10p-2176423215/?at=K8tZQxZvWTLoGKYwSEND2JghjvB97yc61w9AoULrVxmJ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1903998258",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TEAGLE OC-16GD 1.0 16 ГБ (GV-N507TEAGLE OC-16GD 1.0)",
+        "price": 93793,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7613135261.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507teagle-oc-16gd-1-0-16-gb-gv-n507teagle-oc-16gd-1-0-1903998258/?at=nRtr4prqDSJ646KjCY8vm8ViDkpYkfY3WMpzS57GoB9",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2190442719",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti GamingPro V1 16 ГБ (NE7507T019T2-GB2031Y)",
+        "price": 94402,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7570812212.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-gamingpro-v1-16-gb-ne7507t019t2-gb2031y-2190442719/?at=r2t4y340ZCRnOXJvCRMPW60cwm31EXivznMJVFW0moxK",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2387053342",
+        "name": "MSI Видеокарта GeForce RTX 5070 Ti VENTUS 3X OC 16 ГБ (RTX 5070 Ti 16G VENTUS 3X OC). Уцененный товар",
+        "price": 95153,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7435770330.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-ti-ventus-3x-oc-16-gb-rtx-5070-ti-16g-ventus-3x-oc-utsenennyy-tovar-2387053342/?at=57twyYwQ9c3g4m1VH1809z7SXZXg6f5WLMEOF9XYGXR",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2353402162",
+        "name": "MSI Видеокарта GeForce RTX 5070 Ti 16 ГБ (GeForce RTX 5070 Ti 16G SHADOW 3X OC)",
+        "price": 95156,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7647477531.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-ti-16-gb-geforce-rtx-5070-ti-16g-shadow-3x-oc-2353402162/?at=w0tg5ZgzxhAGwgOKtwBz1WMsyJ1nNxuNPKqJLillqmE8",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2046294058",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 Ti 16 ГБ (ZT-B50710B-10P)",
+        "price": 95429,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7477818924.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-ti-16-gb-zt-b50710b-10p-2046294058/?at=RltywPykWTV88YOOsXPLj1wcOj4K0kS6gwQYZf0q30Ap",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2175817502",
+        "name": "MAXSUN Видеокарта GeForce RTX 5070 Ti GeForce RTX 5070Ti iCraft (OC16G T0) 16 ГБ ( T0)",
+        "price": 95972,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7669558811.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-videokarta-geforce-rtx-5070-ti-geforce-rtx-5070ti-icraft-oc16g-t0-16-gb-t0-2175817502/?at=K8tZQxZvWT8VD4jnhQ4k5wyCEzkV5NfERLBoVt5mznO2",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2390024418",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 Ti Solid RTX 5070 Ti SOLID SFF OC 16 ГБ (ZT-B50710J3-10P)",
+        "price": 96469,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7665530251.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-ti-solid-rtx-5070-ti-solid-sff-oc-16-gb-zt-b50710j3-10p-2390024418/?at=Z8tX1nXVgHn30RJQiMM59jQTqn9P9mS7kq89PswrOn2",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2390022792",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 Ti Solid RTX 5070 Ti SOLID SFF OC 16 ГБ (ZT-B50710J3-10P)",
+        "price": 97632,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7665530251.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-ti-solid-rtx-5070-ti-solid-sff-oc-16-gb-zt-b50710j3-10p-2390022792/?at=qQtJg6JPNcWn3QOWtj0LZEZSGk66ylcBwVBO4cQrrP8O",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1976684872",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TAERO OC-16GD 1.0 16 ГБ (GV-N507TAERO OC-16GD 1.0)",
+        "price": 98170,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7475198807.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507taero-oc-16gd-1-0-16-gb-gv-n507taero-oc-16gd-1-0-1976684872/?at=vQtrJ0rj8S8ZG2mPf2nRr0YfXEPZ3Mt8lYq9ZTJvl4nP",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1966436987",
+        "name": "ASUS Видеокарта GeForce RTX 5070 Ti PRIME-RTX5070TI-O16G 16 ГБ (PRIME-RTX5070TI-O16G)",
+        "price": 98641,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7411094366.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5070-ti-prime-rtx5070ti-o16g-16-gb-prime-rtx5070ti-o16g-1966436987/?at=OgtEDrE9xTNozE21I9W92GKTKzL1BRSE0KlAQSAlv4nE",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2367365450",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 16 ГБ (GeForce RTX 5070 Ti GAMING OC 16GB (GV-N507TGAMING OC-16GD))",
+        "price": 98648,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7654685722.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-16-gb-geforce-rtx-5070-ti-gaming-oc-16gb-gv-n507tgaming-2367365450/?at=VvtzVjzLytz1V91Ack1rQjSXnEExQfW5E31gCBDJG7g",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2353736604",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 16 ГБ (GV-N507TEAGLEOC ICE-16GD)",
+        "price": 99086,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7365213231.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-16-gb-gv-n507teagleoc-ice-16gd-2353736604/?at=79tnrjnxNfRlooKkcqnPolVCRjrGYpF1RPP4u7EgJMN",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2353734653",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 16 ГБ (GV-N507TGAMINGOC-16GD)",
+        "price": 99086,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7365226976.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-16-gb-gv-n507tgamingoc-16gd-2353734653/?at=K8tZQxZvWTGpJ2MVTq2EVWxhWrDQOjSrw9RGNUO6vJYQ",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1976690994",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TAERO OC-16GD 1.0 16 ГБ (GV-N507TAERO OC-16GD 1.0)",
+        "price": 99353,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7475198807.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507taero-oc-16gd-1-0-16-gb-gv-n507taero-oc-16gd-1-0-1976690994/?at=WPtN1wNgqtwpQm3nfjyNDnwuWnGvvNuYQE9DjHnLG01L",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2361617505",
+        "name": "ASUS Видеокарта GeForce RTX 5070 Ti 16 ГБ (PRIME-RTX5070TI-O16G)",
+        "price": 100394,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7651925467.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5070-ti-16-gb-prime-rtx5070ti-o16g-2361617505/?at=gpt4v54xyC7NwGr8sBv60YGhjw74rDuJRKO1wF3Xzv4X",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2014299956",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TEAGLE OC-16GD 1.0 16 ГБ (GV-N507TEAGLE OC-16GD 1.0)",
+        "price": 100483,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7613135261.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507teagle-oc-16gd-1-0-16-gb-gv-n507teagle-oc-16gd-1-0-2014299956/?at=nRtr4prqDSo8B293hNxXDZXIEMpGqDu843EG2Tlj88lA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1966194602",
+        "name": "ASUS Видеокарта GeForce RTX 5070 Ti PRIME-RTX5070TI-O16G 16 ГБ (PRIME-RTX5070TI-O16G)",
+        "price": 100720,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7626963165.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5070-ti-prime-rtx5070ti-o16g-16-gb-prime-rtx5070ti-o16g-1966194602/?at=Z8tX1nXVgHPxvAE0fmAlpqZTgVBp0wuWBOQRVSXZk028",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2366069581",
+        "name": "MSI Видеокарта GeForce RTX 5070 Ti 16 ГБ (GeForce RTX 5070 Ti 16G GAMING TRIO OC)",
+        "price": 101267,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7653806220.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-ti-16-gb-geforce-rtx-5070-ti-16g-gaming-trio-oc-2366069581/?at=36tWjYWJKsq0V8O7I7lkljliWYkwpWcRP4oGphWxDDEp",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2138300569",
+        "name": "Palit Видеокарта GeForce RTX 5070 Ti GameRock OC 16 ГБ (NE7507TH19T2-GB2030G)",
+        "price": 102305,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7418168837.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-ti-gamerock-oc-16-gb-ne7507th19t2-gb2030g-2138300569/?at=Y7tjKojJlUzY9OOQU49qgk5HDJrP3WIRRlwn0CWvxl4A",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1966196204",
+        "name": "ASUS Видеокарта GeForce RTX 5070 Ti TUF-RTX5070TI-O16G-GAMING 16 ГБ (TUF-RTX5070TI-O16G-GAMING)",
+        "price": 102643,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7613243464.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5070-ti-tuf-rtx5070ti-o16g-gaming-16-gb-tuf-rtx5070ti-o16g-gaming-1966196204/?at=A6tGxJG3Ocmnmw72t7g1ELNsXzqgW9fxqlz40unzz59A",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2175746647",
+        "name": "MAXSUN Видеокарта GeForce RTX 5070 Ti Видеокарта MS-RTX5070Ti (iCraft OC16G T0) 12 ГБ (RTX)",
+        "price": 103609,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7593073378.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-videokarta-geforce-rtx-5070-ti-videokarta-ms-rtx5070ti-icraft-oc16g-t0-12-gb-rtx-2175746647/?at=VvtzVjzLytr72QnLUYjxr30iG3nV4nTyrqm83sQENOpY",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1907082593",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti GV-N507TGAMING OC-16GD 16 ГБ (GV-N507TGAMING OC-16GD)",
+        "price": 103825,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7357175980.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-gv-n507tgaming-oc-16gd-16-gb-gv-n507tgaming-oc-16gd-1907082593/?at=oZt6Ap6LYIO6EKgDskYOZ6VuW8g0B4IPj7LY1tBOw99",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2104228269",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 16 ГБ (GeForce RTX 5070 Ti EAGLE OC 16Gb (GV-N507TEAGLE OC-16GD))",
+        "price": 103966,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7522818935.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-16-gb-geforce-rtx-5070-ti-eagle-oc-16gb-gv-n507teagle-2104228269/?at=57twyYwQ9cN8gx8rS6jMgmmc3Y6gqnuyZzA3ni50yl5O",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "2029117522",
+        "name": "MSI Видеокарта GeForce RTX 5070 Ti SHADOW 3X OC 16 ГБ (RTX 5070 Ti 16G SHADOW 3X OC)",
+        "price": 104490,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7436403338.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-ti-shadow-3x-oc-16-gb-rtx-5070-ti-16g-shadow-3x-oc-2029117522/?at=NOtwY5wr3cWlqW1pSX4DWJYF1EyVl8FxDQEGECjJ8Am",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      },
+      {
+        "id": "1901216426",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 16 ГБ (GV-N507TGAMING OC-16GD)",
+        "price": 104827,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7351604998.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-16-gb-gv-n507tgaming-oc-16gd-1901216426/?at=A6tGxJG3Oc4VyX3zSVONlv2fvXymRgfoMlQ3ATy4P4lk",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070 ti"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "rtx 5070 ti",
+  "category": "videocards"
+}

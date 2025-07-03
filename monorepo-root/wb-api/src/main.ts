@@ -1,27 +1,17 @@
-import { GrpcServerService } from './grpc-server/grpc-server.service';
-import { ParserModule } from './parser/parser.module';
-import { CpusService } from './parser/application/services/cpus.service';
-import { VideocardsService } from './parser/application/services/videocards.service';
-import { MotherboardsService } from './parser/application/services/motherboards.service';
 import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  // Создаем DI-контейнер
-  const app = await NestFactory.createApplicationContext(ParserModule);
-
-  // Получаем сервисы для передачи в GrpcServerService
-  const cpusService = app.get(CpusService);
-  const videocardsService = app.get(VideocardsService);
-  const motherboardsService = app.get(MotherboardsService);
-
-  // Запускаем gRPC сервер
-  const grpcServer = new GrpcServerService(cpusService, videocardsService, motherboardsService);
-  grpcServer['onModuleInit']();
-
-  console.log('🚀 WB API запущен (только gRPC на порту 3001)');
-  console.log('📡 HTTP сервер отключен - используется только gRPC');
-
-  // Держим процесс живым
+  const app = await NestFactory.createApplicationContext(AppModule);
+  
+  console.log('🚀 WB API gRPC сервер на порту 3000...');
+  console.log('✅ WB API gRPC сервер успешно запущен');
+  console.log('🔗 Готов принимать запросы от Product-Filter-Service');
+  console.log('📡 gRPC сервер: localhost:3000');
+  console.log('📡 Готов к парсингу (БЕЗ ФИЛЬТРАЦИИ И КЭШИРОВАНИЯ)');
+  
+  // Держим приложение живым
+  await app.init();
   process.stdin.resume();
 }
 

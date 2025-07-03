@@ -3,44 +3,64 @@
   "data": {
     "products": [
       {
-        "id": "449914467",
-        "name": "Видеокарта Rtx 5080 Solid Core",
-        "price": 110159,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/449914467/detail.aspx",
+        "id": "348137638",
+        "name": "Видеокарта RTX 5080 16 ГБ RTL (NE75080S19T2-GB2031A)",
+        "price": 114741,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348137638/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "418645709",
         "name": "Видеокарта PCI-E PA-RTX5080 GAMINGPRO NV RTX5080 16Gb 256bit",
-        "price": 119438,
+        "price": 119784,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418645709/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "418336398",
         "name": "Видеокарта для ПК 5080 RTX PA",
-        "price": 121801,
+        "price": 122166,
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336398/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "373755778",
         "name": "RTX5080 WINDFORCE OC SFF 16G Видеокарта",
-        "price": 123933,
+        "price": 124025,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/373755778/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "417507540",
+        "name": "GeForce RTX 5080 GameRock OC 16 ГБ GDDR7 Видеокарта",
+        "price": 124168,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/417507540/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "365696254",
+        "name": "Видеокарта RTX 5080 16 ГБ RTL (NE75080019T2-GB2031A)",
+        "price": 124878,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/365696254/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "317213742",
@@ -50,37 +70,27 @@
         "product_url": "https://www.wildberries.ru/catalog/317213742/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "417507540",
-        "name": "GeForce RTX 5080 GameRock OC 16 ГБ GDDR7 Видеокарта",
-        "price": 125298,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/417507540/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "348137638",
-        "name": "Видеокарта RTX 5080 16 ГБ RTL (NE75080S19T2-GB2031A)",
-        "price": 126445,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/348137638/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "432624962",
         "name": "Видеокарта GeForce RTX 5080 X3 OC",
-        "price": 128485,
+        "price": 125988,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/432624962/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "333080307",
+        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G INSPIRE 3X OC)",
+        "price": 126420,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/333080307/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "420967282",
@@ -90,7 +100,7 @@
         "product_url": "https://www.wildberries.ru/catalog/420967282/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "399733754",
@@ -100,7 +110,7 @@
         "product_url": "https://www.wildberries.ru/catalog/399733754/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "421858076",
@@ -110,27 +120,47 @@
         "product_url": "https://www.wildberries.ru/catalog/421858076/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "379243390",
+        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G VENTUS 3X OC)",
+        "price": 129292,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/379243390/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "355329858",
+        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G SHADOW 3X OC)",
+        "price": 129308,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/355329858/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "418336387",
         "name": "Видеокарта PCI-E 5.0 PA-RTX5080 OC",
-        "price": 129398,
+        "price": 129783,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336387/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "432622390",
-        "name": "Видеокарта GeForce RTX5080 X3 OC White",
-        "price": 130541,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/432622390/detail.aspx",
+        "id": "372730573",
+        "name": "Видеокарта NVIDIA GeForce RTX 5080",
+        "price": 130857,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/372730573/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "351226241",
@@ -140,57 +170,37 @@
         "product_url": "https://www.wildberries.ru/catalog/351226241/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "428863839",
+        "name": "Видеокарта RTX 5080 Gaming OC, 16 GB",
+        "price": 131318,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428863839/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "343951068",
         "name": "Видеокарта iGame GeForce RTX 5080 Advanced OC 16GB-V",
-        "price": 133229,
+        "price": 133328,
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/343951068/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "413256359",
         "name": "Видеокарта GeForce RTX 5080 WF3OC SFF-16GD",
-        "price": 133631,
+        "price": 133730,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413256359/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "333080307",
-        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G INSPIRE 3X OC)",
-        "price": 134536,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/333080307/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "365696254",
-        "name": "Видеокарта RTX 5080 16 ГБ RTL (NE75080019T2-GB2031A)",
-        "price": 134747,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/365696254/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "323039306",
-        "name": "Видеокарта GeForce RTX 5080 16G VENTUS 3X OC",
-        "price": 135753,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/323039306/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "325098162",
@@ -200,7 +210,17 @@
         "product_url": "https://www.wildberries.ru/catalog/325098162/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "323039306",
+        "name": "Видеокарта GeForce RTX 5080 16G VENTUS 3X OC",
+        "price": 136161,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/323039306/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "423068506",
@@ -210,27 +230,27 @@
         "product_url": "https://www.wildberries.ru/catalog/423068506/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "379243390",
-        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G VENTUS 3X OC)",
-        "price": 137592,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/379243390/detail.aspx",
+        "id": "448978458",
+        "name": "Видеокарта NVIDIA GeForce RTX 5080 GamingPro V1",
+        "price": 137520,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/448978458/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "355329858",
-        "name": "Видеокарта RTX 5080 16 ГБ RTL (RTX 5080 16G SHADOW 3X OC)",
-        "price": 137609,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/355329858/detail.aspx",
+        "id": "449914467",
+        "name": "Видеокарта Rtx 5080 Solid Core",
+        "price": 137699,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449914467/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "436928710",
@@ -240,17 +260,17 @@
         "product_url": "https://www.wildberries.ru/catalog/436928710/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "449585772",
         "name": "Видеокарта GeForce RTX 5080 X3 GAMING OC",
-        "price": 138618,
+        "price": 138780,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/449585772/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "390433674",
@@ -260,17 +280,47 @@
         "product_url": "https://www.wildberries.ru/catalog/390433674/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "440701037",
+        "name": "Видеокарта GeForce RTX 5080 16GB GamingPro",
+        "price": 140215,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440701037/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "388337123",
+        "name": "Видеокарта RTX 5080 X3 OC (N50803-16D7X-17603930)",
+        "price": 140250,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388337123/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "413554760",
+        "name": "Видеокарта PRIME GeForce RTX 5080 OC 16GB",
+        "price": 140982,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413554760/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "362275924",
         "name": "Видеокарта GeForce RTX 5080 16G SHADOW 3X OC",
-        "price": 141771,
+        "price": 142196,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/362275924/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "421535459",
@@ -280,7 +330,17 @@
         "product_url": "https://www.wildberries.ru/catalog/421535459/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "440707156",
+        "name": "Видеокарта NVIDIA GeForce RTX 5080 GamingPro OC 16Gb",
+        "price": 142902,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440707156/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "405580355",
@@ -290,17 +350,37 @@
         "product_url": "https://www.wildberries.ru/catalog/405580355/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "323039366",
         "name": "Видеокарта GeForce RTX 5080 16G VENTUS 3X OC PLUS",
-        "price": 143361,
+        "price": 143794,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/323039366/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "387288822",
+        "name": "Видеокарта GeForce RTX 5080 PRIME OC Edition 16G",
+        "price": 144345,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/387288822/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "413266808",
+        "name": "Видеокарта GeForce RTX 5080 GAMING OC-16GD",
+        "price": 144798,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413266808/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "452363994",
@@ -310,7 +390,27 @@
         "product_url": "https://www.wildberries.ru/catalog/452363994/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "385183721",
+        "name": "Видеокарта MSI GeForce RTX 5080 16G VENTUS 3X",
+        "price": 145558,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/385183721/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "377489175",
+        "name": "Видеокарта GeForce RTX 5080 VENTUS 3X OC",
+        "price": 146034,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/377489175/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "421771645",
@@ -320,7 +420,7 @@
         "product_url": "https://www.wildberries.ru/catalog/421771645/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "418519832",
@@ -330,57 +430,37 @@
         "product_url": "https://www.wildberries.ru/catalog/418519832/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "385183721",
-        "name": "Видеокарта MSI GeForce RTX 5080 16G VENTUS 3X",
-        "price": 147433,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/385183721/detail.aspx",
+        "id": "377467963",
+        "name": "Видеокарта GeForce RTX 5080 GAMING TRIO OC",
+        "price": 148420,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/377467963/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "377489175",
-        "name": "Видеокарта GeForce RTX 5080 VENTUS 3X OC",
-        "price": 148002,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/377489175/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "391080306",
         "name": "Видеокарта GeForce RTX 5080 16G VENTUS 3X PLUS",
-        "price": 148138,
+        "price": 148588,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/391080306/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "440704645",
-        "name": "Видеокарта PA-RTX5080 GAMINGPRO 16GB",
-        "price": 148158,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/440704645/detail.aspx",
+        "id": "440700289",
+        "name": "Видеокарта GameRock NVIDIA GeForce RTX 5080 16GB OC",
+        "price": 148769,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440700289/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "451820706",
-        "name": "Видеокарта RTX 5080 16G VENTUS 3X PLUS, 16 ГБ GDDR7 UltraHD",
-        "price": 148520,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/451820706/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "450545624",
@@ -390,7 +470,37 @@
         "product_url": "https://www.wildberries.ru/catalog/450545624/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "451820706",
+        "name": "Видеокарта RTX 5080 16G VENTUS 3X PLUS, 16 ГБ GDDR7 UltraHD",
+        "price": 148971,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/451820706/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "413315291",
+        "name": "Видеокарта MSI GeForce RTX 5080 16G VENTUS 3X",
+        "price": 150282,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413315291/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "440704645",
+        "name": "Видеокарта PA-RTX5080 GAMINGPRO 16GB",
+        "price": 150517,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440704645/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "421771700",
@@ -400,27 +510,27 @@
         "product_url": "https://www.wildberries.ru/catalog/421771700/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "377467963",
-        "name": "Видеокарта GeForce RTX 5080 GAMING TRIO OC",
-        "price": 152761,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/377467963/detail.aspx",
+        "id": "413555335",
+        "name": "Видеокарта TUF GAMING GeForce RTX 5080 O16G",
+        "price": 152120,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413555335/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "387288822",
-        "name": "Видеокарта GeForce RTX 5080 PRIME OC Edition 16G",
-        "price": 153484,
+        "id": "413453691",
+        "name": "Видеокарта Gigabyte GV-N5080GAMING OC-16GD RTX 5080",
+        "price": 153172,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/387288822/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/413453691/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "423068501",
@@ -430,7 +540,7 @@
         "product_url": "https://www.wildberries.ru/catalog/423068501/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "413466141",
@@ -440,7 +550,7 @@
         "product_url": "https://www.wildberries.ru/catalog/413466141/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "362308244",
@@ -450,7 +560,17 @@
         "product_url": "https://www.wildberries.ru/catalog/362308244/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "438255066",
+        "name": "MicroStar-RTX 5080 16G VENTUS 3X OC PLUS",
+        "price": 154106,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438255066/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "423068495",
@@ -460,7 +580,7 @@
         "product_url": "https://www.wildberries.ru/catalog/423068495/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "440736395",
@@ -470,17 +590,17 @@
         "product_url": "https://www.wildberries.ru/catalog/440736395/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "438255066",
-        "name": "MicroStar-RTX 5080 16G VENTUS 3X OC PLUS",
-        "price": 155399,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/438255066/detail.aspx",
+        "id": "384927795",
+        "name": "Видеокарта GeForce RTX5080 TUF GAMING 16GB GDDR7",
+        "price": 155302,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/384927795/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "421771680",
@@ -490,27 +610,7 @@
         "product_url": "https://www.wildberries.ru/catalog/421771680/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "384927795",
-        "name": "Видеокарта GeForce RTX5080 TUF GAMING 16GB GDDR7",
-        "price": 159122,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/384927795/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "440704721",
-        "name": "Видеокарта RTX5080 SHADOW 3X OC 16GB",
-        "price": 159528,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/440704721/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "425303593",
@@ -520,27 +620,57 @@
         "product_url": "https://www.wildberries.ru/catalog/425303593/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "440704721",
+        "name": "Видеокарта RTX5080 SHADOW 3X OC 16GB",
+        "price": 160016,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440704721/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "428675808",
+        "name": "Видеокарта GeForce RTX 5080",
+        "price": 160200,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428675808/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
+      },
+      {
+        "id": "413458128",
+        "name": "Видеокарта MSI GeForce RTX 5080 16G VENTUS 3X OC",
+        "price": 160287,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413458128/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "442756582",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 160159,
+        "price": 160637,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/442756582/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "446756592",
         "name": "Видеокарта RTX 5080 AORUS MASTER 16G",
-        "price": 160658,
+        "price": 161114,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446756592/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "344290327",
@@ -550,27 +680,47 @@
         "product_url": "https://www.wildberries.ru/catalog/344290327/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "438925857",
+        "name": "Видеокарта GeForce RTX 5080 16 Гб",
+        "price": 161692,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438925857/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "440704780",
         "name": "Видеокарта RTX5080 VENTUS 3X OC PLUS 16GB",
-        "price": 162559,
+        "price": 163047,
         "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440704780/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "413273564",
+        "name": "Видеокарта GeForce RTX 5080 AORUS MASTER ICE-16GD",
+        "price": 163108,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413273564/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "350902701",
         "name": "Видеокарта ASUS PRIME RTX 5080 16GB GDDR7",
-        "price": 163190,
+        "price": 163310,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350902701/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "362308242",
@@ -580,7 +730,7 @@
         "product_url": "https://www.wildberries.ru/catalog/362308242/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "344290375",
@@ -590,7 +740,7 @@
         "product_url": "https://www.wildberries.ru/catalog/344290375/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "344126843",
@@ -600,7 +750,7 @@
         "product_url": "https://www.wildberries.ru/catalog/344126843/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "362308247",
@@ -610,157 +760,147 @@
         "product_url": "https://www.wildberries.ru/catalog/362308247/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "440734551",
         "name": "Видеокарта NVIDIA GeForce RTX 5080 16GB Ventus 3X OC PLUS",
-        "price": 166376,
+        "price": 166465,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440734551/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "440704702",
+        "name": "Видеокарта PA-RTX5070 INFINITY 3 12GB RTX 5070 12Gb",
+        "price": 167034,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440704702/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "413271337",
         "name": "Видеокарта GeForce RTX 5080 AERO OC SFF-16GD",
-        "price": 167547,
+        "price": 167671,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413271337/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "350905171",
         "name": "Видеокарта RTX 5080 16 ГБ GDDR7 OC Edition",
-        "price": 169018,
+        "price": 169143,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350905171/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "446035321",
-        "name": "Видеокарта GeForce RTX 5080 ROG Astral 16G",
-        "price": 176554,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/446035321/detail.aspx",
+        "id": "452904360",
+        "name": "Видеокарта GAMING GeForce RTX 5080 SOLID CORE OC",
+        "price": 170000,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452904360/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "350921944",
         "name": "TUF RTX5080 O16GB ИГРОВОЙ Видеокарта NVIDIA",
-        "price": 182861,
+        "price": 182996,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350921944/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "421930368",
-        "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 183941,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421930368/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "321486381",
-        "name": "Видеокарта ROG Astral RTX5080 O16G Gaming 90YV0LV0-M0NA00",
-        "price": 186269,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/321486381/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "422247591",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 186795,
+        "price": 187354,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/422247591/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "446677350",
         "name": "Видеокарта iGame GeForce RTX 5080 Vulcan OC 16GB-V",
-        "price": 189002,
+        "price": 189142,
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446677350/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "422247640",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 189013,
+        "price": 189580,
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/422247640/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "421906962",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 191754,
+        "price": 192339,
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421906962/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "451350960",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 195124,
+        "price": 195709,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
         "product_url": "https://www.wildberries.ru/catalog/451350960/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
-        "id": "440704751",
-        "name": "Видеокарта PCIE16 RTX5080 16GB RTX 5080 16G VENTUS 3X PLUS",
-        "price": 204813,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/440704751/detail.aspx",
+        "id": "413462775",
+        "name": "Видеокарта MSI GeForce RTX 5080 16G GAMING TRIO OC",
+        "price": 196920,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413462775/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "446035321",
+        "name": "Видеокарта GeForce RTX 5080 ROG Astral 16G",
+        "price": 198655,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/446035321/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       },
       {
         "id": "438004280",
         "name": "Видеокарта GeForce RTX 5080 16 Гб",
-        "price": 205111,
+        "price": 205731,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438004280/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
-      },
-      {
-        "id": "422292090",
-        "name": "Видеокарта NE75080T19T2-GB2030G",
-        "price": 206604,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/422292090/detail.aspx",
-        "category": "videocards",
-        "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "438958999",
@@ -770,7 +910,7 @@
         "product_url": "https://www.wildberries.ru/catalog/438958999/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "440704750",
@@ -780,82 +920,92 @@
         "product_url": "https://www.wildberries.ru/catalog/440704750/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "446676926",
         "name": "Видеокарта iGame GeForce RTX 5080 Ultra W OC 16GB-V",
-        "price": 234943,
+        "price": 235117,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446676926/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "446677208",
         "name": "Видеокарта iGame GeForce RTX 5080 Neptune OC 16GB-V",
-        "price": 234943,
+        "price": 235117,
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446677208/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "350990249",
         "name": "RTX 5080 16G OC Gaming DLSS4 Черный",
-        "price": 238894,
+        "price": 239071,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/350990249/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "446676808",
         "name": "Видеокарта iGame GeForce RTX 5080 Advanced OC 16GB-V",
-        "price": 246428,
+        "price": 246611,
         "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
         "product_url": "https://www.wildberries.ru/catalog/446676808/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "413556360",
         "name": "Видеокарта ROG-ASTRAL-RTX5080-O16G-GAMING",
-        "price": 249874,
+        "price": 250059,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413556360/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "418336735",
         "name": "Видеокарта PCI-E 5.0 PA-RTX5080",
-        "price": 135488,
+        "price": 135890,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/418336735/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
       },
       {
         "id": "440735283",
         "name": "Видеокарта GeForce RTX 5080 16ГБ Shadow 3X OC",
-        "price": 150720,
+        "price": 151172,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/440735283/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "RTX5080"
+        "query": "rtx 5080"
+      },
+      {
+        "id": "350921946",
+        "name": "Видеокарта ROG Astral RTX 5080 16 ГБ GDDR7",
+        "price": 250075,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/350921946/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5080"
       }
     ],
-    "total_count": 85,
+    "total_count": 100,
     "source": "wb"
   },
-  "query": "RTX5080",
+  "query": "rtx 5080",
   "category": "videocards"
 }
