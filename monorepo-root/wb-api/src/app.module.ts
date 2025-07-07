@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { GrpcServerService } from './grpc-server/grpc-server.service';
-import { WbParserService } from './parser/wb-parser.service';
+import { GrpcModule } from './modules/grpc/grpc.module';
+import { ParserModule } from './modules/parser/parser.module';
 
 @Module({
-  providers: [GrpcServerService, WbParserService],
+  imports: [GrpcModule, ParserModule],
 })
 export class AppModule {} 

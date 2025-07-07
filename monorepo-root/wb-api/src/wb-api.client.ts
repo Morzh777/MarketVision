@@ -26,6 +26,21 @@ export class WildberriesApiClientImpl implements WildberriesApiClient {
     USER_AGENT: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
   };
 
+  /**
+   * Выполняет поиск товаров через API Wildberries
+   * 
+   * @param query - Поисковый запрос для поиска товаров
+   * @param xsubject - ID категории товаров в системе WB (например, 3690 для материнских плат)
+   * @returns Promise<Product[]> - Массив найденных товаров или пустой массив при ошибке
+   * 
+   * @example
+   * ```typescript
+   * const products = await client.searchProducts("RTX 4090", 3690);
+   * console.log(`Найдено ${products.length} товаров`);
+   * ```
+   * 
+   * @throws {Error} При ошибке HTTP запроса или некорректном ответе API
+   */
   async searchProducts(query: string, xsubject: number): Promise<Product[]> {
     const url = `${this.CONFIG.WB_API_URL}?ab_testid=pricefactor_2&appType=64&curr=rub&dest=-1185367&hide_dtype=13&lang=ru&page=1&query=${encodeURIComponent(query)}&resultset=catalog&sort=priceup&spp=30&suppressSpellcheck=false&xsubject=${xsubject}`;
     

@@ -1,61 +1,6 @@
 {
-  "success": true,
-  "data": {
-    "products": [
-      {
-        "id": "255090367",
-        "name": "Силиконовый чехол для геймапада DualSense DOBE Silicon Case for PS5 Controller (темно-зеленый)",
-        "price": 361,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-j/6057534139.jpg",
-        "product_url": "https://www.ozon.ru/product/silikonovyy-chehol-dlya-geymapada-dualsense-dobe-silicon-case-for-ps5-controller-temno-zelenyy-255090367/?at=79tnrj2JYCxrgBG9cOGZz4ouA2Jg45uJM2n6VsZnq12x",
-        "category": "playstation_accessories",
-        "source": "ozon",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "374604579",
-        "name": "Кронштейн для зарядной станции DualSense PS5, настенный, черный",
-        "price": 504,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7020687216.jpg",
-        "product_url": "https://www.ozon.ru/product/kronshteyn-dlya-zaryadnoy-stantsii-dualsense-ps5-nastennyy-chernyy-374604579/?at=99trJVApjfDnpKYWcmOj5M4U8NnpoqfRRGz4OFjVlrB6",
-        "category": "playstation_accessories",
-        "source": "ozon",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "281627191",
-        "name": "Держатель Dobe для геймпада PlayStation DualSense Wireless Controller на кальян для PS5",
-        "price": 1130,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-m/6071882446.jpg",
-        "product_url": "https://www.ozon.ru/product/derzhatel-dobe-dlya-geympada-playstation-dualsense-wireless-controller-na-kalyan-dlya-ps5-281627191/?at=J8tgkLlDoIV600rQh3m0G5ksg6Q494hMLPg3ghXEEVrR",
-        "category": "playstation_accessories",
-        "source": "ozon",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "1688722782",
-        "name": "Sony PlayStation 5 Геймпад DualSense Edge Wireless Controller,L3 R3 Модуль замены рычага управления 2(CFI-ZSM1G)",
-        "price": 5180,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7664519176.jpg",
-        "product_url": "https://www.ozon.ru/product/sony-playstation-5-geympad-dualsense-edge-wireless-controller-l3-r3-modul-zameny-rychaga-1688722782/?at=Y7tjKom4XTYOPNK3uJZg8V0iwBOqnQcOAjQGwFGXOXVL",
-        "category": "playstation_accessories",
-        "source": "ozon",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "2377697310",
-        "name": "Brook Wingman FGC2 адаптер для подключения геймпадов к консоли PS5",
-        "price": 5318,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7660338343.jpg",
-        "product_url": "https://www.ozon.ru/product/brook-wingman-fgc2-adapter-dlya-podklyucheniya-geympadov-k-konsoli-ps5-2377697310/?at=OgtEDrlykcDln8GfOpl8ZNuJy4QB4UQ4PzgJf3Wrpkj",
-        "category": "playstation_accessories",
-        "source": "ozon",
-        "query": "PlayStation 5 Controller"
-      }
-    ],
-    "total_count": 5,
-    "source": "ozon"
-  },
+  "success": false,
+  "error": "14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:3002",
   "query": "PlayStation 5 Controller",
   "category": "playstation_accessories",
   "platform_id": null

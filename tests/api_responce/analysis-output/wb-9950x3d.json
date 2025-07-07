@@ -5,7 +5,7 @@
       {
         "id": "371583828",
         "name": "Процессор Ryzen 9 9950X3D OEM (без кулера) AM5 DDR5 CPU",
-        "price": 65586,
+        "price": 65875,
         "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
         "product_url": "https://www.wildberries.ru/catalog/371583828/detail.aspx",
         "category": "processors",
@@ -13,19 +13,9 @@
         "query": "9950x3d"
       },
       {
-        "id": "379243344",
-        "name": "Процессор Ryzen 9 9950X3D, OEM (100-000000719)",
-        "price": 66407,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/379243344/detail.aspx",
-        "category": "processors",
-        "source": "wb",
-        "query": "9950x3d"
-      },
-      {
         "id": "379243436",
         "name": "Процессор Ryzen 9 9950X3D, OEM (100-000000719)",
-        "price": 66407,
+        "price": 66516,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/379243436/detail.aspx",
         "category": "processors",
@@ -33,9 +23,19 @@
         "query": "9950x3d"
       },
       {
+        "id": "379243344",
+        "name": "Процессор Ryzen 9 9950X3D, OEM (100-000000719)",
+        "price": 66516,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/379243344/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9950x3d"
+      },
+      {
         "id": "367442452",
         "name": "Процессор Ryzen9 9950X3D OEM (без кулера)",
-        "price": 66652,
+        "price": 66945,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/367442452/detail.aspx",
         "category": "processors",
@@ -45,7 +45,7 @@
       {
         "id": "423470591",
         "name": "Процессор RYZEN 9950X3D X16 SAM5 170W 100-000000719",
-        "price": 91362,
+        "price": 96664,
         "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
         "product_url": "https://www.wildberries.ru/catalog/423470591/detail.aspx",
         "category": "processors",
