@@ -1,14 +1,25 @@
-# Ozon API Parser
+# 🛍️ Ozon API Parser
 
-HTTP API сервис для парсинга товаров с Ozon с использованием undetected-chromedriver.
+gRPC сервис для парсинга товаров с Ozon с использованием undetected-chromedriver. Работает как gRPC сервер для Product-Filter-Service.
 
 ## 🚀 Особенности
 
+- **gRPC сервер** - интеграция с Product-Filter-Service
 - **Undetected ChromeDriver** - обход детекции ботов
-- **HTTP API** - REST endpoints для получения данных
-- **gRPC клиент** - подключение к Product-Filter-Service
 - **Чистая архитектура** - модульная структура
-- **Единый формат данных** - совместимость с product-filter-service
+- **Поддержка платформ** - специальные ID для игровых консолей
+- **Единый формат данных** - совместимость с PARSER-DATA-STANDARD
+
+## 🏗️ Архитектура
+
+```
+Product-Filter-Service (gRPC Client) → Ozon-API (gRPC Server) → Ozon.ru
+```
+
+### Основные компоненты:
+- **gRPC Server** - обработка запросов от Product-Filter-Service
+- **Ozon Parser** - парсинг данных с Ozon через Selenium
+- **Domain Services** - бизнес-логика и валидация
 
 ## 📦 Установка
 
@@ -29,45 +40,29 @@ python build_proto.py
 python src/main.py
 ```
 
-## 🌐 HTTP Endpoints
+## 📡 gRPC API
 
-### Корневой endpoint
-```http
-GET /
+### GetRawProducts
+```protobuf
+rpc GetRawProducts(GetRawProductsRequest) returns (GetRawProductsResponse)
+
+message GetRawProductsRequest {
+  string query = 1;
+  string category = 2;
+  string platform_id = 3;
+}
 ```
 
-### Получить продукты
-```http
-GET /api/v1/products?query=rtx 5080
-```
+### Поддерживаемые категории:
+- **videocards** - Видеокарты
+- **processors** - Процессоры  
+- **motherboards** - Материнские платы
+- **playstation** - PlayStation 5
+- **playstation_accessories** - Аксессуары PS5
+- **nintendo_switch** - Nintendo Switch (с платформой)
 
-### Сырые данные
-```http
-GET /api/v1/raw
-```
-
-### Проверка здоровья
-```http
-GET /api/v1/health
-```
-
-## 🏗️ Архитектура
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Telegram Bot  │    │  Product-Filter │    │   WB API        │
-│   (NestJS)      │◄──►│  Service        │◄──►│   (NestJS)      │
-│   Port: 3002    │    │  Port: 3003     │    │   Port: 3000    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                ▲
-                                │ gRPC (50051)
-                                │
-                       ┌─────────────────┐
-                       │   Ozon API      │
-                       │   (Python)      │
-                       │   Port: 3001    │
-                       └─────────────────┘
-```
+### Платформы для Nintendo:
+- **101858153** - Nintendo Switch 2, Nintendo Switch OLED
 
 ## 📊 Формат данных
 
@@ -76,23 +71,43 @@ GET /api/v1/health
 ```json
 {
   "id": "unique_id",
-  "name": "Название товара",
-  "price": num,
-  "description": "Описание",
+  "name": "Название товара", 
+  "price": 65000,
   "image_url": "https://...",
   "product_url": "https://...",
-  "images": ["https://..."],
-  "characteristics": {},
   "category": "videocards",
-  "availability": true,
-  "supplier": "Ozon",
-  "source": "ozon"
+  "source": "ozon",
+  "query": "rtx 5070"
 }
 ```
 
-## 🔧 Интеграция с Product-Filter-Service
+## 🔧 Технологический стек
 
-Ozon API подключается к Product-Filter-Service как gRPC клиент на `localhost:50051` и отправляет данные для фильтрации и кэширования.
+- **Language**: Python 3.11+
+- **gRPC**: grpcio, grpcio-tools
+- **Web Scraping**: Selenium, undetected-chromedriver
+- **HTTP Client**: httpx
+- **Architecture**: Clean Architecture
+
+## 📁 Структура проекта
+
+```
+src/
+├── main.py                           # Точка входа
+├── domain/                           # Доменная логика
+│   ├── entities/
+│   │   └── product.py               # Сущность товара
+│   └── services/
+│       └── parser_service.py        # Интерфейс парсера
+├── infrastructure/                   # Инфраструктура
+│   ├── grpc/
+│   │   └── ozon_grpc_service.py     # gRPC сервер
+│   ├── parsers/
+│   │   └── ozon_parser.py           # Парсер Ozon
+│   └── services/
+│       └── ozon_parser_service.py   # Реализация парсера
+└── raw_product_pb2*.py              # Сгенерированные gRPC файлы
+```
 
 ## 🐳 Docker
 
@@ -106,7 +121,7 @@ RUN pip install -r requirements.txt
 COPY . .
 RUN python build_proto.py
 
-EXPOSE 3001
+EXPOSE 3002
 
 CMD ["python", "src/main.py"]
 ```
@@ -114,43 +129,43 @@ CMD ["python", "src/main.py"]
 ## 🔍 Отладка
 
 ```bash
-# Проверить статус
-curl http://localhost:3001/
+# Проверить gRPC сервер
+grpcurl -plaintext localhost:3002 list
 
-# Получить продукты
-curl http://localhost:3001/api/v1/products
+# Тестирование gRPC запроса
+python test_grpc_client.py
 
-# Проверить здоровье
-curl http://localhost:3001/api/v1/health
-
-# Получить сырые данные
-curl http://localhost:3001/api/v1/raw
+# Проверить логи
+tail -f logs/ozon-api.log
 ```
 
-## 📁 Структура проекта
+## 🧪 Тестирование
 
+```bash
+# Запуск тестового клиента
+python test_grpc_client.py
+
+# Проверка парсера
+python -c "from src.infrastructure.parsers.ozon_parser import OzonParser; print('Parser OK')"
 ```
-src/
-├── domain/
-│   ├── entities/
-│   │   └── product.py
-│   ├── repositories/
-│   │   └── product_repository.py
-│   └── services/
-│       └── parser_service.py
-├── application/
-│   └── services/
-│       └── product_service.py
-├── infrastructure/
-│   ├── parsers/
-│   │   └── ozon_parser.py
-│   ├── repositories/
-│   │   └── redis_product_repository.py
-│   ├── services/
-│   │   └── ozon_parser_service.py
-│   └── grpc/
-│       └── product_filter_client.py
-└── presentation/
-    └── controllers/
-        └── ozon_controller.py
-``` 
+
+## 🚨 Частые проблемы
+
+### ChromeDriver не найден
+1. Установите Chrome: `sudo apt install google-chrome-stable`
+2. Проверьте версию: `google-chrome --version`
+3. Обновите undetected-chromedriver: `pip install --upgrade undetected-chromedriver`
+
+### gRPC ошибки
+1. Перегенерируйте proto: `python build_proto.py`
+2. Проверьте порт: `netstat -tulpn | grep 3002`
+3. Перезапустите сервис
+
+### Парсинг не работает
+1. Проверьте доступность Ozon
+2. Обновите user-agent в парсере
+3. Проверьте логи на ошибки
+
+---
+
+**Ozon API** - надежный gRPC сервер для парсинга товаров с Ozon! 🚀 

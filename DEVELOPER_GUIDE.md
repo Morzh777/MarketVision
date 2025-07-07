@@ -3,257 +3,248 @@
 ## 📋 Содержание
 
 1. [🏗️ Архитектура системы](#️-архитектура-системы)
-2. [➕ Добавление новых сервисов парсинга](#-добавление-новых-сервисов-парсинга)
-3. [🔗 Подключение gRPC Cache](#-подключение-grpc-cache)
-4. [📁 Структура проекта](#-структура-проекта)
-5. [⚙️ Конфигурация](#️-конфигурация)
-6. [🧪 Тестирование](#-тестирование)
-7. [🐛 Отладка](#-отладка)
+2. [🐳 Docker и развертывание](#-docker-и-развертывание)
+3. [➕ Добавление новых сервисов парсинга](#-добавление-новых-сервисов-парсинга)
+4. [🔗 Подключение gRPC Cache](#-подключение-grpc-cache)
+5. [📁 Структура проекта](#-структура-проекта)
+6. [⚙️ Конфигурация](#️-конфигурация)
+7. [🧪 Тестирование](#-тестирование)
+8. [🐛 Отладка](#-отладка)
 
 ---
 
 ## 🏗️ Архитектура системы
 
-### Общая схема:
+### Финальная архитектура:
 ```
-WB-API (NestJS) ←→ gRPC ←→ Product-Filter-Service (NestJS) ←→ Redis (внутренний)
-     ↑                                    ↑
-Bot Service                         Валидаторы + Фильтры + Кэш
+Telegram Bot (Node.js)
+    ↓ HTTP
+Product-Filter-Service (NestJS, порт 3001) ←→ Redis
+    ↓ gRPC
+WB-API (NestJS, порт 3000) → WildBerries
+Ozon-API (Python, порт 3002) → Ozon
 ```
-
-### ⚠️ **ВАЖНО:**
-- **WB-API НЕ ПОДКЛЮЧАЕТСЯ** к Redis напрямую
-- **Только Product-Filter-Service** управляет Redis
-- **Весь кэш** (цены, фото, фильтры) - через gRPC
 
 ### Ключевые принципы:
-- ✅ **Единый gRPC Cache** для всех данных (цены, фотографии, фильтры)
+- ✅ **Product-Filter-Service** - центральный hub для агрегации данных
+- ✅ **Единый gRPC Cache** через Redis для всех данных
 - ✅ **Микросервисная архитектура** с четким разделением ответственности
-- ✅ **Постоянное хранение** данных (TTL = 0 для истории)
-- ✅ **Fallback механизмы** при недоступности сервисов
+- ✅ **Docker контейнеры** для всех сервисов
+- ✅ **Nginx** для маршрутизации и балансировки нагрузки
+
+### Планируемая архитектура с Nginx:
+```
+Nginx (порт 80/443)
+    ↓ маршрутизация
+├── Product-Filter-Service (порт 3001) - основной API
+├── WB-API (порт 3000) - парсинг WildBerries  
+├── Ozon-API (порт 3002) - парсинг Ozon
+└── Telegram Bot (порт 3003) - бот интерфейс
+```
+
+---
+
+## 🐳 Docker и развертывание
+
+### Текущая конфигурация Docker Compose:
+
+```yaml
+version: '3.8'
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    
+  product-filter-service:
+    build: ./monorepo-root/product-filter-service
+    ports: ["50051:50051"]
+    
+  wb-api:
+    build: ./monorepo-root/wb-api
+    ports: ["3000:3000"]
+    
+  ozon-api:
+    build: ./monorepo-root/ozon-api
+    ports: ["3002:3002"]
+    
+  telegram-bot:
+    build: ./monorepo-root/bot
+    environment:
+      - WB_API_URL=http://wb-api:3000
+      - OZON_API_URL=http://ozon-api:3002
+```
+
+### Команды для работы с Docker:
+
+```bash
+# Запуск всех сервисов
+docker-compose up -d
+
+# Просмотр логов
+docker-compose logs -f [service-name]
+
+# Пересборка и перезапуск
+docker-compose up -d --build
+
+# Остановка всех сервисов
+docker-compose down
+
+# Очистка данных Redis
+docker-compose down -v
+```
+
+### Планируемая конфигурация с Nginx:
+
+```yaml
+# nginx.conf (будет добавлен)
+server {
+    listen 80;
+    server_name wbinfo.local;
+    
+    # Product Filter Service (основной API)
+    location /api/ {
+        proxy_pass http://product-filter-service:3001/;
+    }
+    
+    # WB API
+    location /wb/ {
+        proxy_pass http://wb-api:3000/;
+    }
+    
+    # Ozon API  
+    location /ozon/ {
+        proxy_pass http://ozon-api:3002/;
+    }
+    
+    # Telegram Bot Webhook
+    location /bot/ {
+        proxy_pass http://telegram-bot:3003/;
+    }
+}
+```
 
 ---
 
 ## ➕ Добавление новых сервисов парсинга
 
-### Шаг 1: Создание базового сервиса
+### Шаг 1: Создание нового API сервиса
 
-Создайте новый файл `monorepo-root/wb-api/src/parser/application/services/[category].service.ts`:
-
-**💡 Пример:** `processors` → `parser/processors`, `videocards` → `parser/videocards`
+Создайте новый сервис в `monorepo-root/[new-api]/`:
 
 ```typescript
-import { Injectable, Inject } from '@nestjs/common';
-import { BaseParserService } from './base-parser.service';
-import { FilterConfigPresets } from '../../domain/filter/entities/filter-config.entity';
-import { IProductFilterService } from '../../domain/filter/interfaces/filter.interfaces';
-import { WildberriesApiClient, PhotoService } from '../../domain/interfaces/wb-api.interface';
-import { PRODUCT_FILTER_SERVICE } from '../../domain/filter/filter.module';
-import { WB_API_CLIENT, PHOTO_SERVICE } from '../../infrastructure/infrastructure.module';
+// Пример структуры для нового API
+src/
+├── main.ts
+├── app.module.ts
+├── grpc-server/
+│   └── grpc-server.service.ts
+├── parser/
+│   └── [new]-parser.service.ts
+└── types/
+    └── raw-product.interface.ts
+```
 
+### Шаг 2: Добавление в Docker Compose
+
+```yaml
+# Добавить в docker-compose.yml
+new-api:
+  build:
+    context: ./monorepo-root/new-api
+    dockerfile: Dockerfile
+  container_name: new-api
+  ports:
+    - "3004:3004"  # Уникальный порт
+  environment:
+    - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+  depends_on:
+    - product-filter-service
+  networks:
+    - product-network
+```
+
+### Шаг 3: Интеграция с Product-Filter-Service
+
+Добавьте gRPC клиент в `product-filter-service/src/grpc-clients/`:
+
+```typescript
+// new-api.client.ts
 @Injectable()
-export class NewCategoryService extends BaseParserService {
-  // Поисковые запросы для вашей категории
-  protected readonly TEST_QUERIES = [
-    'запрос1', 'запрос2', 'запрос3'
-  ];
+export class NewApiClient {
+  private client: any;
   
-  // xsubject код категории в WB API
-  protected readonly TEST_XSUBJECT = 1234; // Найдите код для вашей категории
-  
-  // Ключевые слова для исключения
-  protected readonly EXCLUDE_KEYWORDS = [
-    'исключить1', 'исключить2'
-  ];
-
-  // Конфигурация фильтров (создайте новую в FilterConfigPresets)
-  protected readonly FILTER_CONFIG = FilterConfigPresets.NEW_CATEGORY_CONFIG;
-
-  // Название категории для кэша
-  protected get category(): string { return 'new_category'; }
-
-  constructor(
-    @Inject(PRODUCT_FILTER_SERVICE) 
-    filterService: IProductFilterService,
-    @Inject(WB_API_CLIENT)
-    wbApiClient: WildberriesApiClient,
-    @Inject(PHOTO_SERVICE)
-    photoService: PhotoService
-  ) {
-    super(filterService, wbApiClient, photoService);
-    this.initCaches();
+  constructor() {
+    this.client = new NewApiServiceClient('new-api:3004');
   }
-
-  // Публичный метод для контроллера с gRPC интеграцией
-  async findAllNewCategory() {
-    return this.findAllProductsViaGrpc();
+  
+  async filterProducts(request: FilterRequest): Promise<FilterResponse> {
+    return this.client.filterProducts(request);
   }
 }
 ```
 
-### Шаг 2: Создание контроллера
+### Шаг 4: Обновление конфигурации категорий
 
-Создайте `monorepo-root/wb-api/src/parser/presentation/controllers/[category].controller.ts`:
-
-```typescript
-import { Controller, Get, Req } from '@nestjs/common';
-import { NewCategoryService } from '../../application/services/new-category.service';
-import { BaseRateLimitedController } from '../rate-limit/base-rate-limited.controller';
-import { RateLimitService } from '../rate-limit/rate-limit.service';
-import { Request } from 'express';
-import { ProcessedProduct } from '../../../grpc-clients/product-filter.client';
-
-interface GrpcFilterResult {
-  query: string;
-  products: ProcessedProduct[];
-  stats: {
-    totalInput: number;
-    totalFiltered: number;
-    processingTimeMs: number;
-  };
-}
-
-@Controller('parser/new-category')
-export class NewCategoryController extends BaseRateLimitedController {
-    constructor(
-        private readonly newCategoryService: NewCategoryService,
-        protected readonly rateLimitService: RateLimitService
-    ) { super(rateLimitService); }
-
-    @Get()
-    async findAllNewCategory(@Req() req: Request): Promise<GrpcFilterResult[]> {
-        return this.rateLimited(req.ip || 'unknown', () => this.newCategoryService.findAllNewCategory());
-    }
-
-    @Get('legacy')
-    async findAllNewCategoryLegacy(@Req() req: Request) {
-        return this.rateLimited(req.ip || 'unknown', () => this.newCategoryService.findAllProducts());
-    }
-}
-```
-
-### Шаг 3: Добавление в модули
-
-Обновите `monorepo-root/wb-api/src/parser/parser.module.ts`:
+Добавьте в `product-filter-service/src/config/categories.config.ts`:
 
 ```typescript
-import { NewCategoryService } from './application/services/new-category.service';
-import { NewCategoryController } from './presentation/controllers/new-category.controller';
-
-@Module({
-  imports: [/* ... */],
-  controllers: [
-    // ... существующие контроллеры
-    NewCategoryController,
-  ],
-  providers: [
-    // ... существующие сервисы
-    NewCategoryService,
-  ],
-})
-export class ParserModule {}
-```
-
-### Шаг 4: Конфигурация фильтров
-
-Добавьте в `monorepo-root/wb-api/src/parser/domain/filter/entities/filter-config.entity.ts`:
-
-```typescript
-export class FilterConfigPresets {
-  // ... существующие конфиги
-  
-  static readonly NEW_CATEGORY_CONFIG: FilterConfig = {
-    x3dRules: {
-      enabled: false, // Настройте под вашу категорию
-    },
-    chipsetRules: {
-      enabled: true,
-      validateChipsetFormat: true,
-      requireBrandMatch: true,
-    },
-    rtxRules: {
-      enabled: false,
-    }
-  };
-}
+export const CATEGORIES: Record<string, CategoryConfig> = {
+  // ... существующие категории
+  new_category: {
+    ozon: 'new-category-slug',
+    wb: 'new-category-id',
+    new_api: 'new-category-config'  // Для нового API
+  }
+};
 ```
 
 ---
 
 ## 🔗 Подключение gRPC Cache
 
-### BaseParserService уже включает gRPC!
+### Product-Filter-Service как центральный hub:
 
-Все сервисы, наследующие от `BaseParserService`, автоматически получают доступ к gRPC Cache через `this.grpcClient`.
-
-### Основные методы gRPC Cache:
-
-#### 💾 Сохранение данных:
 ```typescript
-// Сохранение цен (навсегда, TTL = 0)
-await this.grpcClient.cacheProducts(
-  'price:new_category:product_stable_id',
-  [{
-    id: product.id.toString(),
-    name: product.name,
-    price: currentPrice,
-    category: 'new_category',
-    // ... остальные поля
-  }],
-  0 // TTL = 0 = навсегда
-);
+// product-filter-service/src/services/products.service.ts
+@Injectable()
+export class ProductsService {
+  constructor(
+    private readonly wbApiClient: WbApiClient,
+    private readonly ozonApiClient: OzonApiClient,
+    private readonly redisService: RedisService
+  ) {}
 
-// Сохранение последней опубликованной цены
-await this.grpcClient.cacheProducts(
-  'last_posted_price:new_category:product_stable_id',
-  [/* данные */],
-  0
-);
-```
+  async getProducts(query: string, category: string) {
+    // 1. Проверяем кэш
+    const cached = await this.redisService.get(`products:${category}:${query}`);
+    if (cached) return cached;
 
-#### 📷 Кэширование фотографий:
-```typescript
-// Фотографии автоматически кэшируются в BaseParserService
-// Категория передается из this.category в PhotoService
-const photoUrl = await this.photoService.getProductPhoto(product, this.category);
+    // 2. Запрашиваем данные от всех API
+    const [wbProducts, ozonProducts] = await Promise.all([
+      this.wbApiClient.filterProducts({ query, category }),
+      this.ozonApiClient.filterProducts({ query, category })
+    ]);
 
-// Ключ кэша: new_category:product_id
-// Структура: {category}:{product_id}
-```
+    // 3. Агрегируем и фильтруем
+    const allProducts = [...wbProducts, ...ozonProducts];
+    const filtered = this.filterProducts(allProducts, category);
 
-#### 📖 Получение данных:
-```typescript
-// Получение из кэша
-const cachedData = await this.grpcClient.getCachedProducts('price:new_category:product_id');
+    // 4. Кэшируем результат
+    await this.redisService.set(`products:${category}:${query}`, filtered, 3600);
 
-if (cachedData.found && cachedData.products.length > 0) {
-  const lastPrice = cachedData.products[0].price;
-  // Логика сравнения цен...
+    return filtered;
+  }
 }
 ```
 
-#### 🔍 Фильтрация товаров:
-```typescript
-const result = await this.grpcClient.filterProducts(
-  rawProducts,           // Массив товаров с WB
-  query,                // Поисковый запрос
-  this.getGrpcFilterConfig(), // Конфигурация фильтров
-  {
-    excludeKeywords: this.EXCLUDE_KEYWORDS,
-    source: 'wb',
-    category: this.category
-  }
-);
-```
+### Структура кэша Redis:
 
-### Структура ключей кэша:
-
-| Тип данных | Ключ | Описание |
-|------------|------|----------|
-| 💰 Цены | `price:category:stable_id` | История всех цен товара |
-| 📝 Посты | `last_posted_price:category:stable_id` | Последняя опубликованная цена |
-| 📷 Фото | `category:product_id` | Фотографии товаров |
-| 🔍 Фильтры | `filter:category:config_hash` | Настройки фильтров |
+| Ключ | Описание | TTL |
+|------|----------|-----|
+| `products:category:query` | Отфильтрованные товары | 1 час |
+| `raw:wb:category:query` | Сырые данные WB | 30 мин |
+| `raw:ozon:category:query` | Сырые данные Ozon | 30 мин |
+| `photos:category:product_id` | Фотографии товаров | 24 часа |
 
 ---
 
@@ -262,166 +253,186 @@ const result = await this.grpcClient.filterProducts(
 ```
 wbinfo/
 ├── monorepo-root/
-│   ├── wb-api/                     # Основное API (NestJS)
+│   ├── bot/                        # Telegram бот (Node.js)
 │   │   ├── src/
-│   │   │   ├── parser/
-│   │   │   │   ├── application/services/    # Бизнес-логика парсинга
-│   │   │   │   ├── presentation/controllers/ # HTTP эндпоинты
-│   │   │   │   ├── domain/                  # Доменная логика и интерфейсы
-│   │   │   │   └── infrastructure/         # Внешние сервисы (API, фото)
-│   │   │   ├── grpc-clients/               # gRPC клиенты
+│   │   │   ├── commands/           # Команды бота
+│   │   │   ├── services/           # Сервисы
 │   │   │   └── main.ts
-│   │   └── proto/product.proto             # gRPC интерфейс
+│   │   └── Dockerfile
 │   │
-│   ├── product-filter-service/     # gRPC микросервис (NestJS)
+│   ├── product-filter-service/     # Центральный API (NestJS)
 │   │   ├── src/
-│   │   │   ├── controllers/               # gRPC контроллеры
-│   │   │   ├── services/                  # Бизнес-логика фильтрации
-│   │   │   ├── validators/                # Валидаторы товаров
-│   │   │   └── main.ts
-│   │   └── proto/product.proto           # gRPC интерфейс (копия)
+│   │   │   ├── controllers/        # HTTP контроллеры
+│   │   │   ├── services/           # Бизнес-логика
+│   │   │   ├── grpc-clients/       # gRPC клиенты к API
+│   │   │   └── config/             # Конфигурация категорий
+│   │   └── Dockerfile
 │   │
-│   └── bot/                        # Telegram бот
-│       └── src/services/
+│   ├── wb-api/                     # WB парсер (NestJS)
+│   │   ├── src/
+│   │   │   ├── parser/             # Парсер WildBerries
+│   │   │   ├── grpc-server/        # gRPC сервер
+│   │   │   └── main.ts
+│   │   └── Dockerfile
+│   │
+│   └── ozon-api/                   # Ozon парсер (Python)
+│       ├── src/
+│       │   ├── parsers/            # Парсер Ozon
+│       │   ├── grpc/               # gRPC сервер
+│       │   └── main.py
+│       └── Dockerfile
 │
-├── docker-compose.yml              # Контейнеры для разработки
-└── README.md                       # Общая документация
+├── docker-compose.yml              # Docker конфигурация
+├── nginx/                          # Nginx конфигурация (планируется)
+└── README.md                       # Документация
 ```
 
 ---
 
 ## ⚙️ Конфигурация
 
-### Environment переменные (.env):
+### Environment переменные:
 
 ```bash
-# WB API Service
-NODE_ENV=development
-PORT=3000
-PRODUCT_FILTER_SERVICE_URL=localhost:50051
-GRPC_USE_SSL=false
-GRPC_FALLBACK_ENABLED=true
-
-# Product Filter Service  
-GRPC_HOST=0.0.0.0
+# Product Filter Service
+REDIS_URL=redis://redis:6379
 GRPC_PORT=50051
-REDIS_URL=redis://localhost:6379
+GRPC_HOST=0.0.0.0
 
-# Bot Service
+# WB API
+NODE_ENV=production
+PORT=3000
+PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+
+# Ozon API
+REDIS_URL=redis://redis:6379
+PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+
+# Telegram Bot
 TG_BOT_TOKEN=your_bot_token
-WB_API_URL=http://localhost:3000
+WB_API_URL=http://wb-api:3000
+OZON_API_URL=http://ozon-api:3002
 ```
 
-### Docker Compose для разработки:
+### Конфигурация категорий:
 
-```yaml
-version: '3.8'
-services:
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
-  product-filter-service:
-    build: ./monorepo-root/product-filter-service
-    ports:
-      - "50051:50051"
-    environment:
-      - REDIS_URL=redis://redis:6379
-    depends_on:
-      - redis
-
-  wb-api:
-    build: ./monorepo-root/wb-api
-    ports:
-      - "3000:3000"
-    environment:
-      - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
-    depends_on:
-      - product-filter-service
-
-volumes:
-  redis_data:
+```typescript
+// product-filter-service/src/config/categories.config.ts
+export const CATEGORIES = {
+  videocards: {
+    ozon: 'videokarty-15721',
+    wb: '3274'
+  },
+  processors: {
+    ozon: 'protsessory-15726', 
+    wb: '3698'
+  },
+  // ... другие категории
+};
 ```
 
 ---
 
 ## 🧪 Тестирование
 
-### Запуск всех сервисов:
+### Запуск в Docker:
 
 ```bash
-# 1. Запуск Redis
-docker run -d -p 6379:6379 redis:7-alpine
+# Полный запуск
+docker-compose up -d
 
-# 2. Запуск Product Filter Service
-cd monorepo-root/product-filter-service
-npm run start:dev
+# Проверка статуса
+docker-compose ps
 
-# 3. Запуск WB API
-cd monorepo-root/wb-api  
-npm run start:dev
+# Тестирование API
+curl http://localhost:3001/api/products?query=RTX4070&category=videocards
 
-# 4. Тестирование нового эндпоинта
-curl http://localhost:3000/parser/new-category
+# Тестирование WB API
+curl http://localhost:3000/parser/videocards
+
+# Тестирование Ozon API
+curl http://localhost:3002/parser/videocards
 ```
 
-### Проверка gRPC соединения:
+### Локальная разработка:
 
 ```bash
-# Установка grpcurl для тестирования
+# Запуск только Redis
+docker-compose up redis -d
+
+# Запуск сервисов локально
+cd monorepo-root/product-filter-service && npm run start:dev
+cd monorepo-root/wb-api && npm run start:dev
+cd monorepo-root/ozon-api && python src/main.py
+```
+
+### Тестирование gRPC:
+
+```bash
+# Установка grpcurl
 # Windows: choco install grpcurl
 # Linux: apt install grpcurl
 
-# Тест подключения к gRPC
+# Тест gRPC сервисов
 grpcurl -plaintext localhost:50051 list
-
-# Тест кэширования
-grpcurl -plaintext -d '{"cache_key":"test","products":[],"ttl_seconds":0}' \
-  localhost:50051 product_filter.ProductFilterService/CacheProducts
+grpcurl -plaintext localhost:3000 list
+grpcurl -plaintext localhost:3002 list
 ```
 
 ---
 
 ## 🐛 Отладка
 
-### Логи gRPC:
-
-```typescript
-// В ProductFilterClient включено автоматическое логирование:
-// ✅ gRPC запрос выполнен за 150мс
-// ❌ gRPC ошибка (2000мс): UNAVAILABLE
-
-// Для детального дебага добавьте:
-console.log('🔗 gRPC клиент подключен к', serverAddress);
-```
-
-### Проверка gRPC кэша:
+### Просмотр логов:
 
 ```bash
-# Обновление кэша фотографий через API
-node refresh-photos-cache.js
+# Все сервисы
+docker-compose logs -f
 
-# Проверка конкретной категории через API
-curl http://localhost:3000/parser/videocards
-curl http://localhost:3000/parser/processors  
-curl http://localhost:3000/parser/motherboards
+# Конкретный сервис
+docker-compose logs -f product-filter-service
+docker-compose logs -f wb-api
+docker-compose logs -f ozon-api
 
-# Проверка здоровья сервисов
+# Последние 100 строк
+docker-compose logs --tail=100 [service-name]
+```
+
+### Проверка здоровья сервисов:
+
+```bash
+# Product Filter Service
+curl http://localhost:3001/health
+
+# WB API
 curl http://localhost:3000/health
+
+# Ozon API
+curl http://localhost:3002/health
+```
+
+### Отладка Redis:
+
+```bash
+# Подключение к Redis
+docker exec -it product-redis redis-cli
+
+# Просмотр ключей
+KEYS *
+
+# Просмотр данных
+GET "products:videocards:RTX4070"
 ```
 
 ### Часто встречающиеся проблемы:
 
 | Проблема | Решение |
 |----------|---------|
-| `gRPC UNAVAILABLE` | Проверьте запущен ли product-filter-service на порту 50051 |
-| `WB-API недоступен` | Запустите: `docker-compose up wb-api -d` |
-| `Proto file not found` | Проверьте что proto файлы синхронны в обоих сервисах |
-| `Fallback mode activated` | gRPC сервис недоступен, проверьте логи product-filter-service |
-| `Фотографий не найдено` | Проверьте подключение к WildBerries и gRPC кэш |
+| `gRPC UNAVAILABLE` | Проверьте запущен ли product-filter-service |
+| `Container не запускается` | Проверьте логи: `docker-compose logs [service]` |
+| `Redis connection failed` | Убедитесь что Redis запущен: `docker-compose up redis -d` |
+| `Port already in use` | Остановите локальные сервисы или измените порты |
+| `Build failed` | Проверьте Dockerfile и зависимости |
 
 ---
 
@@ -429,31 +440,31 @@ curl http://localhost:3000/health
 
 ### ✅ Рекомендации:
 
-1. **Всегда используйте TTL = 0** для исторических данных (цены, фото)
-2. **Создавайте уникальные stable_id** для товаров (без спецсимволов)
-3. **Правильно устанавливайте `this.category`** в наследующем сервисе
-4. **Добавляйте fallback логику** для критических операций
-5. **Логируйте все gRPC операции** для отладки
-6. **Тестируйте с реальными данными** WB API
-7. **Фотографии кэшируются автоматически** по категории из BaseParserService
+1. **Всегда используйте Docker** для разработки и продакшена
+2. **Тестируйте через Docker Compose** перед локальным запуском
+3. **Используйте health checks** в Docker конфигурации
+4. **Логируйте все операции** для отладки
+5. **Кэшируйте данные** через Redis
+6. **Используйте единый стандарт данных** (PARSER-DATA-STANDARD.md)
+7. **Добавляйте новые категории** через конфигурационные файлы
 
 ### ❌ Чего избегать:
 
-1. **❌ НИКОГДА не подключайтесь к Redis напрямую из WB-API** - только через gRPC!
-2. Не используйте TTL для постоянных данных (цены, фото)
-3. Не дублируйте логику кэширования в разных сервисах
-4. Не забывайте вызывать `grpcClient.close()` при завершении
-5. **НЕ ПРАВЬТЕ PhotoService** при добавлении новых категорий - категория передается автоматически!
-6. **НЕ СОЗДАВАЙТЕ** скрипты прямого доступа к Redis - только через API!
+1. **Не подключайтесь к Redis напрямую** из API сервисов
+2. **Не хардкодите порты** в коде
+3. **Не забывайте про health checks** в Docker
+4. **Не используйте разные форматы данных** в разных API
+5. **Не запускайте сервисы без Docker** в продакшене
 
 ---
 
 ## 📚 Дополнительные ресурсы
 
-- [NestJS gRPC Documentation](https://docs.nestjs.com/microservices/grpc)
-- [Protocol Buffers Guide](https://developers.google.com/protocol-buffers)
-- [Redis Commands Reference](https://redis.io/commands)
-- [WB API Documentation](внутренняя документация)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [Nginx Configuration](https://nginx.org/en/docs/)
+- [gRPC Best Practices](https://grpc.io/docs/guides/best-practices/)
+- [Redis Commands](https://redis.io/commands)
+- [PARSER-DATA-STANDARD.md](./PARSER-DATA-STANDARD.md)
 
 ---
 

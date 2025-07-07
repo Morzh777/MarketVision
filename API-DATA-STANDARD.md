@@ -43,12 +43,12 @@ Product Filter Service отправляет gRPC запросы к WB API и Ozo
 
 ```json
 {
-  "query": "RTX 4070",
-  "category": "videocards",
-  "all_queries": ["RTX 4070"],
-  "exclude_keywords": [],
+  "query": "string",
+  "category": "string",
+  "all_queries": ["string"],
+  "exclude_keywords": ["string"],
   "products": [],
-  "source": "wb",
+  "source": "string",
   "config": {}
 }
 ```
@@ -56,76 +56,25 @@ Product Filter Service отправляет gRPC запросы к WB API и Ozo
 ### Важные моменты:
 
 1. **Поле `query`** - основной запрос для поиска
-2. **Поле `category`** - унифицированная категория: "videocards", "processors", "motherboards"
+2. **Поле `category`** - унифицированная категория (например: "videocards", "processors", "motherboards")
 3. **Поле `source`** - указывает целевой API ("wb" или "ozon")
 4. **Каждый API конвертирует категорию в свой внутренний slug**
 
 ## Маппинг категорий
 
 ### WB API (WildBerries)
-- `videocards` → `xsubject: 3274`
-- `processors` → `xsubject: 3698` 
-- `motherboards` → `xsubject: 3690`
+- Категории конвертируются в `xsubject` параметры
+- Конфигурация хранится в `categories.config.ts`
 
 ### Ozon API (Ozon)
-- `videocards` → `category_slug: "videokarty-15721"`
-- `processors` → `category_slug: "protsessory-15726"`
-- `motherboards` → `category_slug: "materinskie-platy-15725"`
-
-## Значения категорий (единообразные)
-
-- `videocards` - видеокарты
-- `processors` - процессоры  
-- `motherboards` - материнские платы
+- Категории конвертируются в `category_slug` параметры
+- Некоторые запросы могут требовать дополнительный `platform_id`
+- Конфигурация хранится в `categories.config.ts`
 
 ## Значения source
 
 - `"wb"` - данные от WB API
 - `"ozon"` - данные от Ozon API
-
-## Примеры ответов
-
-### WB API (RTX 4070)
-```json
-{
-  "products": [
-    {
-      "id": "446901124",
-      "name": "Видеокарта GeForce RTX 4070 WINDFORCE OC 12 ГБ",
-      "price": 53320,
-      "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-      "product_url": "https://www.wildberries.ru/catalog/446901124/detail.aspx",
-      "category": "videocards",
-      "source": "wb",
-      "query": "RTX 4070"
-    }
-  ],
-  "total_input": 1,
-  "total_filtered": 1,
-  "processing_time_ms": 0
-}
-```
-
-### Ozon API (RTX 4070)
-```json
-{
-  "products": [
-    {
-      "id": "2148909740",
-      "name": "Gigabyte Видеокарта GeForce GTX 1660 Ti ⚡GIGABYTE OC⚡6GB 6 ГБ",
-      "price": 18104,
-      "image_url": "https://cdn1.ozon.ru/s3/multimedia-1-w/7647426788.jpg",
-      "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-gtx-1660-ti-2148909740/",
-      "category": "videocards",
-      "source": "ozon",
-      "query": "RTX 4070"
-    }
-  ],
-  "total_input": 1,
-  "total_filtered": 1,
-  "processing_time_ms": 150
-}
-```
 
 ## Архитектура gRPC
 
@@ -143,18 +92,17 @@ Ozon API (gRPC Server) → Ozon (HTTP)
 - **Ozon API**: `FilterProducts(request)` - порт 3002
 - **Product-Filter-Service**: HTTP API для бота - порт 3001
 
-## Удаленные поля
+## Управление категориями и запросами
 
-Следующие поля были удалены из ответов API, так как они не используются:
+### Конфигурация категорий
+- Файл: `product-filter-service/src/config/categories.config.ts`
+- Содержит маппинг категорий для WB и Ozon
+- Поддерживает платформы для специфичных запросов
 
-- `description` - описание товара (часто пустое)
-- `images` - массив изображений (всегда пустой)
-- `characteristics` - характеристики товара (всегда пустой объект)
-- `availability` - доступность (всегда "available")
-- `supplier` - поставщик (всегда пустая строка)
-- `brand` - бренд (всегда пустая строка)
-- `filter_result.applied_rules` - примененные правила (всегда пустой массив)
-- `processed_at` - время обработки (не нужно для анализа)
+### Конфигурация запросов
+- Файл: `product-filter-service/src/config/queries.config.ts`
+- Содержит запросы по категориям
+- Легко добавлять новые запросы и категории
 
 ## Преимущества упрощенной структуры
 
@@ -163,4 +111,4 @@ Ozon API (gRPC Server) → Ozon (HTTP)
 3. **Чище код** - только нужные поля
 4. **Единообразие** - одинаковый формат для всех API
 5. **Простота анализа** - легко понять структуру данных
-6. **Правильные категории** - везде используется категория из gRPC запроса 
+6. **Гибкость** - легко добавлять новые категории и запросы 
