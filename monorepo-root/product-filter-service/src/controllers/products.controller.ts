@@ -1,9 +1,9 @@
 import { Controller, Post, Body, Get, Param, HttpException, HttpStatus } from '@nestjs/common';
-import { ProductsService, ProductRequest, ProductResponse } from '../services/products.service';
-import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
+import { ProductsService } from '../services/products.service';
+import { ProductResponse } from '../types/product.types';
 import { ProductRequestDto } from '../dto/product-request.dto';
+import { QueryConfigService } from '../config/queries.config';
 
-@ApiTags('products')
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
@@ -13,34 +13,40 @@ export class ProductsController {
    * POST /products/search
    */
   @Post('search')
-  @ApiOperation({ summary: 'Поиск продуктов' })
-  @ApiBody({ type: ProductRequestDto })
-  @ApiResponse({ status: 200, description: 'Список продуктов' })
   async searchProducts(@Body() request: ProductRequestDto): Promise<ProductResponse> {
     try {
-      // Валидация запроса
-      if (!request.queries || request.queries.length === 0) {
-        throw new HttpException('Не указаны запросы для поиска', HttpStatus.BAD_REQUEST);
+      let queries = request.queries;
+      let category = request.category;
+
+      if ((!category || category === '') && queries && queries.length === 1) {
+        // Определяем категорию по query
+        category = QueryConfigService.getCategoryByQuery(queries[0]);
       }
 
-      if (!request.category) {
-        throw new HttpException('Не указана категория', HttpStatus.BAD_REQUEST);
+      if (!queries || queries.length === 0) {
+        // Если queries не указаны, но есть категория — подставляем все queries для категории
+        if (category) {
+          queries = QueryConfigService.getQueriesForCategory(category);
+        }
+      }
+
+      if (!queries || queries.length === 0 || !category) {
+        throw new HttpException('Не указаны запросы или категорию невозможно определить', HttpStatus.BAD_REQUEST);
       }
 
       // Проверяем валидность категории
       const validCategories = ['videocards', 'processors', 'motherboards'];
-      if (!validCategories.includes(request.category)) {
+      if (!validCategories.includes(category)) {
         throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
       }
 
-      return await this.productsService.getProducts(request);
+      return await this.productsService.getProducts({ ...request, queries, category });
     } catch (error) {
       if (error instanceof HttpException) {
         throw error;
       }
-      
       throw new HttpException(
-        `Ошибка поиска продуктов: ${error.message}`, 
+        `Ошибка поиска продуктов: ${error.message}`,
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
@@ -80,41 +86,6 @@ export class ProductsController {
   }
 
   /**
-   * Очистка кэша для категории
-   * POST /products/cache/clear/:category
-   */
-  @Post('cache/clear/:category')
-  async clearCache(@Param('category') category: string): Promise<{ 
-    success: boolean; 
-    deleted_keys: number; 
-    message: string; 
-  }> {
-    try {
-      const validCategories = ['videocards', 'processors', 'motherboards'];
-      if (!validCategories.includes(category)) {
-        throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
-      }
-
-      const deletedKeys = await this.productsService.clearCacheForCategory(category);
-      
-      return {
-        success: true,
-        deleted_keys: deletedKeys,
-        message: `Кэш для категории ${category} очищен. Удалено ${deletedKeys} ключей.`
-      };
-    } catch (error) {
-      if (error instanceof HttpException) {
-        throw error;
-      }
-      
-      throw new HttpException(
-        `Ошибка очистки кэша: ${error.message}`, 
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
-
-  /**
    * Получение статистики кэша
    * GET /products/cache/stats
    */
@@ -136,55 +107,6 @@ export class ProductsController {
         }
       };
     } catch (error) {
-      throw new HttpException(
-        `Ошибка получения статистики: ${error.message}`, 
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
-
-  /**
-   * Получение статистики по query и источникам
-   * POST /products/statistics
-   */
-  @Post('statistics')
-  @ApiOperation({ summary: 'Статистика по запросам' })
-  @ApiBody({ type: ProductRequestDto })
-  @ApiResponse({ status: 200, description: 'Статистика по запросам' })
-  async getQueryStatistics(@Body() request: ProductRequestDto): Promise<{
-    total_queries: number;
-    total_products: number;
-    queries_stats: Array<{
-      query: string;
-      total_products: number;
-      wb_products: number;
-      ozon_products: number;
-      cheapest_price?: number;
-      cheapest_source?: string;
-    }>;
-  }> {
-    try {
-      // Валидация запроса
-      if (!request.queries || request.queries.length === 0) {
-        throw new HttpException('Не указаны запросы для поиска', HttpStatus.BAD_REQUEST);
-      }
-
-      if (!request.category) {
-        throw new HttpException('Не указана категория', HttpStatus.BAD_REQUEST);
-      }
-
-      // Проверяем валидность категории
-      const validCategories = ['videocards', 'processors', 'motherboards'];
-      if (!validCategories.includes(request.category)) {
-        throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
-      }
-
-      return await this.productsService.getQueryStatistics(request);
-    } catch (error) {
-      if (error instanceof HttpException) {
-        throw error;
-      }
-      
       throw new HttpException(
         `Ошибка получения статистики: ${error.message}`, 
         HttpStatus.INTERNAL_SERVER_ERROR

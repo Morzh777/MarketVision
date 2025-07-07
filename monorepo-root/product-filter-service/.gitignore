@@ -104,4 +104,11 @@ temp/
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Coverage and test reports
+coverage/
+.nyc_output/
+lcov-report/
+report.*.json
+jest-coverage/ 

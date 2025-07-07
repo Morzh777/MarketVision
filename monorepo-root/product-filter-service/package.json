@@ -12,25 +12,28 @@
     "start:prod": "node dist/main",
     "start:swagger": "npm run start && echo 'Swagger UI доступен на http://localhost:3001/api'",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
+    "test": "jest --config ./test/jest-e2e.json --config ./package.json",
+    "test:unit": "jest",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.9.14",
     "@grpc/proto-loader": "^0.7.10",
-    "@nestjs/common": "^10.3.0",
+    "@nestjs/common": "10.4.19",
     "@nestjs/config": "^3.1.1",
-    "@nestjs/core": "^10.3.0",
+    "@nestjs/core": "10.4.19",
     "@nestjs/microservices": "^10.3.0",
-    "@nestjs/platform-express": "^10.3.0",
+    "@nestjs/platform-express": "10.4.19",
     "@types/node-fetch": "^2.6.12",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "node-fetch": "^3.3.2",
-    "redis": "^4.6.12",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },

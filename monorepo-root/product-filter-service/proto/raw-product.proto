@@ -4,6 +4,7 @@ package raw_product;
 
 service RawProductService {
   rpc GetRawProducts(GetRawProductsRequest) returns (GetRawProductsResponse);
+  rpc BatchCreateProducts (BatchCreateProductsRequest) returns (BatchCreateProductsResponse);
 }
 
 message GetRawProductsRequest {
@@ -27,4 +28,12 @@ message GetRawProductsResponse {
   repeated RawProduct products = 1;
   int32 total_count = 2;
   string source = 3;
+}
+
+message BatchCreateProductsRequest {
+  repeated RawProduct products = 1;
+}
+
+message BatchCreateProductsResponse {
+  int32 inserted = 1;
 } 

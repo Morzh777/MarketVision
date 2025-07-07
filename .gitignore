@@ -64,8 +64,12 @@ pids/
 
 # --- Test & Reports ---
 nyc_output/
-coverage/
+**/coverage/
+**/.nyc_output/
+lcov-report/
+**/lcov-report/
 report.*.json
+**/report.*.json
 
 # --- Bower ---
 bower_components/
@@ -81,4 +85,8 @@ jspm_packages/
 typings/
 
 # --- Exclude local Docker files ---
-*.local.yml 
+*.local.yml
+
+# --- Jest ---
+jest-coverage/
+**/jest-coverage/ 

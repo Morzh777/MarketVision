@@ -1,29 +1,6 @@
 import { ProductsService } from './products.service';
 import { BadRequestException } from '@nestjs/common';
 
-// Классы-заглушки для DI
-class RedisServiceMock {
-  get = jest.fn();
-  set = jest.fn();
-  setWithTTL = jest.fn();
-  getAllKeys = jest.fn();
-  isHealthy = jest.fn().mockReturnValue(true);
-}
-class PhotoServiceMock {
-  getPhotoUrl = jest.fn();
-  findProductPhoto = jest.fn();
-  processImageUrl = jest.fn();
-}
-class PriceStatisticsServiceMock {
-  getPriceChange = jest.fn();
-}
-class OzonApiClientMock {
-  filterProducts = jest.fn().mockResolvedValue({ products: [] });
-}
-class WbApiClientMock {
-  filterProducts = jest.fn().mockResolvedValue({ products: [] });
-}
-
 // Мокаем фабрику валидаторов, чтобы продукты с discount > 0.5 проходили фильтр
 jest.mock('../validators', () => ({
   ValidatorFactory: {
@@ -35,24 +12,25 @@ jest.mock('../validators', () => ({
 
 describe('ProductsService', () => {
   let service: ProductsService;
-  let redisService: RedisServiceMock;
-  let photoService: PhotoServiceMock;
-  let priceStatisticsService: PriceStatisticsServiceMock;
-  let ozonApiClient: OzonApiClientMock;
-  let wbApiClient: WbApiClientMock;
+  let photoService: any;
+  let ozonApiClient: any;
+  let wbApiClient: any;
+  const mockAggregator = { fetchAllProducts: jest.fn().mockResolvedValue([]) };
+  const mockValidator = { filterValid: jest.fn().mockReturnValue([]) };
+  const mockGrouper = { groupAndSelectCheapest: jest.fn().mockReturnValue([]) };
+  const mockNormalizer = { getModelKey: jest.fn().mockReturnValue(''), normalizeQuery: jest.fn().mockReturnValue('') };
+  const mockDbApiClient = { batchCreateProducts: jest.fn().mockResolvedValue({ inserted: 0 }) };
 
   beforeEach(() => {
-    redisService = new RedisServiceMock();
-    photoService = new PhotoServiceMock();
-    priceStatisticsService = new PriceStatisticsServiceMock();
-    ozonApiClient = new OzonApiClientMock();
-    wbApiClient = new WbApiClientMock();
+    photoService = {};
+    ozonApiClient = { filterProducts: jest.fn() };
+    wbApiClient = { filterProducts: jest.fn() };
     service = new ProductsService(
-      redisService as any,
-      photoService as any,
-      priceStatisticsService as any,
-      ozonApiClient as any,
-      wbApiClient as any
+      mockAggregator as any,
+      mockValidator as any,
+      mockGrouper as any,
+      mockNormalizer as any,
+      mockDbApiClient as any
     );
   });
 
@@ -99,14 +77,6 @@ describe('ProductsService', () => {
     // @ts-ignore
     const result = await service["getProductsByCategory"]('videocards', false);
     expect(result.some(p => p.discount > 0.5)).toBe(true);
-  });
-
-  it('should handle cache hits and misses', async () => {
-    redisService.get = jest.fn().mockResolvedValue(null);
-    redisService.set = jest.fn();
-    // @ts-ignore
-    const result = await service.getProducts({ queries: ['q'], category: 'videocards' });
-    expect(result).toHaveProperty('products');
   });
 
   // Добавьте больше тестов на edge-cases, ошибки, агрегацию, кэширование и т.д.

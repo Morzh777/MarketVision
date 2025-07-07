@@ -1,0 +1,79 @@
+import { Injectable } from '@nestjs/common';
+import { OzonApiClient } from '../grpc-clients/ozon-api.client';
+import { WbApiClient } from '../grpc-clients/wb-api.client';
+import { ProductRequestDto } from '../dto/product-request.dto';
+import { fileLogger } from '../utils/logger';
+import { CategoryConfigService } from '../config/categories.config';
+
+@Injectable()
+export class ProductAggregatorService {
+  constructor(
+    private readonly ozonApiClient: OzonApiClient,
+    private readonly wbApiClient: WbApiClient,
+  ) {}
+
+  /**
+   * Агрегирует товары из WB и Ozon API по запросу пользователя.
+   * @param request - DTO с параметрами поиска
+   * @returns Promise с массивом всех товаров из обоих источников
+   */
+  async fetchAllProducts(request: ProductRequestDto): Promise<any[]> {
+    fileLogger.log(`Агрегация товаров из WB и Ozon для ${request.queries.length} запросов`);
+    const [wbProducts, ozonProducts] = await Promise.all([
+      this.getProductsFromApi(request, this.wbApiClient, 'wb'),
+      this.getProductsFromApi(request, this.ozonApiClient, 'ozon')
+    ]);
+    return [...wbProducts, ...ozonProducts];
+  }
+
+  /**
+   * Универсальный метод получения товаров из внешнего API.
+   * @param request - DTO с параметрами поиска
+   * @param client - gRPC-клиент (WB или Ozon)
+   * @param source - строка-идентификатор источника ('wb' или 'ozon')
+   * @returns Promise с массивом товаров с добавленным source
+   * @throws Логирует ошибку, если API недоступно или возвращает ошибку
+   */
+  private async getProductsFromApi(
+    request: ProductRequestDto,
+    client: { filterProducts: Function },
+    source: string
+  ): Promise<any[]> {
+    const allProducts: any[] = [];
+    for (const query of request.queries) {
+      try {
+        // Для WB подставляем правильный xsubject
+        let category = request.category;
+        let extra: any = {};
+        if (source === 'wb') {
+          category = CategoryConfigService.getWbCategory(request.category) || request.category;
+        }
+        if (source === 'ozon') {
+          category = CategoryConfigService.getOzonCategory(request.category) || request.category;
+          extra.categoryKey = request.category;
+          const platformId = CategoryConfigService.getPlatformForQuery(query);
+          if (platformId) {
+            extra.platform_id = platformId;
+          }
+        }
+        const response = await client.filterProducts({
+          query,
+          all_queries: [query],
+          category,
+          ...extra,
+          exclude_keywords: request.exclude_keywords || []
+        });
+        if (response.products && Array.isArray(response.products)) {
+          const productsWithSource = response.products.map((product: any) => ({
+            ...product,
+            source
+          }));
+          allProducts.push(...productsWithSource);
+        }
+      } catch (error) {
+        fileLogger.error(`Ошибка ${source.toUpperCase()} API для запроса "${query}": ${error}`);
+      }
+    }
+    return allProducts;
+  }
+} 

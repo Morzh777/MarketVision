@@ -47,9 +47,4 @@ describe('ProductsController', () => {
     await expect(controller.searchProducts(dto)).rejects.toThrow();
   });
 
-  it('should return statistics for valid request', async () => {
-    const dto: ProductRequestDto = { queries: ['test'], category: 'videocards' };
-    const result = await controller.getQueryStatistics(dto);
-    expect(result).toHaveProperty('total_queries');
-  });
 }); 
