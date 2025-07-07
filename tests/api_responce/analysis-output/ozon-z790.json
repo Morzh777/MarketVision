@@ -1,6 +1,371 @@
 {
-  "success": false,
-  "error": "14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:3002",
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1776725933",
+        "name": "Материнская плата Gigabyte B760M DS3H DDR4 (LGA 1700, Intel Z790, 128 ГБ, PCIE 4.0)",
+        "price": 9651,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/6797365306.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-ds3h-ddr4-lga-1700-intel-z790-128-gb-pcie-4-0-1776725933/?at=46tRZ3XM5H49xm1ptpnD2NGilzJgX8S2y7r1GS0Y3NRW",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1235288599",
+        "name": "Материнская плата Gigabyte B760M DS3H DDR4 (LGA 1700, Intel Z790, 128 ГБ, PCIE 4.0)",
+        "price": 9660,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/6797365306.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-ds3h-ddr4-lga-1700-intel-z790-128-gb-pcie-4-0-1235288599/?at=MZtvpWNM3U2A98j6Sy4zMgRtQ2m5kRCXN71MxckOGNQE",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1235887775",
+        "name": "Материнская плата Gigabyte B760M DS3H DDR4 (LGA 1700, Intel Z790, 128 ГБ, PCIE 4.0)",
+        "price": 10975,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/6797365306.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-ds3h-ddr4-lga-1700-intel-z790-128-gb-pcie-4-0-1235887775/?at=16tLr5V2GuVA8GMVumxKBlWcqo0zWurlJM4zTK4B7wK",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2361458359",
+        "name": "Gigabyte Материнская плата",
+        "price": 15673,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7028314319.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-2361458359/?at=qQtJglqKNco9YVonil3YM0pUkqwQoZIAggLzks7yMNqP",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1848370252",
+        "name": "Материнская плата Gigabyte Z790 EAGLE (LGA1700, ATX)",
+        "price": 16229,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7293448846.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-eagle-lga1700-atx-1848370252/?at=EqtkwMEVxcKmwmpJigYA214sBM5lWpHgpME64uN6kKl8",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1835143281",
+        "name": "Материнская плата MAXSUN MS-Terminator Z790M D5 ICE LGA1700, ATX, 4xDDR5, HDMI+DP, 5xM.2, Wi-Fi+LAN 2.5G, RTL",
+        "price": 16272,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7448430819.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-ms-terminator-z790m-d5-ice-lga1700-atx-4xddr5-hdmi-dp-5xm-2-wi-fi-lan-2-1835143281/?at=lRt6WpQ0EI9Gl7ZQt2vkyRoszoQ3R2cjwqoBEikoNjQl",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2107591029",
+        "name": "Gigabyte Материнская плата",
+        "price": 16399,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7525021248.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-2107591029/?at=OgtED4WzxuvrENzkU80LkrMfnvnDR0TXvnY3NhM95K4B",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1617882990",
+        "name": "Материнская плата Gigabyte Z790 D AX (LGA1700, ATX)",
+        "price": 16493,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7065198027.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ax-lga1700-atx-1617882990/?at=gpt4vpMOyTxzJyZ4Hj2q1mGT39DWJ3iODjDppUqMyA0x",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2232311920",
+        "name": "Материнская плата Gigabyte Z790 UD, Soc-1700, Intel Z790, ATX",
+        "price": 16595,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-c/6751312104.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-ud-soc-1700-intel-z790-atx-2232311920/?at=36tWj0n6Ks84YjMQHnyy7xDfxpPZmpsN6OEANUz6p4pM",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1179145129",
+        "name": "Материнская плата Gigabyte Z790 UD, Soc-1700, Intel Z790, ATX",
+        "price": 16704,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-c/6751312104.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-ud-soc-1700-intel-z790-atx-1179145129/?at=vQtrJKQp8cXX263nTOzJ6N7cnYBoNxck95nzTvLjlv6",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1687675624",
+        "name": "Материнская плата Gigabyte Z790 D AX Soc-1700 Intel Z790 4xDDR5 ATX AC 97 8ch(7.1) 2.5Gg RAID+HDMI+D",
+        "price": 17126,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/6976480281.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ax-soc-1700-intel-z790-4xddr5-atx-ac-97-8ch-7-1-2-5gg-raid-hdmi-d-1687675624/?at=MZtvpWNM3UMO6Dp5Tw3DMgzCoypJ8VuYP4MxzT6n21Z6",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1628556470",
+        "name": "ASRock Z790 PRO RS&#x2F;D4 LGA 1700 DDR4 Материнская плата",
+        "price": 17128,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-c/6712475556.jpg",
+        "product_url": "https://www.ozon.ru/product/asrock-z790-pro-rs-d4-lga-1700-ddr4-materinskaya-plata-1628556470/?at=46tRZ3XM5HJWAXR0HzlgO7ZhX0R5WES3J3RDNUWQLW2X",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2086473707",
+        "name": "ASUS Материнская плата",
+        "price": 17155,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7074203056.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-materinskaya-plata-2086473707/?at=GRt2rGvK4IBPJ0NoS56q6j0h4lJ6NouQGnmgXcBWONP1",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1556229252",
+        "name": "Материнская плата Gigabyte Z790 D",
+        "price": 17326,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7010312842.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-1556229252/?at=jYtZzPWKmuJp2WvDIgj2AA8tnvJ1BohGYm3EWIp3zvOX",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1946178317",
+        "name": "Gigabyte Z790 EAGLE LGA 1700 DDR5 Материнская плата",
+        "price": 17431,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7669934955.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-z790-eagle-lga-1700-ddr5-materinskaya-plata-1946178317/?at=EqtkwMEVxc4jg3qvCq8D5RVuyRqD8t3XNoXEfKgrJ45",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1580681742",
+        "name": "Материнская плата Gigabyte Z790 D AX Soc-1700 Intel Z790 4xDDR5 ATX AC 97 8ch(7.1) 2.5Gg RAID+HDMI+D",
+        "price": 17491,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/6976480281.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ax-soc-1700-intel-z790-4xddr5-atx-ac-97-8ch-7-1-2-5gg-raid-hdmi-d-1580681742/?at=99trJ9GLqczMml7YU903yNktm1V27WInxXj7pC1lOYPK",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1848046862",
+        "name": "Материнская плата MSI PRO Z790-P WIFI Soc-1700 Intel Z790 4xDDR5",
+        "price": 17534,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7374385367.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-z790-p-wifi-soc-1700-intel-z790-4xddr5-1848046862/?at=K8tZQmVzWuMJjB6oUNkvn8xt5kEXR2iyPYkyyh7RY7J3",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1739751126",
+        "name": "Материнская плата Gigabyte Z790 D, DDR5, LGA 1700, Intel Z790, ATX, Ret",
+        "price": 17542,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7049831362.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ddr5-lga-1700-intel-z790-atx-ret-1739751126/?at=oZt6AZOjYInlzkMJumBpyrgi6EY6B3iv4oj8Ys65rM7n",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1628555967",
+        "name": "ASRock Z790 PG LIGHTNING&#x2F;D4 LGA 1700 DDR4 Материнская плата",
+        "price": 17579,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7098475079.jpg",
+        "product_url": "https://www.ozon.ru/product/asrock-z790-pg-lightning-d4-lga-1700-ddr4-materinskaya-plata-1628555967/?at=08tYnZ1qBcq0qXwoS7ow0nns8pGDDNfN5p7Mmc1OmEBQ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2346889345",
+        "name": "MAXSUN Материнская плата MS - Terminator Z790 - A",
+        "price": 17729,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7645174612.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-materinskaya-plata-ms-terminator-z790-a-2346889345/?at=16tLr5V2GuWpz0qZHllKR1Bflo66LOsj5l35js29Bwkl",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2251122270",
+        "name": "Материнская плата GigaByte Z790 D rev. 1.0",
+        "price": 17932,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7118217332.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-rev-1-0-2251122270/?at=A6tGx2kLOc2B7qD7HN99m3izQE7P9CDEnj29hym5A8X",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1788185214",
+        "name": "Материнская плата GIGABYTE Z790 S DDR4, Socket1700, Intel Z790, ATX",
+        "price": 17945,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7232710257.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-s-ddr4-socket1700-intel-z790-atx-1788185214/?at=83tBmLoDqHRZQnxgTEPo05GfkxN4ADH7Xoz0oSJPVE2G",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2136565286",
+        "name": "Материнская плата GigaByte Z790 D rev. 1.0",
+        "price": 17961,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7118217332.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-rev-1-0-2136565286/?at=36tWj0n6KsD6OJJlTD6G0wmsO5lDDlsJEXR23hGxVAWz",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1692177868",
+        "name": "Материнская плата LGA1700 DDR4 Intel Z790 Gigabyte, Z790 D",
+        "price": 18069,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7048295542.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-lga1700-ddr4-intel-z790-gigabyte-z790-d-1692177868/?at=57twy4B59cP1R3pku6EVP6BiQw7RjgtE3lmYxs5x2BkG",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2112007577",
+        "name": "Gigabyte Материнская плата Материнская плата Gigabyte Z790 D",
+        "price": 18094,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7049831362.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-materinskaya-plata-gigabyte-z790-d-2112007577/?at=jYtZzPWKmuqyyGYVI6DrqOnhMGK47mFnWxq7ZSkj2KZB",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2353696210",
+        "name": "MSI , Материнская плата",
+        "price": 18231,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7364906578.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-materinskaya-plata-2353696210/?at=VvtzV9GNyIA8p8vRtXppD8juDZpL00ilKQ8RWcXXRBOE",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1769485042",
+        "name": "Материнская плата GigaByte Z790 S DDR4",
+        "price": 18325,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7105267342.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-s-ddr4-1769485042/?at=r2t4yogPZTy6KLL1Ug94MB1C8lrxg7iYEnOL8uXZmLxV",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1687687139",
+        "name": "Материнская плата Gigabyte Z790 UD AX Soc-1700 Intel Z790",
+        "price": 18419,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-h/6716956049.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-ud-ax-soc-1700-intel-z790-1687687139/?at=36tWj0n6KsqDxX1Mi2ZXQmKCKZMlOGS8j11ONFW3oyM5",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1941920598",
+        "name": "Материнская плата GIGABYTE Z790 EAGLE",
+        "price": 18421,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7389651704.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-eagle-1941920598/?at=K8tZQmVzWuOj53BVCBQ9koVI2WEY42i8grKVBC9yrNY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1687681347",
+        "name": "Материнская плата MSI Z790 GAMING PLUS WIFI Soc-1700 Intel Z790 4xDDR5 ATX AC 97 8ch(7.1) 2.5Gg RAID",
+        "price": 18513,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/6976437151.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-z790-gaming-plus-wifi-soc-1700-intel-z790-4xddr5-atx-ac-97-8ch-7-1-2-5gg-raid-1687681347/?at=16tLr5V2Gu1Vzy60H9m31BxfX5jGr5ip7O8xOFYNxDnr",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1739672157",
+        "name": "Материнская плата Gigabyte Z790 D AX",
+        "price": 18618,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/6938808525.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ax-1739672157/?at=EqtkwMEVxcQAw0gniXlW68mu7nDR05IpkMnDQTP7N23E",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2347941712",
+        "name": "Материнская плата Maxsun Terminator Z790-A (MS-Terminator Z790-A)",
+        "price": 18636,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7645664052.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-terminator-z790-a-ms-terminator-z790-a-2347941712/?at=RltywB2jWhv2j9k9tWQYg2Ohx6XORwSRqLX6ZHq5wjLw",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1557169148",
+        "name": "Материнская плата Gigabyte Z790 D AX",
+        "price": 18797,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7010312932.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-ax-1557169148/?at=MZtvpWNM3UMmQ6AvIQZE3L3s3Ez3koSYKqgA7sKZ51VB",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1580662648",
+        "name": "Материнская плата Gigabyte Z790 UD AX Soc-1700 Intel Z790",
+        "price": 18813,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-h/6716956049.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-ud-ax-soc-1700-intel-z790-1580662648/?at=83tBmLoDqHn6WLVGunKKPBJFkYE213I7jNXPMhvgJQV",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "2209962469",
+        "name": "Gigabyte Материнская плата Материнская плата Gigabyte Z790 D",
+        "price": 19002,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7580216115.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-materinskaya-plata-gigabyte-z790-d-2209962469/?at=PjtJBMp8Xc8p9n89I8KwkQZSjpYz1ujGWw9QTYklPGk",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      },
+      {
+        "id": "1956713283",
+        "name": "Материнская плата GIGABYTE Z790 S DDR4",
+        "price": 19166,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7402729416.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-s-ddr4-1956713283/?at=36tWj0n6Ks7n7ZK8ILNBgAOuWL4jXgHkJkzBjFlj7EOj",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "Z790"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
   "query": "Z790",
   "category": "motherboards",
   "platform_id": null

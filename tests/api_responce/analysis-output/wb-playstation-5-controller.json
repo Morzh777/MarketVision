@@ -13,16 +13,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "228481597",
-        "name": "3D Аналоговый механизм для геймпада PS 4 5 и Xbox One",
-        "price": 210,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/228481597/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "409016417",
         "name": "Контактная подложка JDS-030 для джойстика PS4",
         "price": 210,
@@ -43,16 +33,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "409016419",
-        "name": "Контактная подложка JDS-010 для джойстика PS4",
-        "price": 210,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409016419/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "252966850",
         "name": "Контактная подложка JDS-055 для джойстика PS4",
         "price": 210,
@@ -63,11 +43,31 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "409016420",
-        "name": "Контактная подложка для DualSense PS5 V 1",
+        "id": "228481597",
+        "name": "3D Аналоговый механизм для геймпада PS 4 5 и Xbox One",
+        "price": 210,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/228481597/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409016419",
+        "name": "Контактная подложка JDS-010 для джойстика PS4",
+        "price": 210,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409016419/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409016423",
+        "name": "Контактная подложка для DualSense PS5 V 2",
         "price": 220,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409016420/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409016423/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -83,11 +83,11 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "409016423",
-        "name": "Контактная подложка для DualSense PS5 V 2",
+        "id": "409016420",
+        "name": "Контактная подложка для DualSense PS5 V 1",
         "price": 220,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409016423/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409016420/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -203,16 +203,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "340513679",
-        "name": "Силиконовый случай для крышки PS4",
-        "price": 357,
-        "image_url": "https://images.wbstatic.net/c516x688/21.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/340513679/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "340513558",
         "name": "Силиконовый случай для крышки PS4",
         "price": 357,
@@ -223,21 +213,31 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "413096895",
-        "name": "Шлейф для микрофона для джойстика геймпада DualSense PS5",
-        "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/413096895/detail.aspx",
+        "id": "340513679",
+        "name": "Силиконовый случай для крышки PS4",
+        "price": 357,
+        "image_url": "https://images.wbstatic.net/c516x688/21.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/340513679/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "413092327",
-        "name": "Шлейф для микрофона PS5 vers 2",
+        "id": "413099213",
+        "name": "Шлейф для микрофона для джойстика DualSense PS5 vers 3",
         "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/413092327/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413099213/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "413096895",
+        "name": "Шлейф для микрофона для джойстика геймпада DualSense PS5",
+        "price": 372,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413096895/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -263,11 +263,11 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "413099213",
-        "name": "Шлейф для микрофона для джойстика DualSense PS5 vers 3",
+        "id": "413092327",
+        "name": "Шлейф для микрофона PS5 vers 2",
         "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/413099213/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413092327/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -323,21 +323,21 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "421264905",
-        "name": "Кабель платы подсветки для PS5 (Тип 1000 1100)",
-        "price": 404,
-        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421264905/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "416848430",
         "name": "Пружины для контроллера PS5 (1 пара)",
         "price": 404,
         "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
         "product_url": "https://www.wildberries.ru/catalog/416848430/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "421264905",
+        "name": "Кабель платы подсветки для PS5 (Тип 1000 1100)",
+        "price": 404,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421264905/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -383,66 +383,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "416783201",
-        "name": "Замена порта зарядки PS5 (Новый аналог)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416783201/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416538579",
-        "name": "3D Аналоговый джойстик для PS5 (бело-зеленый 2 3 кОм)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416538579/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416704459",
-        "name": "Джойстик для PS5 (2 3K потенциометр Original Alps)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416704459/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416778484",
-        "name": "Комплект пленок кнопок для контроллера PS5 (V1 0)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416778484/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416778483",
-        "name": "Комплект пленок кнопок для контроллера PS5 (V2 0)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416778483/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "421237716",
-        "name": "Кабель кнопок L1 L2 для PS5 (V2 0)",
-        "price": 416,
-        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421237716/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "421237717",
         "name": "Кабель кнопок R1 R2 для PS5 (V2 0)",
         "price": 416,
@@ -463,11 +403,71 @@
         "query": "PlayStation 5 Controller"
       },
       {
+        "id": "421237716",
+        "name": "Кабель кнопок L1 L2 для PS5 (V2 0)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421237716/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
         "id": "421260188",
         "name": "Кабель для платы питания PS5 (модель 1200)",
         "price": 416,
         "image_url": "https://images.wbstatic.net/c516x688/19.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421260188/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416704459",
+        "name": "Джойстик для PS5 (2 3K потенциометр Original Alps)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416704459/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416783201",
+        "name": "Замена порта зарядки PS5 (Новый аналог)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416783201/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416778483",
+        "name": "Комплект пленок кнопок для контроллера PS5 (V2 0)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416778483/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416778484",
+        "name": "Комплект пленок кнопок для контроллера PS5 (V1 0)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416778484/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416538579",
+        "name": "3D Аналоговый джойстик для PS5 (бело-зеленый 2 3 кОм)",
+        "price": 416,
+        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416538579/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -503,11 +503,51 @@
         "query": "PlayStation 5 Controller"
       },
       {
+        "id": "421241530",
+        "name": "3D Джойстик для контроллера PS5 (Черный)",
+        "price": 428,
+        "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421241530/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416679105",
+        "name": "3D джойстик Alps для PS4 PS5 Switch Pro (серое дно NS PRO)",
+        "price": 428,
+        "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416679105/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
         "id": "416659495",
         "name": "Проводящая пленка для PS5 (V1 0 комплект из трех частей)",
         "price": 428,
         "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
         "product_url": "https://www.wildberries.ru/catalog/416659495/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "421138362",
+        "name": "3D Рокер для PS5 (Нейтральный 2 K3 Orange)",
+        "price": 428,
+        "image_url": "https://images.wbstatic.net/c516x688/22.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421138362/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416783200",
+        "name": "Замена порта зарядки PS5 (Оригинальный новый)",
+        "price": 428,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416783200/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -533,51 +573,11 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "421241530",
-        "name": "3D Джойстик для контроллера PS5 (Черный)",
-        "price": 428,
-        "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421241530/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "421138362",
-        "name": "3D Рокер для PS5 (Нейтральный 2 K3 Orange)",
-        "price": 428,
-        "image_url": "https://images.wbstatic.net/c516x688/22.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421138362/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "421241531",
         "name": "3D Джойстик для контроллера PS5 (Зеленый)",
         "price": 428,
         "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
         "product_url": "https://www.wildberries.ru/catalog/421241531/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416783200",
-        "name": "Замена порта зарядки PS5 (Оригинальный новый)",
-        "price": 428,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416783200/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416679105",
-        "name": "3D джойстик Alps для PS4 PS5 Switch Pro (серое дно NS PRO)",
-        "price": 428,
-        "image_url": "https://images.wbstatic.net/c516x688/15.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416679105/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -603,36 +603,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "416704464",
-        "name": "Джойстик для PS5 (зелено-синяя база Original Alps)",
-        "price": 440,
-        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416704464/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416843227",
-        "name": "Проводящий клей для PS3 (5 штук)",
-        "price": 440,
-        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416843227/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "416704466",
-        "name": "Джойстик для PS5 (оранжево-черная база Original Puyao)",
-        "price": 440,
-        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/416704466/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "416715264",
         "name": "Белые колпачки джойстика PS5 (пара)",
         "price": 440,
@@ -653,6 +623,16 @@
         "query": "PlayStation 5 Controller"
       },
       {
+        "id": "416704464",
+        "name": "Джойстик для PS5 (зелено-синяя база Original Alps)",
+        "price": 440,
+        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416704464/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
         "id": "416715274",
         "name": "Синие колпачки джойстика PS5 (пара)",
         "price": 440,
@@ -668,6 +648,26 @@
         "price": 440,
         "image_url": "https://images.wbstatic.net/c516x688/16.jpg",
         "product_url": "https://www.wildberries.ru/catalog/416529606/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416843227",
+        "name": "Проводящий клей для PS3 (5 штук)",
+        "price": 440,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416843227/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "416704466",
+        "name": "Джойстик для PS5 (оранжево-черная база Original Puyao)",
+        "price": 440,
+        "image_url": "https://images.wbstatic.net/c516x688/20.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/416704466/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -733,16 +733,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "421138360",
-        "name": "3D Рокер для PS5 (Оригинал Puyao Orange 2K3)",
-        "price": 476,
-        "image_url": "https://images.wbstatic.net/c516x688/22.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/421138360/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "416872418",
         "name": "Комплект кнопок для контроллера PS5 (V1 0 8 шт )",
         "price": 476,
@@ -753,11 +743,31 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "406900002",
-        "name": "Kangnice Геймпад для PlayStation 5 Коричнево-красный",
+        "id": "421138360",
+        "name": "3D Рокер для PS5 (Оригинал Puyao Orange 2K3)",
+        "price": 476,
+        "image_url": "https://images.wbstatic.net/c516x688/22.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421138360/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "408595262",
+        "name": "Kangnice Геймпад для PlayStation 5",
         "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/406900002/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408595262/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409356684",
+        "name": "Камуфляжная наклейка для PS5 защита от Коричневый зеленый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409356684/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -773,101 +783,81 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "415606666",
-        "name": "Наклейка для контроллера PS5 белый серый",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/415606666/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408755585",
-        "name": "Kangnice Геймпад для PlayStation 5 зеленый",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408755585/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "406554387",
-        "name": "Чехол джойстика PS5 силикон черный стики",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/406554387/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408959470",
-        "name": "Kangnice Геймпад для PlayStation 5 светло-зеленый",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408959470/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408959479",
-        "name": "Kangnice Геймпад для PlayStation 5 светло-серый",
+        "id": "409267891",
+        "name": "Kangnice Геймпад для PlayStation 5 шоколадный",
         "price": 477,
         "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408959479/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/409267891/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "409544386",
-        "name": "Наклейка для контроллера PS5 синий",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409544386/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "409544404",
-        "name": "Наклейка для контроллера PS5 защита от царапин Разноцветный",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409544404/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408959497",
-        "name": "Kangnice Геймпад для PlayStation 5 светло-коричневый",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408959497/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408755656",
-        "name": "Kangnice Геймпад для PlayStation 5 золотой",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408755656/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "415810742",
-        "name": "Чехол джойстика PS5 силикон черный стики",
+        "id": "436453053",
+        "name": "Чехол на джойстик PS5 силикон накладки на стики",
         "price": 477,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/415810742/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/436453053/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409470728",
+        "name": "Наклейка камуфляж для PS5 Синий фиолетовый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409470728/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "407774451",
+        "name": "Kangnice Геймпад для PlayStation 5 Медь",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/407774451/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409177647",
+        "name": "Чехол на джойстик Playstation 5 для геймпада PS5",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409177647/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "419385889",
+        "name": "Kangnice Геймпад для PlayStation 5 Бирюзовый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/419385889/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "406900002",
+        "name": "Kangnice Геймпад для PlayStation 5 Коричнево-красный",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/406900002/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "408391273",
+        "name": "Наклейка для контроллера PS5 серый зеленый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408391273/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -883,11 +873,11 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "408391273",
-        "name": "Наклейка для контроллера PS5 серый зеленый",
+        "id": "406808273",
+        "name": "Запчасть для PS3 контроллера SA1Q160A",
         "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408391273/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/406808273/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -913,26 +903,6 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "406398109",
-        "name": "Kangnice Геймпад для PlayStation 5",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/406398109/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408595262",
-        "name": "Kangnice Геймпад для PlayStation 5",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408595262/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
         "id": "409431554",
         "name": "Kangnice Геймпад для PlayStation 5 Коричнево-красный",
         "price": 477,
@@ -943,41 +913,21 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "409267891",
-        "name": "Kangnice Геймпад для PlayStation 5 шоколадный",
+        "id": "408755656",
+        "name": "Kangnice Геймпад для PlayStation 5 золотой",
         "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409267891/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408755656/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "408859448",
-        "name": "Запчасть для PS3 контроллера SA1Q160A",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408859448/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "408297800",
-        "name": "Чехол на джойстик PS5 силикон накладки на стики",
+        "id": "406598872",
+        "name": "Чехол на джойстик Playstation 5 для геймпада PS5",
         "price": 477,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/408297800/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PlayStation 5 Controller"
-      },
-      {
-        "id": "406808273",
-        "name": "Запчасть для PS3 контроллера SA1Q160A",
-        "price": 477,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/406808273/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/406598872/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"
@@ -993,11 +943,61 @@
         "query": "PlayStation 5 Controller"
       },
       {
-        "id": "153318865",
-        "name": "Стики (грибки) аналоги на ps5 2шт",
-        "price": 198,
+        "id": "406398109",
+        "name": "Kangnice Геймпад для PlayStation 5",
+        "price": 477,
         "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/153318865/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/406398109/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "408586525",
+        "name": "Kangnice Геймпад для PlayStation 5 Темно-бордовый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408586525/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409544386",
+        "name": "Наклейка для контроллера PS5 синий",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409544386/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "409544404",
+        "name": "Наклейка для контроллера PS5 защита от царапин Разноцветный",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409544404/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "406554387",
+        "name": "Чехол джойстика PS5 силикон черный стики",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/406554387/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PlayStation 5 Controller"
+      },
+      {
+        "id": "408959470",
+        "name": "Kangnice Геймпад для PlayStation 5 светло-зеленый",
+        "price": 477,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/408959470/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PlayStation 5 Controller"

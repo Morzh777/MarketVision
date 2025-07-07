@@ -1,6 +1,371 @@
 {
-  "success": false,
-  "error": "14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:3002",
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1565201317",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 49,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201317/?at=lRt6WpQ0EIQLNW2YIonYw18H1mnDX3ioOBo0EcLj9oAV",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565207569",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 68,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7022053081.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565207569/?at=LZtl046y9fjBlDx6iQrX1XxtxnmXB6C5LPkZ6SXmYDkE",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187146",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 74,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187146/?at=79tnroD4NC036NP4C4P08JLs07ZPm9fyp6ZVoUAwlqEV",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187142",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 74,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187142/?at=Y7tjKOrElcVWlz6Zu60E6wc8j9pqwtAEDRxJU5rmWg2",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187145",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 74,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187145/?at=gpt4vpMOyTEvKEOoTXx3jKvFW7Mg8LCJg2lRocg3EKED",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187134",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 78,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187134/?at=XQtkl0wVKcR3QoY8TX6o74DIWXNz1wTvYL6gBhQzV4MW",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1729241844",
+        "name": "Накладки на стики для геймпада 2шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван)",
+        "price": 79,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7161515423.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-2sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-1729241844/?at=k2toD1x8BurkVJMEcNkky12SZgzPANcRr0gjAUX3GkyL",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1729241829",
+        "name": "Накладки на стики для геймпада 2шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван)",
+        "price": 79,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7161515385.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-2sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-1729241829/?at=08tYnZ1qBc83NvBLUMq61Y2TY1rymPipLljQWUlQlWjv",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1729241804",
+        "name": "Накладки на стики для геймпада 2шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван)",
+        "price": 79,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7161515285.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-2sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-1729241804/?at=x6tPpwYnvTL2qKmvcpPQxP4FvAO1BQCqgjKg2sQMmV8A",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201745",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 83,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201745/?at=28t0LOMP3u6PBkNls1qDKkRiJ1LG4EtWY09yXClj2J0q",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201669",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 83,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201669/?at=83tBmLoDqH2rl2gAHg4l7wPhyxMKVAuEKqq3qtDjDqrJ",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201293",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 83,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201293/?at=VvtzV9GNyIA7o0A7tJ5MBmAu2vGEmrhG5pLMNiQnXRM7",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201751",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 93,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201751/?at=A6tGx2kLOc2OEpmKTVBqqDZimY0vZAIwk3LRVukKkGJ7",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201552",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 93,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201552/?at=36tWj0n6KsW2lwzfY5xy7pU9lzyOLF82OJK0FVxNzBQ",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201601",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 93,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201601/?at=RltywB2jWhLxEJLEfgxkEvws8Mn84lF1ARzx2TRl4MRL",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565207593",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 95,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7022053081.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565207593/?at=x6tPpwYnvTXZ8WMRC5gOv66TEkWElKsAZYMnZTNmj7Q7",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187175",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 98,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187175/?at=36tWj0n6KsO9lq9lf9ZN8KpiQJ43mMUj0gNWQtQgZMqY",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1605539336",
+        "name": "Накладки на стики геймпада 2 шт. Подходит для Sony PS5 DualSense, PS4 DualShock и Xbox Series S&#x2F;X, Xbox One",
+        "price": 100,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7178062388.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-geympada-2-sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-xbox-series-s-x-1605539336/?at=jYtZzPWKmu85m05HQ2jry9fpqzvkncv7DvOJt1zw4y2",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187153",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 100,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187153/?at=oZt6AZOjYInGW7XmHpZY90ETl01gxptvkJYjOHLA6yL5",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565201656",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 101,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7022064207.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565201656/?at=lRt6WpQ0EIQELRXRhYD8QqVT3xWljzcxWD0JvFAmywxB",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1729241776",
+        "name": "Накладки на стики для геймпада 2шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван)",
+        "price": 104,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7161515308.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-2sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-1729241776/?at=16tLr5V2GuWlL9nDf843pANF0GKNkZcnQQrYXTyoAvNL",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "618857508",
+        "name": "Силиконовые накладки на аналоговые стики для джойстика PS5 DualSense, PS4 DualShock, PS3, Xbox 360, Xbox One, Xbox Series (Антискользящие насадки Grips на геймпад контроллер Сони ПС5 Дуалсенс, ПС4 Дуалшок, ПС3, Иксбокс 360, Иксбокс Ван Сериэс)",
+        "price": 109,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-9/6352142145.jpg",
+        "product_url": "https://www.ozon.ru/product/silikonovye-nakladki-na-analogovye-stiki-dlya-dzhoystika-ps5-dualsense-ps4-dualshock-ps3-xbox-618857508/?at=XQtkl0wVKcE54xj2FxpkKLjfNQmxGWfxzoGzpuQ5kOkp",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565187156",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 113,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7022064208.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565187156/?at=08tYnZ1qBc3xqQG4UMXODAxtmlR0Q1HQNRjDRcDK9YAK",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1449800937",
+        "name": "Накладки на стики для геймпада Sony PS5 DualSense, series X, PS4 DualShock и PS3, Xbox 360, Xbox One",
+        "price": 116,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/6956027416.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-sony-ps5-dualsense-series-x-ps4-dualshock-i-ps3-xbox-360-xbox-one-1449800937/?at=nRtr4j8ADcXLmv8XsQZvNqnTZVD49GComrBo9SngogWz",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1456614684",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 116,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/6947882225.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1456614684/?at=qQtJglqKNcpN5mJ7FZ97V45t7DBJM8iWgVKPPFrrK0nx",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1456614615",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 118,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/6947883979.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1456614615/?at=WPtN1GJRqf0APJO7UG6xDyLsD1zBjzF0z2z1nTBOWOOy",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1864125699",
+        "name": "Накладки на стики для геймпада PS3 PS4 PS5 XBOX One 360 series X Switch Pro &#x2F; пс3 пс4 пс5 икс бокс one DualSense Универсальные",
+        "price": 118,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7476010622.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-ps3-ps4-ps5-xbox-one-360-series-x-switch-pro-ps3-ps4-ps5-iks-1864125699/?at=K8tZQmVzWuXApjl8UnRr7p7H638Q5ohOVXnJ9SEYLMmp",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1864127377",
+        "name": "Накладки на стики для геймпада PS3 PS4 PS5 XBOX One 360 series X Switch Pro &#x2F; пс3 пс4 пс5 икс бокс one DualSense Универсальные",
+        "price": 119,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7427910687.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-ps3-ps4-ps5-xbox-one-360-series-x-switch-pro-ps3-ps4-ps5-iks-1864127377/?at=gpt4vpMOyTELEL77CD5OA9kh2P4RnrHZvVogMiG8L71E",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1864127373",
+        "name": "Накладки на стики для геймпада PS3 PS4 PS5 XBOX One 360 series X Switch Pro &#x2F; пс3 пс4 пс5 икс бокс one DualSense Универсальные",
+        "price": 121,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7476010875.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-ps3-ps4-ps5-xbox-one-360-series-x-switch-pro-ps3-ps4-ps5-iks-1864127373/?at=w0tg59BJxsmgWjMMUzk2vpxivBgNXgHyRXq5vC35QG0q",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565207640",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 123,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7022053081.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565207640/?at=57twy4B59cG2NBvNUPl2lBOF1VL8zGtWRo66YIQoRx4Z",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1914942807",
+        "name": "Накладки на стики для геймпада. Для Sony PS5 DualSense, DualShock PS2, PS3, PS4, Xbox 360, Xbox One",
+        "price": 123,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7375630501.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-dlya-sony-ps5-dualsense-dualshock-ps2-ps3-ps4-xbox-360-xbox-one-1914942807/?at=46tRZ3XM5HzWXR3DhBO4kwjcvKrLxlsqgvr83Sxrq64q",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1565208197",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 125,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7022053081.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1565208197/?at=MZtvpWNM3U2RAORxTPvMmQGinMV2JyuDm2yX7Iw3wxYN",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1003005951",
+        "name": "Накладки на стики для геймпада Xbox 360, Series X&#x2F;S, One, Sony PlayStation, PS5 DualSense, PS4 DualShock, PS3 Fear",
+        "price": 133,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7393181315.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-xbox-360-series-x-s-one-sony-playstation-ps5-dualsense-ps4-dualshock-1003005951/?at=XQtkl0wVKcLAgy4zUoDE3njtxp6qrOuP2jKPyTExmnPJ",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1003008618",
+        "name": "Накладки на стики для геймпада Xbox 360, Series X&#x2F;S, One, Sony PlayStation, PS5 DualSense, PS4 DualShock, PS3 Umbrella",
+        "price": 135,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7230037640.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-xbox-360-series-x-s-one-sony-playstation-ps5-dualsense-ps4-dualshock-1003008618/?at=36tWj0n6Ks9XwRqmFLQ932YH5qypZ6ILylkjKhvZZXKW",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1550059961",
+        "name": "Накладки на стики для геймпада Sony PS5 DualSense, series X, PS4 DualShock и PS3, Xbox 360, Xbox One",
+        "price": 138,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7004380409.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-sony-ps5-dualsense-series-x-ps4-dualshock-i-ps3-xbox-360-xbox-one-1550059961/?at=XQtkl0wVKc7j3K8mSorX0WjCNLJJlmULy5zYgc94yjL0",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      },
+      {
+        "id": "1456614861",
+        "name": "Накладки на стики для геймпада 4шт. Подходит для Sony PS5 DualSense, PS4 DualShock и PS3, Xbox 360, Xbox One (Сони ПС5 Дуалсенс, ПС4 Дуалшок и ПС3, Иксбокс 360, Иксбокс Ван) QBuy.",
+        "price": 139,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/6947878498.jpg",
+        "product_url": "https://www.ozon.ru/product/nakladki-na-stiki-dlya-geympada-4sht-podhodit-dlya-sony-ps5-dualsense-ps4-dualshock-i-ps3-xbox-360-1456614861/?at=nRtr4j8ADcAZGv3h0DJvBoFZWnox3cWy5ZY7i8kE81l",
+        "category": "playstation_accessories",
+        "source": "ozon",
+        "query": "DualSense"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
   "query": "DualSense",
   "category": "playstation_accessories",
   "platform_id": null

@@ -1,6 +1,371 @@
 {
-  "success": false,
-  "error": "14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:3002",
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1914643287",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D OEM OEM (без кулера)",
+        "price": 46033,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7364996472.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-oem-oem-bez-kulera-1914643287/?at=mqtkVDOBlcN0Y6l5sPq59WRTGZ9pPi99P8xjiPWjQXN",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2059311088",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 47110,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7558167760.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-2059311088/?at=16tLr5V2GuOxX6BBuzkpWwGuWZLA15cNjDxq8sOnG3nJ",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2271421696",
+        "name": "Процессор AMD Ryzen 7 9800x3d OEM (без кулера)",
+        "price": 47552,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7626846898.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-oem-bez-kulera-2271421696/?at=Y7tjKOrElcr9kNZKckD2KwNHX5xXX0Szp2LN9U77BWg9",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1878173138",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 47737,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7475107126.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-1878173138/?at=16tLr5V2GuEAAEnDiWRM46oCvQyjrVU4LOQ3Vh57D2lQ",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1970966733",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 48286,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7415248572.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-1970966733/?at=EqtkwMEVxcLgV7jEFR6mK8ZUnjkz08tYVqkP7tz9y3Gn",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2127521428",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 49524,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7537348019.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-2127521428/?at=RltywB2jWhVMAVG9fQ8GxmNSEyrZ5qF130ZQ9hwWOlxM",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1791318899",
+        "name": "Процессор AMD R7 9800X3d, топовейший свежейший , OEM",
+        "price": 50374,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7235620948.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-r7-9800x3d-topoveyshiy-svezheyshiy-oem-1791318899/?at=WPtN1GJRqfJkQMPvi9Ez1JXCDNXgW8TYoEYApFn4Yg8N",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2089963687",
+        "name": "Процессор CPU AMD Ryzen 7 9800X3D OEM 100-000001084",
+        "price": 50841,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7513820902.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-amd-ryzen-7-9800x3d-oem-100-000001084-2089963687/?at=WPtN1GJRqfpZ8lYoCXANXqjfRMwOEpcx52MQOim08q8A",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2224575929",
+        "name": "Центральный процессор AMD Ryzen 7 9800X3D OEM (100-000001084)",
+        "price": 51242,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7588300199.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-7-9800x3d-oem-100-000001084-2224575929/?at=6WtZR85jmuwgW6qgtnmprj3c9o4P6NU7OJwpNu5AvxBJ",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1780623983",
+        "name": "Процессор AMD Ryzen 7 9800x3d, AM5, OEM (без кулера)",
+        "price": 51471,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7589149755.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-am5-oem-bez-kulera-1780623983/?at=A6tGx2kLOcB9BmEwCEBoonyUDyDyprhOGwVYQfxOLEPg",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1947078459",
+        "name": "Процессор AMD Ryzen 7 9800X3D (Granite Ridge AM5,8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM",
+        "price": 51721,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7509889201.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-graphics-oem-1947078459/?at=J8tgk5N3wspqrA35TZGOBoOuZPqR94tjQPxO8UMxv3X4",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1974012006",
+        "name": "Процессор AMD Ryzen 7 9800X3D, 4.7ГГц, (Turbo 5.2ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 52785,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7236473983.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-4-7ggts-turbo-5-2ggts-8-yadernyy-l3-96mb-soket-am5-oem-1974012006/?at=6WtZR85jmuloX8E7TPRv6jMhzqQZY7Cwm2O8gtj1N8y",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1846469871",
+        "name": "Процессор AMD R7 9800X3d, топовейший свежейший , Box",
+        "price": 53035,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7291205065.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-r7-9800x3d-topoveyshiy-svezheyshiy-box-1846469871/?at=k2toD1x8BuyKol4KcKGzgQYFGOkQPLhoB0jLZtB4A7vE",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1953870396",
+        "name": "Процессор AMD Ryzen 7 9800X3D, AM5, OEM 100-000001084",
+        "price": 53111,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7399878028.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-am5-oem-100-000001084-1953870396/?at=vQtrJKQp8cjEvgW7UOy5rRVTVjJDgms061j15HxoXJkk",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1944021406",
+        "name": "Процессор CPU AMD Ryzen 7 9800X3D, SAM5, OEM",
+        "price": 53477,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7233929856.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-cpu-amd-ryzen-7-9800x3d-sam5-oem-1944021406/?at=LZtl046y9fAKqPJYHrLlP4Jc42xYZ6C3oEM8zSmvN3PB",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1792382405",
+        "name": "Процессор AMD Ryzen 7 9800X3D, 4.7ГГц, (Turbo 5.2ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 53798,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7587225420.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-4-7ggts-turbo-5-2ggts-8-yadernyy-l3-96mb-soket-am5-oem-1792382405/?at=gpt4vpMOyT384GMvFlqZO6Rsjv8xKfO3R0pAIqVQ8gn",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1993165147",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 54838,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7644824949.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-1993165147/?at=QktJnr0MPcP9l2Q4TMq22kBI3N7Jx4Tvzrypmt4OnyoW",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2304004378",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 55121,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7300701950.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-2304004378/?at=RltywB2jWhyzwg6MU3xDgRnu2QPl7AF9wN00BIX062Q5",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2071595440",
+        "name": "AMD Процессор Ryzen 7 9800X3D OEM (без кулера)",
+        "price": 55131,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7497166138.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-oem-bez-kulera-2071595440/?at=WPtN1GJRqfLyZxz6S9Kl29gIgx6Z58covg56DFGEV7KV",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2277295034",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 55131,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7300701950.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-2277295034/?at=gpt4vpMOyTA08B3nsqxzAG3c8G1R0rCAlL81KHx0GN3q",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1787241531",
+        "name": "Центральный процессор AMD Ryzen 7 9800X3D OEM (100-000001084)",
+        "price": 55165,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7231458959.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-7-9800x3d-oem-100-000001084-1787241531/?at=pZtpgKY1otQ4ABo7s33AEBqSjWkEOzi7oY570TgPmAPQ",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2127587139",
+        "name": "AMD Процессор Ryzen 7 9800X3D BOX (без кулера)",
+        "price": 55208,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7537398783.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-7-9800x3d-box-bez-kulera-2127587139/?at=RltywB2jWhj2JKykCoNvjX3SyvkWA2IAy7YWKhM667x",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2324471996",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 55232,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7300701950.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-2324471996/?at=PjtJBMp8Xc811n9KIl33ynosx5lljWhEvMkXJuk3Ym29",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1900181439",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D BOX (без кулера)",
+        "price": 55244,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7527869456.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-box-bez-kulera-1900181439/?at=J8tgk5N3wsLXLZM7hpPWJMKhX6lMpOhpPEoWDskNWEML",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1974010471",
+        "name": "Процессор AMD Ryzen 7 9800X3D, 4.7ГГц, (Turbo 5.2ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 55328,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7236473983.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-4-7ggts-turbo-5-2ggts-8-yadernyy-l3-96mb-soket-am5-oem-1974010471/?at=6WtZR85jmupp1GmVT7kPnWKiEZgYQgsrWAooxsklZZ57",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2324572451",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 55559,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7300701950.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-2324572451/?at=79tnroD4NC4YzpoASEzEn1LU7GMQVEtPKXBwGUAmW8pY",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1931390874",
+        "name": "Процессор AMD Ryzen 7 9800x3d AM5 4.7GHz OEM",
+        "price": 55610,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7669726757.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-am5-4-7ghz-oem-1931390874/?at=A6tGx2kLOc0vwp5jiVMJyJ4TjnBZVVsBKgWQqS3E5zqo",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1849253011",
+        "name": "Процессор AMD Ryzen 7 9800X3D (Granite Ridge AM5,8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM",
+        "price": 55822,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7291230519.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-graphics-oem-1849253011/?at=99trJ9GLqcVmwvEJuy0B1L1tW69rlGcAQrxmFYyJ3Kk",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1846493125",
+        "name": "Процессор AMD Ryzen 7 9800X3D (Granite Ridge AM5,8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM",
+        "price": 55873,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7291230519.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-graphics-oem-1846493125/?at=r2t4yogPZTxykl25TVnzrEwtplnlKLt4VnKB1Hq1jjZE",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1916882174",
+        "name": "Процессор AMD Ryzen 7 9800x3d, AM5, 8 x 4.7 ГГц, L2 - 8 МБ, L3 - 96 МБ, TDP 120 Вт",
+        "price": 56161,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7367149447.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-am5-8-x-4-7-ggts-l2-8-mb-l3-96-mb-tdp-120-vt-1916882174/?at=36tWj0n6KsYmNZ7JsDNg7GWfxGnV0pIWQN3jTX9k3Vm",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1880403170",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 56280,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7545021690.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-1880403170/?at=WPtN1GJRqfXA8Wp8IXVy7QncoPJ1qWtk1DwvlU6N6vwg",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1879678728",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 56308,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7313138213.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-1879678728/?at=oZt6AZOjYI0GVzxGTZvwYm8H3wDE6Nsz5LBrYsJvloWp",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "2263647552",
+        "name": "Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084",
+        "price": 56374,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7545021689.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-2263647552/?at=z6tOX95Qqc6QmJ7c5Qxo9muw6jNQ8HNQWW4uLGKLPW",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1861938937",
+        "name": "AMD Процессор AMD Ryzen 7 9800X3D Processor (Granite Ridge AM5, 8C&#x2F;16T, 4.7&#x2F;5.2GHz, 96MB, 120W, Radeon Graphics) OEM - Model: 100-000001084 OEM (без кулера)",
+        "price": 56645,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7300701950.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-amd-ryzen-7-9800x3d-processor-granite-ridge-am5-8c-16t-4-7-5-2ghz-96mb-120w-radeon-1861938937/?at=pZtpgKY1otEQ604AczQ4or7Tp7jYoYUvE0ZpmsKq75PA",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1931248653",
+        "name": "Процессор AMD Ryzen 7 9800x3d AM5 4.7GHz OEM",
+        "price": 56808,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7669726757.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-am5-4-7ghz-oem-1931248653/?at=x6tPpwYnvTvVRzwAfOgGrq8h2PgpwVSkpvoNyf9Z9V3z",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      },
+      {
+        "id": "1792394978",
+        "name": "Процессор AMD Ryzen 7 9800X3D, 4.7ГГц, (Turbo 5.2ГГц), 8-ядерный, L3 96МБ, Сокет AM5, OEM",
+        "price": 56860,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7587225420.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-7-9800x3d-4-7ggts-turbo-5-2ggts-8-yadernyy-l3-96mb-soket-am5-oem-1792394978/?at=Z8tX12JrghnnOXrOiyGokXAhpNGzQwcry61j2Ix4GqWM",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9800x3d"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
   "query": "9800x3d",
   "category": "processors",
   "platform_id": null

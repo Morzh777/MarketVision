@@ -63,21 +63,21 @@
         "query": "DualSense"
       },
       {
-        "id": "300094908",
-        "name": "Стики для геймпада DualSense ThumbStick Sony PlayStation 5",
-        "price": 168,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/300094908/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
         "id": "263550621",
         "name": "Стики для геймпада DualShock 3 ThumbStick PlayStation 3",
         "price": 168,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/263550621/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "300094908",
+        "name": "Стики для геймпада DualSense ThumbStick Sony PlayStation 5",
+        "price": 168,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/300094908/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -143,21 +143,21 @@
         "query": "DualSense"
       },
       {
-        "id": "263550576",
-        "name": "Пружины для триггеров DualShock 4 JDS-001",
-        "price": 218,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/263550576/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
         "id": "263550553",
         "name": "Пружины для триггеров DualSense PlayStation 5",
         "price": 218,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/263550553/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "263550576",
+        "name": "Пружины для триггеров DualShock 4 JDS-001",
+        "price": 218,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/263550576/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -183,11 +183,11 @@
         "query": "DualSense"
       },
       {
-        "id": "409016423",
-        "name": "Контактная подложка для DualSense PS5 V 2",
+        "id": "409016420",
+        "name": "Контактная подложка для DualSense PS5 V 1",
         "price": 220,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409016423/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409016420/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -203,11 +203,11 @@
         "query": "DualSense"
       },
       {
-        "id": "409016420",
-        "name": "Контактная подложка для DualSense PS5 V 1",
+        "id": "409016423",
+        "name": "Контактная подложка для DualSense PS5 V 2",
         "price": 220,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/409016420/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/409016423/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -433,6 +433,16 @@
         "query": "DualSense"
       },
       {
+        "id": "196421783",
+        "name": "Стик для джойстика Sony PlayStation 4 DualSense",
+        "price": 346,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/196421783/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
         "id": "438132453",
         "name": "Мембрана кнопок для DualSense PlayStation 5",
         "price": 346,
@@ -448,16 +458,6 @@
         "price": 346,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/438132544/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "196421783",
-        "name": "Стик для джойстика Sony PlayStation 4 DualSense",
-        "price": 346,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/196421783/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -553,21 +553,11 @@
         "query": "DualSense"
       },
       {
-        "id": "413096895",
-        "name": "Шлейф для микрофона для джойстика геймпада DualSense PS5",
+        "id": "241183052",
+        "name": "Шлейф L R левая и правая кнопки для геймпада PS5 V2 2 шт",
         "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/413096895/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "413099213",
-        "name": "Шлейф для микрофона для джойстика DualSense PS5 vers 3",
-        "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/413099213/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/241183052/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -578,6 +568,16 @@
         "price": 372,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/413092327/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "413096895",
+        "name": "Шлейф для микрофона для джойстика геймпада DualSense PS5",
+        "price": 372,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413096895/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -603,21 +603,21 @@
         "query": "DualSense"
       },
       {
-        "id": "241183052",
-        "name": "Шлейф L R левая и правая кнопки для геймпада PS5 V2 2 шт",
-        "price": 372,
-        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/241183052/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
         "id": "225484751",
         "name": "Механизм 3D стика геймпада для DualSense, PS5, 2 шт",
         "price": 372,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/225484751/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "413099213",
+        "name": "Шлейф для микрофона для джойстика DualSense PS5 vers 3",
+        "price": 372,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/413099213/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -703,6 +703,16 @@
         "query": "DualSense"
       },
       {
+        "id": "210974574",
+        "name": "Стики для геймпада SONY PLAYSTATION DUALSENSE 5 PS5 4шт",
+        "price": 401,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/210974574/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
         "id": "301925920",
         "name": "Mеханизм 3D стика для геймпада PS5 Dualsense (2 шт)",
         "price": 401,
@@ -713,11 +723,11 @@
         "query": "DualSense"
       },
       {
-        "id": "210974574",
-        "name": "Стики для геймпада SONY PLAYSTATION DUALSENSE 5 PS5 4шт",
-        "price": 401,
-        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/210974574/detail.aspx",
+        "id": "369006018",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Светло-серые, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369006018/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -733,71 +743,11 @@
         "query": "DualSense"
       },
       {
-        "id": "364632910",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Красные, 2шт",
+        "id": "369053734",
+        "name": "Стики для геймпада SONY DUALSENSE 5 Белые crystal, 2шт",
         "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/364632910/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "369538921",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёно-Чёрные, 2шт",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369538921/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "368996258",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Crystal Красные, 2шт",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/368996258/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "364656027",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёный Crystal, 2шт",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/364656027/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "281026949",
-        "name": "Насадки на стики для геймпада PS4 и Xbox Прозрачный 4 штуки",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/281026949/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "281026765",
-        "name": "Насадки на стики для геймпада PS4 и Xbox Белый 4 штуки",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/281026765/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "369016376",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёные, 2шт",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369016376/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369053734/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -813,31 +763,11 @@
         "query": "DualSense"
       },
       {
-        "id": "364611658",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Оранжевые, 2шт",
+        "id": "369541614",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Оранжево-Чёрные, 2шт",
         "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/364611658/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "281011294",
-        "name": "Насадки на стики для геймпада PS4 и Xbox Зелёные 4 штуки",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/281011294/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "281010350",
-        "name": "Насадки на стики для геймпада PS4 и Xbox фиолетовые 4 штуки",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/281010350/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369541614/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -853,6 +783,76 @@
         "query": "DualSense"
       },
       {
+        "id": "364661516",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Crystal Purple, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/364661516/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "368996258",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Crystal Красные, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/368996258/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "281010350",
+        "name": "Насадки на стики для геймпада PS4 и Xbox фиолетовые 4 штуки",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281010350/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "281011294",
+        "name": "Насадки на стики для геймпада PS4 и Xbox Зелёные 4 штуки",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281011294/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "369538921",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёно-Чёрные, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369538921/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "364632910",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Красные, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/364632910/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "369018959",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Фиолетовые, 2шт",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369018959/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
         "id": "281011080",
         "name": "Насадки на стики для геймпада PS4 и Xbox Жёлтые 4 штуки",
         "price": 411,
@@ -863,21 +863,21 @@
         "query": "DualSense"
       },
       {
-        "id": "281015465",
-        "name": "Насадки на стики для геймпада PS4 и Xbox Синие 4 штуки",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/281015465/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
         "id": "281018535",
         "name": "Насадки на стики для геймпада PS4 и Xbox Розовые 4 штуки",
         "price": 411,
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/281018535/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "281015465",
+        "name": "Насадки на стики для геймпада PS4 и Xbox Синие 4 штуки",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281015465/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
@@ -903,51 +903,51 @@
         "query": "DualSense"
       },
       {
-        "id": "369018959",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Фиолетовые, 2шт",
+        "id": "364611658",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Оранжевые, 2шт",
         "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369018959/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/364611658/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
       },
       {
-        "id": "369006018",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Светло-серые, 2шт",
+        "id": "281026949",
+        "name": "Насадки на стики для геймпада PS4 и Xbox Прозрачный 4 штуки",
+        "price": 411,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281026949/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "DualSense"
+      },
+      {
+        "id": "369016376",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёные, 2шт",
         "price": 411,
         "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369006018/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/369016376/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
       },
       {
-        "id": "369053734",
-        "name": "Стики для геймпада SONY DUALSENSE 5 Белые crystal, 2шт",
+        "id": "364656027",
+        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Зелёный Crystal, 2шт",
         "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369053734/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/364656027/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"
       },
       {
-        "id": "364661516",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Crystal Purple, 2шт",
+        "id": "281026765",
+        "name": "Насадки на стики для геймпада PS4 и Xbox Белый 4 штуки",
         "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/364661516/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "DualSense"
-      },
-      {
-        "id": "369541614",
-        "name": "Стики для SONY PLAYSTATION DUALSENSE 5 Оранжево-Чёрные, 2шт",
-        "price": 411,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/369541614/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281026765/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "DualSense"

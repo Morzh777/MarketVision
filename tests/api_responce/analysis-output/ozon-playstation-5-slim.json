@@ -1,6 +1,371 @@
 {
-  "success": false,
-  "error": "14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:3002",
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1616056152",
+        "name": "Игровая приставка Sony PlayStation 4 Slim 500 ГБ. Товар уцененный",
+        "price": 23529,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7610434117.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-slim-500-gb-tovar-utsenennyy-1616056152/?at=83tBmLoDqHxQmAjXS1wrX6LS8YMYB6fWpWz5ZCJjEWw4",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1512805869",
+        "name": "Игровая приставка Sony PlayStation 4 Slim 500 ГБ",
+        "price": 26368,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7651989911.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-slim-500-gb-1512805869/?at=79tnroD4NClXNk22s3OpP1I1X6rjVuA3A5rpH03Pvjk",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1512798519",
+        "name": "Игровая приставка Sony PlayStation 4 Slim 1ТБ",
+        "price": 27192,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7651985227.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-slim-1tb-1512798519/?at=gpt4vpMOyTlYM0LtoZWW6AhNDRj68FoArmKqsqAYOYk",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1673433358",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 28196,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7133819871.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1673433358/?at=J8tgk5N3wsVxOXQNcQAPO1VHqKrDG7t46rn4WhRKxx32",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1697017070",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 30175,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7452464124.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697017070/?at=28t0LOMP3u9KJp57HR0Zknkh0WoqxlcQ0lqJPFwoJg9Z",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2366958178",
+        "name": "Игровая консоль PlayStation 4 Slim 1TB. Версия ПО от 10.01. Товар уцененный",
+        "price": 31575,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-i/6586927110.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-4-slim-1tb-versiya-po-ot-10-01-tovar-utsenennyy-2366958178/?at=ywtAGkxqoTqpzrn1IElzDkhNNOojQFkLYQVYSzpOKRM",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1697017284",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 32589,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7452464124.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697017284/?at=w0tg59BJxsEOwG85IPlrPEMsYyz149ioEwzEuolEjxx",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1521451147",
+        "name": "Игровая приставка Playstation 4 Slim 1Tb (CUH-22xx)",
+        "price": 39283,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7148654600.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-playstation-4-slim-1tb-cuh-22xx-1521451147/?at=RltywB2jWhEr4BWESE6EXzxSynRNGYT3Dr1VYH9J79NO",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1697384365",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 40489,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7133819871.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697384365/?at=r2t4yogPZTm9L1A9IjyGmwNIGGl3E7s0LXjBvHP6Ll5",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2378541672",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 43102,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2378541672/?at=NOtwYX4D3cRRG86pCm3PzwDH2WkXvNtEpgwNJc6rJYv7",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2046847791",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 44310,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2046847791/?at=MZtvpWNM3UXLWMyVhx9NrpBhqLM0kJsrnrNG9cRloBqp",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2413188985",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 45060,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2413188985/?at=oZt6AZOjYIJV1vEZTk72rE4I1EnxE1hzzjWR7T107qDo",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2316545573",
+        "name": "Игровая консоль PlayStation 5 SLIM Blu-Ray. Уцененный товар",
+        "price": 45201,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-b/6845969735.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2316545573/?at=08tYnZ1qBcw7W3z9sRE9X4oSmr26GkUrYXKnkSMyz6B1",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2175029673",
+        "name": "Игровая консоль Sony Playstation 5 Slim Digital (без дисковода)",
+        "price": 46000,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/6922889560.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-5-slim-digital-bez-diskovoda-2175029673/?at=XQtkl0wVKcpPZQz4hRXO9gqCnpjw0AFlmp3GQUWpKWqL",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1897486004",
+        "name": "Игровая консоль Sony Playstation 5 Slim Digital (без дисковода)",
+        "price": 46037,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/6922889560.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-5-slim-digital-bez-diskovoda-1897486004/?at=A6tGx2kLOc292OPjUJKGQr2CgVPMJYtQV8V3zt7qjO68",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1770442498",
+        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2016B01Y белый-черный",
+        "price": 46412,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7211136730.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-digital-cfi-2016b01y-belyy-chernyy-1770442498/?at=gpt4vpMOyTQJ5q8lHmBEq39Fjk75X5fOpEN9Nh4416WY",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1775772868",
+        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2016B01Y белый-черный",
+        "price": 46448,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7211136730.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-digital-cfi-2016b01y-belyy-chernyy-1775772868/?at=K8tZQmVzWup2xJgXTzp2QLPIW8WKzYSrpnZ3BuG2Aw71",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1850364807",
+        "name": "Игровая консоль Sony PlayStation 5 Slim Blu-Ray Edition 1TB (CFI-2016)",
+        "price": 46464,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7656113597.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-5-slim-blu-ray-edition-1tb-cfi-2016-1850364807/?at=ywtAGkxqoTR4K4vvfjZJolgimJ23OpF6r6ynNC5RVmLr",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1771230316",
+        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2016B01Y белый-черный",
+        "price": 47033,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7452463933.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-digital-cfi-2016b01y-belyy-chernyy-1771230316/?at=qQtJglqKNcrvKVnLTDV5VjQtGx5k2BSZ8EMADU9z1MWR",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1602683904",
+        "name": "Игровая приставка Sony PlayStation 5 Slim (1Tb, SSD) Digital Edition (CFI-2018)",
+        "price": 47229,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-9/6873185817.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-5-slim-1tb-ssd-digital-edition-cfi-2018-1602683904/?at=83tBmLoDqHlkZWGyCE0lj91CQrOpORixKD0lMSJ52xXp",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2306625670",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 47633,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2306625670/?at=ywtAGkxqoTg1rWRpiE62LMzfrGQlV2C60oVxxIG4QLLV",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2309648733",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 47633,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2309648733/?at=OgtED4WzxuBk12p9Sl3Dy1XsWzvqmlH113gv3HYnWm8y",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1628553932",
+        "name": "Игровая консоль PlayStation 5 Slim Digital",
+        "price": 47642,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1/6860120221.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-digital-1628553932/?at=57twy4B59cGno48ZuAO9LoOuzZVO0VFv358j0ux5pq11",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1940736268",
+        "name": "Игровая консоль Sony PlayStation 5 Slim 1000 ГБ, с дисководом",
+        "price": 48096,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7059255021.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-5-slim-1000-gb-s-diskovodom-1940736268/?at=A6tGx2kLOc1RXYBWFL11gq1TxB24QAFpgZwRrh5DRW7o",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1940736267",
+        "name": "Игровая консоль PlayStation 5 Slim с дисководом, белый",
+        "price": 48096,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-4/6855060316.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-s-diskovodom-belyy-1940736267/?at=GRt2rGvK4ILX9B4NcW8YxMMcrMjqXzS1OEgYlS6yR01y",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2166510125",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
+        "price": 48187,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=w0tg59BJxsP4NGPmSEyLzBRuD3YRXRiKBA9rBtVJzxq8",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2333229766",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 48741,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2333229766/?at=NOtwYX4D3cjLx8z5u2k5g00i9kPBQBiLP9JnBUzWj3vv",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1972462730",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
+        "price": 48741,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7402325218.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-1972462730/?at=VvtzV9GNyIPWOQqHz4LGj1TLA21EkiyPE0wlT54l06Y",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2332985119",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 48741,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2332985119/?at=36tWj0n6KsrzWBLLfOk5POAU2GZE5DiZORq9QCzQvln9",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2241264945",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 48741,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2241264945/?at=A6tGx2kLOc4J5EK9U8ExrqjHGQn442iEXB0ztjkEo9n",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2216091985",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 49295,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2216091985/?at=nRtr4j8ADcJv8QRDsQMOklzF0VpmqRhRgLnE8F5jJL2M",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1950310221",
+        "name": "Игровая консоль PlayStation 5 Slim с дисководом, белый",
+        "price": 49490,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-4/6855060316.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-s-diskovodom-belyy-1950310221/?at=J8tgk5N3wsOnmMG1CORKgAyT319WowIVyDJxGf2n66jZ",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2107810829",
+        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2018B01 белый&#x2F;черный",
+        "price": 49593,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7525082077.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-digital-cfi-2018b01-belyy-chernyy-2107810829/?at=Y7tjKOrElc996EB9ckrGopkS0KAlJ1tX6n6pMck9rnYm",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2390178439",
+        "name": "Игровая приставка PlayStation PS5 slim с разрешением 8K и поддержкой VR",
+        "price": 49842,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7670298272.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-playstation-ps5-slim-s-razresheniem-8k-i-podderzhkoy-vr-2390178439/?at=83tBmLoDqHZKGDpySZkv5Lzh46VD02uy70wJ3tOmpL96",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "2366300192",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 49848,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2366300192/?at=WPtN1GJRqfn66OAvfppKKB2IwkBpkntrl1vrlh1OEk2j",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      },
+      {
+        "id": "1422587252",
+        "name": "Игровая консоль Sony Playstation 5 Slim Digital (без дисковода)",
+        "price": 50374,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/6922889560.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-5-slim-digital-bez-diskovoda-1422587252/?at=57twy4B59cnq0y87sgKOR2ZfJRXrBouRoXYJluR2mgB7",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "PlayStation 5 Slim"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
   "query": "PlayStation 5 Slim",
   "category": "playstation",
   "platform_id": null

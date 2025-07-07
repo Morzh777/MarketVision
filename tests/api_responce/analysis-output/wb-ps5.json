@@ -533,6 +533,16 @@
         "query": "PS5"
       },
       {
+        "id": "424891449",
+        "name": "Игровая консоль 5 Slim 1ТБ, 2 геймпада",
+        "price": 54600,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/424891449/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
         "id": "389661628",
         "name": "Приставка PlayStation 5 Slim, с дисководом, 1000 ГБ SSD",
         "price": 54600,
@@ -548,16 +558,6 @@
         "price": 54600,
         "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
         "product_url": "https://www.wildberries.ru/catalog/266096919/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "424891449",
-        "name": "Игровая консоль 5 Slim 1ТБ, 2 геймпада",
-        "price": 54600,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/424891449/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -603,41 +603,11 @@
         "query": "PS5"
       },
       {
-        "id": "444819859",
-        "name": "PS5 slim с дисководом + второй геймпад голубой",
-        "price": 58779,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444819859/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444819857",
-        "name": "PS5 slim с дисководом + второй геймпад розовый",
-        "price": 58779,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444819857/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
         "id": "444819855",
         "name": "PS5 slim с дисководом + второй геймпад камуфляжный",
         "price": 58779,
         "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444819855/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444819853",
-        "name": "PS5 slim с дисководом + второй геймпад белый",
-        "price": 58779,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444819853/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -653,16 +623,6 @@
         "query": "PS5"
       },
       {
-        "id": "444819858",
-        "name": "PS5 slim с дисководом + второй геймпад красный",
-        "price": 58779,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444819858/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
         "id": "444819856",
         "name": "PS5 slim с дисководом + второй геймпад фиолетовый",
         "price": 58779,
@@ -673,11 +633,71 @@
         "query": "PS5"
       },
       {
+        "id": "444819853",
+        "name": "PS5 slim с дисководом + второй геймпад белый",
+        "price": 58779,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444819853/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444819857",
+        "name": "PS5 slim с дисководом + второй геймпад розовый",
+        "price": 58779,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444819857/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444819858",
+        "name": "PS5 slim с дисководом + второй геймпад красный",
+        "price": 58779,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444819858/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444819859",
+        "name": "PS5 slim с дисководом + второй геймпад голубой",
+        "price": 58779,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444819859/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
         "id": "193104598",
         "name": "Игровая приставка SP5, PS5 Slim, с дисководом",
         "price": 59640,
         "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
         "product_url": "https://www.wildberries.ru/catalog/193104598/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "396599959",
+        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
+        "price": 59724,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/396599959/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "396379118",
+        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
+        "price": 59724,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/396379118/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -703,21 +723,21 @@
         "query": "PS5"
       },
       {
-        "id": "396599959",
-        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
-        "price": 59724,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/396599959/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
         "id": "396599970",
         "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
         "price": 59724,
         "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
         "product_url": "https://www.wildberries.ru/catalog/396599970/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "396586172",
+        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
+        "price": 59724,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/396586172/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -743,21 +763,11 @@
         "query": "PS5"
       },
       {
-        "id": "396379118",
-        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
-        "price": 59724,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/396379118/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "396586172",
-        "name": "PlayStation 5 Slim, с дисководом, 1 ТБ, 2 геймпада",
-        "price": 59724,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/396586172/detail.aspx",
+        "id": "444844020",
+        "name": "PS5 slim с дисководом 2й геймпад фиолетовый зарядка",
+        "price": 60102,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444844020/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -773,31 +783,11 @@
         "query": "PS5"
       },
       {
-        "id": "444844021",
-        "name": "PS5 slim с дисководом 2й геймпад розовый зарядка",
+        "id": "444819860",
+        "name": "PS5 slim с дисководом + второй геймпад жемчужный",
         "price": 60102,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444844021/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444844022",
-        "name": "PS5 slim с дисководом 2й геймпад красный зарядка",
-        "price": 60102,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444844022/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444844019",
-        "name": "PS5 slim с дисководом 2й геймпад камуфляжный зарядка",
-        "price": 60102,
-        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444844019/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444819860/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -813,21 +803,11 @@
         "query": "PS5"
       },
       {
-        "id": "444819860",
-        "name": "PS5 slim с дисководом + второй геймпад жемчужный",
-        "price": 60102,
-        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444819860/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444844020",
-        "name": "PS5 slim с дисководом 2й геймпад фиолетовый зарядка",
+        "id": "444844021",
+        "name": "PS5 slim с дисководом 2й геймпад розовый зарядка",
         "price": 60102,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444844020/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/444844021/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -843,6 +823,16 @@
         "query": "PS5"
       },
       {
+        "id": "444844019",
+        "name": "PS5 slim с дисководом 2й геймпад камуфляжный зарядка",
+        "price": 60102,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444844019/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
         "id": "444844017",
         "name": "PS5 slim с дисководом 2й геймпад белый зарядка",
         "price": 60102,
@@ -853,11 +843,31 @@
         "query": "PS5"
       },
       {
+        "id": "444844022",
+        "name": "PS5 slim с дисководом 2й геймпад красный зарядка",
+        "price": 60102,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444844022/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
         "id": "444844023",
         "name": "PS5 slim с дисководом 2й геймпад голубой зарядка",
         "price": 60102,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444844023/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444889534",
+        "name": "PS5 slim с дисководом 2й геймпад белый диск GTA 5",
+        "price": 60480,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444889534/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -883,21 +893,11 @@
         "query": "PS5"
       },
       {
-        "id": "444889536",
-        "name": "PS5 slim с дисководом 2й геймпад черный диск GTA 5",
+        "id": "444889541",
+        "name": "PS5 slim с дисководом 2й геймпад голубой диск GTA 5",
         "price": 60480,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444889536/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444889534",
-        "name": "PS5 slim с дисководом 2й геймпад белый диск GTA 5",
-        "price": 60480,
-        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444889534/detail.aspx",
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444889541/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -913,11 +913,21 @@
         "query": "PS5"
       },
       {
-        "id": "444889541",
-        "name": "PS5 slim с дисководом 2й геймпад голубой диск GTA 5",
+        "id": "444889536",
+        "name": "PS5 slim с дисководом 2й геймпад черный диск GTA 5",
+        "price": 60480,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444889536/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444889538",
+        "name": "PS5 slim с дисководом 2й геймпад фиолетовый диск GTA 5",
         "price": 60480,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444889541/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/444889538/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -933,11 +943,21 @@
         "query": "PS5"
       },
       {
-        "id": "444889538",
-        "name": "PS5 slim с дисководом 2й геймпад фиолетовый диск GTA 5",
-        "price": 60480,
+        "id": "445231388",
+        "name": "PS5 slim с дисководом 2й геймпад голубой диск FC25",
+        "price": 60858,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444889538/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/445231388/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "PS5"
+      },
+      {
+        "id": "444948829",
+        "name": "PS5 slim с дисководом 2й геймпад красный зарядка GTA 5",
+        "price": 60858,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/444948829/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -963,21 +983,11 @@
         "query": "PS5"
       },
       {
-        "id": "444948829",
-        "name": "PS5 slim с дисководом 2й геймпад красный зарядка GTA 5",
-        "price": 60858,
-        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444948829/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "445231386",
-        "name": "PS5 slim с дисководом 2й геймпад розовый диск FC25",
+        "id": "445231387",
+        "name": "PS5 slim с дисководом 2й геймпад красный диск FC25",
         "price": 60858,
         "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/445231386/detail.aspx",
+        "product_url": "https://www.wildberries.ru/catalog/445231387/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"
@@ -988,16 +998,6 @@
         "price": 60858,
         "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
         "product_url": "https://www.wildberries.ru/catalog/444948825/detail.aspx",
-        "category": "playstation",
-        "source": "wb",
-        "query": "PS5"
-      },
-      {
-        "id": "444889542",
-        "name": "PS5 slim с дисководом 2й геймпад жемчужный диск GTA 5",
-        "price": 60858,
-        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/444889542/detail.aspx",
         "category": "playstation",
         "source": "wb",
         "query": "PS5"

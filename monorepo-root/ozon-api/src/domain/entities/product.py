@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 from datetime import datetime
 
 @dataclass
@@ -12,14 +12,14 @@ class Product:
     image_url: Optional[str] = None
     product_url: Optional[str] = None
     images: List[str] = None
-    characteristics: Dict = None
+    characteristics: Dict[str, Any] = None
     category: str = "videocards"
     availability: bool = True
     supplier: str = "Ozon"
     source: str = "ozon"
-    created_at: datetime = None
+    created_at: Optional[datetime] = None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.images is None:
             self.images = []
         if self.characteristics is None:
@@ -27,7 +27,7 @@ class Product:
         if self.created_at is None:
             self.created_at = datetime.now()
     
-    def to_dict(self) -> dict:
+    def to_dict(self) -> Dict[str, Any]:
         """Конвертация в словарь"""
         return {
             "id": self.id,
@@ -46,6 +46,6 @@ class Product:
         }
     
     @classmethod
-    def from_dict(cls, data: dict) -> 'Product':
+    def from_dict(cls, data: Dict[str, Any]) -> 'Product':
         """Создание из словаря"""
         return cls(**data) 

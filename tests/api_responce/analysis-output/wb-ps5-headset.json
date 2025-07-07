@@ -23,21 +23,21 @@
         "query": "PS5 Headset"
       },
       {
-        "id": "459460237",
-        "name": "Нескользящие наклейки для геймпада PS5 DualSense FINALORD",
-        "price": 519,
-        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
-        "product_url": "https://www.wildberries.ru/catalog/459460237/detail.aspx",
-        "category": "playstation_accessories",
-        "source": "wb",
-        "query": "PS5 Headset"
-      },
-      {
         "id": "459460236",
         "name": "Нескользящие наклейки для геймпада PS5 DualSense FINALORD",
         "price": 519,
         "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
         "product_url": "https://www.wildberries.ru/catalog/459460236/detail.aspx",
+        "category": "playstation_accessories",
+        "source": "wb",
+        "query": "PS5 Headset"
+      },
+      {
+        "id": "459460237",
+        "name": "Нескользящие наклейки для геймпада PS5 DualSense FINALORD",
+        "price": 519,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/459460237/detail.aspx",
         "category": "playstation_accessories",
         "source": "wb",
         "query": "PS5 Headset"
