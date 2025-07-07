@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { RedisService } from './redis.service';
 import { PhotoService } from './photo.service';
 import { PriceStatisticsService, PriceChange } from './price-statistics.service';
@@ -6,6 +6,7 @@ import { OzonApiClient } from '../grpc-clients/ozon-api.client';
 import { WbApiClient } from '../grpc-clients/wb-api.client';
 import { fileLogger } from '../utils/logger';
 import { ValidatorFactory, ValidationResult } from '../validators';
+import { ProductRequestDto } from '../dto/product-request.dto';
 
 interface ProductResult {
   id: string;
@@ -615,7 +616,13 @@ export class ProductsService {
    * 4. Сравнивает с кэшем и обновляет если цена лучше
    * 5. Возвращает отсортированный результат
    */
-  async getProducts(request: ProductRequest): Promise<ProductResponse> {
+  async getProducts(request: ProductRequestDto): Promise<ProductResponse> {
+    if (!request.queries || !Array.isArray(request.queries) || request.queries.length === 0) {
+      throw new BadRequestException('Не указаны запросы для поиска');
+    }
+    if (!request.category) {
+      throw new BadRequestException('Не указана категория');
+    }
     const startTime = Date.now();
     this.logger.log(`🔍 Запрос продуктов: ${request.queries.length} запросов для категории ${request.category}`);
 
@@ -703,7 +710,7 @@ export class ProductsService {
   /**
    * Получает продукты от WB API
    */
-  private async getProductsFromWbApi(request: ProductRequest): Promise<ProcessedProduct[]> {
+  private async getProductsFromWbApi(request: ProductRequestDto): Promise<ProcessedProduct[]> {
     try {
       // Отправляем каждый запрос отдельно к WB API
       const allProducts: ProcessedProduct[] = [];
@@ -744,7 +751,7 @@ export class ProductsService {
   /**
    * Получает продукты от Ozon API
    */
-  private async getProductsFromOzonApi(request: ProductRequest): Promise<ProcessedProduct[]> {
+  private async getProductsFromOzonApi(request: ProductRequestDto): Promise<ProcessedProduct[]> {
     try {
       // Отправляем каждый запрос отдельно к Ozon API
       const allProducts: ProcessedProduct[] = [];
@@ -785,7 +792,7 @@ export class ProductsService {
   /**
    * Валидирует продукты через наши валидаторы
    */
-  private async validateProducts(products: ProcessedProduct[], request: ProductRequest): Promise<ProcessedProduct[]> {
+  private async validateProducts(products: ProcessedProduct[], request: ProductRequestDto): Promise<ProcessedProduct[]> {
     if (products.length === 0) return [];
 
     this.logger.log(`🔍 Валидация ${products.length} продуктов для категории ${request.category}`);
@@ -1128,7 +1135,7 @@ export class ProductsService {
   /**
    * Получает статистику по query и источникам
    */
-  async getQueryStatistics(request: ProductRequest): Promise<{
+  async getQueryStatistics(request: ProductRequestDto): Promise<{
     total_queries: number;
     total_products: number;
     queries_stats: Array<{

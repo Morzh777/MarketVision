@@ -1,6 +1,9 @@
 import { Controller, Post, Body, Get, Param, HttpException, HttpStatus } from '@nestjs/common';
 import { ProductsService, ProductRequest, ProductResponse } from '../services/products.service';
+import { ApiTags, ApiOperation, ApiResponse, ApiBody } from '@nestjs/swagger';
+import { ProductRequestDto } from '../dto/product-request.dto';
 
+@ApiTags('products')
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
@@ -10,7 +13,10 @@ export class ProductsController {
    * POST /products/search
    */
   @Post('search')
-  async searchProducts(@Body() request: ProductRequest): Promise<ProductResponse> {
+  @ApiOperation({ summary: 'Поиск продуктов' })
+  @ApiBody({ type: ProductRequestDto })
+  @ApiResponse({ status: 200, description: 'Список продуктов' })
+  async searchProducts(@Body() request: ProductRequestDto): Promise<ProductResponse> {
     try {
       // Валидация запроса
       if (!request.queries || request.queries.length === 0) {
@@ -142,7 +148,10 @@ export class ProductsController {
    * POST /products/statistics
    */
   @Post('statistics')
-  async getQueryStatistics(@Body() request: ProductRequest): Promise<{
+  @ApiOperation({ summary: 'Статистика по запросам' })
+  @ApiBody({ type: ProductRequestDto })
+  @ApiResponse({ status: 200, description: 'Статистика по запросам' })
+  async getQueryStatistics(@Body() request: ProductRequestDto): Promise<{
     total_queries: number;
     total_products: number;
     queries_stats: Array<{
@@ -182,8 +191,6 @@ export class ProductsController {
       );
     }
   }
-
-
 
   /**
    * Проверка подключения к Redis
