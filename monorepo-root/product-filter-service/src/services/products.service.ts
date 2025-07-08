@@ -6,6 +6,7 @@ import { ProductGroupingService } from './product-grouping.service';
 import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
+import { PhotoService } from './photo.service';
 
 @Injectable()
 export class ProductsService {
@@ -17,6 +18,7 @@ export class ProductsService {
     private readonly grouper: ProductGroupingService,
     private readonly normalizer: ProductNormalizerService,
     private readonly dbApiClient: DbApiClient,
+    private readonly photoService: PhotoService,
   ) {}
 
   /**
@@ -49,6 +51,14 @@ export class ProductsService {
       (product) => this.normalizer.getModelKey(product)
     );
     this.logger.log(`📊 Сгруппировано в ${groupedProducts.length} уникальных товаров`);
+
+    // Подменяем category на человекочитаемое название перед сохранением
+    for (const product of groupedProducts) {
+      product.category = request.category;
+      if (product.source === 'wb') {
+        product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
+      }
+    }
 
     // 4. Сохраняем продукты и историю цен в db-api (асинхронно)
     this.dbApiClient.batchCreateProducts(groupedProducts)

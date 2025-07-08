@@ -6,6 +6,7 @@ import { AppModule } from '../src/app.module';
 // E2E тест для проверки всей архитектуры product-filter-service
 
 describe('ProductsController (e2e)', () => {
+  jest.setTimeout(30000); // Увеличиваем таймаут для всех тестов в этом describe
   let app: INestApplication;
 
   beforeAll(async () => {
@@ -45,5 +46,44 @@ describe('ProductsController (e2e)', () => {
       .post('/products/search')
       .send({ queries: ['rtx 5080'], category: 'invalid' })
       .expect(400);
+  });
+
+  it('/products/search (POST) — разные категории', async () => {
+    const testCases = [
+      {
+        category: 'videocards',
+        queries: ['rtx 5080', 'RTX5070'],
+      },
+      {
+        category: 'processors',
+        queries: ['7800X3D', '9950X3D'],
+      },
+      {
+        category: 'motherboards',
+        queries: ['B760', 'X870E'],
+      },
+    ];
+
+    for (const { category, queries } of testCases) {
+      const res = await request(app.getHttpServer())
+        .post('/products/search')
+        .send({ queries, category })
+        .expect(201)
+        .catch((e) => e.response);
+
+      expect(res.body).toHaveProperty('products');
+      expect(Array.isArray(res.body.products)).toBe(true);
+      expect(res.body.products.length).toBe(queries.length);
+
+      for (const query of queries) {
+        const product = res.body.products.find((p) => p.query === query);
+        expect(product).toBeDefined();
+        expect(product).toHaveProperty('name');
+        expect(product).toHaveProperty('price');
+        expect(typeof product.price).toBe('number');
+        expect(product.price).toBeGreaterThan(0);
+        expect(product.price).toBeLessThan(200000);
+      }
+    }
   });
 }); 

@@ -47,6 +47,7 @@ export class ProductAggregatorService {
         let extra: any = {};
         if (source === 'wb') {
           category = CategoryConfigService.getWbCategory(request.category) || request.category;
+          extra.categoryKey = request.category; // Теперь передаём categoryKey для WB API
         }
         if (source === 'ozon') {
           category = CategoryConfigService.getOzonCategory(request.category) || request.category;

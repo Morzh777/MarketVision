@@ -22,7 +22,7 @@ describe('ProductsService', () => {
   const mockDbApiClient = { batchCreateProducts: jest.fn().mockResolvedValue({ inserted: 0 }) };
 
   beforeEach(() => {
-    photoService = {};
+    photoService = { processImageUrl: jest.fn(async (url) => url) };
     ozonApiClient = { filterProducts: jest.fn() };
     wbApiClient = { filterProducts: jest.fn() };
     service = new ProductsService(
@@ -30,7 +30,8 @@ describe('ProductsService', () => {
       mockValidator as any,
       mockGrouper as any,
       mockNormalizer as any,
-      mockDbApiClient as any
+      mockDbApiClient as any,
+      photoService as any
     );
   });
 
