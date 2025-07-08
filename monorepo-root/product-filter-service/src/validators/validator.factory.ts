@@ -1,6 +1,9 @@
 import { BaseValidator } from './base.validator';
 import { VideocardValidator } from './videocard.validator';
 import { ProcessorsValidator } from './processors.validator';
+import { NintendoSwitchValidator } from './nintendo-switch.validator';
+import { PlaystationValidator } from './playstation.validator';
+import { PlaystationAccessoriesValidator } from './playstation-accessories.validator';
 
 export class ValidatorFactory {
   private static validators: Map<string, BaseValidator> = new Map();
@@ -21,10 +24,15 @@ export class ValidatorFactory {
       case 'processors':
         validator = new ProcessorsValidator();
         break;
-      // TODO: Добавить другие категории
-      // case 'smartphones':
-      //   validator = new SmartphoneValidator();
-      //   break;
+      case 'nintendo_switch':
+        validator = new NintendoSwitchValidator();
+        break;
+      case 'playstation':
+        validator = new PlaystationValidator();
+        break;
+      case 'playstation_accessories':
+        validator = new PlaystationAccessoriesValidator();
+        break;
       default:
         return null;
     }

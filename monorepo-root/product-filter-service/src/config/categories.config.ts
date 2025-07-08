@@ -1,15 +1,7 @@
 // 🎯 КОНФИГУРАЦИЯ КАТЕГОРИЙ И ПЛАТФОРМ
 // Централизованное управление всеми категориями и их параметрами
 
-export interface CategoryConfig {
-  ozon: string;
-  wb: string;
-  platform?: string; // Платформа для Ozon API
-}
-
-export interface QueryConfig {
-  platform?: string; // Платформа для конкретного запроса
-}
+import { CategoryConfig } from '../interfaces/category-config.interface';
 
 export const CATEGORIES: Record<string, CategoryConfig> = {
   videocards: {

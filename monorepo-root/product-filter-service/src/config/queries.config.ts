@@ -24,9 +24,7 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
   ],
   playstation_accessories: [
     'Дисковод Sony для Playstation 5 Pro',
-    'Зарядная станция PS5',
     'Геймпад PlayStation 5',
-    'Джойстик PS5'
   ],
   nintendo_switch: [
     'Nintendo Switch 2',

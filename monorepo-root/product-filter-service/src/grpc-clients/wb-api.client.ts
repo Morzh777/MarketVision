@@ -1,33 +1,8 @@
-import * as grpc from '@grpc/grpc-js';
-import * as protoLoader from '@grpc/proto-loader';
-import * as path from 'path';
+import { BaseGrpcClient } from './base-grpc.client';
 
-const PROTO_PATH = path.join(process.cwd(), 'proto/raw-product.proto');
-
-const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-  keepCase: true,
-  longs: String,
-  enums: String,
-  defaults: true,
-  oneofs: true,
-});
-
-const productProto = grpc.loadPackageDefinition(packageDefinition).raw_product as any;
-
-export class WbApiClient {
-  private client: any;
-
+export class WbApiClient extends BaseGrpcClient<any> {
   constructor(serverAddress: string = 'localhost:3000') {
-    const isProduction = process.env.NODE_ENV === 'production';
-    const useSSL = process.env.GRPC_USE_SSL === 'true' || isProduction;
-    const credentials = useSSL
-      ? grpc.credentials.createSsl()
-      : grpc.credentials.createInsecure();
-    this.client = new productProto.RawProductService(
-      serverAddress,
-      credentials
-    );
-    console.log(`🔗 WB API gRPC клиент подключен к ${serverAddress} (SSL: ${useSSL})`);
+    super('proto/raw-product.proto', 'RawProductService', serverAddress);
   }
 
   async filterProducts(request: any): Promise<any> {
@@ -43,6 +18,4 @@ export class WbApiClient {
       });
     });
   }
-}
-
-export default WbApiClient; 
+} 

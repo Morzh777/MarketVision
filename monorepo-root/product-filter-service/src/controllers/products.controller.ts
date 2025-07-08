@@ -9,7 +9,7 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   /**
-   * Основной endpoint для получения продуктов от бота
+   * Основной endpoint для получения продуктов
    * POST /products/search
    */
   @Post('search')
