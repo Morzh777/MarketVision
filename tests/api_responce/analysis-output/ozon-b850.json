@@ -1,0 +1,372 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2224098977",
+        "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+        "price": 11317,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7587495088.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2224098977/?at=6WtZREy3Xt1Ao3z6hJ2vYXYSjk5RKPcj3DpWvCqAL5Gg",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2229478408",
+        "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+        "price": 11553,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7589459914.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2229478408/?at=28t0Lv8x7tZlWB95fpBmBxJCw896D0Iry5RgxcWnZ8QE",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2303810128",
+        "name": "Biostar Материнская плата B850MT2-E DJ",
+        "price": 11637,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7587495088.jpg",
+        "product_url": "https://www.ozon.ru/product/biostar-materinskaya-plata-b850mt2-e-dj-2303810128/?at=A6tGxgEmjcRzEM73hJ4gVAjigM6xmAi3Y6qvkSPqgYPQ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2227470877",
+        "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+        "price": 11777,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7589459914.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2227470877/?at=NOtwYAjnoc7MR0ZpCoBV7JWi7gkm7ohjj1OwQI1YEWKX",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2229476613",
+        "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+        "price": 11801,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7589459914.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2229476613/?at=XQtkl1O6mFxlXoP2Fq0mVROsZrp9p4tl4yLGJc6R7k77",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2305084756",
+        "name": "Материнская плата Biostar B850MT2-E DJ",
+        "price": 11825,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7626240946.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-2305084756/?at=K8tZQl4ALtOkQgPwiKmPo3QhKyoJNcnjr7KOCGjDrOk",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2232311715",
+        "name": "Материнская плата Gigabyte B850M D3HP, SocketAM5, AMD B850, mATX",
+        "price": 12316,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7285755387.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-socketam5-amd-b850-matx-2232311715/?at=QktJn8oD7c23rqZPu19B0PMC3gx0zKcvnyNvYIZl3Mwy",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2304203292",
+        "name": "Asus Материнская плата PRIME B850M - K",
+        "price": 12331,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7625812103.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-materinskaya-plata-prime-b850m-k-2304203292/?at=Brtzx18ZvsPPyQN4uy18LWWujNwEnQTZVnAmASmREwNr",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2305106674",
+        "name": "Материнская плата ASUS PRIME B850M-K",
+        "price": 12738,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7626251635.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-2305106674/?at=46tRZyljri8xWxV7s3PR2M1CKkJp81TYJ9kvJTpL3ZQ8",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1858491431",
+        "name": "Материнская плата Gigabyte B850M D3HP, SocketAM5, AMD B850, mATX",
+        "price": 13115,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7285755387.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-socketam5-amd-b850-matx-1858491431/?at=46tRZyljriP0QLjrUQqpEBAs5wqAKqfYqL1PRs035Xqp",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2082564758",
+        "name": "Материнская плата Maxsun eSport B850M WIFI ICE (MS-eSport B850M WIFI ICE)",
+        "price": 13152,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7506683681.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-maxsun-esport-b850m-wifi-ice-ms-esport-b850m-wifi-ice-2082564758/?at=VvtzV7g4MsGZJlOZIjY3yGXsg5WpXNIv9mkAWcYRVx4J",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1848464965",
+        "name": "Материнская плата Gigabyte B850M D3HP (AM5, mATX)",
+        "price": 13381,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7293501988.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-am5-matx-1848464965/?at=83tBmlYJ9czN97zYFYK5YK2iEVymx3UOp4xJvI9jYJzK",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2346231208",
+        "name": "Материнская плата Biostar B850MT2-E DJ",
+        "price": 13383,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7644823943.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-2346231208/?at=16tLr1qj8T1ROgEkI22BJj0I1MqJnXSoBBGB9H2PnjVj",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1858511752",
+        "name": "Материнская плата Gigabyte B850M D3HP, SocketAM5, AMD B850, mATX",
+        "price": 13395,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7285755387.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-socketam5-amd-b850-matx-1858511752/?at=Brtzx18ZvsggrmKgFl9k1ynI2qm2Lgu0DN7Q5iMvplxx",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2294051898",
+        "name": "ASUS PRIME B850M-K Материнская плата AM5, B850, 2*DDR5,",
+        "price": 13565,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7671068069.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-prime-b850m-k-materinskaya-plata-am5-b850-2-ddr5-2294051898/?at=r2t4yp2NxhVL8EQEHAvNA1PS04pqxzCk7jMG3iB9qy19",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1828572430",
+        "name": "Материнская плата Gigabyte B850M D3HP, AM5, AMD B850, Micro-ATX, RTL (B850M D3HP)",
+        "price": 13638,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7267255659.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-am5-amd-b850-micro-atx-rtl-b850m-d3hp-1828572430/?at=mqtkVZW0vFEN7Q5RtjRBNMMtD8Or8xhQMRJNQtPr65rV",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2347858152",
+        "name": "Материнская плата Biostar B850MT2-E DJ",
+        "price": 13740,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7644823943.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-2347858152/?at=83tBmlYJ9c4rrV6rh2yzmJFR0k5jnIqxnKLycz9Dm8J",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1842329215",
+        "name": "Материнская плата Gigabyte B850M D3HP, SocketAM5, AMD B850, mATX",
+        "price": 13785,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7285755387.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-socketam5-amd-b850-matx-1842329215/?at=LZtl0AQoLHA4ZAGZuJYKqvmT2OZyJkTVAmR9ghWBP24V",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1902366339",
+        "name": "Материнская плата Gigabyte B850M D3HP",
+        "price": 13828,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7352779797.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-1902366339/?at=Brtzx18Zvsnnxl3DSYoAZkxs4w1Ll5CjvkLnrHJO8VQJ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2382019155",
+        "name": "Материнская плата Gigabyte B850M D3HP",
+        "price": 13989,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7352779797.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-2382019155/?at=08tYnKmEjc96ljJ7S0or8B9fynX450TWz1w67F19GPwM",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1858490901",
+        "name": "Материнская плата Gigabyte B850M DS3H SocketAM5 AMD B850 4xDDR5 mATX AC97 8ch(7.1) 2.5Gg RAID+HDMI+DP",
+        "price": 14071,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7238316828.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-ds3h-socketam5-amd-b850-4xddr5-matx-ac97-8ch-7-1-2-5gg-raid-1858490901/?at=28t0Lv8x7tWYLZvvS9P8NE7FmV1BY7T24Pyv1I3RYVkQ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2408248772",
+        "name": "Материнка B850M Colorful B-Axe Wifi+",
+        "price": 14173,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7675207994.jpg",
+        "product_url": "https://www.ozon.ru/product/materinka-b850m-colorful-b-axe-wifi-2408248772/?at=Brtzx18ZvsN6g5NNCvORxYPCDRBrG5CzN09gRtyRZzvY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2396230466",
+        "name": "Материнская плата ASUS PRIME B850M-K, SocketAM5, AMD B850, mATX, Ret",
+        "price": 14197,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7669254338.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-socketam5-amd-b850-matx-ret-2396230466/?at=qQtJgDX49cElpA6BCBok5mGI9AglLOFMLBr9GUmG3kOX",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1858511249",
+        "name": "Материнская плата Gigabyte B850M DS3H SocketAM5 AMD B850 4xDDR5 mATX AC97 8ch(7.1) 2.5Gg RAID+HDMI+DP",
+        "price": 14372,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7238316828.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-ds3h-socketam5-amd-b850-4xddr5-matx-ac97-8ch-7-1-2-5gg-raid-1858511249/?at=DqtD7136XUqrKpPvFOEj3X0hJqYrExCjPyZmptmBgLjo",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2396229102",
+        "name": "Материнская плата ASUS PRIME B850M-K, SocketAM5, AMD B850, mATX, Ret",
+        "price": 14501,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7669254338.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-socketam5-amd-b850-matx-ret-2396229102/?at=16tLr1qj8Tpyq4gvsWOlQExHjoWlLPs8vAAA6IG41xLM",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1828572398",
+        "name": "Материнская плата Gigabyte B850M D3HP, AM5, AMD B850, Micro-ATX, RTL (B850M D3HP)",
+        "price": 14595,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7267255659.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-am5-amd-b850-micro-atx-rtl-b850m-d3hp-1828572398/?at=r2t4yp2NxhrOLkkDTAoq6A2I0WnDL8f9OMR1KcR2695P",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1988542101",
+        "name": "Материнская плата Gigabyte B850M D3HP, RTL",
+        "price": 14620,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7594486288.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-rtl-1988542101/?at=jYtZz2R6gtO5gL6uJwpLPEcnxXv3JHN1K5A4s7LVrMl",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2107572791",
+        "name": "Gigabyte Материнская плата",
+        "price": 14670,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7525016664.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-2107572791/?at=pZtpgGAl5uW49XR1CzL4rOMiYxvm6RFjZZA2nC4470N1",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1823670944",
+        "name": "Материнская плата Gigabyte B850M DS3H, AM5, AMD B850, Micro-ATX, RTL (B850M DS3H)",
+        "price": 14955,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7262540041.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-ds3h-am5-amd-b850-micro-atx-rtl-b850m-ds3h-1823670944/?at=PjtJBO3DQcrjL5AmiKmQlg0iW0p9QvTloW35kiQ4v99o",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1794730918",
+        "name": "Материнская плата Gigabyte B850M DS3H SocketAM5 AMD B850 4xDDR5 mATX AC97 8ch(7.1) 2.5Gg RAID+HDMI+DP",
+        "price": 14973,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7238316828.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-ds3h-socketam5-amd-b850-4xddr5-matx-ac97-8ch-7-1-2-5gg-raid-1794730918/?at=Brtzx18ZvsyM72OOfY3o48pslDD1nAfyzgGqnIyAgVz6",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2395814735",
+        "name": "Материнская плата ASUS PRIME B850M-K, SocketAM5, AMD B850, mATX, Ret",
+        "price": 15015,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7669254338.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-socketam5-amd-b850-matx-ret-2395814735/?at=XQtkl1O6mFr0qVqJfNNOrz9TgrRPOJIxkQNM5HDWXk0L",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2349169543",
+        "name": "Материнская плата ASUS PRIME B850M-K",
+        "price": 15361,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7645648744.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-2349169543/?at=gpt4vrGg8hAvRwPkUDyEPPlCnyVJRoCqEgkqYFmpw6NY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "1935204864",
+        "name": "Материнская плата Gigabyte B850M D3HP mATX, Ret",
+        "price": 15366,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7350536673.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b850m-d3hp-matx-ret-1935204864/?at=vQtrJGABvFBz1jqpu1nwyZGuXkBY20s8LymPQTLqQGpM",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2146354724",
+        "name": "Gigabyte B850M D3HP Материнская плата AM5, B850, 4*DDR5,",
+        "price": 15669,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-f/7621364031.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-b850m-d3hp-materinskaya-plata-am5-b850-4-ddr5-2146354724/?at=Brtzx18ZvsQlpBP3s2qovMkhzWqGpQIojQoLBT5W3pZZ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2347852825",
+        "name": "Материнская плата ASUS PRIME B850M-K",
+        "price": 15776,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7645648744.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-b850m-k-2347852825/?at=J8tgkRK4xskv2Vl6tggnRxqhmO6ZkQtX8vDy9S6QOrxm",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      },
+      {
+        "id": "2095673178",
+        "name": "Gigabyte Материнская плата B850M D3HP",
+        "price": 15823,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7350536673.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-b850m-d3hp-2095673178/?at=28t0Lv8x7tBA7QkntlEOGNvslgGPY2FvWJrYoul9vPvV",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "B850"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "B850",
+  "category": "motherboards",
+  "platform_id": null
+}

@@ -1,7 +1,15 @@
 import { BaseValidator, ValidationResult } from './base.validator';
+import { isAccessory } from '../utils/is-accessory';
 
 export class PlaystationValidator extends BaseValidator {
   validate(query: string, productName: string): ValidationResult {
+    // 0️⃣ ФИЛЬТРАЦИЯ АКСЕССУАРОВ
+    if (isAccessory(productName)) {
+      return {
+        isValid: false,
+        reason: 'аксессуар'
+      };
+    }
     // 1️⃣ ПРОСТАЯ ПРОВЕРКА: ищем запрос в названии товара
     if (this.simpleMatch(query, productName)) {
       return { 

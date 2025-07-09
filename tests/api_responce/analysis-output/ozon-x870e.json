@@ -1,0 +1,372 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1239822134",
+        "name": "Комплект: Atermiter x79-Turbo + Xeon E5 2630L + 64 gb(2x32gb) DDR3 ecc reg",
+        "price": 7919,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-h/6801201413.jpg",
+        "product_url": "https://www.ozon.ru/product/komplekt-atermiter-x79-turbo-xeon-e5-2630l-64-gb-2x32gb-ddr3-ecc-reg-1239822134/?at=jYtZz2R6gt98zG39TMGq33oTZJvoWvF1lpEp0cvq73xk",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2262494170",
+        "name": "Материнская плата GigaByte X870 GAMING WIFI6 Socket AM5 AMD X870 4xDDR5 3xPCI-E 16x 4xSATA III ATX Retail",
+        "price": 25479,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7607210891.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870-gaming-wifi6-socket-am5-amd-x870-4xddr5-3xpci-e-16x-4xsata-iii-2262494170/?at=K8tZQl4ALtQPjZ4kcnZRAV1sW1KVWWUOqY385u7XDJl8",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2121243231",
+        "name": "Материнская плата Soc-AM5 Asus PRIME X870-P (4хDDR5, M.2, HDMI, ATX)",
+        "price": 25811,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7441580241.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-soc-am5-asus-prime-x870-p-4hddr5-m-2-hdmi-atx-2121243231/?at=qQtJgDX49cW3372AIwqz6GJflwzJzmfkywn6FGOPzZQ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1787674493",
+        "name": "Материнская плата Asus PRIME X870-P (AM5, ATX)",
+        "price": 27470,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7232005156.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-x870-p-am5-atx-1787674493/?at=36tWjw28ZcOOAApLfvZWyYpuApZ0v7fN2OY1Os96Vg9p",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2262494070",
+        "name": "Материнская плата MSI PRO X870-P WIFI Socket AM5 AMD X870 4xDDR5 4xPCI-E 16x 4xSATA III ATX Retail",
+        "price": 27587,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7607210024.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-pro-x870-p-wifi-socket-am5-amd-x870-4xddr5-4xpci-e-16x-4xsata-iii-atx-retail-2262494070/?at=nRtr4zmynF2wQND9UXKjABKSmQvJk5CNDQM1PC8NmnX9",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1737457192",
+        "name": "Материнская плата Gigabyte X870E A ELITE WIFI7 (AM5, ATX)",
+        "price": 29395,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7170015845.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-am5-atx-1737457192/?at=DqtD7136XUv0jZGGU03n5D5TV9KNR9C5vl4vVT6KkV4z",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1999926232",
+        "name": "Материнская плата Soc-AM5 Asus PRIME X870-P (4хDDR5, M.2, HDMI, ATX)",
+        "price": 30999,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7441580241.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-soc-am5-asus-prime-x870-p-4hddr5-m-2-hdmi-atx-1999926232/?at=6WtZREy3XtQ2LG7MS292PzZFKXNgRpUNZPPVETjo1vz",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1762426611",
+        "name": "Материнская плата GIGABYTE X870E A ELITE WIFI7 (AM5, AMD X870E, 256 ГБ, PCIE 5.0), X870E A ELITE WIFI7",
+        "price": 32095,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7201371008.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-am5-amd-x870e-256-gb-pcie-5-0-x870e-a-elite-wifi7-1762426611/?at=jYtZz2R6gtprJ6vGSxvEDrEu0xyvoOHM9O7RQCp9xPz0",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2390711668",
+        "name": "Материнская плата MSI X870E GAMING PLUS WIFI, AM5, AMD X870E, ATX, RTL (X870E GAMING PLUS WIFI)",
+        "price": 32240,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7666959551.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-x870e-gaming-plus-wifi-am5-amd-x870e-atx-rtl-x870e-gaming-plus-wifi-2390711668/?at=jYtZz2R6gtRggAQLt18A7NwH9ynAoyh0L4NM2FL05wlG",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2232311864",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO ICE SocketAM5 AMD X870E",
+        "price": 32294,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7541593810.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-ice-socketam5-amd-x870e-2232311864/?at=QktJn8oD7c1qEgL5H2M4E8MhPnjjlsZJklEkTpODL8M",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2232319356",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO SocketAM5 AMD X870E",
+        "price": 32294,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7541594954.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-socketam5-amd-x870e-2232319356/?at=ywtAGgLjYTg7EwVBcg4Y3oETPElyP6sLLRqr9hXKZl7J",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2382018310",
+        "name": "Материнская плата GIGABYTE X870E A ELITE WIFI7 (AM5, AMD X870E, 256 ГБ, PCIE 5.0), X870E A ELITE WIFI7",
+        "price": 32461,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7201371008.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-am5-amd-x870e-256-gb-pcie-5-0-x870e-a-elite-wifi7-2382018310/?at=WPtN12Dp0U8yGO2c7p0XLJFMGMNvlFZX2E69IPBXZw",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1745884044",
+        "name": "Материнская плата ASUS PRIME X870-P WIFI",
+        "price": 32629,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7181141124.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-x870-p-wifi-1745884044/?at=ywtAGgLjYTBWZ158h8kLAq8CVAzrX1t6Y3grBTlEgylA",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1744882618",
+        "name": "Материнская плата Gigabyte X870 GAMING X WIFI7",
+        "price": 32781,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7405547374.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870-gaming-x-wifi7-1744882618/?at=lRt6WyX9LiJRzLWPTqY22KmcYy975VTGPxp1pIERLjoy",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1847994917",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO ICE (AM5, ATX)",
+        "price": 32894,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7293018087.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-ice-am5-atx-1847994917/?at=08tYnKmEjcoRK6YZfYr9R8YUmlPmEkUXO6EV6fl93YvA",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2342618671",
+        "name": "Материнская плата Gigabyte X870E AORUS ELITE WIFI7 ICE, AM5, AMD X870E, ATX, RTL (X870E AORUS ELITE WIFI7 ICE)",
+        "price": 33115,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7643232520.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-elite-wifi7-ice-am5-amd-x870e-atx-rtl-x870e-aorus-elite-2342618671/?at=VvtzV7g4MsrGr6jniMn7Yn9ul3lYM0UqwG2LLC93K8vO",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2374930582",
+        "name": "Материнская плата Gigabyte X870E A ELITE WIFI7",
+        "price": 33262,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7194549982.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-2374930582/?at=mqtkVZW0vFPgv6JyCY91P3lc612P81sJoMDB4hE5L4Jx",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2114337302",
+        "name": "Материнская плата Soc-AM5 Gigabyte X870 A ELITE WIFI7 (4хDDR5, M.2, HDMI, ATX)",
+        "price": 33709,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7484250482.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-soc-am5-gigabyte-x870-a-elite-wifi7-4hddr5-m-2-hdmi-atx-2114337302/?at=NOtwYAjnoc9LGNxDHpB44qDF2pEnE3f8JB7nLSr5LgrY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2262494016",
+        "name": "Материнская плата ASUS PRIME X870-P WIFI Socket AM5 AMD X870 4xDDR5 4xPCI-E 16x 2xSATA III ATX Retail 90MB1IS0-M0EAY0",
+        "price": 33802,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7607209848.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-asus-prime-x870-p-wifi-socket-am5-amd-x870-4xddr5-4xpci-e-16x-2xsata-iii-2262494016/?at=ywtAGgLjYTkR2MgjF0PV8AkF0w4zLxfKknwz1UDlVE2o",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1768133115",
+        "name": "Материнская плата Gigabyte X870E AORUS ELITE WIFI7",
+        "price": 34246,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7208382066.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-elite-wifi7-1768133115/?at=28t0Lv8x7tpAv5G9irzl2X3UWNOXoYtQ3xNLzswzERKg",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2242732081",
+        "name": "Материнская плата Gigabyte X870E A ELITE WIFI7 SocketAM5 AMD X870E 4xDDR5 ATX AC 97 8ch(7.1) 2.5Gg RAID+HDMI",
+        "price": 34534,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7187711535.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-socketam5-amd-x870e-4xddr5-atx-ac-97-8ch-7-1-2-5gg-2242732081/?at=QktJn8oD7cORog41SN3954Muy9PWyztGKVvBnHvr04rZ",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1934401027",
+        "name": "Материнская плата MSI MAG X870E TOMAHAWK WIFI",
+        "price": 34550,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7382617880.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-mag-x870e-tomahawk-wifi-1934401027/?at=46tRZyljri4PM4K6hGnBvkAhnDwl3PFgJzE0KFQRxLEN",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2300206893",
+        "name": "Материнская плата MSI X870E GAMING PLUS WIFI, AM5, AMD X870E, ATX, RTL (X870E GAMING PLUS WIFI)",
+        "price": 34666,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7623861544.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-x870e-gaming-plus-wifi-am5-amd-x870e-atx-rtl-x870e-gaming-plus-wifi-2300206893/?at=46tRZyljriovRKD1topE75Tv0z9mDu99w6k8hJDKM7",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2201869940",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO SocketAM5 AMD X870E",
+        "price": 34875,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7541594954.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-socketam5-amd-x870e-2201869940/?at=XQtkl1O6mFnVqvrKFgJDqAoHEN8D2VIPZ8jK1uZBm4pY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2225182908",
+        "name": "Материнская плата Gigabyte X870E AORUS ELITE WIFI7, SocketAM5, AMD X870E, ATX, Ret",
+        "price": 34962,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7587599162.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-elite-wifi7-socketam5-amd-x870e-atx-ret-2225182908/?at=z6tOX34PKcy6W3J2frnlnjkIzP3AwNu6vGR9RTVq4L7Q",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1878411984",
+        "name": "Материнская плата MSI MAG X870E TOMAHAWK WIFI, SocketAM5, AMD X870E, ATX",
+        "price": 35084,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7333619338.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-msi-mag-x870e-tomahawk-wifi-socketam5-amd-x870e-atx-1878411984/?at=K8tZQl4ALtA49o8oiGrADPYUxZ8BBqF6Pkr8gfLrJPX6",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1743516615",
+        "name": "Gigabyte X870E AORUS PRO ICE AM5 DDR5 Материнская плата",
+        "price": 35235,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7669948669.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-x870e-aorus-pro-ice-am5-ddr5-materinskaya-plata-1743516615/?at=gpt4vrGg8h3O51n9CYWm8ArhJ2pVpjuVM2w3rUZv64nK",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2342623500",
+        "name": "Материнская плата Gigabyte X870E AORUS ELITE WIFI7 ICE, AM5, AMD X870E, ATX, RTL (X870E AORUS ELITE WIFI7 ICE)",
+        "price": 35239,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7643232520.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-elite-wifi7-ice-am5-amd-x870e-atx-rtl-x870e-aorus-elite-2342623500/?at=pZtpgGAl5up03RgjHzRjk66Tp2YkgpsNyw4EPUQ2lWX7",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1752577700",
+        "name": "Gigabyte Материнская плата X870E A ELITE WIFI7",
+        "price": 35484,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7189118977.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-x870e-a-elite-wifi7-1752577700/?at=x6tPpyxGZCDRqjgLfxj3NzxcqV8km8S1ZVXMlCx8EQzY",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1757281762",
+        "name": "Материнская плата Gigabyte X870E A ELITE WIFI7",
+        "price": 35747,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7194550345.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-a-elite-wifi7-1757281762/?at=99trJv2Z8FoAnxX7sMzK6kmf60Lg7CoR4AkFJO67vy",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2055337469",
+        "name": "Материнская плата Soc-AM5 Gigabyte X870 GAMING X WIFI7 (4хDDR5, ATX)",
+        "price": 35860,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7484253041.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-soc-am5-gigabyte-x870-gaming-x-wifi7-4hddr5-atx-2055337469/?at=lRt6WyX9Li7j7BA5CmAKqnWhz3pDwWtVOWjgYFk5rGOo",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "1735669403",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO ICE, AM5, AMD X870E, ATX, RTL (X870E AORUS PRO ICE)",
+        "price": 36147,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7168267818.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-ice-am5-amd-x870e-atx-rtl-x870e-aorus-pro-ice-1735669403/?at=WPtN12Dp0U8pZnw3TJKVlMzCllQ8v8s32qJL9iqGnPRL",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2303822516",
+        "name": "Gigabyte Материнская плата X870E AORUS ELITE WIFI7",
+        "price": 36177,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7587599162.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-materinskaya-plata-x870e-aorus-elite-wifi7-2303822516/?at=k2toD75LgTYEO4W0SX0nBxZtXpVmkntDl3GLVFBo74oO",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2201885836",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO SocketAM5 AMD X870E",
+        "price": 36191,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7541594954.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-socketam5-amd-x870e-2201885836/?at=Y7tjKQA05flRgvAzHEr9xg7HNDDWBwHLVOODWhEZM1oD",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2202057413",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO ICE SocketAM5 AMD X870E",
+        "price": 36191,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7541593810.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-ice-socketam5-amd-x870e-2202057413/?at=J8tgkRK4xs5QBm5kSXv1A0MIZz0jWpF7qm4EZCyqq0Jl",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      },
+      {
+        "id": "2133393410",
+        "name": "Материнская плата Gigabyte X870E AORUS PRO SocketAM5 AMD X870E",
+        "price": 36327,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7541594954.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870e-aorus-pro-socketam5-amd-x870e-2133393410/?at=Z8tX1EQmzhKp1pjpsRqzK1gCpGV1j8i5KRp30Sl5Pv16",
+        "category": "motherboards",
+        "source": "ozon",
+        "query": "X870E"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "X870E",
+  "category": "motherboards",
+  "platform_id": null
+}

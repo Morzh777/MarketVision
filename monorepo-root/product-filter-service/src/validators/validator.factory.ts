@@ -4,6 +4,8 @@ import { ProcessorsValidator } from './processors.validator';
 import { NintendoSwitchValidator } from './nintendo-switch.validator';
 import { PlaystationValidator } from './playstation.validator';
 import { PlaystationAccessoriesValidator } from './playstation-accessories.validator';
+import { MotherboardValidator } from './motherboard.validator';
+import { ProductCategory } from './category.constants';
 
 export class ValidatorFactory {
   private static validators: Map<string, BaseValidator> = new Map();
@@ -18,20 +20,23 @@ export class ValidatorFactory {
     let validator: BaseValidator | null = null;
     
     switch (category) {
-      case 'videocards':
+      case ProductCategory.Videocards:
         validator = new VideocardValidator();
         break;
-      case 'processors':
+      case ProductCategory.Processors:
         validator = new ProcessorsValidator();
         break;
-      case 'nintendo_switch':
+      case ProductCategory.NintendoSwitch:
         validator = new NintendoSwitchValidator();
         break;
-      case 'playstation':
+      case ProductCategory.Playstation:
         validator = new PlaystationValidator();
         break;
-      case 'playstation_accessories':
+      case ProductCategory.PlaystationAccessories:
         validator = new PlaystationAccessoriesValidator();
+        break;
+      case ProductCategory.Motherboards:
+        validator = new MotherboardValidator();
         break;
       default:
         return null;

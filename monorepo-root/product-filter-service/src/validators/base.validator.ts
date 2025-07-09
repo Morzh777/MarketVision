@@ -1,3 +1,5 @@
+import { ProductCategory } from './category.constants';
+
 export interface ValidationResult {
   isValid: boolean;
   reason?: string;
@@ -6,9 +8,9 @@ export interface ValidationResult {
 export interface ProductData {
   name: string;
   query: string;
-  category: string;
-  source: string;
+  category: ProductCategory;
   price: number;
+  source?: string;
 }
 
 export abstract class BaseValidator {

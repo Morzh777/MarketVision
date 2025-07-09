@@ -164,6 +164,31 @@ npm run test:e2e
 - **Фильтрация** нерелевантных товаров
 - **Проверка** обязательных полей
 
+## Архитектура валидаторов
+
+```
+monorepo-root/product-filter-service/src/validators/
+├── base.validator.ts           # Базовый абстрактный класс и интерфейсы
+├── category.constants.ts       # Enum категорий товаров (ProductCategory)
+├── accessory-words.ts          # Централизованный список accessory-слов
+├── videocard.validator.ts      # Валидатор видеокарт
+├── processors.validator.ts     # Валидатор процессоров
+├── nintendo-switch.validator.ts# Валидатор Nintendo Switch
+├── playstation.validator.ts    # Валидатор PlayStation
+├── playstation-accessories.validator.ts # Валидатор аксессуаров PlayStation
+├── hybrid-product.validator.ts # Гибридный валидатор (accessory-words + AI)
+├── validator.factory.ts        # Фабрика валидаторов по категории
+├── openai-validation/          # OpenAI-интеграция (NestJS-модуль, сервис)
+└── utils/
+    └── is-accessory.ts         # Утилита для accessory-слов
+```
+
+- Все валидаторы реализуют общий интерфейс (BaseValidator).
+- Категории товаров централизованы в enum ProductCategory.
+- Гибридный валидатор сочетает accessory-words и AI (OpenAI).
+- OpenAI-интеграция вынесена в отдельный модуль.
+- Для расширения добавьте новый валидатор и категорию в enum.
+
 ## ❓ FAQ / Типовые ошибки
 
 **Q: Ошибка ENOENT: no such file or directory, open '.../proto/raw-product.proto'**

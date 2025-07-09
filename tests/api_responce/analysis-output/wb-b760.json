@@ -1,0 +1,1011 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "426938262",
+        "name": "B760M-K",
+        "price": 4447,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/426938262/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "391560985",
+        "name": "B760M K",
+        "price": 4667,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391560985/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "426787554",
+        "name": "B760M VH-B",
+        "price": 4789,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/426787554/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "426787555",
+        "name": "B760M VH-A",
+        "price": 4789,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/426787555/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "389513106",
+        "name": "B760M VH B",
+        "price": 5084,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/389513106/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "426746470",
+        "name": "B760M D4-A",
+        "price": 5288,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/426746470/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "386222230",
+        "name": "B760M D4-A",
+        "price": 5494,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386222230/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438863756",
+        "name": "материнская плата B760 GT4 LGA 1700 двухканальная DDR4",
+        "price": 5521,
+        "image_url": "https://images.wbstatic.net/c516x688/14.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438863756/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "254848370",
+        "name": "Материнская плата B760M D4 M-ATX DDR4, поддерживающая 12 и 1…",
+        "price": 5829,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/254848370/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "414415613",
+        "name": "MACHINIST B760 GT4 Материнская плата LGA 1700 DDR4 M-ATX",
+        "price": 6162,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414415613/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "423180007",
+        "name": "материнская плата LGA 1700 белая B760 ddr4 для пк wifi м.2",
+        "price": 6355,
+        "image_url": "https://images.wbstatic.net/c516x688/19.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423180007/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "426486496",
+        "name": "B760M D5 PLUS",
+        "price": 6465,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/426486496/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "181842507",
+        "name": "Материнская плата MS-Challenger B760M-N D5 mATX,LGA1700",
+        "price": 6625,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/181842507/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "388665746",
+        "name": "B760M D5 PLUS",
+        "price": 6677,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388665746/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "414300934",
+        "name": "HUANANZHI B760M-VH-B LGA1700 B760 2DDR4 Intel 12 13",
+        "price": 6784,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414300934/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "237702107",
+        "name": "Материнская плата PRO B760M-E DDR4 Micro-ATX, LGA 1700 DDR4",
+        "price": 6957,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/237702107/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "439000735",
+        "name": "Материнская плата B760M H DDR4",
+        "price": 7138,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/439000735/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "240998655",
+        "name": "B760M-HDV M.2 D4 Soc-1700 Intel B76",
+        "price": 7143,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998655/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "248114700",
+        "name": "Материнская плата B760M H DDR4 (LGA1700, mATX)",
+        "price": 7174,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/248114700/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "179941356",
+        "name": "Материнская плата B760M H DDR4 (LGA1700, mATX)",
+        "price": 7174,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/179941356/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "242499241",
+        "name": "Материнская плата B760M H DDR4 Soc-1700 Intel",
+        "price": 7193,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/242499241/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "414299988",
+        "name": "HUANANZHI B760M-D4-A LGA1700 B760 4 слота DDR4 Intel 12 13",
+        "price": 7206,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/414299988/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438987354",
+        "name": "Материнская плата B760 S1700 MATX PRO B760M-E DDR4",
+        "price": 7224,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438987354/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "240998712",
+        "name": "PRO B760M-E DDR4 Soc-1700 Intel B760 2",
+        "price": 7282,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998712/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "369250352",
+        "name": "B760M H DDR4 системная плата",
+        "price": 7320,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/369250352/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "370824322",
+        "name": "Материнская плата LGA 1700 B760DA1",
+        "price": 7345,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370824322/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "349364124",
+        "name": "Материнская плата B760 LGA 1700 DDR4",
+        "price": 7354,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/349364124/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "348325050",
+        "name": "B760M-HDV M.2 D4 Soc-1700 Intel B76",
+        "price": 7392,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348325050/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "239264634",
+        "name": "Материнская плата mATX MS-Challenger B760M-N D5 Socket 1700",
+        "price": 7408,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/239264634/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "355404278",
+        "name": "JGINYUE B760I GAMING LGA1700 DDR4 Материнская плата",
+        "price": 7419,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/355404278/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "348325133",
+        "name": "Материнская плата B760M H DDR4 Soc-1700 Intel",
+        "price": 7443,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348325133/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "375604295",
+        "name": "Материнская плата B760M H DDR4",
+        "price": 7492,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/375604295/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "436373044",
+        "name": "Материнская плата B760M H DDR4",
+        "price": 7492,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/436373044/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "452192161",
+        "name": "Материнская плата MS-Challenger B760M-N D5 Socket 170",
+        "price": 7538,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452192161/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438946945",
+        "name": "Материнская плата Challenger B760M-N D5",
+        "price": 7544,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438946945/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "391974831",
+        "name": "М плата LGA1700 B760M H DDR4, microATX",
+        "price": 7578,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391974831/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "225260029",
+        "name": "Материнская плата B760M-HDV M.2 D4",
+        "price": 7585,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/225260029/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "275398663",
+        "name": "Материнская плата B760M H DDR4",
+        "price": 7593,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/275398663/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "443597713",
+        "name": "комплект материнская плата lga 1700 белый ddr4 16 gb 2666",
+        "price": 7611,
+        "image_url": "https://images.wbstatic.net/c516x688/18.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443597713/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "443597712",
+        "name": "материнская плата LGA 1700 белая B760 ddr4 16 gb 2666 wifi",
+        "price": 7611,
+        "image_url": "https://images.wbstatic.net/c516x688/17.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/443597712/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438941271",
+        "name": "Материнская плата B760D4-MA5-V2",
+        "price": 7614,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438941271/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "283341422",
+        "name": "Материнская плата PRO B760M-E (LGA1700, mATX)",
+        "price": 7653,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/283341422/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "281936779",
+        "name": "Материнская плата PRO B760M-E (LGA1700, mATX)",
+        "price": 7653,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281936779/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "195346840",
+        "name": "Материнская плата B760M H DDR4 (Socket1700,B760,mAT",
+        "price": 7657,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/195346840/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "440843805",
+        "name": "М плата LGA1700 B760M-HDV M.2 D4, microATX",
+        "price": 7662,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440843805/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "401960365",
+        "name": "Материнская плата MS-Challenger B760M-F",
+        "price": 7666,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/401960365/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "194857585",
+        "name": "Материнская плата MS-Challenger B760M D5, LGA1700",
+        "price": 7694,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/194857585/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "453515149",
+        "name": "Материнская плата B760M GAMING D5",
+        "price": 7732,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/453515149/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "251269775",
+        "name": "Материнская плата CHALLENGER B760M-N D5 (LGA 1700, DDR5)",
+        "price": 7740,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/251269775/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "171250132",
+        "name": "Материнская плата B760M H DDR4 Soc-1700 Intel",
+        "price": 7740,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/171250132/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "391964543",
+        "name": "М плата LGA1700 B760M H DDR4, microATX",
+        "price": 7748,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391964543/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "401960371",
+        "name": "Материнская плата MS-Challenger B760M-N D5 V2",
+        "price": 7829,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/401960371/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "240998709",
+        "name": "PRO B760M-E Soc-1700 Intel B760 2xDDR5",
+        "price": 7861,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998709/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "454887382",
+        "name": "Материнская плата B760 S1700 MATX PRO B760M-E DDR4",
+        "price": 7877,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/454887382/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "450915319",
+        "name": "MS-Challenger B760M-N D5 (Socket 1700, mATX, 2*DDR5",
+        "price": 7879,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450915319/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "240998633",
+        "name": "PRO B760M-P DDR4 Soc-1700 Intel B760 4",
+        "price": 7881,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998633/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "450916922",
+        "name": "Материнская плата B760D4-MA5-V2 (Socket 1700, mATX, 2*D",
+        "price": 7888,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/450916922/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "440876626",
+        "name": "М плата LGA1700 B760M-HDV M.2 D4, microATX",
+        "price": 7890,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440876626/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "452192120",
+        "name": "Материнская плата PRO B760M-E DDR4 Socket 1700 B760 2xDD",
+        "price": 7892,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452192120/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438947178",
+        "name": "Материнская плата Challenger B760M-F MS-CHALLENGER B760M-F",
+        "price": 7895,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438947178/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "328168903",
+        "name": "MS-Challenger B760M-N D5 (Socket 1700, mATX, 2*DDR5",
+        "price": 7899,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/328168903/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "446207067",
+        "name": "Материнская плата B760D4-MA5-V2 (Socket 1700, mATX, 2*D",
+        "price": 7907,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/446207067/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "208877349",
+        "name": "Asrock-B760M-HDV M.2 D4",
+        "price": 7937,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/208877349/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "233623077",
+        "name": "Материнская плата PRO B760M-E",
+        "price": 7939,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/233623077/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "382228150",
+        "name": "Материнская плата B760M LGA1700 подходит 12-14th CPU M.2*2",
+        "price": 7953,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/382228150/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "200477416",
+        "name": "Материнская плата PRO B760M-E (Micro-ATX,LGA1700,DDR5)",
+        "price": 7963,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/200477416/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "239264637",
+        "name": "Материнская плата mATX B760M H DDR4 Socket 1700",
+        "price": 8003,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/239264637/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "182684877",
+        "name": "Материнская плата PRO B760M-P DDR4 DDR4,B760,LGA1700",
+        "price": 8030,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/182684877/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "229252699",
+        "name": "Материнская плата mATX B760M-HDV M.2 D4 Socket 1700",
+        "price": 8099,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/229252699/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "388995218",
+        "name": "Материнская плата PRIME H610M-E D4-CSM, LGA1700 2xDDR4",
+        "price": 8103,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388995218/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "342145932",
+        "name": "Материнская плата B760M-E DDR4 LGA1700",
+        "price": 8130,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342145932/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "348324760",
+        "name": "PRO B760M-E Soc-1700 Intel B760 2xDDR5",
+        "price": 8135,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348324760/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "452192144",
+        "name": "Материнская плата B760M H DDR4 Socket 1700 B760 2xD",
+        "price": 8139,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452192144/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "388995163",
+        "name": "Материнская плата PRO H610M-G LGA1700 H610 2xDDR5",
+        "price": 8153,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388995163/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "348325298",
+        "name": "PRO B760M-P DDR4 Soc-1700 Intel B760 4",
+        "price": 8155,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348325298/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "251269839",
+        "name": "Материнская плата CHALLENGER B760M-F (LGA 1700, DDR4)",
+        "price": 8179,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/251269839/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "281855056",
+        "name": "Материнская плата PRO B760M-E Soc-1700 Intel B760 2xDDR5",
+        "price": 8187,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/281855056/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "370877852",
+        "name": "Материнская плата MS-Challenger B760M-F (Socket 1700",
+        "price": 8188,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/370877852/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "208877345",
+        "name": "MicroStar-PRO B760M-E DDR4",
+        "price": 8205,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/208877345/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "334812431",
+        "name": "Материнская плата B760M-HDV M.2 D4,Intel B760",
+        "price": 8209,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/334812431/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "452192123",
+        "name": "Материнская плата B760M-HDV M.2 D4 Socket 1700 B760 2",
+        "price": 8236,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/452192123/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438947103",
+        "name": "Материнская плата Challenger B760M MS-CHALLENGER B760M",
+        "price": 8256,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438947103/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "428975494",
+        "name": "Материнская плата LGA 1700 MS-Challenger B760M-F DDR4 б у",
+        "price": 8282,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/428975494/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "438989914",
+        "name": "Материнская плата PRO B760M-E",
+        "price": 8283,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438989914/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "314125774",
+        "name": "Материнская плата Challenger B760M-N D5, LGA1700, mATX",
+        "price": 8306,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/314125774/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "240998643",
+        "name": "PRIME B760M-K D4 Soc-1700 Intel B760",
+        "price": 8340,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/240998643/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "242499301",
+        "name": "Материнская плата PRIME B760M-R D4 Soc-1700",
+        "price": 8340,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/242499301/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "204385017",
+        "name": "Материнская плата PRO B760M-E DDR4 (Socket1700,B760,mATX",
+        "price": 8343,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/204385017/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "386402051",
+        "name": "Материнская плата B760M-HDV M.2 D4,( 90-MXBL40-A0UAYZ)",
+        "price": 8347,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/386402051/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "388995216",
+        "name": "Материнская плата PRIME PRIME H610M-A D4-CSM, LGA1700",
+        "price": 8353,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/388995216/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "436370913",
+        "name": "Материнская плата PRIME B760M K D4 (90MB1DS0 M0EAY0)",
+        "price": 8353,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/436370913/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "250311274",
+        "name": "Материнская плата B760M D3HP DDR4",
+        "price": 8368,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/250311274/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "252834072",
+        "name": "Материнская плата B760M D3HP DDR4",
+        "price": 8368,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/252834072/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "291855079",
+        "name": "PRO B760M-E DDR4 LGA 1700 Материнская плата",
+        "price": 8380,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/291855079/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "342158653",
+        "name": "Материнская плата B760M-B DDR4 LGA1700",
+        "price": 8403,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/342158653/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "291847221",
+        "name": "PRO B760M-E DDR4 LGA 1700 Материнская плата",
+        "price": 8415,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/291847221/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "437578397",
+        "name": "Материнская плата B760M-D4-A",
+        "price": 8421,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/437578397/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "283489863",
+        "name": "Материнская плата PRIME B760M-R D4",
+        "price": 8471,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/283489863/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "437580092",
+        "name": "Материнская плата B760M-HDV M.2 D4",
+        "price": 8476,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/437580092/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      },
+      {
+        "id": "356976894",
+        "name": "MSI PRO B760M-E DDR4 LGA 1700 Intel B760 2 Slots 4 SATA",
+        "price": 8517,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/356976894/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760"
+      }
+    ],
+    "total_count": 100,
+    "source": "wb"
+  },
+  "query": "B760",
+  "category": "motherboards"
+}

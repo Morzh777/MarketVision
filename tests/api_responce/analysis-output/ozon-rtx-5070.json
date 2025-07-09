@@ -1,0 +1,372 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2432656983",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 Ti 8 ГБ (GV-N506TWF2-8GD)",
+        "price": 40586,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7686292599.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-ti-8-gb-gv-n506twf2-8gd-2432656983/?at=K8tZQl4ALtO1oWpgUYY6o1ETqwog24T6PXy67uAK2MQP",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2426528952",
+        "name": "Inno3D Видеокарта GeForce RTX 5070 12 ГБ (N50702-12D7X-195064N)",
+        "price": 55912,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7683549551.jpg",
+        "product_url": "https://www.ozon.ru/product/inno3d-videokarta-geforce-rtx-5070-12-gb-n50702-12d7x-195064n-2426528952/?at=LZtl0AQoLH1OXjPYhGYZPzLuxonY1yUgG8zgzi9yj5qm",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2426504501",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 12 ГБ (GV-N5070WF3-12GD)",
+        "price": 57050,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7683517313.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-12-gb-gv-n5070wf3-12gd-2426504501/?at=XQtkl1O6mF0OWKnHQz4A7mtozQ57yhLBBMR6SWD90Gm",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2361104720",
+        "name": "Palit Видеокарта GeForce RTX 5070 GamingPro 12 ГБ (NE75070019K9-GB2050A). Уцененный товар",
+        "price": 58177,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7446444371.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-gamingpro-12-gb-ne75070019k9-gb2050a-utsenennyy-tovar-2361104720/?at=oZt6AMvokivAYpA2iQkmnkxSLDyq4oS3AQKrKu0XE4Mx",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2165330272",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 Twin Edge 12 ГБ (ZT-B50700E-10P)",
+        "price": 58291,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7560366310.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-twin-edge-12-gb-zt-b50700e-10p-2165330272/?at=DqtD7136XUXk5wXzS1M8yrjT8zzDrlcz2Xox9UQMkrjY",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2414645051",
+        "name": "MSI Видеокарта GeForce RTX 5070 SHADOW 2X OC 12 ГБ (RTX 5070 12G SHADOW 2X OC). Уцененный товар",
+        "price": 58900,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7397303565.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-shadow-2x-oc-12-gb-rtx-5070-12g-shadow-2x-oc-utsenennyy-tovar-2414645051/?at=79tnrvZPLtyB1onMTqmgRKNIyz89Anh9px0wuKNGENk",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2366531863",
+        "name": "MSI Видеокарта GeForce RTX 5070 12 ГБ (GeForce RTX 5070 12G SHADOW 2X OC)",
+        "price": 59150,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7654109279.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-12-gb-geforce-rtx-5070-12g-shadow-2x-oc-2366531863/?at=RltywJ5KNhNX3NZJhBlzPmAIG1jWZvUOp4DvKIr6wAVm",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2110235709",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 12 ГБ (GeForce RTX 5070 WINDFORCE OC SFF 12GB (GV-N5070WF3OC-12GD))",
+        "price": 59237,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7526779556.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-12-gb-geforce-rtx-5070-windforce-oc-sff-12gb-gv-n5070wf3oc-12gd-2110235709/?at=PjtJBO3DQcjoAQZLfovWOJjTxZJwVJfAqgOkJFEq8GEn",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "1974049438",
+        "name": "MSI Видеокарта GeForce RTX 5070 12 ГБ (RTX-5070-VENTUS-2X-OC)",
+        "price": 60570,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7582291120.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-12-gb-rtx-5070-ventus-2x-oc-1974049438/?at=vQtrJGABvFyPpMxxc8gZm0ztR8QxmmuL3661QUz5gJ01",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2005515050",
+        "name": "Palit Видеокарта GeForce RTX 5070 Infinity 3 12 ГБ (NE75070019K9-GB2050S)",
+        "price": 60990,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7669969850.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-infinity-3-12-gb-ne75070019k9-gb2050s-2005515050/?at=83tBmlYJ9cK0MVrXTqoPnzXSngMAVgTvo8Z0wCZOlEl7",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2016776858",
+        "name": "Palit Видеокарта GeForce RTX 5070 GamingPro OC 12 ГБ (NE75070T19K9-GB2050A)",
+        "price": 61274,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7669969867.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-gamingpro-oc-12-gb-ne75070t19k9-gb2050a-2016776858/?at=DqtD7136XUoEyg0whBnGy0Nt87AKwVImQlAMQhKGKwBp",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2014738703",
+        "name": "MSI Видеокарта GeForce RTX 5070 RTX 5070 12G VENTUS 2X OC 12 ГБ (RTX 5070 12G VENTUS 2X OC)",
+        "price": 61696,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7452819695.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-rtx-5070-12g-ventus-2x-oc-12-gb-rtx-5070-12g-ventus-2x-oc-2014738703/?at=79tnrvZPLtyE5947foL4OW4Tlp5Wmni97g3DkuQPvon1",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2364522101",
+        "name": "Palit Видеокарта GeForce RTX 5070 PA-RTX5070 GAMINGPRO-S 12 ГБ (NE75070019K9-GB2050U)",
+        "price": 61810,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7653091090.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-pa-rtx5070-gamingpro-s-12-gb-ne75070019k9-gb2050u-2364522101/?at=EqtkwmpABF4XovMYtgQgVKjCJwvV9kHrRJyVLs3vxqZ7",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2005515089",
+        "name": "MSI Видеокарта GeForce RTX 5070 SHADOW 2X OC 12 ГБ (RTX 5070 12G SHADOW 2X OC)",
+        "price": 62000,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7397303565.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-shadow-2x-oc-12-gb-rtx-5070-12g-shadow-2x-oc-2005515089/?at=RltywJ5KNhy9v6Ggf2NN2M0cElmxQXU1BXr3nt4k0A5L",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2175817046",
+        "name": "MAXSUN Видеокарта GeForce RTX 5070 12 ГБ (T0)",
+        "price": 62122,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7669517405.jpg",
+        "product_url": "https://www.ozon.ru/product/maxsun-videokarta-geforce-rtx-5070-12-gb-t0-2175817046/?at=k2toD75LgT9j3LyjtOVqpM7hzxZpQQhRp2OWASqBYzV4",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2374883371",
+        "name": "MSI Видеокарта GeForce RTX 5070 GeForce RTX 5070 12G VENTUS 2X OC 12 ГБ (GeForce RTX 5070 12G VENTUS 2X OC)",
+        "price": 62530,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7469659566.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-geforce-rtx-5070-12g-ventus-2x-oc-12-gb-geforce-rtx-5070-12g-ventus-2374883371/?at=99trJv2Z8FPo13J0C9pD6ykt4KNNA0HPYZOkxHnwXWjA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2224548207",
+        "name": "Palit Видеокарта GeForce RTX 5070 12 ГБ (NE75070T19K9-GB2050U)",
+        "price": 62545,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7588257066.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-12-gb-ne75070t19k9-gb2050u-2224548207/?at=qQtJgDX49cZJD4EmCKlJmpyIZgjWmkFDpYADwUqQwqP5",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2304052982",
+        "name": "MSI Видеокарта GeForce RTX 5070 12 ГБ (RTX507012GINSPIRE3XOC)",
+        "price": 62867,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7414452889.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-12-gb-rtx507012ginspire3xoc-2304052982/?at=Z8tX1EQmzhlq74J3txz7wJ6TWgL8mzhXVEKMKfNKEMZB",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2412734099",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 GAMING OC 12 ГБ (GV-N5070GAMING OC-12GD). Уцененный товар",
+        "price": 62919,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7367699263.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-gaming-oc-12-gb-gv-n5070gaming-oc-12gd-utsenennyy-tovar-2412734099/?at=28t0Lv8x7tMG25PPSkkRrj4CPrJEKRf4mWB47tWAzxGW",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2014277854",
+        "name": "MSI Видеокарта GeForce RTX 5070 RTX 5070 12G VENTUS 2X OC 12 ГБ (RTX 5070 12G VENTUS 2X OC)",
+        "price": 63010,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7452819695.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-rtx-5070-12g-ventus-2x-oc-12-gb-rtx-5070-12g-ventus-2x-oc-2014277854/?at=99trJv2Z8FWK36PAi9GV5JDhlw4W2LFg9rK5Wfvw8JGP",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2014740768",
+        "name": "MSI Видеокарта GeForce RTX 5070 RTX 5070 12G VENTUS 2X OC 12 ГБ (RTX 5070 12G VENTUS 2X OC)",
+        "price": 63024,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7452819695.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-rtx-5070-12g-ventus-2x-oc-12-gb-rtx-5070-12g-ventus-2x-oc-2014740768/?at=K8tZQl4ALtrZLnLnh55DOWEIq8OoXmSowK746I12RZxO",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "1976685945",
+        "name": "Palit Видеокарта GeForce RTX 5070 RTX5070 GAMINGPRO OC 12 ГБ (NE75070T19K9-GB2050A)",
+        "price": 63506,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7534816806.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-rtx5070-gamingpro-oc-12-gb-ne75070t19k9-gb2050a-1976685945/?at=jYtZz2R6gtW71n0ZtxK3Wgktn9M0jkUDER6L6IZYLJrK",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2223120701",
+        "name": "Palit Видеокарта GeForce RTX 5070 12 ГБ (NE75070T19K9-GB2050A)",
+        "price": 63674,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-p/7308675925.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-12-gb-ne75070t19k9-gb2050a-2223120701/?at=PjtJBO3DQc3RG3WSwJVVwkfDm8QQwfpQwLx7Il2o2ZM",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "1970155758",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 12 ГБ (GV-N5070EAGLEOC-12GD)",
+        "price": 63774,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7582183086.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-12-gb-gv-n5070eagleoc-12gd-1970155758/?at=J8tgkRK4xs9Rgr1zUXE5pyySqGD6XwCD9W7jEc845Y1y",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2330594160",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 RTX 5070 SOLID 12 ГБ (ZT-B50700D-10P)",
+        "price": 63855,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7637873608.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-rtx-5070-solid-12-gb-zt-b50700d-10p-2330594160/?at=57twyo6nAc8VlWQZU1WjloxCJgO54hK5D1KrFJKqrNW",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2080175144",
+        "name": "MSI Видеокарта GeForce RTX 5070 GAMING TRIO OC 12 ГБ (RTX 5070 12G GAMING TRIO OC)",
+        "price": 64000,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7505397668.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-gaming-trio-oc-12-gb-rtx-5070-12g-gaming-trio-oc-2080175144/?at=36tWjw28ZcpDo9vhv4wj3VTPXEqB6sw21LKrU6Vq0Yx",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2330640635",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 RTX 5070 SOLID OC 12 ГБ (ZT-B50700J-10P)",
+        "price": 64086,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7637873608.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-rtx-5070-solid-oc-12-gb-zt-b50700j-10p-2330640635/?at=VvtzV7g4MsJ8OlQ9t95jk4XtP1KwzRtRR7xylU8GoNVg",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2153856383",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 12 ГБ (GV-N5070EAGLEOC-12GD)",
+        "price": 64299,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7367700204.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-12-gb-gv-n5070eagleoc-12gd-2153856383/?at=OgtEDJvP3TkxRQRgtVQwmoBCOQ9G07S0kZzODi38PEyX",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2364531221",
+        "name": "Palit Видеокарта GeForce RTX 5070 PA-RTX5070 GAMINGPRO-S OC 12 ГБ (NE75070T19K9-GB2050U)",
+        "price": 64382,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7653086032.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-pa-rtx5070-gamingpro-s-oc-12-gb-ne75070t19k9-gb2050u-2364531221/?at=OgtEDJvP3TrWVJ6nCBM9BlyIRp4gGwc6mZQVVhMpNwQO",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2005515006",
+        "name": "MSI Видеокарта GeForce RTX 5070 SHADOW 3X OC 12 ГБ (RTX 5070 12G SHADOW 3X OC)",
+        "price": 64410,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7446444408.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-shadow-3x-oc-12-gb-rtx-5070-12g-shadow-3x-oc-2005515006/?at=w0tg57yOosPZ9VJjsJ58J1rF7R9rYjczW8nGqIoBxNqA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2402070447",
+        "name": "Gigabyte Видеокарта GeForce RTX 5070 GV-N5070WF3-12GD 12 ГБ (GV-N5070WF3-12GD), LHR",
+        "price": 64464,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7592759863.jpg",
+        "product_url": "https://www.ozon.ru/product/gigabyte-videokarta-geforce-rtx-5070-gv-n5070wf3-12gd-12-gb-gv-n5070wf3-12gd-lhr-2402070447/?at=08tYnKmEjcOvPWQquyA8KMWFAEV1Ogh1PK9jNiRrpxz2",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2165330489",
+        "name": "ZOTAC Видеокарта GeForce RTX 5070 AMP White Edition 12 ГБ (ZT-B50700FQ-10P)",
+        "price": 64590,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7560366359.jpg",
+        "product_url": "https://www.ozon.ru/product/zotac-videokarta-geforce-rtx-5070-amp-white-edition-12-gb-zt-b50700fq-10p-2165330489/?at=79tnrvZPLtXA14jGiKBllq1IXOygv2h6KpRW9u7AJwRg",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2366680941",
+        "name": "Palit Видеокарта GeForce RTX 5070 PA-RTX5070 GAMINGPRO-S OC 12 ГБ (NE75070T19K9-GB2050U)",
+        "price": 64645,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7653086032.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-pa-rtx5070-gamingpro-s-oc-12-gb-ne75070t19k9-gb2050u-2366680941/?at=pZtpgGAl5uPw35xNuVn0YR9FXnQjNXHpE2V4js582WAO",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "1976691276",
+        "name": "Palit Видеокарта GeForce RTX 5070 RTX5070 GAMINGPRO OC 12 ГБ (NE75070T19K9-GB2050A)",
+        "price": 64874,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7534816806.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5070-rtx5070-gamingpro-oc-12-gb-ne75070t19k9-gb2050a-1976691276/?at=qQtJgDX49cQ977VrCovX39EUXp5PPRF2ARpBRCPvKvzo",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2264675071",
+        "name": "ASUS Видеокарта GeForce RTX 5070 12 ГБ (0197105837836,197105837836)",
+        "price": 65439,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7558999810.jpg",
+        "product_url": "https://www.ozon.ru/product/asus-videokarta-geforce-rtx-5070-12-gb-0197105837836-197105837836-2264675071/?at=Brtzx18ZvsKz8w09SY5kxqRU515YjGsBXyk9DSG1KVXM",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      },
+      {
+        "id": "2014332850",
+        "name": "MSI Видеокарта GeForce RTX 5070 RTX 5070 12G SHADOW 2X OC 12 ГБ (RTX 5070 12G SHADOW 2X OC)",
+        "price": 65633,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7452825483.jpg",
+        "product_url": "https://www.ozon.ru/product/msi-videokarta-geforce-rtx-5070-rtx-5070-12g-shadow-2x-oc-12-gb-rtx-5070-12g-shadow-2x-oc-2014332850/?at=Brtzx18Zvsy6rvKqfll8j1yFygRmG8iVQ4QBvfDqy4oP",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "rtx 5070",
+  "category": "videocards",
+  "platform_id": null
+}
