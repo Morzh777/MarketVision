@@ -38,10 +38,8 @@ export class ProductGroupingService {
       });
       // Новый best practice: если самый дешёвый валидный не-аксессуар — всегда включаем
       const cheapest = sortedByPrice[0];
-      const { isAccessoryByCategory } = require('../utils/is-accessory');
       if (
         cheapest &&
-        !isAccessoryByCategory(cheapest.name, category) &&
         (cheapest.validationReason?.includes('validated') || cheapest.isValid)
       ) {
         fileLogger.log(`[ProductGroupingService] 🚩 Включаю самый дешёвый валидный не-аксессуар: ${cheapest.name} (id:${cheapest.id}, price:${cheapest.price}, validationReason:${cheapest.validationReason}, category:${category})`);

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2426528952",
+        "name": "Inno3D Видеокарта GeForce RTX 5070 12 ГБ (N50702-12D7X-195064N)",
+        "price": 56175,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7683549551.jpg",
+        "product_url": "https://www.ozon.ru/product/inno3d-videokarta-geforce-rtx-5070-12-gb-n50702-12d7x-195064n-2426528952/?at=vQtrJDMvjh5QJDqrfg36RP8HqoVWoJUEMOknvh8WPLQA",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5070",
+        "isValid": true,
+        "validationReason": "code-validated (query)",
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 336,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "rtx 5070",
+  "category": "videocards"
+}

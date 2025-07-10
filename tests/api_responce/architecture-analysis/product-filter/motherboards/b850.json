@@ -3,22 +3,22 @@
   "data": {
     "products": [
       {
-        "id": "438944814",
-        "name": "Материнская плата B850MT2-E DJ",
-        "price": 11088,
-        "image_url": "https://basket-25.wbbasket.ru/vol4389/part438944/438944814/images/big/1.webp",
-        "product_url": "https://www.wildberries.ru/catalog/438944814/detail.aspx",
+        "id": "445988331",
+        "name": "Материнская плата PRIME B850-PLUS",
+        "price": 18453,
+        "image_url": "https://basket-25.wbbasket.ru/vol4459/part445988/445988331/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/445988331/detail.aspx",
         "category": "motherboards",
         "source": "wb",
         "query": "B850",
         "isValid": true,
-        "validationReason": "code-validated (name, query, brand, feature)",
+        "validationReason": "code-validated (query)",
         "toAI": false
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 458,
+    "processing_time_ms": 405,
     "cache_hits": 0,
     "cache_misses": 0
   },

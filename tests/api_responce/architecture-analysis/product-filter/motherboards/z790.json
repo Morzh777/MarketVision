@@ -3,22 +3,22 @@
   "data": {
     "products": [
       {
-        "id": "411558730",
-        "name": "системная плата Z790 UD",
-        "price": 15378,
-        "image_url": "https://basket-23.wbbasket.ru/vol4115/part411558/411558730/images/big/1.webp",
-        "product_url": "https://www.wildberries.ru/catalog/411558730/detail.aspx",
+        "id": "1617862644",
+        "name": "Материнская плата Gigabyte Z790 D (LGA1700, ATX)",
+        "price": 14757,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7065168985.jpg",
+        "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-lga1700-atx-1617862644/?at=Z8tX13n4DTxgBl0KtjRpOZVi7x3YYGUjJOA63hPpx0Qz",
         "category": "motherboards",
-        "source": "wb",
+        "source": "ozon",
         "query": "Z790",
         "isValid": true,
-        "validationReason": "code-validated (query, feature)",
+        "validationReason": "code-validated (query)",
         "toAI": false
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 604,
+    "processing_time_ms": 388,
     "cache_hits": 0,
     "cache_misses": 0
   },

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { UnifiedHybridValidator } from './unified-hybrid.validator';
+import { UnifiedHybridValidator, CATEGORY_RULES } from './unified-hybrid.validator';
 import { OpenAiValidationService } from '../services/openai.service';
 
 /**
@@ -23,13 +23,6 @@ export class UnifiedValidatorFactory {
   }
 
   /**
-   * Метод для обратной совместимости со старой фабрикой
-   */
-  getValidatorForCategory(category: string): UnifiedHybridValidator {
-    return this.getValidator();
-  }
-
-  /**
    * Валидация продуктов по категории
    */
   async validateProducts(products: any[], category: string): Promise<any[]> {
@@ -45,7 +38,7 @@ export class UnifiedValidatorFactory {
       Object.entries(byQuery).map(async ([query, items]) => {
         // Для каждого батча — асинхронная валидация
         const validator = this.getValidator();
-        return validator.validateBatch(items, category);
+        return validator.validateBatch(items, category as keyof typeof CATEGORY_RULES);
       })
     );
     // Объединяем все результаты в один массив

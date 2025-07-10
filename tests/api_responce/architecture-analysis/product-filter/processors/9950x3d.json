@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2273679196",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM (без кулера), Socket AM5, 100-000000719",
+        "price": 64680,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7612805229.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-bez-kulera-socket-am5-100-000000719-2273679196/?at=oZt6A7pqBh3VYYjwSEokPRQfpjm84EfB5L1G0uzKqv9X",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d",
+        "isValid": true,
+        "validationReason": "code-validated (query)",
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 207,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "9950x3d",
+  "category": "processors"
+}

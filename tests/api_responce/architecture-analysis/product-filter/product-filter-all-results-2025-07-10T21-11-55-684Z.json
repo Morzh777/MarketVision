@@ -1,0 +1,112 @@
+{
+  "videocards": {
+    "rtx 5070": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "449246460",
+            "name": "Видеокарта RTX 5070 12 ГБ RTL (NE75070019K9-GB2050T)",
+            "price": 56006,
+            "image_url": "https://basket-25.wbbasket.ru/vol4492/part449246/449246460/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/449246460/detail.aspx",
+            "category": "videocards",
+            "source": "wb",
+            "query": "rtx 5070",
+            "isValid": true,
+            "validationReason": "code-validated (query)",
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 1628,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5070",
+      "category": "videocards"
+    },
+    "rtx 5070 ti": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "449420175",
+            "name": "Видеокарта GeForce RTX 5070 TI Solid SFF OC",
+            "price": 82501,
+            "image_url": "https://basket-25.wbbasket.ru/vol4494/part449420/449420175/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/449420175/detail.aspx",
+            "category": "videocards",
+            "source": "wb",
+            "query": "rtx 5070 ti",
+            "isValid": true,
+            "validationReason": "code-validated (query)",
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 306,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5070 ti",
+      "category": "videocards"
+    },
+    "rtx 5080": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "449914467",
+            "name": "Видеокарта Rtx 5080 Solid Core",
+            "price": 105824,
+            "image_url": "https://basket-25.wbbasket.ru/vol4499/part449914/449914467/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/449914467/detail.aspx",
+            "category": "videocards",
+            "source": "wb",
+            "query": "rtx 5080",
+            "isValid": true,
+            "validationReason": "code-validated (query)",
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 394,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5080",
+      "category": "videocards"
+    },
+    "rtx 5090": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1922136208",
+            "name": "Palit Видеокарта GeForce RTX 5090 RTX5090 GAMEROCK 32 ГБ (NE75090019R5-GB2020G)",
+            "price": 232000,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7371835463.jpg",
+            "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5090-rtx5090-gamerock-32-gb-ne75090019r5-gb2020g-1922136208/?at=x6tPp2rZ4TA5pEKlI4W1gAOTVW1vkzikL8EkXH2j5Ekl",
+            "category": "videocards",
+            "source": "ozon",
+            "query": "rtx 5090",
+            "isValid": true,
+            "validationReason": "code-validated (query)",
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 223,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5090",
+      "category": "videocards"
+    }
+  }
+}
