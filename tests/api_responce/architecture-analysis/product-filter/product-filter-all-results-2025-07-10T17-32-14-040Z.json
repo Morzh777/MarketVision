@@ -1,0 +1,28 @@
+{
+  "motherboards": {
+    "B760": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "254848370",
+            "name": "Материнская плата B760M D4 M-ATX DDR4, поддерживающая 12 и 1…",
+            "price": 5824,
+            "image_url": "https://basket-16.wbbasket.ru/vol2548/part254848/254848370/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/254848370/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B760"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 826,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760",
+      "category": "motherboards"
+    }
+  }
+}

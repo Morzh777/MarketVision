@@ -6,6 +6,8 @@ export interface OpenAiProduct {
   name: string;
   price: number;
   query: string;
+  toAI?: boolean;
+  [key: string]: any;
 }
 
 export interface OpenAiValidationResult {
@@ -27,67 +29,23 @@ export class OpenAiValidationService {
     if (!products.every(p => p.query === query)) {
       throw new Error('Все товары в батче должны иметь одинаковый query');
     }
-    const prompts: Record<string, (products: OpenAiProduct[], query: string) => string> = {
-      'видеокарта': (products, query) => `Ты — эксперт по фильтрации товаров. Твоя задача — определить, является ли товар настоящей видеокартой.
+    const universalPrompt = (products: OpenAiProduct[], category: string, query: string) => {
+      const items = products.map(p => `Товар: "${p.name}", Запрос: "${p.query}"`).join('\n');
+      return `Ты — профессиональный проверяющий комплектующих. Проверь каждый товар из списка на соответствие категории "${category}" и запросу "${query}".
+
+${items}
 
 Правила:
-1. Если в названии есть accessory-words (sticker, bag, cable, fan, edition, pack, bracket, holder, stand, cover, case, mount, adapter, splitter, extension, cooler, thermal, pad, screw, tool, cleaner, brush, limited, set, kit и их русские аналоги: кабель, подставка, вентилятор, чехол, наклейка, сумка, сетка, кулер, переходник, крепление, пылезащитная, displayport, hdmi, usb-c) — это аксессуар, всегда невалидно.
-2. Если в названии есть две или более модели (например, RTX 5080 и RTX 5070) — это невалидно, кроме случаев, когда это комплект из двух видеокарт.
-3. Если есть опечатки, транслит, CAPSLOCK, слитное написание — считать валидным, если это не аксессуар.
-4. Короткие названия (например, "RTX 5080" или "RTX5080") считаются валидными, если это реально существующая модель.
-5. Если название совсем не содержит модель — невалидно.
-
-Примеры:
-- "Palit RTX 5080 GamingPro 16GB" — валидно
-- "RTX 5080" — валидно (короткое, но это реальная модель)
-- "RTX5080" — валидно (слитно, но это реальная модель)
-- "RTX 5080 sticker" — невалидно (accessory)
-- "RTX 5080 FAN" — невалидно (accessory)
-- "Palit RTX 5080 GameRock Limited Edition RTX 5070" — невалидно (две модели)
-- "Видеокарта RTX 5080" — невалидно (placeholder)
-- "RTX5080 GAMINGPRO 16GB" — валидно
-- "RTX 5080 16GB" — невалидно (нет бренда/серии)
-- "Palit RTX 5080 GameRock Llmited" — валидно (опечатка)
-- "Palit RTX 5080 GameRock Limited Edition" — валидно (если это не аксессуар)
-
-Ответь строго JSON-массивом вида: [{"id": string, "isValid": boolean, "reason": string}]. reason всегда объясняй, если isValid: false, иначе оставляй пустым. Не добавляй никакого текста до или после массива.
-
-${JSON.stringify(products, null, 2)}
-`,
-      'процессор': (products, query) => `Проверь список товаров. Валидным считается только настоящий товар категории "процессор" (CPU), если его название (name) содержит текст запроса (query: ${query}) и не содержит признаков аксессуара.
-
-Аксессуаром считается товар, если в его названии есть хотя бы одно из слов: кулер, термопаста, подставка, вентилятор, чехол, наклейка, сумка, сетка, переходник, крепление, пылезащитная, displayport, hdmi, usb-c.
-
-Если товар — аксессуар, он НЕвалиден, даже если в названии есть query.
-
-Не используй свои знания о брендах и моделях, не делай предположений — только анализируй текст name и query.
-
-Ответь строго JSON-массивом вида: [{"id": string, "isValid": boolean, "reason": string}]. reason указывай только если isValid: false, иначе оставляй пустым. Не добавляй никакого текста до или после массива.
-
-Пример:
-[{"id": "1", "name": "Intel Core i9-14900K", "query": "i9-14900K"}, {"id": "2", "name": "Кулер для процессора", "query": "i9-14900K"}]
-Ответ:
-[{"id": "1", "isValid": true, "reason": ""}, {"id": "2", "isValid": false, "reason": "аксессуар"}]
-
-${JSON.stringify(products, null, 2)}
-`,
-    };
-    const defaultPrompt = (products: OpenAiProduct[], category: string, query: string) => `
-Проверь список товаров. Валидным считается только настоящий товар категории "${category}", если его название (name) содержит текст запроса (query: ${query}) и не содержит признаков аксессуара или другого типа товара.
-
-Аксессуаром считается товар, если в его названии есть хотя бы одно из слов: кабель, подставка, вентилятор, чехол, наклейка, сумка, сетка, кулер, переходник, крепление, пылезащитная, displayport, hdmi, usb-c.
-
-Если товар — аксессуар или что-либо кроме "${category}", он НЕвалиден, даже если в названии есть query.
-
-Не используй свои знания о брендах и моделях, не делай предположений — только анализируй текст name и query.
-
-Ответь строго JSON-массивом вида: [{"id": string, "isValid": boolean, "reason": string}]. reason указывай только если isValid: false, иначе оставляй пустым. Не добавляй никакого текста до или после массива.
+1. Валиден только тот товар, который действительно относится к категории "${category}" и его название содержит точное совпадение с запросом (query: ${query}).
+2. Если в названии есть другая модель, серия, серия-модель, серия-модель-модель, товар невалиден.
+3. Если в названии есть accessory-words (кабель, подставка, вентилятор, чехол, наклейка, сумка, сетка, кулер, переходник, крепление, пылезащитная, displayport, hdmi, usb-c и их английские аналоги), это аксессуар — невалидно.
+4. Не делай предположений, не используй внешние знания — только анализируй текст name и query.
+5. Ответь строго JSON-массивом вида: [{"id": string, "isValid": boolean, "reason": string}]. reason всегда объясняй, если isValid: false, иначе оставляй пустым. Не добавляй никакого текста до или после массива.
 
 ${JSON.stringify(products, null, 2)}
 `;
-    const prompt = prompts[category]
-      ? prompts[category](products, query)
-      : defaultPrompt(products, category, query);
+    };
+    let prompt = universalPrompt(products, category, query);
     // Определяем, какую опцию токенов использовать
     const useMaxCompletionTokens = /(^o3|^o4|mini|nano)/.test(model);
     const body: any = {

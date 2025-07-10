@@ -10,6 +10,10 @@ import { ProductValidationService } from './services/product-validation.service'
 import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
+import { EnhancedPriceAnomalyService } from './services/enhanced-price-anomaly.service';
+import { UnifiedValidatorFactory } from './validators/unified-validator.factory';
+import { ValidationConfigService } from './config/validation.config';
+import { OpenAiValidationService } from './services/openai.service';
 
 @Module({
   imports: [
@@ -29,6 +33,11 @@ import { DbApiClient } from './grpc-clients/db-api.client';
     OzonApiClient,
     WbApiClient,
     DbApiClient,
+    // Новые сервисы для унифицированной валидации
+    EnhancedPriceAnomalyService,
+    UnifiedValidatorFactory,
+    ValidationConfigService,
+    OpenAiValidationService,
   ],
 })
 export class AppModule {} 

@@ -34,9 +34,7 @@ const testQueries = {
     'PlayStation 5 Slim'
   ],
   playstation_accessories: [
-    'DualSense',
-    'PlayStation 5 Controller',
-    'PS5 Headset'
+    'Дисковод Sony для Playstation 5 Pro',
   ],
   nintendo_switch: [
     'nintendo switch 2',

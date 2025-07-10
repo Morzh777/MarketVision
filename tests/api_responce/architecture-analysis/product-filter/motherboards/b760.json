@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "426938262",
+        "name": "B760M-K",
+        "price": 4442,
+        "image_url": "https://basket-24.wbbasket.ru/vol4269/part426938/426938262/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/426938262/detail.aspx",
+        "category": "motherboards",
+        "source": "wb",
+        "query": "B760",
+        "isValid": true,
+        "validationReason": "code-validated (query, feature)",
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 647,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "B760",
+  "category": "motherboards"
+}

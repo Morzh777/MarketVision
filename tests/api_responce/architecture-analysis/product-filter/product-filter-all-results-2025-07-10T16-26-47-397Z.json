@@ -1,0 +1,100 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1617862644",
+            "name": "Материнская плата Gigabyte Z790 D (LGA1700, ATX)",
+            "price": 14757,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7065168985.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-lga1700-atx-1617862644/?at=99trJ52lyf2EzpVlsGnL2zYSMl3rzMSK7mz34uW7YOkN",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "Z790"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 303,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    },
+    "B760": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2371828050",
+            "name": "Gigabyte B760M H LGA 1700 DDR4 Материнская плата Уцененный товар",
+            "price": 6096,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7349595496.jpg",
+            "product_url": "https://www.ozon.ru/product/gigabyte-b760m-h-lga-1700-ddr4-materinskaya-plata-utsenennyy-tovar-2371828050/?at=k2toDM5KVszGNo34TZlgQAGf6w2qVvhqk8Bv6Tz8PANk",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B760"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 240,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760",
+      "category": "motherboards"
+    },
+    "X870E": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "366098215",
+            "name": "X870E AORUS ELITE WIFI7 материнская плата",
+            "price": 26302,
+            "image_url": "https://basket-21.wbbasket.ru/vol3660/part366098/366098215/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/366098215/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "X870E"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 461,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "X870E",
+      "category": "motherboards"
+    },
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2229478408",
+            "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+            "price": 10774,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7589459914.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2229478408/?at=08tYnRm7OcOV7rBZIjNNvpoF3m88GASk1yMJBs3kyOq",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B850"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 267,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    }
+  }
+}

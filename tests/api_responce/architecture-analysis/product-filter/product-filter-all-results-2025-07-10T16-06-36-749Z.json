@@ -1,0 +1,28 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "414298459",
+            "name": "Gigabyte Z790-S LGA1700 DDR5 4M 6SATA 2 5GbE LAN",
+            "price": 16233,
+            "image_url": "https://basket-24.wbbasket.ru/vol4142/part414298/414298459/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/414298459/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "Z790"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 859,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    }
+  }
+}

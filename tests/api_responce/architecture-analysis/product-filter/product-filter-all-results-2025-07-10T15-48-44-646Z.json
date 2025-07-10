@@ -1,0 +1,25 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "isValid": true,
+            "reason": "ai-validated",
+            "aiReason": "",
+            "confidence": 0.8,
+            "category": "motherboards"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 14136,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    }
+  }
+}

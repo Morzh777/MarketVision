@@ -1,0 +1,17 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [],
+        "total_queries": 1,
+        "total_products": 0,
+        "processing_time_ms": 12387,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    }
+  }
+}

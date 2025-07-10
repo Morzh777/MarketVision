@@ -1,0 +1,100 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1617862644",
+            "name": "Материнская плата Gigabyte Z790 D (LGA1700, ATX)",
+            "price": 14757,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7065168985.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-z790-d-lga1700-atx-1617862644/?at=MZtvpQRr3umnQWvcQYDQz0sEW29k5IoLyAGSQ41L0m",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "Z790"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 371,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    },
+    "B760": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1804394375",
+            "name": "JGINYUE Материнская плата LGA1700 B760M-HD&#x2F;W,INTEL 12&#x2F;13&#x2F;14",
+            "price": 5659,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7415185437.jpg",
+            "product_url": "https://www.ozon.ru/product/jginyue-materinskaya-plata-lga1700-b760m-hd-w-intel-12-13-14-1804394375/?at=pZtpgjv2ohYLB2yKi60VEYjfm78vRNULz8VMLH4y20P6",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B760"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 301,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760",
+      "category": "motherboards"
+    },
+    "X870E": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2262494170",
+            "name": "Материнская плата GigaByte X870 GAMING WIFI6 Socket AM5 AMD X870 4xDDR5 3xPCI-E 16x 4xSATA III ATX Retail",
+            "price": 25038,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-n/7607210891.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-x870-gaming-wifi6-socket-am5-amd-x870-4xddr5-3xpci-e-16x-4xsata-iii-2262494170/?at=57twyVxJ9cB8BGPPHjWE6V3fNnMrWzf4XJw27Sz5Pyy4",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "X870E"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 252,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "X870E",
+      "category": "motherboards"
+    },
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2229478408",
+            "name": "Материнская плата Biostar B850MT2-E DJ, SocketAM5, AMD B850, mATX, Ret",
+            "price": 10774,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7589459914.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-biostar-b850mt2-e-dj-socketam5-amd-b850-matx-ret-2229478408/?at=BrtzxgMGKIMvVY0xHloKqB0cWYojN1iZyAgQ2C3o62Ql",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B850"
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 269,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    }
+  }
+}
