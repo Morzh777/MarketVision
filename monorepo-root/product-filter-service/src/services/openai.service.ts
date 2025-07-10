@@ -91,11 +91,7 @@ ${JSON.stringify(products, null, 2)}
         arr = JSON.parse(match[0]);
       }
       for (const r of arr) {
-        const product = products.find(p => p.id === r.id);
-        if (product && isAccessory(product.name)) {
-          r.isValid = false;
-          r.reason = 'аксессуар';
-        }
+        // accessory-фильтр убран, accessory-words теперь только в prompt
       }
       return arr;
     } catch (e) {
@@ -103,12 +99,4 @@ ${JSON.stringify(products, null, 2)}
       throw new Error('Ошибка парсинга ответа OpenAI');
     }
   }
-}
-
-const ACCESSORY_WORDS = [
-  'кабель', 'подставка', 'вентилятор', 'чехол', 'наклейка', 'сумка', 'сетка', 'кулер', 'переходник', 'крепление', 'пылезащитная', 'displayport', 'hdmi', 'usb-c'
-];
-function isAccessory(name: string): boolean {
-  const lower = name.toLowerCase();
-  return ACCESSORY_WORDS.some(word => lower.includes(word));
 } 
