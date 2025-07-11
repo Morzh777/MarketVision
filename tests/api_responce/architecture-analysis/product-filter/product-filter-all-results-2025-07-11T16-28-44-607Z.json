@@ -1,0 +1,42 @@
+{
+  "motherboards": {
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "312626296",
+            "name": "Материнская плата B850M D3HP AM5 AMD B850 mATX RTL",
+            "price": 12098,
+            "image_url": "https://basket-19.wbbasket.ru/vol3126/part312626/312626296/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/312626296/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B850",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 12098,
+              "max": 19598,
+              "mean": 16028.657894736842,
+              "median": 16112,
+              "iqr": [
+                14071,
+                17946
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 598,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    }
+  }
+}

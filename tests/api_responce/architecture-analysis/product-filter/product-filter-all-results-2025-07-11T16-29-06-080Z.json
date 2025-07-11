@@ -1,0 +1,42 @@
+{
+  "motherboards": {
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "390385298",
+            "name": "Материнская плата PRIME B850-PLUS WIF AM5 AMD B850 ATX RTL",
+            "price": 16733,
+            "image_url": "https://basket-22.wbbasket.ru/vol3903/part390385/390385298/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/390385298/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B850",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 16733,
+              "max": 19065,
+              "mean": 17962.555555555555,
+              "median": 17946,
+              "iqr": [
+                17634,
+                18394
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 508,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    }
+  }
+}

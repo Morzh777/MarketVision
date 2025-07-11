@@ -10,12 +10,26 @@
         "product_url": "https://www.wildberries.ru/catalog/366098215/detail.aspx",
         "category": "motherboards",
         "source": "wb",
-        "query": "X870E"
+        "query": "X870E",
+        "isValid": true,
+        "reason": "chipset-match",
+        "confidence": 1,
+        "marketStats": {
+          "min": 26227,
+          "max": 141821,
+          "mean": 40660.10975609756,
+          "median": 38311.5,
+          "iqr": [
+            34487,
+            50143
+          ]
+        },
+        "toAI": false
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 278,
+    "processing_time_ms": 553,
     "cache_hits": 0,
     "cache_misses": 0
   },

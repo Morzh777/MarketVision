@@ -55,6 +55,11 @@ export class ProductsService {
     allProducts.forEach((product, i) => {
       if (validationResults[i]) {
         Object.assign(product, validationResults[i]);
+        if (!validationResults[i].isValid) {
+          this.logger.warn(`[VALIDATION][FAIL] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${validationResults[i].reason}"`);
+        } else {
+          this.logger.log(`[VALIDATION][OK] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${validationResults[i].reason}"`);
+        }
       }
     });
     this.logger.log(`⏱️ Валидация заняла ${Date.now() - t}ms`);

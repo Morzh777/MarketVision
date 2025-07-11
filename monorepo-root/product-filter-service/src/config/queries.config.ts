@@ -27,8 +27,8 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
     'Геймпад PlayStation 5',
   ],
   nintendo_switch: [
-    'Nintendo Switch 2',
-    'Nintendo Switch OLED'
+    'nintendo switch 2',
+    'nintendo switch oled'
   ]
 };
 

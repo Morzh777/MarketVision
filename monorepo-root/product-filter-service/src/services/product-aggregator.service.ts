@@ -41,38 +41,53 @@ export class ProductAggregatorService {
   ): Promise<any[]> {
     const allProducts: any[] = [];
     for (const query of request.queries) {
-      try {
-        // Для WB подставляем правильный xsubject
-        let category = request.category;
-        let extra: any = {};
-        if (source === 'wb') {
-          category = CategoryConfigService.getWbCategory(request.category) || request.category;
-          extra.categoryKey = request.category; // Теперь передаём categoryKey для WB API
-        }
-        if (source === 'ozon') {
-          category = CategoryConfigService.getOzonCategory(request.category) || request.category;
-          extra.categoryKey = request.category;
-          const platformId = CategoryConfigService.getPlatformForQuery(query);
-          if (platformId) {
-            extra.platform_id = platformId;
+      let lastError = null;
+      let success = false;
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          // Для WB подставляем правильный xsubject
+          let category = request.category;
+          let extra: any = {};
+          if (source === 'wb') {
+            category = CategoryConfigService.getWbCategory(request.category) || request.category;
+            extra.categoryKey = request.category; // Теперь передаём categoryKey для WB API
+          }
+          if (source === 'ozon') {
+            category = CategoryConfigService.getOzonCategory(request.category) || request.category;
+            extra.categoryKey = request.category;
+            const platformId = CategoryConfigService.getPlatformForQuery(query);
+            if (platformId) {
+              extra.platform_id = platformId;
+            }
+          }
+          const response = await client.filterProducts({
+            query,
+            all_queries: [query],
+            category,
+            ...extra,
+            exclude_keywords: request.exclude_keywords || []
+          });
+          if (response.products && Array.isArray(response.products) && response.products.length > 0) {
+            const productsWithSource = response.products.map((product: any) => ({
+              ...product,
+              source
+            }));
+            allProducts.push(...productsWithSource);
+            success = true;
+            break; // успех — выходим из retry-цикла
+          } else {
+            throw new Error('API вернул пустой ответ');
+          }
+        } catch (error) {
+          lastError = error;
+          fileLogger.error(`Ошибка ${source.toUpperCase()} API (попытка ${attempt}) для запроса "${query}": ${error}`);
+          if (attempt < 3) {
+            await new Promise(res => setTimeout(res, 2000)); // задержка между попытками
           }
         }
-        const response = await client.filterProducts({
-          query,
-          all_queries: [query],
-          category,
-          ...extra,
-          exclude_keywords: request.exclude_keywords || []
-        });
-        if (response.products && Array.isArray(response.products)) {
-          const productsWithSource = response.products.map((product: any) => ({
-            ...product,
-            source
-          }));
-          allProducts.push(...productsWithSource);
-        }
-      } catch (error) {
-        fileLogger.error(`Ошибка ${source.toUpperCase()} API для запроса "${query}": ${error}`);
+      }
+      if (!success && lastError) {
+        fileLogger.error(`❌ Все попытки исчерпаны для ${source.toUpperCase()} API по запросу "${query}": ${lastError}`);
       }
     }
     return allProducts;

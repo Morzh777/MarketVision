@@ -16,7 +16,7 @@ export const MOTHERBOARDS_RULES: CategoryRule = {
   minFeatures: 1,
   chipsets: [
     'z990', 'z890', 'z790', 'b860', 'b850', 'b760', 'h810', 'w880', 'b760m', 'b760m-k',
-    'x950', 'x870e', 'x870', 'a820',
+    'x950', 'x870e', 'x870', 'a820', 'b850mt2-e', 'b850mt2-a', 'b850mt2-d', 'b850mt2-c', 'b850mt2-b', 'B850M-X', 'B850M'
   ],
   customValidator: customMotherboardValidator
 };

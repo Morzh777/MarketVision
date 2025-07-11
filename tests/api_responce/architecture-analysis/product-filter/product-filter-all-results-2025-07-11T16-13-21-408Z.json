@@ -9,7 +9,7 @@
             "name": "Материнская плата S1700 B760 AFOX B760D4-MA5-V2",
             "price": 4719,
             "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7598351588.jpg",
-            "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-afox-b760d4-ma5-v2-2087137304/?at=qQtJgVkyvc2x0XY3U1qm174iGD6p4RTXw9WYLF7VX1XE",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-afox-b760d4-ma5-v2-2087137304/?at=83tBmEP5gCXv8PBWI5rN6Whj8LVy8cD3Q14oijv8gLo",
             "category": "motherboards",
             "source": "ozon",
             "query": "B760",
@@ -20,8 +20,8 @@
             "marketStats": {
               "min": 4719,
               "max": 8635,
-              "mean": 7489.583333333333,
-              "median": 7526,
+              "mean": 7492,
+              "median": 7555,
               "iqr": [
                 6942,
                 7887
@@ -32,7 +32,7 @@
         ],
         "total_queries": 1,
         "total_products": 1,
-        "processing_time_ms": 291,
+        "processing_time_ms": 364,
         "cache_hits": 0,
         "cache_misses": 0
       },

@@ -1,0 +1,197 @@
+{
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1235288599",
+            "name": "Материнская плата Gigabyte B760M DS3H DDR4 (LGA 1700, Intel Z790, 128 ГБ, PCIE 4.0)",
+            "price": 9649,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-y/6797365306.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-gigabyte-b760m-ds3h-ddr4-lga-1700-intel-z790-128-gb-pcie-4-0-1235288599/?at=K8tZQ6MykInYEZG8fp1AL9ZuLDDZDkfZkowMpH6LvY6o",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "Z790",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 9649,
+              "max": 20943,
+              "mean": 18961.060240963856,
+              "median": 19004,
+              "iqr": [
+                17850,
+                19901
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 326,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    },
+    "B760": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2087137304",
+            "name": "Материнская плата S1700 B760 AFOX B760D4-MA5-V2",
+            "price": 4719,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7598351588.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-afox-b760d4-ma5-v2-2087137304/?at=lRt6WjPwlCWMnXBVC1WLVmZuOYyr4wFnGjp3gTwvBVM6",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B760",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 4719,
+              "max": 8635,
+              "mean": 7492,
+              "median": 7555,
+              "iqr": [
+                6942,
+                7887
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 250,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760",
+      "category": "motherboards"
+    },
+    "X870E": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "366098215",
+            "name": "X870E AORUS ELITE WIFI7 материнская плата",
+            "price": 26227,
+            "image_url": "https://basket-21.wbbasket.ru/vol3660/part366098/366098215/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/366098215/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "X870E",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 26227,
+              "max": 141821,
+              "mean": 40660.10975609756,
+              "median": 38311.5,
+              "iqr": [
+                34487,
+                50143
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 553,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "X870E",
+      "category": "motherboards"
+    },
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "432440843",
+            "name": "Материнская плата B850MT2-E DJ SocketAM5 AMD B850 2xDDR5",
+            "price": 10437,
+            "image_url": "https://basket-24.wbbasket.ru/vol4324/part432440/432440843/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/432440843/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B850",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 10437,
+              "max": 19598,
+              "mean": 15386.608695652174,
+              "median": 15086.5,
+              "iqr": [
+                13395,
+                17634
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 665,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    },
+    "B760M-K": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "426938262",
+            "name": "B760M-K",
+            "price": 4430,
+            "image_url": "https://basket-24.wbbasket.ru/vol4269/part426938/426938262/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/426938262/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B760M-K",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 4430,
+              "max": 13810,
+              "mean": 10211.316666666668,
+              "median": 10173.5,
+              "iqr": [
+                9674,
+                10791
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 335,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760M-K",
+      "category": "motherboards"
+    }
+  }
+}

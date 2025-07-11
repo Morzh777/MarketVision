@@ -1,0 +1,43 @@
+{
+  "nintendo_switch": {
+    "nintendo switch oled": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "313577831",
+            "name": "Игровая консоль Switch Oled Refubished",
+            "price": 21449,
+            "image_url": "https://basket-19.wbbasket.ru/vol3135/part313577/313577831/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/313577831/detail.aspx",
+            "category": "nintendo_switch",
+            "source": "wb",
+            "query": "nintendo switch oled",
+            "isValid": true,
+            "reason": "switch-oled-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 21449,
+              "max": 66490,
+              "mean": 23058,
+              "median": 23170,
+              "iqr": [
+                22832,
+                23286
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 527,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "nintendo switch oled",
+      "category": "nintendo_switch"
+    }
+  }
+}

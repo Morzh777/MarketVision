@@ -3,19 +3,34 @@
   "data": {
     "products": [
       {
-        "id": "420282356",
-        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2016B01Y",
-        "price": 40995,
-        "image_url": "https://basket-24.wbbasket.ru/vol4202/part420282/420282356/images/big/1.webp",
-        "product_url": "https://www.wildberries.ru/catalog/420282356/detail.aspx",
+        "id": "2166510125",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
+        "price": 37363,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=w0tg52VEns1prxxDumG3m30fq7L1NpUJJQ2o7sEjLD5o",
         "category": "playstation",
-        "source": "wb",
-        "query": "playstation 5"
+        "source": "ozon",
+        "query": "playstation 5",
+        "isValid": true,
+        "reason": "ps5-match",
+        "confidence": 1,
+        "marketPriceNote": "Цена ниже рынка",
+        "marketStats": {
+          "min": 37363,
+          "max": 59040,
+          "mean": 46264.9375,
+          "median": 45583,
+          "iqr": [
+            44032,
+            49233
+          ]
+        },
+        "toAI": false
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 443,
+    "processing_time_ms": 355,
     "cache_hits": 0,
     "cache_misses": 0
   },

@@ -32,8 +32,8 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
 
 // 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ
 export const QUERY_PLATFORMS: Record<string, string> = {
-  'Nintendo Switch 2': '101858153',
-  'Nintendo Switch OLED': '101858153'
+  'nintendo switch 2': '101858153',
+  'nintendo switch oled': '101858153'
 };
 
 // 🔧 УТИЛИТЫ ДЛЯ РАБОТЫ С КОНФИГУРАЦИЕЙ

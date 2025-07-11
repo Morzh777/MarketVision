@@ -10,12 +10,26 @@
         "product_url": "https://www.wildberries.ru/catalog/226709122/detail.aspx",
         "category": "processors",
         "source": "wb",
-        "query": "7800x3d"
+        "query": "7800x3d",
+        "isValid": true,
+        "reason": "code-validated (model-pattern)",
+        "confidence": 0.95,
+        "marketStats": {
+          "min": 28852,
+          "max": 910000,
+          "mean": 35325.97260273973,
+          "median": 35202,
+          "iqr": [
+            33061,
+            38556
+          ]
+        },
+        "toAI": false
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 647,
+    "processing_time_ms": 1139,
     "cache_hits": 0,
     "cache_misses": 0
   },

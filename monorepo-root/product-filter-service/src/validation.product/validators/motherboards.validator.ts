@@ -17,6 +17,15 @@ export function customMotherboardValidator(query: string, name: string, rules: a
     return { isValid: false, reason: 'query-not-in-chipsets', confidence: 0.0 };
   }
 
+  // Проверка на несколько чипсетов в названии
+  const foundChipsets = rules.chipsets.filter((chipset: string) => {
+    const regex = new RegExp(`\\b${chipset}\\b`, 'i');
+    return regex.test(n);
+  });
+  if (foundChipsets.length > 1) {
+    return { isValid: false, reason: 'conflicting-chipsets', confidence: 0.0 };
+  }
+
   // Ищем только чистый чипсет как отдельное слово
   const regex = new RegExp(`\\b${q}\\b`, 'i');
   const found = regex.test(n);
