@@ -14,11 +14,11 @@ const testQueries = {
   //   'rtx 5080',
   //   'rtx 5090'
   // ],
-  processors: [
-    '7800x3d',
-    '9800x3d',
-    '9950x3d'
-  ],
+  // processors: [
+  //   '7800x3d',
+  //   '9800x3d',
+  //   '9950x3d'
+  // ],
   // motherboards: [
   //   // 'Z790',
   //   // 'B760',
@@ -30,8 +30,11 @@ const testQueries = {
   //   'playstation 5',
   //   'playstation 5 pro'
   // ],
-  nintendo_switch: [
-    // 'nintendo switch 2',
+  // nintendo_switch: [
+  //   'nintendo switch 2',
+  // ],
+  steam_deck: [
+    'steam deck oled'
   ]
 };
 

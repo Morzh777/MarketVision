@@ -1,4 +1,4 @@
-import { UnifiedHybridValidator } from '../unified-hybrid.validator';
+import { UnifiedHybridValidator, CATEGORY_DEFINITIONS } from '../unified-hybrid.validator';
 
 // ACCESSORY_WORDS и isAccessory удалены, аксессуарная логика теперь только в кастомных валидаторах
 
@@ -11,7 +11,7 @@ export function normalizeForQuery(str: string): string {
   return str.toLowerCase().replace(/\s+/g, '');
 }
 
-export type ProductCategory = 'motherboards' | 'processors' | 'videocards' | 'playstation' | 'nintendo_switch';
+export type ProductCategory = typeof CATEGORY_DEFINITIONS[number]['key'];
 
 /**
  * Группирует продукты по query и валидирует каждый батч через UnifiedHybridValidator

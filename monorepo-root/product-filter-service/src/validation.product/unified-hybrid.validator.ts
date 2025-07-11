@@ -19,6 +19,7 @@ import { PROCESSORS_RULES } from './categories/processors.rules';
 import { VIDEOCARDS_RULES } from './categories/videocards.rules';
 import { PLAYSTATION_RULES } from './categories/playstation.rules';
 import { NINTENDO_SWITCH_RULES } from './categories/nintendo-switch.rules';
+import { STEAM_DECK_RULES } from './categories/steam-deck.rules';
 // === ДЕКЛАРАТИВНЫЙ МАССИВ КАТЕГОРИЙ (только key и rules) ===
 export const CATEGORY_DEFINITIONS = [
   { key: 'motherboards', rules: MOTHERBOARDS_RULES },
@@ -26,6 +27,7 @@ export const CATEGORY_DEFINITIONS = [
   { key: 'videocards', rules: VIDEOCARDS_RULES },
   { key: 'playstation', rules: PLAYSTATION_RULES },
   { key: 'nintendo_switch', rules: NINTENDO_SWITCH_RULES },
+  { key: 'steam_deck', rules: STEAM_DECK_RULES },
 ] as const;
 
 // === АВТОМАТИЧЕСКАЯ ГЕНЕРАЦИЯ МАППИНГА ПРАВИЛ ===

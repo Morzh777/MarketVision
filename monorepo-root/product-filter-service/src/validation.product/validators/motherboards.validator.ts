@@ -2,7 +2,7 @@
  * Уникальная логика валидации для категории motherboards
  */
 
-  import { normalizeToLower } from '../../utils/validation-utils';
+  import { normalizeToLower, makeValidator } from '../../utils/validation-utils';
 
 export function customMotherboardValidator(query: string, name: string, rules: any) {
   const n = normalizeToLower(name); // только к нижнему регистру
@@ -46,4 +46,6 @@ export function customMotherboardValidator(query: string, name: string, rules: a
   });
 
   return cases.find(c => c.when())?.result ?? { isValid: false, reason: 'no-query-chipset-in-name', confidence: 0.1 };
-} 
+}
+
+export const validateMotherboard = makeValidator((query, name, rules) => customMotherboardValidator(query, name, rules)); 

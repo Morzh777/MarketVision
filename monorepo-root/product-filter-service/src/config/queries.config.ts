@@ -29,6 +29,9 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
   nintendo_switch: [
     'nintendo switch 2',
     'nintendo switch oled'
+  ],
+  steam_deck: [
+    'steam deck oled'
   ]
 };
 

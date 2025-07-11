@@ -27,7 +27,11 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
   nintendo_switch: {
     ozon: 'igrovye-pristavki-15801/nintendo-26667979',
     wb: '523'
-  }
+  },
+  steam_deck: {
+    ozon: 'igrovye-pristavki-15801/valve-84099638',
+    wb: '523'
+  },
 };
 
 // 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ
