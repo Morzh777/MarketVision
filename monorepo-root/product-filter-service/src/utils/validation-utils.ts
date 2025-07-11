@@ -9,4 +9,12 @@ export function normalizeToLowerNoSpaces(str: string): string {
 }
 
 // Алиас для обратной совместимости
-export const normalizeForQuery = normalizeToLowerNoSpaces; 
+export const normalizeForQuery = normalizeToLowerNoSpaces;
+
+// Универсальный враппер для кастомных валидаторов
+export function makeValidator(
+  defaultValidator: (query: string, productName: string, rules: any) => any
+) {
+  return (query: string, productName: string, rules: any) =>
+    (rules.customValidator ?? defaultValidator)(query, productName, rules);
+} 
