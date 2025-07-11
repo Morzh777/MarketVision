@@ -3,6 +3,7 @@ import { ProductsService } from '../services/products.service';
 import { ProductResponse } from '../types/product.types';
 import { ProductRequestDto } from '../dto/product-request.dto';
 import { QueryConfigService } from '../config/queries.config';
+import { CategoryConfigService } from '../config/categories.config';
 
 @Controller('products')
 export class ProductsController {
@@ -34,8 +35,8 @@ export class ProductsController {
         throw new HttpException('Не указаны запросы или категорию невозможно определить', HttpStatus.BAD_REQUEST);
       }
 
-      // Проверяем валидность категории
-      const validCategories = ['videocards', 'processors', 'motherboards'];
+      // Проверяем валидность категории через CategoryConfigService
+      const validCategories = CategoryConfigService.getAllCategories();
       if (!validCategories.includes(category)) {
         throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
       }

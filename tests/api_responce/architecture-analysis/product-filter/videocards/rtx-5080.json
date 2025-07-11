@@ -3,22 +3,19 @@
   "data": {
     "products": [
       {
-        "id": "449914467",
-        "name": "Видеокарта Rtx 5080 Solid Core",
-        "price": 105824,
-        "image_url": "https://basket-25.wbbasket.ru/vol4499/part449914/449914467/images/big/1.webp",
-        "product_url": "https://www.wildberries.ru/catalog/449914467/detail.aspx",
+        "id": "452904360",
+        "name": "Видеокарта GAMING GeForce RTX 5080 SOLID CORE OC",
+        "price": 107733,
+        "image_url": "https://basket-25.wbbasket.ru/vol4529/part452904/452904360/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/452904360/detail.aspx",
         "category": "videocards",
         "source": "wb",
-        "query": "rtx 5080",
-        "isValid": true,
-        "validationReason": "code-validated (query)",
-        "toAI": false
+        "query": "rtx 5080"
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 327,
+    "processing_time_ms": 310,
     "cache_hits": 0,
     "cache_misses": 0
   },

@@ -30,11 +30,7 @@ export class OpenAiValidationService {
       throw new Error('Все товары в батче должны иметь одинаковый query');
     }
     const universalPrompt = (products: OpenAiProduct[], category: string, query: string) => {
-      const items = products.map(p => `Товар: "${p.name}", Запрос: "${p.query}"`).join('\n');
-      return `Ты — профессиональный проверяющий комплектующих. Проверь каждый товар из списка на соответствие категории "${category}" и запросу "${query}".
-
-${items}
-
+      return `Ты — профессиональный проверяющий комплектующих. Проверь каждый товар из массива products на соответствие категории "${category}" и запросу "${query}".
 Правила:
 1. Валиден только тот товар, который действительно относится к категории "${category}" и его название содержит точное совпадение с запросом (query: ${query}).
 2. Если в названии есть другая модель, серия, серия-модель, серия-модель-модель, товар невалиден.
@@ -42,10 +38,11 @@ ${items}
 4. Не делай предположений, не используй внешние знания — только анализируй текст name и query.
 5. Ответь строго JSON-массивом вида: [{"id": string, "isValid": boolean, "reason": string}]. reason всегда объясняй, если isValid: false, иначе оставляй пустым. Не добавляй никакого текста до или после массива.
 
-${JSON.stringify(products, null, 2)}
+products: ${JSON.stringify(products, null, 2)}
 `;
     };
     let prompt = universalPrompt(products, category, query);
+    this.logger.log(`[AI DEBUG] Prompt отправлен в OpenAI:\n${prompt}`);
     // Определяем, какую опцию токенов использовать
     const useMaxCompletionTokens = /(^o3|^o4|mini|nano)/.test(model);
     const body: any = {

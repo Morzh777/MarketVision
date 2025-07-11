@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "420282356",
+        "name": "Игровая консоль PlayStation 5 Slim Digital CFI-2016B01Y",
+        "price": 40995,
+        "image_url": "https://basket-24.wbbasket.ru/vol4202/part420282/420282356/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/420282356/detail.aspx",
+        "category": "playstation",
+        "source": "wb",
+        "query": "playstation 5"
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 443,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "playstation 5",
+  "category": "playstation"
+}

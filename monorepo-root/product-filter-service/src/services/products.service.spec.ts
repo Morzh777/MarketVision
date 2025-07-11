@@ -16,7 +16,7 @@ describe('ProductsService', () => {
   let ozonApiClient: any;
   let wbApiClient: any;
   const mockAggregator = { fetchAllProducts: jest.fn().mockResolvedValue([]) };
-  const mockValidator = { filterValid: jest.fn().mockReturnValue([]) };
+  const mockValidator = { validateProducts: jest.fn().mockResolvedValue([]) };
   const mockGrouper = { groupAndSelectCheapest: jest.fn().mockReturnValue([]) };
   const mockNormalizer = { getModelKey: jest.fn().mockReturnValue(''), normalizeQuery: jest.fn().mockReturnValue('') };
   const mockDbApiClient = { batchCreateProducts: jest.fn().mockResolvedValue({ inserted: 0 }) };

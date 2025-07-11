@@ -3,22 +3,19 @@
   "data": {
     "products": [
       {
-        "id": "1922136208",
-        "name": "Palit Видеокарта GeForce RTX 5090 RTX5090 GAMEROCK 32 ГБ (NE75090019R5-GB2020G)",
-        "price": 232000,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7371835463.jpg",
-        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5090-rtx5090-gamerock-32-gb-ne75090019r5-gb2020g-1922136208/?at=nRtr4JMnqh0BYqKMiyy0m80uGm428pHnyPnw0clOD1ZE",
+        "id": "1922116038",
+        "name": "Palit Видеокарта GeForce RTX 5090 RTX5090 GAMEROCK OC 32 ГБ (NE75090S19R5-GB2020G)",
+        "price": 237062,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-r/7371823491.jpg",
+        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5090-rtx5090-gamerock-oc-32-gb-ne75090s19r5-gb2020g-1922116038/?at=LZtl07kZxI5JNBDVSP401XqSNLk0oYTPEroYmSXEwVr9",
         "category": "videocards",
         "source": "ozon",
-        "query": "rtx 5090",
-        "isValid": true,
-        "validationReason": "code-validated (query)",
-        "toAI": false
+        "query": "rtx 5090"
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 208,
+    "processing_time_ms": 220,
     "cache_hits": 0,
     "cache_misses": 0
   },

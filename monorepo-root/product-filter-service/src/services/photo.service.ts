@@ -22,7 +22,7 @@ export class PhotoService {
     const photoUrl = await this.findPhotoUrl(id);
     
     if (photoUrl) {
-      this.logger.log(`📷 Найдено фото для ${id}: ${photoUrl}`);
+      // this.logger.log(`📷 Найдено фото для ${id}: ${photoUrl}`);
     } else {
       this.logger.debug(`📷 Фото не найдено для ${id}`);
     }
@@ -62,7 +62,7 @@ export class PhotoService {
       const results = await Promise.all(promises);
       const found = results.find(r => r.exists);
       if (found) {
-        this.logger.log(`📷 Найдено фото для ${id}: ${found.url}`);
+        // this.logger.log(`📷 Найдено фото для ${id}: ${found.url}`);
         return found.url;
       }
     }
@@ -107,7 +107,7 @@ export class PhotoService {
           const productId = idMatch[1];
           const validUrl = await this.findPhotoUrl(productId);
           if (validUrl) {
-            this.logger.log(`📷 Найдена валидная ссылка: ${validUrl}`);
+            // this.logger.log(`📷 Найдена валидная ссылка: ${validUrl}`);
             return validUrl;
           }
         }

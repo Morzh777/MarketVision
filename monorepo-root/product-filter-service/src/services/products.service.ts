@@ -7,7 +7,6 @@ import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
 import { PhotoService } from './photo.service';
-import { UnifiedValidatorFactory } from '../validators/unified-validator.factory';
 import { OpenAiValidationService } from './openai.service';
 
 @Injectable()
@@ -38,15 +37,30 @@ export class ProductsService {
       throw new BadRequestException('Не указана категория');
     }
     const startTime = Date.now();
-    this.logger.log(`🔍 Запрос продуктов: ${request.queries.length} запросов для категории ${request.category}`);
+    const queries = Array.isArray(request.queries) ? request.queries : [];
+    const queriesStr = queries.length === 1
+      ? queries[0]
+      : queries.join(', ');
+    this.logger.log(`🔍 Запрос продуктов: "${queriesStr}" для категории "${request.category}"`);
+    let t = Date.now();
 
     // 1. Агрегация
     const allProducts = await this.aggregator.fetchAllProducts(request);
-    this.logger.log(`📦 Получено ${allProducts.length} продуктов из всех источников`);
+    this.logger.log(`📦 Получено ${allProducts.length} продуктов из всех источников (+${Date.now() - t}ms)`);
+    t = Date.now();
 
     // 2. Валидация
-    const validProducts = this.validator.filterValid(allProducts, request.category);
+    const validationResults = await this.validator.validateProducts(allProducts, request.category as import('../validation.product/utils/validation-utils').ProductCategory);
+    // Пробрасываем результат валидации в каждый продукт
+    allProducts.forEach((product, i) => {
+      if (validationResults[i]) {
+        Object.assign(product, validationResults[i]);
+      }
+    });
+    this.logger.log(`⏱️ Валидация заняла ${Date.now() - t}ms`);
+    const validProducts = allProducts.filter((_, i) => validationResults[i]?.isValid);
     this.logger.log(`✅ Прошло валидацию: ${validProducts.length}/${allProducts.length} продуктов`);
+    t = Date.now();
 
     // 3. Группировка (по нормализованному ключу)
     const groupedProducts = this.grouper.groupAndSelectCheapest(
@@ -54,7 +68,9 @@ export class ProductsService {
       (product) => this.normalizer.getModelKey(product),
       request.category
     );
+    this.logger.log(`⏱️ Группировка заняла ${Date.now() - t}ms`);
     this.logger.log(`📊 Сгруппировано в ${groupedProducts.length} уникальных товаров`);
+    t = Date.now();
 
     // 3.1. Разделяем на обычные и требующие AI
     const aiNeeded = groupedProducts.filter(
@@ -67,8 +83,8 @@ export class ProductsService {
     let aiError: any = null;
     if (aiNeeded.length > 0) {
       try {
-        const validatorFactory = new UnifiedValidatorFactory(this.openaiService);
-        const allResults = await validatorFactory.validateProducts(aiNeeded, request.category);
+        // Используем тот же сервис валидации, что и для обычных продуктов
+        const allResults = await this.validator.validateProducts(aiNeeded, request.category as import('../validation.product/utils/validation-utils').ProductCategory);
         aiResults = allResults.filter((r: any) => r.isValid);
         this.logger.log(`[AI] Запросов к AI: ${aiNeeded.length}, успешно прошли: ${aiResults.length}`);
       } catch (err) {
@@ -76,6 +92,8 @@ export class ProductsService {
         this.logger.error(`[AI] Ошибка AI-валидации: ${err?.message || err}`);
       }
     }
+    this.logger.log(`⏱️ AI/доп.валидация заняла ${Date.now() - t}ms`);
+    t = Date.now();
 
     // Подменяем category на человекочитаемое название перед сохранением
     for (const product of passed) {
@@ -90,11 +108,14 @@ export class ProductsService {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
       }
     }
+    this.logger.log(`⏱️ Получение фото заняло ${Date.now() - t}ms`);
+    t = Date.now();
 
     // 4. Сохраняем продукты и историю цен в db-api (асинхронно)
     this.dbApiClient.batchCreateProducts([...passed, ...aiResults])
       .then(res => this.logger.log(`DB-API: inserted=${res.inserted}`))
       .catch(err => this.logger.error('Ошибка сохранения в db-api', err));
+    this.logger.log(`⏱️ Сохранение в DB-API вызвано через ${Date.now() - t}ms`);
 
     const processingTimeMs = Date.now() - startTime;
     this.logger.log(`✅ Готово: ${passed.length + aiResults.length} продуктов за ${processingTimeMs}ms`);

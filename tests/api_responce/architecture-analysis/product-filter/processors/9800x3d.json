@@ -10,15 +10,12 @@
         "product_url": "https://www.wildberries.ru/catalog/462057627/detail.aspx",
         "category": "processors",
         "source": "wb",
-        "query": "9800x3d",
-        "isValid": true,
-        "validationReason": "code-validated (query)",
-        "toAI": false
+        "query": "9800x3d"
       }
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 499,
+    "processing_time_ms": 381,
     "cache_hits": 0,
     "cache_misses": 0
   },

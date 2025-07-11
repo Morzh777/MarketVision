@@ -11,9 +11,9 @@ import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { EnhancedPriceAnomalyService } from './services/enhanced-price-anomaly.service';
-import { UnifiedValidatorFactory } from './validators/unified-validator.factory';
 import { ValidationConfigService } from './config/validation.config';
 import { OpenAiValidationService } from './services/openai.service';
+import { ValidationProductModule } from './validation.product/validation.product.module';
 
 @Module({
   imports: [
@@ -21,6 +21,7 @@ import { OpenAiValidationService } from './services/openai.service';
       isGlobal: true,
       envFilePath: '.env',
     }),
+    ValidationProductModule,
   ],
   controllers: [ProductsController],
   providers: [
@@ -33,9 +34,7 @@ import { OpenAiValidationService } from './services/openai.service';
     OzonApiClient,
     WbApiClient,
     DbApiClient,
-    // Новые сервисы для унифицированной валидации
     EnhancedPriceAnomalyService,
-    UnifiedValidatorFactory,
     ValidationConfigService,
     OpenAiValidationService,
   ],

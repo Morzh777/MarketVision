@@ -8,7 +8,7 @@ export class ProductGroupingService {
 
   groupAndSelectCheapest(products: any[], getModelKey: (product: any) => string, category: string = 'unknown'): any[] {
     if (!products.length) return [];
-    fileLogger.log(`Группировка ${products.length} продуктов...`);
+    // fileLogger.log(`Группировка ${products.length} продуктов...`);
     const groups = new Map<string, any[]>();
     for (const product of products) {
       const modelKey = getModelKey(product);
@@ -22,19 +22,36 @@ export class ProductGroupingService {
       const minPrice = Math.min(...prices);
       const maxPrice = Math.max(...prices);
       const avgPrice = Math.round(prices.reduce((a, b) => a + b, 0) / prices.length);
-      fileLogger.log(`Группа: ${modelKey} | товары: ${groupProducts.map(p => `[id:${p.id}, price:${p.price}, source:${p.source}, query:${p.query}]`).join(' ')} | min: ${minPrice}₽, max: ${maxPrice}₽, avg: ${avgPrice}₽`);
+      // Новый подробный лог по группе
+      fileLogger.log(`[ГРУППА] modelKey: ${modelKey} | товары: ${groupProducts.map(p => `[id:${p.id}, price:${p.price}, source:${p.source}, isValid:${p.isValid}]`).join(' ')} | min: ${minPrice}₽, max: ${maxPrice}₽, avg: ${avgPrice}₽`);
+      // fileLogger.log(`Группа: ${modelKey} | товары: ${groupProducts.map(p => `[id:${p.id}, price:${p.price}, source:${p.source}, query:${p.query}]`).join(' ')} | min: ${minPrice}₽, max: ${maxPrice}₽, avg: ${avgPrice}₽`);
       if (!groupProducts.length) continue;
       // Сортируем по цене по возрастанию
       const sortedByPrice = [...groupProducts].sort((a, b) => a.price - b.price);
       // Проверка на аномалию цены с помощью нового сервиса
       const anomalyResult = this.priceAnomalyService.detectAnomalies(sortedByPrice, category);
       let anomalyIds = anomalyResult.anomalousProducts.map(a => a.id);
-      // Если есть аномалии — помечаем их
+      // Если есть аномалии — confident-товарам только делаем пометку, остальным помечаем как аномалии
       sortedByPrice.forEach(product => {
         if (anomalyIds.includes(product.id)) {
-          product.toAI = true;
-          product.reason = 'price-anomaly';
+          if (product.isValid) {
+            product.marketPriceNote = 'Цена ниже рынка';
+          } else {
+            product.toAI = true;
+            product.reason = 'price-anomaly';
+          }
         }
+      });
+      // Добавляем marketStats ко всем товарам группы
+      const stats = anomalyResult.statistics;
+      sortedByPrice.forEach(product => {
+        product.marketStats = {
+          min: stats.priceRange.min,
+          max: stats.priceRange.max,
+          mean: stats.mean,
+          median: stats.median,
+          iqr: [stats.q1, stats.q3]
+        };
       });
       // Новый best practice: если самый дешёвый валидный не-аксессуар — всегда включаем
       const cheapest = sortedByPrice[0];
@@ -42,7 +59,7 @@ export class ProductGroupingService {
         cheapest &&
         (cheapest.validationReason?.includes('validated') || cheapest.isValid)
       ) {
-        fileLogger.log(`[ProductGroupingService] 🚩 Включаю самый дешёвый валидный не-аксессуар: ${cheapest.name} (id:${cheapest.id}, price:${cheapest.price}, validationReason:${cheapest.validationReason}, category:${category})`);
+        // fileLogger.log(`[ProductGroupingService] 🚩 Включаю самый дешёвый валидный не-аксессуар: ${cheapest.name} (id:${cheapest.id}, price:${cheapest.price}, validationReason:${cheapest.validationReason}, category:${category})`);
         // Сброс флагов аномалии!
         cheapest.toAI = false;
         if (cheapest.reason === 'price-anomaly') delete cheapest.reason;
@@ -66,7 +83,7 @@ export class ProductGroupingService {
         selectedProducts.push(selected);
       }
     }
-    fileLogger.log(`Группировка завершена: ${selectedProducts.length} уникальных товаров`);
+    // fileLogger.log(`Группировка завершена: ${selectedProducts.length} уникальных товаров`);
     return selectedProducts;
   }
 } 
