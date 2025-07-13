@@ -32,6 +32,9 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
   ],
   steam_deck: [
     'steam deck oled'
+  ],
+  iphone: [
+    'iphone 16 pro',
   ]
 };
 

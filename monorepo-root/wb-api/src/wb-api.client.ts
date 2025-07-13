@@ -43,6 +43,7 @@ export class WildberriesApiClientImpl implements WildberriesApiClient {
    */
   async searchProducts(query: string, xsubject: number): Promise<Product[]> {
     const url = `${this.CONFIG.WB_API_URL}?ab_testid=pricefactor_2&appType=64&curr=rub&dest=-1185367&hide_dtype=13&lang=ru&page=1&query=${encodeURIComponent(query)}&resultset=catalog&sort=priceup&spp=30&suppressSpellcheck=false&xsubject=${xsubject}`;
+    this.logger.log(`[WB-API] FINAL URL: ${url}`);
     
     const response = await fetch(url, {
       headers: { 'User-Agent': this.CONFIG.USER_AGENT },

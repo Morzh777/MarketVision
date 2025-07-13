@@ -4,6 +4,6 @@ import { OpenAiValidationService } from '../services/openai.service';
 
 @Module({
   providers: [UnifiedHybridValidator, OpenAiValidationService],
-  exports: [UnifiedHybridValidator],
+  exports: [UnifiedHybridValidator, OpenAiValidationService],
 })
 export class ValidationProductModule {}

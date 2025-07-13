@@ -80,7 +80,7 @@ class OzonParser:
                 print(f"❌ Ошибка создания драйвера: {e}")
                 raise
     
-    def _build_api_url(self, query: str, category_slug: str, platform_id: str = None) -> str:
+    def _build_api_url(self, query: str, category_slug: str, platform_id: str = None, exactmodels: str = None) -> str:
         """Построение URL для API запроса"""
         # Кодируем запрос для URL
         encoded_query = query.replace(" ", "+")
@@ -91,6 +91,7 @@ class OzonParser:
         # Используем переданный category_slug (как в WB API)
         print(f"🎯 Используем slug категории: {category_slug} для запроса '{query}'")
         print(f"🎮 Получен platform_id: {platform_id} (тип: {type(platform_id)})")
+        print(f"🔎 Получен exactmodels: {exactmodels}")
         
         # Параметры запроса (приведены в соответствие с рабочей ссылкой)
         url_param = f"/category/{category_slug}/?__rr=1&category_was_predicted=true&deny_category_prediction=true&from_global=true&page=1&sorting=price&text={encoded_query}"
@@ -101,19 +102,24 @@ class OzonParser:
             print(f"🎮 Добавляем платформу: {platform_id}")
         else:
             print(f"⚠️ platform_id не указан или пустой")
+        # Добавляем exactmodels если указан
+        if exactmodels:
+            url_param += f"&exactmodels={exactmodels}"
+            print(f"🔎 Добавляем exactmodels: {exactmodels}")
         
         # Строим URL (кодируем только url параметр)
         full_url = f"{base_url}?url={urllib.parse.quote(url_param)}"
-        print(f"🔗 Сгенерированный URL: {full_url}")
+        print(f"[OZON-API] FINAL URL: {full_url}")
         return full_url
     
-    async def get_products(self, query: str, category_slug: str, platform_id: str = None) -> List[Product]:
+    async def get_products(self, query: str, category_slug: str, platform_id: str = None, exactmodels: str = None) -> List[Product]:
         """Получение продуктов по запросу"""
         start_time = time.time()
         print(f"🔍 Парсинг Ozon для запроса: {query} в категории {category_slug}")
         if platform_id:
             print(f"🎮 С платформой: {platform_id}")
-        
+        if exactmodels:
+            print(f"🔎 С exactmodels: {exactmodels}")
         max_retries = 3
         for attempt in range(max_retries):
             try:
@@ -122,7 +128,7 @@ class OzonParser:
                 # Инициализация драйвера
                 await self._init_driver()
                 
-                url = self._build_api_url(query, category_slug, platform_id)
+                url = self._build_api_url(query, category_slug, platform_id, exactmodels)
                 print(f"🌐 Переходим на API endpoint для запроса: {query}")
                 print(f"📡 URL: {url}")
                 

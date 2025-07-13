@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2293676702",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, русский язык",
+        "price": 36461,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7628181650.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-russkiy-yazyk-2293676702/?at=r2t4yOD21SyQgqvvuOjmBx6C26R4JDfOy8wNGh0QkmGL",
+        "category": "nintendo_switch",
+        "source": "ozon",
+        "query": "nintendo switch 2",
+        "isValid": true,
+        "reason": "switch-2-match",
+        "confidence": 1,
+        "marketStats": {
+          "min": 36461,
+          "max": 191923,
+          "mean": 49071.04347826087,
+          "median": 48687,
+          "iqr": [
+            39940,
+            56538
+          ]
+        },
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 312,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "nintendo switch 2",
+  "category": "nintendo_switch"
+}

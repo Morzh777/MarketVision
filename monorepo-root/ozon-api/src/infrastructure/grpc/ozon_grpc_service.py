@@ -36,6 +36,9 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         platform_id: Optional[str] = getattr(request, 'platform_id', None)
         if not platform_id:
             platform_id = None
+        exactmodels: Optional[str] = getattr(request, 'exactmodels', None)
+        if not exactmodels:
+            exactmodels = None
         
         # Валидация входных данных
         if not query or not query.strip():
@@ -65,7 +68,7 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
                     products=[], total_count=0, source="ozon"
                 )
             
-            products = await self.parser_service.parse_products(query, category, platform_id)
+            products = await self.parser_service.parse_products(query, category, platform_id, exactmodels)
             grpc_products = []
             
             for product in products:

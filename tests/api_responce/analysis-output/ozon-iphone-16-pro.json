@@ -1,0 +1,372 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1936243713",
+        "name": "Apple Смартфон iPhone 16 pro (совершенно новый, поддерживает Face Time, в комплекте бесплатное закаленное стекло и чехол) CN 8&#x2F;128 ГБ, перламутровый",
+        "price": 70859,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7393595960.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-sovershenno-novyy-podderzhivaet-face-time-v-komplekte-1936243713/?at=vQtrJZyA2tj84zQvhPZmpEAF4436qrtRqQPn3Inv65jD",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1936244026",
+        "name": "Apple Смартфон iPhone 16 pro (совершенно новый, поддерживает Face Time, в комплекте бесплатное закаленное стекло и чехол) CN 8&#x2F;128 ГБ, белый",
+        "price": 70859,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7393596953.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-sovershenno-novyy-podderzhivaet-face-time-v-komplekte-1936244026/?at=XQtklZMOqhVMJ00MFnp5MPfX7rRgghM1lzg1hXvK86R",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1936243861",
+        "name": "Apple Смартфон iPhone 16 pro (совершенно новый, поддерживает Face Time, в комплекте бесплатное закаленное стекло и чехол) CN 8&#x2F;128 ГБ, золотой",
+        "price": 70859,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7393597327.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-sovershenno-novyy-podderzhivaet-face-time-v-komplekte-1936243861/?at=qQtJgv7Xzc1V3Qykf0YplBWiL493ONfXL5PRYFpy2p2P",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1936243719",
+        "name": "Apple Смартфон iPhone 16 pro (совершенно новый, поддерживает Face Time, в комплекте бесплатное закаленное стекло и чехол) CN 8&#x2F;128 ГБ, черный",
+        "price": 70859,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7393597889.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-sovershenno-novyy-podderzhivaet-face-time-v-komplekte-1936243719/?at=6WtZRJGy1SQnygvNhPZg5Qmfz4MnXVI3l4WpGU3K7rKp",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2195996713",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, черный матовый",
+        "price": 70923,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7652955462.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-chernyy-matovyy-2195996713/?at=vQtrJZyA2tQqRjOpC0RGE2Xuj1qpXMSEkDl9JCMpL7OG",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2195986869",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, светло-серый",
+        "price": 70923,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7652955464.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-svetlo-seryy-2195986869/?at=vQtrJZyA2tE5qkVOc1nwVW9F137yWZF0PmDk7sJxzjxr",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2195976466",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, бежевый",
+        "price": 70923,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7652955457.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-bezhevyy-2195976466/?at=WPtN18yDPcvkpnq2uKXoozzFWWQyjqCoy4E93TBJQ06X",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2196006682",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, слоновая кость",
+        "price": 70923,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-5/7652955425.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-slonovaya-kost-2196006682/?at=BrtzxNl8MuAM20jDFYXZ3zmf03AjG7hZQNoRNTy2B09V",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2207548871",
+        "name": "Apple Смартфон Apple iPhone 16 Pro 128 Гб Black Titanium черный dualsim CN 8&#x2F;128 ГБ, черный, черно-серый",
+        "price": 71368,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7212285013.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-128-gb-black-titanium-chernyy-dualsim-cn-8-128-gb-chernyy-2207548871/?at=oZt6AmKvBhrKpp1mHRyqKOGIDY3KlZC761B0MsyMGJ5o",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2207550568",
+        "name": "Apple Смартфон Apple iPhone 16 Pro 128 Гб Desert Titanium пустынный dualsim CN 8&#x2F;128 ГБ, золотой",
+        "price": 71368,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7153945255.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-128-gb-desert-titanium-pustynnyy-dualsim-cn-8-128-gb-zolotoy-2207550568/?at=99trJjY2MtplXP1PC9Jy0WlH28PBjmImAYNErUPR9xGx",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2366888008",
+        "name": "Apple Смартфон iPhone 16 Pro Dual SIM 128 ГБ, белый",
+        "price": 71417,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7244569280.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-dual-sim-128-gb-belyy-2366888008/?at=LZtl02YQmi2BD9pPtxmKn1YTMvArXWT2oL7P7I70LKr0",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2366878779",
+        "name": "Apple Смартфон iPhone 16 Pro Dual SIM 128 ГБ, светло-серый",
+        "price": 71417,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7249033620.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-dual-sim-128-gb-svetlo-seryy-2366878779/?at=QktJnLNo3cPzzmVPhq54L7jI6YVWMvUpGwwPXcRAy8k7",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2366836324",
+        "name": "Apple Смартфон iPhone 16 Pro Dual SIM 128 ГБ, бежевый",
+        "price": 71556,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7293710744.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-dual-sim-128-gb-bezhevyy-2366836324/?at=46tRZx7lmTBPoX8qc3B1JgmiB7XY1JiDq51JYHxlO31D",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2366817829",
+        "name": "Apple Смартфон iPhone 16 Pro Dual SIM 128 ГБ, черный",
+        "price": 71764,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7654349316.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-dual-sim-128-gb-chernyy-2366817829/?at=PjtJBn53ocJgXn3Mf809ogQfDpApWlSpoP30ZuN2Rg4L",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691895674",
+        "name": "Apple Смартфон Apple iphone 16 Pro CN 8&#x2F;128 ГБ, серый металлик",
+        "price": 71863,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7133534452.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-cn-8-128-gb-seryy-metallik-1691895674/?at=QktJnLNo3ck5VxnXF2yoZEf5837Rlsz7ZBW9hZyR9WL",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691895652",
+        "name": "Apple Смартфон Apple iphone 16 Pro CN 8&#x2F;128 ГБ, золотой",
+        "price": 71863,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7133534755.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-cn-8-128-gb-zolotoy-1691895652/?at=Eqtkwj6pghqGG6olsGJZ9oQcAoYKRlsrkN3pJfEEnxgJ",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691895782",
+        "name": "Apple Смартфон Apple iphone 16 Pro CN 8&#x2F;128 ГБ, черный",
+        "price": 71863,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7133534478.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-cn-8-128-gb-chernyy-1691895782/?at=57twy1W6xcNXz3pOTLYR63JFOV8QKws599ormTNN8p2",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691895744",
+        "name": "Apple Смартфон Apple iphone 16 Pro CN 8&#x2F;128 ГБ, белый",
+        "price": 71863,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7133534433.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-apple-iphone-16-pro-cn-8-128-gb-belyy-1691895744/?at=DqtD7ZO3nH7rrDDwc4ZKx2ZHz7Q6EWcmM0Ynjf8ZZyl7",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1966636801",
+        "name": "Apple Смартфон iPhone 16 Pro 128 ГБ,  абсолютно новый, неактивированный, CN 8&#x2F;128 ГБ, черный",
+        "price": 72267,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7595853781.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-128-gb-absolyutno-novyy-neaktivirovannyy-cn-8-128-gb-chernyy-1966636801/?at=PjtJBn53ocQQA17BfVKWK3rC7YYRVmHyKMVgQtlL2Y0K",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2125889537",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, черный матовый",
+        "price": 72372,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7144047210.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-2125889537/?at=WPtN18yDPc0418EAF3W5rQZToyJQgPcJgEPyOcNDJYMX",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1692028822",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, белый",
+        "price": 72372,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-2/7144047038.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1692028822/?at=RltywXg5RhPzxjJyF5NLxYlTNoOpJOi20OD14HQvAk1r",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1692029100",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, золотой",
+        "price": 72372,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7144047064.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1692029100/?at=08tYnzrmMc8WjM9ltkxZzVyUQ73ADqFo2Y8zYFjNYRr4",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1692029011",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, серый металлик",
+        "price": 72372,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7144047187.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-1692029011/?at=28t0LQE8RS08jP0VFm8qkEAfDrLWVIl5R8VWhnNE4jG",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2110163481",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, черный, черно-серый",
+        "price": 72403,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7652955462.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-chernyy-cherno-seryy-2110163481/?at=w0tg5nRyAh3Kl5VQt0zx7vQU4pGj0vsPNE1NJh6K645N",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2110362119",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, золотой",
+        "price": 72403,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7652955457.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-zolotoy-2110362119/?at=nRtr4V6mKtzopwrOU3DgngrSX2ZwknhDk4zQrhLm4Bx",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2110195106",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, серый",
+        "price": 72403,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-8/7652955464.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-seryy-2110195106/?at=k2toDvq5rsZjErwF089Z1BFZRXq4nHkOJR9sRAMvKP",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "2110181633",
+        "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, белый",
+        "price": 72403,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7526858371.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-belyy-2110181633/?at=Eqtkwj6pghoWEzLohzlVq04iponjYlsx02jJJC2g1EBv",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691973825",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, серый металлик",
+        "price": 72578,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-j/7144144759.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-1691973825/?at=79tnrYWZQFEXJpBphzM1LpqHyo9pMkCmgXV48SpnEyLQ",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691974961",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, белый",
+        "price": 72578,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7144144774.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691974961/?at=K8tZQkr4BS24krLYhyprlw3UELkm8jcVq4M1Wh1qkENm",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691974185",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, черный",
+        "price": 72578,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7144144769.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691974185/?at=QktJnLNo3c1nVJ2lhv2MjwGS41EWEJhDwZq2GUJjJ9Kl",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691973906",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, золотой",
+        "price": 72578,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-m/7144144762.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691973906/?at=GRt2r9LA0sWgXmERfy1nOZnSz8zR6miMoj3APSpOY35J",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691288293",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, золотой",
+        "price": 72649,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7612908350.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691288293/?at=DqtD7ZO3nH83zN7NcWq87KGHyz2r21UowMyYYURJ0JGV",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691288030",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, белый",
+        "price": 72649,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7612910077.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691288030/?at=qQtJgv7XzcWnDB5AcBZlZ09UJ00Wl9UggQLKgsovD6rA",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691302582",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, серый металлик",
+        "price": 72649,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7612905585.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-1691302582/?at=jYtZz0yR3SWpmkjLtEw1328i6jN59qCrpO2ZYfQR9WOx",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691288198",
+        "name": "Apple Смартфон iphone 16 Pro NFC Поддержка русского языка+Двойной Nano Sim(без eSIM)6.3 &#34;OLED Диспле CN 8&#x2F;128 ГБ, черный",
+        "price": 72649,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7612909093.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-nfc-podderzhka-russkogo-yazyka-dvoynoy-nano-sim-bez-esim-6-3-oled-1691288198/?at=DqtD7ZO3nH9XJ1QDc45oPJYuj4mo52sGKAoMyi4n2772",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      },
+      {
+        "id": "1691878351",
+        "name": "Apple Смартфон iPhone16 Pro CN (A3294) чип A18 Pro 6,3-дюймовый дисплей Super Retina XDR Поддержать русский язык CN 8&#x2F;128 ГБ, черный",
+        "price": 72970,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-4/7141265860.jpg",
+        "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone16-pro-cn-a3294-chip-a18-pro-6-3-dyuymovyy-displey-super-retina-xdr-1691878351/?at=PjtJBn53ocZ37oX1tK156Jzcq13o74IzQMLrPIAVAoND",
+        "category": "iphone",
+        "source": "ozon",
+        "query": "iphone 16 pro"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "iphone 16 pro",
+  "category": "iphone",
+  "platform_id": null
+}

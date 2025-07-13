@@ -33,8 +33,11 @@ const testQueries = {
   // nintendo_switch: [
   //   'nintendo switch 2',
   // ],
-  steam_deck: [
-    'steam deck oled'
+  // steam_deck: [
+  //   'steam deck oled'
+  // ],
+  iphone: [
+    'iphone 16 pro',
   ]
 };
 

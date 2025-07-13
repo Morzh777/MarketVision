@@ -32,6 +32,7 @@ export interface FilterProductsRequest {
   config: FilterConfig;
   source: string;
   category: string;
+  exactmodels?: string; // <-- добавлено поле для фильтрации по модели
 }
 
 export interface FilterProductsResponse {

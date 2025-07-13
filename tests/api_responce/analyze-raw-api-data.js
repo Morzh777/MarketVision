@@ -29,9 +29,9 @@ const testQueries = {
     'B850'
   ],
   playstation: [
-    'PlayStation 5',
-    'PS5',
-    'PlayStation 5 Slim'
+    'playstation 5',
+    'playstation 5 pro',
+
   ],
   playstation_accessories: [
     'Дисковод Sony для Playstation 5 Pro',
@@ -39,6 +39,12 @@ const testQueries = {
   nintendo_switch: [
     'nintendo switch 2',
     'nintendo switch oled',
+  ],
+  steam_deck: [
+    'steam deck oled',
+  ],
+  iphone: [
+    'iphone 16 pro',
   ]
 };
 
@@ -60,13 +66,18 @@ const CATEGORY_MAP = {
   motherboards: { ozon: 'materinskie-platy-15725', wb: '3690' },
   playstation: { ozon: 'konsoli-playstation-31751/playstation-79966341', wb: '8829' },
   playstation_accessories: { ozon: 'aksessuary-dlya-igrovyh-pristavok-15810', wb: '5923' },
-  nintendo_switch: { ozon: 'igrovye-pristavki-15801/nintendo-26667979', wb: '523' }
+  nintendo_switch: { ozon: 'igrovye-pristavki-15801/nintendo-26667979', wb: '523' },
+  steam_deck: { ozon: 'igrovye-pristavki-15801/valve-84099638', wb: '523' },
+  iphone: { ozon: 'smartfony-15502/apple-26303000', wb: '515' }
 };
 
 // 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ (как в Product-Filter-Service)
 const QUERY_PLATFORMS = {
   'nintendo switch 2': '101858153',
   'nintendo switch oled': '101858153',
+};
+const EXACT_MODELS = {
+  'iphone 16 pro': '101218714',
 };
 
 function getPlatformId(query) {
@@ -91,7 +102,7 @@ function sanitizeFilename(query) {
 
 async function testWBApi(categoryKey, query) {
   console.log(`🔍 WB API gRPC: ${categoryKey} - "${query}"`);
-  
+  const exactmodels = EXACT_MODELS[query];
   return new Promise((resolve) => {
     const client = new rawProductService.RawProductService(
       WB_API_GRPC_URL,
@@ -101,7 +112,8 @@ async function testWBApi(categoryKey, query) {
     const request = {
       query: query,
       category: CATEGORY_MAP[categoryKey].wb,
-      categoryKey
+      categoryKey,
+      ...(exactmodels && { exactmodels })
     };
 
     client.GetRawProducts(request, (error, response) => {
@@ -125,7 +137,6 @@ async function testWBApi(categoryKey, query) {
           category: categoryKey
         });
       }
-      
       client.close();
     });
   });
@@ -133,26 +144,24 @@ async function testWBApi(categoryKey, query) {
 
 async function testOzonApi(categoryKey, query) {
   console.log(`🔍 Ozon API gRPC: ${categoryKey} - "${query}"`);
-  
   // Определяем платформу для запроса
   const platformId = getPlatformId(query);
+  const exactmodels = EXACT_MODELS[query];
   if (platformId) {
     console.log(`🎮 Найдена платформа для "${query}": ${platformId}`);
   }
-  
   return new Promise((resolve) => {
     const client = new rawProductService.RawProductService(
       OZON_API_GRPC_URL,
       grpc.credentials.createInsecure()
     );
-
     const request = {
       query: query,
       category: CATEGORY_MAP[categoryKey].ozon,
       categoryKey,
-      platform_id: platformId || undefined
+      ...(platformId && { platform_id: platformId }),
+      ...(exactmodels && { exactmodels })
     };
-
     client.GetRawProducts(request, (error, response) => {
       if (error) {
         console.error(`❌ Ozon API gRPC error for "${query}":`, error.message);
@@ -176,7 +185,6 @@ async function testOzonApi(categoryKey, query) {
           platform_id: platformId
         });
       }
-      
       client.close();
     });
   });

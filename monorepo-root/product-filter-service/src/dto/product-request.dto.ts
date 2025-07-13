@@ -14,4 +14,8 @@ export class ProductRequestDto {
   @IsArray()
   @IsString({ each: true })
   exclude_keywords?: string[];
+
+  @IsOptional()
+  @IsString()
+  exactmodels?: string;
 } 

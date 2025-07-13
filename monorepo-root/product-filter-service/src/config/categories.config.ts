@@ -32,12 +32,21 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
     ozon: 'igrovye-pristavki-15801/valve-84099638',
     wb: '523'
   },
+  iphone: {
+    ozon: 'smartfony-15502/apple-26303000',
+    wb: '515' // примерный WB id, замени на актуальный если есть
+  },
 };
 
-// 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ
+// 🎮 ПЛАТФОРМЫ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ озон
 export const QUERY_PLATFORMS: Record<string, string> = {
   'nintendo switch 2': '101858153',
-  'nintendo switch oled': '101858153'
+  'nintendo switch oled': '101858153',
+};
+
+// 🎯 МОДЕЛИ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ (exactmodels)
+export const QUERY_EXACTMODELS: Record<string, string> = {
+  'iphone 16 pro': '101218714',
 };
 
 // 🔧 УТИЛИТЫ ДЛЯ РАБОТЫ С КОНФИГУРАЦИЕЙ
@@ -89,5 +98,12 @@ export class CategoryConfigService {
    */
   static getQueriesWithPlatforms(): string[] {
     return Object.keys(QUERY_PLATFORMS);
+  }
+
+  /**
+   * Получить exactmodels для запроса
+   */
+  static getExactModelsForQuery(query: string): string | undefined {
+    return QUERY_EXACTMODELS[query];
   }
 } 

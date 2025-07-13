@@ -59,13 +59,18 @@ export class ProductAggregatorService {
             if (platformId) {
               extra.platform_id = platformId;
             }
+            const exactmodels = CategoryConfigService.getExactModelsForQuery(query);
+            if (exactmodels) {
+              extra.exactmodels = exactmodels;
+            }
           }
           const response = await client.filterProducts({
             query,
             all_queries: [query],
             category,
             ...extra,
-            exclude_keywords: request.exclude_keywords || []
+            exclude_keywords: request.exclude_keywords || [],
+            ...(request.exactmodels ? { exactmodels: request.exactmodels } : {}) // <-- прокидываем exactmodels
           });
           if (response.products && Array.isArray(response.products) && response.products.length > 0) {
             const productsWithSource = response.products.map((product: any) => ({

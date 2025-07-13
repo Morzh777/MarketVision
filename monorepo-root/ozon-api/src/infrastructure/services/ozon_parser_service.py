@@ -16,7 +16,8 @@ class OzonParserService(ParserService):
         self, 
         query: str, 
         category_slug: str, 
-        platform_id: Optional[str] = None
+        platform_id: Optional[str] = None,
+        exactmodels: Optional[str] = None
     ) -> List[Product]:
         """
         Парсить продукты с Ozon
@@ -25,10 +26,11 @@ class OzonParserService(ParserService):
             query: Поисковый запрос
             category_slug: Слаг категории
             platform_id: ID платформы (опционально)
-            
+            exactmodels: ID модели (опционально)
+        
         Returns:
             Список продуктов
-            
+        
         Raises:
             ValueError: При некорректных входных данных
             RuntimeError: При ошибках парсинга
@@ -44,9 +46,11 @@ class OzonParserService(ParserService):
             
             if platform_id:
                 print(f"🎮 Получена платформа от Product-Filter-Service: {platform_id}")
+            if exactmodels:
+                print(f"🔎 Получен exactmodels от Product-Filter-Service: {exactmodels}")
             
             # Получаем продукты напрямую через парсер
-            products = await self.parser.get_products(query, category_slug, platform_id)
+            products = await self.parser.get_products(query, category_slug, platform_id, exactmodels)
             
             print(f"✅ Парсинг завершен. Найдено {len(products)} продуктов")
             return products

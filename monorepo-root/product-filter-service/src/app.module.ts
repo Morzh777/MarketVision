@@ -11,8 +11,6 @@ import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { EnhancedPriceAnomalyService } from './services/enhanced-price-anomaly.service';
-import { ValidationConfigService } from './config/validation.config';
-import { OpenAiValidationService } from './services/openai.service';
 import { ValidationProductModule } from './validation.product/validation.product.module';
 
 @Module({
@@ -21,7 +19,7 @@ import { ValidationProductModule } from './validation.product/validation.product
       isGlobal: true,
       envFilePath: '.env',
     }),
-    ValidationProductModule,
+    ValidationProductModule, // Подключаем модуль валидации (экспортирует UnifiedHybridValidator)
   ],
   controllers: [ProductsController],
   providers: [
@@ -35,8 +33,7 @@ import { ValidationProductModule } from './validation.product/validation.product
     WbApiClient,
     DbApiClient,
     EnhancedPriceAnomalyService,
-    ValidationConfigService,
-    OpenAiValidationService,
+    // OpenAiValidationService — не нужен тут, он уже есть в ValidationProductModule
   ],
 })
 export class AppModule {} 

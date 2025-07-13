@@ -11,6 +11,7 @@ message GetRawProductsRequest {
   string query = 1;
   string category = 2; // 'videocards', 'processors', 'motherboards'
   string platform_id = 3; // ID платформы (например, '101858153' для Nintendo)
+  string exactmodels = 4; // <-- новое поле для фильтрации по модели
 }
 
 message RawProduct {
