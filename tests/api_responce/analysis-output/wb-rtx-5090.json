@@ -1,0 +1,131 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "449606195",
+        "name": "V100 32GB NVLINK",
+        "price": 81976,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449606195/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "423579540",
+        "name": "Видеокарта PCI-E 5.0 RTX5090",
+        "price": 259366,
+        "image_url": "https://images.wbstatic.net/c516x688/13.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423579540/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "423579523",
+        "name": "Видеокарта PCI-E 5.0 RTX5090",
+        "price": 269252,
+        "image_url": "https://images.wbstatic.net/c516x688/12.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423579523/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "438236395",
+        "name": "Видеокарта RTX 5090 GAMEROCK 32GB (NE75090019R5-GB2020G)",
+        "price": 279499,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438236395/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "438243988",
+        "name": "Видеокарта RTX 5090 GAMEROCK 32GB (NE75090019R5-GB2020G)",
+        "price": 279499,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438243988/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "423284860",
+        "name": "Видеокарта RTX 5090 Gaming OC, 32 GB",
+        "price": 356345,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/423284860/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "421580448",
+        "name": "Видеокарта GeForce RTX 5090 GAMING OC",
+        "price": 369641,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421580448/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "462974589",
+        "name": "Видеокарта GeForce RTX 5090 32 Гб",
+        "price": 384713,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/462974589/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "460070312",
+        "name": "Видеокарта GeForce RTX 5090 32 Гб",
+        "price": 406413,
+        "image_url": "https://images.wbstatic.net/c516x688/11.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/460070312/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "438673644",
+        "name": "Видеокарта GeForce RTX 5090 32 Гб",
+        "price": 406674,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/438673644/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "445937125",
+        "name": "Видеокарта NVIDIA GeForce RTX 5090 GameRock 32Gb",
+        "price": 312894,
+        "image_url": "https://images.wbstatic.net/c516x688/10.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445937125/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      },
+      {
+        "id": "440701890",
+        "name": "Видеокарта NVIDIA GeForce RTX 5090 GameRock OC 32ГБ",
+        "price": 338726,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/440701890/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5090"
+      }
+    ],
+    "total_count": 12,
+    "source": "wb"
+  },
+  "query": "rtx 5090",
+  "category": "videocards"
+}

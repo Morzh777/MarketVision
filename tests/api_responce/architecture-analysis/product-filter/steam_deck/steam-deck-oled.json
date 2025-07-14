@@ -7,7 +7,7 @@
         "name": "Портативная игровая консоль Steam Deck OLED 16 ГБ + 512 ГБ, 7.4 -дюймовый OLED экран",
         "price": 44791,
         "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7209292833.jpg",
-        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-konsol-steam-deck-oled-16-gb-512-gb-7-4-dyuymovyy-oled-ekran-2223511261/?at=gpt4vJYGmSZkoGXLUqXjGvBtAPn5W9SD0oE49tzzqq4D",
+        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-konsol-steam-deck-oled-16-gb-512-gb-7-4-dyuymovyy-oled-ekran-2223511261/?at=mqtkVyKAEhl2LXnjinWwNvNuDBZqN5SJrm3oPtrn8zDn",
         "category": "steam_deck",
         "source": "ozon",
         "query": "steam deck oled",
@@ -16,11 +16,11 @@
         "confidence": 0.95,
         "marketStats": {
           "min": 44791,
-          "max": 132580,
-          "mean": 60654.51388888889,
-          "median": 57857.5,
+          "max": 265261,
+          "mean": 60605.97260273973,
+          "median": 58589,
           "iqr": [
-            56129,
+            56064,
             68640
           ]
         },
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 411,
+    "processing_time_ms": 850,
     "cache_hits": 0,
     "cache_misses": 0
   },

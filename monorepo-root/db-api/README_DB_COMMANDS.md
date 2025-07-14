@@ -26,12 +26,15 @@ docker exec -it db-api-postgres-1 psql -U postgres
 ```sql
 SELECT * FROM "Product";
 SELECT * FROM "PriceHistory";
+SELECT * FROM "MarketStats";
 ```
 
 ### Удалить все данные из таблицы
 ```sql
+
 DELETE FROM "Product";
 DELETE FROM "PriceHistory";
+DELETE FROM "MarketStats";
 ```
 
 ### Выйти из psql
@@ -60,3 +63,48 @@ psql -h localhost -U postgres -d postgres
 ---
 
 **Если будут ошибки или вопросы — смотри этот файл или обратись к AI!** 
+
+### Посмотреть структуру всех таблиц
+```sql
+\dt+ 
+```
+
+### Посмотреть структуру конкретной таблицы (описание колонок)
+```sql
+\d+ "Product"
+\d+ "PriceHistory"
+\d+ "MarketStats"
+```
+
+### Посмотреть индексы таблицы
+```sql
+\di
+```
+
+### Посмотреть связи (foreign keys)
+```sql
+SELECT
+  tc.table_schema, 
+  tc.constraint_name, 
+  tc.table_name, 
+  kcu.column_name, 
+  ccu.table_schema AS foreign_table_schema,
+  ccu.table_name AS foreign_table_name,
+  ccu.column_name AS foreign_column_name 
+FROM 
+  information_schema.table_constraints AS tc 
+  JOIN information_schema.key_column_usage AS kcu
+    ON tc.constraint_name = kcu.constraint_name
+    AND tc.table_schema = kcu.table_schema
+  JOIN information_schema.constraint_column_usage AS ccu
+    ON ccu.constraint_name = tc.constraint_name
+    AND ccu.table_schema = tc.table_schema
+WHERE tc.constraint_type = 'FOREIGN KEY';
+``` 
+
+### Глобальная очистка всех таблиц
+```sql
+DELETE FROM "Product";
+DELETE FROM "PriceHistory";
+DELETE FROM "MarketStats";
+``` 

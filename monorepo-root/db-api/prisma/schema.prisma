@@ -23,6 +23,9 @@ model Product {
   category      String
   source        String
   query         String
+  is_valid      Boolean?       @map("is_valid")
+  reason        String?        @map("reason")
+  confidence    Float?         @map("confidence")
   created_at    DateTime       @default(now()) @map("created_at")
   price_history PriceHistory[] @relation("ProductToPriceHistory")
 }
@@ -35,4 +38,19 @@ model PriceHistory {
   price      Int
   created_at DateTime @default(now()) @map("created_at")
   product    Product? @relation(fields: [product_id], references: [id], name: "ProductToPriceHistory")
+}
+
+model MarketStats {
+  id              Int      @id @default(autoincrement())
+  product_id      String?
+  query           String
+  category        String
+  source          String
+  min             Int
+  max             Int
+  mean            Float
+  median          Float
+  iqr             Json
+  total_count     Int
+  created_at      DateTime @default(now())
 }

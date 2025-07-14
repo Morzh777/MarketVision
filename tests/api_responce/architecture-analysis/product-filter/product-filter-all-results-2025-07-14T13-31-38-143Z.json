@@ -1,0 +1,13 @@
+{
+  "iphone": {
+    "iphone 16 pro": {
+      "success": true,
+      "data": {
+        "statusCode": 500,
+        "message": "Ошибка поиска продуктов: 13 INTERNAL: Error deserializing request: index out of range: 424 + 4 > 424"
+      },
+      "query": "iphone 16 pro",
+      "category": "iphone"
+    }
+  }
+}

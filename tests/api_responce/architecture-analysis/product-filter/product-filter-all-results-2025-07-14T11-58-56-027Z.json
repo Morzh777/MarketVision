@@ -1,0 +1,643 @@
+{
+  "videocards": {
+    "rtx 5070": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "381489443",
+            "name": "Видеокарта Radeon RX 7600 GAMING OC 8G",
+            "price": 26892,
+            "image_url": "https://basket-22.wbbasket.ru/vol3814/part381489/381489443/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/381489443/detail.aspx",
+            "category": "videocards",
+            "source": "wb",
+            "query": "rtx 5070",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 26892,
+              "max": 72850,
+              "mean": 66490.20183486238,
+              "median": 66650,
+              "iqr": [
+                63759,
+                69739
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 2720,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5070",
+      "category": "videocards"
+    },
+    "rtx 5070 ti": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "393679964",
+            "name": "AX Gaming GeForce RTX 5070 X3W Видеокарта",
+            "price": 68583,
+            "image_url": "https://basket-23.wbbasket.ru/vol3936/part393679/393679964/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/393679964/detail.aspx",
+            "category": "videocards",
+            "source": "wb",
+            "query": "rtx 5070 ti",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 68583,
+              "max": 239147,
+              "mean": 104767.51546391753,
+              "median": 104417,
+              "iqr": [
+                97397,
+                115377
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 5113,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5070 ti",
+      "category": "videocards"
+    },
+    "rtx 5080": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2245838324",
+            "name": "GALAX Видеокарта GeForce RTX 4060 Ti 8 ГБ (489514757146)",
+            "price": 38635,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7599286942.jpg",
+            "product_url": "https://www.ozon.ru/product/galax-videokarta-geforce-rtx-4060-ti-8-gb-489514757146-2245838324/?at=jYtZzoM3psgz2lN3uQq3k8JuY95DAwcpGMEY2CGQvLM3",
+            "category": "videocards",
+            "source": "ozon",
+            "query": "rtx 5080",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 38635,
+              "max": 247721,
+              "mean": 139611.22988505746,
+              "median": 138011,
+              "iqr": [
+                131328,
+                156801
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 823,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5080",
+      "category": "videocards"
+    },
+    "rtx 5090": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2463576572",
+            "name": "Palit Видеокарта GeForce RTX 5090 GameRock 32 ГБ (NE75090019R5-GB2020G). Уцененный товар",
+            "price": 233992,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7663295652.jpg",
+            "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5090-gamerock-32-gb-ne75090019r5-gb2020g-utsenennyy-tovar-2463576572/?at=w0tg5lzAYFmrqyOEF105AYAFnQV8RpI1mrBRmtoryQpK",
+            "category": "videocards",
+            "source": "ozon",
+            "query": "rtx 5090",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 233992,
+              "max": 610006,
+              "mean": 326281.4375,
+              "median": 315600.5,
+              "iqr": [
+                279499,
+                375420
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 343,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "rtx 5090",
+      "category": "videocards"
+    }
+  },
+  "processors": {
+    "7800x3d": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "461328222",
+            "name": "Ryzen 7 7800X3D OEM",
+            "price": 28801,
+            "image_url": "https://basket-26.wbbasket.ru/vol4613/part461328/461328222/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/461328222/detail.aspx",
+            "category": "processors",
+            "source": "wb",
+            "query": "7800x3d",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 28801,
+              "max": 910000,
+              "mean": 35633.34328358209,
+              "median": 35445,
+              "iqr": [
+                33281,
+                39001
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 2113,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "7800x3d",
+      "category": "processors"
+    },
+    "9800x3d": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "435650497",
+            "name": "Процессор CPU Ryzen 7 9800X3D OEM",
+            "price": 43265,
+            "image_url": "https://basket-25.wbbasket.ru/vol4356/part435650/435650497/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/435650497/detail.aspx",
+            "category": "processors",
+            "source": "wb",
+            "query": "9800x3d",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 43265,
+              "max": 77991,
+              "mean": 52217.73684210526,
+              "median": 53021,
+              "iqr": [
+                48814,
+                55569
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 1622,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "9800x3d",
+      "category": "processors"
+    },
+    "9950x3d": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "371583828",
+            "name": "Процессор Ryzen 9 9950X3D OEM (без кулера) AM5 DDR5 CPU",
+            "price": 64969,
+            "image_url": "https://basket-22.wbbasket.ru/vol3715/part371583/371583828/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/371583828/detail.aspx",
+            "category": "processors",
+            "source": "wb",
+            "query": "9950x3d",
+            "isValid": true,
+            "reason": "code-validated (model-pattern)",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 64969,
+              "max": 129401,
+              "mean": 76664.42857142857,
+              "median": 77373,
+              "iqr": [
+                68890,
+                81454
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 581,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "9950x3d",
+      "category": "processors"
+    }
+  },
+  "motherboards": {
+    "Z790": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "411558730",
+            "name": "системная плата Z790 UD",
+            "price": 15370,
+            "image_url": "https://basket-23.wbbasket.ru/vol4115/part411558/411558730/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/411558730/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "Z790",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 15370,
+              "max": 21097,
+              "mean": 19084.72619047619,
+              "median": 19129,
+              "iqr": [
+                17967,
+                20156
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 848,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "Z790",
+      "category": "motherboards"
+    },
+    "B760": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2087137304",
+            "name": "Материнская плата S1700 B760 AFOX B760D4-MA5-V2",
+            "price": 4718,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7598351588.jpg",
+            "product_url": "https://www.ozon.ru/product/materinskaya-plata-s1700-b760-afox-b760d4-ma5-v2-2087137304/?at=36tWjDJGLhQV8W8DCrmG4OEIom6PMTRkm0PWcjxWBny",
+            "category": "motherboards",
+            "source": "ozon",
+            "query": "B760",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 4718,
+              "max": 8098,
+              "mean": 6559,
+              "median": 6789,
+              "iqr": [
+                5736,
+                7595
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 833,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760",
+      "category": "motherboards"
+    },
+    "X870E": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "366098215",
+            "name": "X870E AORUS ELITE WIFI7 материнская плата",
+            "price": 26288,
+            "image_url": "https://basket-21.wbbasket.ru/vol3660/part366098/366098215/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/366098215/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "X870E",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 26288,
+              "max": 143490,
+              "mean": 40035.458333333336,
+              "median": 36651,
+              "iqr": [
+                34817,
+                48958
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 955,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "X870E",
+      "category": "motherboards"
+    },
+    "B850": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "390385298",
+            "name": "Материнская плата PRIME B850-PLUS WIF AM5 AMD B850 ATX RTL",
+            "price": 16930,
+            "image_url": "https://basket-22.wbbasket.ru/vol3903/part390385/390385298/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/390385298/detail.aspx",
+            "category": "motherboards",
+            "source": "wb",
+            "query": "B850",
+            "isValid": true,
+            "reason": "chipset-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 16930,
+              "max": 18601,
+              "mean": 17858.14285714286,
+              "median": 17841,
+              "iqr": [
+                17480,
+                18157
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 793,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B850",
+      "category": "motherboards"
+    },
+    "B760M-K": {
+      "success": true,
+      "data": {
+        "products": [],
+        "total_queries": 1,
+        "total_products": 0,
+        "processing_time_ms": 373,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "B760M-K",
+      "category": "motherboards"
+    }
+  },
+  "playstation": {
+    "playstation 5": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2166510125",
+            "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
+            "price": 37363,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+            "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=28t0L5JRns00Yo7kT07Rw3QcLG079Bh04mwKOS3WyA7E",
+            "category": "playstation",
+            "source": "ozon",
+            "query": "playstation 5",
+            "isValid": true,
+            "reason": "ps5-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 37363,
+              "max": 59760,
+              "mean": 47197.94736842105,
+              "median": 44832,
+              "iqr": [
+                43989,
+                51528
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 853,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "playstation 5",
+      "category": "playstation"
+    },
+    "playstation 5 pro": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "1758814160",
+            "name": "Sony Игровая приставка Sony PlayStation 5 Pro 2 ТБ, цифровая консоль , Поддержка Pусский язык",
+            "price": 61626,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7474612174.jpg",
+            "product_url": "https://www.ozon.ru/product/sony-igrovaya-pristavka-sony-playstation-5-pro-2-tb-tsifrovaya-konsol-podderzhka-pusskiy-yazyk-1758814160/?at=99trJ4gMoFOw8J34FgxlK2qtWqoPjPux04K5GfLX2ypO",
+            "category": "playstation",
+            "source": "ozon",
+            "query": "playstation 5 pro",
+            "isValid": true,
+            "reason": "ps5-pro-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 61626,
+              "max": 280769,
+              "mean": 86556.71428571429,
+              "median": 85905,
+              "iqr": [
+                73847,
+                100316
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 461,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "playstation 5 pro",
+      "category": "playstation"
+    }
+  },
+  "nintendo_switch": {
+    "nintendo switch 2": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2350891360",
+            "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
+            "price": 35801,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
+            "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2350891360/?at=Y7tjKVJNGsMB4vjZtpEnPX4tE1ypyPF8wWN7ZhNPMD1Q",
+            "category": "nintendo_switch",
+            "source": "ozon",
+            "query": "nintendo switch 2",
+            "isValid": true,
+            "reason": "switch-2-match",
+            "confidence": 1,
+            "marketStats": {
+              "min": 35801,
+              "max": 191923,
+              "mean": 48854.34782608696,
+              "median": 48675,
+              "iqr": [
+                40555,
+                56100
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 351,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "nintendo switch 2",
+      "category": "nintendo_switch"
+    }
+  },
+  "steam_deck": {
+    "steam deck oled": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2223511261",
+            "name": "Портативная игровая консоль Steam Deck OLED 16 ГБ + 512 ГБ, 7.4 -дюймовый OLED экран",
+            "price": 44791,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7209292833.jpg",
+            "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-konsol-steam-deck-oled-16-gb-512-gb-7-4-dyuymovyy-oled-ekran-2223511261/?at=mqtkVyKAEhl2LXnjinWwNvNuDBZqN5SJrm3oPtrn8zDn",
+            "category": "steam_deck",
+            "source": "ozon",
+            "query": "steam deck oled",
+            "isValid": true,
+            "reason": "steam-deck-oled-match",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 44791,
+              "max": 265261,
+              "mean": 60605.97260273973,
+              "median": 58589,
+              "iqr": [
+                56064,
+                68640
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 850,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "steam deck oled",
+      "category": "steam_deck"
+    }
+  },
+  "iphone": {
+    "iphone 16 pro": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "2195996713",
+            "name": "Apple Смартфон iPhone 16 Pro CN 128 ГБ, черный матовый",
+            "price": 70716,
+            "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7652955462.jpg",
+            "product_url": "https://www.ozon.ru/product/apple-smartfon-iphone-16-pro-cn-128-gb-chernyy-matovyy-2195996713/?at=16tLrJDkvs52Dp57CxkWgkVunXPyyRHn8D3o3fzx26E3",
+            "category": "iphone",
+            "source": "ozon",
+            "query": "iphone 16 pro",
+            "isValid": true,
+            "reason": "iphone-model-match",
+            "confidence": 1,
+            "marketPriceNote": "Цена ниже рынка",
+            "marketStats": {
+              "min": 70716,
+              "max": 91783,
+              "mean": 87747.18,
+              "median": 90300,
+              "iqr": [
+                83247,
+                90932
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 991,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "iphone 16 pro",
+      "category": "iphone"
+    }
+  }
+}

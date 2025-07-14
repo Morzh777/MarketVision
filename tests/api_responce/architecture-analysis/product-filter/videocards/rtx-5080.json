@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2245838324",
+        "name": "GALAX Видеокарта GeForce RTX 4060 Ti 8 ГБ (489514757146)",
+        "price": 38635,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7599286942.jpg",
+        "product_url": "https://www.ozon.ru/product/galax-videokarta-geforce-rtx-4060-ti-8-gb-489514757146-2245838324/?at=jYtZzoM3psgz2lN3uQq3k8JuY95DAwcpGMEY2CGQvLM3",
+        "category": "videocards",
+        "source": "ozon",
+        "query": "rtx 5080",
+        "isValid": true,
+        "reason": "code-validated (model-pattern)",
+        "confidence": 0.95,
+        "marketPriceNote": "Цена ниже рынка",
+        "marketStats": {
+          "min": 38635,
+          "max": 247721,
+          "mean": 139611.22988505746,
+          "median": 138011,
+          "iqr": [
+            131328,
+            156801
+          ]
+        },
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 823,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "rtx 5080",
+  "category": "videocards"
+}

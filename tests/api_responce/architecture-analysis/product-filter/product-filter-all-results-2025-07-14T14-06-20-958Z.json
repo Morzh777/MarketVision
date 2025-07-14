@@ -1,0 +1,13 @@
+{
+  "iphone": {
+    "iphone 16 pro": {
+      "success": true,
+      "data": {
+        "statusCode": 500,
+        "message": "Ошибка поиска продуктов: 2 UNKNOWN: Internal server error"
+      },
+      "query": "iphone 16 pro",
+      "category": "iphone"
+    }
+  }
+}

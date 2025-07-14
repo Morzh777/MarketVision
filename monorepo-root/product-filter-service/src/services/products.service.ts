@@ -116,14 +116,42 @@ export class ProductsService {
     this.logger.log(`⏱️ Получение фото заняло ${Date.now() - t}ms`);
     t = Date.now();
 
-    // 4. Сохраняем продукты и историю цен в db-api (асинхронно)
-    this.dbApiClient.batchCreateProducts([...passed, ...aiResults])
-      .then(res => this.logger.log(`DB-API: inserted=${res.inserted}`))
-      .catch(err => this.logger.error('Ошибка сохранения в db-api', err));
-    this.logger.log(`⏱️ Сохранение в DB-API вызвано через ${Date.now() - t}ms`);
+    // Группируем валидные продукты по query
+    const productsByQuery: Record<string, any[]> = {};
+    validProducts.forEach(product => {
+      if (!productsByQuery[product.query]) productsByQuery[product.query] = [];
+      productsByQuery[product.query].push(product);
+    });
+
+    // Для каждого query считаем marketStats и сохраняем
+    for (const [query, products] of Object.entries(productsByQuery)) {
+      if (!products.length) continue;
+      // Находим самый дешевый продукт для этого query
+      const cheapest = products.reduce((min, p) => (p.price < min.price ? p : min), products[0]);
+      const stats = cheapest.marketStats;
+      const market_stats = stats ? {
+        min: stats.min,
+        max: stats.max,
+        mean: stats.mean,
+        median: stats.median,
+        iqr: stats.iqr,
+        query: cheapest.query,
+        category: cheapest.category,
+        source: cheapest.source,
+        total_count: products.length,
+        product_id: cheapest.id,
+        created_at: new Date().toISOString()
+      } : undefined;
+      this.logger.log('market_stats for query:', query, market_stats);
+      await this.dbApiClient.batchCreateProducts({
+        products: [cheapest],
+        market_stats
+      });
+      this.logger.log(`DB-API: inserted cheapest product for query="${query}"`);
+    }
 
     const processingTimeMs = Date.now() - startTime;
-    this.logger.log(`✅ Готово: ${passed.length + aiResults.length} продуктов за ${processingTimeMs}ms`);
+    this.logger.log(`✅ Готово: ${validProducts.length} продуктов за ${processingTimeMs}ms`);
 
     // Финальный лог по AI (всегда)
     if (aiNeeded.length === 0) {

@@ -7,7 +7,7 @@
         "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
         "price": 37363,
         "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
-        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=nRtr4V6mKt2YNRNwIVOwrolc8rq9gRIxjGAk7U5ogogr",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=28t0L5JRns00Yo7kT07Rw3QcLG079Bh04mwKOS3WyA7E",
         "category": "playstation",
         "source": "ozon",
         "query": "playstation 5",
@@ -18,10 +18,10 @@
         "marketStats": {
           "min": 37363,
           "max": 59760,
-          "mean": 46914.31578947369,
+          "mean": 47197.94736842105,
           "median": 44832,
           "iqr": [
-            43835,
+            43989,
             51528
           ]
         },
@@ -30,7 +30,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 597,
+    "processing_time_ms": 853,
     "cache_hits": 0,
     "cache_misses": 0
   },

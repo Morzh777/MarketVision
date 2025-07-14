@@ -31,8 +31,23 @@ message GetRawProductsResponse {
   string source = 3;
 }
 
+message MarketStats {
+  string query = 1;
+  string category = 2;
+  string source = 3;
+  int32 min = 4;
+  int32 max = 5;
+  float mean = 6;
+  float median = 7;
+  repeated int32 iqr = 8;
+  int32 total_count = 9;
+  string product_id = 10;
+  string created_at = 11;
+}
+
 message BatchCreateProductsRequest {
   repeated RawProduct products = 1;
+  MarketStats market_stats = 2;
 }
 
 message BatchCreateProductsResponse {

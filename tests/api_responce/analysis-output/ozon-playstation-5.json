@@ -1,0 +1,372 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "1982978657",
+        "name": "Игровая приставка Sony Playstation Portal PS5 White&#x2F;Белый",
+        "price": 18507,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7425640545.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-ps5-white-belyy-1982978657/?at=36tWjDJGLhO138l7i9n6nwptVVyvLkFOkP39EcWVQQNj",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1748504708",
+        "name": "Sony Удаленный плеер Sony PlayStation Portal - PlayStation 5",
+        "price": 20382,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7218359549.jpg",
+        "product_url": "https://www.ozon.ru/product/sony-udalennyy-pleer-sony-playstation-portal-playstation-5-1748504708/?at=K8tZQ7vB3sQWYxXPS2PRKoDclWOGM0tVMEADcNPzv92",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1888927026",
+        "name": "Игровая консоль Sony PlayStation Portal PS5, черный",
+        "price": 21353,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7341733257.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-portal-ps5-chernyy-1888927026/?at=J8tgk9m10F3NB8oLhZNo4L9snwVZ8NSDZ3O7qcEjzV0y",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1897486008",
+        "name": "Игровое устройство PlayStation Portal",
+        "price": 21807,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/6922893201.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-1897486008/?at=vQtrJwj2MFYxkx46IyZY960FKBmGyQT1ZGkkDFD7EnEX",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2175030922",
+        "name": "Игровое устройство PlayStation Portal White (Белый)",
+        "price": 21912,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/6922893201.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-white-belyy-2175030922/?at=NOtwYkrEvcgxmGw7ummnE5ptB7OXx4uX6vpkWs0lgBNv",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2324359883",
+        "name": "Игровая консоль Sony PlayStation 4 Fat 1TБ",
+        "price": 22497,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-9/7651963701.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-4-fat-1tb-2324359883/?at=36tWjDJGLhPMRokzCKy4yQWh0R4AMofQwNo79fNEArn",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2320966068",
+        "name": "Игровая приставка Sony PlayStation 4 Fat, 500 ГБ",
+        "price": 22525,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-i/7651967490.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-fat-500-gb-2320966068/?at=z6tOXWpxJcrQE3yKh2q91gDuKNVz93FJ0DKR5IrJx2Jv",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1604630721",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player White портативная для стриминга c PS5",
+        "price": 22851,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-t/7393764161.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-white-portativnaya-dlya-striminga-c-ps5-1604630721/?at=BrtzxW9MEcgvMyyqFmJGzRWTJm0KnYsWANpxNU2nlX74",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2219487617",
+        "name": "Игровое устройство PlayStation Portal Black (Черный)",
+        "price": 23528,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7575455983.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-black-chernyy-2219487617/?at=NOtwYkrEvc30rvQzijJp64gSG4L26TMWPlxMT075qMn",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2201539044",
+        "name": "Игровое устройство PlayStation Portal Black (Черный)",
+        "price": 23641,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7575455983.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-black-chernyy-2201539044/?at=gpt4vExmVFzDk8w6hk97Kk8i28X74rt2OzZw4umwrXPM",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1422589812",
+        "name": "Игровое устройство PlayStation Portal",
+        "price": 23878,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/6922893201.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-1422589812/?at=DqtD7YKngUj3Px4lSQMvG2zHMJrj6nFRmo5X2SMnLMAo",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1946311090",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player Black портативная для стриминга c PS5",
+        "price": 24728,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7393751526.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-black-portativnaya-dlya-striminga-c-ps5-1946311090/?at=mqtkVyKAEhP19X4DT2rLj05tzBpkykiv4mpquvzx54A",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2219440152",
+        "name": "Игровое устройство PlayStation Portal Black (Черный)",
+        "price": 25983,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7575455983.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovoe-ustroystvo-playstation-portal-black-chernyy-2219440152/?at=08tYnNDM6cV9VGO1H5qvRgji187x92fq3gpmysO6pJKo",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1512805869",
+        "name": "Игровая приставка Sony PlayStation 4 Slim 500 ГБ",
+        "price": 26628,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-b/7651989911.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-slim-500-gb-1512805869/?at=jYtZzoM3psZM4AoWtEJvkNQCWGW68Ks45kKzPfwAPkOM",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1512798519",
+        "name": "Игровая приставка Sony PlayStation 4 Slim 1ТБ",
+        "price": 27461,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-7/7651985227.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-4-slim-1tb-1512798519/?at=QktJnvE3zcApQ1ms2BOKy9FO1kmOyTXYNkqQhEkD91Q",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1673433358",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 27978,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7133819871.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1673433358/?at=ywtAGOz09sWp8V2cKlOAkNfRRl4nRfrGvB4Ji3Xr2VM",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1405085246",
+        "name": "Портативная игровая консоль Sony PlayStation Portal",
+        "price": 28281,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/6906728680.jpg",
+        "product_url": "https://www.ozon.ru/product/portativnaya-igrovaya-konsol-sony-playstation-portal-1405085246/?at=08tYnNDM6c3QvR2rcjJAYgyF1N1MwZUPDnKRH9PAVqr",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1697017070",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 30175,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7452464124.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697017070/?at=A6tGxp3n7c23E5GPi0v2L8mcZGq7JGSwKO1Myc3r4j2p",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2310678050",
+        "name": "Игровая приставка Sony Playstation Portal (CFI-Y1016)",
+        "price": 31493,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7628511780.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-cfi-y1016-2310678050/?at=GRt2r3p0jFlPy9qjtwLxjxqtWor6J9Imlk6jksmWRV3D",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2366958178",
+        "name": "Игровая консоль PlayStation 4 Slim 1TB. Версия ПО от 10.01. Товар уцененный",
+        "price": 31575,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-i/6586927110.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-4-slim-1tb-versiya-po-ot-10-01-tovar-utsenennyy-2366958178/?at=qQtJgYPzmcw2y26LtKYK7A2FkZ6j29C23YADRfZWq4qX",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1398762968",
+        "name": "PlayStation Portal для консоли PS5(CFI-Y1001), (белый)",
+        "price": 31782,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-d/6885624721.jpg",
+        "product_url": "https://www.ozon.ru/product/playstation-portal-dlya-konsoli-ps5-cfi-y1001-belyy-1398762968/?at=x6tPpE49rhR7WD2oFRVoggGh1XOwRNUXJROBPU4rMkJg",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1697017284",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 32172,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-c/7452464124.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697017284/?at=z6tOXWpxJc2YyZRWTMkNQwQIGVzzEXuOBoz5JuGB4A11",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1712893342",
+        "name": "Игровая консоль PlayStation Portal белый",
+        "price": 34423,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7113834255.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-portal-belyy-1712893342/?at=83tBmNZznCAw41NQc03rGyEIZlrWkNt256y0jTpywj50",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1688704752",
+        "name": "Игровая консоль PlayStation Portal белый",
+        "price": 34960,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7113834255.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-portal-belyy-1688704752/?at=jYtZzoM3pswRAlG5hzA2x55S69nknLc1w3384SZOv80o",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2169648514",
+        "name": "Игровая консоль Sony PlayStation 4 PRO 1ТБ (7108)",
+        "price": 36120,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-1/7610422573.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-sony-playstation-4-pro-1tb-7108-2169648514/?at=r2t4yQ01LFP0K44wug1PODMT3Qz5kLhJ2w9loiOJKljo",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2166510125",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray. Уцененный товар",
+        "price": 37363,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2166510125/?at=ywtAGOz09sQAPox7srJAX5RI2OLXWzhMxvkKxiXlpPzQ",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1521451147",
+        "name": "Игровая приставка Playstation 4 Slim 1Tb (CUH-22xx)",
+        "price": 38795,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7148654600.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-playstation-4-slim-1tb-cuh-22xx-1521451147/?at=16tLrJDkvsY8MND9uoGPKopi042xEJCDAPWAxt05vO7j",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2087982004",
+        "name": "Игровая консоль PlayStation 5 SLIM Blu-Ray. Уцененный товар",
+        "price": 41585,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-b/6845969735.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2087982004/?at=MZtvpB0RESD3YXVAI2kV0QOUvO7O9NCEJZvxrHjwO3yq",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1697384365",
+        "name": "Игровая приставка Sony PlayStation Portal Remote Player, белый",
+        "price": 41930,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7133819871.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-sony-playstation-portal-remote-player-belyy-1697384365/?at=r2t4yQ01LFB3JpynIAw0MWrCZwj93gsMPDqJxULOPmGM",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "1916269535",
+        "name": "Игровая консоль PlayStation Portal белый",
+        "price": 43708,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-3/7113834255.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-portal-belyy-1916269535/?at=r2t4yQ01LFPENqnKIW1B85Qs8K29pwCmYpjY6SpoOKKX",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2378541672",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 43785,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2378541672/?at=lRt6WR5AgtNOz4Yvc24okgptZgRvllCzp1AN3splwqjP",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2046847791",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 43785,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2046847791/?at=pZtpg4NvXhXVMnO9Io3y7M8ij3lQnZSjJ73wlsKLQKVN",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2316545573",
+        "name": "Игровая консоль PlayStation 5 SLIM Blu-Ray. Уцененный товар",
+        "price": 44042,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-b/6845969735.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2316545573/?at=79tnrGxQ3iymgQvPUKNp2OoFJ1mKMwcr6Yk1yHzvK8XO",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2361097486",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 44832,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2361097486/?at=QktJnvE3zc0gDRw2fk3NzpMiqw4ODMiXGB3zyCAqqNKr",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2399311109",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 44832,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7590997214.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2399311109/?at=gpt4vExmVFGzJvv5cGwLLgGF3yoOOyTD96DEpfLXrZRx",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      },
+      {
+        "id": "2413188985",
+        "name": "Игровая консоль PlayStation 5 Slim Blu-Ray Уцененный товар",
+        "price": 44832,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-0/6837907680.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-konsol-playstation-5-slim-blu-ray-utsenennyy-tovar-2413188985/?at=79tnrGxQ3ivgmklf82ro3Zf7lYOooUyY9OOnT65Mwjq",
+        "category": "playstation",
+        "source": "ozon",
+        "query": "playstation 5"
+      }
+    ],
+    "total_count": 36,
+    "source": "ozon"
+  },
+  "query": "playstation 5",
+  "category": "playstation",
+  "platform_id": null
+}

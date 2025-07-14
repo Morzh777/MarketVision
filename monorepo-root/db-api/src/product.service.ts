@@ -79,18 +79,50 @@ export class ProductService {
     const minProducts = Object.values(byQuery).map(group =>
       group.reduce((min, p) => (p.price < min.price ? p : min), group[0])
     );
-    const prismaProducts = minProducts.map(p => ({
-      id: p.id,
-      name: p.name,
-      price: p.price,
-      image_url: p.image_url,
-      product_url: p.product_url,
-      category: p.category,
-      source: p.source,
-      query: p.query,
-    }));
-    await this.prisma.product.createMany({ data: prismaProducts, skipDuplicates: true });
-    return products.length;
+    let count = 0;
+    for (const p of minProducts) {
+      const existing = await this.prisma.product.findUnique({ where: { id: p.id } });
+      if (!existing) {
+        // Новый продукт — создаём
+        await this.prisma.product.create({ data: {
+          id: p.id,
+          name: p.name,
+          price: p.price,
+          image_url: p.image_url,
+          product_url: p.product_url,
+          category: p.category,
+          source: p.source,
+          query: p.query,
+        }});
+        // Пишем в историю
+        await this.prisma.priceHistory.create({
+          data: {
+            product_id: p.id,
+            query: p.query,
+            source: p.source,
+            price: p.price,
+          }
+        });
+        count++;
+      } else if (existing.price !== p.price) {
+        // Цена изменилась — обновляем и пишем в историю
+        await this.prisma.product.update({
+          where: { id: p.id },
+          data: { price: p.price }
+        });
+        await this.prisma.priceHistory.create({
+          data: {
+            product_id: p.id,
+            query: p.query,
+            source: p.source,
+            price: p.price,
+          }
+        });
+        count++;
+      }
+      // Если цена не изменилась — ничего не делаем
+    }
+    return count;
   }
 
   /**
@@ -114,5 +146,34 @@ export class ProductService {
       skipDuplicates: false,
     });
     return products.length;
+  }
+
+  /**
+   * Сохраняет MarketStats
+   */
+  async saveMarketStats(stats: any): Promise<void> {
+    // Логируем входящие данные для отладки
+    console.log('[DB-API] saveMarketStats', stats);
+    try {
+      await this.prisma.marketStats.create({
+        data: {
+          product_id: stats.productId,
+          query: stats.query,
+          category: stats.category,
+          source: stats.source,
+          min: stats.min,
+          max: stats.max,
+          mean: stats.mean,
+          median: stats.median,
+          iqr: stats.iqr,
+          total_count: stats.totalCount,
+          created_at: stats.createdAt ? new Date(stats.createdAt) : undefined,
+        },
+      });
+    } catch (error) {
+      // Логируем ошибку для отладки
+      console.error('[MarketStats][ERROR]', error, stats);
+      throw error;
+    }
   }
 } 

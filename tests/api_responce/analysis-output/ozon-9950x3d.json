@@ -1,0 +1,222 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "2273679196",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM (без кулера), Socket AM5, 100-000000719",
+        "price": 66925,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7612805229.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-bez-kulera-socket-am5-100-000000719-2273679196/?at=gpt4vExmVFN7N5pmu0VM60wH22WQWguAqEYy3HgGPwND",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2042419180",
+        "name": "AMD Процессор Ryzen 9 9950X3D OEM (без кулера)",
+        "price": 67490,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-v/7526935543.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-9-9950x3d-oem-bez-kulera-2042419180/?at=A6tGxp3n7cm2O3DRSNq3Z59SDOwXRMt7VOrjztWqgqow",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "1994496769",
+        "name": "AMD Процессор Ryzen 9 9950X3D OEM (без кулера)",
+        "price": 70279,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7435855870.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-9-9950x3d-oem-bez-kulera-1994496769/?at=pZtpg4NvXh5KO6lDUOjwkVpUO81MA6s8m5vvLfkKBGOl",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2308060713",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM (без кулера), Socket AM5, 100-000000719",
+        "price": 70585,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-d/7627123381.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-bez-kulera-socket-am5-100-000000719-2308060713/?at=99trJ4gMoFqnZmBkUorqG1EUDK7MKWhzL8DlPcoGK2NV",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "1950503805",
+        "name": "AMD Процессор Ryzen 9 9900X3D OEM (без кулера)",
+        "price": 71096,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-z/7397161451.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-9-9900x3d-oem-bez-kulera-1950503805/?at=99trJ4gMoFRpvQ94CBWl4q2CW3RYoZhWYgGzVhJNm5qg",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2390246787",
+        "name": "Процессор AMD Ryzen 9 9950X3D BOX (без куллера), 16 ядер, 32 потока, AM5, 170 Вт",
+        "price": 73224,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-x/7666632105.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-box-bez-kullera-16-yader-32-potoka-am5-170-vt-2390246787/?at=lRt6WR5AgtLWyMpmsQDGQkpCK42L5QsEAw3DJig2EmXA",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "1950522114",
+        "name": "AMD Процессор Ryzen 9 9950X3D BOX (без кулера)",
+        "price": 75182,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-s/7397180056.jpg",
+        "product_url": "https://www.ozon.ru/product/amd-protsessor-ryzen-9-9950x3d-box-bez-kulera-1950522114/?at=36tWjDJGLhQ8A0V3Foq6MWvuQjrZWOUDDNl46Hjq8V58",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2190414409",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM 100-000000719",
+        "price": 76524,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-h/7487882801.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-100-000000719-2190414409/?at=Z8tX1KVDOCmD4nVLiRYP2Lzc6PBv5XIA6jR9ZuQMzNqP",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2009630944",
+        "name": "Центральный процессор AMD Ryzen 9 9950X3D OEM (100-000000719)",
+        "price": 77373,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7449614697.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-9-9950x3d-oem-100-000000719-2009630944/?at=79tnrGxQ3iW50A9qsKRnWQ5hQp2GLOTPE73y0I60j8gY",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2062010146",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM, Socket AM5, 100-000000719",
+        "price": 77566,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7233929856.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-socket-am5-100-000000719-2062010146/?at=lRt6WR5AgtMKZ5nhlgBY8BiK19QMoiEnL2nnUD3Zrm6",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2090506797",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM",
+        "price": 78416,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-g/7513252792.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-2090506797/?at=Z8tX1KVDOCjyKjojsWEkynZT7X6rQ2iAEG41PT4AwLR",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2162737408",
+        "name": "Процессор AMD Ryzen 9 9950X3D AM5 (100-000000719) (4.3GHz&#x2F;AMD Radeon) OEM",
+        "price": 78698,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7558768326.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-am5-100-000000719-4-3ghz-amd-radeon-oem-2162737408/?at=LZtl0BpmEUM30VMT4N9jQGCz3gP7xiw3z4QosmP48KP",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2223261139",
+        "name": "Процессор AMD Ryzen 9 9950X3D OEM",
+        "price": 78746,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-6/7587421854.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-2223261139/?at=6WtZRLA1QsEWz1jLcn2Dwq7UpA2w6AUDWNDvptgn9M8p",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2009654746",
+        "name": "Центральный процессор AMD Ryzen 9 9950X3D OEM (100-000000719)",
+        "price": 80600,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-l/7449614697.jpg",
+        "product_url": "https://www.ozon.ru/product/tsentralnyy-protsessor-amd-ryzen-9-9950x3d-oem-100-000000719-2009654746/?at=PjtJBzroycWDnvBYuowD0L0Hq98XEJSoy3g9LhBl1YKB",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2162738201",
+        "name": "Процессор AMD Ryzen 9 9950X3D AM5 (100-000000719) (4.3GHz&#x2F;AMD Radeon) OEM",
+        "price": 81041,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-u/7558768326.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-am5-100-000000719-4-3ghz-amd-radeon-oem-2162738201/?at=jYtZzoM3ps4Eg4kkIzkwM2gCEzn46MizZYm3xINLwrJk",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2202761333",
+        "name": "Процессор AMD Ryzen 9 9950X3D",
+        "price": 81454,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-k/7320276560.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-2202761333/?at=MZtvpB0RESYrO5PlFVq83p1UozE5YDTY0PR92f3Aowyy",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2085229553",
+        "name": "Процессор AMD RYZEN 9 9950X3D OEM (100-000000719) Granite Ridge, 4nm, C16&#x2F;T32 Socket AM5",
+        "price": 90241,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7233929856.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-100-000000719-granite-ridge-4nm-c16-t32-socket-am5-2085229553/?at=WPtN1rgPlSMzGZBNIjono5lcVDOEkEFJOxRwjfPyzzgM",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "1992808142",
+        "name": "процессор AMD Ryzen 9 9950X3D, 16&#x2F;32, 4.3-5.7GHz, 1280KB&#x2F;16MB&#x2F;128MB, AM5, Radeon, 170W, OEM",
+        "price": 90562,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7644820640.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-16-32-4-3-5-7ghz-1280kb-16mb-128mb-am5-radeon-170w-oem-1992808142/?at=16tLrJDkvsy9m6o2cBPL9WMiN3B6BoiO0JYZpFYvD7MZ",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2168913486",
+        "name": "Процессор AMD RYZEN 9 9950X3D OEM (100-000000719) Granite Ridge, 4nm, C16&#x2F;T32 Socket AM5",
+        "price": 92591,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-0/7233929856.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-oem-100-000000719-granite-ridge-4nm-c16-t32-socket-am5-2168913486/?at=79tnrGxQ3i1zlw7LsN5rLqBFZN9qjNsOVrg7ri791YpX",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "1992390842",
+        "name": "процессор AMD Ryzen 9 9950X3D, 16&#x2F;32, 4.3-5.7GHz, 1280KB&#x2F;16MB&#x2F;128MB, AM5, Radeon, 170W, OEM",
+        "price": 93000,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-w/7644820640.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-16-32-4-3-5-7ghz-1280kb-16mb-128mb-am5-radeon-170w-oem-1992390842/?at=Y7tjKVJNGs9DVqKvf32898DSYjmw9MtpPzQNMu756Dl5",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      },
+      {
+        "id": "2436210318",
+        "name": "процессор AMD Ryzen 9 9950X3D",
+        "price": 129401,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-a/7688634994.jpg",
+        "product_url": "https://www.ozon.ru/product/protsessor-amd-ryzen-9-9950x3d-2436210318/?at=99trJ4gMoFoXY8vzIMWLYVvcGDnBDOczWEPjGUvnYE9Y",
+        "category": "processors",
+        "source": "ozon",
+        "query": "9950x3d"
+      }
+    ],
+    "total_count": 21,
+    "source": "ozon"
+  },
+  "query": "9950x3d",
+  "category": "processors",
+  "platform_id": null
+}

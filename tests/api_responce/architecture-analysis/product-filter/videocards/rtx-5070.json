@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "381489443",
+        "name": "Видеокарта Radeon RX 7600 GAMING OC 8G",
+        "price": 26892,
+        "image_url": "https://basket-22.wbbasket.ru/vol3814/part381489/381489443/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/381489443/detail.aspx",
+        "category": "videocards",
+        "source": "wb",
+        "query": "rtx 5070",
+        "isValid": true,
+        "reason": "code-validated (model-pattern)",
+        "confidence": 0.95,
+        "marketPriceNote": "Цена ниже рынка",
+        "marketStats": {
+          "min": 26892,
+          "max": 72850,
+          "mean": 66490.20183486238,
+          "median": 66650,
+          "iqr": [
+            63759,
+            69739
+          ]
+        },
+        "toAI": false
+      }
+    ],
+    "total_queries": 1,
+    "total_products": 1,
+    "processing_time_ms": 2720,
+    "cache_hits": 0,
+    "cache_misses": 0
+  },
+  "query": "rtx 5070",
+  "category": "videocards"
+}

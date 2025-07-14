@@ -1,0 +1,381 @@
+{
+  "success": true,
+  "data": {
+    "products": [
+      {
+        "id": "435650497",
+        "name": "Процессор CPU Ryzen 7 9800X3D OEM",
+        "price": 43265,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/435650497/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "421479933",
+        "name": "Процессор Ryzen 7 9800X3D OEM, AM5 (4,7 ГГц 120W)",
+        "price": 43567,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421479933/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "367442446",
+        "name": "Процессор Ryzen7 9800X3D (без кулера)",
+        "price": 43937,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/367442446/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "445890469",
+        "name": "Процессор Ryzen7 9800X3D OEM (без кулера) AM5",
+        "price": 44233,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/445890469/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "449547880",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 44265,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449547880/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "458252007",
+        "name": "Процессор 7 9800X3D",
+        "price": 44357,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/458252007/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "449547659",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 44375,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/449547659/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "232446989",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 44544,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/232446989/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "458308404",
+        "name": "Процессор Ryzen 7 9800X3D",
+        "price": 44548,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/458308404/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "422352775",
+        "name": "Процессор Ryzen 7 9800X3D AM5 4700 МГц OEM",
+        "price": 44551,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/422352775/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "453686992",
+        "name": "Процессор BOX версия Ryzen 7 9800X3D",
+        "price": 45150,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/453686992/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "336130034",
+        "name": "Процессор Ryzen 7 9800X3D OEM (без кулера) AM5 DDR5 CPU",
+        "price": 46644,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/336130034/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "303229342",
+        "name": "Процессор Ryzen 7 9800X3D, OEM (100-000001084)",
+        "price": 47452,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/303229342/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "303229215",
+        "name": "Процессор Ryzen 7 9800X3D, OEM (100-000001084)",
+        "price": 47452,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/303229215/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "306779043",
+        "name": "Процессор CPU Ryzen 7 9800X3D OEM 100-000001084",
+        "price": 50304,
+        "image_url": "https://images.wbstatic.net/c516x688/6.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/306779043/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "376462059",
+        "name": "Процессор Ryzen 7 9800X3D, 4.7ГГц, Сокет AM5, OEM",
+        "price": 51591,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/376462059/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "360391625",
+        "name": "Процессор Ryzen 7 9800X3D AM5 OEM",
+        "price": 51767,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/360391625/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "280337819",
+        "name": "процессор Ryzen7 9800X3D (без кулера)",
+        "price": 51982,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/280337819/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "303747111",
+        "name": "Процессор Ryzen 7 9800x3d в розничной упаковке",
+        "price": 52826,
+        "image_url": "https://images.wbstatic.net/c516x688/1.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/303747111/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "321129753",
+        "name": "Процессор Ryzen 7 9800X3D, 4.7ГГц, AM5",
+        "price": 53831,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/321129753/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "333034534",
+        "name": "Процессор 7 9800X3D 5,2 ГГц",
+        "price": 53944,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/333034534/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "348162602",
+        "name": "Процессор Ryzen7 9800X3D OEM AM5",
+        "price": 54216,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/348162602/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "365713355",
+        "name": "Ryzen7 9800X3D BOX CPU процессор",
+        "price": 54650,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/365713355/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "317362507",
+        "name": "Процессор Ryzen 7 9800X3D, OEM",
+        "price": 54829,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/317362507/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "391862303",
+        "name": "Ryzen 7 9800Х3D AM5 процессор",
+        "price": 55889,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391862303/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "435350074",
+        "name": "Центральный процессор Ryzen 7 9800X3D OEM (100-000001084)",
+        "price": 55891,
+        "image_url": "https://images.wbstatic.net/c516x688/2.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/435350074/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "289125788",
+        "name": "AM5 Ryzen 7 9800X3D Процессор",
+        "price": 56028,
+        "image_url": "https://images.wbstatic.net/c516x688/8.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/289125788/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "229367914",
+        "name": "Настольный процессор 7 9800X3D",
+        "price": 56028,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/229367914/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "421483055",
+        "name": "Процессор Ryzen 7 9800X3D AM5, BOX",
+        "price": 56791,
+        "image_url": "https://images.wbstatic.net/c516x688/5.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/421483055/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "391923861",
+        "name": "Процессор CPU Ryzen 7 9800Х3D AM5",
+        "price": 57376,
+        "image_url": "https://images.wbstatic.net/c516x688/9.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/391923861/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "371251692",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 58066,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/371251692/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "289107802",
+        "name": "7 9800X 3D Процессор",
+        "price": 58328,
+        "image_url": "https://images.wbstatic.net/c516x688/7.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/289107802/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "385626557",
+        "name": "AMD Ryzen 7 9800X3D 2024",
+        "price": 58755,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/385626557/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "328677645",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 61482,
+        "image_url": "https://images.wbstatic.net/c516x688/4.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/328677645/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "343903255",
+        "name": "RYZEN7 9800X3D Процессор CPU",
+        "price": 62461,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/343903255/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "399628520",
+        "name": "Процессор Ryzen 7 9800X3D AM5 (OEM)",
+        "price": 77500,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/399628520/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      },
+      {
+        "id": "332511885",
+        "name": "Процессор Ryzen 7 9800X3D, 4.7ГГц, AM5",
+        "price": 77991,
+        "image_url": "https://images.wbstatic.net/c516x688/3.jpg",
+        "product_url": "https://www.wildberries.ru/catalog/332511885/detail.aspx",
+        "category": "processors",
+        "source": "wb",
+        "query": "9800x3d"
+      }
+    ],
+    "total_count": 37,
+    "source": "wb"
+  },
+  "query": "9800x3d",
+  "category": "processors"
+}

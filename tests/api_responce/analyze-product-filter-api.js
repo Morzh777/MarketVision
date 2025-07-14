@@ -20,11 +20,11 @@ const testQueries = {
   //   '9950x3d'
   // ],
   // motherboards: [
-  //   // 'Z790',
-  //   // 'B760',
-  //   // 'X870E',
-  //   // 'B850',
-  //   // 'B760M-K'
+  //   'Z790',
+  //   'B760',
+  //   'X870E',
+  //   'B850',
+  //   'B760M-K'
   // ],
   // playstation: [
   //   'playstation 5',
