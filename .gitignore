@@ -71,6 +71,8 @@ lcov-report/
 report.*.json
 **/report.*.json
 
+tests/*.json
+
 # --- Bower ---
 bower_components/
 
