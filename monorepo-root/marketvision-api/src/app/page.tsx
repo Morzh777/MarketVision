@@ -44,15 +44,16 @@ export default function Home() {
   const recommended = recommendedPrice2024[selected.qwerty ?? ''] || null;
 
   // Формируем данные для графика
-  const chartLabels = priceHistory.map(item =>
-    timeframe === 'day'
-      ? item.created_at.slice(11, 16)
-      : timeframe === 'year'
-      ? item.created_at.slice(0, 7)
-      : item.created_at.slice(5, 10)
-  );
-  const currentPrices = priceHistory.map(item => Number(item.price));
-  const recommendedPrices = priceHistory.map(() => recommended);
+  // chartLabels всегда фиксированный массив 00:00-23:00 для day
+  const chartLabels = timeframe === 'day'
+    ? Array.from({ length: 24 }, (_, h) => h.toString().padStart(2, '0') + ':00')
+    : priceHistory.map(item =>
+        timeframe === 'year'
+          ? item.created_at.slice(0, 7)
+          : item.created_at.slice(5, 10)
+      );
+  const currentPrices = priceHistory.map(item => item.price);
+  const recommendedPrices = priceHistory.map(item => item.price !== null ? recommended : null);
 
   // Следим за актуальностью выбранного товара
   useEffect(() => {
@@ -73,15 +74,15 @@ export default function Home() {
       },
       extraCssText: 'box-shadow: 0 2px 8px #000a; border-radius: 8px;',
       formatter: (params: any) => {
-        let html = `<div style='font-size:15px;font-weight:600;'>${params[0].axisValue}</div>`;
-        params.forEach((p: any) => {
-          if (p.seriesName === 'Текущая') {
+        let html = `<div style='font-size:15px;font-weight:600;'>${params[0]?.axisValue || params.name}</div>`;
+        (Array.isArray(params) ? params : [params]).forEach((p: any) => {
+          if (p.seriesName === 'Текущая' && p.value != null) {
             html += `<div style='margin-top:4px; color:#3b82f6;'>Текущая: <b>${p.value.toLocaleString()}₽</b></div>`;
           }
-          if (p.seriesName === 'Рекомендуемая') {
+          if (p.seriesName === 'Рекомендуемая' && p.value != null) {
             html += `<div style='margin-top:4px; color:#a855f7;'>Рекомендуемая: <b>${p.value.toLocaleString()}₽</b></div>`;
           }
-          if (p.seriesName === 'Рыночная цена') {
+          if (p.seriesName === 'Рыночная цена' && p.value != null) {
             html += `<div style='margin-top:4px; color:#f59e42;'>Рыночная цена: <b>${p.value.toLocaleString()}₽</b></div>`;
           }
         });
@@ -137,6 +138,7 @@ export default function Home() {
         symbolSize: 8,
         z: 10,
         areaStyle: { color: 'rgba(59,130,246,0.10)' },
+        connectNulls: false,
       },
       recommended && {
         name: 'Рекомендуемая',
@@ -146,15 +148,17 @@ export default function Home() {
         itemStyle: { color: '#a855f7' },
         symbol: 'none',
         z: 5,
+        connectNulls: false,
       },
       selected.mean && {
         name: 'Рыночная цена',
         type: 'line',
-        data: priceHistory.map(() => selected.mean),
+        data: priceHistory.map(item => item.price !== null ? selected.mean : null),
         lineStyle: { color: '#f59e42', type: 'dotted', width: 2 },
         itemStyle: { color: '#f59e42' },
         symbol: 'none',
         z: 4,
+        connectNulls: false,
       },
     ].filter(Boolean),
   };
@@ -258,7 +262,11 @@ export default function Home() {
                 </button>
               ))}
             </div>
-            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100 w-full text-left">График цены</h2>
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100 w-full text-left">
+              График цены{selected.qwerty && (
+                <span className="ml-2 text-[#3b82f6] font-semibold">{selected.qwerty}</span>
+              )}
+            </h2>
             <ReactECharts
               option={chartOption}
               style={{ height: 'min(60vw,400px)', width: '100%', minHeight: 220, maxHeight: 400 }}

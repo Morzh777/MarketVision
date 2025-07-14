@@ -7,19 +7,28 @@ export type PriceHistoryProduct = {
   id: string;
   query: string;
   source: string;
-  price: number;
+  price: number | null;
   created_at: string; // ISO-строка
 };
 
-function genPriceHistoryDay(basePrice: number, qwerty: string, source: string): PriceHistoryProduct[] {
+function genPriceHistoryDay(basePrice: number, qwerty: string, source: string, hour: string): PriceHistoryProduct[] {
+  // hour: "13:00" — до этого времени включительно, после — null
   const today = new Date();
   today.setMinutes(0, 0, 0);
   const arr: PriceHistoryProduct[] = [];
   const minPrice = Math.max(1000, Math.floor(basePrice * 0.8));
+  const lastHour = parseInt(hour.split(":")[0], 10);
   for (let h = 0; h < 24; h++) {
     const date = new Date(today);
     date.setHours(h);
-    const price = Math.max(minPrice, basePrice + Math.round((Math.sin(h / 3) + Math.random() - 0.5) * basePrice * 0.01));
+    let price: number | null;
+    if (h < lastHour) {
+      price = Math.max(minPrice, basePrice + Math.round((Math.sin(h / 3) + Math.random() - 0.5) * basePrice * 0.01));
+    } else if (h === lastHour) {
+      price = basePrice; // последняя точка — реальная цена
+    } else {
+      price = null; // после hour — нет данных
+    }
     arr.push({
       id: `${qwerty.replace(/\s+/g, '_')}_day_${h.toString().padStart(2, '0')}:00`,
       query: qwerty,
@@ -97,10 +106,10 @@ function genPriceHistoryYear(basePrice: number, qwerty: string, source: string):
 }
 
 export const priceHistoryMap: Record<string, { day: PriceHistoryProduct[]; week: PriceHistoryProduct[]; month: PriceHistoryProduct[]; year: PriceHistoryProduct[] }> = {};
-testProductsData.forEach(({ qwerty, price, source }) => {
-  if (qwerty && price && source) {
+testProductsData.forEach(({ qwerty, price, source, hour }) => {
+  if (qwerty && price && source && hour) {
     priceHistoryMap[qwerty] = {
-      day: genPriceHistoryDay(price, qwerty, source),
+      day: genPriceHistoryDay(price, qwerty, source, hour),
       week: genPriceHistoryWeek(price, qwerty, source),
       month: genPriceHistoryMonth(price, qwerty, source),
       year: genPriceHistoryYear(price, qwerty, source),
