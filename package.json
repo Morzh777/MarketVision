@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@nestjs/swagger": "^6.3.0",
+    "simplebar": "^6.3.2",
+    "simplebar-react": "^3.3.2",
     "swagger-ui-express": "^5.0.1"
   }
 }
