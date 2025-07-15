@@ -5,9 +5,9 @@
       {
         "id": "1758814160",
         "name": "Sony Игровая приставка Sony PlayStation 5 Pro 2 ТБ, цифровая консоль , Поддержка Pусский язык",
-        "price": 61626,
+        "price": 61046,
         "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-y/7474612174.jpg",
-        "product_url": "https://www.ozon.ru/product/sony-igrovaya-pristavka-sony-playstation-5-pro-2-tb-tsifrovaya-konsol-podderzhka-pusskiy-yazyk-1758814160/?at=99trJ4gMoFOw8J34FgxlK2qtWqoPjPux04K5GfLX2ypO",
+        "product_url": "https://www.ozon.ru/product/sony-igrovaya-pristavka-sony-playstation-5-pro-2-tb-tsifrovaya-konsol-podderzhka-pusskiy-yazyk-1758814160/?at=nRtr4ZKgnT9KypW7fEKW0yWtZQy1DLTJ0MgM5HgDNwD5",
         "category": "playstation",
         "source": "ozon",
         "query": "playstation 5 pro",
@@ -15,13 +15,13 @@
         "reason": "ps5-pro-match",
         "confidence": 1,
         "marketStats": {
-          "min": 61626,
-          "max": 280769,
-          "mean": 86556.71428571429,
-          "median": 85905,
+          "min": 61046,
+          "max": 282056,
+          "mean": 86712.42857142857,
+          "median": 86940,
           "iqr": [
-            73847,
-            100316
+            73849,
+            100283
           ]
         },
         "toAI": false
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 461,
+    "processing_time_ms": 265,
     "cache_hits": 0,
     "cache_misses": 0
   },

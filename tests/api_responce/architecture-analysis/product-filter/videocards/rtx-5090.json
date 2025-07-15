@@ -3,25 +3,25 @@
   "data": {
     "products": [
       {
-        "id": "2463576572",
-        "name": "Palit Видеокарта GeForce RTX 5090 GameRock 32 ГБ (NE75090019R5-GB2020G). Уцененный товар",
-        "price": 233992,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-o/7663295652.jpg",
-        "product_url": "https://www.ozon.ru/product/palit-videokarta-geforce-rtx-5090-gamerock-32-gb-ne75090019r5-gb2020g-utsenennyy-tovar-2463576572/?at=w0tg5lzAYFmrqyOEF105AYAFnQV8RpI1mrBRmtoryQpK",
+        "id": "423579540",
+        "name": "Видеокарта PCI-E 5.0 RTX5090",
+        "price": 259366,
+        "image_url": "https://basket-24.wbbasket.ru/vol4235/part423579/423579540/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/423579540/detail.aspx",
         "category": "videocards",
-        "source": "ozon",
+        "source": "wb",
         "query": "rtx 5090",
         "isValid": true,
-        "reason": "code-validated (model-pattern)",
+        "reason": "strict-model-match",
         "confidence": 0.95,
         "marketStats": {
-          "min": 233992,
-          "max": 610006,
-          "mean": 326281.4375,
-          "median": 315600.5,
+          "min": 259366,
+          "max": 613829,
+          "mean": 363151.28571428574,
+          "median": 375245,
           "iqr": [
-            279499,
-            375420
+            314112,
+            404855
           ]
         },
         "toAI": false
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 343,
+    "processing_time_ms": 710,
     "cache_hits": 0,
     "cache_misses": 0
   },

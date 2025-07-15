@@ -1,0 +1,68 @@
+{
+  "processors": {
+    "7800x3d": {
+      "success": true,
+      "data": {
+        "products": [
+          {
+            "id": "224126590",
+            "name": "7800X3D ryzen Процессор",
+            "price": 30283,
+            "image_url": "https://basket-15.wbbasket.ru/vol2241/part224126/224126590/images/big/1.webp",
+            "product_url": "https://www.wildberries.ru/catalog/224126590/detail.aspx",
+            "category": "processors",
+            "source": "wb",
+            "query": "7800x3d",
+            "isValid": true,
+            "reason": "strict-model-match",
+            "confidence": 0.95,
+            "marketStats": {
+              "min": 30283,
+              "max": 41147,
+              "mean": 35423.75,
+              "median": 35125.5,
+              "iqr": [
+                31659,
+                40924
+              ]
+            },
+            "toAI": false
+          }
+        ],
+        "total_queries": 1,
+        "total_products": 1,
+        "processing_time_ms": 692,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "7800x3d",
+      "category": "processors"
+    },
+    "9800x3d": {
+      "success": true,
+      "data": {
+        "products": [],
+        "total_queries": 1,
+        "total_products": 0,
+        "processing_time_ms": 231,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "9800x3d",
+      "category": "processors"
+    },
+    "9950x3d": {
+      "success": true,
+      "data": {
+        "products": [],
+        "total_queries": 1,
+        "total_products": 0,
+        "processing_time_ms": 201,
+        "cache_hits": 0,
+        "cache_misses": 0
+      },
+      "query": "9950x3d",
+      "category": "processors"
+    }
+  }
+}

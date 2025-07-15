@@ -74,6 +74,12 @@ export const testProductsData: MockHourlyCheapestItem[] = [
     link: "https://www.wildberries.ru/catalog/393679964/detail.aspx",
     source: "wb",
     qwerty: "rtx 5070",
+    min: 68583,
+    max: 100000,
+    mean: 80000,
+    median: 80000,
+    iqr: [70000, 90000],
+    category: "videocards",
   },
   {
     hour: "14:00",
@@ -83,6 +89,12 @@ export const testProductsData: MockHourlyCheapestItem[] = [
     link: "https://www.ozon.ru/product/sony-igrovaya-pristavka-sony-playstation-5-pro-2-tb-tsifrovaya-konsol-podderzhka-pusskiy-yazyk-1758814160/?at=99trJ4gMoFOw8J34FgxlK2qtWqoPjPux04K5GfLX2ypO",
     source: "ozon",
     qwerty: "playstation 5 pro",
+    min: 61626,
+    max: 100000,
+    mean: 80000,
+    median: 80000,
+    iqr: [70000, 90000],
+    category: "playstations",
   },
   {
     hour: "15:00",
@@ -92,6 +104,12 @@ export const testProductsData: MockHourlyCheapestItem[] = [
     link: "https://www.ozon.ru/product/galax-videokarta-geforce-rtx-4060-ti-8-gb-489514757146-2245838324/?at=jYtZzoM3psgz2lN3uQq3k8JuY95DAwcpGMEY2CGQvLM3",
     source: "ozon",
     qwerty: "rtx 4060 ti",
+    min: 38635,
+    max: 100000,
+    mean: 80000,
+    median: 80000,
+    iqr: [70000, 90000],
+    category: "videocards",
   },
   {
     hour: "16:00",
@@ -101,6 +119,12 @@ export const testProductsData: MockHourlyCheapestItem[] = [
     link: "https://www.ozon.ru/product/portativnaya-igrovaya-konsol-steam-deck-oled-16-gb-512-gb-7-4-dyuymovyy-oled-ekran-2223511261/?at=mqtkVyKAEhl2LXnjinWwNvNuDBZqN5SJrm3oPtrn8zDn",
     source: "ozon",
     qwerty: "steam deck oled",
+    min: 44791,
+    max: 100000,
+    mean: 80000,
+    median: 80000,
+    iqr: [70000, 90000],
+    category: "playstations",
   },
   {
     hour: "17:00",
@@ -125,6 +149,12 @@ export const testProductsData: MockHourlyCheapestItem[] = [
     link: "https://www.wildberries.ru/catalog/366098215/detail.aspx",
     source: "wb",
     qwerty: "x870e",
+    min: 26288,
+    max: 100000,
+    mean: 31000,
+    median: 32000,
+    iqr: [31000, 36000],
+    category: "motherboards",
   },
 ];
 
@@ -168,7 +198,7 @@ export const chartData: Record<Timeframe, { label: string; current: number; reco
 };
 
 export const recommendedPrice2024: Record<string, number> = {
-  "iphone 16 pro": 120000,
+  "iphone 16 pro": 75924,
   "rtx 5090": 250000,
   "nintendo switch 2": 40000,
   "rtx 5070": 80000,

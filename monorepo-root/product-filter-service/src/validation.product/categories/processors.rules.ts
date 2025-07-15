@@ -8,12 +8,11 @@ export const PROCESSORS_RULES: CategoryRule = {
   features: ['am5', 'am4', 'lga1700', 'lga1200', 'ddr5', 'ddr4', 'cache', 'boost', 'threads', 'cores'],
   minFeatures: 1,
   modelPatterns: [
-    /9(950|900|800|700|600)X3D?/gi,
-    /9(950|900|800|700|600)X/gi,
-    /9(950|900|800|700|600)HX3D?/gi,
-    /7[5689]00x3d|7950x3d|7600x3d/gi,
-    /(i[3579])-?\d{4,5}[a-z]*/i,
-    /ryzen\s*([3579])\s*(\d{4})[a-z]*/i
+    /(\d{4,5}\s*x\s*3d)/gi,   // 7800x3d, 7800x 3d, 7800 x3d и т.д.
+    /(\d{4,5}\s*hx)/gi,        // 7945hx, 7945 hx
+    /(\d{4,5}\s*x)/gi,         // 7800x, 7800 x
+    /(i[3579]-?\d{4,5}[a-z]*)/i, // i7-14700k, i9-13900hx и т.д.
+    /ryzen\s*[3579]\s*(\d{4}[a-z]*)/i // ryzen 7 7800x3d
   ],
   customValidator: customProcessorValidator
 };

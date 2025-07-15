@@ -5,23 +5,23 @@
       {
         "id": "371583828",
         "name": "Процессор Ryzen 9 9950X3D OEM (без кулера) AM5 DDR5 CPU",
-        "price": 64969,
+        "price": 65266,
         "image_url": "https://basket-22.wbbasket.ru/vol3715/part371583/371583828/images/big/1.webp",
         "product_url": "https://www.wildberries.ru/catalog/371583828/detail.aspx",
         "category": "processors",
         "source": "wb",
         "query": "9950x3d",
         "isValid": true,
-        "reason": "code-validated (model-pattern)",
+        "reason": "strict-model-match",
         "confidence": 0.95,
         "marketStats": {
-          "min": 64969,
-          "max": 129401,
-          "mean": 76664.42857142857,
-          "median": 77373,
+          "min": 65266,
+          "max": 129414,
+          "mean": 77673.56521739131,
+          "median": 77109,
           "iqr": [
-            68890,
-            81454
+            71478,
+            89255
           ]
         },
         "toAI": false
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 581,
+    "processing_time_ms": 277,
     "cache_hits": 0,
     "cache_misses": 0
   },

@@ -40,6 +40,8 @@ function genPriceHistoryDay(basePrice: number, qwerty: string, source: string, h
   return arr;
 }
 
+export { genPriceHistoryDay, genPriceHistoryWeek, genPriceHistoryMonth, genPriceHistoryYear };
+
 function genPriceHistoryWeek(basePrice: number, qwerty: string, source: string): PriceHistoryProduct[] {
   const now = new Date();
   const arr: PriceHistoryProduct[] = [];

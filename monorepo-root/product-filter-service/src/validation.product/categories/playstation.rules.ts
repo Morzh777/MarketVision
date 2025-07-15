@@ -9,10 +9,10 @@ export const PLAYSTATION_RULES: CategoryRule = {
   series: ['standard', 'digital', 'slim', 'pro'],
   features: ['825gb', '1tb', '4k', 'консоль'],
   modelPatterns: [
-    /playstation\s*5\s*pro/i,
     /ps5\s*pro/i,
-    /playstation\s*5/i,
-    /ps5/i
+    /ps5/i,
+    /playstation\s*5\s*pro/i,
+    /playstation\s*5/i
   ],
   customValidator: playstationCustomValidator,
   minFeatures: 1,

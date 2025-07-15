@@ -35,6 +35,11 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
   ],
   iphone: [
     'iphone 16 pro',
+    'iphone 16 pro max',
+    'iphone 16',
+    'iphone 16 plus',
+    'iphone 16 pro max',
+    'iphone 16 pro max',
   ]
 };
 

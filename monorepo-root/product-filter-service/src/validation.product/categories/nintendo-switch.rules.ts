@@ -7,5 +7,11 @@ export const NINTENDO_SWITCH_RULES: CategoryRule = {
   series: ['oled', 'lite', 'standard', 'neon', 'gray'],
   features: ['консоль', '32gb', '64gb', 'игровая', 'портативная'],
   minFeatures: 1,
+  modelPatterns: [
+    /switch\s*oled/i,
+    /switch\s*lite/i,
+    /switch\s*2/i,
+    /nintendo\s*switch/i
+  ],
   customValidator: customNintendoSwitchValidator
 };

@@ -3,11 +3,11 @@
   "data": {
     "products": [
       {
-        "id": "2350891360",
-        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, черный",
-        "price": 35801,
-        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-e/7601329022.jpg",
-        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-chernyy-2350891360/?at=Y7tjKVJNGsMB4vjZtpEnPX4tE1ypyPF8wWN7ZhNPMD1Q",
+        "id": "2293676702",
+        "name": "Игровая приставка Nintendo Switch 2 256 ГБ, глобальная версия, русский язык",
+        "price": 36325,
+        "image_url": "https://cdn1.ozone.ru/s3/multimedia-1-q/7628181650.jpg",
+        "product_url": "https://www.ozon.ru/product/igrovaya-pristavka-nintendo-switch-2-256-gb-globalnaya-versiya-russkiy-yazyk-2293676702/?at=08tYnXMQjc3NPDm8HQwNnJ1TZ3RmkruA085lPIljDkDj",
         "category": "nintendo_switch",
         "source": "ozon",
         "query": "nintendo switch 2",
@@ -15,13 +15,13 @@
         "reason": "switch-2-match",
         "confidence": 1,
         "marketStats": {
-          "min": 35801,
+          "min": 36325,
           "max": 191923,
-          "mean": 48854.34782608696,
-          "median": 48675,
+          "mean": 48803.52173913043,
+          "median": 48652,
           "iqr": [
-            40555,
-            56100
+            45846,
+            55952
           ]
         },
         "toAI": false
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 351,
+    "processing_time_ms": 296,
     "cache_hits": 0,
     "cache_misses": 0
   },

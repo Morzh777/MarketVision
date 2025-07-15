@@ -3,26 +3,25 @@
   "data": {
     "products": [
       {
-        "id": "381489443",
-        "name": "Видеокарта Radeon RX 7600 GAMING OC 8G",
-        "price": 26892,
-        "image_url": "https://basket-22.wbbasket.ru/vol3814/part381489/381489443/images/big/1.webp",
-        "product_url": "https://www.wildberries.ru/catalog/381489443/detail.aspx",
+        "id": "449246460",
+        "name": "Видеокарта RTX 5070 12 ГБ RTL (NE75070019K9-GB2050T)",
+        "price": 56665,
+        "image_url": "https://basket-25.wbbasket.ru/vol4492/part449246/449246460/images/big/1.webp",
+        "product_url": "https://www.wildberries.ru/catalog/449246460/detail.aspx",
         "category": "videocards",
         "source": "wb",
         "query": "rtx 5070",
         "isValid": true,
-        "reason": "code-validated (model-pattern)",
+        "reason": "strict-model-match",
         "confidence": 0.95,
-        "marketPriceNote": "Цена ниже рынка",
         "marketStats": {
-          "min": 26892,
-          "max": 72850,
-          "mean": 66490.20183486238,
-          "median": 66650,
+          "min": 56665,
+          "max": 72126,
+          "mean": 66185.3908045977,
+          "median": 66476,
           "iqr": [
-            63759,
-            69739
+            63108,
+            69612
           ]
         },
         "toAI": false
@@ -30,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 2720,
+    "processing_time_ms": 786,
     "cache_hits": 0,
     "cache_misses": 0
   },

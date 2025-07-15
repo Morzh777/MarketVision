@@ -12,16 +12,16 @@
         "source": "wb",
         "query": "7800x3d",
         "isValid": true,
-        "reason": "code-validated (model-pattern)",
+        "reason": "strict-model-match",
         "confidence": 0.95,
         "marketStats": {
           "min": 28801,
           "max": 910000,
-          "mean": 35633.34328358209,
-          "median": 35445,
+          "mean": 35710.5873015873,
+          "median": 35475,
           "iqr": [
-            33281,
-            39001
+            33047,
+            39248
           ]
         },
         "toAI": false
@@ -29,7 +29,7 @@
     ],
     "total_queries": 1,
     "total_products": 1,
-    "processing_time_ms": 2113,
+    "processing_time_ms": 538,
     "cache_hits": 0,
     "cache_misses": 0
   },
