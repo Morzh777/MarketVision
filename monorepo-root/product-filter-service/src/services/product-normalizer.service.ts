@@ -11,12 +11,7 @@ export class ProductNormalizerService {
   }
 
   normalizeQuery(query: string): string {
-    let norm = query.toLowerCase().trim();
-    norm = norm.replace(/\s+/g, ' ').trim();
-    norm = norm.replace(/rtx\s*(\d+)/i, 'rtx$1');
-    norm = norm.replace(/(\d+)\s*k\s*f?/i, '$1k');
-    norm = norm.replace(/(\d+)\s*x\s*(\d+)/i, '$1x$2');
-    norm = norm.replace(/([a-z])\s*(\d+)/i, '$1$2');
-    return norm;
+    // Используем ту же логику, что и в валидаторах
+    return query.toLowerCase().replace(/\s+/g, '');
   }
 } 

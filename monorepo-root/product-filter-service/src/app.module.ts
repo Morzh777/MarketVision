@@ -6,12 +6,10 @@ import { PhotoService } from './services/photo.service';
 import { OzonApiClient } from './grpc-clients/ozon-api.client';
 import { WbApiClient } from './grpc-clients/wb-api.client';
 import { ProductAggregatorService } from './services/product-aggregator.service';
-import { ProductValidationService } from './services/product-validation.service';
 import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
-import { EnhancedPriceAnomalyService } from './services/enhanced-price-anomaly.service';
-import { ValidationProductModule } from './validation.product/validation.product.module';
+import { ValidationServiceModule } from './services/validation.service/validation.service.module';
 
 @Module({
   imports: [
@@ -19,21 +17,18 @@ import { ValidationProductModule } from './validation.product/validation.product
       isGlobal: true,
       envFilePath: '.env',
     }),
-    ValidationProductModule, // Подключаем модуль валидации (экспортирует UnifiedHybridValidator)
+    ValidationServiceModule, // Подключаем новую систему валидации
   ],
   controllers: [ProductsController],
   providers: [
     ProductsService,
     ProductAggregatorService,
-    ProductValidationService,
     ProductGroupingService,
     ProductNormalizerService,
     PhotoService,
     OzonApiClient,
     WbApiClient,
     DbApiClient,
-    EnhancedPriceAnomalyService,
-    // OpenAiValidationService — не нужен тут, он уже есть в ValidationProductModule
   ],
 })
 export class AppModule {} 

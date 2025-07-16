@@ -1,13 +1,12 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { ProductRequestDto } from '../dto/product-request.dto';
 import { ProductAggregatorService } from './product-aggregator.service';
-import { ProductValidationService } from './product-validation.service';
+import { ValidationFactoryService } from './validation.service/validation-factory.service';
 import { ProductGroupingService } from './product-grouping.service';
 import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
 import { PhotoService } from './photo.service';
-import { OpenAiValidationService } from './openai.service';
 
 @Injectable()
 export class ProductsService {
@@ -15,12 +14,11 @@ export class ProductsService {
 
   constructor(
     private readonly aggregator: ProductAggregatorService,
-    private readonly validator: ProductValidationService,
+    private readonly validationFactory: ValidationFactoryService,
     private readonly grouper: ProductGroupingService,
     private readonly normalizer: ProductNormalizerService,
     private readonly dbApiClient: DbApiClient,
     private readonly photoService: PhotoService,
-    private readonly openaiService: OpenAiValidationService,
   ) {}
 
   /**
@@ -50,7 +48,7 @@ export class ProductsService {
     t = Date.now();
 
     // 2. Валидация
-    const validationResults = await this.validator.validateProducts(allProducts, request.category as import('../validation.product/utils/validation-utils').ProductCategory);
+    const validationResults = await this.validationFactory.validateProducts(allProducts, request.category as import('./validation.service/product-validator.base').ProductCategory);
     // Пробрасываем результат валидации в каждый продукт
     allProducts.forEach((product, i) => {
       if (validationResults[i]) {
@@ -77,37 +75,8 @@ export class ProductsService {
     this.logger.log(`📊 Сгруппировано в ${groupedProducts.length} уникальных товаров`);
     t = Date.now();
 
-    // 3.1. Разделяем на обычные и требующие AI
-    const aiNeeded = groupedProducts.filter(
-      p => p.toAI === true || p.reason === 'to-ai' || p.reason === 'price-anomaly'
-    );
-    const passed = groupedProducts.filter(p => !aiNeeded.includes(p));
-
-    // 3.2. Если есть товары для AI — валидируем их через новый унифицированный валидатор
-    let aiResults: any[] = [];
-    let aiError: any = null;
-    if (aiNeeded.length > 0) {
-      try {
-        // Используем тот же сервис валидации, что и для обычных продуктов
-        const allResults = await this.validator.validateProducts(aiNeeded, request.category as import('../validation.product/utils/validation-utils').ProductCategory);
-        aiResults = allResults.filter((r: any) => r.isValid);
-        this.logger.log(`[AI] Запросов к AI: ${aiNeeded.length}, успешно прошли: ${aiResults.length}`);
-      } catch (err) {
-        aiError = err;
-        this.logger.error(`[AI] Ошибка AI-валидации: ${err?.message || err}`);
-      }
-    }
-    this.logger.log(`⏱️ AI/доп.валидация заняла ${Date.now() - t}ms`);
-    t = Date.now();
-
     // Подменяем category на человекочитаемое название перед сохранением
-    for (const product of passed) {
-      product.category = request.category;
-      if (product.source === 'wb') {
-        product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
-      }
-    }
-    for (const product of aiResults) {
+    for (const product of groupedProducts) {
       product.category = request.category;
       if (product.source === 'wb') {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
@@ -151,21 +120,12 @@ export class ProductsService {
     }
 
     const processingTimeMs = Date.now() - startTime;
-    this.logger.log(`✅ Готово: ${validProducts.length} продуктов за ${processingTimeMs}ms`);
-
-    // Финальный лог по AI (всегда)
-    if (aiNeeded.length === 0) {
-      this.logger.log(`[AI][FINAL] Запросов к AI: 0, успешно прошли: 0`);
-    } else if (aiError) {
-      this.logger.error(`[AI][FINAL] Ошибка AI-валидации: ${aiError?.message || aiError}`);
-    } else {
-      this.logger.log(`[AI][FINAL] Запросов к AI: ${aiNeeded.length}, успешно прошли: ${aiResults.length}`);
-    }
+    this.logger.log(`✅ Готово: ${groupedProducts.length} продуктов за ${processingTimeMs}ms`);
 
     return {
-      products: [...passed, ...aiResults],
+      products: groupedProducts,
       total_queries: request.queries.length,
-      total_products: passed.length + aiResults.length,
+      total_products: groupedProducts.length,
       processing_time_ms: processingTimeMs,
       cache_hits: 0,
       cache_misses: 0
