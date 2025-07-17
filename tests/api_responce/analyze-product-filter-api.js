@@ -30,15 +30,15 @@ const testQueries = {
   //   'playstation 5',
   //   'playstation 5 pro'
   // ],
-  // nintendo_switch: [
-  //   'nintendo switch 2',
-  // ],
+  nintendo_switch: [
+    'nintendo switch 2',
+  ],
   // steam_deck: [
   //   'steam deck oled'
   // ],
-  iphone: [
-    'iphone 16 pro',
-  ]
+  // iphone: [
+  //   'iphone 16 pro',
+  // ]
 };
 
 async function ensureOutputDir() {
