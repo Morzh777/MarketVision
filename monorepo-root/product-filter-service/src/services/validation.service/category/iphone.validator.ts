@@ -5,8 +5,8 @@ import { ProductValidatorBase, ValidationResult, ValidationRules } from '../prod
 export class IphoneValidator extends ProductValidatorBase {
   private readonly IPHONE_RULES: ValidationRules = {
     modelPatterns: [
-      /iPhone\s+(?:(\d{1,2})\s+)?(?:Pro\s+)?(?:Max\s+)?(\d*)/i,
-      /iPhone\s+(?:SE\s+)?(\d*)/i
+      /iPhone\s*(?:(\d{1,2})\s*)?(?:Pro\s*)?(?:Max\s*)?(\d*)/i,
+      /iPhone\s*(?:SE\s*)?(\d*)/i
     ],
     accessoryWords: [
       'чехол', 'защита', 'стекло', 'кабель', 'шнур', 'зарядка', 'подставка',
@@ -22,7 +22,7 @@ export class IphoneValidator extends ProductValidatorBase {
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
-    // Проверка на аксессуары
+    // Проверка на аксессуары (улучшенная логика)
     if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
       return { isValid: false, reason: 'accessory', confidence: 0.0 };
     }
@@ -40,11 +40,14 @@ export class IphoneValidator extends ProductValidatorBase {
     return this.validateModelMatch(query, models);
   }
 
+
+
   /**
    * Переопределяем метод валидации для iPhone с улучшенной логикой
    */
   protected validateModelMatch(query: string, models: string[]): ValidationResult {
-    const normQuery = this.normalizeForQuery(query.replace(/[-\s]+/g, ''));
+    // Используем метод нормализации из базового класса
+    const normQuery = this.normalizeForQuery(query);
     
     // Проверяем, есть ли точное совпадение
     if (models.includes(normQuery)) {
@@ -70,8 +73,8 @@ export class IphoneValidator extends ProductValidatorBase {
   protected extractModels(name: string, patterns: RegExp[]): string[] {
     const models: string[] = [];
     
-    // Извлекаем номер модели (например, 16)
-    const modelMatch = name.match(/iPhone\s+(\d{1,2})/i);
+    // Извлекаем номер модели (например, 16) - с пробелом или без
+    const modelMatch = name.match(/iPhone\s*(\d{1,2})/i);
     if (modelMatch) {
       models.push(modelMatch[1]);
     }
@@ -82,15 +85,16 @@ export class IphoneValidator extends ProductValidatorBase {
       models.push(capacityMatch[1]);
     }
     
-    // Извлекаем полную модель (например, iphone16pro)
-    const fullModelMatch = name.match(/iPhone\s+(\d{1,2})\s*(Pro|Max)?/i);
+    // Извлекаем полную модель (например, iphone16pro) - с пробелом или без
+    const fullModelMatch = name.match(/iPhone\s*(\d{1,2})\s*(Pro|Max)?/i);
     if (fullModelMatch) {
       const model = fullModelMatch[1];
       const variant = fullModelMatch[2];
       if (variant) {
-        models.push(`iphone${model}${variant.toLowerCase()}`);
+        // Используем метод нормализации из базового класса
+        models.push(this.normalizeForQuery(`iphone${model}${variant}`));
       } else {
-        models.push(`iphone${model}`);
+        models.push(this.normalizeForQuery(`iphone${model}`));
       }
     }
     

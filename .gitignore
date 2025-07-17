@@ -73,6 +73,9 @@ report.*.json
 
 tests/*.json
 
+# --- Test folder in root ---
+tests/
+
 # --- Bower ---
 bower_components/
 

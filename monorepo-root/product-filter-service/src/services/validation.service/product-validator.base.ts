@@ -58,7 +58,29 @@ export abstract class ProductValidatorBase {
    */
   protected isAccessory(name: string, accessoryWords: string[]): boolean {
     const normalizedName = this.normalizeToLower(name);
-    return accessoryWords.some(word => normalizedName.includes(word.toLowerCase()));
+    
+    // Проверяем, есть ли указание на то, что аксессуары в комплекте
+    const inPackageIndicators = [
+      'в комплекте', 'в наборе', 'в подарок', 'бесплатно', 'включает',
+      'комплект', 'набор', 'подарок', 'бесплатное', 'включено'
+    ];
+    
+    const hasInPackageIndicator = inPackageIndicators.some(indicator => 
+      normalizedName.includes(indicator)
+    );
+    
+    // Если есть указание на комплект, не считаем аксессуаром
+    if (hasInPackageIndicator) {
+      return false;
+    }
+    
+    // Проверяем наличие слов аксессуаров
+    const hasAccessoryWords = accessoryWords.some(word => 
+      normalizedName.includes(word.toLowerCase())
+    );
+    
+    // Если есть слова аксессуаров, но нет указания на комплект, считаем аксессуаром
+    return hasAccessoryWords;
   }
 
   /**
