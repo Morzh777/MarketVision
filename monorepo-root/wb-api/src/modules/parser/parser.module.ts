@@ -12,4 +12,4 @@ import { WildberriesApiClientImpl } from '../../wb-api.client';
   ],
   exports: [WbParserService],
 })
-export class ParserModule {} 
+export class ParserModule {}

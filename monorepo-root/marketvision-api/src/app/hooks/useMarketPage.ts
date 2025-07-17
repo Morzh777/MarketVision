@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import type { MockHourlyCheapestItem, Timeframe } from '../types/market';
 
 export function useSortedProducts(products: MockHourlyCheapestItem[], sortOrder: 'asc' | 'desc' | null, sortPercentOrder: 'asc' | 'desc' | null) {

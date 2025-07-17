@@ -1,1 +1,1 @@
-# Domain entities 
+# Domain entities

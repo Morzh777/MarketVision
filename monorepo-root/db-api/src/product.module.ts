@@ -10,4 +10,4 @@ import { PrismaService } from './prisma.service';
   controllers: [ProductController],
   exports: [ProductService],
 })
-export class ProductModule {} 
+export class ProductModule {}

@@ -15,10 +15,10 @@ class RawProductServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetRawProducts = channel.unary_unary(
-                '/raw_product.RawProductService/GetRawProducts',
-                request_serializer=raw__product__pb2.GetRawProductsRequest.SerializeToString,
-                response_deserializer=raw__product__pb2.GetRawProductsResponse.FromString,
-                )
+            "/raw_product.RawProductService/GetRawProducts",
+            request_serializer=raw__product__pb2.GetRawProductsRequest.SerializeToString,
+            response_deserializer=raw__product__pb2.GetRawProductsResponse.FromString,
+        )
 
 
 class RawProductServiceServicer(object):
@@ -27,40 +27,53 @@ class RawProductServiceServicer(object):
     def GetRawProducts(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
 
 def add_RawProductServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetRawProducts': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRawProducts,
-                    request_deserializer=raw__product__pb2.GetRawProductsRequest.FromString,
-                    response_serializer=raw__product__pb2.GetRawProductsResponse.SerializeToString,
-            ),
+        "GetRawProducts": grpc.unary_unary_rpc_method_handler(
+            servicer.GetRawProducts,
+            request_deserializer=raw__product__pb2.GetRawProductsRequest.FromString,
+            response_serializer=raw__product__pb2.GetRawProductsResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'raw_product.RawProductService', rpc_method_handlers)
+        "raw_product.RawProductService", rpc_method_handlers
+    )
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class RawProductService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetRawProducts(request,
+    def GetRawProducts(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/raw_product.RawProductService/GetRawProducts',
+            "/raw_product.RawProductService/GetRawProducts",
             raw__product__pb2.GetRawProductsRequest.SerializeToString,
             raw__product__pb2.GetRawProductsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )

@@ -14,7 +14,10 @@ interface WildberriesProduct {
 }
 
 interface WildberriesApiClient {
-  searchProducts(query: string, xsubject: number): Promise<WildberriesProduct[]>;
+  searchProducts(
+    query: string,
+    xsubject: number,
+  ): Promise<WildberriesProduct[]>;
 }
 
 @Injectable()
@@ -22,45 +25,52 @@ export class WbParserService {
   private readonly logger = new Logger(WbParserService.name);
 
   constructor(
-    @Inject('WB_API_CLIENT') 
-    private readonly wbApiClient: WildberriesApiClient = new WildberriesApiClientImpl()
+    @Inject('WB_API_CLIENT')
+    private readonly wbApiClient: WildberriesApiClient = new WildberriesApiClientImpl(),
   ) {}
 
   async parseProducts(query: string, category: string): Promise<RawProduct[]> {
     try {
       this.logger.log(`🔍 Парсинг WB: ${query} (${category})`);
-      
+
       const xsubject = this.validateAndParseCategory(category);
-      
+
       const products = await this.wbApiClient.searchProducts(query, xsubject);
-      
+
       if (!products || products.length === 0) {
         this.logger.log(`⚠️ "${query}": товары не найдены`);
         return [];
       }
 
-      const rawProducts = products.map(product => this.mapToRawProduct(product, category, query));
+      const rawProducts = products.map((product) =>
+        this.mapToRawProduct(product, category, query),
+      );
 
       this.logger.log(`✅ Найдено ${rawProducts.length} продуктов`);
       return rawProducts;
-
     } catch (error) {
-      this.logger.error(`❌ Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
+      this.logger.error(
+        `❌ Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`,
+      );
       return [];
     }
   }
 
   private validateAndParseCategory(category: string): number {
     const xsubject = parseInt(category, 10);
-    
+
     if (isNaN(xsubject)) {
       throw new Error(`Неверный xsubject: ${category}. Должно быть числом.`);
     }
-    
+
     return xsubject;
   }
 
-  private mapToRawProduct(product: WildberriesProduct, category: string, query: string): RawProduct {
+  private mapToRawProduct(
+    product: WildberriesProduct,
+    category: string,
+    query: string,
+  ): RawProduct {
     return {
       id: product.id.toString(),
       name: product.name,
@@ -69,7 +79,7 @@ export class WbParserService {
       product_url: `https://www.wildberries.ru/catalog/${product.id}/detail.aspx`,
       category,
       source: 'wb',
-      query
+      query,
     };
   }
 
@@ -77,12 +87,14 @@ export class WbParserService {
     if (!Array.isArray(product.sizes) || product.sizes.length === 0) {
       return 0;
     }
-    
+
     const prices = product.sizes
-      .map(size => size.price?.product)
-      .filter((price): price is number => typeof price === 'number' && price > 0)
-      .map(price => price / 100); // Конвертация в рубли
-    
+      .map((size) => size.price?.product)
+      .filter(
+        (price): price is number => typeof price === 'number' && price > 0,
+      )
+      .map((price) => price / 100); // Конвертация в рубли
+
     return prices.length > 0 ? Math.min(...prices) : 0;
   }
 
@@ -92,4 +104,4 @@ export class WbParserService {
     }
     return `https://images.wbstatic.net/c516x688/${product.pics}.jpg`;
   }
-} 
+}

@@ -3,8 +3,8 @@
 Ozon API gRPC сервер
 Точка входа в приложение с правильной типизацией и обработкой ошибок
 """
-import os
 import asyncio
+import os
 import signal
 import sys
 from typing import NoReturn
@@ -29,21 +29,25 @@ def setup_signal_handlers() -> None:
         # Unix-подобные системы
         loop = asyncio.get_event_loop()
         for sig in (signal.SIGTERM, signal.SIGINT):
-            loop.add_signal_handler(sig, lambda: asyncio.create_task(shutdown_handler()))
+            loop.add_signal_handler(
+                sig, lambda: asyncio.create_task(shutdown_handler())
+            )
     else:
         # Windows
-        signal.signal(signal.SIGINT, lambda s, f: asyncio.create_task(shutdown_handler()))
+        signal.signal(
+            signal.SIGINT, lambda s, f: asyncio.create_task(shutdown_handler())
+        )
 
 
 async def main() -> NoReturn:
     """
     Главная функция приложения
-    
+
     Raises:
         SystemExit: При завершении приложения
     """
     print("🚀 Запуск Ozon API сервера...")
-    
+
     try:
         setup_signal_handlers()
         await serve()
@@ -61,4 +65,4 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("🛑 Принудительное завершение")
-        sys.exit(0) 
+        sys.exit(0)

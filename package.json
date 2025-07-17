@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "sort-imports": "./scripts/sort-imports.sh",
+    "lint": "npm run sort-imports",
+    "lint:fix": "npm run sort-imports && echo '🔧 Исправляйте ошибки типизации вручную'"
+  },
   "dependencies": {
     "@nestjs/swagger": "^6.3.0",
     "simplebar": "^6.3.2",

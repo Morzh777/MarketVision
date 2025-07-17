@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { MockHourlyCheapestItem } from '../types/market';
 
 interface MarqueeProps {

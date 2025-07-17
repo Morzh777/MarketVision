@@ -19,7 +19,7 @@ interface WildberriesApiClient {
 @Injectable()
 export class WildberriesApiClientImpl implements WildberriesApiClient {
   private readonly logger = new Logger(WildberriesApiClientImpl.name);
-  
+
   private readonly CONFIG = {
     WB_API_URL: 'https://search.wb.ru/exactmatch/ru/common/v13/search',
     API_TIMEOUT: 5000,
@@ -28,38 +28,38 @@ export class WildberriesApiClientImpl implements WildberriesApiClient {
 
   /**
    * Выполняет поиск товаров через API Wildberries
-   * 
+   *
    * @param query - Поисковый запрос для поиска товаров
    * @param xsubject - ID категории товаров в системе WB (например, 3690 для материнских плат)
    * @returns Promise<Product[]> - Массив найденных товаров или пустой массив при ошибке
-   * 
+   *
    * @example
    * ```typescript
    * const products = await client.searchProducts("RTX 4090", 3690);
    * console.log(`Найдено ${products.length} товаров`);
    * ```
-   * 
+   *
    * @throws {Error} При ошибке HTTP запроса или некорректном ответе API
    */
   async searchProducts(query: string, xsubject: number): Promise<Product[]> {
     const url = `${this.CONFIG.WB_API_URL}?ab_testid=pricefactor_2&appType=64&curr=rub&dest=-1185367&hide_dtype=13&lang=ru&page=1&query=${encodeURIComponent(query)}&resultset=catalog&sort=priceup&spp=30&suppressSpellcheck=false&xsubject=${xsubject}`;
     this.logger.log(`[WB-API] FINAL URL: ${url}`);
-    
+
     const response = await fetch(url, {
       headers: { 'User-Agent': this.CONFIG.USER_AGENT },
       signal: AbortSignal.timeout(this.CONFIG.API_TIMEOUT),
     });
-    
+
     if (!response.ok) {
       throw new Error(`WB API error: ${response.status}`);
     }
-    
+
     const data = await response.json();
     if (!data || !data.data || !Array.isArray(data.data.products)) {
       this.logger.warn(`Неожиданный ответ WB API: ${JSON.stringify(data)}`);
       return [];
     }
-    
+
     return data.data.products;
   }
-} 
+}

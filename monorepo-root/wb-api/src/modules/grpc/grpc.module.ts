@@ -7,4 +7,4 @@ import { ParserModule } from '../parser/parser.module';
   providers: [GrpcServerService],
   exports: [GrpcServerService],
 })
-export class GrpcModule {} 
+export class GrpcModule {}

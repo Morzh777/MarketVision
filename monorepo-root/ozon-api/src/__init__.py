@@ -1,1 +1,1 @@
-# Ozon API Parser 
+# Ozon API Parser

@@ -1,5 +1,6 @@
-import React from 'react';
 import ReactECharts from 'echarts-for-react';
+import React from 'react';
+
 import type { MockHourlyCheapestItem, Timeframe } from '../types/market';
 
 interface ChartBlockProps {

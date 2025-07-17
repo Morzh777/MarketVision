@@ -5,4 +5,4 @@ import { ParserModule } from './modules/parser/parser.module';
 @Module({
   imports: [GrpcModule, ParserModule],
 })
-export class AppModule {} 
+export class AppModule {}

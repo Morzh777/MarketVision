@@ -18,4 +18,4 @@ export class GetRawProductsResponseDto {
 
   total_count!: number;
   source!: string;
-} 
+}

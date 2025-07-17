@@ -3,12 +3,12 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as path from 'path';
 import { WbParserService } from '../parser/wb-parser.service';
-import { 
-  GetRawProductsCall, 
-  GetRawProductsCallback, 
+import {
+  GetRawProductsCall,
+  GetRawProductsCallback,
   GetRawProductsRequest,
   GetRawProductsResponse,
-  GrpcError 
+  GrpcError,
 } from '../types/grpc.types';
 
 const PROTO_PATH = path.join(__dirname, '../../proto/raw-product.proto');
@@ -21,16 +21,15 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   oneofs: true,
 });
 
-const rawProductProto = grpc.loadPackageDefinition(packageDefinition).raw_product as any;
+const rawProductProto = grpc.loadPackageDefinition(packageDefinition)
+  .raw_product as any;
 
 @Injectable()
 export class GrpcServerService implements OnModuleInit {
   private readonly logger = new Logger(GrpcServerService.name);
   private server: grpc.Server;
 
-  constructor(
-    private readonly wbParserService: WbParserService,
-  ) {
+  constructor(private readonly wbParserService: WbParserService) {
     this.server = new grpc.Server();
   }
 
@@ -54,13 +53,13 @@ export class GrpcServerService implements OnModuleInit {
         }
         this.server.start();
         this.logger.log(`🚀 WB API gRPC сервер запущен на порту ${port}`);
-      }
+      },
     );
   }
 
   private async getRawProducts(
-    call: GetRawProductsCall, 
-    callback: GetRawProductsCallback
+    call: GetRawProductsCall,
+    callback: GetRawProductsCallback,
   ): Promise<void> {
     try {
       const request: GetRawProductsRequest = call.request;
@@ -71,7 +70,7 @@ export class GrpcServerService implements OnModuleInit {
         const error: GrpcError = {
           code: grpc.status.INVALID_ARGUMENT,
           message: 'Query и category обязательны',
-          details: 'Отсутствуют обязательные параметры запроса'
+          details: 'Отсутствуют обязательные параметры запроса',
         };
         callback(error);
         return;
@@ -79,33 +78,37 @@ export class GrpcServerService implements OnModuleInit {
 
       this.logger.log(`🔍 WB API: ${query} (${category})`);
 
-      const products = await this.wbParserService.parseProducts(query, category);
-      
+      const products = await this.wbParserService.parseProducts(
+        query,
+        category,
+      );
+
       // Используем categoryKey для возврата в ответе (как в тесте)
       const responseCategory = categoryKey || category;
-      
-      const responseProducts = products.map(product => ({
+
+      const responseProducts = products.map((product) => ({
         ...product,
-        category: responseCategory
+        category: responseCategory,
       }));
-      
+
       const response: GetRawProductsResponse = {
         products: responseProducts,
         total_count: responseProducts.length,
-        source: 'wb'
+        source: 'wb',
       };
 
       callback(null, response);
-
     } catch (error) {
-      this.logger.error(`❌ Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`);
-      
+      this.logger.error(
+        `❌ Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`,
+      );
+
       const grpcError: GrpcError = {
         code: grpc.status.INTERNAL,
-        message: `Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`
+        message: `Ошибка парсинга: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}`,
       };
-      
+
       callback(grpcError);
     }
   }
-} 
+}

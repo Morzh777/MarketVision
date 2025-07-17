@@ -91,7 +91,7 @@ describe('GrpcServerService', () => {
 
     it('should handle parsing errors', async () => {
       mockWbParserService.parseProducts.mockRejectedValue(
-        new Error('Test error')
+        new Error('Test error'),
       );
 
       await (service as any).getRawProducts(mockCall, mockCallback);
@@ -125,7 +125,10 @@ describe('GrpcServerService', () => {
 
       mockWbParserService.parseProducts.mockResolvedValue(mockProducts);
 
-      await (service as any).getRawProducts(callWithoutCategoryKey, mockCallback);
+      await (service as any).getRawProducts(
+        callWithoutCategoryKey,
+        mockCallback,
+      );
 
       expect(mockCallback).toHaveBeenCalledWith(null, {
         products: [
@@ -139,4 +142,4 @@ describe('GrpcServerService', () => {
       });
     });
   });
-}); 
+});

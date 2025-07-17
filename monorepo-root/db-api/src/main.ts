@@ -9,14 +9,17 @@ async function bootstrap() {
   console.log('--- DB-API gRPC SERVICE START ---');
   console.log('Proto path:', protoPath);
   console.log('gRPC URL:', grpcUrl);
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
-    transport: Transport.GRPC,
-    options: {
-      package: 'raw_product',
-      protoPath,
-      url: grpcUrl,
+  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
+    AppModule,
+    {
+      transport: Transport.GRPC,
+      options: {
+        package: 'raw_product',
+        protoPath,
+        url: grpcUrl,
+      },
     },
-  });
+  );
   await app.listen();
   console.log('DB-API gRPC microservice started and listening on', grpcUrl);
 }

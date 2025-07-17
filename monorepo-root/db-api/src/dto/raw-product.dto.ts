@@ -34,4 +34,4 @@ export class RawProductDto {
   @IsString()
   @IsNotEmpty()
   query: string;
-} 
+}

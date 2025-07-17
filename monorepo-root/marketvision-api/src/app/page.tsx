@@ -1,9 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import ReactECharts from 'echarts-for-react';
+import React, { useState, useEffect } from "react";
 import { FaRegCalendarAlt, FaRegCalendar, FaRegCalendarCheck, FaRegClock, FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import SimpleBar from 'simplebar-react';
+
 import 'simplebar-react/dist/simplebar.min.css';
+import ChartBlock from './components/ChartBlock';
+import DealsBlock from './components/DealsBlock';
+import Marquee from './components/Marquee';
+import Sidebar from './components/Sidebar';
 import { testProductsData, mockDeals, Timeframe, recommendedPrice2024 } from './testData';
 import {
   priceHistoryMap,
@@ -14,10 +19,6 @@ import {
   PriceHistoryProduct
 } from './testPriceHistoryData';
 import { getChartOption } from './utils/chartUtils';
-import Marquee from './components/Marquee';
-import Sidebar from './components/Sidebar';
-import ChartBlock from './components/ChartBlock';
-import DealsBlock from './components/DealsBlock';
 
 // Тип для mockHourlyCheapest с дополнительным полем qwerty
 interface MockHourlyCheapestItem {

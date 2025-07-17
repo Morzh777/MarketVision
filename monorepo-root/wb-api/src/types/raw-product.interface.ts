@@ -7,4 +7,4 @@ export interface RawProduct {
   category: string;
   source: string;
   query: string;
-} 
+}

@@ -5,4 +5,4 @@ import { PrismaClient } from '@prisma/client';
  * PrismaService — обёртка над PrismaClient для DI
  */
 @Injectable()
-export class PrismaService extends PrismaClient {} 
+export class PrismaService extends PrismaClient {}

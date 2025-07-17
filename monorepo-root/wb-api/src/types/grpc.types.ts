@@ -26,4 +26,4 @@ export type UnaryCall<TRequest> = ServerUnaryCall<TRequest, any>;
 export type UnaryCallback<TResponse> = sendUnaryData<TResponse>;
 
 export type GetRawProductsCall = UnaryCall<GetRawProductsRequest>;
-export type GetRawProductsCallback = UnaryCallback<GetRawProductsResponse>; 
+export type GetRawProductsCallback = UnaryCallback<GetRawProductsResponse>;

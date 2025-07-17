@@ -1,5 +1,6 @@
 import React from 'react';
 import SimpleBar from 'simplebar-react';
+
 import 'simplebar-react/dist/simplebar.min.css';
 import type { MockHourlyCheapestItem } from '../types/market';
 

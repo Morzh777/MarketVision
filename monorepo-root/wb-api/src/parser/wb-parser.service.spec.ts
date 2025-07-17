@@ -121,4 +121,4 @@ describe('WbParserService', () => {
       expect(result[0].image_url).toBe('');
     });
   });
-}); 
+});

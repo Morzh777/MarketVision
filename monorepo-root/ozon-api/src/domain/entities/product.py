@@ -1,10 +1,12 @@
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Any
 from datetime import datetime
+from typing import Any, Dict, List, Optional
+
 
 @dataclass
 class Product:
     """Доменная сущность товара"""
+
     id: str
     name: str
     price: float
@@ -18,7 +20,7 @@ class Product:
     supplier: str = "Ozon"
     source: str = "ozon"
     created_at: Optional[datetime] = None
-    
+
     def __post_init__(self) -> None:
         if self.images is None:
             self.images = []
@@ -26,7 +28,7 @@ class Product:
             self.characteristics = {}
         if self.created_at is None:
             self.created_at = datetime.now()
-    
+
     def to_dict(self) -> Dict[str, Any]:
         """Конвертация в словарь"""
         return {
@@ -42,10 +44,10 @@ class Product:
             "availability": self.availability,
             "supplier": self.supplier,
             "source": self.source,
-            "created_at": self.created_at.isoformat() if self.created_at else None
+            "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-    
+
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> 'Product':
+    def from_dict(cls, data: Dict[str, Any]) -> "Product":
         """Создание из словаря"""
-        return cls(**data) 
+        return cls(**data)
