@@ -25,6 +25,17 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
+    // ПРИОРИТЕТНАЯ проверка на прошитые/модифицированные консоли
+    const isModified = this.isModifiedConsole(name);
+    console.log('[NINTENDO SWITCH VALIDATOR DEBUG] Проверка прошитых консолей:', {
+      name,
+      isModified
+    });
+    
+    if (isModified) {
+      return { isValid: false, reason: 'accessory', confidence: 0.95 };
+    }
+
     // Проверка на аксессуары (исключая подарочные наборы)
     if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
       return { isValid: false, reason: 'accessory', confidence: 0.95 };
@@ -97,6 +108,35 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   }
 
   /**
+   * Проверка на прошитые/модифицированные консоли
+   */
+  private isModifiedConsole(name: string): boolean {
+    const modifiedPatterns = [
+      // Паттерны для прошитых консолей
+      /\b(?:прошитая|прошитый|прошит)\b/i,
+      /(?:ревизия|рев)/i,
+      /\b(?:hwfly|modchip|модчип)\b/i,
+      /\b(?:модифицированная|модифицированный)\b/i,
+      /\b(?:чип|чипованная|чипованный)\b/i,
+      /\b(?:jailbreak|джейлбрейк)\b/i,
+      /\b(?:homebrew|хомбрю)\b/i,
+      /\b(?:кастомная|кастомный)\b/i,
+      /\b(?:взломанная|взломанный)\b/i
+    ];
+
+    const matchedPatterns = modifiedPatterns.filter(pattern => pattern.test(name));
+    
+    if (matchedPatterns.length > 0) {
+      console.log('[NINTENDO SWITCH VALIDATOR DEBUG] Найдены прошитые паттерны:', {
+        name,
+        matchedPatterns: matchedPatterns.map(p => p.source)
+      });
+    }
+
+    return matchedPatterns.length > 0;
+  }
+
+  /**
    * Переопределяем извлечение моделей для лучшей обработки Nintendo Switch
    */
   protected extractModels(name: string, patterns: RegExp[]): string[] {
@@ -162,7 +202,29 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
       return { isValid: true, reason: 'model-match', confidence: 0.95 };
     }
     
-    // Проверяем частичные совпадения для Nintendo Switch
+    // Специальная логика для Switch 2
+    if (normQuery.includes('2')) {
+      // Если запрашивается Switch 2, то должны быть модели с "2"
+      const hasSwitch2 = models.includes('2') || models.includes('switch2');
+      if (hasSwitch2) {
+        return { isValid: true, reason: 'model-match', confidence: 0.95 };
+      }
+      // Если нет модели "2", то это не Switch 2
+      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    }
+    
+    // Специальная логика для OLED
+    if (normQuery.includes('oled')) {
+      // Если запрашивается OLED, то должны быть OLED модели
+      const hasOled = models.includes('oled') || models.includes('switcholed') || models.includes('nintendoswitcholed');
+      if (hasOled) {
+        return { isValid: true, reason: 'model-match', confidence: 0.95 };
+      }
+      // Если нет OLED, то это не OLED модель
+      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    }
+    
+    // Проверяем частичные совпадения для общих случаев
     const queryParts = normQuery.split(/\s+/).filter(Boolean);
     const hasMatchingParts = queryParts.some(part => 
       models.some(model => model.includes(part) || part.includes(model))

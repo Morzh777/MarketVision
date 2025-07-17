@@ -26,13 +26,13 @@ const testQueries = {
   //   'B850',
   //   'B760M-K'
   // ],
-  // playstation: [
-  //   'playstation 5',
-  //   'playstation 5 pro'
-  // ],
-  nintendo_switch: [
-    'nintendo switch 2',
+  playstation: [
+    'playstation 5',
+    'playstation 5 pro'
   ],
+  // nintendo_switch: [
+  //   'nintendo switch 2',
+  // ],
   // steam_deck: [
   //   'steam deck oled'
   // ],
