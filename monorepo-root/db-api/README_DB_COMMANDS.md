@@ -2,7 +2,13 @@
 
 ## Вход в контейнер с Postgres
 ```bash
-docker exec -it db-api-postgres-1 psql -U postgres
+docker exec -it marketvision-postgres psql -U postgres
+```
+
+Или можно подключиться к базе данных `marketvision`:
+
+```bash
+docker exec -it marketvision-postgres psql -U postgres -d marketvision
 ```
 
 ## Основные команды psql
@@ -31,7 +37,6 @@ SELECT * FROM "MarketStats";
 
 ### Удалить все данные из таблицы
 ```sql
-
 DELETE FROM "Product";
 DELETE FROM "PriceHistory";
 DELETE FROM "MarketStats";
@@ -44,7 +49,20 @@ DELETE FROM "MarketStats";
 
 ---
 
-## Применение миграций Prisma (если структура изменилась)
+## Создание таблиц в базе данных
+
+### Первоначальная настройка (если таблиц нет)
+
+В папке `monorepo-root/db-api`:
+```bash
+# Генерировать Prisma Client
+npx prisma generate
+
+# Создать и применить миграции (создает таблицы)
+npx prisma migrate dev
+```
+
+### Применение миграций Prisma (если структура изменилась)
 
 В папке `monorepo-root/db-api`:
 ```bash
@@ -52,6 +70,20 @@ npx prisma migrate deploy
 # или для разработки
 npx prisma migrate dev
 ```
+
+### Проверка что таблицы созданы
+
+После миграций проверьте:
+```bash
+docker exec -it marketvision-postgres psql -U postgres -d marketvision
+```
+
+В psql выполните:
+```sql
+\dt
+```
+
+Должны появиться таблицы: `Product`, `PriceHistory`, `MarketStats`
 
 ---
 
@@ -98,7 +130,7 @@ FROM
     AND tc.table_schema = kcu.table_schema
   JOIN information_schema.constraint_column_usage AS ccu
     ON ccu.constraint_name = tc.constraint_name
-    AND ccu.table_schema = tc.table_schema
+    AND ccu.table_schema = ccu.table_schema
 WHERE tc.constraint_type = 'FOREIGN KEY';
 ``` 
 
@@ -107,4 +139,11 @@ WHERE tc.constraint_type = 'FOREIGN KEY';
 DELETE FROM "Product";
 DELETE FROM "PriceHistory";
 DELETE FROM "MarketStats";
-``` 
+```
+
+## Основные команды psql
+
+### Список баз данных
+```sql
+\l
+```

@@ -11,7 +11,6 @@ import { ValidationFactoryService } from './validation-factory.service';
 
 @Module({
   providers: [
-    ProductValidatorBase,
     MotherboardsValidator,
     ProcessorsValidator,
     VideocardsValidator,
@@ -22,7 +21,6 @@ import { ValidationFactoryService } from './validation-factory.service';
     ValidationFactoryService,
   ],
   exports: [
-    ProductValidatorBase,
     MotherboardsValidator,
     ProcessorsValidator,
     VideocardsValidator,

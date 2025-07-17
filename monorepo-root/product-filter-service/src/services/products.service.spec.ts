@@ -20,7 +20,7 @@ describe('ProductsService', () => {
   const mockGrouper = { groupAndSelectCheapest: jest.fn().mockReturnValue([]) };
   const mockNormalizer = { getModelKey: jest.fn().mockReturnValue(''), normalizeQuery: jest.fn().mockReturnValue('') };
   const mockDbApiClient = { batchCreateProducts: jest.fn().mockResolvedValue({ inserted: 0 }) };
-  const mockOpenaiService = { validateProducts: jest.fn().mockResolvedValue([]) };
+
 
   beforeEach(() => {
     photoService = { processImageUrl: jest.fn(async (url) => url) };
@@ -32,8 +32,7 @@ describe('ProductsService', () => {
       mockGrouper as any,
       mockNormalizer as any,
       mockDbApiClient as any,
-      photoService as any,
-      mockOpenaiService as any
+      photoService as any
     );
   });
 
