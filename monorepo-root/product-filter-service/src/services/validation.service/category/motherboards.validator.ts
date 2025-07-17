@@ -16,33 +16,26 @@ export class MotherboardsValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    if (category === 'motherboards') {
-      return this.MOTHERBOARDS_RULES;
-    }
-    return null;
+    const cases = [
+      {
+        when: () => category === 'motherboards',
+        result: this.MOTHERBOARDS_RULES
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? null;
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
     const n = this.normalizeToLower(name);
     const q = this.normalizeForQuery(query.trim());
 
-    // Проверка на аксессуары
-    if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.0 };
-    }
-
     // Нормализуем чипсеты для сравнения
     const normalizedChipsets = rules.chipsets.map(chipset => this.normalizeForQuery(chipset));
     
     // Извлекаем все чипсеты из названия
     const foundChipsets = this.extractChipsetsFromName(n, normalizedChipsets);
-    
-    // Проверяем, есть ли запрашиваемый чипсет в найденных (точное совпадение)
-    const hasQueryChipset = foundChipsets.includes(q);
-
-    // Проверяем на конфликтующие чипсеты (только если найдено больше одного РАЗНЫХ чипсетов)
     const uniqueChipsets = [...new Set(foundChipsets)];
-    const hasConflictingChipsets = uniqueChipsets.length > 1 && !hasQueryChipset;
 
     const cases = [
       {
@@ -50,15 +43,19 @@ export class MotherboardsValidator extends ProductValidatorBase {
         result: { isValid: false, reason: 'no-chipsets-in-rules', confidence: 0.0 }
       },
       {
+        when: () => rules.accessoryWords && this.isAccessory(name, rules.accessoryWords),
+        result: { isValid: false, reason: 'accessory', confidence: 0.0 }
+      },
+      {
         when: () => !normalizedChipsets.includes(q),
         result: { isValid: false, reason: 'query-not-in-chipsets', confidence: 0.0 }
       },
       {
-        when: () => hasConflictingChipsets,
+        when: () => uniqueChipsets.length > 1 && !foundChipsets.includes(q),
         result: { isValid: false, reason: 'conflicting-chipsets', confidence: 0.0 }
       },
       {
-        when: () => hasQueryChipset,
+        when: () => foundChipsets.includes(q),
         result: { isValid: true, reason: 'chipset-match', confidence: 1.0 }
       }
     ];
@@ -68,10 +65,10 @@ export class MotherboardsValidator extends ProductValidatorBase {
       name,
       n,
       q,
-      found: hasQueryChipset,
+      found: foundChipsets.includes(q),
       foundChipsets,
       uniqueChipsets,
-      hasConflictingChipsets,
+      hasConflictingChipsets: uniqueChipsets.length > 1 && !foundChipsets.includes(q),
       price: rules?.price
     });
 

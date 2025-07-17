@@ -18,45 +18,51 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    if (category === 'nintendo_switch') {
-      return this.NINTENDO_SWITCH_RULES;
-    }
-    return null;
+    const cases = [
+      {
+        when: () => category === 'nintendo_switch',
+        result: this.NINTENDO_SWITCH_RULES
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? null;
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
-    // ПРИОРИТЕТНАЯ проверка на прошитые/модифицированные консоли
-    const isModified = this.isModifiedConsole(name);
-    console.log('[NINTENDO SWITCH VALIDATOR DEBUG] Проверка прошитых консолей:', {
-      name,
-      isModified
-    });
-    
-    if (isModified) {
-      return { isValid: false, reason: 'accessory', confidence: 0.95 };
-    }
-
-    // Проверка на аксессуары (исключая подарочные наборы)
-    if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.95 };
-    }
-
-    // Дополнительная проверка на аксессуары по паттернам (исключая наборы)
-    if (this.isAccessoryByPattern(name)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.9 };
-    }
-
-    // Извлечение моделей
     const models = this.extractModels(name, rules.modelPatterns || []);
-    
+
+    const cases = [
+      {
+        when: () => this.isModifiedConsole(name),
+        result: { isValid: false, reason: 'accessory', confidence: 0.95 }
+      },
+      {
+        when: () => rules.accessoryWords && this.isAccessory(name, rules.accessoryWords),
+        result: { isValid: false, reason: 'accessory', confidence: 0.95 }
+      },
+      {
+        when: () => this.isAccessoryByPattern(name),
+        result: { isValid: false, reason: 'accessory', confidence: 0.9 }
+      },
+      {
+        when: () => this.validateModelMatch(query, models).isValid,
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      }
+    ];
+
     // DEBUG LOG
     console.log('[NINTENDO SWITCH VALIDATOR DEBUG]', {
       query,
       name,
-      models
+      models,
+      isModified: this.isModifiedConsole(name)
     });
 
-    return this.validateModelMatch(query, models);
+    return cases.find(c => c.when())?.result ?? { 
+      isValid: false, 
+      reason: 'no-model-match', 
+      confidence: 0.1 
+    };
   }
 
   /**
@@ -144,48 +150,78 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
     
     // Извлекаем "Nintendo Switch"
     const nintendoSwitchMatch = name.match(/Nintendo\s*Switch/i);
-    if (nintendoSwitchMatch) {
-      models.push(this.normalizeForQuery('nintendoswitch'));
-    }
+    const nintendoSwitchCases = [
+      {
+        when: () => nintendoSwitchMatch !== null,
+        result: () => models.push(this.normalizeForQuery('nintendoswitch'))
+      }
+    ];
+    nintendoSwitchCases.find(c => c.when())?.result();
     
     // Извлекаем "Switch"
     const switchMatch = name.match(/Switch/i);
-    if (switchMatch) {
-      models.push(this.normalizeForQuery('switch'));
-    }
+    const switchCases = [
+      {
+        when: () => switchMatch !== null,
+        result: () => models.push(this.normalizeForQuery('switch'))
+      }
+    ];
+    switchCases.find(c => c.when())?.result();
     
     // Извлекаем "OLED"
     const oledMatch = name.match(/OLED/i);
-    if (oledMatch) {
-      models.push(this.normalizeForQuery('oled'));
-    }
+    const oledCases = [
+      {
+        when: () => oledMatch !== null,
+        result: () => models.push(this.normalizeForQuery('oled'))
+      }
+    ];
+    oledCases.find(c => c.when())?.result();
     
     // Извлекаем номер модели (например, 2)
     const modelNumberMatch = name.match(/Switch\s*(\d+)/i);
-    if (modelNumberMatch) {
-      models.push(modelNumberMatch[1]);
-    }
+    const modelNumberCases = [
+      {
+        when: () => modelNumberMatch !== null,
+        result: () => models.push(modelNumberMatch[1])
+      }
+    ];
+    modelNumberCases.find(c => c.when())?.result();
     
     // Извлекаем емкость (например, 64, 256)
     const capacityMatch = name.match(/(\d{2,3})\s*(?:GB|ГБ|TB|ТБ)/i);
-    if (capacityMatch) {
-      models.push(capacityMatch[1]);
-    }
+    const capacityCases = [
+      {
+        when: () => capacityMatch !== null,
+        result: () => models.push(capacityMatch[1])
+      }
+    ];
+    capacityCases.find(c => c.when())?.result();
     
     // Извлекаем полные модели
-    if (nintendoSwitchMatch && oledMatch) {
-      models.push(this.normalizeForQuery('nintendoswitcholed'));
-    }
-    
-    if (switchMatch && oledMatch) {
-      models.push(this.normalizeForQuery('switcholed'));
-    }
+    const fullModelCases = [
+      {
+        when: () => nintendoSwitchMatch !== null && oledMatch !== null,
+        result: () => models.push(this.normalizeForQuery('nintendoswitcholed'))
+      },
+      {
+        when: () => switchMatch !== null && oledMatch !== null,
+        result: () => models.push(this.normalizeForQuery('switcholed'))
+      }
+    ];
+    fullModelCases.find(c => c.when())?.result();
     
     // Специальная обработка для Switch 2
-    if (name.match(/Switch\s*2/i)) {
-      models.push('2');
-      models.push(this.normalizeForQuery('switch2'));
-    }
+    const switch2Cases = [
+      {
+        when: () => name.match(/Switch\s*2/i) !== null,
+        result: () => {
+          models.push('2');
+          models.push(this.normalizeForQuery('switch2'));
+        }
+      }
+    ];
+    switch2Cases.find(c => c.when())?.result();
     
     return Array.from(new Set(models)).filter(Boolean);
   }
@@ -197,43 +233,52 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
     // Используем метод нормализации из базового класса
     const normQuery = this.normalizeForQuery(query);
     
-    // Проверяем, есть ли точное совпадение
-    if (models.includes(normQuery)) {
-      return { isValid: true, reason: 'model-match', confidence: 0.95 };
-    }
-    
-    // Специальная логика для Switch 2
-    if (normQuery.includes('2')) {
-      // Если запрашивается Switch 2, то должны быть модели с "2"
-      const hasSwitch2 = models.includes('2') || models.includes('switch2');
-      if (hasSwitch2) {
-        return { isValid: true, reason: 'model-match', confidence: 0.95 };
+    const cases = [
+      {
+        when: () => models.includes(normQuery),
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      },
+      {
+        when: () => normQuery.includes('2'),
+        result: () => {
+          // Если запрашивается Switch 2, то должны быть модели с "2"
+          const hasSwitch2 = models.includes('2') || models.includes('switch2');
+          if (hasSwitch2) {
+            return { isValid: true, reason: 'model-match', confidence: 0.95 };
+          }
+          // Если нет модели "2", то это не Switch 2
+          return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+        }
+      },
+      {
+        when: () => normQuery.includes('oled'),
+        result: () => {
+          // Если запрашивается OLED, то должны быть OLED модели
+          const hasOled = models.includes('oled') || models.includes('switcholed') || models.includes('nintendoswitcholed');
+          if (hasOled) {
+            return { isValid: true, reason: 'model-match', confidence: 0.95 };
+          }
+          // Если нет OLED, то это не OLED модель
+          return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+        }
+      },
+      {
+        when: () => {
+          // Проверяем частичные совпадения для общих случаев
+          const queryParts = normQuery.split(/\s+/).filter(Boolean);
+          return queryParts.some(part => 
+            models.some(model => model.includes(part) || part.includes(model))
+          );
+        },
+        result: { isValid: true, reason: 'model-match', confidence: 0.8 }
       }
-      // Если нет модели "2", то это не Switch 2
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    ];
+
+    const result = cases.find(c => c.when())?.result;
+    if (typeof result === 'function') {
+      return result();
     }
     
-    // Специальная логика для OLED
-    if (normQuery.includes('oled')) {
-      // Если запрашивается OLED, то должны быть OLED модели
-      const hasOled = models.includes('oled') || models.includes('switcholed') || models.includes('nintendoswitcholed');
-      if (hasOled) {
-        return { isValid: true, reason: 'model-match', confidence: 0.95 };
-      }
-      // Если нет OLED, то это не OLED модель
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
-    }
-    
-    // Проверяем частичные совпадения для общих случаев
-    const queryParts = normQuery.split(/\s+/).filter(Boolean);
-    const hasMatchingParts = queryParts.some(part => 
-      models.some(model => model.includes(part) || part.includes(model))
-    );
-    
-    if (hasMatchingParts) {
-      return { isValid: true, reason: 'model-match', confidence: 0.8 };
-    }
-    
-    return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    return result ?? { isValid: false, reason: 'no-model-match', confidence: 0.1 };
   }
 } 

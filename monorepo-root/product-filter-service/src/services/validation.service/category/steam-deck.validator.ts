@@ -19,26 +19,34 @@ export class SteamDeckValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    if (category === 'steam_deck') {
-      return this.STEAM_DECK_RULES;
-    }
-    return null;
+    const cases = [
+      {
+        when: () => category === 'steam_deck',
+        result: this.STEAM_DECK_RULES
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? null;
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
-    // Улучшенная проверка на аксессуары
-    if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.95 };
-    }
-
-    // Дополнительная проверка на аксессуары по паттернам
-    if (this.isAccessoryByPattern(name)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.9 };
-    }
-
-    // Извлечение моделей
     const models = this.extractModels(name, rules.modelPatterns || []);
-    
+
+    const cases = [
+      {
+        when: () => rules.accessoryWords && this.isAccessory(name, rules.accessoryWords),
+        result: { isValid: false, reason: 'accessory', confidence: 0.95 }
+      },
+      {
+        when: () => this.isAccessoryByPattern(name),
+        result: { isValid: false, reason: 'accessory', confidence: 0.9 }
+      },
+      {
+        when: () => this.validateModelMatch(query, models).isValid,
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      }
+    ];
+
     // DEBUG LOG
     console.log('[STEAM DECK VALIDATOR DEBUG]', {
       query,
@@ -46,7 +54,11 @@ export class SteamDeckValidator extends ProductValidatorBase {
       models
     });
 
-    return this.validateModelMatch(query, models);
+    return cases.find(c => c.when())?.result ?? { 
+      isValid: false, 
+      reason: 'no-model-match', 
+      confidence: 0.1 
+    };
   }
 
   /**
@@ -87,31 +99,51 @@ export class SteamDeckValidator extends ProductValidatorBase {
     
     // Извлекаем "Steam Deck" или "Deck"
     const steamDeckMatch = name.match(/Steam\s*Deck/i);
-    if (steamDeckMatch) {
-      models.push(this.normalizeForQuery('steamdeck'));
-    }
+    const steamDeckCases = [
+      {
+        when: () => steamDeckMatch !== null,
+        result: () => models.push(this.normalizeForQuery('steamdeck'))
+      }
+    ];
+    steamDeckCases.find(c => c.when())?.result();
     
     const deckMatch = name.match(/Deck/i);
-    if (deckMatch) {
-      models.push(this.normalizeForQuery('deck'));
-    }
+    const deckCases = [
+      {
+        when: () => deckMatch !== null,
+        result: () => models.push(this.normalizeForQuery('deck'))
+      }
+    ];
+    deckCases.find(c => c.when())?.result();
     
     // Извлекаем "OLED"
     const oledMatch = name.match(/OLED/i);
-    if (oledMatch) {
-      models.push(this.normalizeForQuery('oled'));
-    }
+    const oledCases = [
+      {
+        when: () => oledMatch !== null,
+        result: () => models.push(this.normalizeForQuery('oled'))
+      }
+    ];
+    oledCases.find(c => c.when())?.result();
     
     // Извлекаем емкость (например, 512, 1TB, 1ТБ)
     const capacityMatch = name.match(/(\d{3,4})\s*(?:GB|ГБ|TB|ТБ)/i);
-    if (capacityMatch) {
-      models.push(capacityMatch[1]);
-    }
+    const capacityCases = [
+      {
+        when: () => capacityMatch !== null,
+        result: () => models.push(capacityMatch[1])
+      }
+    ];
+    capacityCases.find(c => c.when())?.result();
     
     // Извлекаем полную модель (например, steamdeckoled)
-    if (steamDeckMatch && oledMatch) {
-      models.push(this.normalizeForQuery('steamdeckoled'));
-    }
+    const fullModelCases = [
+      {
+        when: () => steamDeckMatch !== null && oledMatch !== null,
+        result: () => models.push(this.normalizeForQuery('steamdeckoled'))
+      }
+    ];
+    fullModelCases.find(c => c.when())?.result();
     
     return Array.from(new Set(models)).filter(Boolean);
   }
@@ -123,21 +155,23 @@ export class SteamDeckValidator extends ProductValidatorBase {
     // Используем метод нормализации из базового класса
     const normQuery = this.normalizeForQuery(query);
     
-    // Проверяем, есть ли точное совпадение
-    if (models.includes(normQuery)) {
-      return { isValid: true, reason: 'model-match', confidence: 0.95 };
-    }
-    
-    // Проверяем частичные совпадения для Steam Deck
-    const queryParts = normQuery.split(/\s+/).filter(Boolean);
-    const hasMatchingParts = queryParts.some(part => 
-      models.some(model => model.includes(part) || part.includes(model))
-    );
-    
-    if (hasMatchingParts) {
-      return { isValid: true, reason: 'model-match', confidence: 0.8 };
-    }
-    
-    return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    const cases = [
+      {
+        when: () => models.includes(normQuery),
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      },
+      {
+        when: () => {
+          // Проверяем частичные совпадения для Steam Deck
+          const queryParts = normQuery.split(/\s+/).filter(Boolean);
+          return queryParts.some(part => 
+            models.some(model => model.includes(part) || part.includes(model))
+          );
+        },
+        result: { isValid: true, reason: 'model-match', confidence: 0.8 }
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? { isValid: false, reason: 'no-model-match', confidence: 0.1 };
   }
 } 

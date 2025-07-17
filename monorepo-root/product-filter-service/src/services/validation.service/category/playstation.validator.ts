@@ -19,65 +19,46 @@ export class PlaystationValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    if (category === 'playstation') {
-      return this.PLAYSTATION_RULES;
-    }
-    return null;
+    const cases = [
+      {
+        when: () => category === 'playstation',
+        result: this.PLAYSTATION_RULES
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? null;
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
-    // ПРИОРИТЕТНАЯ проверка на PS4 (исключаем из результатов PS5)
-    if (this.isPS4(name)) {
-      return { isValid: false, reason: 'no-model-match', confidence: 0.95 };
-    }
-
-    // ПРИОРИТЕТНАЯ проверка на аксессуары
-    if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.95 };
-    }
-
-    // Дополнительная проверка на аксессуары по паттернам
-    if (this.isAccessoryByPattern(name)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.9 };
-    }
-
-    // Спецлогика для playstation 5 pro
-    if (query.trim().toLowerCase().replace(/\s+/g, ' ') === 'playstation 5 pro') {
-      const normNameSpaced = name.trim().toLowerCase().replace(/\s+/g, ' ');
-      const normNameNoSpace = name.trim().toLowerCase().replace(/\s+/g, '');
-      
-      // Проверяем на аксессуары ПЕРЕД проверки моделей
-      const isAccessory = this.isAccessory(name, rules.accessoryWords || []);
-      const isAccessoryByPattern = this.isAccessoryByPattern(name);
-      
-      if (isAccessory || isAccessoryByPattern) {
-        return { isValid: false, reason: 'accessory', confidence: 0.95 };
-      }
-      
-      // Валидные паттерны для PS5 Pro
-      const validPatterns = [
-        'playstation 5 pro',
-        'playstation5pro',
-        'ps5 pro',
-        'ps5pro',
-        'playstation 5 pro slim',
-        'playstation5proslim',
-        'ps5 pro slim',
-        'ps5proslim'
-      ];
-      
-      const hasValidPattern = validPatterns.some(pattern => 
-        normNameSpaced.includes(pattern) || normNameNoSpace.includes(pattern)
-      );
-      
-      if (hasValidPattern) {
-        return { isValid: true, reason: 'model-match', confidence: 0.95 };
-      }
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
-    }
-
-    // Извлечение моделей
+    const normQuery = query.trim().toLowerCase().replace(/\s+/g, ' ');
     const models = this.extractModels(name, rules.modelPatterns || []);
+
+    const cases = [
+      {
+        when: () => this.isPS4(name),
+        result: { isValid: false, reason: 'no-model-match', confidence: 0.95 }
+      },
+      {
+        when: () => rules.accessoryWords && this.isAccessory(name, rules.accessoryWords),
+        result: { isValid: false, reason: 'accessory', confidence: 0.95 }
+      },
+      {
+        when: () => this.isAccessoryByPattern(name),
+        result: { isValid: false, reason: 'accessory', confidence: 0.9 }
+      },
+      {
+        when: () => normQuery === 'playstation 5 pro' && this.isValidPS5Pro(name),
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      },
+      {
+        when: () => normQuery === 'playstation 5 pro',
+        result: { isValid: false, reason: 'no-model-match', confidence: 0.1 }
+      },
+      {
+        when: () => this.validateModelMatch(query, models).isValid,
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      }
+    ];
 
     // DEBUG LOG
     console.log('[PLAYSTATION VALIDATOR DEBUG]', {
@@ -89,7 +70,35 @@ export class PlaystationValidator extends ProductValidatorBase {
       isPS4: this.isPS4(name)
     });
 
-    return this.validateModelMatch(query, models);
+    return cases.find(c => c.when())?.result ?? { 
+      isValid: false, 
+      reason: 'no-model-match', 
+      confidence: 0.1 
+    };
+  }
+
+  /**
+   * Проверка валидности PS5 Pro
+   */
+  private isValidPS5Pro(name: string): boolean {
+    const normNameSpaced = name.trim().toLowerCase().replace(/\s+/g, ' ');
+    const normNameNoSpace = name.trim().toLowerCase().replace(/\s+/g, '');
+    
+    // Валидные паттерны для PS5 Pro
+    const validPatterns = [
+      'playstation 5 pro',
+      'playstation5pro',
+      'ps5 pro',
+      'ps5pro',
+      'playstation 5 pro slim',
+      'playstation5proslim',
+      'ps5 pro slim',
+      'ps5proslim'
+    ];
+    
+    return validPatterns.some(pattern => 
+      normNameSpaced.includes(pattern) || normNameNoSpace.includes(pattern)
+    );
   }
 
   /**
@@ -141,52 +150,80 @@ export class PlaystationValidator extends ProductValidatorBase {
     
     // Извлекаем "PlayStation"
     const playstationMatch = name.match(/PlayStation/i);
-    if (playstationMatch) {
-      models.push(this.normalizeForQuery('playstation'));
-    }
+    const playstationCases = [
+      {
+        when: () => playstationMatch !== null,
+        result: () => models.push(this.normalizeForQuery('playstation'))
+      }
+    ];
+    playstationCases.find(c => c.when())?.result();
     
     // Извлекаем "PS5"
     const ps5Match = name.match(/PS5/i);
-    if (ps5Match) {
-      models.push(this.normalizeForQuery('ps5'));
-    }
+    const ps5Cases = [
+      {
+        when: () => ps5Match !== null,
+        result: () => models.push(this.normalizeForQuery('ps5'))
+      }
+    ];
+    ps5Cases.find(c => c.when())?.result();
     
     // Извлекаем "PS"
     const psMatch = name.match(/PS\s*(\d+)/i);
-    if (psMatch) {
-      models.push(this.normalizeForQuery(`ps${psMatch[1]}`));
-    }
+    const psCases = [
+      {
+        when: () => psMatch !== null,
+        result: () => models.push(this.normalizeForQuery(`ps${psMatch[1]}`))
+      }
+    ];
+    psCases.find(c => c.when())?.result();
     
     // Извлекаем номер модели (например, 5)
     const modelNumberMatch = name.match(/PlayStation\s*(\d+)/i);
-    if (modelNumberMatch) {
-      models.push(modelNumberMatch[1]);
-    }
+    const modelNumberCases = [
+      {
+        when: () => modelNumberMatch !== null,
+        result: () => models.push(modelNumberMatch[1])
+      }
+    ];
+    modelNumberCases.find(c => c.when())?.result();
     
     // Извлекаем "Pro"
     const proMatch = name.match(/Pro/i);
-    if (proMatch) {
-      models.push(this.normalizeForQuery('pro'));
-    }
+    const proCases = [
+      {
+        when: () => proMatch !== null,
+        result: () => models.push(this.normalizeForQuery('pro'))
+      }
+    ];
+    proCases.find(c => c.when())?.result();
     
     // Извлекаем емкость (например, 2TB, 1TB)
     const capacityMatch = name.match(/(\d+)\s*(?:TB|ТБ|GB|ГБ)/i);
-    if (capacityMatch) {
-      models.push(capacityMatch[1]);
-    }
+    const capacityCases = [
+      {
+        when: () => capacityMatch !== null,
+        result: () => models.push(capacityMatch[1])
+      }
+    ];
+    capacityCases.find(c => c.when())?.result();
     
     // Извлекаем полные модели
-    if (playstationMatch && modelNumberMatch && proMatch) {
-      models.push(this.normalizeForQuery(`playstation${modelNumberMatch[1]}pro`));
-    }
-    
-    if (ps5Match && proMatch) {
-      models.push(this.normalizeForQuery('ps5pro'));
-    }
-    
-    if (playstationMatch && modelNumberMatch) {
-      models.push(this.normalizeForQuery(`playstation${modelNumberMatch[1]}`));
-    }
+    const fullModelCases = [
+      {
+        when: () => playstationMatch !== null && modelNumberMatch !== null && proMatch !== null,
+        result: () => models.push(this.normalizeForQuery(`playstation${modelNumberMatch[1]}pro`))
+      },
+      {
+        when: () => ps5Match !== null && proMatch !== null,
+        result: () => models.push(this.normalizeForQuery('ps5pro'))
+      },
+      {
+        when: () => playstationMatch !== null && modelNumberMatch !== null,
+        result: () => models.push(this.normalizeForQuery(`playstation${modelNumberMatch[1]}`))
+      }
+    ];
+    fullModelCases.find(c => c.when())?.result();
     
     return Array.from(new Set(models)).filter(Boolean);
   }
@@ -197,38 +234,48 @@ export class PlaystationValidator extends ProductValidatorBase {
   protected validateModelMatch(query: string, models: string[]): ValidationResult {
     const normQuery = this.normalizeForQuery(query);
 
-    // Жесткая логика для "playstation 5 pro"
-    if (normQuery === 'playstation5pro' || normQuery === 'ps5pro' || normQuery === 'playstation5 pro' || normQuery === 'playstation 5 pro') {
-      // Только точные совпадения с этими моделями
-      const allowedModels = ['playstation5pro', 'ps5pro', 'playstation5 pro', 'playstation 5 pro'];
-      const hasExact = models.some(m => allowedModels.includes(m));
-      if (hasExact) {
-        return { isValid: true, reason: 'model-match', confidence: 0.95 };
+    const cases = [
+      {
+        when: () => normQuery === 'playstation5pro' || normQuery === 'ps5pro' || normQuery === 'playstation5 pro' || normQuery === 'playstation 5 pro',
+        result: () => {
+          // Только точные совпадения с этими моделями
+          const allowedModels = ['playstation5pro', 'ps5pro', 'playstation5 pro', 'playstation 5 pro'];
+          const hasExact = models.some(m => allowedModels.includes(m));
+          if (hasExact) {
+            return { isValid: true, reason: 'model-match', confidence: 0.95 };
+          }
+          return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+        }
+      },
+      {
+        when: () => normQuery.includes('5'),
+        result: () => {
+          // Если запрашивается PS5, то должны быть модели с "5"
+          const hasPS5 = models.includes('5') || models.includes('playstation5') || models.includes('ps5');
+          if (hasPS5) {
+            return { isValid: true, reason: 'model-match', confidence: 0.95 };
+          }
+          // Если нет PS5, то это не PS5 модель
+          return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+        }
+      },
+      {
+        when: () => {
+          // Проверяем частичные совпадения для общих случаев
+          const queryParts = normQuery.split(/\s+/).filter(Boolean);
+          return queryParts.some(part => 
+            models.some(model => model.includes(part) || part.includes(model))
+          );
+        },
+        result: { isValid: true, reason: 'model-match', confidence: 0.8 }
       }
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    ];
+
+    const result = cases.find(c => c.when())?.result;
+    if (typeof result === 'function') {
+      return result();
     }
-
-    // Специальная логика для PS5
-    if (normQuery.includes('5')) {
-      // Если запрашивается PS5, то должны быть модели с "5"
-      const hasPS5 = models.includes('5') || models.includes('playstation5') || models.includes('ps5');
-      if (hasPS5) {
-        return { isValid: true, reason: 'model-match', confidence: 0.95 };
-      }
-      // Если нет PS5, то это не PS5 модель
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
-    }
-
-    // Проверяем частичные совпадения для общих случаев
-    const queryParts = normQuery.split(/\s+/).filter(Boolean);
-    const hasMatchingParts = queryParts.some(part => 
-      models.some(model => model.includes(part) || part.includes(model))
-    );
-
-    if (hasMatchingParts) {
-      return { isValid: true, reason: 'model-match', confidence: 0.8 };
-    }
-
-    return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    
+    return result ?? { isValid: false, reason: 'no-model-match', confidence: 0.1 };
   }
 } 

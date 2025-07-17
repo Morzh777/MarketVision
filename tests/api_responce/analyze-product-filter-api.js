@@ -14,18 +14,18 @@ const testQueries = {
   //   'rtx 5080',
   //   'rtx 5090'
   // ],
-  // processors: [
-  //   '7800x3d',
-  //   '9800x3d',
-  //   '9950x3d'
-  // ],
-  motherboards: [
-    // 'Z790',
-    // 'B760',
-    // 'X870E',
-    // 'B850',
-    'B760M-K'
+  processors: [
+    '7800x3d',
+    '9800x3d',
+    '9950x3d'
   ],
+  // motherboards: [
+  //   'Z790',
+  //   'B760',
+  //   'X870E',
+  //   'B850',
+  //   'B760M-K'
+  // ],
   // playstation: [
   //   'playstation 5',
   //   'playstation 5 pro'

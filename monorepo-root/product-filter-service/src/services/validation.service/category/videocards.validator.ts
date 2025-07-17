@@ -6,7 +6,7 @@ export class VideocardsValidator extends ProductValidatorBase {
   private readonly VIDEOCARDS_RULES: ValidationRules = {
     modelPatterns: [
       /(?:NVIDIA\s+)?GeForce\s+(?:RTX\s+)?(\d{4}[Tt][Ii]?)/i,
-      /(?:AMD\s+)?Radeon\s+(?:RX\s+)?(\d{4}[Xx]?[Tt]?)/i
+      /(?:AMD\s+)?Radeon\s+(?:RX\s+)?(\d{4}[Xx]?[Tt]?)/
     ],
     accessoryWords: [
       'кабель', 'шлейф', 'термопаста', 'винт', 'шуруп', 'крепление', 'подставка',
@@ -15,21 +15,30 @@ export class VideocardsValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    if (category === 'videocards') {
-      return this.VIDEOCARDS_RULES;
-    }
-    return null;
+    const cases = [
+      {
+        when: () => category === 'videocards',
+        result: this.VIDEOCARDS_RULES
+      }
+    ];
+
+    return cases.find(c => c.when())?.result ?? null;
   }
 
   protected customValidation(query: string, name: string, rules: ValidationRules): ValidationResult {
-    // Проверка на аксессуары
-    if (rules.accessoryWords && this.isAccessory(name, rules.accessoryWords)) {
-      return { isValid: false, reason: 'accessory', confidence: 0.0 };
-    }
-
-    // Извлечение моделей
     const models = this.extractModels(name, rules.modelPatterns || []);
-    
+
+    const cases = [
+      {
+        when: () => rules.accessoryWords && this.isAccessory(name, rules.accessoryWords),
+        result: { isValid: false, reason: 'accessory', confidence: 0.0 }
+      },
+      {
+        when: () => this.validateModelMatch(query, models).isValid,
+        result: { isValid: true, reason: 'model-match', confidence: 0.95 }
+      }
+    ];
+
     // DEBUG LOG
     console.log('[VIDEOCARD VALIDATOR DEBUG]', {
       query,
@@ -37,6 +46,10 @@ export class VideocardsValidator extends ProductValidatorBase {
       models
     });
 
-    return this.validateModelMatch(query, models);
+    return cases.find(c => c.when())?.result ?? { 
+      isValid: false, 
+      reason: 'no-model-match', 
+      confidence: 0.1 
+    };
   }
 } 
