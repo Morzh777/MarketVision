@@ -102,6 +102,12 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
             raise
         except Exception as e:
             print(f"❌ Внутренняя ошибка в gRPC GetRawProducts: {e}")
+            
+            # Специальная обработка для ошибок драйвера
+            if "no such window" in str(e) or "target window already closed" in str(e):
+                print("🔄 Ошибка драйвера, но драйвер остается открытым для следующих запросов")
+                print("ℹ️ Следующий запрос попробует использовать существующий драйвер")
+            
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details(f"Internal parser error: {str(e)}")
             return raw_product_pb2.GetRawProductsResponse(
@@ -112,8 +118,9 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
 async def serve() -> None:
     """Запуск gRPC сервера с правильной обработкой жизненного цикла"""
     server = grpc.aio.server(ThreadPoolExecutor(max_workers=10))
+    ozon_service = OzonRawProductService()
     raw_product_pb2_grpc.add_RawProductServiceServicer_to_server(
-        OzonRawProductService(), server
+        ozon_service, server
     )
     listen_addr = "[::]:3002"
     server.add_insecure_port(listen_addr)
@@ -127,6 +134,12 @@ async def serve() -> None:
         print("🛑 Получен сигнал прерывания, завершаем сервер...")
     finally:
         print("🔄 Graceful shutdown...")
+        # Принудительно закрываем браузер при завершении сервиса
+        try:
+            await ozon_service.parser_service.close(force=True)
+            print("🔌 Браузер принудительно закрыт")
+        except Exception as e:
+            print(f"⚠️ Ошибка при закрытии браузера: {e}")
         await server.stop(grace=5)
         print("✅ Сервер завершен")
 

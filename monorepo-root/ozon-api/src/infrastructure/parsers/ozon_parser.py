@@ -22,9 +22,22 @@ class OzonParser:
     def __init__(self):
         self.driver = None
         self.base_url = "https://www.ozon.ru"
+        self._driver_initialized = False
 
     async def _init_driver(self):
         """Инициализация драйвера с поддержкой локального ChromeDriver"""
+        # Если драйвер уже инициализирован и работает, не пересоздаем
+        if self._driver_initialized and self.driver is not None:
+            try:
+                # Проверяем, что драйвер еще работает
+                self.driver.current_url
+                print("✅ Драйвер уже инициализирован и работает")
+                return
+            except Exception as e:
+                print(f"⚠️ Драйвер не работает, пересоздаем: {e}")
+                self.driver = None
+                self._driver_initialized = False
+        
         if self.driver is None:
             print("🔧 Создаем драйвер Chrome...")
             options = uc.ChromeOptions()
@@ -101,6 +114,9 @@ class OzonParser:
                 self.driver.execute_script(
                     "Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']})"
                 )
+                
+                # Отмечаем, что драйвер инициализирован
+                self._driver_initialized = True
 
             except Exception as e:
                 print(f"❌ Ошибка создания драйвера: {e}")
@@ -166,6 +182,10 @@ class OzonParser:
                 # Инициализация драйвера
                 await self._init_driver()
 
+                # Дополнительная проверка состояния драйвера
+                if self.driver is None:
+                    raise Exception("Драйвер не был инициализирован")
+
                 url = self._build_api_url(
                     query, category_slug, platform_id, exactmodels
                 )
@@ -174,7 +194,17 @@ class OzonParser:
 
                 # Загрузка страницы
                 print("⏳ Начинаем загрузку страницы...")
-                self.driver.get(url)
+                try:
+                    self.driver.get(url)
+                except Exception as e:
+                    print(f"❌ Ошибка загрузки страницы: {e}")
+                    # Не закрываем драйвер, просто пробуем еще раз
+                    if attempt < max_retries - 1:
+                        print("🔄 Повторяем попытку загрузки...")
+                        await asyncio.sleep(2)
+                        continue
+                    else:
+                        raise Exception(f"Не удалось загрузить страницу после {max_retries} попыток")
                 print("✅ Страница загружена")
 
                 # Проверяем текущий URL
@@ -243,6 +273,11 @@ class OzonParser:
     def _extract_json_from_page(self) -> Optional[Dict[str, Any]]:
         """Извлечение JSON данных со страницы"""
         try:
+            # Проверяем, что драйвер существует
+            if self.driver is None:
+                print("❌ Драйвер не инициализирован")
+                return None
+                
             # Ищем pre элемент с JSON
             pre_elements = self.driver.find_elements(By.TAG_NAME, "pre")
 
@@ -514,13 +549,27 @@ class OzonParser:
 
         return products
 
-    async def close(self):
-        """Закрытие драйвера"""
+    async def close(self, force: bool = False):
+        """Закрытие драйвера (только при принудительном закрытии)"""
+        if not force:
+            print("ℹ️ Драйвер остается открытым для персистентной работы")
+            return
+            
         if self.driver:
             try:
+                # Проверяем, что драйвер еще работает
+                try:
+                    self.driver.current_url
+                except:
+                    print("⚠️ Драйвер уже закрыт")
+                    self.driver = None
+                    self._driver_initialized = False
+                    return
+                
                 self.driver.quit()
                 print("🔌 Драйвер Chrome закрыт")
             except Exception as e:
                 print(f"❌ Ошибка закрытия драйвера: {e}")
             finally:
                 self.driver = None
+                self._driver_initialized = False

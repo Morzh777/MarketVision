@@ -1,4 +1,4 @@
-const { NintendoSwitchValidator } = require('./dist/services/validation.service/category/nintendo-switch.validator');
+const { NintendoSwitchValidator } = require('./dist/src/services/validation.service/category/nintendo-switch.validator');
 
 async function testNintendoSwitchValidator() {
   const validator = new NintendoSwitchValidator();
@@ -55,7 +55,7 @@ async function testNintendoSwitchValidator() {
     console.log(`\n📦 Тест: "${testCase.name}"`);
     console.log(`🔍 Запрос: "${testCase.query}"`);
     
-    const result = validator.validate(testCase.query, testCase.name, 'nintendo_switch');
+    const result = await validator.validateSingleProduct(testCase.query, testCase.name, 'nintendo_switch');
     
     console.log(`✅ Результат: ${result.isValid ? 'ПРОШЕЛ' : 'ОТКЛОНЕН'} (ожидалось: ${testCase.expected ? 'ПРОШЕЛ' : 'ОТКЛОНЕН'})`);
     console.log(`📝 Причина: ${result.reason}`);

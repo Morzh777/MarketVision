@@ -19,17 +19,17 @@ const testQueries = {
   //   '9800x3d',
   //   '9950x3d'
   // ],
-  // motherboards: [
-  //   'Z790',
-  //   'B760',
-  //   'X870E',
-  //   'B850',
-  //   'B760M-K'
-  // ],
-  playstation: [
-    'playstation 5',
-    'playstation 5 pro'
+  motherboards: [
+    // 'Z790',
+    // 'B760',
+    // 'X870E',
+    // 'B850',
+    'B760M-K'
   ],
+  // playstation: [
+  //   'playstation 5',
+  //   'playstation 5 pro'
+  // ],
   // nintendo_switch: [
   //   'nintendo switch 2',
   // ],

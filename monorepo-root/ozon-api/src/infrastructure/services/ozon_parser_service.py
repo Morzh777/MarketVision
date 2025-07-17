@@ -66,15 +66,19 @@ class OzonParserService(ParserService):
             self._is_available = False
             raise RuntimeError(f"Parsing failed: {str(e)}") from e
 
-    async def close(self) -> None:
-        """Закрыть ресурсы парсера"""
+    async def close(self, force: bool = False) -> None:
+        """Закрыть ресурсы парсера (только при принудительном закрытии)"""
         try:
             if self.parser:
-                await self.parser.close()
-                print("🔌 Браузер закрыт")
+                await self.parser.close(force=force)
+                if force:
+                    print("🔌 Браузер закрыт")
+                else:
+                    print("ℹ️ Браузер остается открытым для персистентной работы")
         except Exception as e:
             print(f"❌ Ошибка закрытия браузера: {e}")
-            raise
+            if force:
+                raise
 
     async def get_raw_data(self, query: str) -> Dict[str, Any]:
         """
