@@ -94,4 +94,7 @@ typings/
 
 # --- Jest ---
 jest-coverage/
-**/jest-coverage/ 
+**/jest-coverage/
+
+# --- ML Service (вынесен в отдельный репо) ---
+monorepo-root/ml-training-service/ 
