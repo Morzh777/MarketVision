@@ -7,6 +7,7 @@ import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
 import { PhotoService } from './photo.service';
+import { MLService } from './ml/ml.service';
 
 @Injectable()
 export class ProductsService {
@@ -19,6 +20,7 @@ export class ProductsService {
     private readonly normalizer: ProductNormalizerService,
     private readonly dbApiClient: DbApiClient,
     private readonly photoService: PhotoService,
+    private readonly mlService: MLService,
   ) {}
 
   /**
@@ -47,22 +49,26 @@ export class ProductsService {
     this.logger.log(`📦 Получено ${allProducts.length} продуктов из всех источников (+${Date.now() - t}ms)`);
     t = Date.now();
 
-    // 2. Валидация
-    const validationResults = await this.validationFactory.validateProducts(allProducts, request.category as import('./validation.service/product-validator.base').ProductCategory);
+    // 2. ML Валидация
+    const mlValidationResults = await this.mlService.validateProducts(allProducts);
     // Пробрасываем результат валидации в каждый продукт
     allProducts.forEach((product, i) => {
-      if (validationResults[i]) {
-        Object.assign(product, validationResults[i]);
-        if (!validationResults[i].isValid) {
-          this.logger.warn(`[VALIDATION][FAIL] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${validationResults[i].reason}"`);
+      if (mlValidationResults[i]) {
+        Object.assign(product, {
+          isValid: mlValidationResults[i].isValid,
+          reason: mlValidationResults[i].reason,
+          confidence: mlValidationResults[i].confidence
+        });
+        if (!mlValidationResults[i].isValid) {
+          this.logger.warn(`[ML-VALIDATION][FAIL] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${mlValidationResults[i].reason}" confidence:${mlValidationResults[i].confidence}`);
         } else {
-          this.logger.log(`[VALIDATION][OK] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${validationResults[i].reason}"`);
+          this.logger.log(`[ML-VALIDATION][OK] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${mlValidationResults[i].reason}" confidence:${mlValidationResults[i].confidence}`);
         }
       }
     });
-    this.logger.log(`⏱️ Валидация заняла ${Date.now() - t}ms`);
-    const validProducts = allProducts.filter((_, i) => validationResults[i]?.isValid);
-    this.logger.log(`✅ Прошло валидацию: ${validProducts.length}/${allProducts.length} продуктов`);
+    this.logger.log(`⏱️ ML Валидация заняла ${Date.now() - t}ms`);
+    const validProducts = allProducts.filter((_, i) => mlValidationResults[i]?.isValid);
+    this.logger.log(`✅ Прошло ML валидацию: ${validProducts.length}/${allProducts.length} продуктов`);
     t = Date.now();
 
     // 3. Группировка (по нормализованному ключу)
