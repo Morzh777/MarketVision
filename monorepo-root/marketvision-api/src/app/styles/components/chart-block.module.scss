@@ -1,0 +1,184 @@
+.chartBlock {
+  background: var(--color-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+  min-height: 400px;
+  border: 1px solid var(--color-border);
+  
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-card);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (min-width: 640px) {
+    padding: 32px;
+  }
+}
+
+.timeframeButtons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 8px;
+  background: var(--color-bg-light);
+  border-radius: 8px;
+  
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-bg-active);
+  }
+}
+
+.timeframeButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  
+  @media (min-width: 640px) {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  
+  &--active {
+    background: var(--color-blue);
+    color: white;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+    
+    &:hover {
+      background: var(--color-blue-dark);
+      box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+    }
+  }
+  
+  &--inactive {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    
+    &:hover {
+      background: var(--color-bg-active);
+      color: var(--color-text);
+      border-color: var(--color-blue);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  width: 100%;
+  text-align: left;
+  line-height: 1.2;
+  
+  @media (min-width: 640px) {
+    font-size: 28px;
+  }
+}
+
+.productName {
+  margin-left: 12px;
+  color: var(--color-blue);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chart {
+  height: min(70vw, 450px);
+  width: 100%;
+  min-height: 280px;
+  max-height: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg);
+  
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-bg-card);
+  }
+}
+
+// ECharts конфигурация - переменные для графика
+:export {
+  // Цвета линий
+  lineColorCurrent: '#3b82f6';
+  lineColorRecommended: '#9333ea';
+  lineColorMarket: '#f59e42';
+  
+  // Цвета заливки
+  areaColorCurrent: 'rgba(59,130,246,0.15)';
+  
+  // Цвета фона и границ
+  tooltipBg: '#23272F';
+  tooltipBorder: '#888';
+  tooltipText: '#fff';
+  
+  // Цвета осей
+  axisLineColor: '#888';
+  axisLabelColor: '#aaa';
+  axisLabelColorY: '#fff';
+  splitLineColor: '#23272F';
+  
+  // Цвета легенды
+  legendTextColor: '#aaa';
+  
+  // Размеры и отступы
+  tooltipFontSize: '14';
+  tooltipTitleFontSize: '15';
+  axisLabelFontSize: '16';
+  legendFontSize: '15';
+  
+  // Толщины линий
+  lineWidthCurrent: '4';
+  lineWidthRecommended: '3';
+  lineWidthMarket: '3';
+  lineWidthHover: '5';
+  
+  // Размеры символов
+  symbolSizeCurrent: '10';
+  symbolSizeRecommended: '6';
+  symbolSizeMarket: '6';
+  symbolHoverSizeCurrent: '12';
+  symbolHoverSizeRecommended: '8';
+  symbolHoverSizeMarket: '8';
+  
+  // Отступы графика
+  gridLeft: '40';
+  gridRight: '20';
+  gridTop: '40';
+  gridBottom: '50';
+  
+  // Z-индексы
+  zIndexCurrent: '10';
+  zIndexRecommended: '5';
+  zIndexMarket: '4';
+  
+  // Инлайн-стили для tooltip
+  tooltipTitleStyle: 'font-size:15px;font-weight:600;';
+  tooltipItemStyle: 'margin-top:4px;';
+  tooltipExtraCss: 'box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 8px; padding: 8px;';
+} 
