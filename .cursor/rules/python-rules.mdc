@@ -1,0 +1,550 @@
+# 🐍 Python Правила разработки
+
+## 🎯 Основные принципы
+
+### Архитектура проекта
+- Clean Architecture с разделением на слои
+- Domain-Driven Design для бизнес-логики
+- Dependency Injection для слабой связанности
+- Async/await для асинхронных операций
+- Строгая типизация с mypy
+
+### Структура проекта
+```
+src/
+├── main.py                    # Точка входа
+├── domain/                    # Доменный слой
+│   ├── entities/             # Сущности
+│   └── services/             # Доменные сервисы
+├── infrastructure/           # Инфраструктурный слой
+│   ├── grpc/                # gRPC сервисы
+│   ├── parsers/             # Парсеры
+│   └── services/            # Инфраструктурные сервисы
+├── tests/                   # Тесты
+└── proto/                   # Protocol Buffers
+```
+
+## 📝 Код и стиль
+
+### Типизация
+```python
+# ✅ Строгая типизация везде
+from typing import List, Dict, Optional, Any, NoReturn
+from dataclasses import dataclass
+from datetime import datetime
+
+@dataclass
+class Product:
+    """Доменная сущность товара"""
+    id: str
+    name: str
+    price: float
+    description: Optional[str] = None
+    image_url: Optional[str] = None
+    created_at: Optional[datetime] = None
+    
+    def __post_init__(self) -> None:
+        if self.created_at is None:
+            self.created_at = datetime.now()
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Конвертация в словарь"""
+        return {
+            "id": self.id,
+            "name": self.name,
+            "price": self.price,
+            "description": self.description,
+            "image_url": self.image_url,
+            "created_at": self.created_at.isoformat() if self.created_at else None
+        }
+```
+
+### Функции и методы
+```python
+# ✅ Async функции для I/O операций
+async def get_products(self, query: str, category: str) -> List[Product]:
+    """Получение продуктов по запросу"""
+    start_time = time.time()
+    print(f"🔍 Парсинг для запроса: {query} в категории {category}")
+    
+    try:
+        products = await self._parse_products(query, category)
+        processing_time = int((time.time() - start_time) * 1000)
+        print(f"✅ Парсинг завершен за {processing_time}ms")
+        return products
+    except Exception as e:
+        print(f"❌ Ошибка парсинга: {e}")
+        raise
+
+# ✅ Синхронные функции для вычислений
+def _parse_single_product(self, item: Dict[str, Any], query: str) -> Optional[Product]:
+    """Парсинг одного продукта"""
+    try:
+        return Product(
+            id=item.get("id", ""),
+            name=item.get("name", ""),
+            price=float(item.get("price", 0)),
+            description=item.get("description"),
+            image_url=item.get("image_url")
+        )
+    except (ValueError, KeyError) as e:
+        print(f"⚠️ Ошибка парсинга продукта: {e}")
+        return None
+```
+
+### Обработка ошибок
+```python
+# ✅ Правильная обработка исключений
+async def parse_products(self, query: str, category: str) -> List[Product]:
+    """Парсинг продуктов с retry логикой"""
+    max_retries = 3
+    
+    for attempt in range(max_retries):
+        try:
+            print(f"🔄 Попытка {attempt + 1} из {max_retries}")
+            
+            await self._init_driver()
+            products = await self._get_products_from_api(query, category)
+            
+            if products:
+                return products
+                
+        except TimeoutException:
+            print(f"⚠️ Таймаут на попытке {attempt + 1}")
+            if attempt < max_retries - 1:
+                await asyncio.sleep(2 ** attempt)  # Exponential backoff
+                continue
+        except Exception as e:
+            print(f"❌ Ошибка на попытке {attempt + 1}: {e}")
+            if attempt < max_retries - 1:
+                continue
+            raise
+    
+    raise Exception("Не удалось получить продукты после всех попыток")
+```
+
+## 🏗️ Архитектура
+
+### Доменные сущности
+```python
+# ✅ Чистые доменные сущности
+from dataclasses import dataclass, field
+from typing import List, Dict, Any, Optional
+from datetime import datetime
+
+@dataclass
+class Product:
+    """Доменная сущность товара"""
+    id: str
+    name: str
+    price: float
+    category: str
+    source: str = "ozon"
+    availability: bool = True
+    images: List[str] = field(default_factory=list)
+    characteristics: Dict[str, Any] = field(default_factory=dict)
+    created_at: datetime = field(default_factory=datetime.now)
+    
+    def is_expensive(self, threshold: float = 100000) -> bool:
+        """Проверка дороговизны товара"""
+        return self.price > threshold
+    
+    def has_images(self) -> bool:
+        """Проверка наличия изображений"""
+        return len(self.images) > 0
+```
+
+### Сервисы
+```python
+# ✅ Доменные сервисы
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
+class ParserService(ABC):
+    """Абстрактный сервис парсинга"""
+    
+    @abstractmethod
+    async def parse_products(self, query: str, category: str) -> List[Product]:
+        """Парсинг продуктов"""
+        pass
+    
+    @abstractmethod
+    async def is_available(self) -> bool:
+        """Проверка доступности сервиса"""
+        pass
+
+class OzonParserService(ParserService):
+    """Сервис парсинга Ozon"""
+    
+    def __init__(self) -> None:
+        self.parser = OzonParser()
+    
+    async def parse_products(self, query: str, category: str, 
+                           platform_id: Optional[str] = None,
+                           exactmodels: Optional[str] = None) -> List[Product]:
+        """Парсинг продуктов с Ozon"""
+        return await self.parser.get_products(query, category, platform_id, exactmodels)
+    
+    async def is_available(self) -> bool:
+        """Проверка доступности парсера"""
+        try:
+            await self.parser._init_driver()
+            return True
+        except Exception:
+            return False
+```
+
+## 🔗 gRPC интеграция
+
+### gRPC сервисы
+```python
+# ✅ Типизированные gRPC сервисы
+import grpc
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
+from typing import Any, Optional
+
+import raw_product_pb2
+import raw_product_pb2_grpc
+
+class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
+    """gRPC сервис для Ozon API"""
+    
+    def __init__(self) -> None:
+        self.parser_service = OzonParserService()
+
+    async def GetRawProducts(
+        self, 
+        request: raw_product_pb2.GetRawProductsRequest, 
+        context: grpc.ServicerContext
+    ) -> raw_product_pb2.GetRawProductsResponse:
+        """Получает сырые данные товаров"""
+        
+        # Валидация входных данных
+        if not request.query or not request.query.strip():
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details("Query cannot be empty")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+        
+        try:
+            products = await self.parser_service.parse_products(
+                request.query, 
+                request.category,
+                getattr(request, 'platform_id', None),
+                getattr(request, 'exactmodels', None)
+            )
+            
+            grpc_products = []
+            for product in products:
+                try:
+                    grpc_product = raw_product_pb2.RawProduct(
+                        id=product.id,
+                        name=product.name,
+                        price=int(product.price),
+                        image_url=product.image_url or "",
+                        product_url=product.product_url or "",
+                        category=request.category,
+                        source="ozon",
+                        query=request.query
+                    )
+                    grpc_products.append(grpc_product)
+                except (ValueError, TypeError) as e:
+                    print(f"⚠️ Ошибка конвертации товара {product.id}: {e}")
+                    continue
+            
+            return raw_product_pb2.GetRawProductsResponse(
+                products=grpc_products,
+                total_count=len(grpc_products),
+                source="ozon"
+            )
+            
+        except Exception as e:
+            print(f"❌ Внутренняя ошибка: {e}")
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details(f"Internal parser error: {str(e)}")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+```
+
+### Запуск сервера
+```python
+# ✅ Правильный запуск gRPC сервера
+async def serve() -> None:
+    """Запуск gRPC сервера"""
+    server = grpc.aio.server(ThreadPoolExecutor(max_workers=10))
+    raw_product_pb2_grpc.add_RawProductServiceServicer_to_server(
+        OzonRawProductService(), server
+    )
+    
+    listen_addr = '[::]:3002'
+    server.add_insecure_port(listen_addr)
+    
+    print(f"🚀 Ozon API gRPC сервер запущен на {listen_addr}")
+    
+    try:
+        await server.start()
+        await server.wait_for_termination()
+    except KeyboardInterrupt:
+        print("🛑 Получен сигнал прерывания...")
+    finally:
+        print("🔄 Graceful shutdown...")
+        await server.stop(grace=5)
+        print("✅ Сервер завершен")
+```
+
+## 🔧 Конфигурация
+
+### mypy.ini
+```ini
+# ✅ Строгая конфигурация mypy
+[mypy]
+python_version = 3.11
+warn_return_any = True
+warn_unused_configs = True
+disallow_untyped_defs = True
+disallow_incomplete_defs = True
+check_untyped_defs = True
+disallow_untyped_decorators = True
+no_implicit_optional = True
+warn_redundant_casts = True
+warn_unused_ignores = True
+warn_no_return = True
+warn_unreachable = True
+strict_equality = True
+strict_concatenate = True
+
+# Показывать контекст ошибок
+show_error_context = True
+show_column_numbers = True
+show_error_codes = True
+
+# Игнорируем внешние библиотеки без типов
+[mypy-selenium.*]
+ignore_missing_imports = True
+
+[mypy-undetected_chromedriver.*]
+ignore_missing_imports = True
+
+[mypy-raw_product_pb2.*]
+ignore_missing_imports = True
+```
+
+### requirements.txt
+```txt
+# ✅ Зависимости с версиями
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+undetected-chromedriver==3.5.3
+selenium==4.12.0
+pydantic==2.5.0
+redis==5.0.1
+httpx==0.25.2
+
+# gRPC зависимости
+grpcio==1.59.3
+grpcio-tools==1.59.3
+
+# Тестирование
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+mypy==1.7.1
+```
+
+## 🧪 Тестирование
+
+### Unit тесты
+```python
+# ✅ Тестирование с pytest
+import pytest
+from unittest.mock import Mock, AsyncMock
+from domain.entities.product import Product
+from infrastructure.services.ozon_parser_service import OzonParserService
+
+class TestOzonParserService:
+    """Тесты для OzonParserService"""
+    
+    @pytest.fixture
+    def parser_service(self):
+        """Фикстура сервиса"""
+        return OzonParserService()
+    
+    @pytest.fixture
+    def mock_parser(self):
+        """Мок парсера"""
+        parser = Mock()
+        parser.get_products = AsyncMock()
+        return parser
+    
+    @pytest.mark.asyncio
+    async def test_parse_products_success(self, parser_service, mock_parser):
+        """Тест успешного парсинга"""
+        # Arrange
+        expected_products = [
+            Product(id="1", name="RTX 5070", price=50000.0, category="videocards"),
+            Product(id="2", name="RTX 5080", price=80000.0, category="videocards")
+        ]
+        mock_parser.get_products.return_value = expected_products
+        parser_service.parser = mock_parser
+        
+        # Act
+        result = await parser_service.parse_products("rtx 5070", "videocards")
+        
+        # Assert
+        assert len(result) == 2
+        assert result[0].name == "RTX 5070"
+        assert result[1].name == "RTX 5080"
+        mock_parser.get_products.assert_called_once_with("rtx 5070", "videocards", None, None)
+    
+    @pytest.mark.asyncio
+    async def test_parse_products_empty_result(self, parser_service, mock_parser):
+        """Тест пустого результата"""
+        # Arrange
+        mock_parser.get_products.return_value = []
+        parser_service.parser = mock_parser
+        
+        # Act
+        result = await parser_service.parse_products("несуществующий товар", "videocards")
+        
+        # Assert
+        assert result == []
+```
+
+### Integration тесты
+```python
+# ✅ Интеграционные тесты
+import pytest
+import grpc
+import asyncio
+from infrastructure.grpc.ozon_grpc_service import OzonRawProductService
+import raw_product_pb2
+
+class TestOzonGrpcService:
+    """Интеграционные тесты gRPC сервиса"""
+    
+    @pytest.fixture
+    def grpc_service(self):
+        """Фикстура gRPC сервиса"""
+        return OzonRawProductService()
+    
+    @pytest.mark.asyncio
+    async def test_get_raw_products_valid_request(self, grpc_service):
+        """Тест валидного gRPC запроса"""
+        # Arrange
+        request = raw_product_pb2.GetRawProductsRequest(
+            query="rtx 5070",
+            category="videocards"
+        )
+        context = Mock()
+        
+        # Act
+        response = await grpc_service.GetRawProducts(request, context)
+        
+        # Assert
+        assert response.source == "ozon"
+        assert isinstance(response.products, list)
+        assert response.total_count >= 0
+```
+
+## 📊 Логирование и мониторинг
+
+### Логирование
+```python
+# ✅ Структурированное логирование
+import logging
+from typing import Any, Dict
+
+class ParserLogger:
+    """Логгер для парсера"""
+    
+    def __init__(self, name: str) -> None:
+        self.logger = logging.getLogger(name)
+        self.logger.setLevel(logging.INFO)
+    
+    def log_parsing_start(self, query: str, category: str) -> None:
+        """Логирование начала парсинга"""
+        self.logger.info(f"🔍 Начало парсинга: {query} в категории {category}")
+    
+    def log_parsing_success(self, query: str, count: int, duration: int) -> None:
+        """Логирование успешного парсинга"""
+        self.logger.info(f"✅ Парсинг завершен: {query} -> {count} товаров за {duration}ms")
+    
+    def log_parsing_error(self, query: str, error: Exception) -> None:
+        """Логирование ошибки парсинга"""
+        self.logger.error(f"❌ Ошибка парсинга: {query} -> {error}")
+    
+    def log_grpc_request(self, method: str, request_data: Dict[str, Any]) -> None:
+        """Логирование gRPC запроса"""
+        self.logger.info(f"📡 gRPC {method}: {request_data}")
+```
+
+### Метрики
+```python
+# ✅ Метрики производительности
+import time
+from typing import Callable, Any
+from functools import wraps
+
+def measure_time(func: Callable) -> Callable:
+    """Декоратор для измерения времени выполнения"""
+    @wraps(func)
+    async def wrapper(*args, **kwargs) -> Any:
+        start_time = time.time()
+        try:
+            result = await func(*args, **kwargs)
+            duration = int((time.time() - start_time) * 1000)
+            print(f"⚡ {func.__name__} выполнен за {duration}ms")
+            return result
+        except Exception as e:
+            duration = int((time.time() - start_time) * 1000)
+            print(f"❌ {func.__name__} завершился с ошибкой за {duration}ms: {e}")
+            raise
+    return wrapper
+
+# Использование
+@measure_time
+async def parse_products(self, query: str, category: str) -> List[Product]:
+    """Парсинг продуктов с измерением времени"""
+    # implementation
+```
+
+## 🚨 Лучшие практики
+
+### Производительность
+- Используй async/await для I/O операций
+- Применяй connection pooling
+- Кэшируй результаты парсинга
+- Оптимизируй запросы к внешним API
+- Используй batch обработку
+
+### Безопасность
+- Валидируй все входные данные
+- Используй prepared statements
+- Не храни секреты в коде
+- Логируй подозрительную активность
+- Ограничивай размер запросов
+
+### Надежность
+- Добавляй retry логику
+- Обрабатывай все исключения
+- Используй health checks
+- Мониторь ресурсы
+- Graceful shutdown
+
+## 🚨 Чего избегать
+
+- ❌ Не используй `any` тип
+- ❌ Не игнорируй ошибки mypy
+- ❌ Не делай функции слишком длинными
+- ❌ Не забывай про обработку исключений
+- ❌ Не используй глобальные переменные
+- ❌ Не игнорируй async/await
+- ❌ Не забывай про типизацию
+- ❌ Не используй `print` для логирования
+description:
+globs:
+alwaysApply: false
+---

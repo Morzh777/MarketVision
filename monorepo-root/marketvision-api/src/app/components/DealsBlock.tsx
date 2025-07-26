@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+import { useState, useEffect, useRef } from 'react';
 
 import styles from '../styles/components/deals-block.module.scss';
 import type { MockHourlyCheapestItem } from '../types/market';
@@ -47,7 +48,6 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
   return (
     <div className={styles.deals} ref={dealsRef}>
       <h3 className={styles.deals__title}>Выгодные предложения</h3>
-      <p className={styles.deals__date}>на 12:00 12.января.2025</p>
       <ul className={styles.deals__list}>
         {products.slice(0, visibleItems).map((item, idx) => (
           <li key={idx} className={styles.deals__item}>
@@ -60,7 +60,25 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
                 <span className={styles.deals__note}>Ниже рынка</span>
               )}
             </div>
-            <img src={item.image} alt={item.name} className={styles.deals__img} />
+            {item.image ? (
+              <Image
+                src={item.image}
+                alt={item.name}
+                className={styles.deals__img}
+                width={300}
+                height={140}
+                sizes="100vw"
+                style={{ objectFit: 'cover' }}
+                priority={false}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              />
+            ) : (
+              <div className={styles.deals__imgPlaceholder}>
+                Нет фото
+              </div>
+            )}
             <span className={styles.deals__name}>{item.name}</span>
             <a
               href={item.link}

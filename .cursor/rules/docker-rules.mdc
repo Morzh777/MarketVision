@@ -1,0 +1,556 @@
+# 🐳 Docker Правила разработки
+
+## 📚 Документация
+
+### **Загруженные документации (приоритет):**
+- **@Docker** - используй для всех вопросов по Docker
+- **@gRPC** - для вопросов по контейнеризации gRPC сервисов
+
+### **Статические ссылки (резерв):**
+- **[Docker Documentation](https://docs.docker.com/)** - Основная документация
+- **[Docker Compose](https://docs.docker.com/compose/)** - Мультиконтейнерные приложения
+- **[Docker Hub](https://hub.docker.com/)** - Реестр образов
+- **[Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)** - Справочник Dockerfile
+- **[Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)** - Командная строка
+- **[Docker Networking](https://docs.docker.com/network/)** - Сетевая модель
+- **[Docker Volumes](https://docs.docker.com/storage/volumes/)** - Управление данными
+- **[Docker Security](https://docs.docker.com/engine/security/)** - Безопасность
+
+## 🎯 Основные принципы
+
+### Архитектура контейнеров
+- Один процесс на контейнер
+- Минимальные образы
+- Многоэтапная сборка
+- Правильная иерархия слоев
+- Безопасность по умолчанию
+
+### Структура проекта
+```
+├── Dockerfile              # Основной Dockerfile
+├── docker-compose.yml      # Локальная разработка
+├── docker-compose.prod.yml # Продакшн
+├── .dockerignore           # Исключения
+├── docker/
+│   ├── nginx/             # Nginx конфигурация
+│   ├── postgres/          # PostgreSQL конфигурация
+│   └── redis/             # Redis конфигурация
+└── scripts/
+    ├── docker-build.sh    # Скрипты сборки
+    └── docker-deploy.sh   # Скрипты деплоя
+```
+
+## 📝 Dockerfile
+
+### Базовые принципы
+```dockerfile
+# ✅ Многоэтапная сборка для Node.js
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+# Копируем файлы зависимостей
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Копируем исходный код
+COPY . .
+RUN npm run build
+
+# Финальный образ
+FROM node:18-alpine AS production
+
+WORKDIR /app
+
+# Копируем только необходимые файлы
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY package*.json ./
+
+# Создаем непривилегированного пользователя
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nestjs -u 1001
+
+USER nestjs
+
+EXPOSE 3000
+
+CMD ["node", "dist/main"]
+```
+
+### Оптимизация слоев
+```dockerfile
+# ✅ Правильный порядок слоев
+FROM node:18-alpine
+
+WORKDIR /app
+
+# 1. Копируем файлы зависимостей (меняются редко)
+COPY package*.json ./
+RUN npm ci --only=production
+
+# 2. Копируем конфигурационные файлы
+COPY tsconfig*.json ./
+COPY nest-cli.json ./
+
+# 3. Копируем исходный код (меняется часто)
+COPY src/ ./src/
+
+# 4. Сборка (в отдельном слое)
+RUN npm run build
+
+# 5. Очистка (удаляем dev зависимости)
+RUN npm prune --production
+
+EXPOSE 3000
+
+CMD ["node", "dist/main"]
+```
+
+### Безопасность
+```dockerfile
+# ✅ Безопасный Dockerfile
+FROM node:18-alpine
+
+# Обновляем пакеты
+RUN apk update && apk upgrade
+
+# Устанавливаем только необходимые пакеты
+RUN apk add --no-cache dumb-init
+
+WORKDIR /app
+
+# Копируем файлы
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+# Создаем непривилегированного пользователя
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nestjs -u 1001
+
+# Меняем владельца файлов
+RUN chown -R nestjs:nodejs /app
+USER nestjs
+
+# Используем dumb-init для правильной обработки сигналов
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "dist/main"]
+```
+
+## 🔧 Docker Compose
+
+### Локальная разработка
+```yaml
+# ✅ docker-compose.yml для разработки
+version: '3.8'
+
+services:
+  # Основной сервис
+  product-filter-service:
+    build:
+      context: ./product-filter-service
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./product-filter-service:/app
+      - /app/node_modules
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - marketvision-network
+
+  # База данных
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: marketvision
+      POSTGRES_USER: marketvision
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - marketvision-network
+
+  # Кэш
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - marketvision-network
+
+  # Nginx для маршрутизации
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - product-filter-service
+    networks:
+      - marketvision-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  marketvision-network:
+    driver: bridge
+```
+
+### Продакшн конфигурация
+```yaml
+# ✅ docker-compose.prod.yml
+version: '3.8'
+
+services:
+  product-filter-service:
+    build:
+      context: ./product-filter-service
+      dockerfile: Dockerfile
+      target: production
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgresql://marketvision:password@postgres:5432/marketvision
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+    networks:
+      - marketvision-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: marketvision
+      POSTGRES_USER: marketvision
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - marketvision-network
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - marketvision-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  marketvision-network:
+    driver: bridge
+```
+
+## 🔒 Безопасность
+
+### .dockerignore
+```dockerignore
+# ✅ Исключения для Docker
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.nyc_output
+.coverage
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
+```
+
+### Переменные окружения
+```bash
+# ✅ .env файл для продакшна
+POSTGRES_PASSWORD=secure_password_here
+REDIS_PASSWORD=secure_redis_password
+JWT_SECRET=your_jwt_secret_here
+NODE_ENV=production
+```
+
+## 📊 Мониторинг и логирование
+
+### Health checks
+```yaml
+# ✅ Health checks в docker-compose
+services:
+  product-filter-service:
+    build: ./product-filter-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  postgres:
+    image: postgres:15-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marketvision"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+```
+
+### Логирование
+```yaml
+# ✅ Настройка логирования
+services:
+  product-filter-service:
+    build: ./product-filter-service
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+```
+
+## 🚀 Оптимизация
+
+### Многоэтапная сборка для разных окружений
+```dockerfile
+# ✅ Dockerfile с разными таргетами
+FROM node:18-alpine AS base
+WORKDIR /app
+COPY package*.json ./
+
+# Development
+FROM base AS development
+RUN npm ci
+COPY . .
+EXPOSE 3001
+CMD ["npm", "run", "start:dev"]
+
+# Production build
+FROM base AS builder
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Production
+FROM node:18-alpine AS production
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY package*.json ./
+RUN npm prune --production
+EXPOSE 3001
+CMD ["node", "dist/main"]
+```
+
+### Оптимизация размера образа
+```dockerfile
+# ✅ Минимальный образ
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Используем distroless для минимального размера
+FROM gcr.io/distroless/nodejs18-debian11
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+EXPOSE 3001
+CMD ["dist/main"]
+```
+
+## 🧪 Тестирование
+
+### Тестовый контейнер
+```yaml
+# ✅ Тестовое окружение
+services:
+  test-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: test_marketvision
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+
+  test-redis:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    tmpfs:
+      - /data
+```
+
+### Скрипты тестирования
+```bash
+#!/bin/bash
+# ✅ docker-test.sh
+set -e
+
+echo "🧪 Запуск тестов в Docker..."
+
+# Сборка тестового образа
+docker build -t marketvision-test -f Dockerfile.test .
+
+# Запуск тестов
+docker run --rm \
+  --network test-network \
+  -e DATABASE_URL=postgresql://test_user:test_password@test-db:5432/test_marketvision \
+  -e REDIS_URL=redis://test-redis:6379 \
+  marketvision-test npm run test
+
+echo "✅ Тесты завершены успешно"
+```
+
+## 🔧 Nginx конфигурация
+
+### Основная конфигурация
+```nginx
+# ✅ docker/nginx/nginx.conf
+events {
+    worker_connections 1024;
+}
+
+http {
+    upstream product-filter-service {
+        server product-filter-service:3001;
+    }
+
+    upstream wb-api {
+        server wb-api:3000;
+    }
+
+    upstream ozon-api {
+        server ozon-api:3002;
+    }
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        # Основной API
+        location /api/ {
+            proxy_pass http://product-filter-service/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # WB API
+        location /wb-api/ {
+            proxy_pass http://wb-api/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+
+        # Ozon API
+        location /ozon-api/ {
+            proxy_pass http://ozon-api/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+
+        # Health check
+        location /health {
+            access_log off;
+            return 200 "healthy\n";
+            add_header Content-Type text/plain;
+        }
+    }
+}
+```
+
+## 🚨 Лучшие практики
+
+### Производительность
+- Используй многоэтапную сборку
+- Минимизируй количество слоев
+- Кэшируй зависимости
+- Используй .dockerignore
+- Оптимизируй размер образа
+
+### Безопасность
+- Не запускай контейнеры от root
+- Используй минимальные базовые образы
+- Сканируй образы на уязвимости
+- Не храни секреты в образах
+- Обновляй базовые образы
+
+### Надежность
+- Добавляй health checks
+- Настраивай restart policies
+- Мониторь ресурсы
+- Логируй правильно
+- Тестируй в контейнерах
+
+## 🚨 Чего избегать
+
+- ❌ Не используй `latest` теги
+- ❌ Не запускай от root пользователя
+- ❌ Не копируй все файлы в образ
+- ❌ Не забывай про .dockerignore
+- ❌ Не храни секреты в образах
+- ❌ Не игнорируй health checks
+- ❌ Не используй большие базовые образы
+description:
+globs:
+alwaysApply: false
+---

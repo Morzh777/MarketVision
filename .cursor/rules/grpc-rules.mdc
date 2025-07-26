@@ -1,0 +1,496 @@
+# 🔗 gRPC Правила разработки
+
+## 📚 Документация
+
+### **Загруженные документации (приоритет):**
+- **@gRPC** - используй для всех вопросов по gRPC
+- **@NestJS** - для вопросов по gRPC в NestJS
+- **@Python** - для вопросов по gRPC в Python
+
+### **Статические ссылки (резерв):**
+- **[gRPC Documentation](https://grpc.io/docs/)** - Основная документация
+- **[Protocol Buffers](https://developers.google.com/protocol-buffers)** - Сериализация данных
+- **[gRPC GitHub](https://github.com/grpc/grpc)** - Исходный код
+- **[gRPC Node.js](https://grpc.io/docs/languages/node/)** - Node.js клиент/сервер
+- **[gRPC Python](https://grpc.io/docs/languages/python/)** - Python клиент/сервер
+- **[gRPC Web](https://grpc.io/docs/platforms/web/)** - Веб-клиенты
+- **[gRPC Tools](https://grpc.io/docs/tools/)** - Инструменты разработки
+- **[gRPC Best Practices](https://grpc.io/docs/guides/best-practices/)** - Лучшие практики
+
+## 🎯 Основные принципы
+
+### Архитектура коммуникации
+- gRPC для межсервисного взаимодействия
+- HTTP REST для внешних API
+- Protocol Buffers для сериализации данных
+- Строгая типизация сообщений
+- Версионирование API
+
+### Структура проекта
+```
+proto/
+├── raw-product.proto        # Основной proto файл
+├── common/
+│   ├── types.proto         # Общие типы
+│   └── errors.proto        # Ошибки
+└── services/
+    ├── product.proto       # Сервис продуктов
+    └── price.proto         # Сервис цен
+```
+
+## 📝 Protocol Buffers
+
+### Определение сообщений
+```protobuf
+// ✅ Правильная структура proto файла
+syntax = "proto3";
+
+package marketvision;
+
+option go_package = "marketvision/proto";
+option java_package = "com.marketvision.proto";
+
+// Импорты
+import "google/protobuf/timestamp.proto";
+import "common/errors.proto";
+
+// Сообщения
+message RawProduct {
+  string id = 1;
+  string name = 2;
+  double price = 3;
+  string category = 4;
+  string source = 5;
+  string image_url = 6;
+  string product_url = 7;
+  google.protobuf.Timestamp created_at = 8;
+}
+
+// Сервисы
+service ProductService {
+  rpc GetRawProducts(GetRawProductsRequest) returns (GetRawProductsResponse);
+  rpc GetProductById(GetProductByIdRequest) returns (GetProductByIdResponse);
+}
+```
+
+### Типы данных
+```protobuf
+// ✅ Используй правильные типы
+message Product {
+  string id = 1;                    // UUID
+  string name = 2;                  // Название продукта
+  double price = 3;                 // Цена (double для точности)
+  int32 stock = 4;                  // Количество на складе
+  bool is_available = 5;            // Доступность
+  repeated string tags = 6;         // Теги
+  map<string, string> metadata = 7; // Метаданные
+  google.protobuf.Timestamp created_at = 8; // Временные метки
+}
+
+// ❌ Избегай
+message BadProduct {
+  int32 id = 1;        // Не используй int32 для UUID
+  float price = 2;     // Не используй float для цен
+  string created_at = 3; // Не используй string для дат
+}
+```
+
+### Нумерация полей
+```protobuf
+// ✅ Последовательная нумерация
+message Product {
+  string id = 1;
+  string name = 2;
+  double price = 3;
+  string category = 4;
+  // НЕ пропускай номера
+  google.protobuf.Timestamp created_at = 5;
+}
+
+// ❌ Неправильно
+message BadProduct {
+  string id = 1;
+  string name = 3;  // Пропущен номер 2
+  double price = 5; // Пропущен номер 4
+}
+```
+
+## 🏗️ Сервисы
+
+### Определение сервисов
+```protobuf
+// ✅ Четкое разделение сервисов
+service ProductService {
+  // CRUD операции
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse);
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
+  
+  // Специфичные операции
+  rpc GetProductsByCategory(GetProductsByCategoryRequest) returns (GetProductsByCategoryResponse);
+  rpc SearchProducts(SearchProductsRequest) returns (SearchProductsResponse);
+}
+
+service PriceService {
+  rpc GetPriceHistory(GetPriceHistoryRequest) returns (GetPriceHistoryResponse);
+  rpc GetPriceStatistics(GetPriceStatisticsRequest) returns (GetPriceStatisticsResponse);
+}
+```
+
+### Request/Response паттерн
+```protobuf
+// ✅ Стандартные request/response
+message GetProductsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+  string category = 3;
+  string sort_by = 4;
+  bool ascending = 5;
+}
+
+message GetProductsResponse {
+  repeated Product products = 1;
+  int32 total_count = 2;
+  int32 current_page = 3;
+  int32 total_pages = 4;
+  string next_page_token = 5;
+}
+```
+
+## 🔒 Обработка ошибок
+
+### Error сообщения
+```protobuf
+// ✅ Стандартная структура ошибок
+message Error {
+  string code = 1;
+  string message = 2;
+  string details = 3;
+  map<string, string> metadata = 4;
+}
+
+// ✅ Response с ошибкой
+message GetProductResponse {
+  oneof result {
+    Product product = 1;
+    Error error = 2;
+  }
+}
+
+// ✅ Или отдельное поле
+message GetProductResponse {
+  Product product = 1;
+  Error error = 2;
+  bool success = 3;
+}
+```
+
+### Коды ошибок
+```protobuf
+// ✅ Enum для кодов ошибок
+enum ErrorCode {
+  UNKNOWN = 0;
+  NOT_FOUND = 1;
+  INVALID_ARGUMENT = 2;
+  PERMISSION_DENIED = 3;
+  INTERNAL_ERROR = 4;
+  UNAVAILABLE = 5;
+  DEADLINE_EXCEEDED = 6;
+}
+```
+
+## 🚀 Реализация
+
+### NestJS gRPC сервер
+```typescript
+// ✅ Сервис с правильной типизацией
+@Injectable()
+export class ProductGrpcService implements ProductService {
+  constructor(
+    private readonly productService: ProductService,
+    private readonly logger: Logger
+  ) {}
+
+  async getRawProducts(request: GetRawProductsRequest): Promise<GetRawProductsResponse> {
+    try {
+      const products = await this.productService.getProducts({
+        category: request.category,
+        limit: request.limit || 100
+      })
+
+      return {
+        products: products.map(this.mapToRawProduct),
+        totalCount: products.length
+      }
+    } catch (error) {
+      this.logger.error('Failed to get raw products', error)
+      throw new RpcException({
+        code: Status.INTERNAL,
+        message: 'Failed to get products'
+      })
+    }
+  }
+
+  private mapToRawProduct(product: Product): RawProduct {
+    return {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      category: product.category,
+      source: product.source,
+      imageUrl: product.imageUrl,
+      productUrl: product.productUrl,
+      createdAt: Timestamp.fromDate(product.createdAt)
+    }
+  }
+}
+```
+
+### gRPC клиент
+```typescript
+// ✅ Типизированный клиент
+@Injectable()
+export class ProductGrpcClient {
+  private client: ProductServiceClient
+
+  constructor() {
+    this.client = new ProductServiceClient('localhost:3000')
+  }
+
+  async getProducts(category: string): Promise<RawProduct[]> {
+    try {
+      const response = await this.client.getRawProducts({
+        category,
+        limit: 100
+      })
+
+      return response.products
+    } catch (error) {
+      this.logger.error('gRPC call failed', error)
+      throw new Error('Failed to fetch products from gRPC service')
+    }
+  }
+
+  async getProductById(id: string): Promise<RawProduct | null> {
+    try {
+      const response = await this.client.getProductById({ id })
+      return response.product || null
+    } catch (error) {
+      if (error.code === Status.NOT_FOUND) {
+        return null
+      }
+      throw error
+    }
+  }
+}
+```
+
+## 📊 Мониторинг и логирование
+
+### Логирование gRPC вызовов
+```typescript
+// ✅ Interceptor для логирования
+@Injectable()
+export class GrpcLoggingInterceptor implements RpcInterceptor<any, any> {
+  constructor(private readonly logger: Logger) {}
+
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    const rpcContext = context.switchToRpc()
+    const data = rpcContext.getData()
+    const client = rpcContext.getContext()
+
+    this.logger.log(`gRPC ${context.getHandler().name} called`, {
+      method: context.getHandler().name,
+      data,
+      client: client.getPeer()
+    })
+
+    const startTime = Date.now()
+    return next.handle().pipe(
+      tap({
+        next: (result) => {
+          this.logger.log(`gRPC ${context.getHandler().name} completed`, {
+            duration: Date.now() - startTime,
+            resultSize: JSON.stringify(result).length
+          })
+        },
+        error: (error) => {
+          this.logger.error(`gRPC ${context.getHandler().name} failed`, {
+            duration: Date.now() - startTime,
+            error: error.message
+          })
+        }
+      })
+    )
+  }
+}
+```
+
+### Метрики
+```typescript
+// ✅ Метрики gRPC вызовов
+@Injectable()
+export class GrpcMetricsService {
+  private requestCounter = new Counter({
+    name: 'grpc_requests_total',
+    help: 'Total number of gRPC requests',
+    labelNames: ['service', 'method', 'status']
+  })
+
+  private requestDuration = new Histogram({
+    name: 'grpc_request_duration_seconds',
+    help: 'gRPC request duration in seconds',
+    labelNames: ['service', 'method']
+  })
+
+  recordRequest(service: string, method: string, status: string, duration: number): void {
+    this.requestCounter.inc({ service, method, status })
+    this.requestDuration.observe({ service, method }, duration)
+  }
+}
+```
+
+## 🔧 Конфигурация
+
+### NestJS модуль
+```typescript
+// ✅ Конфигурация gRPC модуля
+@Module({
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'PRODUCT_SERVICE',
+        transport: Transport.GRPC,
+        options: {
+          package: 'marketvision',
+          protoPath: join(__dirname, 'proto/raw-product.proto'),
+          url: 'localhost:3000'
+        }
+      }
+    ])
+  ],
+  providers: [
+    ProductGrpcService,
+    ProductGrpcClient,
+    GrpcLoggingInterceptor,
+    GrpcMetricsService
+  ],
+  exports: [ProductGrpcClient]
+})
+export class GrpcModule {}
+```
+
+### Environment переменные
+```env
+# gRPC конфигурация
+GRPC_SERVER_PORT=3000
+GRPC_CLIENT_TIMEOUT=30000
+GRPC_MAX_RECEIVE_MESSAGE_LENGTH=4194304
+GRPC_MAX_SEND_MESSAGE_LENGTH=4194304
+```
+
+## 🧪 Тестирование
+
+### Unit тесты
+```typescript
+// ✅ Тестирование gRPC сервиса
+describe('ProductGrpcService', () => {
+  let service: ProductGrpcService
+  let mockProductService: jest.Mocked<ProductService>
+
+  beforeEach(() => {
+    mockProductService = {
+      getProducts: jest.fn()
+    } as any
+
+    service = new ProductGrpcService(mockProductService, new Logger())
+  })
+
+  describe('getRawProducts', () => {
+    it('should return raw products', async () => {
+      // Arrange
+      const inputProducts = [
+        { id: '1', name: 'RTX 5070', price: 50000, category: 'videocards' }
+      ]
+      const expectedResponse = {
+        products: inputProducts.map(p => ({
+          ...p,
+          source: 'wb',
+          imageUrl: '',
+          productUrl: '',
+          createdAt: expect.any(Timestamp)
+        })),
+        totalCount: 1
+      }
+      mockProductService.getProducts.mockResolvedValue(inputProducts)
+
+      // Act
+      const result = await service.getRawProducts({ category: 'videocards' })
+
+      // Assert
+      expect(result).toEqual(expectedResponse)
+    })
+  })
+})
+```
+
+### E2E тесты
+```typescript
+// ✅ E2E тестирование gRPC
+describe('gRPC Product Service (e2e)', () => {
+  let app: INestApplication
+  let client: ProductServiceClient
+
+  beforeEach(async () => {
+    const moduleFixture = await Test.createTestingModule({
+      imports: [AppModule]
+    }).compile()
+
+    app = moduleFixture.createNestApplication()
+    await app.init()
+
+    client = new ProductServiceClient('localhost:3000')
+  })
+
+  it('/grpc/products should return products', async () => {
+    const response = await client.getRawProducts({ category: 'videocards' })
+    expect(response.products).toBeDefined()
+    expect(Array.isArray(response.products)).toBe(true)
+  })
+})
+```
+
+## 🚨 Лучшие практики
+
+### Производительность
+- Используй streaming для больших данных
+- Применяй connection pooling
+- Настрой правильные таймауты
+- Мониторь размер сообщений
+
+### Безопасность
+- Используй TLS для продакшена
+- Валидируй входные данные
+- Ограничивай размер сообщений
+- Логируй подозрительную активность
+
+### Надежность
+- Обрабатывай все ошибки
+- Используй retry механизмы
+- Мониторь health checks
+- Настрой circuit breakers
+
+## 🚨 Чего избегать
+
+- ❌ Не используй `any` в proto файлах
+- ❌ Не забывай про версионирование API
+- ❌ Не игнорируй обработку ошибок
+- ❌ Не используй слишком большие сообщения
+- ❌ Не забывай про таймауты
+- ❌ Не игнорируй мониторинг
+- ❌ Не используй string для дат и чисел
+description:
+globs:
+alwaysApply: false
+---

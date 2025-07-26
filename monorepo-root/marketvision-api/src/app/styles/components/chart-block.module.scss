@@ -3,6 +3,8 @@
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +17,13 @@
     background: var(--color-bg-card);
     border-color: var(--color-border-card);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+  
+  // Центрируем весь контент внутри блока
+  > * {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 }
 
@@ -100,6 +109,31 @@
   }
 }
 
+.chartTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+  width: 100%;
+  text-align: left;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 4px 24px 0 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  
+  @media (min-width: 1390px) {
+    font-size: 20px;
+    padding: 4px 32px 0 32px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .productName {
   margin-left: 12px;
   color: var(--color-blue);
@@ -118,7 +152,7 @@
   border-radius: 8px;
   overflow: hidden;
   background: var(--color-bg);
-  padding: 0 24px 24px 24px;
+  padding: 0 24px 0 0;
   margin: 0;
   
   @media (prefers-color-scheme: dark) {
@@ -126,7 +160,7 @@
   }
   
   @media (min-width: 640px) {
-    padding: 0 32px 32px 32px;
+    padding: 0 32px 0 0;
   }
 }
 
@@ -189,4 +223,15 @@
   tooltipTitleStyle: 'font-size:15px;font-weight:600;';
   tooltipItemStyle: 'margin-top:4px;';
   tooltipExtraCss: 'box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 8px; padding: 8px;';
+}
+
+.chartBlock__bottom {
+  display: flex;
+  gap: 8px;
+  margin-top: 0;
+  align-items: flex-start;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 } 

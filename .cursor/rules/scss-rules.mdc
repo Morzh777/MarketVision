@@ -1,0 +1,730 @@
+# 🎨 SCSS Правила разработки MarketVision
+
+## 📚 Документация
+
+### **Загруженные документации (приоритет):**
+- **@SCSS** - используй для всех вопросов по SCSS/Sass
+
+### **Статические ссылки (резерв):**
+- **[Sass Documentation](https://sass-lang.com/documentation)** - Официальная документация
+- **[Sass Guidelines](https://sass-guidelin.es/)** - Лучшие практики
+- **[Sass Playground](https://www.sassmeister.com/)** - Онлайн редактор
+
+## 🎯 Основные принципы
+
+### Архитектура стилей
+- **SCSS модули** для компонентов (`.module.scss`)
+- **Глобальные стили** в `globals.scss`
+- **Базовые стили** в `base/` директории
+- **Утилитарные классы** для быстрой верстки
+- **CSS переменные** для темизации
+
+### Структура файлов
+```
+src/app/styles/
+├── base/                    # Базовые стили
+│   ├── _variables.scss     # Переменные Design System
+│   ├── _mixins.scss        # Переиспользуемые миксины
+│   ├── _utilities.scss     # Утилитарные классы
+│   ├── _animations.scss    # Анимации
+│   └── _index.scss         # Главный файл
+├── components/             # Стили компонентов
+│   ├── marquee.module.scss # Модульные стили
+│   └── sidebar.module.scss # Модульные стили
+└── globals.scss            # Глобальные стили
+```
+
+## 🎨 CSS переменные (Design System)
+
+### Основные цвета проекта
+```scss
+:root {
+  // Основные цвета
+  --color-bg: #fff;                    // Основной фон
+  --color-bg-dark: #20232B;            // Темный фон
+  --color-bg-light: #f9fafb;           // Светлый фон
+  --color-bg-header: #fff;             // Фон заголовка
+  --color-bg-active: #eff6ff;          // Активный фон
+  --color-bg-card: #f9fafb;            // Фон карточек
+  --color-bg-overlay: rgba(0,0,0,0.3); // Фон оверлеев
+  
+  // Границы
+  --color-border: #e5e7eb;             // Границы
+  --color-border-dark: #23272F;        // Темные границы
+  --color-border-card: #e5e7eb;        // Границы карточек
+  
+  // Текст
+  --color-text: #1f2937;               // Основной текст
+  --color-text-light: #f3f4f6;         // Светлый текст
+  --color-text-secondary: #6b7280;     // Вторичный текст
+  --color-text-secondary-dark: #9ca3af; // Темный вторичный текст
+  --color-text-title: #374151;         // Заголовки
+  --color-text-title-dark: #e5e7eb;    // Темные заголовки
+  --color-text-marquee: #e5e7eb;       // Текст маркизы
+  --color-text-marquee-secondary: #d1d5db; // Вторичный текст маркизы
+  
+  // Семантические цвета
+  --color-green: #4ade80;              // Зеленый (успех)
+  --color-red: #f87171;                // Красный (ошибка)
+  --color-blue: #3b82f6;               // Синий (ссылки)
+  --color-blue-dark: #60a5fa;          // Темный синий
+  --color-purple: #9333ea;             // Фиолетовый (Wildberries)
+  --color-purple-dark: #7c3aed;        // Темный фиолетовый
+  --color-purple-darker: #6d28d9;      // Очень темный фиолетовый
+  --color-mono: #374151;               // Моноширинный текст
+  --color-mono-dark: #d1d5db;          // Темный моноширинный
+  
+  // Градиенты и тени
+  --color-gradient-fade: rgba(24,26,32,0.8); // Градиент затухания
+  --color-gradient-fade-transparent: rgba(24,26,32,0.0); // Прозрачный градиент
+  --color-shadow: rgba(0,0,0,0.04);    // Тень
+  --color-shadow-card: 0 1px 2px 0 rgba(0,0,0,0.04); // Тень карточек
+  
+  // Размеры
+  --sidebar-width: 360px;              // Ширина сайдбара
+}
+```
+
+### Темная тема
+```scss
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #20232B;
+    --color-bg-light: #181A20;
+    --color-bg-header: #20232B;
+    --color-bg-active: #23272F;
+    --color-bg-card: #23272F;
+    --color-bg-overlay: rgba(35,39,47,0.3);
+    --color-border: #23272F;
+    --color-border-card: #23272F;
+    --color-text: #f3f4f6;
+    --color-text-secondary: #9ca3af;
+    --color-text-title: #e5e7eb;
+    --color-text-marquee: #d1d5db;
+    --color-text-marquee-secondary: #9ca3af;
+    --color-green: #4ade80;
+    --color-red: #f87171;
+    --color-blue: #60a5fa;
+    --color-mono: #d1d5db;
+  }
+}
+```
+
+## 🧩 SCSS модули
+
+### Именование
+```scss
+// ✅ Правильно - BEM методология
+.sidebar {
+  &__header {
+    padding: 16px;
+  }
+  
+  &__item {
+    cursor: pointer;
+    
+    &--active {
+      background: var(--color-bg-active);
+    }
+  }
+  
+  &__title {
+    font-weight: 600;
+  }
+}
+
+// ❌ Неправильно - плоские классы
+.sidebar-header { }
+.sidebar-item { }
+.sidebar-item-active { }
+```
+
+### Структура модуля
+```scss
+// ✅ Правильная структура
+.sidebar {
+  // 1. Позиционирование и размеры
+  position: relative;
+  width: var(--sidebar-width);
+  height: 100vh;
+  
+  // 2. Фон и границы
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  
+  // 3. Flexbox/Grid
+  display: flex;
+  flex-direction: column;
+  
+  // 4. Типографика
+  font-family: inherit;
+  font-size: 14px;
+  
+  // 5. Анимации и переходы
+  transition: background-color 0.2s ease;
+  
+  // 6. Модификаторы
+  &--collapsed {
+    width: 60px;
+  }
+  
+  // 7. Элементы
+  &__header {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  &__content {
+    flex: 1;
+    overflow: auto;
+  }
+  
+  // 8. Состояния
+  &:hover {
+    background: var(--color-bg-light);
+  }
+  
+  // 9. Медиа-запросы
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+}
+```
+
+## 🔧 Миксины
+
+### Базовые миксины
+```scss
+// Flexbox миксины
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive миксины
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: 1280px) { @content; }
+  }
+}
+
+// Темная тема
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+```
+
+### Специфичные миксины
+```scss
+// Кнопки
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-variant($bg-color, $text-color, $border-color: transparent) {
+  background-color: $bg-color;
+  color: $text-color;
+  border-color: $border-color;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($bg-color, 5%);
+  }
+}
+
+// Карточки
+@mixin card-base {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+@mixin card-hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+```
+
+## 🛠️ Утилитарные классы
+
+### Tailwind-совместимые классы
+```scss
+// Display
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+
+// Flexbox
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+
+// Spacing
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-4 { margin: 1rem; }
+.m-6 { margin: 1.5rem; }
+.m-8 { margin: 2rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+// Colors
+.bg-gray-50 { background-color: #f9fafb; }
+.bg-gray-100 { background-color: #f3f4f6; }
+.bg-gray-200 { background-color: #e5e7eb; }
+.bg-gray-300 { background-color: #d1d5db; }
+.bg-gray-400 { background-color: #9ca3af; }
+.bg-gray-500 { background-color: #6b7280; }
+.bg-gray-600 { background-color: #4b5563; }
+.bg-gray-700 { background-color: #374151; }
+.bg-gray-800 { background-color: #1f2937; }
+.bg-gray-900 { background-color: #111827; }
+
+.text-gray-50 { color: #f9fafb; }
+.text-gray-100 { color: #f3f4f6; }
+.text-gray-200 { color: #e5e7eb; }
+.text-gray-300 { color: #d1d5db; }
+.text-gray-400 { color: #9ca3af; }
+.text-gray-500 { color: #6b7280; }
+.text-gray-600 { color: #4b5563; }
+.text-gray-700 { color: #374151; }
+.text-gray-800 { color: #1f2937; }
+.text-gray-900 { color: #111827; }
+
+// Typography
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Layout
+.min-h-screen { min-height: 100vh; }
+.h-screen { height: 100vh; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+// Transitions
+.transition-colors { transition-property: color, background-color, border-color; }
+.transition-all { transition-property: all; }
+.duration-200 { transition-duration: 200ms; }
+.duration-300 { transition-duration: 300ms; }
+
+// Overflow
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-scroll { overflow: scroll; }
+```
+
+### Адаптивные классы
+```scss
+// Responsive utilities
+@media (min-width: 640px) {
+  .sm\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-\[360px_1fr\] { grid-template-columns: 360px 1fr; }
+  .md\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-\[360px_1fr_320px\] { grid-template-columns: 360px 1fr 320px; }
+  .lg\:grid-cols-\[360px_1fr\] { grid-template-columns: 360px 1fr; }
+  .lg\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+```
+
+## 🎭 Анимации
+
+### Базовые анимации
+```scss
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+```
+
+### Утилитарные классы анимаций
+```scss
+.animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+.animate-slide-up { animation: slideUp 0.3s ease-out; }
+.animate-slide-down { animation: slideDown 0.3s ease-out; }
+.animate-scale-in { animation: scaleIn 0.2s ease-out; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+// Длительности
+.animate-duration-75 { animation-duration: 75ms; }
+.animate-duration-100 { animation-duration: 100ms; }
+.animate-duration-150 { animation-duration: 150ms; }
+.animate-duration-200 { animation-duration: 200ms; }
+.animate-duration-300 { animation-duration: 300ms; }
+.animate-duration-500 { animation-duration: 500ms; }
+.animate-duration-700 { animation-duration: 700ms; }
+.animate-duration-1000 { animation-duration: 1000ms; }
+
+// Задержки
+.animate-delay-75 { animation-delay: 75ms; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-150 { animation-delay: 150ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-1000 { animation-delay: 1000ms; }
+
+// Timing functions
+.animate-ease-linear { animation-timing-function: linear; }
+.animate-ease-in { animation-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+.animate-ease-out { animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+.animate-ease-in-out { animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+```
+
+## 🚨 Лучшие практики
+
+### Производительность
+```scss
+// ✅ Хорошо - используй CSS переменные
+.button {
+  background: var(--color-blue);
+  color: white;
+  border: 1px solid var(--color-border);
+}
+
+// ❌ Плохо - хардкод значений
+.button {
+  background: #3b82f6;
+  color: white;
+  border: 1px solid #e5e7eb;
+}
+
+// ✅ Хорошо - используй семантические переменные
+.marquee {
+  background: var(--color-bg-overlay);
+  color: var(--color-text-marquee);
+}
+
+// ❌ Плохо - хардкод цветов
+.marquee {
+  background: rgba(0,0,0,0.3);
+  color: #e5e7eb;
+}
+
+// ✅ Хорошо - группируй связанные стили
+.card {
+  // Позиционирование
+  position: relative;
+  width: 100%;
+  
+  // Фон и границы
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  
+  // Типографика
+  font-size: 14px;
+  line-height: 1.5;
+  
+  // Анимации
+  transition: all 0.2s ease;
+}
+
+// ❌ Плохо - хаотичное расположение
+.card {
+  border-radius: 8px;
+  font-size: 14px;
+  position: relative;
+  background: var(--color-bg);
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-border);
+  width: 100%;
+  line-height: 1.5;
+}
+```
+
+### Читаемость
+```scss
+// ✅ Хорошо - используй BEM
+.sidebar {
+  &__header {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  &__content {
+    flex: 1;
+    overflow: auto;
+  }
+  
+  &__item {
+    padding: 8px 16px;
+    cursor: pointer;
+    
+    &--active {
+      background: var(--color-bg-active);
+    }
+    
+    &:hover {
+      background: var(--color-bg-light);
+    }
+  }
+}
+
+// ❌ Плохо - плоские классы
+.sidebar-header { }
+.sidebar-content { }
+.sidebar-item { }
+.sidebar-item-active { }
+.sidebar-item:hover { }
+```
+
+### Масштабируемость
+```scss
+// ✅ Хорошо - используй миксины для повторяющихся паттернов
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  @include button-base;
+  background: var(--color-blue);
+  color: white;
+  
+  &:hover {
+    background: darken(var(--color-blue), 5%);
+  }
+}
+
+.btn-secondary {
+  @include button-base;
+  background: var(--color-gray-200);
+  color: var(--color-text);
+  
+  &:hover {
+    background: var(--color-gray-300);
+  }
+}
+
+// ❌ Плохо - дублирование кода
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--color-blue);
+  color: white;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--color-gray-200);
+  color: var(--color-text);
+}
+```
+
+## 🚨 Чего избегать
+
+- ❌ Не используй `!important` без крайней необходимости
+- ❌ Не создавай слишком глубокую вложенность (> 3 уровней)
+- ❌ Не дублируй код - используй миксины
+- ❌ Не используй хардкод цветов - используй CSS переменные
+- ❌ Не забывай про темную тему
+- ❌ Не игнорируй адаптивность
+- ❌ Не создавай слишком специфичные селекторы
+- ❌ Не используй инлайн-стили в компонентах
+- ❌ Не забывай про accessibility (focus states, contrast)
+- ❌ Не создавай слишком большие файлы стилей
+
+## 📝 Примеры использования
+
+### Компонент с SCSS модулем
+```tsx
+// Sidebar.tsx
+import styles from '../styles/components/sidebar.module.scss';
+
+const Sidebar = ({ products, selected, onSelect }) => (
+  <aside className={styles.sidebar}>
+    <div className={styles.sidebar__header}>
+      <span className={styles.sidebar__title}>Популярные запросы</span>
+    </div>
+    <ul className={styles.sidebar__list}>
+      {products.map(product => (
+        <li
+          key={product.name}
+          className={`${styles.sidebar__item} ${
+            selected.name === product.name ? styles['sidebar__item--active'] : ''
+          }`}
+          onClick={() => onSelect(product)}
+        >
+          <span className={styles.sidebar__itemname}>{product.name}</span>
+          <span className={styles.sidebar__itemprice}>{product.price}₽</span>
+        </li>
+      ))}
+    </ul>
+  </aside>
+);
+```
+
+### Компонент с утилитарными классами
+```tsx
+// Header.tsx
+const Header = () => (
+  <header className="d-flex justify-between items-center p-4 bg-white border-b border-gray-200">
+    <div className="d-flex items-center gap-4">
+      <h1 className="text-xl font-bold text-gray-900">MarketVision</h1>
+      <nav className="d-flex gap-2">
+        <button className="text-gray-600 hover:text-gray-900 transition-colors">
+          Главная
+        </button>
+        <button className="text-gray-600 hover:text-gray-900 transition-colors">
+          Продукты
+        </button>
+      </nav>
+    </div>
+    <div className="d-flex items-center gap-2">
+      <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+        Войти
+      </button>
+    </div>
+  </header>
+);
+```
+
+description:
+globs: ["**/*.scss", "**/*.sass"]
+alwaysApply: false
+---
+description:
+globs:
+alwaysApply: false
+---

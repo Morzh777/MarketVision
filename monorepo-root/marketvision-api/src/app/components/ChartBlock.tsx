@@ -1,8 +1,11 @@
-import ReactECharts from 'echarts-for-react';
-import React from 'react';
-
 import styles from '../styles/components/chart-block.module.scss';
+import { testProductsData, recommendedPrice2024 } from '../testData';
 import type { MockHourlyCheapestItem, Timeframe } from '../types/market';
+
+import ChartClientChart from './ChartClientChart';
+import PriceHistory from './PriceHistory';
+import ProductCard from './ProductCard';
+import AdvancedAnalytics from './AdvancedAnalytics';
 
 interface ChartBlockProps {
   selected: MockHourlyCheapestItem;
@@ -10,6 +13,9 @@ interface ChartBlockProps {
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: Array<{ price: number | null; created_at: string }>;
   recommended: number | null;
+  historyTimeframe: Timeframe;
+  setHistoryTimeframe: (tf: Timeframe) => void;
+  historyPriceHistory: Array<{ price: number | null; created_at: string }>;
 }
 
 const timeframes = [
@@ -19,11 +25,56 @@ const timeframes = [
   { key: 'year' as Timeframe, label: 'Год' },
 ];
 
-const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimeframe, priceHistory, recommended }) => {
+const ChartBlock: React.FC<ChartBlockProps> = ({ 
+  selected, 
+  timeframe, 
+  setTimeframe, 
+  priceHistory, 
+  recommended,
+  historyTimeframe,
+  setHistoryTimeframe,
+  historyPriceHistory
+}) => {
+  // Удаляю isClient и useEffect
+
   // Проверка на валидность данных
   if (!selected || !priceHistory) {
     return null;
   }
+
+  // Функция для получения товара с самой низкой ценой для выбранного запроса
+  const getLowestPriceProduct = () => {
+    // Фильтруем товары по qwerty (запросу) и находим самый дешевый
+    const productsForQuery = testProductsData.filter(
+      (product: MockHourlyCheapestItem) => product.qwerty === selected.qwerty
+    );
+    
+    if (productsForQuery.length === 0) {
+      return null;
+    }
+    
+    // Находим товар с самой низкой ценой
+    const lowestPriceProduct = productsForQuery.reduce(
+      (lowest: MockHourlyCheapestItem, current: MockHourlyCheapestItem) => 
+        current.price < lowest.price ? current : lowest
+    );
+    
+    return {
+      name: lowestPriceProduct.name,
+      price: lowestPriceProduct.price,
+      image: lowestPriceProduct.image,
+      source: lowestPriceProduct.source,
+      url: lowestPriceProduct.link,
+      hour: lowestPriceProduct.hour,
+      marketPriceNote: lowestPriceProduct.marketPriceNote,
+      recommended: recommendedPrice2024[selected.qwerty || ''] || undefined, // Берем из recommendedPrice2024 по qwerty
+      min: lowestPriceProduct.min,
+      max: lowestPriceProduct.max,
+      mean: lowestPriceProduct.mean,
+      category: lowestPriceProduct.category,
+    
+    };
+  };
   // Массив сокращенных названий месяцев
   const monthNames = [
     'янв.', 'фев.', 'мар.', 'апр.', 'май', 'июн.',
@@ -65,21 +116,44 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
       }
       return idx;
     })();
+
+    // Если нет валидных данных, возвращаем пустые опции
+    if (lastValidIndex === -1) {
+      return {};
+    }
+
+    // Вычисляем минимальное значение для оси Y
+    const validPrices = currentPrices.filter(price => price !== null) as number[];
+    const minPrice = Math.min(...validPrices);
+    const maxPrice = Math.max(...validPrices);
+    const priceRange = maxPrice - minPrice;
     
-    // Рекомендуемые цены только до последнего валидного индекса
-    const recommendedPrices = currentPrices.map((_, i) => 
-      i <= lastValidIndex ? recommended : null
-    );
-    
-    // Рыночные цены только до последнего валидного индекса
-    const marketPricesArray = currentPrices.map((_, i) => 
-      i <= lastValidIndex ? (selected.mean || 0) : null
-    );
+    // Если диапазон цен слишком маленький, увеличиваем его
+    const adjustedRange = priceRange < 1000 ? 1000 : priceRange;
+    const minY = Math.max(0, minPrice - adjustedRange * 0.15);
+    const maxY = maxPrice + adjustedRange * 0.15;
 
+    // Создаем массивы для рекомендуемых и рыночных цен
+    const recommendedPrices = Array(currentPrices.length).fill(null);
+    const marketPricesArray = Array(currentPrices.length).fill(null);
 
+    // Заполняем рекомендуемые цены
+    if (recommended !== null) {
+      for (let i = 0; i <= lastValidIndex; i++) {
+        recommendedPrices[i] = recommended;
+      }
+    }
 
-    // minY: 10% ниже минимальной цены
-    const minY = selected.min ? Math.max(0, Math.floor(selected.min * 0.9)) : 0;
+    // Заполняем рыночные цены (используем среднее значение)
+    const validPricesForMarket = currentPrices.filter(price => price !== null) as number[];
+    if (validPricesForMarket.length > 0) {
+      const marketPrice = validPricesForMarket.reduce((sum, price) => sum + price, 0) / validPricesForMarket.length;
+      for (let i = 0; i <= lastValidIndex; i++) {
+        marketPricesArray[i] = Math.round(marketPrice);
+      }
+    }
+
+    // Функция для смещения значений
     function shiftValue(val: number | null): number | null {
       if (val == null) return null;
       return val; // Убираем смещение, чтобы данные отображались корректно
@@ -160,6 +234,7 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
       yAxis: {
         type: 'value',
         min: minY,
+        max: maxY,
         minInterval: 5000,
         axisLine: { lineStyle: { color: '#888' } },
         axisLabel: {
@@ -204,43 +279,53 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
   };
 
   return (
-  <div className={styles.chartBlock}>
-    <h2 className={styles.title}>
-      <span>
-        График цены{selected.qwerty && (
-          <span className={styles.productName}>{selected.qwerty}</span>
-        )}
-      </span>
-      <div className={styles.timeframeButtons}>
-        {timeframes.map((tf) => (
-          <button
-            key={tf.key}
-            onClick={() => setTimeframe(tf.key)}
-            className={`${styles.timeframeButton} ${
-              timeframe === tf.key ? styles['timeframeButton--active'] : styles['timeframeButton--inactive']
-            }`}
-          >
-            {tf.label}
-          </button>
-        ))}
+    <div className={styles.chartBlock}>
+      {/* Заголовок товара */}
+      <h2 className={styles.title}>
+        <span>
+          Товар по запросу{selected.qwerty && (
+            <span className={styles.productName}>: {selected.qwerty}</span>
+          )}
+        </span>
+      </h2>
+      {/* Карточка товара и история цен */}
+      <div className={styles.chartBlock__bottom}>
+        <ProductCard product={getLowestPriceProduct()} />
+        <PriceHistory 
+          timeframe={historyTimeframe}
+          setTimeframe={setHistoryTimeframe}
+          priceHistory={historyPriceHistory}
+          selected={selected}
+        />
       </div>
-    </h2>
-    {priceHistory && priceHistory.length > 0 && (
-      <ReactECharts
-        option={getChartOption()}
-        className={styles.chart}
-        opts={{ renderer: 'canvas' }}
-        notMerge={true}
-        lazyUpdate={true}
-        style={{ height: '400px' }}
-        onEvents={{
-          finished: () => {
-            // Успешная инициализация
-          }
-        }}
-      />
-    )}
-  </div>
+      <h2 className={styles.chartTitle}>
+        <span>
+          График цены{selected.qwerty && (
+            <span className={styles.productName}>{selected.qwerty}</span>
+          )}
+        </span>
+        <div className={styles.timeframeButtons}>
+          {timeframes.map((tf) => (
+            <button
+              key={tf.key}
+              onClick={() => setTimeframe(tf.key)}
+              className={`${styles.timeframeButton} ${
+                timeframe === tf.key ? styles['timeframeButton--active'] : styles['timeframeButton--inactive']
+              }`}
+            >
+              {tf.label}
+            </button>
+          ))}
+        </div>
+      </h2>
+      {/* Новый клиентский компонент графика */}
+      {priceHistory && priceHistory.length > 0 && (
+        <ChartClientChart option={getChartOption()} />
+      )}
+      
+      {/* Расширенная аналитика */}
+      <AdvancedAnalytics />
+    </div>
   );
 };
 

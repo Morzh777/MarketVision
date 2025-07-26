@@ -1,0 +1,369 @@
+# 🚀 Next.js Правила разработки
+
+## 🎯 Основные принципы
+
+### App Router (Next.js 13+)
+- Используй App Router вместо Pages Router
+- Структура: `app/` → `page.tsx`, `layout.tsx`, `loading.tsx`
+- Server Components по умолчанию, Client Components только при необходимости
+- Метаданные в `layout.tsx` или `page.tsx`
+
+### Server vs Client Components
+```typescript
+// ✅ Server Component (по умолчанию)
+const ServerComponent = () => {
+  return <div>Статический контент</div>
+}
+
+// ✅ Client Component (только при необходимости)
+'use client'
+const ClientComponent = () => {
+  const [state, setState] = useState()
+  return <div>Интерактивный контент</div>
+}
+```
+
+## 📈 Стратегии масштабирования
+
+### Малый проект (до 10k пользователей/день)
+- **Стратегия**: SSR везде
+- **Компоненты**: Server Components по умолчанию
+- **Кэширование**: Базовое кэширование Next.js
+
+```typescript
+// ✅ Все компоненты Server Components
+const Page = () => (
+  <div>
+    <ServerHeader />
+    <ServerProductList />
+    <ServerChart />
+  </div>
+);
+```
+
+### Средний проект (10k-100k пользователей/день)
+- **Стратегия**: Гибридный подход
+- **Компоненты**: Server Components для статики, Client Components для динамики
+- **Кэширование**: ISR, CDN, Redis
+
+```typescript
+// ✅ Гибридный подход
+const Page = () => (
+  <div>
+    <ServerHeader />
+    <ClientChart /> {/* Динамические данные */}
+    <ServerProductList />
+    <ClientPriceHistory /> {/* Интерактивность */}
+  </div>
+);
+```
+
+### Крупный проект (100k+ пользователей/день)
+- **Стратегия**: Client-side + кэширование
+- **Компоненты**: Client Components для динамики, Server Components только для статики
+- **Кэширование**: Edge Functions, CDN, Redis, Database Connection Pooling
+
+```typescript
+// ✅ Client-side для динамики
+const Page = () => (
+  <div>
+    <ServerHeader /> {/* Статика */}
+    <ClientDashboard /> {/* Динамика */}
+    <ClientChart />
+    <ClientProductList />
+  </div>
+);
+```
+
+### Оптимизация для высокой нагрузки
+```typescript
+// ✅ ISR для статических страниц
+export const revalidate = 300; // 5 минут
+
+// ✅ Streaming SSR
+import { Suspense } from 'react';
+const Page = () => (
+  <Suspense fallback={<Skeleton />}>
+    <HeavyComponent />
+  </Suspense>
+);
+
+// ✅ Edge Functions для глобального кэширования
+export const runtime = 'edge';
+```
+
+### Мониторинг и переключение стратегий
+```typescript
+// ✅ Определение нагрузки через переменные окружения
+const isHighLoad = process.env.NODE_ENV === 'production' && 
+                   parseInt(process.env.USER_COUNT || '0') > 100000;
+
+// ✅ Условный рендеринг компонентов
+const ChartComponent = isHighLoad ? ClientChart : ServerChart;
+
+// ✅ Динамический импорт для оптимизации
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <Skeleton />,
+  ssr: !isHighLoad // Отключаем SSR при высокой нагрузке
+});
+```
+
+### Рекомендации по инфраструктуре
+- **До 10k пользователей**: Vercel/Netlify
+- **10k-100k пользователей**: Vercel Pro + Redis
+- **100k+ пользователей**: AWS/GCP + CDN + Load Balancer
+
+## 🏗️ Архитектура компонентов
+
+### Структура файлов
+```
+app/
+├── layout.tsx              # Корневой layout
+├── page.tsx               # Главная страница
+├── globals.css            # Глобальные стили
+├── components/            # Переиспользуемые компоненты
+│   ├── ui/               # UI компоненты (buttons, inputs)
+│   └── features/         # Функциональные компоненты
+├── hooks/                # Кастомные хуки
+├── lib/                  # Утилиты и конфигурации
+├── types/                # TypeScript типы
+└── [category]/           # Динамические роуты
+    └── page.tsx
+```
+
+### Именование компонентов
+```typescript
+// ✅ Правильно
+const ProductCard = () => {}
+const PriceChart = () => {}
+const MarketStats = () => {}
+
+// ❌ Неправильно
+const productCard = () => {}
+const price_chart = () => {}
+```
+
+## 🎨 Стилизация
+
+### SCSS Модули
+- Используй SCSS модули для стилизации компонентов
+- Создавай отдельные .module.scss файлы для каждого компонента
+- Используй CSS переменные для темизации
+- Избегай inline стилей
+
+```typescript
+// ✅ Правильно
+import styles from './Component.module.scss'
+<div className={styles.container}>
+
+// ❌ Неправильно
+<div style={{ display: 'flex', padding: '16px' }}>
+```
+
+### Условные классы
+```typescript
+// ✅ Используй условные классы
+<div className={`${styles.base} ${isActive ? styles.active : styles.inactive}`}>
+
+// ✅ Или с объектом
+<div className={styles[`variant_${variant}`]}>
+```
+
+## 🔧 Оптимизация
+
+### Изображения
+```typescript
+// ✅ Используй next/image
+import Image from 'next/image'
+
+<Image
+  src="/product.jpg"
+  alt="Описание продукта"
+  width={300}
+  height={200}
+  priority={true} // для LCP изображений
+/>
+```
+
+### Фонты
+```typescript
+// ✅ В layout.tsx
+import { Geist } from 'next/font/google'
+
+const geist = Geist({ subsets: ['latin'] })
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ru" className={geist.className}>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+### Метаданные
+```typescript
+// ✅ В page.tsx или layout.tsx
+export const metadata = {
+  title: 'MarketVision - Аналитика цен',
+  description: 'Мониторинг цен на компьютерные комплектующие',
+  openGraph: {
+    title: 'MarketVision',
+    description: 'Аналитика цен'
+  }
+}
+```
+
+## 📊 Работа с данными
+
+### Server Components
+```typescript
+// ✅ Получение данных в Server Component
+async function ProductList() {
+  const products = await fetchProducts()
+  
+  return (
+    <div>
+      {products.map(product => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  )
+}
+```
+
+### Client Components
+```typescript
+// ✅ Для интерактивности
+'use client'
+import { useState, useEffect } from 'react'
+
+const InteractiveChart = () => {
+  const [data, setData] = useState([])
+  
+  useEffect(() => {
+    fetchData().then(setData)
+  }, [])
+  
+  return <Chart data={data} />
+}
+```
+
+## 🎯 Специфика MarketVision
+
+### Графики и аналитика
+```typescript
+// ✅ Оптимизированные графики
+const PriceChart = ({ data }: { data: PriceData[] }) => {
+  return (
+    <div className="w-full h-64 bg-white rounded-lg p-4">
+      <ECharts 
+        option={chartOptions}
+        style={{ height: '100%' }}
+        opts={{ renderer: 'canvas' }}
+      />
+    </div>
+  )
+}
+```
+
+### Адаптивность дашбордов
+```typescript
+// ✅ Адаптивная сетка
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <ChartBlock />
+  <StatsBlock />
+  <DealsBlock />
+</div>
+```
+
+## 🔒 Безопасность
+
+### Валидация данных
+> **Примечание**: Детальные правила валидации смотри в `typescript-rules.mdc`
+
+```typescript
+// ✅ Валидация на клиенте и сервере
+import { z } from 'zod'
+
+const ProductSchema = z.object({
+  id: z.string(),
+  name: z.string().min(1),
+  price: z.number().positive()
+})
+
+// В Server Component
+const products = await fetchProducts()
+const validatedProducts = products.map(p => ProductSchema.parse(p))
+```
+
+### API роуты
+```typescript
+// ✅ app/api/products/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function GET(request: NextRequest) {
+  try {
+    const products = await getProducts()
+    return NextResponse.json(products)
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Ошибка получения данных' },
+      { status: 500 }
+    )
+  }
+}
+```
+
+## 🧪 Тестирование
+
+### Компоненты
+```typescript
+// ✅ Тестирование компонентов
+import { render, screen } from '@testing-library/react'
+import ProductCard from './ProductCard'
+
+test('отображает название продукта', () => {
+  render(<ProductCard product={mockProduct} />)
+  expect(screen.getByText(mockProduct.name)).toBeInTheDocument()
+})
+```
+
+## 📝 Лучшие практики
+
+### Производительность
+- Используй `React.memo()` для тяжелых компонентов
+- Применяй `useMemo()` и `useCallback()` для оптимизации
+- Ленивая загрузка для больших компонентов
+
+### SEO
+- Семантическая разметка HTML
+- Правильные заголовки h1-h6
+- Meta теги для каждой страницы
+- Структурированные данные (JSON-LD)
+
+### Доступность
+```typescript
+// ✅ ARIA атрибуты
+<button
+  aria-label="Добавить в избранное"
+  onClick={handleFavorite}
+  onKeyDown={handleKeyDown}
+  tabIndex={0}
+>
+  ❤️
+</button>
+```
+
+## 🚨 Чего избегать
+
+- ❌ Не используй `getInitialProps` (устарело)
+- ❌ Не делай все компоненты Client Components
+- ❌ Не забывай про обработку ошибок
+- ❌ Не используй inline стили
+- ❌ Не игнорируй SEO оптимизацию
+- ❌ Не используй TailwindCSS (проект использует SCSS модули)
+description:
+globs:
+alwaysApply: false
+---

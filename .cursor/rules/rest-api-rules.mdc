@@ -1,0 +1,628 @@
+# 🚀 REST API Rules
+
+## 📋 Обзор
+
+Правила разработки REST API для проекта MarketVision. Охватывает стандарты для Product-Filter-Service, интеграцию с ботом и фронтендом.
+
+## 🏗️ Архитектура API
+
+### Текущая структура:
+```
+Frontend (Next.js:3000) → Product-Filter-Service (NestJS:3001) → gRPC Services
+Telegram Bot → Product-Filter-Service (NestJS:3001) → gRPC Services
+```
+
+**⚠️ Важно:** Product-Filter-Service работает на порту 3001 как HTTP API, а не на 50051 как указано в некоторых docker-compose файлах.
+
+### Основные сервисы:
+- **Product-Filter-Service** (порт 3001) - основной REST API для бота и фронтенда
+- **WB API** (порт 3000) - gRPC сервер для парсинга WildBerries
+- **Ozon API** (порт 3002) - gRPC сервер для парсинга Ozon
+- **DB API** (порт 50051) - gRPC сервер для работы с базой данных
+
+### 🚨 Правильные порты сервисов
+```bash
+# REST API (HTTP)
+Product-Filter-Service: http://localhost:3001  # Основной API для бота и фронтенда
+
+# gRPC сервисы
+WB API: localhost:3000        # Парсинг WildBerries
+Ozon API: localhost:3002      # Парсинг Ozon  
+DB API: localhost:50051       # База данных
+
+# Frontend
+MarketVision Frontend: http://localhost:3000  # Next.js приложение
+
+# Инфраструктура
+Redis: localhost:6379         # Кэширование
+PostgreSQL: localhost:5432    # База данных
+```
+
+## 📡 Стандарты эндпоинтов
+
+### Базовые принципы
+```typescript
+// ✅ RESTful URL структура
+GET    /products/search          // Поиск товаров
+POST   /products/search          // Поиск с фильтрами
+GET    /products/health          // Статус сервиса
+GET    /products/cache/stats     // Статистика кэша
+DELETE /products/cache/:category // Очистка кэша
+
+// ✅ Версионирование (если нужно)
+GET    /api/v1/products/search
+GET    /api/v2/products/search
+```
+
+### Контроллеры
+```typescript
+// ✅ Один контроллер на домен
+@Controller('products')
+export class ProductsController {
+  constructor(private readonly productsService: ProductsService) {}
+
+  @Post('search')
+  async searchProducts(@Body() request: ProductRequestDto): Promise<ProductResponse> {
+    try {
+      // Валидация входных данных
+      if (!request.queries || request.queries.length === 0) {
+        throw new HttpException('Не указаны запросы', HttpStatus.BAD_REQUEST);
+      }
+
+      // Бизнес-логика
+      return await this.productsService.getProducts(request);
+    } catch (error) {
+      // Обработка ошибок
+      if (error instanceof HttpException) {
+        throw error;
+      }
+      throw new HttpException(
+        `Ошибка поиска: ${error.message}`,
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+
+  @Get('health')
+  async getHealth(): Promise<HealthResponse> {
+    return {
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      services: {
+        redis: await this.checkRedisConnection(),
+        wb_api: await this.checkWbApiConnection(),
+        ozon_api: await this.checkOzonApiConnection()
+      }
+    };
+  }
+}
+```
+
+## 🔍 DTO и валидация
+
+### Request DTO
+```typescript
+// ✅ Строгая валидация входных данных
+export class ProductRequestDto {
+  @IsString()
+  @IsOptional()
+  category?: string;
+
+  @IsArray()
+  @IsString({ each: true })
+  @ArrayMinSize(1)
+  @ArrayMaxSize(10)
+  queries: string[];
+
+  @IsOptional()
+  @IsNumber()
+  @Min(1)
+  @Max(100)
+  limit?: number;
+
+  @IsOptional()
+  @IsBoolean()
+  includeStats?: boolean;
+}
+```
+
+### Response DTO
+```typescript
+// ✅ Типизированные ответы
+export class ProductResponse {
+  products: Product[];
+  totalCount: number;
+  category: string;
+  queries: string[];
+  processingTime: number;
+  cacheHit: boolean;
+  timestamp: string;
+}
+
+export class Product {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  productUrl: string;
+  source: 'wb' | 'ozon';
+  category: string;
+  query: string;
+  stats?: {
+    min: number;
+    max: number;
+    mean: number;
+    median: number;
+  };
+}
+```
+
+## 🚨 Обработка ошибок
+
+### HTTP статус коды
+```typescript
+// ✅ Правильное использование статус кодов
+export class ApiException extends HttpException {
+  constructor(message: string, status: HttpStatus) {
+    super(
+      {
+        error: true,
+        message,
+        timestamp: new Date().toISOString(),
+        path: '/api/products/search'
+      },
+      status
+    );
+  }
+}
+
+// Примеры использования
+throw new ApiException('Неверная категория', HttpStatus.BAD_REQUEST);
+throw new ApiException('Сервис недоступен', HttpStatus.SERVICE_UNAVAILABLE);
+throw new ApiException('Внутренняя ошибка', HttpStatus.INTERNAL_SERVER_ERROR);
+```
+
+### Стандартные ошибки
+```typescript
+// ✅ Единый формат ошибок
+interface ApiError {
+  error: true;
+  message: string;
+  code?: string;
+  details?: any;
+  timestamp: string;
+  path: string;
+}
+
+// Примеры ошибок
+{
+  "error": true,
+  "message": "Неверная категория",
+  "code": "INVALID_CATEGORY",
+  "details": {
+    "category": "invalid_category",
+    "validCategories": ["videocards", "processors", "motherboards"]
+  },
+  "timestamp": "2024-01-15T10:30:00.000Z",
+  "path": "/api/products/search"
+}
+```
+
+## 🔒 Безопасность
+
+### CORS настройки
+```typescript
+// ✅ Настройка CORS в main.ts
+app.enableCors({
+  origin: [
+    'http://localhost:3000',     // Frontend (Next.js)
+    'http://localhost:3001',     // Product-Filter-Service
+    'https://marketvision.app'   // Production
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+});
+```
+
+### Rate Limiting
+```typescript
+// ✅ Ограничение запросов
+@UseGuards(ThrottlerGuard)
+@Throttle(100, 60) // 100 запросов в минуту
+@Post('search')
+async searchProducts(@Body() request: ProductRequestDto) {
+  // ...
+}
+```
+
+### Валидация входных данных
+```typescript
+// ✅ Глобальная валидация
+app.useGlobalPipes(new ValidationPipe({
+  whitelist: true,           // Удаляет неразрешенные поля
+  forbidNonWhitelisted: true, // Выбрасывает ошибку при неразрешенных полях
+  transform: true,           // Автоматическое преобразование типов
+  transformOptions: {
+    enableImplicitConversion: true
+  }
+}));
+```
+
+## ⚡ Производительность
+
+### Кэширование
+```typescript
+// ✅ Redis кэширование
+@Injectable()
+export class ProductsService {
+  constructor(
+    private readonly redisService: RedisService,
+    private readonly logger: Logger
+  ) {}
+
+  async getProducts(request: ProductRequestDto): Promise<ProductResponse> {
+    const cacheKey = this.generateCacheKey(request);
+    
+    // Проверяем кэш
+    const cached = await this.redisService.get(cacheKey);
+    if (cached) {
+      this.logger.log(`Cache hit for key: ${cacheKey}`);
+      return JSON.parse(cached);
+    }
+
+    // Получаем данные
+    const products = await this.fetchFromApis(request);
+    
+    // Сохраняем в кэш (5 минут)
+    await this.redisService.setex(cacheKey, 300, JSON.stringify(products));
+    
+    return products;
+  }
+}
+```
+
+### Пагинация
+```typescript
+// ✅ Поддержка пагинации
+export class PaginatedResponse<T> {
+  data: T[];
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+}
+
+@Get()
+async getProducts(
+  @Query('page') page: number = 1,
+  @Query('limit') limit: number = 20
+): Promise<PaginatedResponse<Product>> {
+  // Реализация пагинации
+}
+```
+
+## 📚 Документация API
+
+### Swagger/OpenAPI
+```typescript
+// ✅ Автоматическая документация
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
+const config = new DocumentBuilder()
+  .setTitle('MarketVision API')
+  .setDescription('API для мониторинга цен на компьютерные комплектующие')
+  .setVersion('1.0')
+  .addTag('products', 'Операции с товарами')
+  .addTag('health', 'Мониторинг здоровья сервиса')
+  .build();
+
+const document = SwaggerModule.createDocument(app, config);
+SwaggerModule.setup('api/docs', app, document);
+```
+
+### JSDoc комментарии
+```typescript
+/**
+ * Поиск товаров по категории и запросам
+ * 
+ * @param request - Параметры поиска
+ * @returns Список найденных товаров с метаданными
+ * 
+ * @example
+ * ```typescript
+ * const response = await productsService.searchProducts({
+ *   category: 'videocards',
+ *   queries: ['rtx 5070', 'rtx 5080']
+ * });
+ * ```
+ * 
+ * @throws {HttpException} При ошибке валидации или недоступности сервисов
+ */
+async searchProducts(request: ProductRequestDto): Promise<ProductResponse>
+```
+
+## 🧪 Тестирование
+
+### Unit тесты
+```typescript
+// ✅ Тестирование контроллеров
+describe('ProductsController', () => {
+  let controller: ProductsController;
+  let service: ProductsService;
+
+  beforeEach(async () => {
+    const module = await Test.createTestingModule({
+      controllers: [ProductsController],
+      providers: [
+        {
+          provide: ProductsService,
+          useValue: {
+            getProducts: jest.fn(),
+            getHealth: jest.fn()
+          }
+        }
+      ]
+    }).compile();
+
+    controller = module.get<ProductsController>(ProductsController);
+    service = module.get<ProductsService>(ProductsService);
+  });
+
+  describe('searchProducts', () => {
+    it('should return products for valid request', async () => {
+      const request = { category: 'videocards', queries: ['rtx 5070'] };
+      const expected = { products: [], totalCount: 0 };
+      
+      jest.spyOn(service, 'getProducts').mockResolvedValue(expected);
+      
+      const result = await controller.searchProducts(request);
+      expect(result).toEqual(expected);
+    });
+
+    it('should throw error for invalid request', async () => {
+      const request = { queries: [] };
+      
+      await expect(controller.searchProducts(request))
+        .rejects
+        .toThrow(HttpException);
+    });
+  });
+});
+```
+
+### E2E тесты
+```typescript
+// ✅ Интеграционные тесты
+describe('Products API (e2e)', () => {
+  let app: INestApplication;
+
+  beforeEach(async () => {
+    const moduleFixture = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    await app.init();
+  });
+
+  it('/products/search (POST)', async () => {
+    const request = {
+      category: 'videocards',
+      queries: ['rtx 5070']
+    };
+
+    const response = await request(app.getHttpServer())
+      .post('/products/search')
+      .send(request)
+      .expect(200);
+
+    expect(response.body).toHaveProperty('products');
+    expect(response.body).toHaveProperty('totalCount');
+    expect(Array.isArray(response.body.products)).toBe(true);
+  });
+
+  it('/products/health (GET)', async () => {
+    const response = await request(app.getHttpServer())
+      .get('/products/health')
+      .expect(200);
+
+    expect(response.body).toHaveProperty('status');
+    expect(response.body).toHaveProperty('timestamp');
+    expect(response.body).toHaveProperty('services');
+  });
+});
+```
+
+## 🔄 Интеграция с клиентами
+
+### Telegram Bot клиент
+```typescript
+// ✅ HTTP клиент для бота
+export class WbApiClient {
+  constructor(private apiUrl: string) {}
+
+  async getVideocards(): Promise<any[]> {
+    const url = `${this.apiUrl}/products/search`;
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          category: 'videocards',
+          queries: ['rtx 5070', 'rtx 5080', 'rtx 5090']
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.products || [];
+    } catch (error) {
+      console.error('API request failed:', error);
+      return [];
+    }
+  }
+}
+```
+
+### Frontend клиент
+```typescript
+// ✅ Типизированный клиент для фронтенда
+export class ApiClient {
+  private baseUrl: string;
+
+  constructor(baseUrl: string = '/api') {
+    this.baseUrl = baseUrl;
+  }
+
+  async searchProducts(params: SearchParams): Promise<ProductResponse> {
+    const response = await fetch(`${this.baseUrl}/products/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(params)
+    });
+
+    if (!response.ok) {
+      throw new ApiError(response.status, await response.text());
+    }
+
+    return response.json();
+  }
+
+  async getHealth(): Promise<HealthResponse> {
+    const response = await fetch(`${this.baseUrl}/products/health`);
+    
+    if (!response.ok) {
+      throw new ApiError(response.status, 'Health check failed');
+    }
+
+    return response.json();
+  }
+}
+```
+
+## 📊 Мониторинг и логирование
+
+### Структурированное логирование
+```typescript
+// ✅ Логирование API запросов
+@Injectable()
+export class ApiLoggerInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    const request = context.switchToHttp().getRequest();
+    const { method, url, body, query } = request;
+    const startTime = Date.now();
+
+    this.logger.log(`API Request: ${method} ${url}`, {
+      method,
+      url,
+      body,
+      query,
+      userAgent: request.headers['user-agent'],
+      ip: request.ip
+    });
+
+    return next.handle().pipe(
+      tap((response) => {
+        const duration = Date.now() - startTime;
+        this.logger.log(`API Response: ${method} ${url} - ${duration}ms`, {
+          method,
+          url,
+          duration,
+          statusCode: context.switchToHttp().getResponse().statusCode
+        });
+      })
+    );
+  }
+}
+```
+
+### Метрики производительности
+```typescript
+// ✅ Сбор метрик
+@Injectable()
+export class MetricsService {
+  private requestCounter = new Counter({
+    name: 'api_requests_total',
+    help: 'Total number of API requests',
+    labelNames: ['method', 'endpoint', 'status']
+  });
+
+  private responseTime = new Histogram({
+    name: 'api_response_time_seconds',
+    help: 'API response time in seconds',
+    labelNames: ['method', 'endpoint']
+  });
+
+  recordRequest(method: string, endpoint: string, status: number, duration: number) {
+    this.requestCounter.inc({ method, endpoint, status });
+    this.responseTime.observe({ method, endpoint }, duration / 1000);
+  }
+}
+```
+
+## 🚨 Лучшие практики
+
+### Производительность
+- Используй Redis для кэширования
+- Добавляй пагинацию для больших списков
+- Оптимизируй запросы к базе данных
+- Используй сжатие ответов (gzip)
+- Добавляй ETags для кэширования
+
+### Безопасность
+- Валидируй все входные данные
+- Используй HTTPS в продакшене
+- Ограничивай размер запросов
+- Добавляй rate limiting
+- Логируй подозрительную активность
+
+### Надежность
+- Добавляй health checks
+- Используй circuit breaker для внешних API
+- Добавляй retry логику
+- Мониторь ошибки и производительность
+- Используй graceful shutdown
+
+### Совместимость
+- Версионируй API при изменениях
+- Поддерживай обратную совместимость
+- Документируй breaking changes
+- Используй семантическое версионирование
+- Добавляй deprecation warnings
+
+## 📝 Чек-лист разработки
+
+### Перед созданием эндпоинта:
+- [ ] Определи HTTP метод и URL
+- [ ] Создай DTO с валидацией
+- [ ] Добавь обработку ошибок
+- [ ] Напиши документацию
+- [ ] Добавь тесты
+
+### Перед деплоем:
+- [ ] Проверь производительность
+- [ ] Протестируй обработку ошибок
+- [ ] Проверь безопасность
+- [ ] Обнови документацию
+- [ ] Добавь мониторинг
+
+### После деплоя:
+- [ ] Мониторь метрики
+- [ ] Проверь логи ошибок
+- [ ] Собери обратную связь
+- [ ] Планируй улучшения
+description:
+globs:
+alwaysApply: false
+---

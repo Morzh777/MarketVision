@@ -100,6 +100,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Предотвращение CLS для изображений
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Фиксированные размеры для контейнеров изображений
+.productCard__imageBlock,
+.deals__img {
+  contain: layout style paint;
+}
+
+// Дополнительные оптимизации для next/image
+[data-nimg] {
+  contain: layout style paint;
+}
+
+// Предотвращение сдвигов при загрузке изображений
+.image-container {
+  contain: layout style paint;
+  min-height: 140px; // Для deals
+}
+
+.productCard__imageBlock {
+  contain: layout style paint;
+  min-height: 200px; // Для product card
+}
+
 // Selection styles
 ::selection {
   background-color: var(--color-blue);
