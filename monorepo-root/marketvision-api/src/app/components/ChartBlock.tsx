@@ -20,16 +20,39 @@ const timeframes = [
 ];
 
 const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimeframe, priceHistory, recommended }) => {
+  // Проверка на валидность данных
+  if (!selected || !priceHistory) {
+    return null;
+  }
+  // Массив сокращенных названий месяцев
+  const monthNames = [
+    'янв.', 'фев.', 'мар.', 'апр.', 'май', 'июн.',
+    'июл.', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.'
+  ];
+
   // Функция создания опций графика
   const getChartOption = () => {
+    if (!priceHistory || priceHistory.length === 0 || !selected) {
+      return {};
+    }
     // chartLabels всегда фиксированный массив 00:00-23:00 для day
     const chartLabels = timeframe === 'day'
       ? Array.from({ length: 24 }, (_, h) => h.toString().padStart(2, '0') + ':00')
-      : priceHistory.map(item =>
-          timeframe === 'year'
-            ? item.created_at.slice(0, 7)
-            : item.created_at.slice(5, 10)
-        );
+              : priceHistory.map(item => {
+          if (timeframe === 'year') {
+            // Для года: название месяца + текущий год
+            const month = item.created_at.slice(5, 7); // MM
+            const year = item.created_at.slice(0, 4); // YYYY
+            const monthIndex = parseInt(month) - 1; // Индекс месяца (0-11)
+            return `${monthNames[monthIndex]} ${year}`; // название месяца + год
+          } else {
+            // Для недели и месяца: создаем правильную дату
+            const date = new Date(item.created_at);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            return `${day}.${month}`; // DD.MM
+          }
+        });
     
     // Упрощаем логику данных
     const currentPrices = priceHistory.map(item => item.price);
@@ -117,16 +140,22 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
       },
       grid: { 
         left: 40, 
-        right: 20, 
+        right: 40, 
         top: 40, 
-        bottom: 50 
+        bottom: 80 
       },
       xAxis: {
         type: 'category',
         data: chartLabels,
         boundaryGap: false,
         axisLine: { lineStyle: { color: '#888' } },
-        axisLabel: { color: '#aaa' },
+        axisLabel: { 
+          color: '#aaa',
+          fontSize: 11,
+          margin: 12,
+          rotate: 0,
+          interval: 'auto'
+        },
       },
       yAxis: {
         type: 'value',
@@ -163,9 +192,7 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
             width: 4 
           },
           itemStyle: { color: '#3b82f6' },
-          symbol: 'circle',
-          symbolSize: 10,
-          symbolHoverSize: 12,
+          symbol: 'none',
           z: 10,
           areaStyle: { color: 'rgba(59,130,246,0.15)' },
           connectNulls: false,
@@ -173,38 +200,46 @@ const ChartBlock: React.FC<ChartBlockProps> = ({ selected, timeframe, setTimefra
       ],
     };
 
-    console.log('Chart Options:', {
-      legend: options.legend,
-      seriesCount: options.series?.length
-    });
     return options;
   };
 
   return (
   <div className={styles.chartBlock}>
-    <div className={styles.timeframeButtons}>
-      {timeframes.map((tf) => (
-        <button
-          key={tf.key}
-          onClick={() => setTimeframe(tf.key)}
-          className={`${styles.timeframeButton} ${
-            timeframe === tf.key ? styles['timeframeButton--active'] : styles['timeframeButton--inactive']
-          }`}
-        >
-          {tf.label}
-        </button>
-      ))}
-    </div>
     <h2 className={styles.title}>
-      График цены{selected.qwerty && (
-        <span className={styles.productName}>{selected.qwerty}</span>
-      )}
+      <span>
+        График цены{selected.qwerty && (
+          <span className={styles.productName}>{selected.qwerty}</span>
+        )}
+      </span>
+      <div className={styles.timeframeButtons}>
+        {timeframes.map((tf) => (
+          <button
+            key={tf.key}
+            onClick={() => setTimeframe(tf.key)}
+            className={`${styles.timeframeButton} ${
+              timeframe === tf.key ? styles['timeframeButton--active'] : styles['timeframeButton--inactive']
+            }`}
+          >
+            {tf.label}
+          </button>
+        ))}
+      </div>
     </h2>
-    <ReactECharts
-      option={getChartOption()}
-      className={styles.chart}
-      opts={{ renderer: 'canvas' }}
-    />
+    {priceHistory && priceHistory.length > 0 && (
+      <ReactECharts
+        option={getChartOption()}
+        className={styles.chart}
+        opts={{ renderer: 'canvas' }}
+        notMerge={true}
+        lazyUpdate={true}
+        style={{ height: '400px' }}
+        onEvents={{
+          finished: () => {
+            // Успешная инициализация
+          }
+        }}
+      />
+    )}
   </div>
   );
 };

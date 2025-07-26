@@ -13,11 +13,20 @@ interface SidebarProps {
   deals: { id: number; title: string; price: number }[];
 }
 
-const ArrowUp = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sidebar__sorticon}><path d="M6 3L3 7H9L6 3Z" fill="currentColor"/></svg>
+const SortAscIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sidebar__sorticon}>
+    <path d="M2 3H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M2 6H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M2 9H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
 );
-const ArrowDown = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sidebar__sorticon}><path d="M6 9L9 5H3L6 9Z" fill="currentColor"/></svg>
+
+const SortDescIcon = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.sidebar__sorticon}>
+    <path d="M2 3H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M2 6H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M2 9H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
 );
 
 const Sidebar: React.FC<SidebarProps> = ({ products, selected, onSelect, sortOrder, sortPercentOrder, onSortPrice, onSortPercent, deals }) => (
@@ -33,8 +42,8 @@ const Sidebar: React.FC<SidebarProps> = ({ products, selected, onSelect, sortOrd
           }
         >
           <span className={styles.sidebar__sortbtntext}>Мин. цена</span>
-          {sortOrder === 'asc' && <ArrowUp />}
-          {sortOrder === 'desc' && <ArrowDown />}
+          {sortOrder === 'asc' && <SortAscIcon />}
+          {sortOrder === 'desc' && <SortDescIcon />}
         </button>
         <button
           type="button"
@@ -44,8 +53,8 @@ const Sidebar: React.FC<SidebarProps> = ({ products, selected, onSelect, sortOrd
           }
         >
           <span className={styles.sidebar__sortbtntext}>Изм. %</span>
-          {sortPercentOrder === 'asc' && <ArrowUp />}
-          {sortPercentOrder === 'desc' && <ArrowDown />}
+          {sortPercentOrder === 'asc' && <SortAscIcon />}
+          {sortPercentOrder === 'desc' && <SortDescIcon />}
         </button>
       </div>
       <ul className={styles.sidebar__list}>
