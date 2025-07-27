@@ -1,0 +1,37 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background: var(--color-bg-light);
+  color: var(--color-text);
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+  }
+}
+
+.retryButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--color-bg-active);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-default);
+
+  &:hover {
+    background: var(--color-bg-header);
+  }
+} 

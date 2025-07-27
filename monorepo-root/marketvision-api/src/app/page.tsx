@@ -1,24 +1,27 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, Suspense } from "react";
 import 'simplebar-react/dist/simplebar.min.css';
 
 import ChartBlock from './components/ChartBlock';
 import DealsBlock from './components/DealsBlock';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import Marquee from './components/Marquee';
 import Sidebar from './components/Sidebar';
 import { useProductSorting } from './hooks/useProductSorting';
+import { ProductService } from './services/productService';
 import styles from './styles/components/page.module.scss';
-import { testProductsData, mockDeals, recommendedPrice2024 } from './testData';
-import { priceHistoryMap } from './testPriceHistoryData';
-import type { Timeframe } from './types/market';
+import type { Product, Timeframe } from './types/market';
 
-
-
+const LoadingFallback = () => (
+  <div className={styles.loading}>
+    <div className={styles.loadingSpinner} />
+    <p>Загрузка...</p>
+  </div>
+);
 
 export default function Home() {
-  const [selected, setSelected] = useState(testProductsData[0]);
+  const [selected, setSelected] = useState<Product>(ProductService.getProducts()[0]);
   const [chartTimeframe, setChartTimeframe] = useState<Timeframe>('day');
   const [historyTimeframe, setHistoryTimeframe] = useState<Timeframe>('day');
   
@@ -28,49 +31,59 @@ export default function Home() {
     sortPercentOrder,
     handleSortPriceClick,
     handleSortPercentClick,
-  } = useProductSorting(testProductsData);
+  } = useProductSorting(ProductService.getProducts());
 
   // Получаем историю цен для выбранного товара и таймфрейма графика
-  const priceHistory = priceHistoryMap[selected.qwerty ?? '']?.[chartTimeframe] || [];
-  const recommended = recommendedPrice2024[selected.qwerty ?? ''] || null;
+  const priceHistory = ProductService.getPriceHistory(selected.qwerty ?? '', chartTimeframe);
+  const recommended = ProductService.getRecommendedPrice(selected.qwerty ?? '');
 
   // Получаем историю цен для компонента истории цен (независимо от графика)
-  const historyPriceHistory = priceHistoryMap[selected.qwerty ?? '']?.[historyTimeframe] || [];
+  const historyPriceHistory = ProductService.getPriceHistory(selected.qwerty ?? '', historyTimeframe);
 
   // Следим за актуальностью выбранного товара
   useEffect(() => {
-    if (!testProductsData.find((item) => item.name === selected.name)) {
-      setSelected(testProductsData[0]);
+    if (!ProductService.findProductByName(selected.name)) {
+      setSelected(ProductService.getProducts()[0]);
     }
-  }, [testProductsData, selected]);
+  }, [selected.name]);
 
   return (
-    <div className={styles.page}>
-      <Marquee products={testProductsData} />
-      {/* Основная сетка */}
-      <div className={styles.grid}>
-        <Sidebar
-          products={sortedProducts}
-          selected={selected}
-          onSelect={setSelected}
-          sortOrder={sortOrder}
-          sortPercentOrder={sortPercentOrder}
-          onSortPrice={handleSortPriceClick}
-          onSortPercent={handleSortPercentClick}
-          deals={mockDeals}
-        />
-        <ChartBlock
-          selected={selected}
-          timeframe={chartTimeframe}
-          setTimeframe={setChartTimeframe}
-          priceHistory={priceHistory}
-          recommended={recommended}
-          historyTimeframe={historyTimeframe}
-          setHistoryTimeframe={setHistoryTimeframe}
-          historyPriceHistory={historyPriceHistory}
-        />
-        <DealsBlock products={testProductsData} />
+    <ErrorBoundary>
+      <div className={styles.page}>
+        <Marquee products={ProductService.getProducts()} />
+        {/* Основная сетка */}
+        <div className={styles.grid}>
+          <Suspense fallback={<LoadingFallback />}>
+            <Sidebar
+              products={sortedProducts}
+              selected={selected}
+              onSelect={setSelected}
+              sortOrder={sortOrder}
+              sortPercentOrder={sortPercentOrder}
+              onSortPrice={handleSortPriceClick}
+              onSortPercent={handleSortPercentClick}
+              deals={ProductService.getDeals()}
+            />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingFallback />}>
+            <ChartBlock
+              selected={selected}
+              timeframe={chartTimeframe}
+              setTimeframe={setChartTimeframe}
+              priceHistory={priceHistory}
+              recommended={recommended}
+              historyTimeframe={historyTimeframe}
+              setHistoryTimeframe={setHistoryTimeframe}
+              historyPriceHistory={historyPriceHistory}
+            />
+          </Suspense>
+          
+          <Suspense fallback={<LoadingFallback />}>
+            <DealsBlock products={ProductService.getProducts()} />
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }

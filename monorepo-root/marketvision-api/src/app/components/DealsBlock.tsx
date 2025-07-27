@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 import styles from '../styles/components/deals-block.module.scss';
-import type { MockHourlyCheapestItem } from '../types/market';
+import type { Product } from '../types/market';
 
 interface DealsBlockProps {
-  products: MockHourlyCheapestItem[];
+  products: Product[];
 }
 
 const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
@@ -14,7 +14,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
   const dealsRef = useRef<HTMLDivElement>(null);
 
   // Функция для загрузки дополнительных элементов
-  const loadMoreItems = () => {
+  const loadMoreItems = useCallback(() => {
     if (isLoading) return;
     
     setIsLoading(true);
@@ -22,7 +22,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
       setVisibleItems(prev => Math.min(prev + 5, products.length));
       setIsLoading(false);
     }, 300);
-  };
+  }, [isLoading, products.length]);
 
   // Обработчик скролла
   useEffect(() => {
@@ -43,7 +43,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
       dealsElement.addEventListener('scroll', handleScroll);
       return () => dealsElement.removeEventListener('scroll', handleScroll);
     }
-  }, [visibleItems, products.length, isLoading]);
+  }, [visibleItems, products.length, loadMoreItems]);
 
   return (
     <div className={styles.deals} ref={dealsRef}>

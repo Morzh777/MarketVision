@@ -1,9 +1,11 @@
+@import '../base/variables';
+
 .page {
   min-height: 100vh;
   background: var(--color-bg-light);
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,12 +19,37 @@
   grid-template-columns: 1fr;
   height: 100vh;
   
-  @media (min-width: 768px) {
-    grid-template-columns: 400px 1fr;
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: $sidebar-width 1fr;
   }
   
-  @media (min-width: 1024px) {
-    grid-template-columns: 400px 1fr 320px;
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: $sidebar-width 1fr $deals-width;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--color-text-secondary);
+  
+  .loadingSpinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border: 3px solid var(--color-border);
+    border-top-color: var(--color-text);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 

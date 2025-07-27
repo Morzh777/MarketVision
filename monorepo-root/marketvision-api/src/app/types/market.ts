@@ -18,12 +18,48 @@ export interface MockHourlyCheapestItem {
 
 export type Timeframe = 'day' | 'week' | 'month' | 'year';
 
-export type SortOrder = 'asc' | 'desc' | null;
+export interface Product {
+  hour: string;
+  name: string;
+  price: number;
+  image: string;
+  link: string;
+  source: string;
+  marketPriceNote?: string;
+  qwerty?: string;
+  recommended?: number;
+  min?: number;
+  max?: number;
+  mean?: number;
+  median?: number;
+  iqr?: [number, number];
+  category?: string;
+}
 
 export interface PriceHistoryItem {
   price: number | null;
   created_at: string;
 }
+
+export type PriceHistory = PriceHistoryItem[];
+
+export interface Deal {
+  id: number;
+  title: string;
+  price: number;
+}
+
+export interface PriceHistoryMap {
+  [key: string]: {
+    [K in Timeframe]: PriceHistory;
+  };
+}
+
+export interface RecommendedPrices {
+  [key: string]: number;
+}
+
+export type SortOrder = 'asc' | 'desc' | null;
 
 export interface ProductCardProps {
   product: {
@@ -59,5 +95,5 @@ export interface SidebarProps {
   sortPercentOrder: SortOrder;
   onSortPrice: () => void;
   onSortPercent: () => void;
-  deals: any[]; // TODO: типизировать deals
+  deals: Deal[];
 } 

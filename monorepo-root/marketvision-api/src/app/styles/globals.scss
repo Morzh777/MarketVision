@@ -1,99 +1,74 @@
 // Global styles
 @import 'base/index';
 
-// Global CSS variables for theme (адаптировано под существующий проект)
+// Global CSS variables for theme
 :root {
-  // Основные цвета проекта
-  --color-bg: #fff;
-  --color-bg-dark: #20232B;
-  --color-bg-light: #f9fafb;
-  --color-bg-header: #fff;
-  --color-bg-header-dark: #20232B;
-  --color-bg-active: #eff6ff;
-  --color-bg-active-dark: #23272F;
-  --color-bg-card: #f9fafb;
-  --color-bg-card-dark: #23272F;
-  --color-bg-overlay: rgba(0,0,0,0.3);
-  --color-bg-overlay-dark: rgba(35,39,47,0.3);
+  // Основные цвета
+  --color-bg: #181A20;
+  --color-bg-light: #20232B;
+  --color-bg-dark: #181A20;
+  --color-bg-header: #20232B;
+  --color-bg-active: #23272F;
+  --color-bg-card: #20232B;
+  --color-bg-overlay: rgba(24, 26, 32, 0.9);
+  
+  // Цвета текста
+  --color-text: #E5E7EB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-title: #F3F4F6;
+  --color-text-marquee: #F3F4F6;
+  --color-text-marquee-secondary: #D1D5DB;
   
   // Границы
-  --color-border: #e5e7eb;
-  --color-border-dark: #23272F;
-  --color-border-card: #e5e7eb;
-  --color-border-card-dark: #23272F;
+  --color-border: #23272F;
+  --color-border-card: #23272F;
   
-  // Текст
-  --color-text: #1f2937;
-  --color-text-light: #f3f4f6;
-  --color-text-secondary: #6b7280;
-  --color-text-secondary-dark: #9ca3af;
-  --color-text-title: #374151;
-  --color-text-title-dark: #e5e7eb;
-  --color-text-marquee: #e5e7eb;
-  --color-text-marquee-dark: #d1d5db;
-  --color-text-marquee-secondary: #d1d5db;
-  --color-text-marquee-secondary-dark: #9ca3af;
+  // Акцентные цвета
+  --color-blue: #3B82F6;
+  --color-blue-dark: #2563EB;
+  --color-purple: #8B5CF6;
+  --color-purple-dark: #7C3AED;
+  --color-purple-darker: #6D28D9;
+  --color-green: #22C55E;
+  --color-red: #EF4444;
   
-  // Семантические цвета
-  --color-green: #4ade80;
-  --color-red: #f87171;
-  --color-blue: #3b82f6;
-  --color-blue-dark: #60a5fa;
-  --color-purple: #9333ea;
-  --color-purple-dark: #7c3aed;
-  --color-purple-darker: #6d28d9;
-  --color-orange: #f59e42;
-  --color-mono: #374151;
-  --color-mono-dark: #d1d5db;
+  // Градиенты
+  --color-gradient-fade: rgba(24, 26, 32, 0.9);
+  --color-gradient-fade-transparent: rgba(24, 26, 32, 0);
   
-  // Градиенты и тени
-  --color-gradient-fade: rgba(24,26,32,0.8);
-  --color-gradient-fade-transparent: rgba(24,26,32,0.0);
-  --color-shadow: rgba(0,0,0,0.04);
-  --color-shadow-card: 0 1px 2px 0 rgba(0,0,0,0.04);
-  
-  // Цвета для графика
-  --color-chart-bg: #23272F;
-  --color-chart-text: #aaa;
-  --color-chart-line: #888;
-  --color-chart-grid: #23272F;
-  --color-chart-tooltip-bg: #23272F;
-  --color-chart-tooltip-border: #888;
-  --color-chart-area-blue: rgba(59,130,246,0.15);
-  --color-chart-shadow: rgba(0,0,0,0.3);
-  
-  // Размеры
-  --sidebar-width: 360px;
+  // Анимации
+  --transition-default: all 0.3s ease;
 }
 
-// Dark mode variables (адаптировано под существующий проект)
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --color-bg: #20232B;
-    --color-bg-light: #181A20;
-    --color-bg-header: #20232B;
-    --color-bg-active: #23272F;
-    --color-bg-card: #23272F;
-    --color-bg-overlay: rgba(35,39,47,0.3);
-    --color-border: #23272F;
-    --color-border-card: #23272F;
-    --color-text: #f3f4f6;
-    --color-text-secondary: #9ca3af;
-    --color-text-title: #e5e7eb;
-    --color-text-marquee: #d1d5db;
-    --color-text-marquee-secondary: #9ca3af;
-    --color-green: #4ade80;
-    --color-red: #f87171;
-    --color-blue: #60a5fa;
-    --color-mono: #d1d5db;
+    --color-bg: #FFFFFF;
+    --color-bg-light: #F9FAFB;
+    --color-bg-dark: #F3F4F6;
+    --color-bg-header: #FFFFFF;
+    --color-bg-active: #EFF6FF;
+    --color-bg-card: #F9FAFB;
+    --color-bg-overlay: rgba(255, 255, 255, 0.9);
+    
+    --color-text: #111827;
+    --color-text-secondary: #6B7280;
+    --color-text-title: #374151;
+    --color-text-marquee: #111827;
+    --color-text-marquee-secondary: #4B5563;
+    
+    --color-border: #E5E7EB;
+    --color-border-card: #F3F4F6;
+    
+    --color-gradient-fade: rgba(255, 255, 255, 0.9);
+    --color-gradient-fade-transparent: rgba(255, 255, 255, 0);
   }
 }
 
-// Global styles (адаптировано под существующий проект)
+// Global styles
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
@@ -107,26 +82,9 @@ img {
   display: block;
 }
 
-// Фиксированные размеры для контейнеров изображений
-.productCard__imageBlock,
-.deals__img {
-  contain: layout style paint;
-}
-
 // Дополнительные оптимизации для next/image
 [data-nimg] {
   contain: layout style paint;
-}
-
-// Предотвращение сдвигов при загрузке изображений
-.image-container {
-  contain: layout style paint;
-  min-height: 140px; // Для deals
-}
-
-.productCard__imageBlock {
-  contain: layout style paint;
-  min-height: 200px; // Для product card
 }
 
 // Selection styles
@@ -152,21 +110,6 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-secondary);
-}
-
-// Dark mode scrollbar
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: var(--color-bg-dark);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-border-dark);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-secondary-dark);
-  }
 }
 
 // Focus styles

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+
 import styles from '../styles/components/sidebar.module.scss';
 import type { MockHourlyCheapestItem } from '../types/market';
 import { createSearchVariants } from '../utils/transliteration';
@@ -11,7 +12,6 @@ interface SidebarProps {
   sortPercentOrder: 'asc' | 'desc' | null;
   onSortPrice: () => void;
   onSortPercent: () => void;
-  deals: { id: number; title: string; price: number }[];
 }
 
 const SortAscIcon = () => (
@@ -44,8 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   sortOrder, 
   sortPercentOrder, 
   onSortPrice, 
-  onSortPercent, 
-  deals
+  onSortPercent
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -145,22 +144,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         
         {filteredProducts.length === 0 && searchQuery && (
           <div className={styles.sidebar__noResults}>
-            <p>По запросу "{searchQuery}" ничего не найдено</p>
+            <p>По запросу &quot;{searchQuery}&quot; ничего не найдено</p>
           </div>
         )}
-      </div>
-      
-      <div className={styles.sidebar__dealsblock}>
-        <div className={styles.sidebar__dealstitle}>Выгодные предложения</div>
-        <div className={styles.sidebar__dealsdate}>на 12.01.2025</div>
-        <ul className={styles.sidebar__dealslist}>
-          {deals.map((deal) => (
-            <li key={deal.id} className={styles.sidebar__dealitem}>
-              <span className={styles.sidebar__dealtitle}>{deal.title}</span>
-              <span className={styles.sidebar__dealprice}>{deal.price.toLocaleString('ru-RU')}₽</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </aside>
   );

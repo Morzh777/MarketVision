@@ -1,9 +1,10 @@
 import React from 'react';
+
 import styles from '../styles/components/marquee.module.scss';
-import type { MockHourlyCheapestItem } from '../types/market';
+import type { Product } from '../types/market';
 
 interface MarqueeProps {
-  products: MockHourlyCheapestItem[];
+  products: Product[];
 }
 
 const Marquee: React.FC<MarqueeProps> = ({ products }) => (

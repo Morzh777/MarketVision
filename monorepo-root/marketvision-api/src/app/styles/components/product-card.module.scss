@@ -1,10 +1,7 @@
 .productCard {
   background: var(--color-bg-card);
-  border: 1px solid var(--color-border-card);
-  border-radius: 12px;
   padding: 24px;
   margin-top: 20px;
-  box-shadow: var(--color-shadow-card);
   transition: all 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -32,7 +29,6 @@
   justify-content: center;
   background: var(--color-bg-light);
   border-radius: 8px;
-  border: 1px solid var(--color-border-card);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;

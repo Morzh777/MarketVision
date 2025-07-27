@@ -10,7 +10,7 @@ interface PriceHistoryProps {
   selected: any;
 }
 
-conтории цен бst timeframes = [
+const timeframes = [
   { key: 'day' as Timeframe, label: 'День' },
   { key: 'week' as Timeframe, label: 'Неделя' },
   { key: 'month' as Timeframe, label: 'Месяц' },

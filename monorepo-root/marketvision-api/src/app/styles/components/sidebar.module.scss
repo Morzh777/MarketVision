@@ -1,7 +1,5 @@
 .sidebar {
   background: var(--color-bg);
-  border-right: 1px solid var(--color-border);
-  height: 100vh;
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -18,9 +16,7 @@
   }
 
   &__header {
-    padding: 2px 16px 2px 16px;
-    background: var(--color-bg-header);
-    border-bottom: 1px solid var(--color-border);
+    padding: 2px 16px;
     display: grid;
     grid-template-columns: 1fr 90px 70px;
     gap: 0;
@@ -31,21 +27,20 @@
     margin-bottom: 2px;
     user-select: none;
     align-items: center;
+    
     @media (prefers-color-scheme: dark) {
-      background: var(--color-bg-header);
-      border-bottom: 1px solid var(--color-border);
       color: var(--color-text-secondary);
     }
+    
     .sidebar__title {
       text-align: left;
-      padding: 2px 16px 2px 16px;
+      padding: 2px 0;
       margin: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-left: 0;
-      padding-right: 16px;
     }
+    
     .sidebar__sortbtn {
       justify-content: center;
       text-align: center;
@@ -72,11 +67,13 @@
         color: var(--color-blue) !important;
       }
     }
+    
     .sidebar__sortbtntext {
       display: inline-block;
       vertical-align: middle;
-      padding-right: 16px; // Фиксированное место для иконки
+      padding-right: 16px;
     }
+    
     .sidebar__sorticon {
       display: inline-block;
       vertical-align: middle;
@@ -86,6 +83,7 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    
     > *:nth-child(2),
     > *:nth-child(3) {
       text-align: center;
@@ -98,10 +96,8 @@
     }
   }
 
-  // Поиск
   &__search {
     padding: 8px 16px;
-    border-bottom: 1px solid var(--color-border);
   }
 
   &__searchInput {
@@ -122,7 +118,7 @@
   &__searchField {
     width: 100%;
     padding: 8px 12px 8px 36px;
-    border: 1px solid var(--color-border);
+    border: none;
     border-radius: 6px;
     background: var(--color-bg-light);
     color: var(--color-text);
@@ -132,8 +128,7 @@
     transition: all 0.2s ease;
 
     &:focus {
-      border-color: var(--color-blue);
-      background: var(--color-bg);
+      background: var(--color-bg-active);
     }
 
     &::placeholder {
@@ -174,11 +169,10 @@
     max-width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    padding-left: 16px;
-    margin-left: 0;
-    margin-top: 0;
-    padding-top: 0;
+    padding: 0;
+    margin: 0;
   }
+  
   &__item {
     cursor: pointer;
     padding: 6px 16px;
@@ -186,27 +180,29 @@
     grid-template-columns: 1fr 90px 70px;
     gap: 0;
     align-items: center;
-    border-bottom: none;
     transition: background 0.2s;
     background: none;
     color: var(--color-text);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-left: 0;
-    padding-right: 16px;
+    margin: 1px 0;
+    
     &:hover {
       background: var(--color-bg-active);
     }
+    
     &--active {
       background: var(--color-bg-active);
     }
+    
     > *:nth-child(1) {
       text-align: left;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    
     > *:nth-child(2),
     > *:nth-child(3) {
       text-align: center;
@@ -219,68 +215,35 @@
     }
   }
 
-
-
   &__itemname {
     color: var(--color-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 14px;
   }
+  
   &__itemprice {
-    font-family: monospace;
-    color: var(--color-mono);
+    font-family: var(--font-geist-mono);
+    color: var(--color-text);
     text-align: center;
     width: 100%;
+    font-size: 14px;
   }
+  
   &__itempercent_green {
     text-align: center;
     color: var(--color-green);
     min-width: 60px;
     width: 100%;
+    font-size: 14px;
   }
+  
   &__itempercent_red {
     text-align: center;
     color: var(--color-red);
     min-width: 60px;
     width: 100%;
-  }
-  &__divider {
-    margin: 0;
-    border-color: var(--color-border);
-  }
-  &__dealsblock {
-    padding: 16px;
-    background: var(--color-bg-light);
-    border-top: 1px solid var(--color-border);
-  }
-  &__dealstitle {
-    margin-bottom: 8px !important;
-    color: var(--color-text-title) !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-  }
-  &__dealsdate {
-    margin-bottom: 8px;
-    display: block;
-    color: var(--color-text-title);
     font-size: 14px;
-    font-weight: 600;
-  }
-  &__dealslist {
-    border: none !important;
-  }
-  &__dealitem {
-    padding: 4px 0 !important;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-  }
-  &__dealtitle {
-    color: var(--color-text-title);
-  }
-  &__dealprice {
-    font-family: monospace;
-    color: var(--color-mono);
   }
 } 
