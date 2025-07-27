@@ -2,10 +2,12 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import styles from '../styles/components/product-card.module.scss';
+
 import ImageModal from './ImageModal';
 
 interface ProductCardProps {
   product: {
+    id?: string;
     name: string;
     price: number;
     image_url?: string;
@@ -16,6 +18,8 @@ interface ProductCardProps {
     min?: number;
     max?: number;
     mean?: number;
+    median?: number;
+    iqr?: [number, number];
     category?: string;
     query?: string;
   } | null;
@@ -44,30 +48,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className={styles.productCard}>
       <div className={styles.productCard__main}>
-        <div 
-          className={styles.productCard__imageBlock}
-          onClick={() => product.image_url && setIsModalOpen(true)}
-        >
-          {product.image_url ? (
-            <Image
-              src={product.image_url}
-              alt={product.name}
-              className={styles.productCard__image}
-              width={160}
-              height={200}
-              sizes="(min-width: 768px) 200px, 160px"
-              style={{ objectFit: 'cover' }}
-              priority={true}
-              loading="eager"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            />
-          ) : (
-            <div className={styles.productCard__imagePlaceholder}>
-              Нет фото
-            </div>
-          )}
-        </div>
+                {product.image_url ? (
+                  <Image
+                    src={product.image_url}
+                    alt={product.name}
+                    className={styles.productCard__image}
+                    width={180}
+                    height={250}
+                    priority={false}
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                    onClick={() => setIsModalOpen(true)}
+                    style={{ cursor: 'pointer' }}
+                  />
+        ) : (
+          <div className={styles.productCard__imagePlaceholder}>
+            Нет фото
+          </div>
+        )}
         <div className={styles.productCard__infoBlock}>
           <div className={styles.productCard__content}>
             {product.product_url ? (
@@ -100,7 +99,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           
           <div className={styles.productCard__prices}>
             <div className={styles.productCard__priceRow}>
-              <span className={styles.productCard__price}>{Math.round(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽</span>
+              {product.product_url ? (
+                <a
+                  href={product.product_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.productCard__price} ${styles.productCard__price_link} ${styles[`productCard__price_${product.source}`]}`}
+                >
+                  {Math.round(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽
+                </a>
+              ) : (
+                <span className={styles.productCard__price}>
+                  {Math.round(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽
+                </span>
+              )}
             </div>
             
             <div className={styles.productCard__stats}>

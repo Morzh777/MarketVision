@@ -78,10 +78,14 @@ export interface ProductCardProps {
 }
 
 export interface ChartBlockProps {
-  selected: MockHourlyCheapestItem;
+  selected: Product;
   timeframe: Timeframe;
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: PriceHistoryItem[];
+  recommended: number | null;
+  historyTimeframe: Timeframe;
+  setHistoryTimeframe: (tf: Timeframe) => void;
+  historyPriceHistory: PriceHistoryItem[];
 }
 
 export interface SidebarProps {
