@@ -45,7 +45,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({
       <h3 className={styles.deals__title}>Выгодные предложения</h3>
       <ul className={styles.deals__list}>
         {products.map((item, idx) => (
-          <li key={item.id || idx} className={styles.deals__item}>
+          <li key={`${item.id}-${item.source}-${idx}`} className={styles.deals__item}>
             <div className={styles.deals__meta}>
               <span className={
                 styles.deals__source + ' ' + (item.source === "wb" ? styles.deals__source_wb : '')
@@ -63,7 +63,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({
                 width={300}
                 height={140}
                 sizes="100vw"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', width: '100%', height: '140px' }}
                 priority={false}
                 loading="lazy"
                 placeholder="blur"
