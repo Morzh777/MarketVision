@@ -41,10 +41,25 @@ export class ProductService {
   }
 
   /**
-   * Возвращает все продукты
+   * Возвращает все продукты с фильтрацией
    */
-  async findAll(): Promise<Product[]> {
-    return (await this.prisma.product.findMany()) as unknown as Product[];
+  async findAll(
+    params: { query?: string; category?: string } = {},
+  ): Promise<Product[]> {
+    const where: Record<string, any> = {};
+
+    if (params.query) {
+      where.query = params.query;
+    }
+
+    if (params.category) {
+      where.category = params.category;
+    }
+
+    return (await this.prisma.product.findMany({
+      where,
+      orderBy: { created_at: 'desc' },
+    })) as unknown as Product[];
   }
 
   /**
@@ -196,5 +211,286 @@ export class ProductService {
       console.error('[MarketStats][ERROR]', error, stats);
       throw error;
     }
+  }
+
+  /**
+   * Получает статистику рынка по запросу
+   */
+  async getMarketStats(query: string): Promise<any> {
+    const stats = await this.prisma.marketStats.findFirst({
+      where: { query },
+      orderBy: { created_at: 'desc' },
+    });
+
+    if (!stats) {
+      return null;
+    }
+
+    return {
+      min: stats.min,
+      max: stats.max,
+      mean: stats.mean,
+      median: stats.median,
+      iqr: stats.iqr,
+      total_count: stats.total_count,
+      query: stats.query,
+      category: stats.category,
+      source: stats.source,
+      product_id: stats.product_id,
+      created_at: stats.created_at,
+    };
+  }
+
+  /**
+   * Получает историю цен продукта
+   */
+  async getPriceHistory(
+    productId: string,
+    timeframe: 'day' | 'week' | 'month' | 'year' = 'day',
+  ): Promise<Array<{ price: number | null; created_at: string }>> {
+    // Сначала получаем query для этого продукта
+    const product = await this.prisma.product.findUnique({
+      where: { id: productId },
+      select: { query: true },
+    });
+
+    if (!product) {
+      return [];
+    }
+
+    const now = new Date();
+    let startDate: Date;
+
+    switch (timeframe) {
+      case 'day':
+        startDate = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        break;
+      case 'week':
+        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+        break;
+      case 'month':
+        startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+        break;
+      case 'year':
+        startDate = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+        break;
+      default:
+        startDate = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    }
+
+    // Ищем по query, игнорируя product_id
+    const history = await this.prisma.priceHistory.findMany({
+      where: {
+        query: product.query,
+        created_at: {
+          gte: startDate,
+          lte: now,
+        },
+      },
+      orderBy: { created_at: 'asc' },
+      select: {
+        price: true,
+        created_at: true,
+      },
+    });
+
+    return history.map((item) => ({
+      price: item.price,
+      created_at: item.created_at.toISOString(),
+    }));
+  }
+
+  /**
+   * Получает историю цен продукта для нескольких timeframes
+   */
+  async getPriceHistoryMulti(
+    productId: string,
+    timeframes: ('day' | 'week' | 'month' | 'year')[] = ['month'],
+  ): Promise<Record<string, Array<{ price: number | null; created_at: string }>>> {
+    const result: Record<string, Array<{ price: number | null; created_at: string }>> = {};
+    
+    // Получаем историю для каждого timeframe
+    for (const timeframe of timeframes) {
+      result[timeframe] = await this.getPriceHistory(productId, timeframe);
+    }
+    
+    return result;
+  }
+
+  /**
+   * Получает популярные запросы с ценой репрезентативного товара и процентом изменения
+   */
+  async getPopularQueries(): Promise<
+    Array<{
+      query: string;
+      minPrice: number;
+      id: string;
+      priceChangePercent: number;
+    }>
+  > {
+    // Получаем все уникальные запросы
+    const queries = await this.prisma.product.findMany({
+      select: {
+        query: true,
+      },
+      where: {
+        price: {
+          gte: 1000, // Фильтруем продукты с ценой меньше 1000 рублей
+        },
+        query: {
+          not: '', // Исключаем пустые запросы
+        },
+      },
+      distinct: ['query'],
+    });
+
+    // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
+    const result = await Promise.all(
+      queries.map(async ({ query }) => {
+        const productsForQuery = await this.prisma.product.findMany({
+          select: {
+            id: true,
+            price: true,
+          },
+          where: {
+            query: query,
+            price: {
+              gte: 1000,
+            },
+          },
+          orderBy: { price: 'asc' },
+        });
+
+        if (productsForQuery.length === 0) return null;
+
+        // Берем последний товар по этому query (самый свежий)
+        const latestProduct = await this.prisma.product.findFirst({
+          where: {
+            query: query,
+            price: {
+              gte: 1000,
+            },
+          },
+          orderBy: {
+            created_at: 'desc', // Берем самый свежий
+          },
+        });
+
+        if (!latestProduct) return null;
+
+        // Получаем историю цен для расчета процента
+        const priceHistory = await this.prisma.priceHistory.findMany({
+          where: {
+            query: query,
+          },
+          orderBy: {
+            created_at: 'desc',
+          },
+          take: 10, // Берем больше записей
+        });
+
+        console.log(`[getPopularQueries] ${query}: found ${priceHistory.length} history records`);
+        priceHistory.forEach((record, index) => {
+          console.log(`[getPopularQueries] ${query}: history[${index}] = ${record.price} at ${record.created_at.toISOString()}`);
+        });
+
+        let priceChangePercent = 0;
+
+        if (priceHistory.length >= 2) {
+          // Ищем последнюю и предыдущую РАЗНЫЕ цены
+          const currentPrice = priceHistory[0].price;
+          let previousPrice = 0;
+          
+          // Идем по истории, пока не найдем цену, которая отличается от текущей
+          for (let i = 1; i < priceHistory.length; i++) {
+            if (priceHistory[i].price !== currentPrice) {
+              previousPrice = priceHistory[i].price;
+              console.log(`[getPopularQueries] ${query}: found different price at index ${i}: ${previousPrice} (current: ${currentPrice})`);
+              break;
+            }
+          }
+          
+          console.log(`[getPopularQueries] ${query}: currentPrice = ${currentPrice}, previousPrice = ${previousPrice}`);
+          
+          if (previousPrice > 0) {
+            priceChangePercent = ((currentPrice - previousPrice) / previousPrice) * 100;
+            console.log(`[getPopularQueries] ${query}: calculated change = ${priceChangePercent}%`);
+          } else {
+            console.log(`[getPopularQueries] ${query}: no different price found in history`);
+          }
+        } else {
+          console.log(`[getPopularQueries] ${query}: not enough history records (${priceHistory.length})`);
+        }
+
+        return {
+          query: query,
+          minPrice: latestProduct.price, // Последняя цена из Product
+          id: latestProduct.id, // ID последнего продукта
+          priceChangePercent: priceChangePercent,
+        };
+      })
+    );
+
+    // Фильтруем null значения и возвращаем отсортированные
+    return result
+      .filter(
+        (
+          item,
+        ): item is {
+          query: string;
+          minPrice: number;
+          id: string;
+          priceChangePercent: number;
+        } => item !== null,
+      )
+      .sort((a, b) => a.minPrice - b.minPrice)
+      .slice(0, 20);
+  }
+
+  /**
+   * Получает продукты по query с рыночной статистикой
+   */
+  async getProductsByQuery(
+    query: string,
+  ): Promise<{ products: Product[]; marketStats: any }> {
+    // Берем последний продукт по query (как в getPopularQueries)
+    const latestProduct = await this.prisma.product.findFirst({
+      where: {
+        query: query,
+        price: {
+          gte: 1000,
+        },
+      },
+      orderBy: {
+        created_at: 'desc', // Берем самый свежий
+      },
+    });
+
+    const products = latestProduct ? [latestProduct as Product] : [];
+    const marketStats = await this.getMarketStats(query);
+
+    return { products, marketStats };
+  }
+
+  /**
+   * Получает продукты с пагинацией для выгодных предложений
+   */
+  async getProductsWithPagination(page: number = 1, limit: number = 10): Promise<{ products: Product[]; total: number; hasMore: boolean }> {
+    const skip = (page - 1) * limit;
+    
+    const [products, total] = await Promise.all([
+      this.prisma.product.findMany({
+        orderBy: { created_at: 'desc' },
+        skip,
+        take: limit,
+      }) as unknown as Product[],
+      this.prisma.product.count()
+    ]);
+    
+    return {
+      products,
+      total,
+      hasMore: skip + limit < total
+    };
   }
 }

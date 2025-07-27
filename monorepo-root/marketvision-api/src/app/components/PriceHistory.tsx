@@ -7,7 +7,6 @@ interface PriceHistoryProps {
   timeframe: Timeframe;
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: Array<{ price: number | null; created_at: string }>;
-  selected: any;
 }
 
 const timeframes = [
@@ -17,7 +16,7 @@ const timeframes = [
   { key: 'year' as Timeframe, label: 'Год' },
 ];
 
-const PriceHistory: React.FC<PriceHistoryProps> = ({ timeframe, setTimeframe, priceHistory, selected }) => {
+const PriceHistory: React.FC<PriceHistoryProps> = ({ timeframe, setTimeframe, priceHistory }) => {
   const [isClient, setIsClient] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
@@ -151,6 +150,35 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ timeframe, setTimeframe, pr
   if (!priceHistory || priceHistory.length === 0) {
     return (
       <div className={styles.priceHistory}>
+        <div className={styles.priceHistory__header}>
+          <div className={styles.priceHistory__titleRow}>
+            <h3 className={styles.priceHistory__title}>История цен</h3>
+            <div className={`${styles.priceHistory__dropdown} ${isDropdownOpen ? styles.open : ''}`} ref={dropdownRef}>
+              <button
+                className={styles.priceHistory__dropdownButton}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                {currentTimeframeLabel}
+                <span className={styles.priceHistory__dropdownArrow}>▼</span>
+              </button>
+              {isDropdownOpen && (
+                <div className={styles.priceHistory__dropdownMenu}>
+                  {timeframes.map((tf) => (
+                    <button
+                      key={tf.key}
+                      onClick={() => handleTimeframeSelect(tf.key)}
+                      className={`${styles.priceHistory__dropdownItem} ${
+                        timeframe === tf.key ? styles['priceHistory__dropdownItem--active'] : ''
+                      }`}
+                    >
+                      {tf.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
         <div className={styles.priceHistory__empty}>
           <p>Нет данных для отображения</p>
         </div>

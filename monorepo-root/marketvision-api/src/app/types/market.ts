@@ -7,7 +7,6 @@ export interface MockHourlyCheapestItem {
   source: string;
   marketPriceNote?: string;
   qwerty?: string;
-  recommended?: number;
   min?: number;
   max?: number;
   mean?: number;
@@ -19,15 +18,15 @@ export interface MockHourlyCheapestItem {
 export type Timeframe = 'day' | 'week' | 'month' | 'year';
 
 export interface Product {
-  hour: string;
+  id: string;
+  created_at: string;
   name: string;
   price: number;
-  image: string;
-  link: string;
+  image_url: string;
+  product_url: string;
   source: string;
   marketPriceNote?: string;
-  qwerty?: string;
-  recommended?: number;
+  query?: string;
   min?: number;
   max?: number;
   mean?: number;
@@ -70,7 +69,6 @@ export interface ProductCardProps {
     url?: string;
     hour?: string;
     marketPriceNote?: string;
-    recommended?: number;
     min?: number;
     max?: number;
     mean?: number;
@@ -84,7 +82,6 @@ export interface ChartBlockProps {
   timeframe: Timeframe;
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: PriceHistoryItem[];
-  recommended: number | null;
 }
 
 export interface SidebarProps {

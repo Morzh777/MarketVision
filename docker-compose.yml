@@ -60,6 +60,42 @@ services:
       timeout: 10s
       retries: 3
 
+  # DB API сервис (гибридный REST + gRPC)
+  db-api:
+    build:
+      context: ./monorepo-root/db-api
+      dockerfile: Dockerfile
+    container_name: db-api
+    ports:
+      - "3003:3003"
+      - "50052:50051"
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/marketvision
+      - GRPC_URL=0.0.0.0:50051
+      - PORT=3003
+      - NODE_ENV=production
+    depends_on:
+      - postgres
+    networks:
+      - product-network
+    restart: unless-stopped
+
+  # PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=marketvision
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - product-network
+    restart: unless-stopped
+
   # DNS API сервис (Python)
   dns-api:
     build:
@@ -98,6 +134,7 @@ services:
 
 volumes:
   redis_data:
+  postgres_data:
 
 networks:
   product-network:

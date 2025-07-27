@@ -8,22 +8,28 @@ interface ProductCardProps {
   product: {
     name: string;
     price: number;
-    image?: string;
+    image_url?: string;
     source?: string;
-    url?: string;
-    hour?: string;
+    product_url?: string;
+    created_at?: string;
     marketPriceNote?: string;
-    recommended?: number;
     min?: number;
     max?: number;
     mean?: number;
     category?: string;
-    qwerty?: string;
+    query?: string;
   } | null;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  console.log('ProductCard product:', product);
+  console.log('ProductCard market stats:', { 
+    min: product?.min, 
+    max: product?.max, 
+    mean: product?.mean
+  });
 
   if (!product) {
     return (
@@ -40,11 +46,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={styles.productCard__main}>
         <div 
           className={styles.productCard__imageBlock}
-          onClick={() => product.image && setIsModalOpen(true)}
+          onClick={() => product.image_url && setIsModalOpen(true)}
         >
-          {product.image ? (
+          {product.image_url ? (
             <Image
-              src={product.image}
+              src={product.image_url}
               alt={product.name}
               className={styles.productCard__image}
               width={160}
@@ -64,9 +70,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <div className={styles.productCard__infoBlock}>
           <div className={styles.productCard__content}>
-            {product.url ? (
+            {product.product_url ? (
               <a
-                href={product.url}
+                href={product.product_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.productCard__name}
@@ -98,19 +104,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
             
             <div className={styles.productCard__stats}>
-              {product.recommended && (
-                <div className={styles.productCard__stat}>
-                  <span className={styles.productCard__statLabel}>Рекомендуемая:</span>
-                  <span className={`${styles.productCard__statValue} ${styles.productCard__statValue_recommended}`}>
-                    {Math.round(product.recommended).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽
-                    {product.price < product.recommended && (
-                      <span className={styles.productCard__statDiff}>
-                        -{Math.round(((product.recommended - product.price) / product.recommended) * 100)}%
-                      </span>
-                    )}
-                  </span>
-                </div>
-              )}
+
               {product.mean && (
                 <div className={styles.productCard__stat}>
                   <span className={styles.productCard__statLabel}>Рыночная:</span>
@@ -137,10 +131,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </div>
       
-      {product.image && (
+      {product.image_url && (
         <ImageModal
           isOpen={isModalOpen}
-          imageUrl={product.image}
+          imageUrl={product.image_url}
           imageAlt={product.name}
           onClose={() => setIsModalOpen(false)}
         />

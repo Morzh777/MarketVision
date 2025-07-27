@@ -1,7 +1,15 @@
 import { useState, useMemo, useCallback } from 'react';
-import type { Product, SortOrder } from '../types/market';
 
-export const useProductSorting = (products: Product[]) => {
+interface PopularQuery {
+  query: string;
+  minPrice: number;
+  id: string;
+  priceChangePercent: number;
+}
+
+type SortOrder = 'asc' | 'desc' | null;
+
+export const useQuerySorting = (queries: PopularQuery[]) => {
   const [sortOrder, setSortOrder] = useState<SortOrder>(null);
   const [sortPercentOrder, setSortPercentOrder] = useState<SortOrder>(null);
 
@@ -21,25 +29,26 @@ export const useProductSorting = (products: Product[]) => {
     });
   }, []);
 
-  const sortedProducts = useMemo(() => {
-    const sorted = [...products];
+  const sortedQueries = useMemo(() => {
+    const sorted = [...queries];
     
     if (sortOrder) {
       sorted.sort((a, b) =>
-        sortOrder === 'asc' ? a.price - b.price : b.price - a.price
+        sortOrder === 'asc' ? a.minPrice - b.minPrice : b.minPrice - a.minPrice
       );
     } else if (sortPercentOrder) {
-      sorted.sort(() => {
-        // Убираем recommended, показываем 0%
-        return 0;
-      });
+      sorted.sort((a, b) =>
+        sortPercentOrder === 'asc' 
+          ? a.priceChangePercent - b.priceChangePercent 
+          : b.priceChangePercent - a.priceChangePercent
+      );
     }
     
     return sorted;
-  }, [products, sortOrder, sortPercentOrder]);
+  }, [queries, sortOrder, sortPercentOrder]);
 
   return {
-    sortedProducts,
+    sortedQueries,
     sortOrder,
     sortPercentOrder,
     handleSortPriceClick,

@@ -1,13 +1,19 @@
 import React, { useState, useMemo } from 'react';
 
 import styles from '../styles/components/sidebar.module.scss';
-import type { MockHourlyCheapestItem } from '../types/market';
 import { createSearchVariants } from '../utils/transliteration';
 
+interface PopularQuery {
+  query: string;
+  minPrice: number;
+  id: string;
+  priceChangePercent: number;
+}
+
 interface SidebarProps {
-  products: MockHourlyCheapestItem[];
-  selected: MockHourlyCheapestItem;
-  onSelect: (item: MockHourlyCheapestItem) => void;
+  popularQueries: PopularQuery[];
+  selectedQuery: string;
+  onSelectQuery: (query: string) => void;
   sortOrder: 'asc' | 'desc' | null;
   sortPercentOrder: 'asc' | 'desc' | null;
   onSortPrice: () => void;
@@ -38,9 +44,9 @@ const SearchIcon = () => (
 );
 
 const Sidebar: React.FC<SidebarProps> = ({ 
-  products, 
-  selected, 
-  onSelect, 
+  popularQueries, 
+  selectedQuery, 
+  onSelectQuery, 
   sortOrder, 
   sortPercentOrder, 
   onSortPrice, 
@@ -49,23 +55,19 @@ const Sidebar: React.FC<SidebarProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   // Фильтрация продуктов по поисковому запросу с транслитерацией
-  const filteredProducts = useMemo(() => {
-    if (!searchQuery.trim()) return products;
+  const filteredQueries = useMemo(() => {
+    if (!searchQuery.trim()) return popularQueries;
     
     const searchVariants = createSearchVariants(searchQuery);
     
-    return products.filter(product => {
-      const productText = [
-        product.qwerty?.toLowerCase() || '',
-        product.name?.toLowerCase() || '',
-        product.category?.toLowerCase() || ''
-      ].join(' ');
+    return popularQueries.filter((query: PopularQuery) => {
+      const queryText = query.query.toLowerCase();
       
       return searchVariants.some(variant => 
-        productText.includes(variant)
+        queryText.includes(variant)
       );
     });
-  }, [products, searchQuery]);
+  }, [popularQueries, searchQuery]);
 
   return (
     <aside className={styles.sidebar}>
@@ -120,29 +122,27 @@ const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         <ul className={styles.sidebar__list}>
-          {filteredProducts.map((t) => {
-            const percent = t.recommended ? ((t.price - t.recommended) / t.recommended) * 100 : 0.0;
-            
+          {filteredQueries.map((q: PopularQuery) => {
             return (
               <li
-                key={t.name}
+                key={q.id}
                 className={
                   styles.sidebar__item +
-                  (selected.name === t.name ? ' ' + styles['sidebar__item--active'] : '')
+                  (selectedQuery === q.query ? ' ' + styles['sidebar__item--active'] : '')
                 }
-                onClick={() => onSelect(t)}
+                onClick={() => onSelectQuery(q.query)}
               >
-                <span className={styles.sidebar__itemname}>{t.qwerty}</span>
-                <span className={styles.sidebar__itemprice}>{t.price.toLocaleString('ru-RU')}₽</span>
-                <span className={percent >= 0 ? styles.sidebar__itempercent_green : styles.sidebar__itempercent_red}>
-                  {percent > 0 ? '+' : ''}{percent.toFixed(1)}%
+                <span className={styles.sidebar__itemname}>{q.query}</span>
+                <span className={styles.sidebar__itemprice}>{q.minPrice.toLocaleString('ru-RU')}₽</span>
+                <span className={q.priceChangePercent <= 0 ? styles.sidebar__itempercent_green : styles.sidebar__itempercent_red}>
+                  {q.priceChangePercent > 0 ? '+' : ''}{q.priceChangePercent.toFixed(1)}%
                 </span>
               </li>
             );
           })}
         </ul>
         
-        {filteredProducts.length === 0 && searchQuery && (
+        {filteredQueries.length === 0 && searchQuery && (
           <div className={styles.sidebar__noResults}>
             <p>По запросу &quot;{searchQuery}&quot; ничего не найдено</p>
           </div>

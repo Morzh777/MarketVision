@@ -1,14 +1,13 @@
 import styles from '../styles/components/chart-block.module.scss';
-import { testProductsData, recommendedPrice2024 } from '../testData';
-import type { MockHourlyCheapestItem, Timeframe } from '../types/market';
+import type { Product, Timeframe } from '../types/market';
 
+import AdvancedAnalytics from './AdvancedAnalytics';
 import ChartClientChart from './ChartClientChart';
 import PriceHistory from './PriceHistory';
 import ProductCard from './ProductCard';
-import AdvancedAnalytics from './AdvancedAnalytics';
 
 interface ChartBlockProps {
-  selected: MockHourlyCheapestItem;
+  selected: Product;
   timeframe: Timeframe;
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: Array<{ price: number | null; created_at: string }>;
@@ -42,39 +41,6 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
     return null;
   }
 
-  // Функция для получения товара с самой низкой ценой для выбранного запроса
-  const getLowestPriceProduct = () => {
-    // Фильтруем товары по qwerty (запросу) и находим самый дешевый
-    const productsForQuery = testProductsData.filter(
-      (product: MockHourlyCheapestItem) => product.qwerty === selected.qwerty
-    );
-    
-    if (productsForQuery.length === 0) {
-      return null;
-    }
-    
-    // Находим товар с самой низкой ценой
-    const lowestPriceProduct = productsForQuery.reduce(
-      (lowest: MockHourlyCheapestItem, current: MockHourlyCheapestItem) => 
-        current.price < lowest.price ? current : lowest
-    );
-    
-    return {
-      name: lowestPriceProduct.name,
-      price: lowestPriceProduct.price,
-      image: lowestPriceProduct.image,
-      source: lowestPriceProduct.source,
-      url: lowestPriceProduct.link,
-      hour: lowestPriceProduct.hour,
-      marketPriceNote: lowestPriceProduct.marketPriceNote,
-      recommended: recommendedPrice2024[selected.qwerty || ''] || undefined, // Берем из recommendedPrice2024 по qwerty
-      min: lowestPriceProduct.min,
-      max: lowestPriceProduct.max,
-      mean: lowestPriceProduct.mean,
-      category: lowestPriceProduct.category,
-    
-    };
-  };
   // Массив сокращенных названий месяцев
   const monthNames = [
     'янв.', 'фев.', 'мар.', 'апр.', 'май', 'июн.',
@@ -144,12 +110,19 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
       }
     }
 
-    // Заполняем рыночные цены (используем среднее значение)
-    const validPricesForMarket = currentPrices.filter(price => price !== null) as number[];
-    if (validPricesForMarket.length > 0) {
-      const marketPrice = validPricesForMarket.reduce((sum, price) => sum + price, 0) / validPricesForMarket.length;
+    // Заполняем рыночные цены (используем рыночную статистику из базы данных)
+    if (selected.mean) {
       for (let i = 0; i <= lastValidIndex; i++) {
-        marketPricesArray[i] = Math.round(marketPrice);
+        marketPricesArray[i] = Math.round(selected.mean);
+      }
+    } else {
+      // Fallback: вычисляем среднее из текущих цен, если нет рыночной статистики
+      const validPricesForMarket = currentPrices.filter(price => price !== null) as number[];
+      if (validPricesForMarket.length > 0) {
+        const marketPrice = validPricesForMarket.reduce((sum, price) => sum + price, 0) / validPricesForMarket.length;
+        for (let i = 0; i <= lastValidIndex; i++) {
+          marketPricesArray[i] = Math.round(marketPrice);
+        }
       }
     }
 
@@ -283,14 +256,14 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
       {/* Заголовок товара */}
       <h2 className={styles.title}>
         <span>
-          Товар по запросу{selected.qwerty && (
-            <span className={styles.productName}>: {selected.qwerty}</span>
-          )}
+                          Товар по запросу{selected.query && (
+                  <span className={styles.productName}>: {selected.query}</span>
+                )}
         </span>
       </h2>
       {/* Карточка товара и история цен */}
       <div className={styles.chartBlock__bottom}>
-        <ProductCard product={getLowestPriceProduct()} />
+        <ProductCard product={selected} />
         <PriceHistory 
           timeframe={historyTimeframe}
           setTimeframe={setHistoryTimeframe}
@@ -300,9 +273,9 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
       </div>
       <h2 className={styles.chartTitle}>
         <span>
-          График цены{selected.qwerty && (
-            <span className={styles.productName}>{selected.qwerty}</span>
-          )}
+                          График цены{selected.query && (
+                  <span className={styles.productName}>{selected.query}</span>
+                )}
         </span>
         <div className={styles.timeframeButtons}>
           {timeframes.map((tf) => (

@@ -1,40 +1,35 @@
 import Image from 'next/image';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef } from 'react';
 
 import styles from '../styles/components/deals-block.module.scss';
 import type { Product } from '../types/market';
 
 interface DealsBlockProps {
   products: Product[];
+  onLoadMore?: () => Promise<void>;
+  hasMore?: boolean;
+  isLoading?: boolean;
 }
 
-const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
-  const [visibleItems, setVisibleItems] = useState(5);
-  const [isLoading, setIsLoading] = useState(false);
+const DealsBlock: React.FC<DealsBlockProps> = ({ 
+  products, 
+  onLoadMore, 
+  hasMore = false, 
+  isLoading = false 
+}) => {
   const dealsRef = useRef<HTMLDivElement>(null);
 
-  // Функция для загрузки дополнительных элементов
-  const loadMoreItems = useCallback(() => {
-    if (isLoading) return;
-    
-    setIsLoading(true);
-    setTimeout(() => {
-      setVisibleItems(prev => Math.min(prev + 5, products.length));
-      setIsLoading(false);
-    }, 300);
-  }, [isLoading, products.length]);
-
-  // Обработчик скролла
+  // Обработчик скролла для загрузки дополнительных элементов
   useEffect(() => {
     const handleScroll = () => {
-      if (!dealsRef.current) return;
+      if (!dealsRef.current || !onLoadMore || isLoading || !hasMore) return;
       
       const { scrollTop, scrollHeight, clientHeight } = dealsRef.current;
       const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
       
       // Если прокрутили до 80% и есть еще элементы для загрузки
-      if (scrollPercentage > 0.8 && visibleItems < products.length) {
-        loadMoreItems();
+      if (scrollPercentage > 0.8) {
+        onLoadMore();
       }
     };
 
@@ -43,26 +38,26 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
       dealsElement.addEventListener('scroll', handleScroll);
       return () => dealsElement.removeEventListener('scroll', handleScroll);
     }
-  }, [visibleItems, products.length, loadMoreItems]);
+  }, [onLoadMore, isLoading, hasMore]);
 
   return (
     <div className={styles.deals} ref={dealsRef}>
       <h3 className={styles.deals__title}>Выгодные предложения</h3>
       <ul className={styles.deals__list}>
-        {products.slice(0, visibleItems).map((item, idx) => (
-          <li key={idx} className={styles.deals__item}>
+        {products.map((item, idx) => (
+          <li key={item.id || idx} className={styles.deals__item}>
             <div className={styles.deals__meta}>
               <span className={
                 styles.deals__source + ' ' + (item.source === "wb" ? styles.deals__source_wb : '')
               }>{item.source === "wb" ? "WB" : "OZON"}</span>
-              <span className={styles.deals__hour}>{item.hour}</span>
+              <span className={styles.deals__hour}>{item.created_at}</span>
               {item.marketPriceNote && (
                 <span className={styles.deals__note}>Ниже рынка</span>
               )}
             </div>
-            {item.image ? (
+            {item.image_url ? (
               <Image
-                src={item.image}
+                src={item.image_url}
                 alt={item.name}
                 className={styles.deals__img}
                 width={300}
@@ -81,7 +76,7 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
             )}
             <span className={styles.deals__name}>{item.name}</span>
             <a
-              href={item.link}
+              href={item.product_url}
               target="_blank"
               rel="noopener noreferrer"
               className={
@@ -96,6 +91,11 @@ const DealsBlock: React.FC<DealsBlockProps> = ({ products }) => {
       {isLoading && (
         <div className={styles.deals__loading}>
           Загрузка...
+        </div>
+      )}
+      {!hasMore && products.length > 0 && (
+        <div className={styles.deals__end}>
+          Больше предложений нет
         </div>
       )}
     </div>

@@ -4,23 +4,43 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 
 async function bootstrap() {
+  // Создаем основное приложение для REST API
+  const app = await NestFactory.create(AppModule);
+
+  // Настраиваем CORS для REST API
+  app.enableCors({
+    origin: true,
+    credentials: true,
+  });
+
+  // Создаем gRPC микросервис
   const grpcUrl = process.env.GRPC_URL ?? '0.0.0.0:50051';
   const protoPath = join(process.cwd(), 'src/proto/raw-product.proto');
-  console.log('--- DB-API gRPC SERVICE START ---');
+
+  const microservice = app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: 'raw_product',
+      protoPath,
+      url: grpcUrl,
+    },
+  });
+
+  console.log('--- DB-API HYBRID SERVICE START ---');
   console.log('Proto path:', protoPath);
   console.log('gRPC URL:', grpcUrl);
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,
-    {
-      transport: Transport.GRPC,
-      options: {
-        package: 'raw_product',
-        protoPath,
-        url: grpcUrl,
-      },
-    },
-  );
-  await app.listen();
-  console.log('DB-API gRPC microservice started and listening on', grpcUrl);
+  console.log('REST API will be available on port 3003');
+
+  // Запускаем gRPC микросервис
+  await microservice.listen();
+
+  // Запускаем REST API на порту 3003
+  const port = process.env.PORT || 3003;
+  await app.listen(port);
+
+  console.log('DB-API hybrid service started:');
+  console.log('- REST API: http://localhost:' + port);
+  console.log('- gRPC: ' + grpcUrl);
 }
+
 bootstrap();
