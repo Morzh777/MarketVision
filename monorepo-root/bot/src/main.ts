@@ -30,7 +30,8 @@ bot.setMyCommands([
   { command: 'admin_resume', description: '▶️ Возобновить постинг' },
   { command: 'admin_status', description: '📊 Статус работы' },
   { command: 'admin_test', description: '🧪 Тестовый парсинг' },
-  { command: 'admin_clear', description: '🗑️ Очистить очередь' }
+  { command: 'admin_clear', description: '🗑️ Очистить очередь' },
+  { command: 'app', description: '📱 Открыть приложение' }
 ]);
 
 // Создаем сервисы

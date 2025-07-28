@@ -22,14 +22,20 @@ export class AdminCommand {
   // Обработка админских команд
   async handleCommand(msg: any) {
     const userId = msg.from.id.toString();
+    const text = msg.text;
     
+    // Команда /app доступна всем пользователям
+    if (text === '/app') {
+      await this.openMiniApp(msg.chat.id);
+      return;
+    }
+    
+    // Остальные команды только для админа
     if (!this.isAdmin(userId)) {
       await this.bot.sendMessage(msg.chat.id, '❌ У вас нет прав администратора');
       return;
     }
 
-    const text = msg.text;
-    
     if (text === '/admin') {
       await this.showAdminMenu(msg.chat.id);
     } else if (text === '/admin_start') {
@@ -205,5 +211,24 @@ export class AdminCommand {
   private async clearQueue(chatId: string) {
     // Нужно добавить метод очистки очереди в PostQueueService
     await this.bot.sendMessage(chatId, '🗑️ Очередь постов очищена');
+  }
+
+  // Открыть Mini App
+  private async openMiniApp(chatId: string) {
+    const webAppUrl = 'https://a846814ae0190971759ab515816af559.serveo.net'; // Локальный домен для тестирования
+    
+    const keyboard = {
+      inline_keyboard: [
+        [{
+          text: '📱 Открыть MarketVision',
+          web_app: { url: webAppUrl }
+        }]
+      ]
+    };
+
+    await this.bot.sendMessage(chatId, 
+      '📱 Нажмите кнопку ниже, чтобы открыть MarketVision Mini App:', 
+      { reply_markup: keyboard }
+    );
   }
 } 

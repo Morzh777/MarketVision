@@ -101,3 +101,6 @@ monorepo-root/ml-training-service/ .cursor/rules/
 
 # --- Cursor IDE ---
 .cursor/
+
+# --- Testing Guide ---
+TESTING_GUIDE.md

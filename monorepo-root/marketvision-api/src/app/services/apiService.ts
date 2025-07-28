@@ -20,7 +20,8 @@ interface MarketStats {
   iqr: [number, number];
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003/api';
+// Используем локальные API роуты Next.js
+const API_URL = '/api';
 
 export class ApiService {
     static async getProducts(query?: string): Promise<{

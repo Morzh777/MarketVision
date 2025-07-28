@@ -9,8 +9,18 @@ async function bootstrap() {
 
   // Настраиваем CORS для REST API
   app.enableCors({
-    origin: true,
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://localhost:3002',
+      'http://localhost:3003',
+      'https://feada47ca023bf54aad00884df9777f8.serveo.net',
+      'https://*.serveo.net',
+      'http://*.serveo.net',
+    ],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   });
 
   // Создаем gRPC микросервис

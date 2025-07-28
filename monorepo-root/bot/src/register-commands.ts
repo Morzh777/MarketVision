@@ -33,8 +33,13 @@ export function registerCommands(bot: TelegramBot, services: Services) {
     console.log('🔧 Dev команды зарегистрированы');
   }
   
-  // 🎯 Админские команды (единственные доступные)
+  // 🎯 Админские команды
   bot.onText(/\/admin(_\w+)?/, async (msg) => {
+    await adminCommand.handleCommand(msg);
+  });
+
+  // 🎯 Команда для открытия Mini App (доступна всем)
+  bot.onText(/\/app/, async (msg) => {
     await adminCommand.handleCommand(msg);
   });
 
