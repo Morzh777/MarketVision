@@ -1,4 +1,5 @@
-import type { Product, PriceHistory, Timeframe } from '../types/market';
+import type { Product, PriceHistory } from '../types/market';
+
 import { ApiService } from './apiService';
 
 export class ProductService {
@@ -21,29 +22,21 @@ export class ProductService {
     }
   }
 
-  static async getPriceHistory(productId: string, timeframe: Timeframe): Promise<PriceHistory> {
+
+
+  static async getPriceHistoryByQuery(query: string, limit: number = 10): Promise<PriceHistory> {
     try {
-      console.log('ProductService.getPriceHistory called with:', { productId, timeframe });
-      const result = await ApiService.getPriceHistory(productId, timeframe);
-      console.log('ProductService.getPriceHistory result:', result);
+      console.log('ProductService.getPriceHistoryByQuery called with:', { query, limit });
+      const result = await ApiService.getPriceHistoryByQuery(query, limit);
+      console.log('ProductService.getPriceHistoryByQuery result:', result);
       return result;
     } catch (error) {
-      console.error('Error fetching price history:', error);
+      console.error('Error fetching price history by query:', error);
       return [];
     }
   }
 
-  static async getPriceHistoryMulti(productId: string, timeframes: Timeframe[]): Promise<Record<string, PriceHistory>> {
-    try {
-      console.log('ProductService.getPriceHistoryMulti called with:', { productId, timeframes });
-      const result = await ApiService.getPriceHistoryMulti(productId, timeframes);
-      console.log('ProductService.getPriceHistoryMulti result:', result);
-      return result;
-    } catch (error) {
-      console.error('Error fetching price history multi:', error);
-      return {};
-    }
-  }
+
 
   static async findProductByName(name: string): Promise<Product | undefined> {
     try {

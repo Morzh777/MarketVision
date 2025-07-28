@@ -3,8 +3,6 @@ import type { Product, Timeframe } from '../types/market';
 
 import AdvancedAnalytics from './AdvancedAnalytics';
 import ChartClientChart from './ChartClientChart';
-import PriceHistory from './PriceHistory';
-import ProductCard from './ProductCard';
 
 interface ChartBlockProps {
   selected: Product;
@@ -12,9 +10,6 @@ interface ChartBlockProps {
   setTimeframe: (tf: Timeframe) => void;
   priceHistory: Array<{ price: number | null; created_at: string }>;
   recommended: number | null;
-  historyTimeframe: Timeframe;
-  setHistoryTimeframe: (tf: Timeframe) => void;
-  historyPriceHistory: Array<{ price: number | null; created_at: string }>;
 }
 
 const timeframes = [
@@ -29,10 +24,7 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
   timeframe, 
   setTimeframe, 
   priceHistory, 
-  recommended,
-  historyTimeframe,
-  setHistoryTimeframe,
-  historyPriceHistory
+  recommended
 }) => {
   // Удаляю isClient и useEffect
 
@@ -261,16 +253,7 @@ const ChartBlock: React.FC<ChartBlockProps> = ({
                 )}
         </span>
       </h2>
-      {/* Карточка товара и история цен */}
-      <div className={styles.chartBlock__bottom}>
-        <ProductCard product={selected} />
-        <PriceHistory 
-          timeframe={historyTimeframe}
-          setTimeframe={setHistoryTimeframe}
-          priceHistory={historyPriceHistory}
-          selected={selected}
-        />
-      </div>
+
       <h2 className={styles.chartTitle}>
         <span>
                           График цены{selected.query && (

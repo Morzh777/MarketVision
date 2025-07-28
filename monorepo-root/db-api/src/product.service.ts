@@ -29,6 +29,8 @@ export type PriceHistoryProduct = {
   price: number;
 };
 
+
+
 @Injectable()
 export class ProductService {
   constructor(private readonly prisma: PrismaService) {}
@@ -314,6 +316,42 @@ export class ProductService {
       result[timeframe] = await this.getPriceHistory(productId, timeframe);
     }
     
+    return result;
+  }
+
+  async getPriceHistoryByQuery(
+    query: string,
+    limit: number = 10,
+  ): Promise<Array<{ price: number | null; created_at: string }>> {
+    console.log(`[getPriceHistoryByQuery] Searching for query: "${query}" with limit: ${limit}`);
+    
+    const priceHistory = await this.prisma.priceHistory.findMany({
+      where: {
+        query: query,
+      },
+      select: {
+        price: true,
+        created_at: true,
+      },
+      orderBy: {
+        created_at: 'desc',
+      },
+      take: limit,
+    });
+
+    console.log(`[getPriceHistoryByQuery] Found ${priceHistory.length} records for query: "${query}"`);
+    
+    if (priceHistory.length > 0) {
+      console.log(`[getPriceHistoryByQuery] First record:`, priceHistory[0]);
+      console.log(`[getPriceHistoryByQuery] Last record:`, priceHistory[priceHistory.length - 1]);
+    }
+
+    const result = priceHistory.map((item) => ({
+      price: item.price,
+      created_at: item.created_at.toISOString(),
+    }));
+
+    console.log(`[getPriceHistoryByQuery] Returning ${result.length} records`);
     return result;
   }
 

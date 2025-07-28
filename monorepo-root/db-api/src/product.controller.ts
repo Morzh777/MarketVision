@@ -11,6 +11,7 @@ import type {
   BatchCreateResponse,
   ProductForService,
 } from './types/product.types';
+import type { MarketStats } from './types/product.types';
 
 @Controller('api')
 export class ProductController {
@@ -23,38 +24,43 @@ export class ProductController {
     @Query('category') category?: string,
   ) {
     const products = await this.productService.findAll({ query, category });
-    const marketStats: any = query
-      ? await this.productService.getMarketStats(query)
+    const marketStats: MarketStats | null = query
+      ? ((await this.productService.getMarketStats(query)) as MarketStats)
       : null;
     return {
       products,
       marketStats,
-    } as { products: any[]; marketStats: any };
+    };
+  }
+
+  @Get('products/price-history-by-query')
+  async getPriceHistoryByQuery(
+    @Query('query') query: string,
+    @Query('limit') limit: string = '10',
+  ) {
+    console.log(
+      `[Controller] getPriceHistoryByQuery called with query: "${query}", limit: "${limit}"`,
+    );
+    const limitNum = parseInt(limit, 10);
+    console.log(`[Controller] Parsed limit: ${limitNum}`);
+
+    try {
+      const result = await this.productService.getPriceHistoryByQuery(
+        query,
+        limitNum,
+      );
+      console.log(`[Controller] getPriceHistoryByQuery result:`, result);
+      return result;
+    } catch (error) {
+      console.error(`[Controller] Error in getPriceHistoryByQuery:`, error);
+      throw error;
+    }
   }
 
   @Get('products/:id')
   async getProduct(@Param('id') id: string) {
     return this.productService.findOne(id);
   }
-
-  @Get('products/:id/price-history')
-  async getPriceHistory(
-    @Param('id') id: string,
-    @Query('timeframe') timeframe: 'day' | 'week' | 'month' | 'year' = 'day',
-  ) {
-    return this.productService.getPriceHistory(id, timeframe);
-  }
-
-  @Get('products/:id/price-history-multi')
-  async getPriceHistoryMulti(
-    @Param('id') id: string,
-    @Query('timeframes') timeframes: string = 'month',
-  ) {
-    const timeframeArray = timeframes.split(',') as ('day' | 'week' | 'month' | 'year')[];
-    return this.productService.getPriceHistoryMulti(id, timeframeArray);
-  }
-
-
 
   @Get('popular-queries')
   async getPopularQueries() {

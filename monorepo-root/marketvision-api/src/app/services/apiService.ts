@@ -1,4 +1,4 @@
-import type { Product, PriceHistory, Timeframe } from '../types/market';
+import type { Product, PriceHistory } from '../types/market';
 
 interface DbProduct {
   id: string;
@@ -84,54 +84,45 @@ export class ApiService {
     }
   }
 
-  static async getPriceHistory(productId: string, timeframe: Timeframe): Promise<PriceHistory> {
+
+
+  static async getPriceHistoryByQuery(query: string, limit: number = 10): Promise<PriceHistory> {
     try {
       const response = await fetch(
-        `${API_URL}/products/${productId}/price-history?timeframe=${timeframe}`
+        `${API_URL}/products/price-history-by-query?query=${encodeURIComponent(query)}&limit=${limit}`
       );
       
       if (!response.ok) {
-        throw new Error('Failed to fetch price history');
+        throw new Error(`Failed to fetch price history by query: ${response.status} ${response.statusText}`);
       }
 
-      const data: Array<{ price: number; created_at: string }> = await response.json();
+      // Проверяем, что ответ не пустой
+      const responseText = await response.text();
+      if (!responseText || responseText.trim() === '') {
+        console.warn('Empty response from price history API');
+        return [];
+      }
+
+      let data: Array<{ price: number; created_at: string }>;
+      try {
+        data = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('Failed to parse JSON response:', responseText, parseError);
+        return [];
+      }
+      
+      if (!Array.isArray(data)) {
+        console.warn('Response is not an array:', data);
+        return [];
+      }
       
       return data.map(item => ({
         price: item.price,
         created_at: item.created_at
       }));
     } catch (error) {
-      console.error('Error fetching price history:', error);
+      console.error('Error fetching price history by query:', error);
       return [];
-    }
-  }
-
-  static async getPriceHistoryMulti(productId: string, timeframes: Timeframe[]): Promise<Record<string, PriceHistory>> {
-    try {
-      const timeframesStr = timeframes.join(',');
-      const response = await fetch(
-        `${API_URL}/products/${productId}/price-history-multi?timeframes=${timeframesStr}`
-      );
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch price history multi');
-      }
-
-      const data: Record<string, Array<{ price: number; created_at: string }>> = await response.json();
-      
-      // Преобразуем данные в нужный формат
-      const result: Record<string, PriceHistory> = {};
-      for (const [timeframe, history] of Object.entries(data)) {
-        result[timeframe] = history.map(item => ({
-          price: item.price,
-          created_at: item.created_at
-        }));
-      }
-      
-      return result;
-    } catch (error) {
-      console.error('Error fetching price history multi:', error);
-      return {};
     }
   }
 

@@ -1,69 +1,6 @@
 // Global styles
 @import 'base/index';
 
-// Global CSS variables for theme
-:root {
-  // Основные цвета
-  --color-bg: #181A20;
-  --color-bg-light: #20232B;
-  --color-bg-dark: #181A20;
-  --color-bg-header: #20232B;
-  --color-bg-active: #23272F;
-  --color-bg-card: #20232B;
-  --color-bg-overlay: rgba(24, 26, 32, 0.9);
-  
-  // Цвета текста
-  --color-text: #E5E7EB;
-  --color-text-secondary: #9CA3AF;
-  --color-text-title: #F3F4F6;
-  --color-text-marquee: #F3F4F6;
-  --color-text-marquee-secondary: #D1D5DB;
-  
-  // Границы
-  --color-border: #23272F;
-  --color-border-card: #23272F;
-  
-  // Акцентные цвета
-  --color-blue: #3B82F6;
-  --color-blue-dark: #2563EB;
-  --color-purple: #8B5CF6;
-  --color-purple-dark: #7C3AED;
-  --color-purple-darker: #6D28D9;
-  --color-green: #22C55E;
-  --color-red: #EF4444;
-  
-  // Градиенты
-  --color-gradient-fade: rgba(24, 26, 32, 0.9);
-  --color-gradient-fade-transparent: rgba(24, 26, 32, 0);
-  
-  // Анимации
-  --transition-default: all 0.3s ease;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #FFFFFF;
-    --color-bg-light: #F9FAFB;
-    --color-bg-dark: #F3F4F6;
-    --color-bg-header: #FFFFFF;
-    --color-bg-active: #EFF6FF;
-    --color-bg-card: #F9FAFB;
-    --color-bg-overlay: rgba(255, 255, 255, 0.9);
-    
-    --color-text: #111827;
-    --color-text-secondary: #6B7280;
-    --color-text-title: #374151;
-    --color-text-marquee: #111827;
-    --color-text-marquee-secondary: #4B5563;
-    
-    --color-border: #E5E7EB;
-    --color-border-card: #F3F4F6;
-    
-    --color-gradient-fade: rgba(255, 255, 255, 0.9);
-    --color-gradient-fade-transparent: rgba(255, 255, 255, 0);
-  }
-}
-
 // Global styles
 body {
   background: var(--color-bg);

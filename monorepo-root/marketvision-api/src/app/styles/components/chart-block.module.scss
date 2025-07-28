@@ -14,7 +14,6 @@
     background: var(--color-bg-card);
   }
   
-  // Центрируем весь контент внутри блока
   > * {
     width: 100%;
     max-width: 1000px;
@@ -51,11 +50,6 @@
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  
-  @media (min-width: 640px) {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
   
   &--active {
     background: var(--color-blue);
@@ -94,14 +88,7 @@
   box-sizing: border-box;
   overflow: hidden;
   margin: 0;
-  
-  @media (min-width: 1390px) {
-    font-size: 28px;
-    padding: 4px 32px 0 32px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: block !important;
 }
 
 .chartTitle {
@@ -119,14 +106,6 @@
   box-sizing: border-box;
   overflow: hidden;
   margin: 0;
-  
-  @media (min-width: 1390px) {
-    font-size: 20px;
-    padding: 4px 32px 0 32px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
 
 .productName {
@@ -153,68 +132,42 @@
   @media (prefers-color-scheme: dark) {
     background: var(--color-bg-card);
   }
-  
-  @media (min-width: 640px) {
-    padding: 0 32px 0 0;
-  }
 }
 
-// ECharts конфигурация - переменные для графика
 :export {
-  // Цвета линий
   lineColorCurrent: '#3b82f6';
   lineColorRecommended: '#9333ea';
   lineColorMarket: '#f59e42';
-  
-  // Цвета заливки
   areaColorCurrent: 'rgba(59,130,246,0.15)';
-  
-  // Цвета фона и границ
   tooltipBg: '#23272F';
   tooltipBorder: '#888';
   tooltipText: '#fff';
-  
-  // Цвета осей
   axisLineColor: '#888';
   axisLabelColor: '#aaa';
   axisLabelColorY: '#fff';
   splitLineColor: '#23272F';
-  
-  // Цвета легенды
   legendTextColor: '#aaa';
-  
-  // Размеры и отступы
   tooltipFontSize: '14';
   tooltipTitleFontSize: '15';
   axisLabelFontSize: '16';
   legendFontSize: '15';
-  
-  // Толщины линий
   lineWidthCurrent: '4';
   lineWidthRecommended: '3';
   lineWidthMarket: '3';
   lineWidthHover: '5';
-  
-  // Размеры символов
   symbolSizeCurrent: '10';
   symbolSizeRecommended: '6';
   symbolSizeMarket: '6';
   symbolHoverSizeCurrent: '12';
   symbolHoverSizeRecommended: '8';
   symbolHoverSizeMarket: '8';
-  
-  // Отступы графика
   gridLeft: '40';
   gridRight: '20';
   gridTop: '40';
   gridBottom: '50';
-  
-  // Z-индексы
   zIndexCurrent: '10';
   zIndexRecommended: '5';
   zIndexMarket: '4';
-  
-  // Инлайн-стили для tooltip
   tooltipTitleStyle: 'font-size:15px;font-weight:600;';
   tooltipItemStyle: 'margin-top:4px;';
   tooltipExtraCss: 'box-shadow: 0 4px 12px rgba(0,0,0,0.3); border-radius: 8px; padding: 8px;';
@@ -225,8 +178,5 @@
   gap: 8px;
   margin-top: 0;
   align-items: stretch;
-  
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 } 

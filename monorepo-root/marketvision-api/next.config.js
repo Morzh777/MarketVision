@@ -10,12 +10,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ir.ozone.ru',
       },
-
       {
         protocol: 'https',
         hostname: '*.wbbasket.ru',
       },
     ],
+  },
+  sassOptions: {
+    includePaths: ['./src/app/styles'],
   },
 };
 

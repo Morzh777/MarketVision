@@ -35,6 +35,14 @@ export interface Product {
   category?: string;
 }
 
+export interface PopularQuery {
+  query: string;
+  minPrice: number;
+  id: string;
+  priceChangePercent: number;
+  image_url?: string; // Картинка товара для аватара
+}
+
 export interface PriceHistoryItem {
   price: number | null;
   created_at: string;
