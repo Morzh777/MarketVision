@@ -19,6 +19,15 @@ export class IphoneValidator extends ProductValidatorBase {
     return CATEGORY_NAMES.IPHONE;
   }
 
+  protected getOtherModels(): string[] {
+    return [
+      'iphone15', 'iphone14', 'iphone13', 'iphone12', 'iphone11',
+      'iphone15pro', 'iphone14pro', 'iphone13pro', 'iphone12pro',
+      'iphone15promax', 'iphone14promax', 'iphone13promax', 'iphone12promax',
+      'iphone15plus', 'iphone14plus', 'iphone13mini', 'iphone12mini'
+    ];
+  }
+
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
     return this.validateProductStandard(query, name, rules);
   }

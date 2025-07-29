@@ -8,12 +8,12 @@ const PRODUCT_FILTER_URL = 'http://localhost:3001/products/search';
 
 // Тестовые запросы для каждой категории (как в Product-Filter-Service)
 const testQueries = {
-  videocards: [
-    'rtx 5070',
-    'rtx 5070 ti',
-    'rtx 5080',
-    'rtx 5090'
-  ],
+  // videocards: [
+  //   'rtx 5070',
+  //   'rtx 5070 ti',
+  //   'rtx 5080',
+  //   'rtx 5090'
+  // ],
   // processors: [
   //   '7800x3d',
   //   '9800x3d',
@@ -36,9 +36,15 @@ const testQueries = {
   // steam_deck: [
   //   'steam deck oled'
   // ],
-  // iphone: [
-  //   'iphone 16 pro',
-  // ]
+  iphone: [
+    // 'iphone 16 pro',
+    // 'iphone 16',
+    'iphone 15 pro',
+    // 'iphone 15',
+    // 'iphone 16 pro max',
+    // 'iphone 15 pro max',
+
+  ]
 };
 
 async function ensureOutputDir() {

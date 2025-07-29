@@ -19,6 +19,14 @@ export class MotherboardsValidator extends ProductValidatorBase {
     return CATEGORY_NAMES.MOTHERBOARDS;
   }
 
+  protected getOtherModels(): string[] {
+    return [
+      'b650', 'b750', 'x670', 'x770',
+      'z690', 'z790', 'b660', 'b760',
+      'am4', 'am5', 'lga1700', 'lga1200'
+    ];
+  }
+
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
     return this.validateProductStandard(query, name, rules);
   }

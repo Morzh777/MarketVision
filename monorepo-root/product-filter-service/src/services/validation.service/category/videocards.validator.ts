@@ -21,6 +21,15 @@ export class VideocardsValidator extends ProductValidatorBase {
   }
 
 
+  protected getOtherModels(): string[] {
+    return [
+      'rtx4090', 'rtx4080', 'rtx4070', 'rtx4060',
+      'rtx3090', 'rtx3080', 'rtx3070', 'rtx3060',
+      'rx7900', 'rx7800', 'rx7700', 'rx7600',
+      'rx6900', 'rx6800', 'rx6700', 'rx6600'
+    ];
+  }
+
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
     return this.validateProductStandard(query, name, rules);
   }

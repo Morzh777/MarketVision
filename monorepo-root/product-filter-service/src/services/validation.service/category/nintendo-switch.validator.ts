@@ -10,7 +10,8 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
       'картридж', 'карта памяти', 'наушники', 'гарнитура', 'микрофон',
       'панель', 'накладки', 'стики', 'лапки', 'защитный', 'силиконовый', 'кожаный',
       'пластиковый', 'металлический', 'аксессуар', 'адаптер',
-      'переходник', 'кнопки', 'кнопка', 'стик', 'стики', 'джойстики'
+      'переходник', 'кнопки', 'кнопка', 'стик', 'стики', 'джойстики',
+      'joy-con', 'joycon', 'кулер', 'радиатор', 'вентилятор', 'блок питания', 'память', 'ssd', 'hdd'
     ]
   };
 
@@ -20,6 +21,14 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
 
   protected getValidatorCategory(): string {
     return CATEGORY_NAMES.NINTENDO_SWITCH;
+  }
+
+  protected getOtherModels(): string[] {
+    return [
+      'nintendoswitcholed', 'nintendoswitchlite', 'nintendoswitch2',
+      'nintendoswitchpro', 'nintendoswitchmini', 'nintendoswitchplus',
+      'nintendoswitchv2', 'nintendoswitchv3', 'nintendoswitchv4'
+    ];
   }
 
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {

@@ -58,8 +58,8 @@ export const QUERY_PLATFORMS: Record<string, string> = {
 // 🎯 МОДЕЛИ ДЛЯ КОНКРЕТНЫХ ЗАПРОСОВ (exactmodels)
 export const QUERY_EXACTMODELS: Record<string, string> = {
   'iphone 16 pro': '101218714',
-};
-
+  'iphone 15 pro': '100973685',
+}
 // 🔧 УТИЛИТЫ ДЛЯ РАБОТЫ С КОНФИГУРАЦИЕЙ
 export class CategoryConfigService {
   /**

@@ -24,6 +24,14 @@ export class PlaystationValidator extends ProductValidatorBase {
     return CATEGORY_NAMES.PLAYSTATION;
   }
 
+  protected getOtherModels(): string[] {
+    return [
+      'ps5', 'ps4', 'ps3', 'ps2', 'ps1',
+      'playstation5', 'playstation4', 'playstation3', 'playstation2', 'playstation1',
+      'ps5slim', 'ps5pro', 'ps4slim', 'ps4pro'
+    ];
+  }
+
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
     return this.validateProductStandard(query, name, rules);
   }

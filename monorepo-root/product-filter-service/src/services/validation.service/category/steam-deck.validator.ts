@@ -12,7 +12,13 @@ export class SteamDeckValidator extends ProductValidatorBase {
       'накладки', 'стики', 'лапки', 'защитный', 'силиконовый', 'кожаный',
       'пластиковый', 'металлический', 'аксессуар', 'комплект', 'набор',
       'док-станция', 'докстанция', 'док', 'станция', 'адаптер', 'переходник',
-      'кнопки', 'кнопка', 'стик', 'стики', 'джойстик', 'джойстики'
+      'кнопки', 'кнопка', 'стик', 'стики', 'джойстик', 'джойстики',
+      'контроллер', 'джойстик', 'панель', 'кулер', 'радиатор', 'вентилятор', 
+      'блок питания', 'память', 'ssd', 'hdd', 'крышка', 'декоративная', 'прозрачный',
+      'защита', 'стекло', 'пленка', 'наклейка', 'стикер', 'обложка', 'обертка',
+      'ручка', 'ремень', 'шнурок', 'брелок', 'подвеска', 'магнит', 'липучка',
+      'крепление', 'винт', 'шуруп', 'болт', 'гайка', 'шайба', 'прокладка',
+      'термопаста', 'смазка', 'очиститель', 'салфетка', 'тряпочка', 'щетка'
     ]
   };
   protected getCategoryRules(category: string): ValidationRules {
@@ -21,6 +27,13 @@ export class SteamDeckValidator extends ProductValidatorBase {
 
   protected getValidatorCategory(): string {
     return CATEGORY_NAMES.STEAM_DECK;
+  }
+
+  protected getOtherModels(): string[] {
+    return [
+      'steamdeckoled', 'steamdecklcd', 'steamdeck2', 'steamdeckpro',
+      'steamdeckmini', 'steamdeckplus', 'steamdeckultra', 'oled'
+    ];
   }
 
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {

@@ -7,6 +7,12 @@ export interface ValidationResult {
   confidence?: number;
 }
 
+export interface ValidationCheck {
+  passed: boolean;
+  reason: string;
+  confidence: number;
+}
+
 export interface ValidationRules {
   accessoryWords?: string[];
   minNameLength?: number;
@@ -24,6 +30,8 @@ export abstract class ProductValidatorBase {
     this.logger.log(`🚀 Инициализация валидатора: ${this.constructor.name}`);
   }
 
+  // ===== ОСНОВНЫЕ МЕТОДЫ ВАЛИДАЦИИ =====
+
   /**
    * Универсальный метод валидации - каждая категория реализует свою логику
    */
@@ -38,68 +46,32 @@ export abstract class ProductValidatorBase {
     const normalizedName = this.normalize(name);
     const normalizedQuery = this.normalize(query);
 
+    const checks: ValidationCheck[] = [];
+
+    // Проверка на аксессуары
     if (rules.accessoryWords && this.isAccessory(normalizedName, rules.accessoryWords)) {
-      return this.createResult(false, 'accessory', 0.9);
+      checks.push({ passed: false, reason: 'accessory', confidence: 0.9 });
+    } else {
+      checks.push({ passed: true, reason: 'not-accessory', confidence: 0.9 });
     }
 
+    // Проверка соответствия запроса
     if (!this.validateNameQueryMatch(normalizedName, normalizedQuery)) {
-      return this.createResult(false, 'no-match', 0.7);
+      checks.push({ passed: false, reason: 'no-match', confidence: 0.7 });
+    } else {
+      checks.push({ passed: true, reason: 'query-match', confidence: 0.8 });
     }
 
-    return this.createResult(true, 'all-checks-passed', 0.95);
-  }
+    // Проверка других моделей от наследников
+    const otherModels = this.getOtherModels();
+    if (otherModels.length > 0) {
+      const categoryName = this.getValidatorCategory();
+      const otherModelsChecks = this.checkOtherModels(normalizedQuery, normalizedName, otherModels, categoryName);
+      checks.push(...otherModelsChecks);
+    }
 
-  /**
-   * Получение правил категории - каждая категория определяет свои правила
-   */
-  protected abstract getCategoryRules(category: string): ValidationRules;
-
-  /**
-   * Получить категорию, которую обрабатывает этот валидатор
-   */
-  protected abstract getValidatorCategory(): string;
-
-  // ===== УНИВЕРСАЛЬНЫЕ МЕТОДЫ-УТИЛИТЫ =====
-
-  /**
-   * Универсальная нормализация строки - убирает пробелы и приводит к нижнему регистру
-   */
-  protected normalize(str: string): string {
-    return str.toLowerCase().replace(/\s+/g, '');
-  }
-
-  /**
-   * Проверка соответствия названия и запроса - точное совпадение
-   */
-  protected validateNameQueryMatch(normalizedName: string, normalizedQuery: string): boolean {
-    return normalizedName.includes(normalizedQuery);
-  }
-
-  /**
-   * Проверка на аксессуары - входные данные: нормализованная строка названия и массив слов аксессуаров
-   */
-  protected isAccessory(normalizedName: string, accessoryWords: string[]): boolean {
-    return accessoryWords.some(word => normalizedName.includes(this.normalize(word)));
-  }
-
-
-  /**
-   * Создание результата валидации
-   */
-  protected createResult(isValid: boolean, reason: string, confidence: number = 0.5): ValidationResult {
-    return { isValid, reason, confidence };
-  }
-
-  /**
-   * Логирование для отладки
-   */
-  protected logValidation(query: string, name: string): void {
-    console.log(`[${this.constructor.name} DEBUG]`, {
-      query,
-      name,
-      normalizedQuery: this.normalize(query),
-      normalizedName: this.normalize(name)
-    });
+    // Анализируем результаты всех проверок
+    return this.analyzeValidationChecks(checks);
   }
 
   /**
@@ -135,4 +107,134 @@ export abstract class ProductValidatorBase {
     return results;
   }
 
+  // ===== АБСТРАКТНЫЕ МЕТОДЫ ДЛЯ НАСЛЕДНИКОВ =====
+
+  /**
+   * Получение правил категории - каждая категория определяет свои правила
+   */
+  protected abstract getCategoryRules(category: string): ValidationRules;
+
+  /**
+   * Получить категорию, которую обрабатывает этот валидатор
+   */
+  protected abstract getValidatorCategory(): string;
+
+  /**
+   * Получить список других моделей для проверки - переопределяется в наследниках
+   * @returns массив других моделей или пустой массив
+   */
+  protected getOtherModels(): string[] {
+    return [];
+  }
+
+  // ===== УТИЛИТЫ ДЛЯ ВАЛИДАЦИИ =====
+
+  /**
+   * Универсальная нормализация строки - убирает пробелы и приводит к нижнему регистру
+   */
+  protected normalize(str: string): string {
+    return str.toLowerCase().replace(/\s+/g, '');
+  }
+
+  /**
+   * Проверка соответствия названия и запроса - точное совпадение
+   */
+  protected validateNameQueryMatch(normalizedName: string, normalizedQuery: string): boolean {
+    return normalizedName.includes(normalizedQuery);
+  }
+
+  /**
+   * Проверка на аксессуары - входные данные: нормализованная строка названия и массив слов аксессуаров
+   */
+  protected isAccessory(normalizedName: string, accessoryWords: string[]): boolean {
+    return accessoryWords.some(word => normalizedName.includes(this.normalize(word)));
+  }
+
+  /**
+   * Универсальная проверка на другие модели продукта
+   * @param normalizedQuery - нормализованный запрос
+   * @param normalizedName - нормализованное название
+   * @param otherModels - список других моделей для проверки
+   * @returns true если найдена другая модель
+   */
+  protected hasOtherModel(normalizedQuery: string, normalizedName: string, otherModels: string[]): boolean {
+    return otherModels.some(model => 
+      model !== normalizedQuery && 
+      !normalizedQuery.includes(model) && 
+      normalizedName.includes(model)
+    );
+  }
+
+  /**
+   * Универсальная проверка других моделей с автоматическим созданием ValidationCheck
+   * @param normalizedQuery - нормализованный запрос
+   * @param normalizedName - нормализованное название
+   * @param otherModels - список других моделей для проверки
+   * @param categoryName - название категории для reason
+   * @returns ValidationCheck массив
+   */
+  protected checkOtherModels(
+    normalizedQuery: string, 
+    normalizedName: string, 
+    otherModels: string[], 
+    categoryName: string
+  ): ValidationCheck[] {
+    const checks: ValidationCheck[] = [];
+
+    if (this.hasOtherModel(normalizedQuery, normalizedName, otherModels)) {
+      checks.push({ 
+        passed: false, 
+        reason: `other-${categoryName}-model`, 
+        confidence: 0.9 
+      });
+    } else {
+      checks.push({ 
+        passed: true, 
+        reason: `no-other-${categoryName}-models`, 
+        confidence: 0.9 
+      });
+    }
+
+    return checks;
+  }
+
+  // ===== ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ =====
+
+  /**
+   * Анализ результатов всех проверок
+   */
+  private analyzeValidationChecks(checks: ValidationCheck[]): ValidationResult {
+    // Если есть хотя бы одна неудачная проверка - товар невалиден
+    const failedChecks = checks.filter(check => !check.passed);
+    if (failedChecks.length > 0) {
+      // Возвращаем первую неудачную проверку с наивысшей уверенностью
+      const mostConfidentFailed = failedChecks.reduce((prev, current) => 
+        current.confidence > prev.confidence ? current : prev
+      );
+      return this.createResult(false, mostConfidentFailed.reason, mostConfidentFailed.confidence);
+    }
+
+    // Все проверки прошли успешно
+    const avgConfidence = checks.reduce((sum, check) => sum + check.confidence, 0) / checks.length;
+    return this.createResult(true, 'all-checks-passed', avgConfidence);
+  }
+
+  /**
+   * Создание результата валидации
+   */
+  protected createResult(isValid: boolean, reason: string, confidence: number = 0.5): ValidationResult {
+    return { isValid, reason, confidence };
+  }
+
+  /**
+   * Логирование для отладки
+   */
+  protected logValidation(query: string, name: string): void {
+    console.log(`[${this.constructor.name} DEBUG]`, {
+      query,
+      name,
+      normalizedQuery: this.normalize(query),
+      normalizedName: this.normalize(name)
+    });
+  }
 } 
