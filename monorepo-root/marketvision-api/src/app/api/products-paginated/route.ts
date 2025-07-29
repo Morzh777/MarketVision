@@ -8,18 +8,17 @@ import {
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const query = searchParams.get('query');
+    const page = searchParams.get('page') || '1';
+    const limit = searchParams.get('limit') || '10';
     
-    const endpoint = query 
-      ? `${API_ROUTES.PRODUCTS.path}?query=${encodeURIComponent(query)}`
-      : API_ROUTES.PRODUCTS.path;
-
+    const endpoint = `${API_ROUTES.PRODUCTS_PAGINATED.path}?page=${page}&limit=${limit}`;
+    
     const response = await fetchFromExternalApi(endpoint);
     const data = await response.json();
     
     return createSuccessResponse(data);
   } catch (error) {
-    console.error('Error fetching products:', error);
-    return createErrorResponse(API_ROUTES.PRODUCTS.errorMessage);
+    console.error('Error fetching products with pagination:', error);
+    return createErrorResponse(API_ROUTES.PRODUCTS_PAGINATED.errorMessage);
   }
 } 

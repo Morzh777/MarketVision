@@ -26,6 +26,8 @@ export interface ProductResponse {
   products: ProcessedProduct[];
   total_queries: number;
   total_products: number;
+  total_validated?: number;
+  total_raw?: number;
   processing_time_ms: number;
   cache_hits: number;
   cache_misses: number;

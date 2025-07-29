@@ -3,20 +3,31 @@
 
 import { CategoryConfig } from '../interfaces/category-config.interface';
 
+// Константы категорий для валидаторов
+export const CATEGORY_NAMES = {
+  VIDEOCARDS: 'videocards',
+  PROCESSORS: 'processors',
+  MOTHERBOARDS: 'motherboards',
+  PLAYSTATION: 'playstation',
+  NINTENDO_SWITCH: 'nintendo_switch',
+  STEAM_DECK: 'steam_deck',
+  IPHONE: 'iphone'
+} as const;
+
 export const CATEGORIES: Record<string, CategoryConfig> = {
-  videocards: {
+  [CATEGORY_NAMES.VIDEOCARDS]: {
     ozon: 'videokarty-15721',
     wb: '3274'
   },
-  processors: {
+  [CATEGORY_NAMES.PROCESSORS]: {
     ozon: 'protsessory-15726',
     wb: '3698'
   },
-  motherboards: {
+  [CATEGORY_NAMES.MOTHERBOARDS]: {
     ozon: 'materinskie-platy-15725',
     wb: '3690'
   },
-  playstation: {
+  [CATEGORY_NAMES.PLAYSTATION]: {
     ozon: 'konsoli-playstation-31751/playstation-79966341',
     wb: '8829'
   },
@@ -24,15 +35,15 @@ export const CATEGORIES: Record<string, CategoryConfig> = {
     ozon: 'aksessuary-dlya-igrovyh-pristavok-15810',
     wb: '5923'
   },
-  nintendo_switch: {
+  [CATEGORY_NAMES.NINTENDO_SWITCH]: {
     ozon: 'igrovye-pristavki-15801/nintendo-26667979',
     wb: '523'
   },
-  steam_deck: {
+  [CATEGORY_NAMES.STEAM_DECK]: {
     ozon: 'igrovye-pristavki-15801/valve-84099638',
     wb: '523'
   },
-  iphone: {
+  [CATEGORY_NAMES.IPHONE]: {
     ozon: 'smartfony-15502/apple-26303000',
     wb: '515' // примерный WB id, замени на актуальный если есть
   },

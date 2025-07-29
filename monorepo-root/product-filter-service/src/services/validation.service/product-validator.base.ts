@@ -1,17 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-
-export enum ValidationReason {
-  PrefilterPassed = 'prefilter-passed',
-  AccessoryWords = 'accessory-words',
-  Accessory = 'accessory',
-  SoftAccessory = 'soft-accessory',
-  CodeValidated = 'code-validated',
-  SoftInsufficientFeatures = 'soft-insufficient-features',
-  InsufficientFeatures = 'insufficient-features',
-  ConflictingChipsets = 'conflicting-chipsets',
-  NoQueryChipsetInName = 'no-query-chipset-in-name',
-  ValidationFailed = 'validation-failed',
-}
+import { CategoryConfigService } from '../../config/categories.config';
 
 export interface ValidationResult {
   isValid: boolean;
@@ -20,16 +8,13 @@ export interface ValidationResult {
 }
 
 export interface ValidationRules {
-  chipsets?: string[];
-  modelPatterns?: RegExp[];
   accessoryWords?: string[];
   minNameLength?: number;
   price?: number;
   product?: any;
-  customValidator?: (query: string, name: string, rules: any) => ValidationResult;
 }
 
-export type ProductCategory = 'motherboards' | 'processors' | 'videocards' | 'playstation' | 'nintendo_switch' | 'steam_deck' | 'iphone';
+export type ProductCategory = string; // Динамически берется из CategoryConfigService.getAllCategories()
 
 @Injectable()
 export abstract class ProductValidatorBase {
@@ -40,165 +25,114 @@ export abstract class ProductValidatorBase {
   }
 
   /**
-   * Нормализатор строки - приводит к нижнему регистру
+   * Универсальный метод валидации - каждая категория реализует свою логику
    */
-  protected normalizeToLower(str: string): string {
-    return str.toLowerCase();
-  }
+  protected abstract validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult;
 
   /**
-   * Нормализатор убирания пробелов - приводит к нижнему регистру и убирает все пробелы
+   * Стандартная логика валидации - может быть переиспользована в кастомных валидаторах
    */
-  protected normalizeForQuery(str: string): string {
-    return str.toLowerCase().replace(/\s+/g, '');
-  }
+  protected validateProductStandard(query: string, name: string, rules: ValidationRules): ValidationResult {
+    this.logValidation(query, name);
 
-  /**
-   * Функция проверки аксессуаров
-   */
-  protected isAccessory(name: string, accessoryWords: string[]): boolean {
-    const normalizedName = this.normalizeToLower(name);
-    
-    // Проверяем, есть ли указание на то, что аксессуары в комплекте
-    const inPackageIndicators = [
-      'в комплекте', 'в наборе', 'в подарок', 'бесплатно', 'включает',
-      'комплект', 'набор', 'подарок', 'бесплатное', 'включено'
-    ];
-    
-    const hasInPackageIndicator = inPackageIndicators.some(indicator => 
-      normalizedName.includes(indicator)
-    );
-    
-    // Если есть указание на комплект, не считаем аксессуаром
-    if (hasInPackageIndicator) {
-      return false;
+    const normalizedName = this.normalize(name);
+    const normalizedQuery = this.normalize(query);
+
+    if (rules.accessoryWords && this.isAccessory(normalizedName, rules.accessoryWords)) {
+      return this.createResult(false, 'accessory', 0.9);
     }
-    
-    // Проверяем наличие слов аксессуаров
-    const hasAccessoryWords = accessoryWords.some(word => 
-      normalizedName.includes(word.toLowerCase())
-    );
-    
-    // Если есть слова аксессуаров, но нет указания на комплект, считаем аксессуаром
-    return hasAccessoryWords;
-  }
 
-  /**
-   * Извлечение моделей из названия продукта по паттернам
-   */
-  protected extractModels(name: string, patterns: RegExp[]): string[] {
-    const models = patterns
-      .flatMap((pattern: RegExp) => {
-        const found: string[] = [];
-        const regex = new RegExp(pattern, pattern.flags.includes('g') ? pattern.flags : pattern.flags + 'g');
-        let match;
-        while ((match = regex.exec(name)) !== null) {
-          if (match.length > 1 && match[match.length - 1]) {
-            found.push(match[match.length - 1]);
-          } else if (match[0]) {
-            found.push(match[0]);
-          }
-        }
-        return found;
-      })
-      .map(m => this.normalizeForQuery(m));
-    
-    return Array.from(new Set(models)).filter(Boolean);
-  }
-
-  /**
-   * Проверка соответствия модели
-   */
-  protected validateModelMatch(query: string, models: string[]): ValidationResult {
-    const normQuery = this.normalizeForQuery(query.replace(/[-\s]+/g, ''));
-    
-    if (
-      !models.includes(normQuery) ||
-      models.some(m => typeof m === 'string' && m !== normQuery && !normQuery.startsWith(m))
-    ) {
-      return { isValid: false, reason: 'no-model-match', confidence: 0.1 };
+    if (!this.validateNameQueryMatch(normalizedName, normalizedQuery)) {
+      return this.createResult(false, 'no-match', 0.7);
     }
-    
-    return { isValid: true, reason: 'model-match', confidence: 0.95 };
+
+    return this.createResult(true, 'all-checks-passed', 0.95);
   }
 
   /**
-   * Абстрактный метод для получения правил категории
+   * Получение правил категории - каждая категория определяет свои правила
    */
   protected abstract getCategoryRules(category: string): ValidationRules;
 
   /**
-   * Абстрактный метод для кастомной валидации
+   * Получить категорию, которую обрабатывает этот валидатор
    */
-  protected abstract customValidation(query: string, name: string, rules: ValidationRules): ValidationResult;
+  protected abstract getValidatorCategory(): string;
+
+  // ===== УНИВЕРСАЛЬНЫЕ МЕТОДЫ-УТИЛИТЫ =====
 
   /**
-   * Основной метод валидации батча продуктов
+   * Универсальная нормализация строки - убирает пробелы и приводит к нижнему регистру
    */
-  async validateBatch(products: any[], category: string): Promise<ValidationResult[]> {
-    const prefiltered = this.prefilterProducts(products, category);
-    const rules = this.getCategoryRules(category);
-    
-    if (!rules) {
-      this.logger.warn(`⚠️ Нет правил для категории ${category}`);
-      return prefiltered.map(() => ({ isValid: false, reason: 'no-rules', confidence: 0 }));
-    }
+  protected normalize(str: string): string {
+    return str.toLowerCase().replace(/\s+/g, '');
+  }
 
-    return prefiltered.map((preResult, index) => {
-      const product = products[index];
-      
-      // Если префильтрация уже определила результат, возвращаем его
-      if (preResult.reason !== ValidationReason.PrefilterPassed) {
-        return preResult;
-      }
-      
-      // Иначе выполняем кастомную валидацию
-      return this.customValidation(product.query, product.name, { ...rules, price: product.price, product });
+  /**
+   * Проверка соответствия названия и запроса - точное совпадение
+   */
+  protected validateNameQueryMatch(normalizedName: string, normalizedQuery: string): boolean {
+    return normalizedName.includes(normalizedQuery);
+  }
+
+  /**
+   * Проверка на аксессуары - входные данные: нормализованная строка названия и массив слов аксессуаров
+   */
+  protected isAccessory(normalizedName: string, accessoryWords: string[]): boolean {
+    return accessoryWords.some(word => normalizedName.includes(this.normalize(word)));
+  }
+
+
+  /**
+   * Создание результата валидации
+   */
+  protected createResult(isValid: boolean, reason: string, confidence: number = 0.5): ValidationResult {
+    return { isValid, reason, confidence };
+  }
+
+  /**
+   * Логирование для отладки
+   */
+  protected logValidation(query: string, name: string): void {
+    console.log(`[${this.constructor.name} DEBUG]`, {
+      query,
+      name,
+      normalizedQuery: this.normalize(query),
+      normalizedName: this.normalize(name)
     });
   }
 
   /**
-   * Валидация одиночного продукта
+   * Валидация одного продукта
    */
   async validateSingleProduct(query: string, productName: string, category: string): Promise<ValidationResult> {
-    const [result] = await this.validateBatch([
-      { query, name: productName, price: 0 }
-    ], category);
-    return result;
+    const rules = this.getCategoryRules(category);
+    if (!rules) {
+      return this.createResult(false, 'unknown-category', 0.1);
+    }
+    return this.validateProductStandard(query, productName, rules);
   }
 
   /**
-   * Группирует продукты по query и валидирует каждый батч
+   * Группировка и валидация продуктов по запросу
    */
-  async groupAndValidateByQuery(products: any[], category: ProductCategory): Promise<ValidationResult[]> {
-    const byQuery: Record<string, any[]> = {};
+  async groupAndValidateByQuery(products: any[], category: string): Promise<ValidationResult[]> {
+    const results: ValidationResult[] = [];
     
     for (const product of products) {
-      const q = product.query || '';
-      if (!byQuery[q]) byQuery[q] = [];
-      byQuery[q].push(product);
-    }
-    
-    const allResults = await Promise.all(
-      Object.entries(byQuery).map(async ([query, items]) => {
-        return this.validateBatch(items, category);
-      })
-    );
-    
-    return allResults.flat();
-  }
-
-  /**
-   * Префильтрация продуктов
-   */
-  protected prefilterProducts(products: any[], category: string): ValidationResult[] {
-    return products.map(product => {
-      // Если у продукта уже есть причина, возвращаем её
-      if (product.reason) {
-        return { isValid: true, reason: product.reason, confidence: 1.0 };
+      const query = product.query;
+      const name = product.name;
+      
+      if (!query || !name) {
+        results.push(this.createResult(false, 'missing-query-or-name', 0.1));
+        continue;
       }
       
-      return { isValid: true, reason: ValidationReason.PrefilterPassed, confidence: 0.5 };
-    });
+      const result = await this.validateSingleProduct(query, name, category);
+      results.push(result);
+    }
+    
+    return results;
   }
+
 } 

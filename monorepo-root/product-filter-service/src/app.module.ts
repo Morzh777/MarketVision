@@ -10,8 +10,6 @@ import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { ValidationServiceModule } from './services/validation.service/validation.service.module';
-import { MLModule } from './services/ml/ml.module';
-import { MLController } from './controllers/ml.controller';
 
 @Module({
   imports: [
@@ -20,9 +18,8 @@ import { MLController } from './controllers/ml.controller';
       envFilePath: '.env',
     }),
     ValidationServiceModule, // Подключаем новую систему валидации
-    MLModule, // Подключаем ML модуль
   ],
-  controllers: [ProductsController, MLController],
+  controllers: [ProductsController],
   providers: [
     ProductsService,
     ProductAggregatorService,

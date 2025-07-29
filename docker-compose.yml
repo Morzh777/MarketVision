@@ -16,15 +16,17 @@ services:
   # gRPC микросервис фильтрации продуктов
   product-filter-service:
     build:
-      context: ./product-filter-service
+      context: ./monorepo-root/product-filter-service
       dockerfile: Dockerfile
     container_name: product-filter-service
     ports:
+      - "3001:3001"
       - "50051:50051"
     environment:
       - REDIS_URL=redis://redis:6379
       - GRPC_PORT=50051
       - GRPC_HOST=0.0.0.0
+      - PORT=3001
       - LOG_LEVEL=info
     depends_on:
       - redis
@@ -109,6 +111,26 @@ services:
       - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
     depends_on:
       - redis
+      - product-filter-service
+    networks:
+      - product-network
+    restart: unless-stopped
+
+  # MarketVision API (Next.js фронтенд)
+  marketvision-api:
+    build:
+      context: ./monorepo-root/marketvision-api
+      dockerfile: Dockerfile
+    container_name: marketvision-api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - NEXT_PUBLIC_API_URL=http://localhost:3003/api
+      - PRODUCT_FILTER_SERVICE_URL=http://product-filter-service:3001
+    depends_on:
+      - db-api
       - product-filter-service
     networks:
       - product-network

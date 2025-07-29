@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./styles/globals.scss";
 
+// Импортируем планировщик парсинга (запускается автоматически в production)
+import "./services/parsingScheduler";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

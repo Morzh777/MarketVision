@@ -17,11 +17,22 @@
 
 ## 🏗️ Архитектура системы
 
+### 🚀 Быстрый справочник по портам:
+- **WB API**: `http://localhost:3000` - Парсер WildBerries
+- **Product Filter Service**: `http://localhost:3001` - REST API центральный сервис
+- **Ozon API**: `localhost:3002` - gRPC парсер Ozon
+- **DB API**: `http://localhost:3003` - API базы данных
+- **MarketVision API**: `http://localhost:3004` - Веб-интерфейс (Next.js)
+- **Product Filter Service**: `localhost:50051` - gRPC центральный сервис
+- **PostgreSQL**: `localhost:5432` - База данных
+- **Redis**: `localhost:6379` - Кэширование
+
 ### Текущая архитектура:
 ```
 ┌─────────────────┐    ┌──────────────────┐
 │   Telegram Bot  │    │  MarketVision    │
 │   (TypeScript)  │    │   (Next.js)      │
+│   Port: N/A     │    │   Port: 3004     │
 └─────────────────┘    └──────────────────┘
          │                       │
          └───────────────────────┘
@@ -30,6 +41,7 @@
                     │ Product Filter   │
                     │   Service        │
                     │  (NestJS)        │
+                    │  Port: 3001/50051│
                     └──────────────────┘
                                  │
          ┌───────────────────────┼───────────────────────┐
@@ -37,6 +49,7 @@
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   WB API        │    │   DB API         │    │   Ozon API      │
 │  (NestJS)       │    │  (NestJS)        │    │   (Python)      │
+│  Port: 3000     │    │  Port: 3003      │    │   Port: 3002    │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
          │                       │                       │
          └───────────────────────┼───────────────────────┘
@@ -44,8 +57,19 @@
                     ┌──────────────────┐
                     │   PostgreSQL     │
                     │   Database       │
+                    │   Port: 5432     │
                     └──────────────────┘
 ```
+
+### Распределение портов:
+- **WB API**: `3000` - Парсер WildBerries
+- **Product Filter Service**: `3001` - REST API центральный сервис
+- **Ozon API**: `3002` - gRPC парсер Ozon
+- **DB API**: `3003` - API базы данных
+- **MarketVision API**: `3004` - Веб-интерфейс (Next.js)
+- **Product Filter Service**: `50051` - gRPC центральный сервис
+- **PostgreSQL**: `5432` - База данных
+- **Redis**: `6379` - Кэширование
 
 ### Ключевые принципы:
 - ✅ **Product-Filter-Service** - центральный hub для агрегации данных
@@ -141,6 +165,25 @@ services:
       - product-network
     restart: unless-stopped
 
+  # Ozon API сервис
+  ozon-api:
+    build:
+      context: ./monorepo-root/ozon-api
+      dockerfile: Dockerfile
+    container_name: ozon-api
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+      - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+      - LOG_LEVEL=info
+    depends_on:
+      - product-filter-service
+    networks:
+      - product-network
+    restart: unless-stopped
+
   # PostgreSQL
   postgres:
     image: postgres:15-alpine
@@ -164,10 +207,10 @@ services:
       dockerfile: Dockerfile
     container_name: marketvision-api
     ports:
-      - "3001:3001"
+      - "3004:3004"
     environment:
       - NODE_ENV=production
-      - PORT=3001
+      - PORT=3004
     depends_on:
       - product-filter-service
     networks:
@@ -446,6 +489,12 @@ REDIS_URL=redis://redis:6379
 PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
 LOG_LEVEL=info
 
+# Ozon API
+NODE_ENV=production
+PORT=3002
+PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+LOG_LEVEL=info
+
 # DB API
 DATABASE_URL=postgresql://user:password@postgres:5432/marketvision
 PORT=3003
@@ -453,7 +502,7 @@ NODE_ENV=production
 
 # MarketVision API
 NODE_ENV=production
-PORT=3001
+PORT=3004
 
 # Telegram Bot
 TG_BOT_TOKEN=your_bot_token
@@ -547,17 +596,24 @@ docker-compose up -d
 # Проверка статуса
 docker-compose ps
 
-# Тестирование API
+# Тестирование сервисов:
+# Product Filter Service (REST API)
 curl http://localhost:3001/api/products?query=RTX4070&category=videocards
 
-# Тестирование WB API
+# WB API (парсер WildBerries)
 curl http://localhost:3000/health
 
-# Тестирование DB API
+# Ozon API (парсер Ozon)
+grpcurl -plaintext localhost:3002 list
+
+# DB API (база данных)
 curl http://localhost:3003/health
 
-# Тестирование MarketVision API
-curl http://localhost:3001/health
+# MarketVision API (веб-интерфейс)
+curl http://localhost:3004/health
+
+# Product Filter Service (gRPC)
+grpcurl -plaintext localhost:50051 list
 ```
 
 ### Локальная разработка:
@@ -569,6 +625,7 @@ docker-compose up redis postgres -d
 # Запуск сервисов локально
 cd monorepo-root/product-filter-service && npm run start:dev
 cd monorepo-root/wb-api && npm run start:dev
+cd monorepo-root/ozon-api && python src/main.py
 cd monorepo-root/db-api && npm run start:dev
 cd monorepo-root/marketvision-api && npm run dev
 cd monorepo-root/bot && npm run dev
@@ -610,6 +667,7 @@ docker-compose logs -f
 # Конкретный сервис
 docker-compose logs -f product-filter-service
 docker-compose logs -f wb-api
+docker-compose logs -f ozon-api
 docker-compose logs -f db-api
 docker-compose logs -f marketvision-api
 
@@ -620,17 +678,23 @@ docker-compose logs --tail=100 [service-name]
 ### Проверка здоровья сервисов:
 
 ```bash
-# Product Filter Service
-curl http://localhost:50051/health
+# Product Filter Service (REST API)
+curl http://localhost:3001/health
 
-# WB API
+# Product Filter Service (gRPC)
+grpcurl -plaintext localhost:50051 list
+
+# WB API (парсер WildBerries)
 curl http://localhost:3000/health
 
-# DB API
+# Ozon API (парсер Ozon)
+grpcurl -plaintext localhost:3002 list
+
+# DB API (база данных)
 curl http://localhost:3003/health
 
-# MarketVision API
-curl http://localhost:3001/health
+# MarketVision API (веб-интерфейс)
+curl http://localhost:3004/health
 ```
 
 ### Отладка PostgreSQL:
@@ -668,6 +732,10 @@ GET "products:videocards:RTX4070"
 | `PostgreSQL connection failed` | Убедитесь что PostgreSQL запущен |
 | `Redis connection failed` | Убедитесь что Redis запущен |
 | `Port already in use` | Остановите локальные сервисы или измените порты |
+| `Port 3000 conflict` | WB API использует порт 3000, проверьте что не занят |
+| `Port 3001 conflict` | Product Filter Service использует порт 3001, проверьте что не занят |
+| `Port 3002 conflict` | Ozon API использует порт 3002, проверьте что не занят |
+| `Port 3004 conflict` | MarketVision API использует порт 3004, проверьте что не занят |
 | `Build failed` | Проверьте Dockerfile и зависимости |
 | `Validation errors` | Проверьте конфигурацию валидации |
 

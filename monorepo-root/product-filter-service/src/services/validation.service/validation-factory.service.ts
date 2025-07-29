@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ProductCategory } from './product-validator.base';
+import { CategoryConfigService } from '../../config/categories.config';
 import { MotherboardsValidator } from './category/motherboards.validator';
 import { ProcessorsValidator } from './category/processors.validator';
 import { VideocardsValidator } from './category/videocards.validator';
@@ -21,6 +22,12 @@ export class ValidationFactoryService {
   ) {}
 
   getValidator(category: ProductCategory): ProductValidatorBase {
+    // Проверяем, что категория существует в конфигурации
+    const validCategories = CategoryConfigService.getAllCategories();
+    if (!validCategories.includes(category)) {
+      throw new Error(`Неизвестная категория: ${category}. Допустимые: ${validCategories.join(', ')}`);
+    }
+
     switch (category) {
       case 'motherboards':
         return this.motherboardsValidator;
@@ -37,7 +44,7 @@ export class ValidationFactoryService {
       case 'iphone':
         return this.iphoneValidator;
       default:
-        throw new Error(`Неизвестная категория: ${category}`);
+        throw new Error(`Валидатор для категории "${category}" не найден. Добавьте его в ValidationFactoryService.`);
     }
   }
 
@@ -49,5 +56,19 @@ export class ValidationFactoryService {
   async validateSingleProduct(query: string, productName: string, category: ProductCategory) {
     const validator = this.getValidator(category);
     return validator.validateSingleProduct(query, productName, category);
+  }
+
+  /**
+   * Получить все доступные категории из конфигурации
+   */
+  getAllCategories(): string[] {
+    return CategoryConfigService.getAllCategories();
+  }
+
+  /**
+   * Проверить, существует ли категория
+   */
+  hasCategory(category: string): boolean {
+    return CategoryConfigService.hasCategory(category);
   }
 } 

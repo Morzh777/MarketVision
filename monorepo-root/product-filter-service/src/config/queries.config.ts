@@ -3,15 +3,15 @@
 
 export const CATEGORY_QUERIES: Record<string, string[]> = {
   videocards: [
-    'RTX5070',
-    'RTX5070TI', 
-    'RTX5080',
-    'RTX5090'
+    'rtx 5070',
+    'rtx 5070 ti', 
+    'rtx 5080',
+    'rtx 5090'
   ],
   processors: [
-    '7800X3D',
-    '9800X3D',
-    '9950X3D'
+    '7800x3d',
+    '9800x3d',
+    '9950x3d'
   ],
   motherboards: [
     'Z790',
@@ -20,11 +20,11 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
     'B850'
   ],
   playstation: [
-    'PlayStation 5 Pro'
+    'playstation 5',
+    'playstation 5 pro'
   ],
   playstation_accessories: [
-    'Дисковод Sony для Playstation 5 Pro',
-    'Геймпад PlayStation 5',
+    'Дисковод Sony для Playstation 5 Pro'
   ],
   nintendo_switch: [
     'nintendo switch 2',
@@ -38,8 +38,6 @@ export const CATEGORY_QUERIES: Record<string, string[]> = {
     'iphone 16 pro max',
     'iphone 16',
     'iphone 16 plus',
-    'iphone 16 pro max',
-    'iphone 16 pro max',
   ]
 };
 

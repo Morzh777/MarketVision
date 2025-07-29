@@ -1,6 +1,9 @@
-import { NextResponse } from 'next/server';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003/api';
+import { 
+  fetchFromExternalApi, 
+  createSuccessResponse, 
+  createErrorResponse,
+  API_ROUTES 
+} from '../../routes.config';
 
 export async function GET(
   request: Request,
@@ -9,30 +12,14 @@ export async function GET(
   try {
     const { query } = await params;
     const decodedQuery = decodeURIComponent(query);
-    const response = await fetch(`${API_BASE_URL}/products-by-query/${encodeURIComponent(decodedQuery)}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`);
-    }
-
+    const endpoint = `${API_ROUTES.PRODUCTS_BY_QUERY.path.replace('[query]', encodeURIComponent(decodedQuery))}`;
+    
+    const response = await fetchFromExternalApi(endpoint);
     const data = await response.json();
     
-    return NextResponse.json(data, {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      },
-    });
+    return createSuccessResponse(data);
   } catch (error) {
     console.error('Error fetching products by query:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch products by query' },
-      { status: 500 }
-    );
+    return createErrorResponse(API_ROUTES.PRODUCTS_BY_QUERY.errorMessage);
   }
 } 

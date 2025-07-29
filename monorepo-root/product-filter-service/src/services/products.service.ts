@@ -7,7 +7,7 @@ import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
 import { PhotoService } from './photo.service';
-import { MLService } from './ml/ml.service';
+
 
 @Injectable()
 export class ProductsService {
@@ -20,7 +20,6 @@ export class ProductsService {
     private readonly normalizer: ProductNormalizerService,
     private readonly dbApiClient: DbApiClient,
     private readonly photoService: PhotoService,
-    private readonly mlService: MLService,
   ) {}
 
   /**
@@ -41,34 +40,26 @@ export class ProductsService {
     const queriesStr = queries.length === 1
       ? queries[0]
       : queries.join(', ');
-    this.logger.log(`🔍 Запрос продуктов: "${queriesStr}" для категории "${request.category}"`);
+    this.logger.log(`🔍 Запрос: "${queriesStr}" (${request.category})`);
     let t = Date.now();
 
     // 1. Агрегация
     const allProducts = await this.aggregator.fetchAllProducts(request);
-    this.logger.log(`📦 Получено ${allProducts.length} продуктов из всех источников (+${Date.now() - t}ms)`);
+    this.logger.log(`📦 Получено ${allProducts.length} продуктов`);
     t = Date.now();
 
-    // 2. ML Валидация
-    const mlValidationResults = await this.mlService.validateProducts(allProducts);
-    // Пробрасываем результат валидации в каждый продукт
-    allProducts.forEach((product, i) => {
-      if (mlValidationResults[i]) {
-        Object.assign(product, {
-          isValid: mlValidationResults[i].isValid,
-          reason: mlValidationResults[i].reason,
-          confidence: mlValidationResults[i].confidence
-        });
-        if (!mlValidationResults[i].isValid) {
-          this.logger.warn(`[ML-VALIDATION][FAIL] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${mlValidationResults[i].reason}" confidence:${mlValidationResults[i].confidence}`);
-        } else {
-          this.logger.log(`[ML-VALIDATION][OK] id:${product.id} name:"${product.name}" price:${product.price} query:"${product.query}" reason:"${mlValidationResults[i].reason}" confidence:${mlValidationResults[i].confidence}`);
-        }
+    // 2. Валидация через ValidationFactoryService
+    const validationResults = await this.validationFactory.validateProducts(allProducts, request.category as any);
+    const validProducts = allProducts.filter((product, index) => {
+      const result = validationResults[index];
+      if (!result.isValid) {
+        this.logger.debug(`❌ Продукт не прошел валидацию: ${product.name} - ${result.reason}`);
+      } else {
+        this.logger.debug(`✅ Продукт прошел валидацию: ${product.name} - ${result.reason} (confidence: ${result.confidence})`);
       }
+      return result.isValid;
     });
-    this.logger.log(`⏱️ ML Валидация заняла ${Date.now() - t}ms`);
-    const validProducts = allProducts.filter((_, i) => mlValidationResults[i]?.isValid);
-    this.logger.log(`✅ Прошло ML валидацию: ${validProducts.length}/${allProducts.length} продуктов`);
+    this.logger.log(`✅ Валидация: ${validProducts.length}/${allProducts.length}`);
     t = Date.now();
 
     // 3. Группировка (по нормализованному ключу)
@@ -77,8 +68,13 @@ export class ProductsService {
       (product) => this.normalizer.getModelKey(product),
       request.category
     );
-    this.logger.log(`⏱️ Группировка заняла ${Date.now() - t}ms`);
-    this.logger.log(`📊 Сгруппировано в ${groupedProducts.length} уникальных товаров`);
+    this.logger.log(`📊 Сгруппировано в ${groupedProducts.length} товаров`);
+    
+    // Логируем информацию о последнем товаре в результате
+    if (groupedProducts.length > 0) {
+      const lastProduct = groupedProducts[groupedProducts.length - 1];
+      this.logger.log(`🎯 Последний товар в результате: "${lastProduct.name}" (цена: ${lastProduct.price}₽, источник: ${lastProduct.source})`);
+    }
     t = Date.now();
 
     // Подменяем category на человекочитаемое название перед сохранением
@@ -88,7 +84,7 @@ export class ProductsService {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
       }
     }
-    this.logger.log(`⏱️ Получение фото заняло ${Date.now() - t}ms`);
+    this.logger.log(`📷 Фото получены`);
     t = Date.now();
 
     // Группируем валидные продукты по query
@@ -117,21 +113,22 @@ export class ProductsService {
         product_id: cheapest.id,
         created_at: new Date().toISOString()
       } : undefined;
-      this.logger.log('market_stats for query:', query, market_stats);
       await this.dbApiClient.batchCreateProducts({
         products: [cheapest],
         market_stats
       });
-      this.logger.log(`DB-API: inserted cheapest product for query="${query}"`);
+      this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
     }
 
     const processingTimeMs = Date.now() - startTime;
-    this.logger.log(`✅ Готово: ${groupedProducts.length} продуктов за ${processingTimeMs}ms`);
+    this.logger.log(`✅ Готово: ${groupedProducts.length} товаров за ${processingTimeMs}ms`);
 
     return {
       products: groupedProducts,
       total_queries: request.queries.length,
       total_products: groupedProducts.length,
+      total_validated: validProducts.length,
+      total_raw: allProducts.length,
       processing_time_ms: processingTimeMs,
       cache_hits: 0,
       cache_misses: 0
