@@ -1,127 +1,146 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-import styles from './admin.module.scss';
+import { useAuth } from '../hooks/useAuth'
+import styles from '../styles/components/admin.module.scss'
 
 interface SchedulerStatus {
-  isRunning: boolean;
-  isParsing: boolean;
-  nextRun: string;
-  config: Record<string, string[]>;
-  activeCategories?: Record<string, boolean>;
+  isRunning: boolean
+  isParsing: boolean
+  nextRun: string
+  config: Record<string, string[]>
+  activeCategories?: Record<string, boolean>
 }
 
+/**
+ * Страница администрирования
+ */
 export default function AdminPage() {
-  const [status, setStatus] = useState<SchedulerStatus | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const { user, isLoading: authLoading, logout } = useAuth()
+  const [status, setStatus] = useState<SchedulerStatus | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
 
-  const fetchStatus = async () => {
-    try {
-      const response = await fetch('/api/scheduler/status');
-      const data = await response.json();
-      setStatus(data);
-    } catch (error) {
-      console.error('Ошибка получения статуса:', error);
-      setMessage('Ошибка получения статуса планировщика');
+  // Проверяем аутентификацию
+  useEffect(() => {
+    if (!authLoading && !user) {
+      window.location.href = '/auth'
     }
-  };
+  }, [user, authLoading])
 
-  const runParsingNow = async () => {
-    setLoading(true);
-    setMessage('');
+  // Загружаем статус планировщика
+  useEffect(() => {
+    if (user) {
+      fetchStatus()
+      const interval = setInterval(fetchStatus, 30000)
+      return () => clearInterval(interval)
+    }
+  }, [user])
+
+  const fetchStatus = async (): Promise<void> => {
+    try {
+      const response = await fetch('/api/scheduler/status')
+      const data = await response.json()
+      setStatus(data)
+    } catch {
+      setMessage('Ошибка получения статуса планировщика')
+    }
+  }
+
+  const runParsingNow = async (): Promise<void> => {
+    setLoading(true)
+    setMessage('')
     
     try {
-      const response = await fetch('/api/scheduler/run-now', {
-        method: 'POST',
-      });
-      const data = await response.json();
-      setMessage(`Парсинг запущен: ${data.message}`);
-      await fetchStatus(); // Обновляем статус
-    } catch (error) {
-      console.error('Ошибка запуска парсинга:', error);
-      setMessage('Ошибка запуска парсинга');
+      const response = await fetch('/api/scheduler/run-now', { method: 'POST' })
+      const data = await response.json()
+      setMessage(`Парсинг запущен: ${data.message}`)
+      await fetchStatus()
+    } catch {
+      setMessage('Ошибка запуска парсинга')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  const startScheduler = async () => {
-    setLoading(true);
-    setMessage('');
+  const startScheduler = async (): Promise<void> => {
+    setLoading(true)
+    setMessage('')
     
     try {
-      const response = await fetch('/api/scheduler/start', {
-        method: 'POST',
-      });
-      const data = await response.json();
-      setMessage(`Планировщик запущен: ${data.message}`);
-      await fetchStatus();
-    } catch (error) {
-      console.error('Ошибка запуска планировщика:', error);
-      setMessage('Ошибка запуска планировщика');
+      const response = await fetch('/api/scheduler/start', { method: 'POST' })
+      const data = await response.json()
+      setMessage(`Планировщик запущен: ${data.message}`)
+      await fetchStatus()
+    } catch {
+      setMessage('Ошибка запуска планировщика')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  const stopScheduler = async () => {
-    setLoading(true);
-    setMessage('');
+  const stopScheduler = async (): Promise<void> => {
+    setLoading(true)
+    setMessage('')
     
     try {
-      const response = await fetch('/api/scheduler/stop', {
-        method: 'POST',
-      });
-      const data = await response.json();
-      setMessage(`Планировщик остановлен: ${data.message}`);
-      await fetchStatus();
-    } catch (error) {
-      console.error('Ошибка остановки планировщика:', error);
-      setMessage('Ошибка остановки планировщика');
+      const response = await fetch('/api/scheduler/stop', { method: 'POST' })
+      const data = await response.json()
+      setMessage(`Планировщик остановлен: ${data.message}`)
+      await fetchStatus()
+    } catch {
+      setMessage('Ошибка остановки планировщика')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  const updateCategories = async (categories: Record<string, boolean>) => {
-    setLoading(true);
-    setMessage('');
+  const updateCategories = async (categories: Record<string, boolean>): Promise<void> => {
+    setLoading(true)
+    setMessage('')
     
     try {
       const response = await fetch('/api/scheduler/categories', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ activeCategories: categories }),
-      });
-      const data = await response.json();
-      setMessage(`Категории обновлены: ${data.message}`);
-      await fetchStatus();
-    } catch (error) {
-      console.error('Ошибка обновления категорий:', error);
-      setMessage('Ошибка обновления категорий');
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ activeCategories: categories })
+      })
+      const data = await response.json()
+      setMessage(`Категории обновлены: ${data.message}`)
+      await fetchStatus()
+    } catch {
+      setMessage('Ошибка обновления категорий')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
-  useEffect(() => {
-    fetchStatus();
-    // Обновляем статус каждые 30 секунд
-    const interval = setInterval(fetchStatus, 30000);
-    return () => clearInterval(interval);
-  }, []);
+  // Показываем загрузку пока проверяем аутентификацию
+  if (authLoading) {
+    return <div className={styles.container}>Проверка аутентификации...</div>
+  }
+
+  // Если пользователь не авторизован, не показываем контент
+  if (!user) {
+    return null
+  }
 
   if (!status) {
-    return <div className={styles.container}>Загрузка...</div>;
+    return <div className={styles.container}>Загрузка...</div>
   }
 
   return (
     <div className={styles.container}>
-      <h1>Админка MarketVision</h1>
+      <div className={styles.header}>
+        <h1>Админка MarketVision</h1>
+        <div className={styles.userInfo}>
+          <span>Пользователь: {user.username}</span>
+          <button onClick={logout} className={styles.logoutButton}>
+            Выйти
+          </button>
+        </div>
+      </div>
       
       <div className={styles.section}>
         <h2>Планировщик парсинга</h2>
@@ -191,7 +210,7 @@ export default function AdminPage() {
         <h2>Управление категориями</h2>
         <div className={styles.configGrid}>
           {Object.entries(status.config).map(([category, queries]) => {
-            const isActive = status.activeCategories?.[category] || false;
+            const isActive = status.activeCategories?.[category] || false
             return (
               <div key={category} className={`${styles.configCard} ${isActive ? styles.activeCard : styles.inactiveCard}`}>
                 <h3>{category}</h3>
@@ -205,8 +224,8 @@ export default function AdminPage() {
                         const newCategories = {
                           ...status.activeCategories,
                           [category]: e.target.checked
-                        };
-                        updateCategories(newCategories);
+                        }
+                        updateCategories(newCategories)
                       }}
                       disabled={loading}
                     />
@@ -214,10 +233,10 @@ export default function AdminPage() {
                   </label>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </div>
-  );
+  )
 } 

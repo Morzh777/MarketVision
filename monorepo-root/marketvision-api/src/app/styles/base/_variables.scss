@@ -1,80 +1,53 @@
-// CSS переменные для темизации
-:root {
-  // Основные цвета
-  --color-bg: #181A20;
-  --color-bg-light: #20232B;
-  --color-bg-dark: #181A20;
-  --color-bg-header: #20232B;
-  --color-bg-active: #23272F;
-  --color-bg-card: #20232B;
-  --color-bg-overlay: rgba(24, 26, 32, 0.9);
-  
-  // Цвета текста
-  --color-text: #E5E7EB;
-  --color-text-secondary: #9CA3AF;
-  --color-text-title: #F3F4F6;
-  --color-text-marquee: #F3F4F6;
-  --color-text-marquee-secondary: #D1D5DB;
-  
-  // Границы
-  --color-border: #23272F;
-  --color-border-card: #23272F;
-  
-  // Акцентные цвета
-  --color-blue: #005bff;
-  --color-blue-dark: #0047cc;
-  --color-purple: #cb11ab;
-  --color-purple-dark: #a80f8a;
-  --color-purple-darker: #8a0d73;
-  --color-green: #22C55E;
-  --color-red: #EF4444;
-  
-  // Градиенты
-  --color-gradient-fade: rgba(24, 26, 32, 0.9);
-  --color-gradient-fade-transparent: rgba(24, 26, 32, 0);
-  
-  // Анимации
-  --transition-default: all 0.3s ease;
-  
-  // Размеры шрифтов
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 22px;
-  --font-size-3xl: 26px;
-  
-  // Веса шрифтов
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  
-  // Размеры
-  --sidebar-width: 360px;
-}
+// SCSS переменные для использования в миксинах
+$color-bg: #181A20;
+$color-bg-light: #20232B;
+$color-bg-dark: #181A20;
+$color-bg-header: #20232B;
+$color-bg-active: #23272F;
+$color-bg-card: #20232B;
+$color-bg-overlay: rgba(24, 26, 32, 0.9);
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #FFFFFF;
-    --color-bg-light: #F9FAFB;
-    --color-bg-dark: #F3F4F6;
-    --color-bg-header: #FFFFFF;
-    --color-bg-active: #EFF6FF;
-    --color-bg-card: #F9FAFB;
-    --color-bg-overlay: rgba(255, 255, 255, 0.9);
-    
-    --color-text: #111827;
-    --color-text-secondary: #6B7280;
-    --color-text-title: #374151;
-    --color-text-marquee: #111827;
-    --color-text-marquee-secondary: #4B5563;
-    
-    --color-border: #E5E7EB;
-    --color-border-card: #F3F4F6;
-    
-    --color-gradient-fade: rgba(255, 255, 255, 0.9);
-    --color-gradient-fade-transparent: rgba(255, 255, 255, 0);
-  }
-} 
+// Цвета текста
+$color-text: #E5E7EB;
+$color-text-secondary: #9CA3AF;
+$color-text-title: #F3F4F6;
+$color-text-marquee: #F3F4F6;
+$color-text-marquee-secondary: #D1D5DB;
+
+// Границы
+$color-border: #23272F;
+$color-border-card: #23272F;
+
+// Акцентные цвета
+$color-blue: #005bff;
+$color-blue-dark: #0047cc;
+$color-purple: #cb11ab;
+$color-purple-dark: #a80f8a;
+$color-purple-darker: #8a0d73;
+$color-green: #22C55E;
+$color-red: #EF4444;
+
+// Градиенты
+$color-gradient-fade: rgba(24, 26, 32, 0.9);
+$color-gradient-fade-transparent: rgba(24, 26, 32, 0);
+
+// Анимации
+$transition-default: all 0.3s ease;
+
+// Размеры шрифтов
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 22px;
+$font-size-3xl: 26px;
+
+// Веса шрифтов
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Размеры
+$sidebar-width: 360px; 
