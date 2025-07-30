@@ -41,7 +41,7 @@ export interface PopularQuery {
   minPrice: number;
   id: string;
   priceChangePercent: number;
-  image_url?: string; // Картинка товара для аватара
+  image_url: string; // Картинка товара для аватара
 }
 
 export interface PriceHistoryItem {

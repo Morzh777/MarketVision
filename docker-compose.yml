@@ -43,10 +43,12 @@ services:
       dockerfile: Dockerfile
     container_name: wb-api
     ports:
-      - "3000:3000"
+      - "3006:3006"  # HTTP health endpoint
+      - "3000:3000"  # gRPC server
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=3006
+      - GRPC_PORT=3000
       - REDIS_URL=redis://redis:6379
       - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
       - LOG_LEVEL=info
@@ -57,7 +59,7 @@ services:
       - product-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -123,10 +125,10 @@ services:
       dockerfile: Dockerfile
     container_name: marketvision-api
     ports:
-      - "3000:3000"
+      - "3004:3004"  # Веб-интерфейс согласно Developer Guide
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=3004
       - NEXT_PUBLIC_API_URL=http://localhost:3003/api
       - PRODUCT_FILTER_SERVICE_URL=http://product-filter-service:3001
     depends_on:

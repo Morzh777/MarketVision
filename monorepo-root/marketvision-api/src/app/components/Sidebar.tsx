@@ -69,18 +69,26 @@ const Sidebar: React.FC<SidebarProps> = ({
   const [dragStart, setDragStart] = useState<number | null>(null);
   const [dragCurrent, setDragCurrent] = useState<number | null>(null);
   const [priceHistory, setPriceHistory] = useState<{ price: number | null; created_at: string }[]>([]);
+  const [isLoadingPriceHistory, setIsLoadingPriceHistory] = useState(false);
 
-  // Получаем историю цен для выбранного продукта
+  // Получаем историю цен только при выборе продукта
   useEffect(() => {
     const fetchPriceHistory = async () => {
-      if (selectedProduct?.query) {
+      console.log('Sidebar useEffect triggered:', { 
+        selectedProduct: selectedProduct?.query, 
+        showProductCard, 
+        hasQuery: !!selectedProduct?.query 
+      });
+      
+      if (selectedProduct?.query && showProductCard) {
         console.log('Sidebar: Fetching price history for query:', {
           query: selectedProduct.query,
           name: selectedProduct.name,
           price: selectedProduct.price
         });
+        
+        setIsLoadingPriceHistory(true);
         try {
-          // Запрашиваем последние 10 записей истории цен по query
           const historyData = await ProductService.getPriceHistoryByQuery(selectedProduct.query, 10);
           console.log('Sidebar: Received history data:', historyData);
           
@@ -93,14 +101,19 @@ const Sidebar: React.FC<SidebarProps> = ({
           }
         } catch (error) {
           console.error('Error fetching price history:', error);
+          setPriceHistory([]);
+        } finally {
+          setIsLoadingPriceHistory(false);
         }
       } else {
-        console.log('Sidebar: No selectedProduct or no id');
+        console.log('Sidebar: Clearing price history - no product or card not shown');
+        // Очищаем историю цен при закрытии карточки
+        setPriceHistory([]);
       }
     };
 
     fetchPriceHistory();
-  }, [selectedProduct]);
+  }, [selectedProduct, showProductCard]);
 
   // Фильтрация продуктов по поисковому запросу с транслитерацией
   const filteredQueries = useMemo(() => {
@@ -261,56 +274,58 @@ const Sidebar: React.FC<SidebarProps> = ({
         )}
       </aside>
 
-                        {/* Индикатор свайпа (как в Telegram) - УБРАН */}
-                  {/* {showProductCard && (
-                    <div className="sidebar__product-card-swipe-indicator" />
-                  )} */}
+      {/* Карточка товара (выезжает справа) */}
+      {showProductCard && (
+        <div
+          className={`sidebar__product-card${showProductCard ? ' sidebar__product-card--visible' : ''}${dragStart !== null ? ' sidebar__product-card--dragging' : ''}`}
+          style={{
+            transform: dragStart !== null && dragCurrent !== null && dragCurrent > dragStart
+              ? `translateX(${dragCurrent - dragStart}px)`
+              : undefined
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="sidebar__product-card-header">
+            <button
+              type="button"
+              className="sidebar__product-card-back"
+              onClick={handleCloseProductCard}
+            >
+              <ArrowLeftIcon />
+            </button>
+            <h3 className="sidebar__product-card-title">{selectedProduct?.query?.toUpperCase() || 'ПОИСКОВЫЙ ЗАПРОС'}</h3>
+            <button
+              type="button"
+              className="sidebar__product-card-close"
+              onClick={handleCloseProductCard}
+            >
+              <CloseIcon />
+            </button>
+          </div>
 
-                        {/* Карточка товара (выезжает справа) */}
-                  {showProductCard && (
-                    <div
-                      className={`sidebar__product-card${showProductCard ? ' sidebar__product-card--visible' : ''}${dragStart !== null ? ' sidebar__product-card--dragging' : ''}`}
-                      style={{
-                        transform: dragStart !== null && dragCurrent !== null && dragCurrent > dragStart
-                          ? `translateX(${dragCurrent - dragStart}px)`
-                          : undefined
-                      }}
-                      onTouchStart={handleTouchStart}
-                      onTouchMove={handleTouchMove}
-                      onTouchEnd={handleTouchEnd}
-                    >
-                      <div className="sidebar__product-card-header">
-                        <button
-                          type="button"
-                          className="sidebar__product-card-back"
-                          onClick={handleCloseProductCard}
-                        >
-                          <ArrowLeftIcon />
-                        </button>
-                        <h3 className="sidebar__product-card-title">{selectedProduct?.query?.toUpperCase() || 'ПОИСКОВЫЙ ЗАПРОС'}</h3>
-                        <button
-                          type="button"
-                          className="sidebar__product-card-close"
-                          onClick={handleCloseProductCard}
-                        >
-                          <CloseIcon />
-                        </button>
-                      </div>
-
-                      <div className="sidebar__product-card-content">
-                        {selectedProduct ? (
-                          <ProductCard 
-                            product={selectedProduct} 
-                            priceHistory={priceHistory} 
-                          />
-                        ) : (
-                          <div className="sidebar__loading">
-                            <p>Загрузка данных...</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
+          <div className="sidebar__product-card-content">
+            {selectedProduct ? (
+              <ProductCard 
+                product={selectedProduct} 
+                priceHistory={priceHistory} 
+              />
+            ) : (
+              <div className="sidebar__loading">
+                <p>Загрузка данных...</p>
+              </div>
+            )}
+            
+            {/* Индикатор загрузки истории цен */}
+            {isLoadingPriceHistory && (
+              <div className="sidebar__loading-overlay">
+                <p>Загрузка истории цен...</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 };

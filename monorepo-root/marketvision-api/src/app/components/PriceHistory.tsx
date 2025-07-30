@@ -9,10 +9,26 @@ interface PriceHistoryProps {
 const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
   const [isClient, setIsClient] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  // Touch scroll handlers для мобильных устройств
+  const handleTouchStart = () => {
+    setIsScrolling(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (isScrolling && listRef.current) {
+      e.preventDefault();
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsScrolling(false);
+  };
 
   // Форматируем данные для отображения - берем последние 10 записей
   const formatPriceData = () => {
@@ -81,7 +97,13 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
         </div>
       </div>
       
-      <div className="priceHistory__list" ref={listRef}>
+      <div 
+        className="priceHistory__list" 
+        ref={listRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {priceData.map((item, index) => (
           <div key={index} className="priceHistory__item">
             <span className="priceHistory__date">{item.label}</span>

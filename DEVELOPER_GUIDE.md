@@ -18,9 +18,9 @@
 ## 🏗️ Архитектура системы
 
 ### 🚀 Быстрый справочник по портам:
-- **WB API**: `http://localhost:3000` - Парсер WildBerries
+- **WB API**: `http://localhost:3006` - HTTP health, `localhost:3000` - gRPC парсер WildBerries
 - **Product Filter Service**: `http://localhost:3001` - REST API центральный сервис
-- **Ozon API**: `localhost:3002` - gRPC парсер Ozon
+- **Ozon API**: `http://localhost:3005` - HTTP health, `localhost:3002` - gRPC парсер Ozon
 - **DB API**: `http://localhost:3003` - API базы данных
 - **MarketVision API**: `http://localhost:3004` - Веб-интерфейс (Next.js)
 - **Product Filter Service**: `localhost:50051` - gRPC центральный сервис
@@ -62,9 +62,9 @@
 ```
 
 ### Распределение портов:
-- **WB API**: `3000` - Парсер WildBerries
+- **WB API**: `3006` - HTTP health, `3000` - gRPC парсер WildBerries
 - **Product Filter Service**: `3001` - REST API центральный сервис
-- **Ozon API**: `3002` - gRPC парсер Ozon
+- **Ozon API**: `3005` - HTTP health, `3002` - gRPC парсер Ozon
 - **DB API**: `3003` - API базы данных
 - **MarketVision API**: `3004` - Веб-интерфейс (Next.js)
 - **Product Filter Service**: `50051` - gRPC центральный сервис
@@ -142,11 +142,6 @@ services:
     networks:
       - product-network
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
   # DB API сервис
   db-api:
@@ -598,19 +593,21 @@ docker-compose ps
 
 # Тестирование сервисов:
 # Product Filter Service (REST API)
-curl http://localhost:3001/api/products?query=RTX4070&category=videocards
+curl http://localhost:3001/health
+curl http://localhost:3001/products/search
 
 # WB API (парсер WildBerries)
-curl http://localhost:3000/health
+curl http://localhost:3006/health
 
 # Ozon API (парсер Ozon)
+curl http://localhost:3005/health
 grpcurl -plaintext localhost:3002 list
 
 # DB API (база данных)
 curl http://localhost:3003/health
 
 # MarketVision API (веб-интерфейс)
-curl http://localhost:3004/health
+curl http://localhost:3004/api/service-status
 
 # Product Filter Service (gRPC)
 grpcurl -plaintext localhost:50051 list
@@ -685,16 +682,17 @@ curl http://localhost:3001/health
 grpcurl -plaintext localhost:50051 list
 
 # WB API (парсер WildBerries)
-curl http://localhost:3000/health
+curl http://localhost:3006/health
 
 # Ozon API (парсер Ozon)
+curl http://localhost:3005/health
 grpcurl -plaintext localhost:3002 list
 
 # DB API (база данных)
 curl http://localhost:3003/health
 
 # MarketVision API (веб-интерфейс)
-curl http://localhost:3004/health
+curl http://localhost:3004/api/service-status
 ```
 
 ### Отладка PostgreSQL:
@@ -732,10 +730,13 @@ GET "products:videocards:RTX4070"
 | `PostgreSQL connection failed` | Убедитесь что PostgreSQL запущен |
 | `Redis connection failed` | Убедитесь что Redis запущен |
 | `Port already in use` | Остановите локальные сервисы или измените порты |
-| `Port 3000 conflict` | WB API использует порт 3000, проверьте что не занят |
+| `Port 3000 conflict` | WB API gRPC использует порт 3000, проверьте что не занят |
 | `Port 3001 conflict` | Product Filter Service использует порт 3001, проверьте что не занят |
-| `Port 3002 conflict` | Ozon API использует порт 3002, проверьте что не занят |
+| `Port 3002 conflict` | Ozon API gRPC использует порт 3002, проверьте что не занят |
+| `Port 3003 conflict` | DB API использует порт 3003, проверьте что не занят |
 | `Port 3004 conflict` | MarketVision API использует порт 3004, проверьте что не занят |
+| `Port 3005 conflict` | Ozon API HTTP health использует порт 3005, проверьте что не занят |
+| `Port 3006 conflict` | WB API HTTP health использует порт 3006, проверьте что не занят |
 | `Build failed` | Проверьте Dockerfile и зависимости |
 | `Validation errors` | Проверьте конфигурацию валидации |
 

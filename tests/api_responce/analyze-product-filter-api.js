@@ -37,9 +37,9 @@ const testQueries = {
   //   'steam deck oled'
   // ],
   iphone: [
-    // 'iphone 16 pro',
+    'iphone 16 pro',
     // 'iphone 16',
-    'iphone 15 pro',
+    // 'iphone 15 pro',
     // 'iphone 15',
     // 'iphone 16 pro max',
     // 'iphone 15 pro max',

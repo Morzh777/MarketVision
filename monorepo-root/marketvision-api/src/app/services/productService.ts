@@ -2,8 +2,21 @@ import type { Product, PriceHistory } from '../types/market';
 
 import { ApiService } from './apiService';
 
+// Кэш для истории цен
+const priceHistoryCache = new Map<string, { data: PriceHistory; timestamp: number }>();
+const CACHE_DURATION = 5 * 60 * 1000; // 5 минут
+
+// Импортируем тип MarketStats из ApiService
+interface MarketStats {
+  min: number;
+  max: number;
+  mean: number;
+  median: number;
+  iqr: [number, number];
+}
+
 export class ProductService {
-  static async getProducts(query?: string): Promise<{ products: Product[]; marketStats?: any }> {
+  static async getProducts(query?: string): Promise<{ products: Product[]; marketStats?: MarketStats }> {
     try {
       const result = await ApiService.getProducts(query);
       return result;
@@ -22,21 +35,31 @@ export class ProductService {
     }
   }
 
-
-
   static async getPriceHistoryByQuery(query: string, limit: number = 10): Promise<PriceHistory> {
     try {
+      const cacheKey = `${query}_${limit}`;
+      const now = Date.now();
+      
+      // Проверяем кэш
+      const cached = priceHistoryCache.get(cacheKey);
+      if (cached && (now - cached.timestamp) < CACHE_DURATION) {
+        console.log('ProductService: Using cached price history for:', query);
+        return cached.data;
+      }
+      
       console.log('ProductService.getPriceHistoryByQuery called with:', { query, limit });
       const result = await ApiService.getPriceHistoryByQuery(query, limit);
       console.log('ProductService.getPriceHistoryByQuery result:', result);
+      
+      // Сохраняем в кэш
+      priceHistoryCache.set(cacheKey, { data: result, timestamp: now });
+      
       return result;
     } catch (error) {
       console.error('Error fetching price history by query:', error);
       return [];
     }
   }
-
-
 
   static async findProductByName(name: string): Promise<Product | undefined> {
     try {
@@ -48,7 +71,7 @@ export class ProductService {
     }
   }
 
-  static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number }>> {
+  static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
     try {
       return await ApiService.getPopularQueries();
     } catch (error) {
@@ -57,7 +80,7 @@ export class ProductService {
     }
   }
 
-  static async getProductsByQuery(query: string): Promise<{ products: Product[]; marketStats?: any }> {
+  static async getProductsByQuery(query: string): Promise<{ products: Product[]; marketStats?: MarketStats }> {
     try {
       return await ApiService.getProductsByQuery(query);
     } catch (error) {

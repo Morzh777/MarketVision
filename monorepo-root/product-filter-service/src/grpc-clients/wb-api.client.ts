@@ -1,7 +1,7 @@
 import { BaseGrpcClient } from './base-grpc.client';
 
 export class WbApiClient extends BaseGrpcClient<any> {
-  constructor(serverAddress: string = 'localhost:3000') {
+  constructor(serverAddress: string = process.env.WB_API_URL || 'localhost:3000') {
     super('proto/raw-product.proto', 'RawProductService', serverAddress);
   }
 

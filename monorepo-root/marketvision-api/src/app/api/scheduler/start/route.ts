@@ -4,7 +4,7 @@ import parsingScheduler from '../../../services/parsingScheduler';
 
 export async function POST() {
   try {
-    parsingScheduler.start();
+    await parsingScheduler.start();
     
     return NextResponse.json({ 
       message: 'Планировщик запущен',
@@ -19,7 +19,7 @@ export async function POST() {
   } catch (error) {
     console.error('Error starting scheduler:', error);
     return NextResponse.json(
-      { error: 'Failed to start scheduler' },
+      { error: `Failed to start scheduler: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }

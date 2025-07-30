@@ -146,7 +146,7 @@ export class ApiService {
     }
   }
 
-  static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number }>> {
+  static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
     try {
       const response = await fetch(`${API_URL}/popular-queries`);
       if (!response.ok) {

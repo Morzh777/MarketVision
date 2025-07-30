@@ -18,7 +18,7 @@ const LoadingFallback = () => (
 );
 
 export default function Home() {
-  const [popularQueries, setPopularQueries] = useState<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url?: string }>>([]);
+  const [popularQueries, setPopularQueries] = useState<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>>([]);
   const [selectedQuery, setSelectedQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,26 +33,9 @@ export default function Home() {
         const queries = await ProductService.getPopularQueries();
         console.log('Fetched popular queries:', queries);
         
-        // Получаем картинки для каждого запроса
-        const queriesWithImages = await Promise.all(
-          queries.map(async (query) => {
-            try {
-              const { products } = await ProductService.getProductsByQuery(query.query);
-              const imageUrl = products.length > 0 ? products[0].image_url : undefined;
-              return { ...query, image_url: imageUrl };
-            } catch (error) {
-              console.error(`Error fetching image for query ${query.query}:`, error);
-              return query;
-            }
-          })
-        );
-        
-        setPopularQueries(queriesWithImages);
-        
-        // Выбираем первый запрос по умолчанию
-        if (queriesWithImages.length > 0) {
-          setSelectedQuery(queriesWithImages[0].query);
-        }
+        // Изображения теперь приходят с сервера в getPopularQueries
+        setPopularQueries(queries);
+        // Убираем автоматический выбор первого запроса
       } catch (error) {
         console.error('Error fetching popular queries:', error);
       } finally {
@@ -63,14 +46,19 @@ export default function Home() {
     fetchPopularQueries();
   }, []);
 
-
-
-  // Загружаем продукты по выбранному query
+  // Загружаем продукты по выбранному query только при явном выборе пользователя
   useEffect(() => {
     const fetchProductsByQuery = async () => {
-      if (!selectedQuery) return;
+      console.log('Page useEffect triggered:', { selectedQuery, hasQuery: !!selectedQuery });
+      
+      if (!selectedQuery) {
+        console.log('Page: Clearing selected product - no query selected');
+        setSelectedProduct(null);
+        return;
+      }
       
       try {
+        console.log('Page: Fetching products for query:', selectedQuery);
         const { products, marketStats } = await ProductService.getProductsByQuery(selectedQuery);
         console.log('Fetched products by query:', { products, marketStats });
         
@@ -89,7 +77,7 @@ export default function Home() {
             median: marketStats?.median,
             iqr: marketStats?.iqr
           };
-          console.log('Setting selected product:', productWithStats);
+          console.log('Page: Setting selected product:', productWithStats);
           setSelectedProduct(productWithStats);
         }
       } catch (error) {
@@ -99,8 +87,6 @@ export default function Home() {
 
     fetchProductsByQuery();
   }, [selectedQuery]);
-
-
 
   if (isLoading) {
     return <LoadingFallback />;

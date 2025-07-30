@@ -10,11 +10,11 @@
   align-items: center;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   box-sizing: border-box;
   height: 100vh;
-  overflow-y: auto;
+
 }
 
 .productCard__main {
@@ -171,9 +171,6 @@
   word-break: break-word;
 }
 
-.productCard__info {
-
-}
 
 .productCard__infoItem {
   display: flex;

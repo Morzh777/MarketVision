@@ -42,6 +42,7 @@ class ParsingScheduler {
   private isRunning = false;
   private schedulerInterval: NodeJS.Timeout | null = null;
   private isParsing = false;
+  private isImmediateParsing = false; // Отдельный флаг для немедленного парсинга
   private activeCategories: Record<string, boolean> = {
     videocards: true,    // раскомментируй для включения
     processors: true,    // раскомментируй для включения
@@ -59,32 +60,64 @@ class ParsingScheduler {
   /**
    * Запускает планировщик
    */
-  start() {
+  async start() {
     if (this.isRunning) {
       console.log('⚠️ Планировщик уже запущен');
       return;
     }
 
-    this.isRunning = true;
-    console.log('🚀 Запуск планировщика парсинга');
+    try {
+      // Проверяем доступность product-filter-service
+      console.log('🔍 Проверка доступности product-filter-service...');
+      const healthResponse = await fetch(`${PRODUCT_FILTER_URL}/health`, {
+        method: 'GET',
+        signal: AbortSignal.timeout(5000) // 5 секунд таймаут
+      });
 
-    // Запускаем первый парсинг через 1 минуту после старта
-    setTimeout(() => {
-      this.runScheduledParsing();
-    }, 60000);
+      if (!healthResponse.ok) {
+        throw new Error(`Product-filter-service недоступен: ${healthResponse.status}`);
+      }
 
-    // Затем каждые 30 минут
-    this.schedulerInterval = setInterval(() => {
-      this.runScheduledParsing();
-    }, 30 * 60 * 1000); // 30 минут
+      console.log('✅ Product-filter-service доступен');
 
-    console.log('⏰ Планировщик запущен: парсинг каждые 30 минут');
+      this.isRunning = true;
+      console.log('🚀 Запуск планировщика парсинга');
+
+      // Запускаем первый парсинг через 1 минуту после старта
+      setTimeout(() => {
+        try {
+          console.log('⏰ Запуск первого парсинга через 1 минуту...');
+          this.runScheduledParsing();
+        } catch (error) {
+          console.error('❌ Ошибка в первом запуске парсинга:', error);
+        }
+      }, 60000);
+
+      // Затем каждые 30 минут
+      this.schedulerInterval = setInterval(() => {
+        try {
+          console.log('⏰ Запуск запланированного парсинга...');
+          this.runScheduledParsing();
+        } catch (error) {
+          console.error('❌ Ошибка в запланированном парсинге:', error);
+        }
+      }, 30 * 60 * 1000); // 30 минут
+
+      console.log('⏰ Планировщик запущен: парсинг каждые 30 минут');
+    } catch (error) {
+      console.error('❌ Ошибка запуска планировщика:', error);
+      this.isRunning = false;
+      throw error;
+    }
   }
 
   /**
    * Останавливает планировщик
    */
   stop() {
+    console.log('🛑 Попытка остановки планировщика...');
+    console.log('📊 Текущий статус:', { isRunning: this.isRunning, isParsing: this.isParsing });
+    
     if (!this.isRunning) {
       console.log('⚠️ Планировщик не запущен');
       return;
@@ -116,7 +149,6 @@ class ParsingScheduler {
       let totalCategories = 0;
 
       // Парсим каждую категорию (можно включать/выключать)
-
       for (const [categoryKey, queries] of Object.entries(PARSING_CONFIG)) {
         // Пропускаем неактивные категории
         if (!this.activeCategories[categoryKey]) {
@@ -133,11 +165,17 @@ class ParsingScheduler {
 
           console.log(`✅ ${categoryKey}: найдено ${products.length} товаров`);
           
-          // Небольшая пауза между категориями
-          await this.delay(2000);
+          // Небольшая пауза между категориями (с защитой от ошибок)
+          try {
+            await this.delay(2000);
+          } catch (delayError) {
+            console.warn(`⚠️ Ошибка задержки после ${categoryKey}:`, delayError);
+            // Продолжаем парсинг даже если задержка не сработала
+          }
           
         } catch (error) {
           console.error(`❌ Ошибка парсинга категории ${categoryKey}:`, error instanceof Error ? error.message : String(error));
+          // Продолжаем с следующей категорией
         }
       }
 
@@ -146,6 +184,7 @@ class ParsingScheduler {
 
     } catch (error) {
       console.error('❌ Критическая ошибка парсинга:', error instanceof Error ? error.message : String(error));
+      // НЕ выбрасываем ошибку дальше
     } finally {
       this.isParsing = false;
     }
@@ -158,6 +197,9 @@ class ParsingScheduler {
     console.log(`🔍 Парсинг ${categoryKey}: ${queries.join(', ')}`);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 секунд таймаут
+
       const response = await fetch(`${PRODUCT_FILTER_URL}/products/search`, {
         method: 'POST',
         headers: {
@@ -166,8 +208,11 @@ class ParsingScheduler {
         body: JSON.stringify({
           queries,
           category: categoryKey
-        })
+        }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -178,7 +223,11 @@ class ParsingScheduler {
 
       return result.products || [];
     } catch (error) {
-      console.error(`❌ Ошибка парсинга ${categoryKey}:`, error instanceof Error ? error.message : String(error));
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.error(`⏰ Таймаут парсинга ${categoryKey} (30 секунд)`);
+      } else {
+        console.error(`❌ Ошибка парсинга ${categoryKey}:`, error instanceof Error ? error.message : String(error));
+      }
       return [];
     }
   }
@@ -188,20 +237,75 @@ class ParsingScheduler {
    */
   async runParsingNow() {
     console.log('⚡ Запуск немедленного парсинга');
-    await this.runScheduledParsing();
+    
+    // Проверяем, не выполняется ли уже парсинг
+    if (this.isParsing || this.isImmediateParsing) {
+      console.log('⚠️ Парсинг уже выполняется, пропускаем немедленный запуск...');
+      return;
+    }
+
+    this.isImmediateParsing = true;
+    console.log('🚀 Запуск немедленного парсинга всех категорий');
+
+    try {
+      const startTime = Date.now();
+      let totalProducts = 0;
+      let totalCategories = 0;
+
+      // Парсим каждую категорию
+      for (const [categoryKey, queries] of Object.entries(PARSING_CONFIG)) {
+        // Пропускаем неактивные категории
+        if (!this.activeCategories[categoryKey]) {
+          console.log(`⏭️ Пропускаем категорию: ${categoryKey} (отключена)`);
+          continue;
+        }
+
+        try {
+          console.log(`📦 Парсинг категории: ${categoryKey}`);
+          
+          const products = await this.parseCategory(categoryKey, queries);
+          totalProducts += products.length;
+          totalCategories++;
+
+          console.log(`✅ ${categoryKey}: найдено ${products.length} товаров`);
+          
+          // Небольшая пауза между категориями (с защитой от ошибок)
+          try {
+            await this.delay(2000);
+          } catch (delayError) {
+            console.warn(`⚠️ Ошибка задержки после ${categoryKey}:`, delayError);
+          }
+          
+        } catch (error) {
+          console.error(`❌ Ошибка парсинга категории ${categoryKey}:`, error instanceof Error ? error.message : String(error));
+        }
+      }
+
+      const duration = Date.now() - startTime;
+      console.log(`🎉 Немедленный парсинг завершен: ${totalProducts} товаров из ${totalCategories} категорий за ${duration}ms`);
+
+    } catch (error) {
+      console.error('❌ Критическая ошибка немедленного парсинга:', error instanceof Error ? error.message : String(error));
+    } finally {
+      this.isImmediateParsing = false;
+      console.log('✅ Немедленный парсинг завершен, планировщик остается активным');
+    }
   }
 
   /**
    * Получает статус планировщика
    */
   getStatus() {
-    return {
+    const status = {
       isRunning: this.isRunning,
-      isParsing: this.isParsing,
+      isParsing: this.isParsing || this.isImmediateParsing, // Показываем любой активный парсинг
       nextRun: this.getNextRunTime(),
       config: PARSING_CONFIG,
       activeCategories: this.activeCategories
     };
+    
+    console.log('📊 Запрос статуса планировщика:', status);
+    return status;
   }
 
   /**
@@ -231,16 +335,35 @@ class ParsingScheduler {
    * Утилита для задержки
    */
   private delay(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve, reject) => {
+      try {
+        const timeoutId = setTimeout(() => {
+          resolve();
+        }, ms);
+        
+        // Защита от слишком долгих задержек
+        const maxTimeout = setTimeout(() => {
+          clearTimeout(timeoutId);
+          reject(new Error('Delay timeout exceeded'));
+        }, Math.min(ms * 2, 60000)); // Максимум 60 секунд
+        
+        // Очищаем maxTimeout при успешном resolve
+        const originalResolve = resolve;
+        resolve = () => {
+          clearTimeout(maxTimeout);
+          originalResolve();
+        };
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }
 
 // Создаем единственный экземпляр планировщика
 const parsingScheduler = new ParsingScheduler();
 
-// Запускаем планировщик при инициализации модуля (только в production)
-if (process.env.NODE_ENV === 'production') {
-  parsingScheduler.start();
-}
+// Планировщик будет запускаться только по требованию через API
+console.log('⏸️ Планировщик создан, ожидает запуска через админку...');
 
 export default parsingScheduler; 

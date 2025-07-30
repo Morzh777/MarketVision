@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnModuleInit, Inject } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as path from 'path';
@@ -34,17 +34,17 @@ export class GrpcServerService implements OnModuleInit {
   }
 
   async onModuleInit(): Promise<void> {
-    await this.startGrpcServer();
+    this.startGrpcServer();
   }
 
-  private async startGrpcServer(): Promise<void> {
+  private startGrpcServer(): void {
     this.server.addService(rawProductProto.RawProductService.service, {
       GetRawProducts: this.getRawProducts.bind(this),
     });
 
-    const port = 3000;
+    const grpcPort = process.env.GRPC_PORT || 3000;
     this.server.bindAsync(
-      `0.0.0.0:${port}`,
+      `0.0.0.0:${grpcPort}`,
       grpc.ServerCredentials.createInsecure(),
       (err: Error | null, port: number) => {
         if (err) {

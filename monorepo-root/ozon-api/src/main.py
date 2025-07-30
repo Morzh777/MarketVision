@@ -8,12 +8,36 @@ import os
 import signal
 import sys
 from typing import NoReturn
+from aiohttp import web
+import json
 
 # Добавляем текущую директорию в путь для импортов
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Импорты для gRPC сервера
 from infrastructure.grpc.ozon_grpc_service import serve
+
+
+async def health_handler(request):
+    """HTTP health check handler"""
+    return web.json_response({
+        'status': 'ok',
+        'timestamp': asyncio.get_event_loop().time(),
+        'service': 'ozon-api',
+        'type': 'gRPC'
+    })
+
+
+async def start_http_server():
+    """Запуск HTTP сервера для health checks"""
+    app = web.Application()
+    app.router.add_get('/health', health_handler)
+    
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, 'localhost', 3005)
+    await site.start()
+    print("🌐 HTTP сервер запущен на localhost:3005 (для health checks)")
 
 
 async def shutdown_handler() -> None:
@@ -50,6 +74,11 @@ async def main() -> NoReturn:
 
     try:
         setup_signal_handlers()
+        
+        # Запускаем HTTP сервер для health checks
+        await start_http_server()
+        
+        # Запускаем gRPC сервер
         await serve()
     except KeyboardInterrupt:
         print("🛑 Прерывание по Ctrl+C")

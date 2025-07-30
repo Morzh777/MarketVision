@@ -5,6 +5,7 @@ interface PopularQuery {
   minPrice: number;
   id: string;
   priceChangePercent: number;
+  image_url: string;
 }
 
 type SortOrder = 'asc' | 'desc' | null;
