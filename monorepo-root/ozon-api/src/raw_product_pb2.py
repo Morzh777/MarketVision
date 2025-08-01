@@ -6,27 +6,26 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import descriptor_pool as _descriptor_pool
 from google.protobuf import symbol_database as _symbol_database
 from google.protobuf.internal import builder as _builder
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x11raw-product.proto\x12\x0braw_product"b\n\x15GetRawProductsRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x13\n\x0bplatform_id\x18\x03 \x01(\t\x12\x13\n\x0b\x65xactmodels\x18\x04 \x01(\t"\x8e\x01\n\nRawProduct\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05price\x18\x03 \x01(\x05\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x13\n\x0bproduct_url\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x06 \x01(\t\x12\x0e\n\x06source\x18\x07 \x01(\t\x12\r\n\x05query\x18\x08 \x01(\t"h\n\x16GetRawProductsResponse\x12)\n\x08products\x18\x01 \x03(\x0b\x32\x17.raw_product.RawProduct\x12\x13\n\x0btotal_count\x18\x02 \x01(\x05\x12\x0e\n\x06source\x18\x03 \x01(\t2n\n\x11RawProductService\x12Y\n\x0eGetRawProducts\x12".raw_product.GetRawProductsRequest\x1a#.raw_product.GetRawProductsResponseb\x06proto3'
-)
+
+
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11raw-product.proto\x12\x0braw_product\"b\n\x15GetRawProductsRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x13\n\x0bplatform_id\x18\x03 \x01(\t\x12\x13\n\x0b\x65xactmodels\x18\x04 \x01(\t\"\x8e\x01\n\nRawProduct\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05price\x18\x03 \x01(\x05\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x13\n\x0bproduct_url\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x06 \x01(\t\x12\x0e\n\x06source\x18\x07 \x01(\t\x12\r\n\x05query\x18\x08 \x01(\t\"h\n\x16GetRawProductsResponse\x12)\n\x08products\x18\x01 \x03(\x0b\x32\x17.raw_product.RawProduct\x12\x13\n\x0btotal_count\x18\x02 \x01(\x05\x12\x0e\n\x06source\x18\x03 \x01(\t2n\n\x11RawProductService\x12Y\n\x0eGetRawProducts\x12\".raw_product.GetRawProductsRequest\x1a#.raw_product.GetRawProductsResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, "raw_product_pb2", _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'raw_product_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-    DESCRIPTOR._options = None
-    _globals["_GETRAWPRODUCTSREQUEST"]._serialized_start = 34
-    _globals["_GETRAWPRODUCTSREQUEST"]._serialized_end = 132
-    _globals["_RAWPRODUCT"]._serialized_start = 135
-    _globals["_RAWPRODUCT"]._serialized_end = 277
-    _globals["_GETRAWPRODUCTSRESPONSE"]._serialized_start = 279
-    _globals["_GETRAWPRODUCTSRESPONSE"]._serialized_end = 383
-    _globals["_RAWPRODUCTSERVICE"]._serialized_start = 385
-    _globals["_RAWPRODUCTSERVICE"]._serialized_end = 495
+  DESCRIPTOR._options = None
+  _globals['_GETRAWPRODUCTSREQUEST']._serialized_start=34
+  _globals['_GETRAWPRODUCTSREQUEST']._serialized_end=132
+  _globals['_RAWPRODUCT']._serialized_start=135
+  _globals['_RAWPRODUCT']._serialized_end=277
+  _globals['_GETRAWPRODUCTSRESPONSE']._serialized_start=279
+  _globals['_GETRAWPRODUCTSRESPONSE']._serialized_end=383
+  _globals['_RAWPRODUCTSERVICE']._serialized_start=385
+  _globals['_RAWPRODUCTSERVICE']._serialized_end=495
 # @@protoc_insertion_point(module_scope)

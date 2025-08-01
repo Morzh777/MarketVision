@@ -94,30 +94,34 @@ export class ProductsService {
       productsByQuery[product.query].push(product);
     });
 
-    // Для каждого query считаем marketStats и сохраняем
-    for (const [query, products] of Object.entries(productsByQuery)) {
-      if (!products.length) continue;
-      // Находим самый дешевый продукт для этого query
-      const cheapest = products.reduce((min, p) => (p.price < min.price ? p : min), products[0]);
-      const stats = cheapest.marketStats;
-      const market_stats = stats ? {
-        min: stats.min,
-        max: stats.max,
-        mean: stats.mean,
-        median: stats.median,
-        iqr: stats.iqr,
-        query: cheapest.query,
-        category: cheapest.category,
-        source: cheapest.source,
-        total_count: products.length,
-        product_id: cheapest.id,
-        created_at: new Date().toISOString()
-      } : undefined;
-      await this.dbApiClient.batchCreateProducts({
-        products: [cheapest],
-        market_stats
-      });
-      this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
+    // Для каждого query считаем marketStats и сохраняем (если не отключено)
+    if (!skipSave) {
+      for (const [query, products] of Object.entries(productsByQuery)) {
+        if (!products.length) continue;
+        // Находим самый дешевый продукт для этого query
+        const cheapest = products.reduce((min, p) => (p.price < min.price ? p : min), products[0]);
+        const stats = cheapest.marketStats;
+        const market_stats = stats ? {
+          min: stats.min,
+          max: stats.max,
+          mean: stats.mean,
+          median: stats.median,
+          iqr: stats.iqr,
+          query: cheapest.query,
+          category: cheapest.category,
+          source: cheapest.source,
+          total_count: products.length,
+          product_id: cheapest.id,
+          created_at: new Date().toISOString()
+        } : undefined;
+        await this.dbApiClient.batchCreateProducts({
+          products: [cheapest],
+          market_stats
+        });
+        this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
+      }
+    } else {
+      this.logger.log(`⏭️ Сохранение в базу данных отключено`);
     }
 
     const processingTimeMs = Date.now() - startTime;
