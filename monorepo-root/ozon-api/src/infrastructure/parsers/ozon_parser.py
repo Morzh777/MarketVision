@@ -438,15 +438,7 @@ class OzonParser:
             if not name or price == 0:
                 return None
 
-            # Определяем категорию по category_slug (как в WB API)
-            category_map = {
-                "videokarty-15721": "videocards",
-                "protsessory-15726": "processors",
-                "materinskie-platy-15725": "motherboards",
-            }
-            category = category_map.get(category_slug, "videocards")
-
-            # Создаем продукт с правильной категорией
+            # Создаем продукт
             return Product(
                 id=product_id,
                 name=name,
@@ -455,7 +447,7 @@ class OzonParser:
                 product_url=product_url,
                 supplier="Ozon",
                 characteristics=characteristics,
-                category=category,  # Используем правильную категорию
+                category=category_slug,  # Используем оригинальный category_slug
             )
 
         except Exception as e:
