@@ -110,3 +110,9 @@ monorepo-root/avito-api/
 
 # --- Guides ---
 GUIDES/
+
+# --- Kubernetes ---
+k8s/
+
+# --- GitHub ---
+.github/
