@@ -104,3 +104,9 @@ monorepo-root/ml-training-service/ .cursor/rules/
 
 # --- Testing Guide ---
 TESTING_GUIDE.md
+
+# --- Avito API ---
+monorepo-root/avito-api/
+
+# --- Guides ---
+GUIDES/

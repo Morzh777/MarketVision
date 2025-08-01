@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   transition: var(--transition-default);
+  padding-top: 60px; // Для навигации
 }
 
 @media (prefers-color-scheme: dark) {

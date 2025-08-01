@@ -2,19 +2,22 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Копируем package.json и package-lock.json
+# Копируем файлы зависимостей (для лучшего кэширования)
 COPY package*.json ./
 
-# Устанавливаем зависимости
+# Устанавливаем зависимости (кэшируется отдельно)
 RUN npm ci --only=production
+
+# Копируем Prisma схему (для кэширования генерации)
+COPY prisma ./prisma/
+
+# Генерируем Prisma клиент (кэшируется отдельно)
+RUN npx prisma generate
 
 # Копируем исходный код
 COPY . .
 
-# Генерируем Prisma клиент
-RUN npx prisma generate
-
-# Собираем приложение
+# Собираем приложение (кэшируется отдельно)
 RUN npm run build
 
 # Открываем порты

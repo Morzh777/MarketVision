@@ -126,6 +126,8 @@ async def serve() -> None:
     server.add_insecure_port(listen_addr)
 
     print(f"🚀 Ozon API gRPC сервер (raw-product.proto) запущен на {listen_addr}")
+    import sys
+    sys.stdout.flush()
 
     try:
         await server.start()

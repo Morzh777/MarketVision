@@ -60,8 +60,9 @@ class OzonParser:
             options.add_argument("--disable-renderer-backgrounding")
             options.add_argument("--disable-features=TranslateUI")
             options.add_argument("--disable-ipc-flooding-protection")
-            options.add_experimental_option("excludeSwitches", ["enable-automation"])
-            options.add_experimental_option("useAutomationExtension", False)
+            # Убираем проблемные опции для совместимости с ARM64
+            # options.add_experimental_option("excludeSwitches", ["enable-automation"])
+            # options.add_experimental_option("useAutomationExtension", False)
             options.add_argument(
                 "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
             )
@@ -103,6 +104,8 @@ class OzonParser:
                         self.driver = webdriver.Chrome()
 
                 print("✅ Драйвер Chrome создан")
+                print(f"🔧 Chrome версия: {self.driver.capabilities.get('browserVersion', 'unknown')}")
+                print(f"🔧 ChromeDriver версия: {self.driver.capabilities.get('chrome', {}).get('chromedriverVersion', 'unknown')}")
 
                 # Скрываем признаки автоматизации
                 self.driver.execute_script(
@@ -120,6 +123,8 @@ class OzonParser:
 
             except Exception as e:
                 print(f"❌ Ошибка создания драйвера: {e}")
+                print(f"🔧 Тип ошибки: {type(e).__name__}")
+                print(f"🔧 Детали: {str(e)}")
                 raise
 
     def _build_api_url(
@@ -136,7 +141,7 @@ class OzonParser:
         # Базовый URL для API Ozon
         base_url = "https://www.ozon.ru/api/entrypoint-api.bx/page/json/v2"
 
-        # Используем переданный category_slug (как в WB API)
+        # Используем переданный category_slug 
         print(f"🎯 Используем slug категории: {category_slug} для запроса '{query}'")
         print(f"🎮 Получен platform_id: {platform_id} (тип: {type(platform_id)})")
         print(f"🔎 Получен exactmodels: {exactmodels}")

@@ -1,37 +1,45 @@
 version: '3.8'
 
 services:
+  # PostgreSQL
   postgres:
     image: postgres:15-alpine
-    container_name: marketvision-postgres
+    container_name: postgres
     environment:
-      POSTGRES_DB: marketvision
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      - POSTGRES_DB=marketvision
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - marketvision-network
     restart: unless-stopped
+    networks:
+      - db-network
 
-  redis:
-    image: redis:7-alpine
-    container_name: marketvision-redis
+  # DB API сервис (гибридный REST + gRPC)
+  db-api:
+    build:
+      context: ./monorepo-root/db-api
+      dockerfile: Dockerfile
+    container_name: db-api
     ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-    command: redis-server --appendonly yes
-    networks:
-      - marketvision-network
+      - "3003:3003"  # REST API
+      - "50052:50051"  # gRPC
+    environment:
+      - DATABASE_URL=postgresql://user:password@postgres:5432/marketvision
+      - GRPC_URL=0.0.0.0:50051
+      - PORT=3003
+      - NODE_ENV=production
+    depends_on:
+      - postgres
     restart: unless-stopped
+    networks:
+      - db-network
 
 volumes:
   postgres_data:
-  redis_data:
 
 networks:
-  marketvision-network:
+  db-network:
     driver: bridge 

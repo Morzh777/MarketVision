@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import 'simplebar-react/dist/simplebar.min.css';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
+import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import { useQuerySorting } from './hooks/useQuerySorting';
 import { ProductService } from './services/productService';
@@ -95,6 +96,7 @@ export default function Home() {
   return (
     <ErrorBoundary>
       <div className={styles.page}>
+        <Navigation />
         <Sidebar
           popularQueries={sortedQueries}
           selectedQuery={selectedQuery}

@@ -100,6 +100,25 @@ services:
       - product-network
     restart: unless-stopped
 
+  # Ozon API сервис (Python)
+  ozon-api:
+    build:
+      context: ./monorepo-root/ozon-api
+      dockerfile: Dockerfile
+    container_name: ozon-api
+    ports:
+      - "3002:3002"  # gRPC сервер
+      - "3005:3005"  # HTTP health endpoint
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - PRODUCT_FILTER_SERVICE_URL=product-filter-service:50051
+      - CHROMEDRIVER_PATH=/usr/bin/chromedriver
+    depends_on:
+      - redis
+    networks:
+      - product-network
+    restart: unless-stopped
+
   # DNS API сервис (Python)
   dns-api:
     build:

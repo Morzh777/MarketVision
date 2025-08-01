@@ -35,9 +35,9 @@ async def start_http_server():
     
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, 'localhost', 3005)
+    site = web.TCPSite(runner, '0.0.0.0', 3005)
     await site.start()
-    print("🌐 HTTP сервер запущен на localhost:3005 (для health checks)")
+    print("🌐 HTTP сервер запущен на 0.0.0.0:3005 (для health checks)")
 
 
 async def shutdown_handler() -> None:
@@ -70,7 +70,13 @@ async def main() -> NoReturn:
     Raises:
         SystemExit: При завершении приложения
     """
+    # Принудительная очистка буфера для Docker
+    import sys
+    sys.stdout.flush()
+    sys.stderr.flush()
+    
     print("🚀 Запуск Ozon API сервера...")
+    sys.stdout.flush()
 
     try:
         setup_signal_handlers()
