@@ -11,6 +11,9 @@ services:
       - DISPLAY=:99
       - CHROME_BIN=/usr/bin/google-chrome
       - CHROMEDRIVER_PATH=/usr/local/bin/chromedriver
+      - OZON_API_TOKEN=${OZON_API_TOKEN}
+    env_file:
+      - .env
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3005/health"]

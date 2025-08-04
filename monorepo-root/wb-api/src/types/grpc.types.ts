@@ -6,6 +6,7 @@ export interface GetRawProductsRequest {
   query: string;
   category: string;
   categoryKey?: string;
+  auth_token: string;
 }
 
 export interface GetRawProductsResponse {

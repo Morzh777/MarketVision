@@ -1,4 +1,5 @@
 import asyncio
+import os
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, Optional
 
@@ -35,6 +36,28 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         """
         query = request.query
         category = request.category
+        
+        # Проверка аутентификации
+        auth_token = getattr(request, "auth_token", "")
+        expected_token = os.getenv("OZON_API_TOKEN")
+        
+        print(f"🔍 Получен запрос: query='{query}', category='{category}'")
+        print(f"🔑 Аутентификация: {'успешна' if auth_token == expected_token else 'неуспешна'}")
+        
+        if not expected_token:
+            print("❌ ОШИБКА: OZON_API_TOKEN environment variable is not set")
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Server configuration error: OZON_API_TOKEN not set")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+        
+        if not auth_token or auth_token != expected_token:
+            context.set_code(grpc.StatusCode.UNAUTHENTICATED)
+            context.set_details("Invalid or missing authentication token")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
         platform_id: Optional[str] = getattr(request, "platform_id", None)
         if not platform_id:
             platform_id = None

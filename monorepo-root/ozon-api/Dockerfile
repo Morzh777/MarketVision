@@ -74,8 +74,9 @@ COPY proto/ ./proto/
 # Копируем исходный код
 COPY src/ ./src/
 
-# Копируем скрипт запуска
+# Копируем скрипт запуска и .env файл
 COPY start.sh ./start.sh
+COPY .env ./.env
 
 # Создаем непривилегированного пользователя
 RUN useradd -m -u 1000 ozonuser && \

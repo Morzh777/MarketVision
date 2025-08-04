@@ -11,6 +11,10 @@ from typing import NoReturn
 from aiohttp import web
 import json
 
+# Загружаем переменные окружения из .env файла
+from dotenv import load_dotenv
+load_dotenv()
+
 # Добавляем текущую директорию в путь для импортов
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -76,6 +80,7 @@ async def main() -> NoReturn:
     sys.stderr.flush()
     
     print("🚀 Запуск Ozon API сервера...")
+    print(f"🔑 OZON_API_TOKEN из env: {os.getenv('OZON_API_TOKEN', 'НЕ НАЙДЕН')}")
     sys.stdout.flush()
 
     try:

@@ -63,7 +63,29 @@ export class GrpcServerService implements OnModuleInit {
   ): Promise<void> {
     try {
       const request: GetRawProductsRequest = call.request;
-      const { query, category, categoryKey } = request;
+      const { query, category, categoryKey, auth_token } = request;
+
+      // Проверка аутентификации
+      const expectedToken = process.env.WB_API_TOKEN;
+      if (!expectedToken) {
+        const error: GrpcError = {
+          code: grpc.status.INTERNAL,
+          message: 'Server configuration error: WB_API_TOKEN not set',
+          details: 'Сервер не настроен',
+        };
+        callback(error);
+        return;
+      }
+
+      if (!auth_token || auth_token !== expectedToken) {
+        const error: GrpcError = {
+          code: grpc.status.UNAUTHENTICATED,
+          message: 'Invalid or missing authentication token',
+          details: 'Неверный или отсутствующий токен аутентификации',
+        };
+        callback(error);
+        return;
+      }
 
       // Валидация входных данных
       if (!query || !category) {
