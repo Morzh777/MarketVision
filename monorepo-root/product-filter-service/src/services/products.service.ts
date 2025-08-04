@@ -28,7 +28,7 @@ export class ProductsService {
    * @returns ProductResponse с итоговым списком товаров и метаданными
    * @throws BadRequestException если не указаны обязательные параметры
    */
-  async getProducts(request: ProductRequestDto): Promise<ProductResponse> {
+  async getProducts(request: ProductRequestDto, skipSave: boolean = false): Promise<ProductResponse> {
     if (!request.queries || !Array.isArray(request.queries) || request.queries.length === 0) {
       throw new BadRequestException('Не указаны запросы для поиска');
     }

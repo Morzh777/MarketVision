@@ -41,7 +41,7 @@ export class ProductsController {
         throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
       }
 
-      return await this.productsService.getProducts({ ...request, queries, category });
+      return await this.productsService.getProducts({ ...request, queries, category }, false);
     } catch (error) {
       if (error instanceof HttpException) {
         throw error;
