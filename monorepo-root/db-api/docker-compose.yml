@@ -1,0 +1,21 @@
+services:
+  # Database API
+  db-api:
+    build: .
+    container_name: marketvision-database-api
+    ports:
+      - "3000:3003"
+    environment:
+      - DATABASE_URL=postgresql://marketvision:${POSTGRES_PASSWORD:-password}@postgres:5432/marketvision
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    depends_on:
+      postgres:
+        condition: service_healthy

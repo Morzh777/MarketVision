@@ -28,8 +28,8 @@ export class ProductGroupingService {
       const maxPrice = Math.max(...prices);
       const avgPrice = Math.round(prices.reduce((a, b) => a + b, 0) / prices.length);
       
-      // Новый подробный лог по группе
-      fileLogger.log(`[ГРУППА] modelKey: ${modelKey} | товары: ${groupProducts.map(p => `[id:${p.id}, price:${p.price}, source:${p.source}, isValid:${p.isValid}]`).join(' ')} | min: ${minPrice}₽, max: ${maxPrice}₽, avg: ${avgPrice}₽`);
+      // Краткий лог по группе
+      fileLogger.log(`📊 Группа "${modelKey}": ${groupProducts.length} товаров, цена ${minPrice}₽-${maxPrice}₽`);
       
       // Добавляем простую статистику ко всем товарам группы
       sortedByPrice.forEach(product => {

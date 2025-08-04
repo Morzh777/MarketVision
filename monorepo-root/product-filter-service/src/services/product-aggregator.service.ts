@@ -23,6 +23,11 @@ export class ProductAggregatorService {
       this.getProductsFromApi(request, this.wbApiClient, 'wb'),
       this.getProductsFromApi(request, this.ozonApiClient, 'ozon')
     ]);
+    
+    // Логируем количество товаров от каждого API
+    fileLogger.log(`📊 WB API: ${wbProducts.length} товаров`);
+    fileLogger.log(`📊 Ozon API: ${ozonProducts.length} товаров`);
+    
     return [...wbProducts, ...ozonProducts];
   }
 

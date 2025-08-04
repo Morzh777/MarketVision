@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  wb-api:
+    build: .
+    container_name: marketvision-wb-parser
+    ports:
+      - "50052:50052"  # gRPC
+      - "3003:3003"    # HTTP health check
+    environment:
+      - WB_API_TOKEN=${WB_API_TOKEN}
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 

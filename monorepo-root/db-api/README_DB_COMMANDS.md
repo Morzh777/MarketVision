@@ -2,13 +2,13 @@
 
 ## Вход в контейнер с Postgres
 ```bash
-docker exec -it marketvision-postgres psql -U postgres
+docker exec -it marketvision-postgres psql -U marketvision
 ```
 
 Или можно подключиться к базе данных `marketvision`:
 
 ```bash
-docker exec -it marketvision-postgres psql -U postgres -d marketvision
+docker exec -it marketvision-postgres psql -U marketvision -d marketvision
 ```
 
 ## Основные команды psql
@@ -20,7 +20,7 @@ docker exec -it marketvision-postgres psql -U postgres -d marketvision
 
 ### Подключиться к базе (если нужно)
 ```sql
-\c postgres
+\c marketvision
 ```
 
 ### Список таблиц

@@ -39,13 +39,13 @@ async function bootstrap() {
   console.log('--- DB-API HYBRID SERVICE START ---');
   console.log('Proto path:', protoPath);
   console.log('gRPC URL:', grpcUrl);
-  console.log('REST API will be available on port 3003');
+  console.log('REST API will be available on port 3000');
 
   // Запускаем gRPC микросервис
   await microservice.listen();
 
-  // Запускаем REST API на порту 3003
-  const port = process.env.PORT || 3003;
+  // Запускаем REST API на порту 3000
+  const port = process.env.PORT || 3000;
   await app.listen(port);
 
   console.log('DB-API hybrid service started:');

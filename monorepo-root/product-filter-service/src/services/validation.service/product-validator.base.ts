@@ -230,11 +230,12 @@ export abstract class ProductValidatorBase {
    * Логирование для отладки
    */
   protected logValidation(query: string, name: string): void {
-    console.log(`[${this.constructor.name} DEBUG]`, {
-      query,
-      name,
-      normalizedQuery: this.normalize(query),
-      normalizedName: this.normalize(name)
-    });
+    // Отключаем подробные логи валидации
+    // console.log(`[${this.constructor.name} DEBUG]`, {
+    //   query,
+    //   name,
+    //   normalizedQuery: this.normalize(query),
+    //   normalizedName: this.normalize(name)
+    // });
   }
 } 

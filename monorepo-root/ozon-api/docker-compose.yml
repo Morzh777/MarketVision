@@ -3,7 +3,7 @@ version: '3.8'
 services:
   ozon-api:
     build: .
-    container_name: ozon-api-container
+    container_name: marketvision-ozon-parser
     ports:
       - "3002:3002"  # gRPC
       - "3005:3005"  # HTTP health check

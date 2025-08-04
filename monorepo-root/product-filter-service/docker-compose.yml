@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  product-filter:
+    build: .
+    container_name: marketvision-product-aggregator
+    ports:
+      - "3001:3001"
+    environment:
+      - PRODUCT_FILTER_SERVICE_URL=http://localhost:3001
+      - OZON_API_TOKEN=${OZON_API_TOKEN}
+      - WB_API_TOKEN=${WB_API_TOKEN}
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 

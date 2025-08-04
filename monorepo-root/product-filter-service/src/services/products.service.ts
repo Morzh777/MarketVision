@@ -50,15 +50,19 @@ export class ProductsService {
 
     // 2. Валидация через ValidationFactoryService
     const validationResults = await this.validationFactory.validateProducts(allProducts, request.category as any);
-    const validProducts = allProducts.filter((product, index) => {
-      const result = validationResults[index];
-      if (!result.isValid) {
-        this.logger.debug(`❌ Продукт не прошел валидацию: ${product.name} - ${result.reason}`);
-      } else {
-        this.logger.debug(`✅ Продукт прошел валидацию: ${product.name} - ${result.reason} (confidence: ${result.confidence})`);
-      }
-      return result.isValid;
-    });
+    
+    // Подсчитываем статистику валидации
+    const invalidProducts = validationResults.filter((result, index) => !result.isValid);
+    const validProducts = allProducts.filter((product, index) => validationResults[index].isValid);
+    
+    // Логируем только невалидные товары и причину
+    if (invalidProducts.length > 0) {
+      invalidProducts.forEach((result, index) => {
+        const product = allProducts[validationResults.indexOf(result)];
+        this.logger.log(`❌ Невалидный: ${product.name} - ${result.reason}`);
+      });
+    }
+    
     this.logger.log(`✅ Валидация: ${validProducts.length}/${allProducts.length}`);
     t = Date.now();
 
@@ -73,7 +77,7 @@ export class ProductsService {
     // Логируем информацию о последнем товаре в результате
     if (groupedProducts.length > 0) {
       const lastProduct = groupedProducts[groupedProducts.length - 1];
-      this.logger.log(`🎯 Последний товар в результате: "${lastProduct.name}" (цена: ${lastProduct.price}₽, источник: ${lastProduct.source})`);
+      this.logger.log(`🎯 Финальный результат: "${lastProduct.name}" (${lastProduct.price}₽, ${lastProduct.source})`);
     }
     t = Date.now();
 
@@ -84,7 +88,7 @@ export class ProductsService {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
       }
     }
-    this.logger.log(`📷 Фото получены`);
+    // this.logger.log(`📷 Фото получены`);
     t = Date.now();
 
     // Группируем валидные продукты по query
@@ -118,7 +122,7 @@ export class ProductsService {
           products: [cheapest],
           market_stats
         });
-        this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
+        // this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
       }
     } else {
       this.logger.log(`⏭️ Сохранение в базу данных отключено`);
