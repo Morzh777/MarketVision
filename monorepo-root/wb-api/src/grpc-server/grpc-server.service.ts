@@ -24,13 +24,56 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 const rawProductProto = grpc.loadPackageDefinition(packageDefinition)
   .raw_product as any;
 
+// Rate Limiter для защиты от спама
+class RateLimiter {
+  private requests: Map<string, number[]> = new Map();
+  private maxRequests: number;
+  private windowMs: number;
+
+  constructor(maxRequests: number = 10, windowSeconds: number = 60) {
+    this.maxRequests = maxRequests;
+    this.windowMs = windowSeconds * 1000;
+  }
+
+  isAllowed(clientId: string): boolean {
+    const now = Date.now();
+    const clientRequests = this.requests.get(clientId) || [];
+    
+    // Удаляем старые запросы
+    const validRequests = clientRequests.filter(
+      timestamp => now - timestamp < this.windowMs
+    );
+    
+    if (validRequests.length >= this.maxRequests) {
+      return false;
+    }
+    
+    // Добавляем текущий запрос
+    validRequests.push(now);
+    this.requests.set(clientId, validRequests);
+    return true;
+  }
+
+  getRemainingRequests(clientId: string): number {
+    const now = Date.now();
+    const clientRequests = this.requests.get(clientId) || [];
+    const validRequests = clientRequests.filter(
+      timestamp => now - timestamp < this.windowMs
+    );
+    return Math.max(0, this.maxRequests - validRequests.length);
+  }
+}
+
 @Injectable()
 export class GrpcServerService implements OnModuleInit {
   private readonly logger = new Logger(GrpcServerService.name);
   private server: grpc.Server;
+  private rateLimiter: RateLimiter;
 
   constructor(private readonly wbParserService: WbParserService) {
     this.server = new grpc.Server();
+    // Rate limiter: 200 запросов в минуту на клиента
+    this.rateLimiter = new RateLimiter(200, 60);
   }
 
   async onModuleInit(): Promise<void> {
@@ -65,6 +108,21 @@ export class GrpcServerService implements OnModuleInit {
       const request: GetRawProductsRequest = call.request;
       const { query, category, categoryKey, auth_token } = request;
 
+      // Получаем IP клиента для rate limiting
+      const clientIp = call.getPeer().split(':')[0] || 'unknown';
+      
+      // Проверяем rate limiting
+      if (!this.rateLimiter.isAllowed(clientIp)) {
+        const remaining = this.rateLimiter.getRemainingRequests(clientIp);
+        const error: GrpcError = {
+          code: grpc.status.RESOURCE_EXHAUSTED,
+          message: `Rate limit exceeded. Try again later. Remaining requests: ${remaining}`,
+          details: 'Слишком много запросов',
+        };
+        callback(error);
+        return;
+      }
+
       // Проверка аутентификации
       const expectedToken = process.env.WB_API_TOKEN;
       if (!expectedToken) {
@@ -98,7 +156,7 @@ export class GrpcServerService implements OnModuleInit {
         return;
       }
 
-      this.logger.log(`🔍 WB API: ${query} (${category})`);
+      this.logger.log(`🔍 WB API: ${query} (${category}) от ${clientIp}`);
 
       const products = await this.wbParserService.parseProducts(
         query,

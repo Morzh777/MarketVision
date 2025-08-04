@@ -1,5 +1,7 @@
 import asyncio
 import os
+import time
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Dict, Optional
 
@@ -10,11 +12,49 @@ import raw_product_pb2_grpc
 from infrastructure.services.ozon_parser_service import OzonParserService
 
 
+class RateLimiter:
+    """Простой rate limiter для защиты от спама"""
+    
+    def __init__(self, max_requests: int = 10, window_seconds: int = 60):
+        self.max_requests = max_requests
+        self.window_seconds = window_seconds
+        self.requests = defaultdict(list)
+    
+    def is_allowed(self, client_id: str) -> bool:
+        """Проверяет, разрешен ли запрос от клиента"""
+        now = time.time()
+        
+        # Удаляем старые запросы
+        self.requests[client_id] = [
+            req_time for req_time in self.requests[client_id] 
+            if now - req_time < self.window_seconds
+        ]
+        
+        # Проверяем лимит
+        if len(self.requests[client_id]) >= self.max_requests:
+            return False
+        
+        # Добавляем текущий запрос
+        self.requests[client_id].append(now)
+        return True
+    
+    def get_remaining_requests(self, client_id: str) -> int:
+        """Возвращает количество оставшихся запросов"""
+        now = time.time()
+        self.requests[client_id] = [
+            req_time for req_time in self.requests[client_id] 
+            if now - req_time < self.window_seconds
+        ]
+        return max(0, self.max_requests - len(self.requests[client_id]))
+
+
 class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
     """gRPC сервис для Ozon API с типизацией и обработкой ошибок"""
 
     def __init__(self) -> None:
         self.parser_service = OzonParserService()
+        # Rate limiter: 200 запросов в минуту на клиента
+        self.rate_limiter = RateLimiter(max_requests=200, window_seconds=60)
 
     async def GetRawProducts(
         self,
@@ -34,6 +74,18 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         Raises:
             grpc.RpcError: При ошибках парсинга или валидации
         """
+        # Получаем IP клиента для rate limiting
+        client_ip = context.peer().split(':')[0] if context.peer() else 'unknown'
+        
+        # Проверяем rate limiting
+        if not self.rate_limiter.is_allowed(client_ip):
+            remaining = self.rate_limiter.get_remaining_requests(client_ip)
+            context.set_code(grpc.StatusCode.RESOURCE_EXHAUSTED)
+            context.set_details(f"Rate limit exceeded. Try again later. Remaining requests: {remaining}")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+        
         query = request.query
         category = request.category
         
@@ -41,7 +93,7 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         auth_token = getattr(request, "auth_token", "")
         expected_token = os.getenv("OZON_API_TOKEN")
         
-        print(f"🔍 Получен запрос: query='{query}', category='{category}'")
+        print(f"🔍 Получен запрос: query='{query}', category='{category}' от {client_ip}")
         print(f"🔑 Аутентификация: {'успешна' if auth_token == expected_token else 'неуспешна'}")
         
         if not expected_token:

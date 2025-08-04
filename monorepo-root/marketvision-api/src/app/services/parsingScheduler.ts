@@ -366,4 +366,5 @@ const parsingScheduler = new ParsingScheduler();
 // Планировщик будет запускаться только по требованию через API
 console.log('⏸️ Планировщик создан, ожидает запуска через админку...');
 
-export default parsingScheduler; 
+export default parsingScheduler;
+export { PARSING_CONFIG }; 
