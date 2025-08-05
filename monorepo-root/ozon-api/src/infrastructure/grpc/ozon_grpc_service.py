@@ -10,6 +10,11 @@ import grpc
 import raw_product_pb2
 import raw_product_pb2_grpc
 from infrastructure.services.ozon_parser_service import OzonParserService
+from utils.logger import ozon_logger
+from utils.ddos_protection import ddos_protection
+
+# Константы для валидации
+MAX_REQUEST_LENGTH = 100
 
 
 class RateLimiter:
@@ -53,8 +58,7 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
 
     def __init__(self) -> None:
         self.parser_service = OzonParserService()
-        # Rate limiter: 200 запросов в минуту на клиента
-        self.rate_limiter = RateLimiter(max_requests=200, window_seconds=60)
+        # Используем продвинутую DDoS защиту вместо простого rate limiter
 
     async def GetRawProducts(
         self,
@@ -74,14 +78,23 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         Raises:
             grpc.RpcError: При ошибках парсинга или валидации
         """
-        # Получаем IP клиента для rate limiting
+        # Получаем IP клиента для DDoS защиты
         client_ip = context.peer().split(':')[0] if context.peer() else 'unknown'
         
-        # Проверяем rate limiting
-        if not self.rate_limiter.is_allowed(client_ip):
-            remaining = self.rate_limiter.get_remaining_requests(client_ip)
+        # Подготавливаем данные запроса для анализа
+        request_data = {
+            'query': getattr(request, 'query', ''),
+            'category': getattr(request, 'category', ''),
+            'platform_id': getattr(request, 'platform_id', ''),
+            'exactmodels': getattr(request, 'exactmodels', ''),
+            'auth_token': getattr(request, 'auth_token', '')
+        }
+        
+        # Проверяем DDoS защиту
+        allowed, reason, details = ddos_protection.is_request_allowed(client_ip, request_data)
+        if not allowed:
             context.set_code(grpc.StatusCode.RESOURCE_EXHAUSTED)
-            context.set_details(f"Rate limit exceeded. Try again later. Remaining requests: {remaining}")
+            context.set_details(f"DDoS protection: {reason}")
             return raw_product_pb2.GetRawProductsResponse(
                 products=[], total_count=0, source="ozon"
             )
@@ -93,11 +106,10 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         auth_token = getattr(request, "auth_token", "")
         expected_token = os.getenv("OZON_API_TOKEN")
         
-        print(f"🔍 Получен запрос: query='{query}', category='{category}' от {client_ip}")
-        print(f"🔑 Аутентификация: {'успешна' if auth_token == expected_token else 'неуспешна'}")
+        ozon_logger.log_grpc_request("GetRawProducts", {"query": query, "category": category}, client_ip)
         
         if not expected_token:
-            print("❌ ОШИБКА: OZON_API_TOKEN environment variable is not set")
+            ozon_logger.logger.error("OZON_API_TOKEN environment variable is not set")
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Server configuration error: OZON_API_TOKEN not set")
             return raw_product_pb2.GetRawProductsResponse(
@@ -105,11 +117,15 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
             )
         
         if not auth_token or auth_token != expected_token:
+            ozon_logger.log_auth_failed(client_ip)
+            ddos_protection.record_failed_auth(client_ip)
             context.set_code(grpc.StatusCode.UNAUTHENTICATED)
             context.set_details("Invalid or missing authentication token")
             return raw_product_pb2.GetRawProductsResponse(
                 products=[], total_count=0, source="ozon"
             )
+        
+        ozon_logger.log_auth_success(client_ip)
         platform_id: Optional[str] = getattr(request, "platform_id", None)
         if not platform_id:
             platform_id = None
@@ -117,10 +133,37 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
         if not exactmodels:
             exactmodels = None
 
+        # Валидация размера platform_id
+        if platform_id and len(platform_id.strip()) > MAX_REQUEST_LENGTH:
+            ozon_logger.log_request_rejected("platform_id", len(platform_id.strip()), MAX_REQUEST_LENGTH, client_ip)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(f"Platform ID too long. Maximum length is {MAX_REQUEST_LENGTH} characters")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+
+        # Валидация размера exactmodels
+        if exactmodels and len(exactmodels.strip()) > MAX_REQUEST_LENGTH:
+            ozon_logger.log_request_rejected("exactmodels", len(exactmodels.strip()), MAX_REQUEST_LENGTH, client_ip)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(f"Exact models too long. Maximum length is {MAX_REQUEST_LENGTH} characters")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+
         # Валидация входных данных
         if not query or not query.strip():
             context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
             context.set_details("Query cannot be empty")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+
+        # Валидация размера запроса
+        if len(query.strip()) > MAX_REQUEST_LENGTH:
+            ozon_logger.log_request_rejected("query", len(query.strip()), MAX_REQUEST_LENGTH, client_ip)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(f"Query too long. Maximum length is {MAX_REQUEST_LENGTH} characters")
             return raw_product_pb2.GetRawProductsResponse(
                 products=[], total_count=0, source="ozon"
             )
@@ -132,9 +175,18 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
                 products=[], total_count=0, source="ozon"
             )
 
-        print(f"🔍 gRPC GetRawProducts запрос: {query} в категории {category}")
+        # Валидация размера категории
+        if len(category.strip()) > MAX_REQUEST_LENGTH:
+            ozon_logger.log_request_rejected("category", len(category.strip()), MAX_REQUEST_LENGTH, client_ip)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(f"Category too long. Maximum length is {MAX_REQUEST_LENGTH} characters")
+            return raw_product_pb2.GetRawProductsResponse(
+                products=[], total_count=0, source="ozon"
+            )
+
+        ozon_logger.log_parsing_start(query, category, client_ip)
         if platform_id:
-            print(f"🎮 С платформой: {platform_id}")
+            ozon_logger.logger.info(f"Платформа: {platform_id}")
 
         try:
             # Проверяем доступность парсера
@@ -167,7 +219,7 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
                     print(f"⚠️ Ошибка конвертации товара {product.id}: {e}")
                     continue
 
-            print(f"✅ Успешно обработано {len(grpc_products)} товаров")
+            ozon_logger.log_parsing_success(query, len(grpc_products), 0, client_ip)  # duration будет добавлен позже
             return raw_product_pb2.GetRawProductsResponse(
                 products=grpc_products, total_count=len(grpc_products), source="ozon"
             )
@@ -176,12 +228,12 @@ class OzonRawProductService(raw_product_pb2_grpc.RawProductServiceServicer):
             # Переброс gRPC ошибок как есть
             raise
         except Exception as e:
-            print(f"❌ Внутренняя ошибка в gRPC GetRawProducts: {e}")
+            ozon_logger.log_parsing_error(query, e, client_ip)
             
             # Специальная обработка для ошибок драйвера
             if "no such window" in str(e) or "target window already closed" in str(e):
-                print("🔄 Ошибка драйвера, но драйвер остается открытым для следующих запросов")
-                print("ℹ️ Следующий запрос попробует использовать существующий драйвер")
+                ozon_logger.logger.info("Ошибка драйвера, но драйвер остается открытым для следующих запросов")
+                ozon_logger.logger.info("Следующий запрос попробует использовать существующий драйвер")
             
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details(f"Internal parser error: {str(e)}")

@@ -4,7 +4,7 @@ services:
     build: .
     container_name: marketvision-database-api
     ports:
-      - "3000:3003"
+      - "3003:3003"
     environment:
       - DATABASE_URL=postgresql://marketvision:${POSTGRES_PASSWORD:-password}@postgres:5432/marketvision
     env_file:

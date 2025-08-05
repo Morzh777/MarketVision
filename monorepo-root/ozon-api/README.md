@@ -157,6 +157,54 @@ python test_categories.py
 
 # Проверка парсера
 python -c "from src.infrastructure.parsers.ozon_parser import OzonParser; print('Parser OK')"
+
+# Тестирование валидации размера запросов
+python test_request_validation.py
+
+# Тестирование CORS защиты
+python test_cors_protection.py
+
+# Тестирование DDoS защиты
+python test_ddos_protection.py
+
+# Безопасное тестирование DDoS защиты (без обращения к Ozon)
+python test_ddos_protection_safe.py
+
+# Быстрый тест DDoS защиты
+python test_ddos_quick.py
+```
+
+## 🛡️ DDoS Защита
+
+### Возможности защиты:
+- **Rate Limiting**: 200 запросов/минуту, 1000/час, 5000/день
+- **Burst Protection**: максимум 10 запросов за 5 секунд
+- **Suspicious Patterns**: обнаружение повторяющихся паттернов
+- **Connection Limits**: максимум 5 одновременных соединений
+- **Blacklist**: автоматическая блокировка подозрительных IP
+- **Whitelist**: доверенные IP (localhost, 127.0.0.1)
+
+### Мониторинг:
+```bash
+# Получить статистику DDoS защиты
+curl -H "Authorization: Bearer marketvision_secret_token_2024" \
+     http://localhost:3005/ddos-stats
+```
+
+### Конфигурация:
+```python
+# Настройка в utils/ddos_protection.py
+DDoSConfig(
+    max_requests_per_minute=200,
+    max_requests_per_hour=1000,
+    max_requests_per_day=5000,
+    max_burst_requests=10,
+    burst_window_seconds=5,
+    max_concurrent_connections=5,
+    suspicious_pattern_threshold=50,
+    blacklist_duration_hours=24,
+    max_failed_auth_attempts=10
+)
 ```
 
 ## 🚨 Частые проблемы
@@ -185,3 +233,12 @@ python -c "from src.infrastructure.parsers.ozon_parser import OzonParser; print(
 ---
 
 **Ozon API** - надежный gRPC сервер для парсинга товаров с Ozon! 🚀 
+
+
+❌ Проблемы безопасности:
+✅ Отсутствует .env файл - OZON_API_TOKEN не настроен
+✅ Валидация размера запросов - ограничение 100 символов для всех полей
+✅ CORS защита - HTTP health endpoint защищен от cross-origin атак
+✅ Логирование безопасности - структурированное логирование с аудитом
+✅ DDoS защита - продвинутая система защиты от атак с мониторингом
+Нет валидации URL - можно отправить вредоносные ссылки
