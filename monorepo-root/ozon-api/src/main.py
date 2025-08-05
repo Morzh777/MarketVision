@@ -51,8 +51,9 @@ async def health_handler(request):
     
     # Проверяем User-Agent для защиты от простых скриптов
     user_agent = request.headers.get('User-Agent', '')
-    if not user_agent or 'curl' not in user_agent.lower():
-        # Разрешаем только curl и health check инструменты
+    allowed_user_agents = ['curl', 'fetch', 'node', 'python', 'health', 'check']
+    if not user_agent or not any(agent in user_agent.lower() for agent in allowed_user_agents):
+        # Разрешаем curl, fetch, node, python и health check инструменты
         return web.json_response(
             {'error': 'Unauthorized client'}, 
             status=403
