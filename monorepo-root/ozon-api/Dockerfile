@@ -17,7 +17,7 @@ RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Копируем файлы зависимостей
-COPY requirements.txt pyproject.toml ./
+COPY requirements.txt ./
 
 # Устанавливаем зависимости в виртуальное окружение с кэшированием
 RUN --mount=type=cache,target=/root/.cache/pip \

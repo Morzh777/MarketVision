@@ -12,8 +12,15 @@ export class DbApiClient extends BaseGrpcClient<any> {
       deadline.setSeconds(deadline.getSeconds() + 30);
       this.client.BatchCreateProducts(payload, { deadline }, (error: any, response: any) => {
         if (error) {
+          console.error('[FROM DB-API] Error:', error.message);
           reject(error);
         } else {
+          console.log('[FROM DB-API] Success:', {
+            inserted: response.inserted,
+            history: response.history,
+            products_count: payload.products.length,
+            market_stats: payload.market_stats ? 'saved' : 'none'
+          });
           resolve(response);
         }
       });

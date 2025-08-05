@@ -13,18 +13,13 @@ from utils.logger import ozon_logger
 @dataclass
 class DDoSConfig:
     """Конфигурация DDoS защиты"""
-    # Rate limiting
-    max_requests_per_minute: int = 200
-    max_requests_per_hour: int = 1000
-    max_requests_per_day: int = 5000
+    # Только burst protection (ограничение в секунду)
+    max_burst_requests: int = 50         # Максимум запросов в окне
+    burst_window_seconds: int = 10       # Окно в секундах
     
-    # Burst protection
-    max_burst_requests: int = 10
-    burst_window_seconds: int = 5
-    
-    # Suspicious activity detection
-    max_concurrent_connections: int = 5
-    suspicious_pattern_threshold: int = 50
+    # Suspicious activity detection (убрано)
+    max_concurrent_connections: int = 1000  # Очень высокий лимит
+    suspicious_pattern_threshold: int = 10000  # Очень высокий лимит
     
     # Blacklist
     blacklist_duration_hours: int = 24
@@ -44,12 +39,7 @@ class AdvancedDDoSProtection:
     def __init__(self, config: DDoSConfig):
         self.config = config
         
-        # Rate limiting storage
-        self.minute_requests: Dict[str, deque] = defaultdict(lambda: deque(maxlen=config.max_requests_per_minute))
-        self.hour_requests: Dict[str, deque] = defaultdict(lambda: deque(maxlen=config.max_requests_per_hour))
-        self.day_requests: Dict[str, deque] = defaultdict(lambda: deque(maxlen=config.max_requests_per_day))
-        
-        # Burst protection
+        # Burst protection (только ограничение в секунду)
         self.burst_requests: Dict[str, deque] = defaultdict(lambda: deque(maxlen=config.max_burst_requests))
         
         # Connection tracking
@@ -91,33 +81,8 @@ class AdvancedDDoSProtection:
         ozon_logger.logger.warning(f"IP {client_ip} добавлен в черный список: {reason}")
     
     def check_rate_limits(self, client_ip: str) -> Tuple[bool, str]:
-        """Проверяет все rate limits"""
-        now = time.time()
-        
-        # Проверяем минутный лимит
-        self.minute_requests[client_ip] = deque(
-            [t for t in self.minute_requests[client_ip] if now - t < 60],
-            maxlen=self.config.max_requests_per_minute
-        )
-        if len(self.minute_requests[client_ip]) >= self.config.max_requests_per_minute:
-            return False, "Minute rate limit exceeded"
-        
-        # Проверяем часовой лимит
-        self.hour_requests[client_ip] = deque(
-            [t for t in self.hour_requests[client_ip] if now - t < 3600],
-            maxlen=self.config.max_requests_per_hour
-        )
-        if len(self.hour_requests[client_ip]) >= self.config.max_requests_per_hour:
-            return False, "Hour rate limit exceeded"
-        
-        # Проверяем дневной лимит
-        self.day_requests[client_ip] = deque(
-            [t for t in self.day_requests[client_ip] if now - t < 86400],
-            maxlen=self.config.max_requests_per_day
-        )
-        if len(self.day_requests[client_ip]) >= self.config.max_requests_per_day:
-            return False, "Day rate limit exceeded"
-        
+        """Проверяет только burst protection (ограничение в секунду)"""
+        # Всегда разрешаем - убрали ограничения по времени
         return True, "OK"
     
     def check_burst_protection(self, client_ip: str) -> Tuple[bool, str]:
@@ -172,12 +137,7 @@ class AdvancedDDoSProtection:
         """Записывает информацию о запросе"""
         now = time.time()
         
-        # Записываем в rate limiting
-        self.minute_requests[client_ip].append(now)
-        self.hour_requests[client_ip].append(now)
-        self.day_requests[client_ip].append(now)
-        
-        # Записываем в burst protection
+        # Записываем только в burst protection
         self.burst_requests[client_ip].append(now)
         
         # Записываем соединение

@@ -71,6 +71,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   const [priceHistory, setPriceHistory] = useState<{ price: number | null; created_at: string }[]>([]);
   const [isLoadingPriceHistory, setIsLoadingPriceHistory] = useState(false);
 
+  const selectedQueryData = useMemo(
+    () => popularQueries.find(q => q.query === selectedQuery),
+    [popularQueries, selectedQuery]
+  );
+
+
   // Получаем историю цен только при выборе продукта
   useEffect(() => {
     const fetchPriceHistory = async () => {
@@ -309,7 +315,8 @@ const Sidebar: React.FC<SidebarProps> = ({
             {selectedProduct ? (
               <ProductCard 
                 product={selectedProduct} 
-                priceHistory={priceHistory} 
+                priceHistory={priceHistory}
+                priceChangePercent={selectedQueryData?.priceChangePercent}
               />
             ) : (
               <div className="sidebar__loading">

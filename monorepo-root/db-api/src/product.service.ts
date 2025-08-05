@@ -415,71 +415,16 @@ export class ProductService {
         const latestProduct = await this.prisma.product.findFirst({
           where: {
             query: query,
-            price: {
-              gte: 1000,
-            },
           },
           orderBy: {
             created_at: 'desc', // Берем самый свежий
           },
         });
 
-        if (!latestProduct) return null;
-
-        // Отладочная информация для iphone 16 pro
-        if (query === 'iphone 16 pro') {
-          console.log(`[DEBUG] iphone 16 pro - найден товар:`);
-          console.log(`  ID: ${latestProduct.id}`);
-          console.log(`  Цена: ${latestProduct.price}`);
-          console.log(`  Название: ${latestProduct.name}`);
-          console.log(`  Создан: ${latestProduct.created_at.toISOString()}`);
-          console.log(`  Источник: ${latestProduct.source}`);
-
-          // Проверим все товары для этого запроса (включая те, что меньше 1000)
-          const allProductsForQuery = await this.prisma.product.findMany({
-            where: {
-              query: 'iphone 16 pro',
-            },
-            orderBy: {
-              created_at: 'desc',
-            },
-            take: 10,
-          });
-
-          console.log(
-            `[DEBUG] iphone 16 pro - последние 10 товаров (включая дешевые):`,
-          );
-          allProductsForQuery.forEach((product, index) => {
-            console.log(
-              `  ${index + 1}. ID: ${product.id}, Цена: ${product.price}, Создан: ${product.created_at.toISOString()}, Название: ${product.name}`,
-            );
-          });
-
-          // Проверим только товары >= 1000 рублей
-          const expensiveProductsForQuery = await this.prisma.product.findMany({
-            where: {
-              query: 'iphone 16 pro',
-              price: {
-                gte: 1000,
-              },
-            },
-            orderBy: {
-              created_at: 'desc',
-            },
-            take: 10,
-          });
-
-          console.log(
-            `[DEBUG] iphone 16 pro - последние 10 товаров (>= 1000 рублей):`,
-          );
-          expensiveProductsForQuery.forEach((product, index) => {
-            console.log(
-              `  ${index + 1}. ID: ${product.id}, Цена: ${product.price}, Создан: ${product.created_at.toISOString()}, Название: ${product.name}`,
-            );
-          });
+        if (!latestProduct) {
+          return null;
         }
 
-        // Получаем историю цен для расчета процента
         const priceHistory = await this.prisma.priceHistory.findMany({
           where: {
             query: query,
@@ -487,82 +432,46 @@ export class ProductService {
           orderBy: {
             created_at: 'desc',
           },
-          take: 10, // Берем больше записей
-        });
-
-        console.log(
-          `[getPopularQueries] ${query}: found ${priceHistory.length} history records`,
-        );
-        priceHistory.forEach((record, index) => {
-          console.log(
-            `[getPopularQueries] ${query}: history[${index}] = ${record.price} at ${record.created_at.toISOString()}`,
-          );
+          distinct: ['price'], // Берем только уникальные цены
+          take: 2, // Нам нужно только две последние для сравнения
         });
 
         let priceChangePercent = 0;
 
-        if (priceHistory.length >= 2) {
-          // Ищем последнюю и предыдущую РАЗНЫЕ цены
+        // Убеждаемся, что у нас есть 2 разные цены для сравнения
+        if (priceHistory.length === 2) {
+          // distinct возвращает записи в порядке orderBy, поэтому первая - самая новая
           const currentPrice = priceHistory[0].price;
-          let previousPrice = 0;
-
-          // Идем по истории, пока не найдем цену, которая отличается от текущей
-          for (let i = 1; i < priceHistory.length; i++) {
-            if (priceHistory[i].price !== currentPrice) {
-              previousPrice = priceHistory[i].price;
-              console.log(
-                `[getPopularQueries] ${query}: found different price at index ${i}: ${previousPrice} (current: ${currentPrice})`,
-              );
-              break;
-            }
-          }
-
-          console.log(
-            `[getPopularQueries] ${query}: currentPrice = ${currentPrice}, previousPrice = ${previousPrice}`,
-          );
+          const previousPrice = priceHistory[1].price;
 
           if (previousPrice > 0) {
             priceChangePercent =
               ((currentPrice - previousPrice) / previousPrice) * 100;
-            console.log(
-              `[getPopularQueries] ${query}: calculated change = ${priceChangePercent}%`,
-            );
-          } else {
-            console.log(
-              `[getPopularQueries] ${query}: no different price found in history`,
-            );
           }
-        } else {
-          console.log(
-            `[getPopularQueries] ${query}: not enough history records (${priceHistory.length})`,
-          );
         }
 
         return {
           query: query,
-          minPrice: latestProduct.price, // Последняя цена из Product
-          id: latestProduct.id, // ID последнего продукта
+          minPrice: latestProduct.price,
+          id: latestProduct.id,
           priceChangePercent: priceChangePercent,
-          image_url: latestProduct.image_url || '', // Добавляем image_url из последнего продукта
+          image_url: latestProduct.image_url || '',
         };
       }),
     );
 
-    // Фильтруем null значения и возвращаем отсортированные
-    return result
-      .filter(
-        (
-          item,
-        ): item is {
-          query: string;
-          minPrice: number;
-          id: string;
-          priceChangePercent: number;
-          image_url: string;
-        } => item !== null,
-      )
-      .sort((a, b) => a.minPrice - b.minPrice)
-      .slice(0, 20);
+    // Фильтруем null значения и возвращаем результат
+    return result.filter(
+      (
+        item,
+      ): item is {
+        query: string;
+        minPrice: number;
+        id: string;
+        priceChangePercent: number;
+        image_url: string;
+      } => item !== null,
+    );
   }
 
   /**
@@ -583,6 +492,7 @@ export class ProductService {
       product_id: string;
       created_at: Date;
     } | null;
+    priceHistory: Array<{ price: number | null; created_at: string }>;
   }> {
     // Берем последний продукт по query (как в getPopularQueries)
     const latestProduct = await this.prisma.product.findFirst({
@@ -612,12 +522,15 @@ export class ProductService {
       created_at: Date;
     } | null = null;
 
-    products = latestProduct ? [latestProduct as Product] : [];
-    marketStats = latestProduct
-      ? ((await this.getMarketStats(query)) as typeof marketStats)
-      : null;
+    let priceHistory: Array<{ price: number | null; created_at: string }> = [];
 
-    return { products, marketStats };
+    products = latestProduct ? [latestProduct as Product] : [];
+    if (latestProduct) {
+      marketStats = (await this.getMarketStats(query)) as typeof marketStats;
+      priceHistory = await this.getPriceHistoryByQuery(query, 10);
+    }
+
+    return { products, marketStats, priceHistory };
   }
 
   /**

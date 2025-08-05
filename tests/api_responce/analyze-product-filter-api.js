@@ -8,41 +8,41 @@ const PRODUCT_FILTER_URL = 'http://localhost:3001/products/search';
 
 // Тестовые запросы для каждой категории (как в Product-Filter-Service)
 const testQueries = {
-  // videocards: [
-  //   'rtx 5070',
-  //   'rtx 5070 ti',
-  //   'rtx 5080',
-  //   'rtx 5090'
-  // ],
-  // processors: [
-  //   '7800x3d',
-  //   '9800x3d',
-  //   '9950x3d'
-  // ],
-  // motherboards: [
-  //   'Z790',
-  //   'B760',
-  //   'X870E',
-  //   'B850',
-  //   'B760M-K'
-  // ],
-  // playstation: [
-  //   'playstation 5',
-  //   'playstation 5 pro'
-  // ],
-  // nintendo_switch: [
-  //   'nintendo switch 2',
-  // ],
-  // steam_deck: [
-  //   'steam deck oled'
-  // ],
+  videocards: [
+    'rtx 5070',
+    'rtx 5070 ti',
+    'rtx 5080',
+    'rtx 5090'
+  ],
+  processors: [
+    '7800x3d',
+    '9800x3d',
+    '9950x3d'
+  ],
+  motherboards: [
+    'Z790',
+    'B760',
+    'X870E',
+    'B850',
+    'B760M-K'
+  ],
+  playstation: [
+    'playstation 5',
+    'playstation 5 pro'
+  ],
+  nintendo_switch: [
+    'nintendo switch 2',
+  ],
+  steam_deck: [
+    'steam deck oled'
+  ],
   iphone: [
     'iphone 16 pro',
-    // 'iphone 16',
-    // 'iphone 15 pro',
-    // 'iphone 15',
-    // 'iphone 16 pro max',
-    // 'iphone 15 pro max',
+    'iphone 16',
+    'iphone 15 pro',
+    'iphone 15',
+    'iphone 16 pro max',
+    'iphone 15 pro max',
 
   ]
 };

@@ -89,161 +89,176 @@ export class ProductController {
         },
       });
 
-             // Статистика по источникам с детальной информацией
-       const sourcesStats = await this.prisma.product.groupBy({
-         by: ['source'],
-         _count: {
-           source: true,
-         },
-         _avg: {
-           price: true,
-         },
-         _min: {
-           price: true,
-         },
-         _max: {
-           price: true,
-         },
-       });
+      // Статистика по источникам с детальной информацией
+      const sourcesStats = await this.prisma.product.groupBy({
+        by: ['source'],
+        _count: {
+          source: true,
+        },
+        _avg: {
+          price: true,
+        },
+        _min: {
+          price: true,
+        },
+        _max: {
+          price: true,
+        },
+      });
 
-       // Топ товары по цене в каждой категории
-       const topProductsByCategory: Record<string, any[]> = {};
-       
-       // Получаем уникальные категории
-       const categories = await this.prisma.product.findMany({
-         select: { category: true },
-         distinct: ['category'],
-       });
+      // Топ товары по цене в каждой категории
+      const topProductsByCategory: Record<string, any[]> = {};
 
-       // Для каждой категории получаем топ-3 самых дорогих товара
-       for (const { category } of categories) {
-         const topProducts = await this.prisma.product.findMany({
-           where: { category },
-           orderBy: { price: 'desc' },
-           take: 3,
-           select: {
-             id: true,
-             name: true,
-             price: true,
-             category: true,
-             source: true,
-             created_at: true,
-           },
-         });
-         
-         if (topProducts.length > 0) {
-           topProductsByCategory[category] = topProducts;
-         }
-       }
+      // Получаем уникальные категории
+      const categories = await this.prisma.product.findMany({
+        select: { category: true },
+        distinct: ['category'],
+      });
 
-                // Получаем все продукты для расчета распределения цен
-         const allProducts = await this.prisma.product.findMany({
-           select: { price: true },
-         });
+      // Для каждой категории получаем топ-3 самых дорогих товара
+      for (const { category } of categories) {
+        const topProducts = await this.prisma.product.findMany({
+          where: { category },
+          orderBy: { price: 'desc' },
+          take: 3,
+          select: {
+            id: true,
+            name: true,
+            price: true,
+            category: true,
+            source: true,
+            created_at: true,
+          },
+        });
 
-         // Распределение по ценам
-         const priceDistribution = {
-           '0-1000': 0,
-           '1000-5000': 0,
-           '5000-10000': 0,
-           '10000-25000': 0,
-           '25000-50000': 0,
-           '50000-100000': 0,
-           '100000+': 0,
-         };
+        if (topProducts.length > 0) {
+          topProductsByCategory[category] = topProducts;
+        }
+      }
 
-         allProducts.forEach(product => {
-           const price = product.price;
-           if (price < 1000) priceDistribution['0-1000']++;
-           else if (price < 5000) priceDistribution['1000-5000']++;
-           else if (price < 10000) priceDistribution['5000-10000']++;
-           else if (price < 25000) priceDistribution['10000-25000']++;
-           else if (price < 50000) priceDistribution['25000-50000']++;
-           else if (price < 100000) priceDistribution['50000-100000']++;
-           else priceDistribution['100000+']++;
-         });
+      // Получаем все продукты для расчета распределения цен
+      const allProducts = await this.prisma.product.findMany({
+        select: { price: true },
+      });
 
-         // История парсинга за последние 7 дней
-         const parsingHistory = [];
-         for (let i = 6; i >= 0; i--) {
-           const date = new Date();
-           date.setDate(date.getDate() - i);
-           date.setHours(0, 0, 0, 0);
-           
-           const nextDate = new Date(date);
-           nextDate.setDate(date.getDate() + 1);
-           
-           const dayProducts = await this.prisma.product.count({
-             where: {
-               created_at: {
-                 gte: date,
-                 lt: nextDate,
-               },
-             },
-           });
-           
-           parsingHistory.push({
-             date: date.toISOString(),
-             count: dayProducts,
-           });
-         }
+      // Распределение по ценам
+      const priceDistribution = {
+        '0-1000': 0,
+        '1000-5000': 0,
+        '5000-10000': 0,
+        '10000-25000': 0,
+        '25000-50000': 0,
+        '50000-100000': 0,
+        '100000+': 0,
+      };
 
-         // Статистика MarketStats
-         const marketStatsCount = await this.prisma.marketStats.count();
+      allProducts.forEach((product) => {
+        const price = product.price;
+        if (price < 1000) priceDistribution['0-1000']++;
+        else if (price < 5000) priceDistribution['1000-5000']++;
+        else if (price < 10000) priceDistribution['5000-10000']++;
+        else if (price < 25000) priceDistribution['10000-25000']++;
+        else if (price < 50000) priceDistribution['25000-50000']++;
+        else if (price < 100000) priceDistribution['50000-100000']++;
+        else priceDistribution['100000+']++;
+      });
 
-       // Преобразуем статистику источников в нужный формат для фронтенда
-       const sourcesStatsFormatted = sourcesStats.reduce((acc, item) => {
-         const productCount = item._count.source;
-         const percentage = totalProducts > 0 ? Math.round((productCount / totalProducts) * 100) : 0;
-         
-         acc[item.source] = {
-           productCount,
-           percentage,
-           avgPrice: Math.round(item._avg.price || 0),
-           priceRange: {
-             min: item._min.price || 0,
-             max: item._max.price || 0,
-           },
-           lastParsed: new Date().toISOString(),
-         };
-         return acc;
-       }, {} as Record<string, any>);
+      // История парсинга за последние 7 дней
+      const parsingHistory = [];
+      for (let i = 6; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        date.setHours(0, 0, 0, 0);
 
-       return {
-         totalProducts,
-         productsToday,
-         totalQueries: uniqueQueries.length,
-         queriesToday,
-         totalUsers,
-         marketStatsCount,
-         categories: categoriesStats.reduce((acc, item) => {
-           acc[item.category] = item._count.category;
-           return acc;
-         }, {} as Record<string, number>),
-         sources: sourcesStats.reduce((acc, item) => {
-           acc[item.source] = item._count.source;
-           return acc;
-         }, {} as Record<string, number>),
-         // Добавляем детальную статистику источников
-         sourcesStats: sourcesStatsFormatted,
-         categoriesStats: categoriesStats.reduce((acc, item) => {
-           const productCount = item._count.category;
-           acc[item.category] = {
-             productCount,
-             avgPrice: Math.round(item._avg.price || 0),
-             priceRange: {
-               min: item._min.price || 0,
-               max: item._max.price || 0,
-             },
-             lastParsed: new Date().toISOString(),
-           };
-           return acc;
-         }, {} as Record<string, any>),
-         topProductsByCategory,
-         priceDistribution,
-         parsingHistory,
-         lastUpdate: new Date().toISOString(),
-       };
+        const nextDate = new Date(date);
+        nextDate.setDate(date.getDate() + 1);
+
+        const dayProducts = await this.prisma.product.count({
+          where: {
+            created_at: {
+              gte: date,
+              lt: nextDate,
+            },
+          },
+        });
+
+        parsingHistory.push({
+          date: date.toISOString(),
+          count: dayProducts,
+        });
+      }
+
+      // Статистика MarketStats
+      const marketStatsCount = await this.prisma.marketStats.count();
+
+      // Преобразуем статистику источников в нужный формат для фронтенда
+      const sourcesStatsFormatted = sourcesStats.reduce(
+        (acc, item) => {
+          const productCount = item._count.source;
+          const percentage =
+            totalProducts > 0
+              ? Math.round((productCount / totalProducts) * 100)
+              : 0;
+
+          acc[item.source] = {
+            productCount,
+            percentage,
+            avgPrice: Math.round(item._avg.price || 0),
+            priceRange: {
+              min: item._min.price || 0,
+              max: item._max.price || 0,
+            },
+            lastParsed: new Date().toISOString(),
+          };
+          return acc;
+        },
+        {} as Record<string, any>,
+      );
+
+      return {
+        totalProducts,
+        productsToday,
+        totalQueries: uniqueQueries.length,
+        queriesToday,
+        totalUsers,
+        marketStatsCount,
+        categories: categoriesStats.reduce(
+          (acc, item) => {
+            acc[item.category] = item._count.category;
+            return acc;
+          },
+          {} as Record<string, number>,
+        ),
+        sources: sourcesStats.reduce(
+          (acc, item) => {
+            acc[item.source] = item._count.source;
+            return acc;
+          },
+          {} as Record<string, number>,
+        ),
+        // Добавляем детальную статистику источников
+        sourcesStats: sourcesStatsFormatted,
+        categoriesStats: categoriesStats.reduce(
+          (acc, item) => {
+            const productCount = item._count.category;
+            acc[item.category] = {
+              productCount,
+              avgPrice: Math.round(item._avg.price || 0),
+              priceRange: {
+                min: item._min.price || 0,
+                max: item._max.price || 0,
+              },
+              lastParsed: new Date().toISOString(),
+            };
+            return acc;
+          },
+          {} as Record<string, any>,
+        ),
+        topProductsByCategory,
+        priceDistribution,
+        parsingHistory,
+        lastUpdate: new Date().toISOString(),
+      };
     } catch (error) {
       console.error('Error fetching stats:', error);
       return {
@@ -311,7 +326,10 @@ export class ProductController {
   async getPopularQueries() {
     console.log('[Controller] getPopularQueries called');
     const result = await this.productService.getPopularQueries();
-    console.log('[Controller] getPopularQueries result:', JSON.stringify(result, null, 2));
+    console.log(
+      '[Controller] getPopularQueries result:',
+      JSON.stringify(result, null, 2),
+    );
     return result;
   }
 
@@ -368,7 +386,8 @@ export class ProductController {
 
     // Сохраняем продукты, историю и статистику
     const inserted = await this.productService.batchCreate(snakeProducts);
-    const history = await this.productService.batchCreatePriceHistory(snakeProducts);
+    const history =
+      await this.productService.batchCreatePriceHistory(snakeProducts);
 
     if (marketStats) {
       await this.productService.saveMarketStats(marketStats);

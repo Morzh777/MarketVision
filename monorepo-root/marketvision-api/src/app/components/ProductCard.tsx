@@ -29,30 +29,19 @@ interface ProductCardProps {
     query?: string;
   } | null;
   priceHistory?: Array<{ price: number | null; created_at: string }>;
-
+  priceChangePercent?: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, priceHistory = [] }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, priceHistory = [], priceChangePercent }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-  console.log('ProductCard product:', product);
-  console.log('ProductCard priceHistory:', priceHistory);
-  console.log('ProductCard priceHistory debug:', {
-    length: priceHistory?.length,
-    firstPrice: priceHistory?.[0]?.price,
-    lastPrice: priceHistory?.[priceHistory.length - 1]?.price,
-    firstDate: priceHistory?.[0]?.created_at,
-    lastDate: priceHistory?.[priceHistory.length - 1]?.created_at
-  });
-  console.log('ProductCard market stats:', {
-    min: product?.min,
-    max: product?.max,
-    mean: product?.mean
-  });
-
-  // Функция для определения тренда цен
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
+    if (typeof priceChangePercent === 'number') {
+      if (priceChangePercent > 0.1) return 'up';
+      if (priceChangePercent < -0.1) return 'down';
+      return 'stable';
+    }
+
     if (!priceHistory || priceHistory.length < 2) return 'stable';
     
     const validPrices = priceHistory
@@ -61,23 +50,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, priceHistory = [] })
     
     if (validPrices.length < 2) return 'stable';
     
-    // Берем последние 2 точки для определения тренда
     const recentPrices = validPrices.slice(-2);
     const firstPrice = recentPrices[0];
     const lastPrice = recentPrices[recentPrices.length - 1];
     
-    const changePercent = ((lastPrice - firstPrice) / firstPrice) * 100;
+    const change = ((lastPrice - firstPrice) / firstPrice) * 100;
     
-    console.log('Price trend debug:', {
-      firstPrice,
-      lastPrice,
-      changePercent,
-      validPrices: validPrices.slice(-5) // последние 5 цен для отладки
-    });
-    
-    if (changePercent > 0.1) return 'up';      // Рост более 0.1%
-    if (changePercent < -0.1) return 'down';   // Падение более 0.1%
-    return 'stable';                           // Изменение менее 0.1%
+    if (change > 0.1) return 'up';
+    if (change < -0.1) return 'down';
+    return 'stable';
   };
 
   if (!product) {

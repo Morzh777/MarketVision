@@ -63,7 +63,7 @@ case "$1" in
     
   "start-api")
     echo "🚀 Запуск Database API..."
-    docker-compose -f docker-compose.db.yml -f docker-compose.yml up -d
+    docker-compose -f docker-compose.db.yml -f docker-compose.yml up -d --build
     echo "✅ API запущен"
     ;;
     
@@ -98,8 +98,39 @@ case "$1" in
     docker ps --filter "name=marketvision" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
     ;;
     
+  "backup")
+    echo "🗄️ Создание бэкапа базы данных..."
+    ./scripts/backup.sh
+    ;;
+    
+  "list-backups")
+    echo "📋 Список бэкапов:"
+    ls -lh backups/marketvision_backup_*.sql 2>/dev/null || echo "Бэкапы не найдены"
+    ;;
+    
+  "restore")
+    if [ -z "$2" ]; then
+      echo "❌ Укажите файл бэкапа!"
+      echo "Использование: $0 restore <backup_file>"
+      echo ""
+      echo "Доступные бэкапы:"
+      echo "   Сжатые (полные):"
+      ls -lh backups/marketvision_backup_*.gz 2>/dev/null || echo "   Сжатые бэкапы не найдены"
+      echo "   SQL (последние 7 дней):"
+      ls -lh backups/marketvision_backup_*.sql 2>/dev/null || echo "   SQL бэкапы не найдены"
+      exit 1
+    fi
+    echo "🔄 Восстановление из бэкапа: $2"
+    ./scripts/restore.sh "$2"
+    ;;
+    
+  "disaster-recovery")
+    echo "🚨 Полное восстановление системы из последнего бэкапа"
+    ./scripts/disaster-recovery.sh
+    ;;
+    
   *)
-    echo "📋 Использование: $0 {start-db|stop-db|init-db|reset-db|start-api|stop-api|start-all|stop-all|logs-api|logs-db|status}"
+    echo "📋 Использование: $0 {start-db|stop-db|init-db|reset-db|start-api|stop-api|start-all|stop-all|logs-api|logs-db|status|backup|list-backups|restore <file>|disaster-recovery}"
     echo ""
     echo "Команды:"
     echo "  start-db    - Запустить только PostgreSQL"
@@ -113,5 +144,9 @@ case "$1" in
     echo "  logs-api    - Логи API"
     echo "  logs-db     - Логи базы данных"
     echo "  status      - Статус контейнеров"
+    echo "  backup      - Создать бэкап базы данных"
+    echo "  list-backups - Показать список бэкапов"
+    echo "  restore <file> - Восстановить из бэкапа"
+    echo "  disaster-recovery - ПОЛНОЕ восстановление из последнего бэкапа"
     ;;
 esac 

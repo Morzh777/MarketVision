@@ -118,11 +118,11 @@ export class ProductsService {
           product_id: cheapest.id,
           created_at: new Date().toISOString()
         } : undefined;
-        await this.dbApiClient.batchCreateProducts({
+        const dbResult = await this.dbApiClient.batchCreateProducts({
           products: [cheapest],
           market_stats
         });
-        // this.logger.log(`💾 Сохранен товар: "${cheapest.name}"`);
+        this.logger.log(`💾 Сохранено в БД: ${dbResult.inserted} товаров`);
       }
     } else {
       this.logger.log(`⏭️ Сохранение в базу данных отключено`);

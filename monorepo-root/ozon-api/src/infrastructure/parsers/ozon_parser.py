@@ -14,6 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from domain.entities.product import Product
+from utils.rate_limiter import parsing_rate_limiter
 
 
 class OzonParser:
@@ -179,6 +180,10 @@ class OzonParser:
             print(f"🎮 С платформой: {platform_id}")
         if exactmodels:
             print(f"🔎 С exactmodels: {exactmodels}")
+        
+        # Ждем перед запросом согласно rate limiting
+        await parsing_rate_limiter.wait_before_request(query)
+        
         max_retries = 3
         for attempt in range(max_retries):
             try:
@@ -262,10 +267,19 @@ class OzonParser:
                 print(f"✅ Парсинг завершен за {processing_time}ms")
                 print(f"📦 Найдено {len(products)} продуктов")
 
+                # Отмечаем успешный запрос
+                parsing_rate_limiter.on_request_success()
+
                 return products
 
             except Exception as e:
                 print(f"❌ Ошибка в попытке {attempt + 1}: {e}")
+                
+                # Проверяем, является ли ошибка блокировкой
+                if "connection_limits" in str(e) or "Too many concurrent connections" in str(e):
+                    print("🚫 Обнаружена блокировка Ozon")
+                    parsing_rate_limiter.on_request_blocked()
+                
                 if attempt < max_retries - 1:
                     print("🔄 Повторяем попытку...")
                     await asyncio.sleep(2)
