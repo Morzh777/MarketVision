@@ -22,5 +22,11 @@ services:
       retries: 3
       start_period: 40s
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # Для виртуального экрана
-    shm_size: '2gb'  # Для Chrome 
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    shm_size: '2gb'
+    networks:
+      - marketvision-net
+
+networks:
+  marketvision-net:
+    external: true

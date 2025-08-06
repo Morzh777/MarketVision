@@ -2,8 +2,11 @@ import { BaseGrpcClient } from './base-grpc.client';
 import { environmentConfig } from '../config/environment.config';
 
 export class OzonApiClient extends BaseGrpcClient<any> {
-  constructor(serverAddress: string = 'localhost:3002') {
+  private serverAddress: string;
+
+  constructor(serverAddress: string) {
     super('proto/raw-product.proto', 'RawProductService', serverAddress);
+    this.serverAddress = serverAddress;
   }
 
   async filterProducts(request: any): Promise<any> {
@@ -27,7 +30,7 @@ export class OzonApiClient extends BaseGrpcClient<any> {
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 30);
       
-      console.log('🚀 Отправляем gRPC запрос на:', 'localhost:3002');
+      console.log('🚀 Отправляем gRPC запрос на:', this.serverAddress);
       
       this.client.GetRawProducts(requestWithAuth, { deadline }, (error: any, response: any) => {
         if (error) {

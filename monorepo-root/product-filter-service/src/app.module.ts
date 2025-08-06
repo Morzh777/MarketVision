@@ -12,13 +12,18 @@ import { ProductNormalizerService } from './services/product-normalizer.service'
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { ValidationServiceModule } from './services/validation.service/validation.service.module';
 
+// Адреса gRPC серверов в Docker сети
+const WB_API_ADDRESS = process.env.WB_API_ADDRESS || 'marketvision-wb-parser:3000';
+const OZON_API_ADDRESS = process.env.OZON_API_ADDRESS || 'marketvision-ozon-parser:3002';
+const DB_API_ADDRESS = process.env.DB_API_ADDRESS || 'marketvision-database-api:50051';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
     }),
-    ValidationServiceModule, // Подключаем новую систему валидации
+    ValidationServiceModule,
   ],
   controllers: [ProductsController, HealthController],
   providers: [
@@ -27,9 +32,18 @@ import { ValidationServiceModule } from './services/validation.service/validatio
     ProductGroupingService,
     ProductNormalizerService,
     PhotoService,
-    OzonApiClient,
-    WbApiClient,
-    DbApiClient,
+    {
+      provide: WbApiClient,
+      useValue: new WbApiClient(WB_API_ADDRESS),
+    },
+    {
+      provide: OzonApiClient,
+      useValue: new OzonApiClient(OZON_API_ADDRESS),
+    },
+    {
+      provide: DbApiClient,
+      useValue: new DbApiClient(DB_API_ADDRESS),
+    },
   ],
 })
-export class AppModule {} 
+export class AppModule {}

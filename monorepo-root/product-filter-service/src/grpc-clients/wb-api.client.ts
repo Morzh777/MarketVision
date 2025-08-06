@@ -1,8 +1,11 @@
 import { BaseGrpcClient } from './base-grpc.client';
 
 export class WbApiClient extends BaseGrpcClient<any> {
-  constructor(serverAddress: string = process.env.WB_API_URL || 'localhost:3000') {
+  private serverAddress: string;
+
+  constructor(serverAddress: string) {
     super('proto/raw-product.proto', 'RawProductService', serverAddress);
+    this.serverAddress = serverAddress;
   }
 
   async filterProducts(request: any): Promise<any> {
@@ -26,7 +29,7 @@ export class WbApiClient extends BaseGrpcClient<any> {
       const deadline = new Date();
       deadline.setSeconds(deadline.getSeconds() + 30);
       
-      console.log('🚀 Отправляем gRPC запрос на:', 'localhost:3000');
+      console.log('🚀 Отправляем gRPC запрос на:', this.serverAddress);
       
       this.client.GetRawProducts(requestWithAuth, { deadline }, (error: any, response: any) => {
         if (error) {

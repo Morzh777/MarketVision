@@ -7,6 +7,7 @@ COPY package*.json ./
 
 # Устанавливаем зависимости (кэшируется отдельно)
 RUN npm ci --only=production
+RUN apk add --no-cache curl
 
 # Копируем Prisma схему (для кэширования генерации)
 COPY prisma ./prisma/

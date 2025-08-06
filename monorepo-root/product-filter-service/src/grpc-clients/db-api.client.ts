@@ -1,7 +1,7 @@
 import { BaseGrpcClient } from './base-grpc.client';
 
 export class DbApiClient extends BaseGrpcClient<any> {
-  constructor(serverAddress: string = 'localhost:50051') {
+  constructor(serverAddress: string) {
     super('proto/raw-product.proto', 'RawProductService', serverAddress);
   }
 

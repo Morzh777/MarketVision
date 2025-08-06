@@ -19,15 +19,13 @@ export abstract class BaseGrpcClient<T> {
       oneofs: true,
     });
     const proto: any = grpc.loadPackageDefinition(packageDefinition);
-    const isProduction = process.env.NODE_ENV === 'production';
-    const useSSL = process.env.GRPC_USE_SSL === 'true' || isProduction;
-    const credentials = useSSL
-      ? grpc.credentials.createSsl()
-      : grpc.credentials.createInsecure();
+    
+    // Используем insecure подключение для локальной разработки
+    const credentials = grpc.credentials.createInsecure();
     this.client = new proto.raw_product[serviceName](
       serverAddress,
       credentials
     );
-    console.log(`🔗 gRPC клиент подключен к ${serverAddress} (SSL: ${useSSL})`);
+    console.log(`🔗 gRPC клиент подключен к ${serverAddress} (SSL: false)`);
   }
 } 
