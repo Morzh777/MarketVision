@@ -1,10 +1,11 @@
 const fetch = require('node-fetch');
 const fs = require('fs').promises;
 const path = require('path');
+const https = require('https');
 
 // Конфигурация
 const OUTPUT_BASE = path.join(__dirname, 'architecture-analysis', 'product-filter');
-const PRODUCT_FILTER_URL = 'http://localhost:3001/products/search';
+const PRODUCT_FILTER_URL = 'https://localhost/products/search';
 
 // Тестовые запросы для каждой категории (как в Product-Filter-Service)
 const testQueries = {
@@ -68,7 +69,11 @@ async function testProductFilterApi(category, query) {
     const response = await fetch(PRODUCT_FILTER_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
+      // Игнорируем SSL сертификаты для локальной разработки
+      agent: new https.Agent({
+        rejectUnauthorized: false
+      })
     });
     const data = await response.json();
     return {

@@ -9,6 +9,18 @@ services:
     #   - "3001:3001"
     environment:
       - NODE_ENV=production
+      - WB_API_URL=localhost:3000
+      - OZON_API_URL=localhost:3002
+      - DB_API_URL=localhost:50051
+      - GRPC_USE_SSL=false
+      - OZON_API_TOKEN=marketvision_secret_token_2024
+      - WB_API_TOKEN=marketvision_secret_token_2024
+      - DB_API_TOKEN=marketvision_secret_token_2024
+      - PORT=3001
+      - LOG_LEVEL=info
+      - LOG_FILE=logs/product-filter.log
+    env_file:
+      - .env
     volumes:
       - ./logs:/usr/src/app/logs
     restart: unless-stopped
