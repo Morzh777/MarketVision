@@ -392,6 +392,8 @@ export class ProductService {
       image_url: string;
     }>
   > {
+    console.log('[ProductService] getPopularQueries called');
+    
     // Получаем все уникальные запросы с фильтрацией по цене и непустому запросу
     const queries = await this.prisma.product.findMany({
       select: {
@@ -408,6 +410,8 @@ export class ProductService {
       distinct: ['query'],
     });
 
+    console.log('[ProductService] Found queries:', queries.length, queries.map(q => q.query));
+
     // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
     const result = await Promise.all(
       queries.map(async ({ query }) => {
@@ -422,6 +426,7 @@ export class ProductService {
         });
 
         if (!latestProduct) {
+          console.log('[ProductService] No latest product for query:', query);
           return null;
         }
 
@@ -450,18 +455,21 @@ export class ProductService {
           }
         }
 
-        return {
+        const item = {
           query: query,
           minPrice: latestProduct.price,
           id: latestProduct.id,
           priceChangePercent: priceChangePercent,
           image_url: latestProduct.image_url || '',
         };
+        
+        console.log('[ProductService] Created item for query:', query, item);
+        return item;
       }),
     );
 
     // Фильтруем null значения и возвращаем результат
-    return result.filter(
+    const filteredResult = result.filter(
       (
         item,
       ): item is {
@@ -472,6 +480,9 @@ export class ProductService {
         image_url: string;
       } => item !== null,
     );
+    
+    console.log('[ProductService] Final result:', filteredResult.length, 'items');
+    return filteredResult;
   }
 
   /**

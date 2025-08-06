@@ -30,7 +30,7 @@ async function checkServiceHealth(name: string, url: string) {
           signal: AbortSignal.timeout(3000)
         });
         if (response.ok) break; // Если получили 200 - выходим
-      } catch (e) {
+      } catch {
         continue; // Пробуем следующий endpoint
       }
     }
@@ -55,7 +55,7 @@ async function checkServiceHealth(name: string, url: string) {
         error: response ? `HTTP ${response.status}` : "No response"
       };
     }
-  } catch (error) {
+  } catch {
     const responseTime = Date.now() - startTime;
     return {
       name,

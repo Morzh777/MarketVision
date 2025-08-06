@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  marketvision-api:
+    build: .
+    container_name: marketvision-frontend
+    ports:
+      - "3006:3006"
+    environment:
+      - NODE_ENV=production
+      - PORT=3006
+      - PRODUCT_FILTER_URL=http://marketvision-product-aggregator:3001
+      - DB_API_URL=https://marketvision-nginx-proxy
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/usr/src/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3006/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - marketvision-net
+
+networks:
+  marketvision-net:
+    external: true 

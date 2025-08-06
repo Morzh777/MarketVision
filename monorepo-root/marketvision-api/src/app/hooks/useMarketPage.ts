@@ -26,16 +26,19 @@ export function useTimeframe(initial: Timeframe) {
   return [timeframe, setTimeframe] as const;
 }
 
-export function useSortHandlers(setSortOrder: any, setSortPercentOrder: any) {
+type SortOrder = 'asc' | 'desc' | null;
+type SetSortOrder = (value: SortOrder | ((prev: SortOrder) => SortOrder)) => void;
+
+export function useSortHandlers(setSortOrder: SetSortOrder, setSortPercentOrder: SetSortOrder) {
   const handleSortPriceClick = () => {
-    setSortOrder((prev: any) => {
+    setSortOrder((prev: SortOrder) => {
       const next = prev === 'asc' ? 'desc' : prev === 'desc' ? null : 'asc';
       if (next) setSortPercentOrder(null);
       return next;
     });
   };
   const handleSortPercentClick = () => {
-    setSortPercentOrder((prev: any) => {
+    setSortPercentOrder((prev: SortOrder) => {
       const next = prev === 'asc' ? 'desc' : prev === 'desc' ? null : 'asc';
       if (next) setSortOrder(null);
       return next;

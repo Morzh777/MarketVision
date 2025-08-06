@@ -1,5 +1,5 @@
 export interface MockHourlyCheapestItem {
-  recommended: any;
+  recommended: number | null;
   hour: string;
   name: string;
   price: number;

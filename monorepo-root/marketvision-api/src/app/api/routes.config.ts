@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Конфигурация API
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003/api';
+const API_BASE_URL = process.env.DB_API_URL || 'http://localhost:3003';
 
 // Типы для API роутов
 export interface ApiRouteConfig {
@@ -18,14 +18,14 @@ export interface ApiRouteConfig {
 // Конфигурация всех API роутов
 export const API_ROUTES: Record<string, ApiRouteConfig> = {
   POPULAR_QUERIES: {
-    path: '/popular-queries',
+    path: '/api/products/popular-queries',
     method: 'GET',
     description: 'Получение популярных запросов',
     errorMessage: 'Failed to fetch popular queries'
   },
   
   PRODUCTS: {
-    path: '/products',
+    path: '/api/products',
     method: 'GET',
     description: 'Получение всех продуктов или продуктов по запросу',
     parameters: {
@@ -35,7 +35,7 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
   },
   
   PRODUCTS_BY_QUERY: {
-    path: '/products-by-query/[query]',
+    path: '/api/products-by-query/[query]',
     method: 'GET',
     description: 'Получение продуктов по конкретному запросу',
     parameters: {
@@ -45,7 +45,7 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
   },
   
   PRICE_HISTORY_BY_QUERY: {
-    path: '/products/price-history-by-query',
+    path: '/api/products/price-history-by-query',
     method: 'GET',
     description: 'Получение истории цен по запросу',
     parameters: {
@@ -55,7 +55,7 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
   },
   
   PRODUCT_BY_ID: {
-    path: '/products/[id]',
+    path: '/api/products/[id]',
     method: 'GET',
     description: 'Получение продукта по ID',
     parameters: {
@@ -65,7 +65,7 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
   },
   
   PRODUCTS_PAGINATED: {
-    path: '/products-paginated',
+    path: '/api/products-paginated',
     method: 'GET',
     description: 'Получение продуктов с пагинацией',
     parameters: {

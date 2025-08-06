@@ -20,13 +20,31 @@ export class ProductController {
     };
   }
 
-  @Get(':id')
-  async getProduct(@Param('id') id: string) {
-    return await this.productService.findOne(id);
+  @Get('health')
+  async health() {
+    return { status: 'ok', timestamp: new Date().toISOString() };
+  }
+
+  @Get('popular-queries')
+  async getPopularQueries() {
+    console.log('[ProductController] getPopularQueries called');
+    try {
+      const result = await this.productService.getPopularQueries();
+      console.log('[ProductController] getPopularQueries result:', result);
+      return result;
+    } catch (error) {
+      console.error('[ProductController] getPopularQueries error:', error);
+      throw error;
+    }
   }
 
   @Get()
   async getProducts(@Query() query: any) {
     return await this.productService.findAll(query);
+  }
+
+  @Get(':id')
+  async getProduct(@Param('id') id: string) {
+    return await this.productService.findOne(id);
   }
 }
