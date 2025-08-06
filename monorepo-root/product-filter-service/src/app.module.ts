@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsController } from './controllers/products.controller';
-import { HealthController } from './controllers/health.controller';
 import { ProductsService } from './services/products.service';
 import { PhotoService } from './services/photo.service';
 import { OzonApiClient } from './grpc-clients/ozon-api.client';
@@ -12,7 +11,7 @@ import { ProductNormalizerService } from './services/product-normalizer.service'
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { ValidationServiceModule } from './services/validation.service/validation.service.module';
 
-// Адреса gRPC серверов в Docker сети
+// Прямые gRPC подключения для внутренних сервисов (внутри Docker сети)
 const WB_API_ADDRESS = process.env.WB_API_ADDRESS || 'marketvision-wb-parser:3000';
 const OZON_API_ADDRESS = process.env.OZON_API_ADDRESS || 'marketvision-ozon-parser:3002';
 const DB_API_ADDRESS = process.env.DB_API_ADDRESS || 'marketvision-database-api:50051';
@@ -25,7 +24,7 @@ const DB_API_ADDRESS = process.env.DB_API_ADDRESS || 'marketvision-database-api:
     }),
     ValidationServiceModule,
   ],
-  controllers: [ProductsController, HealthController],
+  controllers: [ProductsController],
   providers: [
     ProductsService,
     ProductAggregatorService,

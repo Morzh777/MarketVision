@@ -1,89 +1,34 @@
-import { Controller, Post, Body, Get, Param, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, Get, Query, Logger } from '@nestjs/common';
 import { ProductsService } from '../services/products.service';
-import { ProductResponse } from '../types/product.types';
 import { ProductRequestDto } from '../dto/product-request.dto';
-import { QueryConfigService } from '../config/queries.config';
-import { CategoryConfigService } from '../config/categories.config';
 
 @Controller('products')
 export class ProductsController {
+  private readonly logger = new Logger(ProductsController.name);
+
   constructor(private readonly productsService: ProductsService) {}
 
   /**
-   * Основной endpoint для получения продуктов
+   * Основной endpoint для поиска продуктов
    * POST /products/search
+   * 
+   * @param request - DTO с параметрами поиска
+   * @returns ProductResponse с найденными товарами
    */
   @Post('search')
-  async searchProducts(@Body() request: ProductRequestDto): Promise<ProductResponse> {
-    try {
-      let queries = request.queries;
-      let category = request.category;
-
-      if ((!category || category === '') && queries && queries.length === 1) {
-        // Определяем категорию по query
-        category = QueryConfigService.getCategoryByQuery(queries[0]);
-      }
-
-      if (!queries || queries.length === 0) {
-        // Если queries не указаны, но есть категория — подставляем все queries для категории
-        if (category) {
-          queries = QueryConfigService.getQueriesForCategory(category);
-        }
-      }
-
-      if (!queries || queries.length === 0 || !category) {
-        throw new HttpException('Не указаны запросы или категорию невозможно определить', HttpStatus.BAD_REQUEST);
-      }
-
-      // Проверяем валидность категории через CategoryConfigService
-      const validCategories = CategoryConfigService.getAllCategories();
-      if (!validCategories.includes(category)) {
-        throw new HttpException(`Неверная категория. Допустимые: ${validCategories.join(', ')}`, HttpStatus.BAD_REQUEST);
-      }
-
-      return await this.productsService.getProducts({ ...request, queries, category }, false);
-    } catch (error) {
-      if (error instanceof HttpException) {
-        throw error;
-      }
-      throw new HttpException(
-        `Ошибка поиска продуктов: ${error.message}`,
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
-
-  /**
-   * Получение статуса сервиса
-   * GET /products/health
-   */
-  @Get('health')
-  async getHealth(): Promise<{ status: string; timestamp: string; services: any }> {
-    try {
-      // Проверяем подключение к Redis
-      const redisStatus = await this.checkRedisConnection();
-      
-      // Проверяем подключение к API
-      const apiStatus = await this.checkApiConnections();
-
-      return {
-        status: 'ok',
-        timestamp: new Date().toISOString(),
-        services: {
-          redis: redisStatus,
-          wb_api: apiStatus.wb,
-          ozon_api: apiStatus.ozon
-        }
-      };
-    } catch (error) {
-      return {
-        status: 'error',
-        timestamp: new Date().toISOString(),
-        services: {
-          error: error.message
-        }
-      };
-    }
+  async searchProducts(@Body() request: ProductRequestDto) {
+    this.logger.log(`🔍 Поиск продуктов: ${request.queries?.join(', ')} в категории ${request.category}`);
+    
+    const startTime = Date.now();
+    const result = await this.productsService.getProducts(request);
+    const processingTime = Date.now() - startTime;
+    
+    this.logger.log(`✅ Поиск завершен за ${processingTime}ms, найдено ${result.products.length} товаров`);
+    
+    return {
+      ...result,
+      processing_time_ms: processingTime
+    };
   }
 
   /**
@@ -91,63 +36,12 @@ export class ProductsController {
    * GET /products/cache/stats
    */
   @Get('cache/stats')
-  async getCacheStats(): Promise<{ 
-    total_keys: number; 
-    categories: { [key: string]: number }; 
-    memory_usage?: string; 
-  }> {
-    try {
-      // Здесь можно добавить логику получения статистики Redis
-      // Пока возвращаем базовую структуру
-      return {
-        total_keys: 0,
-        categories: {
-          videocards: 0,
-          processors: 0,
-          motherboards: 0
-        }
-      };
-    } catch (error) {
-      throw new HttpException(
-        `Ошибка получения статистики: ${error.message}`, 
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
-
-  /**
-   * Проверка подключения к Redis
-   */
-  private async checkRedisConnection(): Promise<{ status: string; error?: string }> {
-    try {
-      // Здесь должна быть проверка Redis через RedisService
-      return { status: 'ok' };
-    } catch (error) {
-      return { 
-        status: 'error', 
-        error: error.message 
-      };
-    }
-  }
-
-  /**
-   * Проверка подключения к API
-   */
-  private async checkApiConnections(): Promise<{ 
-    wb: { status: string; error?: string }; 
-    ozon: { status: string; error?: string }; 
-  }> {
-    try {
-      // Здесь должна быть проверка gRPC подключений
-      return {
-        wb: { status: 'ok' },
-        ozon: { status: 'ok' }
-      };
-    } catch (error) {
-      return {
-        wb: { status: 'error', error: error.message },
-        ozon: { status: 'error', error: error.message }
-      };
-    }
+  async getCacheStats() {
+    return {
+      cache_hits: 0,
+      cache_misses: 0,
+      cache_size: 0,
+      cache_ttl: 300
+    };
   }
 } 

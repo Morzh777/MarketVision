@@ -20,12 +20,12 @@ export abstract class BaseGrpcClient<T> {
     });
     const proto: any = grpc.loadPackageDefinition(packageDefinition);
     
-    // Используем insecure подключение для локальной разработки
+    // Используем insecure подключение для внутренних сервисов в Docker сети
     const credentials = grpc.credentials.createInsecure();
     this.client = new proto.raw_product[serviceName](
       serverAddress,
       credentials
     );
-    console.log(`🔗 gRPC клиент подключен к ${serverAddress} (SSL: false)`);
+    console.log(`🔗 gRPC клиент подключен к ${serverAddress} (SSL: false, internal)`);
   }
 } 

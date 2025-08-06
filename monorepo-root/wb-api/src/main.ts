@@ -13,7 +13,7 @@ async function bootstrap() {
 
   console.log('🚀 WB API сервер запущен');
   console.log('📡 gRPC сервер: localhost:3000');
-  console.log(`🌐 HTTP сервер: localhost:${httpPort} (для health checks)`);
+  console.log(`🌐 HTTP сервер: localhost:${httpPort}`);
   console.log('🔗 Готов принимать запросы от Product-Filter-Service');
   console.log('📡 Готов к парсингу (БЕЗ ФИЛЬТРАЦИИ И КЭШИРОВАНИЯ)');
 
