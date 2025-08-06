@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Query, Logger } from '@nestjs/common';
+import { Controller, Post, Body, Get, Query, Logger, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ProductsService } from '../services/products.service';
 import { ProductRequestDto } from '../dto/product-request.dto';
 
@@ -16,6 +16,12 @@ export class ProductsController {
    * @returns ProductResponse с найденными товарами
    */
   @Post('search')
+  @UsePipes(new ValidationPipe({ 
+    transform: true,
+    whitelist: true,
+    forbidNonWhitelisted: true,
+    forbidUnknownValues: true
+  }))
   async searchProducts(@Body() request: ProductRequestDto) {
     this.logger.log(`🔍 Поиск продуктов: ${request.queries?.join(', ')} в категории ${request.category}`);
     
