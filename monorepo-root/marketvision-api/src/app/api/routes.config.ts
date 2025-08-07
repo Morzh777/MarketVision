@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// Конфигурация API
-const API_BASE_URL = process.env.DB_API_URL || 'http://localhost:3003';
+// Конфигурация API - захардкожено для простоты
+const API_BASE_URL = 'https://marketvision-nginx-proxy';
 
 // Типы для API роутов
 export interface ApiRouteConfig {
@@ -109,6 +109,8 @@ export const getApiUrl = (endpoint: string): string => {
 export const fetchFromExternalApi = async (endpoint: string, options?: RequestInit) => {
   const url = getApiUrl(endpoint);
   
+  console.log('[MarketVision API] Making request to:', url);
+  
   const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json',
@@ -118,6 +120,11 @@ export const fetchFromExternalApi = async (endpoint: string, options?: RequestIn
   });
 
   if (!response.ok) {
+    console.error('[MarketVision API] Request failed:', {
+      url,
+      status: response.status,
+      statusText: response.statusText
+    });
     throw new Error(`API responded with status: ${response.status}`);
   }
 

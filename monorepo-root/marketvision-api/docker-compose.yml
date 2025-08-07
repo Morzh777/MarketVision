@@ -10,10 +10,7 @@ services:
       - NODE_ENV=production
       - PORT=3006
       - PRODUCT_FILTER_URL=http://marketvision-product-aggregator:3001
-      - DB_API_URL=https://marketvision-nginx-proxy
       - NODE_TLS_REJECT_UNAUTHORIZED=0
-    env_file:
-      - .env
     volumes:
       - ./logs:/usr/src/app/logs
     restart: unless-stopped

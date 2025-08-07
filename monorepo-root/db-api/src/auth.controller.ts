@@ -7,15 +7,18 @@ export class AuthController {
 
   @Post('login')
   async login(@Body() body: { username: string; password: string }) {
-    const user = await this.userService.validateUser(body.username, body.password);
-    
+    const user = await this.userService.validateUser(
+      body.username,
+      body.password,
+    );
+
     if (!user) {
       return { success: false, message: 'Неверный логин или пароль' };
     }
 
-    return { 
-      success: true, 
-      user: { id: user.id, username: user.username, role: user.role }
+    return {
+      success: true,
+      user: { id: user.id, username: user.username, role: user.role },
     };
   }
 
@@ -28,14 +31,14 @@ export class AuthController {
   @Get('users/:username')
   async getUser(@Param('username') username: string) {
     const user = await this.userService.getUserByUsername(username);
-    
+
     if (!user) {
       return { success: false, message: 'Пользователь не найден' };
     }
 
-    return { 
-      success: true, 
-      user: { id: user.id, username: user.username, role: user.role }
+    return {
+      success: true,
+      user: { id: user.id, username: user.username, role: user.role },
     };
   }
-} 
+}

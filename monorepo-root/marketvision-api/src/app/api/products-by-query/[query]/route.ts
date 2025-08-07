@@ -14,6 +14,8 @@ export async function GET(
     const decodedQuery = decodeURIComponent(query);
     const endpoint = `${API_ROUTES.PRODUCTS_BY_QUERY.path.replace('[query]', encodeURIComponent(decodedQuery))}`;
     
+    console.log('[MarketVision API] Products by query endpoint:', endpoint);
+    
     const response = await fetchFromExternalApi(endpoint);
     const data = await response.json();
     

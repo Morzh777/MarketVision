@@ -8,4 +8,4 @@ export default () => ({
   grpc: {
     url: process.env.GRPC_URL || '0.0.0.0:50051',
   },
-}); 
+});
