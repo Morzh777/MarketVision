@@ -1,11 +1,9 @@
 import Image from 'next/image';
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { ProductService } from '../services/productService';
-import type { PopularQuery, Product } from '../types/market';
+import type { PopularQuery } from '../types/market';
 import { createSearchVariants } from '../utils/transliteration';
-
-import ProductCard from './ProductCard';
 
 import '../styles/components/sidebar.scss';
 
@@ -17,7 +15,6 @@ interface SidebarProps {
   sortPercentOrder: 'asc' | 'desc' | null;
   onSortPrice: () => void;
   onSortPercent: () => void;
-  selectedProduct?: Product | null;
 }
 
 const SortAscIcon = () => (
@@ -42,17 +39,7 @@ const SearchIcon = () => (
   </svg>
 );
 
-const CloseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar__closeicon">
-    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
-const ArrowLeftIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar__arrowlefticon">
-    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
 
 const Sidebar: React.FC<SidebarProps> = ({ 
   popularQueries, 
@@ -61,65 +48,13 @@ const Sidebar: React.FC<SidebarProps> = ({
   sortOrder, 
   sortPercentOrder, 
   onSortPrice, 
-  onSortPercent,
-  selectedProduct
+  onSortPercent
 }) => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [showProductCard, setShowProductCard] = useState(false);
-  const [dragStart, setDragStart] = useState<number | null>(null);
-  const [dragCurrent, setDragCurrent] = useState<number | null>(null);
-  const [priceHistory, setPriceHistory] = useState<{ price: number | null; created_at: string }[]>([]);
-  const [isLoadingPriceHistory, setIsLoadingPriceHistory] = useState(false);
-
-  const selectedQueryData = useMemo(
-    () => popularQueries.find(q => q.query === selectedQuery),
-    [popularQueries, selectedQuery]
-  );
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
 
-  // Получаем историю цен только при выборе продукта
-  useEffect(() => {
-    const fetchPriceHistory = async () => {
-      console.log('Sidebar useEffect triggered:', { 
-        selectedProduct: selectedProduct?.query, 
-        showProductCard, 
-        hasQuery: !!selectedProduct?.query 
-      });
-      
-      if (selectedProduct?.query && showProductCard) {
-        console.log('Sidebar: Fetching price history for query:', {
-          query: selectedProduct.query,
-          name: selectedProduct.name,
-          price: selectedProduct.price
-        });
-        
-        setIsLoadingPriceHistory(true);
-        try {
-          const historyData = await ProductService.getPriceHistoryByQuery(selectedProduct.query, 10);
-          console.log('Sidebar: Received history data:', historyData);
-          
-          if (historyData.length > 0) {
-            console.log('Sidebar: Setting price history:', historyData);
-            setPriceHistory(historyData);
-          } else {
-            console.log('Sidebar: No data available');
-            setPriceHistory([]);
-          }
-        } catch (error) {
-          console.error('Error fetching price history:', error);
-          setPriceHistory([]);
-        } finally {
-          setIsLoadingPriceHistory(false);
-        }
-      } else {
-        console.log('Sidebar: Clearing price history - no product or card not shown');
-        // Очищаем историю цен при закрытии карточки
-        setPriceHistory([]);
-      }
-    };
-
-    fetchPriceHistory();
-  }, [selectedProduct, showProductCard]);
 
   // Фильтрация продуктов по поисковому запросу с транслитерацией
   const filteredQueries = useMemo(() => {
@@ -139,201 +74,126 @@ const Sidebar: React.FC<SidebarProps> = ({
   // При выборе запроса
   const handleSelectQuery = (query: string) => {
     onSelectQuery(query);
-    // Показываем карточку сразу при клике
-    setShowProductCard(true);
+    // Переходим на страницу продукта
+    router.push(`/product/${encodeURIComponent(query)}`);
   };
 
-  // Закрытие карточки товара
-  const handleCloseProductCard = () => {
-    setShowProductCard(false);
-  };
 
-  // Обработчики свайпа для закрытия карточки
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setDragStart(e.touches[0].clientX);
-    setDragCurrent(e.touches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (dragStart !== null) {
-      setDragCurrent(e.touches[0].clientX);
-    }
-  };
-
-  const handleTouchEnd = () => {
-    if (dragStart !== null && dragCurrent !== null) {
-      const dragDistance = dragCurrent - dragStart;
-      
-      // Если свайп вправо больше 100px - закрываем карточку
-      if (dragDistance > 100) {
-        setShowProductCard(false);
-      }
-    }
-    
-    setDragStart(null);
-    setDragCurrent(null);
-  };
 
   return (
-    <>
-      <aside className="sidebar">
-        {/* Поиск */}
-        <div className="sidebar__search">
-          <div className="sidebar__search-container">
-            <div className="sidebar__search-icon">
-              <SearchIcon />
-            </div>
-            <input
-              type="text"
-              placeholder="Поиск по запросам"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="sidebar__search-input"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="sidebar__search-clear"
-              >
-                ✕
-              </button>
-            )}
+    <aside className="sidebar">
+      {/* Поиск */}
+      <div className="sidebar__search">
+        <div className={`sidebar__search-container ${isSearchFocused ? 'sidebar__search-container--focused' : ''}`}>
+          <div className="sidebar__search-icon">
+            <SearchIcon />
           </div>
-        </div>
-
-        <div className="sidebar__header">
-          <span className="sidebar__title">Популярные запросы</span>
-          <button
-            type="button"
-            onClick={onSortPrice}
-            className={
-              'sidebar__sort-btn' + (sortOrder ? ' sidebar__sort-btn--active' : '')
-            }
+          <input
+            type="text"
+            placeholder="Поиск по запросам"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setIsSearchFocused(true)}
+            onBlur={() => setIsSearchFocused(false)}
+            className="sidebar__search-input"
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              className="sidebar__search-clear"
+            >
+              ✕
+            </button>
+          )}
+          <button 
+            className={`sidebar__hamburger ${isSearchFocused ? 'sidebar__hamburger--hidden' : ''}`}
+            aria-label="Открыть меню"
           >
-            Мин. цена
-            {sortOrder === 'asc' && <SortAscIcon />}
-            {sortOrder === 'desc' && <SortDescIcon />}
-          </button>
-          <button
-            type="button"
-            onClick={onSortPercent}
-            className={
-              'sidebar__sort-btn' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')
-            }
-          >
-            Изм. %
-            {sortPercentOrder === 'asc' && <SortAscIcon />}
-            {sortPercentOrder === 'desc' && <SortDescIcon />}
+            <span className="sidebar__hamburger-line"></span>
+            <span className="sidebar__hamburger-line"></span>
+            <span className="sidebar__hamburger-line"></span>
           </button>
         </div>
+      </div>
 
-        <ul className="sidebar__list">
-          {filteredQueries.map((q: PopularQuery) => {
-            return (
-              <li
-                key={q.id}
-                className={
-                  'sidebar__item' +
-                  (selectedQuery === q.query ? ' sidebar__item--active' : '')
-                }
-                onClick={() => handleSelectQuery(q.query)}
-              >
-                {/* Круглая картинка слева */}
-                <div className="sidebar__item-avatar">
-                  {q.image_url ? (
-                    <Image
-                      src={q.image_url}
-                      alt={q.query}
-                      width={32}
-                      height={32}
-                      className="sidebar__item-avatar-img"
-                    />
-                  ) : (
-                    <div className="sidebar__item-avatar-inner">
-                      {q.query.charAt(0).toUpperCase()}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Контент элемента */}
-                <div className="sidebar__item-content">
-                  <span className="sidebar__item-name">{q.query}</span>
-                </div>
-                
-                {/* Цена */}
-                <span className="sidebar__item-price">{q.minPrice.toLocaleString('ru-RU')}₽</span>
-                
-                {/* Процент изменения */}
-                <span className={`sidebar__item-percent ${q.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>
-                  {q.priceChangePercent > 0 ? '+' : ''}{q.priceChangePercent.toFixed(1)}%
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-        
-        {filteredQueries.length === 0 && searchQuery && (
-          <div className="sidebar__no-results">
-            <p>По запросу &quot;{searchQuery}&quot; ничего не найдено</p>
-          </div>
-        )}
-      </aside>
-
-      {/* Карточка товара (выезжает справа) */}
-      {showProductCard && (
-        <div
-          className={`sidebar__product-card${showProductCard ? ' sidebar__product-card--visible' : ''}${dragStart !== null ? ' sidebar__product-card--dragging' : ''}`}
-          style={{
-            transform: dragStart !== null && dragCurrent !== null && dragCurrent > dragStart
-              ? `translateX(${dragCurrent - dragStart}px)`
-              : undefined
-          }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+      <div className="sidebar__header">
+        <span className="sidebar__title">Популярные запросы</span>
+        <button
+          type="button"
+          onClick={onSortPrice}
+          className={
+            'sidebar__sort-btn' + (sortOrder ? ' sidebar__sort-btn--active' : '')
+          }
         >
-          <div className="sidebar__product-card-header">
-            <button
-              type="button"
-              className="sidebar__product-card-back"
-              onClick={handleCloseProductCard}
-            >
-              <ArrowLeftIcon />
-            </button>
-            <h3 className="sidebar__product-card-title">{selectedProduct?.query?.toUpperCase() || 'ПОИСКОВЫЙ ЗАПРОС'}</h3>
-            <button
-              type="button"
-              className="sidebar__product-card-close"
-              onClick={handleCloseProductCard}
-            >
-              <CloseIcon />
-            </button>
-          </div>
+          Мин. цена
+          {sortOrder === 'asc' && <SortAscIcon />}
+          {sortOrder === 'desc' && <SortDescIcon />}
+        </button>
+        <button
+          type="button"
+          onClick={onSortPercent}
+          className={
+            'sidebar__sort-btn' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')
+          }
+        >
+          Изм. %
+          {sortPercentOrder === 'asc' && <SortAscIcon />}
+          {sortPercentOrder === 'desc' && <SortDescIcon />}
+        </button>
+      </div>
 
-          <div className="sidebar__product-card-content">
-            {selectedProduct ? (
-              <ProductCard 
-                product={selectedProduct} 
-                priceHistory={priceHistory}
-                priceChangePercent={selectedQueryData?.priceChangePercent}
-              />
-            ) : (
-              <div className="sidebar__loading">
-                <p>Загрузка данных...</p>
+      <ul className="sidebar__list">
+        {filteredQueries.map((q: PopularQuery) => {
+          return (
+            <li
+              key={q.id}
+              className={
+                'sidebar__item' +
+                (selectedQuery === q.query ? ' sidebar__item--active' : '')
+              }
+              onClick={() => handleSelectQuery(q.query)}
+            >
+              {/* Круглая картинка слева */}
+              <div className="sidebar__item-avatar">
+                {q.image_url ? (
+                  <Image
+                    src={q.image_url}
+                    alt={q.query}
+                    width={32}
+                    height={32}
+                    className="sidebar__item-avatar-img"
+                  />
+                ) : (
+                  <div className="sidebar__item-avatar-inner">
+                    {q.query.charAt(0).toUpperCase()}
+                  </div>
+                )}
               </div>
-            )}
-            
-            {/* Индикатор загрузки истории цен */}
-            {isLoadingPriceHistory && (
-              <div className="sidebar__loading-overlay">
-                <p>Загрузка истории цен...</p>
+              
+              {/* Контент элемента */}
+              <div className="sidebar__item-content">
+                <span className="sidebar__item-name">{q.query}</span>
               </div>
-            )}
-          </div>
+              
+              {/* Цена */}
+              <span className="sidebar__item-price">{q.minPrice.toLocaleString('ru-RU')}₽</span>
+              
+              {/* Процент изменения */}
+              <span className={`sidebar__item-percent ${q.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>
+                {q.priceChangePercent > 0 ? '+' : ''}{q.priceChangePercent.toFixed(1)}%
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      
+      {filteredQueries.length === 0 && searchQuery && (
+        <div className="sidebar__no-results">
+          <p>По запросу &quot;{searchQuery}&quot; ничего не найдено</p>
         </div>
       )}
-    </>
+    </aside>
   );
 };
 

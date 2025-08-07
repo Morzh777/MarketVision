@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Конфигурация API - захардкожено для простоты
-const API_BASE_URL = 'https://marketvision-nginx-proxy';
+const API_BASE_URL = 'http://marketvision-nginx-proxy';
 
 // Типы для API роутов
 export interface ApiRouteConfig {

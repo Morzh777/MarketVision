@@ -4,16 +4,15 @@ import React, { useState, useEffect } from "react";
 import 'simplebar-react/dist/simplebar.min.css';
 
 import { ErrorBoundary } from './components/ErrorBoundary';
-import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import { useQuerySorting } from './hooks/useQuerySorting';
 import { ProductService } from './services/productService';
-import styles from './styles/components/page.module.scss';
+import './styles/components/page.scss';
 import type { Product } from './types/market';
 
 const LoadingFallback = () => (
-  <div className={styles.loading}>
-    <div className={styles.loadingSpinner} />
+  <div className="loading">
+    <div className="loadingSpinner" />
     <p>Загрузка...</p>
   </div>
 );
@@ -95,8 +94,7 @@ export default function Home() {
 
   return (
     <ErrorBoundary>
-      <div className={styles.page}>
-        <Navigation />
+      <div className="page">
         <Sidebar
           popularQueries={sortedQueries}
           selectedQuery={selectedQuery}
@@ -105,7 +103,6 @@ export default function Home() {
           sortPercentOrder={sortPercentOrder}
           onSortPrice={handleSortPriceClick}
           onSortPercent={handleSortPercentClick}
-          selectedProduct={selectedProduct}
         />
       </div>
     </ErrorBoundary>

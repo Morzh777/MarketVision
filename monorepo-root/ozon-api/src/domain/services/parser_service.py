@@ -9,7 +9,7 @@ class ParserService(ABC):
 
     @abstractmethod
     async def parse_products(
-        self, query: str, category_slug: str, platform_id: Optional[str] = None
+        self, query: str, category_slug: str, platform_id: Optional[str] = None, exactmodels: Optional[str] = None
     ) -> List[Product]:
         """Парсить продукты с сайта"""
         pass
@@ -25,6 +25,6 @@ class ParserService(ABC):
         pass
 
     @abstractmethod
-    async def close(self) -> None:
+    async def close(self, force: bool = False) -> None:
         """Закрыть ресурсы парсера"""
         pass

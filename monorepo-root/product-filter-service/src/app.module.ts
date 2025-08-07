@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsController } from './controllers/products.controller';
+import { HealthController } from './controllers/health.controller';
 import { ProductsService } from './services/products.service';
 import { PhotoService } from './services/photo.service';
 import { OzonApiClient } from './grpc-clients/ozon-api.client';

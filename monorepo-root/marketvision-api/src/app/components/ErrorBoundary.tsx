@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import styles from '../styles/components/error-boundary.module.scss';
+import '../styles/components/error-boundary.scss';
 
 interface Props {
   children: ReactNode;
@@ -28,11 +28,11 @@ export class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className={styles.errorContainer}>
+        <div className="errorContainer">
           <h2>Что-то пошло не так 😢</h2>
           <p>Произошла ошибка при загрузке данных.</p>
           <button
-            className={styles.retryButton}
+            className="retryButton"
             onClick={() => this.setState({ hasError: false })}
           >
             Попробовать снова

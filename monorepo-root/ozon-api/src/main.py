@@ -161,35 +161,31 @@ async def start_http_server():
     print("🌐 HTTP сервер запущен на 0.0.0.0:3005 (для health checks с CORS защитой)")
 
 
-async def shutdown_handler() -> None:
-    """Обработчик graceful shutdown"""
-    print("🛑 Получен сигнал завершения...")
-    # Здесь можно добавить логику закрытия ресурсов
-    sys.exit(0)
+
 
 
 def setup_signal_handlers() -> None:
     """Настройка обработчиков сигналов"""
+    def signal_handler():
+        """Синхронный обработчик сигналов"""
+        print("🛑 Получен сигнал завершения...")
+        print("🔄 Graceful shutdown...")
+        # Завершаем программу корректно
+        sys.exit(0)
+    
     if sys.platform != "win32":
         # Unix-подобные системы
         loop = asyncio.get_event_loop()
         for sig in (signal.SIGTERM, signal.SIGINT):
-            loop.add_signal_handler(
-                sig, lambda: asyncio.create_task(shutdown_handler())
-            )
+            loop.add_signal_handler(sig, signal_handler)
     else:
         # Windows
-        signal.signal(
-            signal.SIGINT, lambda s, f: asyncio.create_task(shutdown_handler())
-        )
+        signal.signal(signal.SIGINT, lambda s, f: signal_handler())
 
 
-async def main() -> NoReturn:
+async def main() -> None:
     """
     Главная функция приложения
-
-    Raises:
-        SystemExit: При завершении приложения
     """
     # Принудительная очистка буфера для Docker
     import sys
@@ -212,7 +208,7 @@ async def main() -> NoReturn:
         print("🛑 Прерывание по Ctrl+C")
     except Exception as e:
         print(f"❌ Критическая ошибка: {e}")
-        sys.exit(1)
+        raise
     finally:
         print("✅ Ozon API сервер завершен")
 

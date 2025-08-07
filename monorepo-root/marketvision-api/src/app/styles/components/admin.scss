@@ -1,3 +1,5 @@
+@import '../base/typography';
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1355,4 +1357,31 @@
   font-weight: 500;
   min-width: 80px;
   text-align: center;
+}
+
+// Динамические стили для прогресс-баров и графиков
+.progressFill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: var(--progress-width, 0%);
+}
+
+.priceBarFill {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 3px 3px 0 0;
+  min-height: 3px;
+  transition: width 0.3s ease;
+  width: var(--bar-width, 0%);
+}
+
+.historyBarFill {
+  width: 16px;
+  background: #2563eb;
+  border-radius: 3px 3px 0 0;
+  min-height: 3px;
+  transition: height 0.3s ease;
+  height: var(--bar-height, 10%);
 } 

@@ -1,3 +1,22 @@
+# Этап разработки (development)
+FROM node:18-alpine AS development
+
+WORKDIR /usr/src/app
+
+# Копируем package.json и package-lock.json
+COPY package*.json ./
+
+# Устанавливаем все зависимости (включая dev)
+RUN npm ci
+
+# Открываем порт
+EXPOSE 3006
+
+# Команда для разработки (hot reload)
+CMD ["npm", "run", "dev"]
+
+# ---
+
 # Этап сборки (builder)
 FROM node:18-alpine AS builder
 

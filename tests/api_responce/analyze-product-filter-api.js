@@ -5,7 +5,7 @@ const https = require('https');
 
 // Конфигурация
 const OUTPUT_BASE = path.join(__dirname, 'architecture-analysis', 'product-filter');
-const PRODUCT_FILTER_URL = 'https://localhost/products/search';
+const PRODUCT_FILTER_URL = 'https://localhost/products';
 
 // Тестовые запросы для каждой категории (как в Product-Filter-Service)
 const testQueries = {
@@ -66,7 +66,7 @@ async function testProductFilterApi(category, query) {
     category
   };
   try {
-    const response = await fetch(PRODUCT_FILTER_URL, {
+    const response = await fetch(`${PRODUCT_FILTER_URL}/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),

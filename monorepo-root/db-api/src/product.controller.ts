@@ -63,6 +63,15 @@ export class ProductController {
     return await this.productService.getProductsByQuery(query);
   }
 
+  @Get('price-history-by-query')
+  async getPriceHistoryByQuery(
+    @Query('query') query: string,
+    @Query('limit') limit: string = '10',
+  ) {
+    const limitNum = parseInt(limit, 10) || 10;
+    return await this.productService.getPriceHistoryByQuery(query, limitNum);
+  }
+
   @Get()
   async getProducts(@Query() query: ProductQueryDto) {
     return await this.productService.findAll(query);

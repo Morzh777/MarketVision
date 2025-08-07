@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 
 import { useAuth } from '../hooks/useAuth'
-import styles from '../styles/components/admin.module.scss'
+import '../styles/components/admin.scss'
 
 interface SchedulerStatus {
   isRunning: boolean
@@ -237,7 +237,7 @@ export default function AdminPage() {
 
   // Показываем загрузку пока проверяем аутентификацию
   if (authLoading) {
-    return <div className={styles.container}>Проверка аутентификации...</div>
+    return <div className={container}>Проверка аутентификации...</div>
   }
 
   // Если пользователь не авторизован, не показываем контент
@@ -246,52 +246,52 @@ export default function AdminPage() {
   }
 
   if (!status) {
-    return <div className={styles.container}>Загрузка...</div>
+    return <div className={container}>Загрузка...</div>
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
+    <div className={container}>
+      <div className={header}>
         <h1>
-          <span className={styles.fullTitle}>Market Vision</span>
-          <span className={styles.shortTitle}>MV</span>
+          <span className={fullTitle}>Market Vision</span>
+          <span className={shortTitle}>MV</span>
         </h1>
-        <div className={styles.userInfo}>
-          <button onClick={logout} className={styles.logoutButton}>
+        <div className={userInfo}>
+          <button onClick={logout} className={logoutButton}>
             Выйти
           </button>
         </div>
       </div>
       
-      <div className={styles.section}>
+      <div className={section}>
         <h2>Планировщик парсинга</h2>
         
-        <div className={styles.statusCard}>
-          <div className={styles.statusRow}>
+        <div className={statusCard}>
+          <div className={statusRow}>
             <span>Статус планировщика:</span>
-            <span className={status.isRunning ? styles.running : styles.stopped}>
+            <span className={status.isRunning ? running : stopped}>
               {status.isRunning ? 'Запущен' : 'Остановлен'}
             </span>
           </div>
           
-          <div className={styles.statusRow}>
+          <div className={statusRow}>
             <span>Статус парсинга:</span>
-            <span className={status.isParsing ? styles.running : styles.stopped}>
+            <span className={status.isParsing ? running : stopped}>
               {status.isParsing ? 'Выполняется' : 'Ожидает'}
             </span>
           </div>
           
-          <div className={styles.statusRow}>
+          <div className={statusRow}>
             <span>Следующий запуск:</span>
             <span>{new Date(status.nextRun).toLocaleString('ru-RU')}</span>
           </div>
         </div>
 
-        <div className={styles.actions}>
+        <div className={actions}>
           <button 
             onClick={runParsingNow}
             disabled={loading}
-            className={styles.runButton}
+            className={runButton}
           >
             {loading ? 'Запуск...' : 'Запустить парсинг сейчас'}
           </button>
@@ -299,7 +299,7 @@ export default function AdminPage() {
           <button 
             onClick={startScheduler}
             disabled={loading || status.isRunning}
-            className={styles.startButton}
+            className={startButton}
           >
             Запустить планировщик
           </button>
@@ -307,56 +307,56 @@ export default function AdminPage() {
           <button 
             onClick={stopScheduler}
             disabled={loading || !status.isRunning}
-            className={styles.stopButton}
+            className={stopButton}
           >
             Остановить планировщик
           </button>
           
           <button 
             onClick={fetchStatus}
-            className={styles.refreshButton}
+            className={refreshButton}
           >
             Обновить статус
           </button>
         </div>
 
         {message && (
-          <div className={styles.message}>
+          <div className={message}>
             {message}
           </div>
         )}
       </div>
 
       {/* Статус сервисов */}
-      <div className={styles.section}>
+      <div className={section}>
         <h2>Статус сервисов</h2>
         
         {servicesStatus ? (
           <>
-            <div className={styles.servicesOverview}>
-              <div className={styles.overviewCard}>
+            <div className={servicesOverview}>
+              <div className={overviewCard}>
                 <h3>Общая статистика</h3>
-                <div className={styles.statusRow}>
+                <div className={statusRow}>
                   <span>Всего сервисов:</span>
                   <span>{servicesStatus.summary.total}</span>
                 </div>
-                <div className={styles.statusRow}>
+                <div className={statusRow}>
                   <span>Онлайн:</span>
-                  <span className={styles.online}>{servicesStatus.summary.online}</span>
+                  <span className={online}>{servicesStatus.summary.online}</span>
                 </div>
-                <div className={styles.statusRow}>
+                <div className={statusRow}>
                   <span>Офлайн:</span>
-                  <span className={styles.offline}>{servicesStatus.summary.offline}</span>
+                  <span className={offline}>{servicesStatus.summary.offline}</span>
                 </div>
-                <div className={styles.statusRow}>
+                <div className={statusRow}>
                   <span>Ошибки:</span>
-                  <span className={styles.error}>{servicesStatus.summary.error}</span>
+                  <span className={error}>{servicesStatus.summary.error}</span>
                 </div>
-                <div className={styles.statusRow}>
+                <div className={statusRow}>
                   <span>Здоровье системы:</span>
-                  <span className={`${styles.healthPercentage} ${
-                    servicesStatus.summary.healthPercentage >= 75 ? styles.healthy : 
-                    servicesStatus.summary.healthPercentage >= 50 ? styles.warning : styles.critical
+                  <span className={`${healthPercentage} ${
+                    servicesStatus.summary.healthPercentage >= 75 ? healthy : 
+                    servicesStatus.summary.healthPercentage >= 50 ? warning : critical
                   }`}>
                     {servicesStatus.summary.healthPercentage}%
                   </span>
@@ -364,44 +364,44 @@ export default function AdminPage() {
               </div>
             </div>
 
-            <div className={styles.servicesGrid}>
+            <div className={servicesGrid}>
               {servicesStatus.services.map((service) => (
                 <div 
                   key={service.name} 
-                  className={`${styles.serviceCard} ${styles[service.status]}`}
+                  className={`${serviceCard} ${service.status}`}
                 >
-                  <div className={styles.serviceHeader}>
+                  <div className={serviceHeader}>
                     <h3>{service.name}</h3>
-                    <span className={`${styles.statusBadge} ${styles[service.status]}`}>
+                    <span className={`${statusBadge} ${service.status}`}>
                       {service.status === 'online' ? '🟢 Онлайн' : 
                        service.status === 'offline' ? '🔴 Офлайн' : '🚨 Ошибка'}
                     </span>
                   </div>
                   
-                  <div className={styles.serviceDetails}>
-                    <div className={styles.statusRow}>
+                  <div className={serviceDetails}>
+                    <div className={statusRow}>
                       <span>URL:</span>
                       <code>{service.url}</code>
                     </div>
                     
                     {service.responseTime && (
-                      <div className={styles.statusRow}>
+                      <div className={statusRow}>
                         <span>Время ответа:</span>
-                        <span className={service.responseTime < 1000 ? styles.fast : styles.slow}>
+                        <span className={service.responseTime < 1000 ? fast : slow}>
                           {service.responseTime}ms
                         </span>
                       </div>
                     )}
                     
-                    <div className={styles.statusRow}>
+                    <div className={statusRow}>
                       <span>Последняя проверка:</span>
                       <span>{new Date(service.lastCheck).toLocaleString('ru-RU')}</span>
                     </div>
                     
                     {service.error && (
-                      <div className={styles.statusRow}>
+                      <div className={statusRow}>
                         <span>Ошибка:</span>
-                        <span className={styles.errorText}>{service.error}</span>
+                        <span className={errorText}>{service.error}</span>
                       </div>
                     )}
                   </div>
@@ -410,68 +410,68 @@ export default function AdminPage() {
             </div>
           </>
         ) : (
-          <div className={styles.loading}>Загрузка статуса сервисов...</div>
+          <div className={loading}>Загрузка статуса сервисов...</div>
         )}
       </div>
 
       {/* Статистика парсинга */}
-      <div className={styles.section}>
+      <div className={section}>
   
         
         {parsingStats ? (
           <>
             {/* Общая статистика */}
-            <div className={styles.statsOverview}>
-              <div className={styles.statsCard}>
+            <div className={statsOverview}>
+              <div className={statsCard}>
                 <h3>Общие показатели</h3>
-                <div className={styles.statsGridNew}>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{parsingStats.totalProducts.toLocaleString()}</span>
-                    <span className={styles.statLabel}>Всего товаров</span>
+                <div className={statsGridNew}>
+                  <div className={statItem}>
+                    <span className={statValue}>{parsingStats.totalProducts.toLocaleString()}</span>
+                    <span className={statLabel}>Всего товаров</span>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{parsingStats.totalParsingSessions}</span>
-                    <span className={styles.statLabel}>Сессий парсинга</span>
+                  <div className={statItem}>
+                    <span className={statValue}>{parsingStats.totalParsingSessions}</span>
+                    <span className={statLabel}>Сессий парсинга</span>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{Object.keys(parsingStats.categoriesStats).length}</span>
-                    <span className={styles.statLabel}>Категорий</span>
+                  <div className={statItem}>
+                    <span className={statValue}>{Object.keys(parsingStats.categoriesStats).length}</span>
+                    <span className={statLabel}>Категорий</span>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{Object.keys(parsingStats.sourcesStats).length}</span>
-                    <span className={styles.statLabel}>Источников</span>
+                  <div className={statItem}>
+                    <span className={statValue}>{Object.keys(parsingStats.sourcesStats).length}</span>
+                    <span className={statLabel}>Источников</span>
                   </div>
                 </div>
               </div>
 
-              <div className={styles.statsCard}>
+              <div className={statsCard}>
                 <h3>Активность</h3>
-                <div className={styles.statsGridNew}>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{parsingStats.recentActivity.last24h}</span>
-                    <span className={styles.statLabel}>За 24 часа</span>
+                <div className={statsGridNew}>
+                  <div className={statItem}>
+                    <span className={statValue}>{parsingStats.recentActivity.last24h}</span>
+                    <span className={statLabel}>За 24 часа</span>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{parsingStats.recentActivity.last7days}</span>
-                    <span className={styles.statLabel}>За 7 дней</span>
+                  <div className={statItem}>
+                    <span className={statValue}>{parsingStats.recentActivity.last7days}</span>
+                    <span className={statLabel}>За 7 дней</span>
                   </div>
-                  <div className={styles.statItem}>
-                    <span className={styles.statValue}>{parsingStats.recentActivity.last30days}</span>
-                    <span className={styles.statLabel}>За 30 дней</span>
+                  <div className={statItem}>
+                    <span className={statValue}>{parsingStats.recentActivity.last30days}</span>
+                    <span className={statLabel}>За 30 дней</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Статистика по категориям */}
-            <div className={styles.categoriesStatsGrid}>
-              <div className={styles.statsCard}>
+            <div className={categoriesStatsGrid}>
+              <div className={statsCard}>
                 <h3>Статистика по категориям</h3>
-                <div className={styles.categoriesTable}>
+                <div className={categoriesTable}>
                   {Object.entries(parsingStats.categoriesStats || {}).map(([category, stats]) => (
-                    <div key={category} className={styles.categoryRow}>
-                      <div className={styles.categoryName}>{category}</div>
-                      <div className={styles.categoryStats}>
+                    <div key={category} className={categoryRow}>
+                      <div className={categoryName}>{category}</div>
+                      <div className={categoryStats}>
                         <span>{stats.productCount} шт.</span>
                         <span>Средняя цена: {stats.avgPrice?.toLocaleString() || 0}₽</span>
                         <span>От {stats.priceRange?.min?.toLocaleString() || 0}₽ до {stats.priceRange?.max?.toLocaleString() || 0}₽</span>
@@ -482,19 +482,19 @@ export default function AdminPage() {
                 </div>
               </div>
 
-              <div className={styles.statsCard}>
+              <div className={statsCard}>
                 <h3>Источники данных</h3>
-                <div className={styles.sourcesTable}>
+                <div className={sourcesTable}>
                   {Object.entries(parsingStats.sourcesStats || {}).map(([source, stats]) => (
-                    <div key={source} className={styles.sourceRow}>
-                      <div className={styles.sourceName}>{source}</div>
-                      <div className={styles.sourceStats}>
-                                                    <span className={styles.sourceCount}>{stats.productCount} шт.</span>
-                        <span className={styles.sourcePercentage}>{stats.percentage}%</span>
-                        <div className={styles.progressBar}>
+                    <div key={source} className={sourceRow}>
+                      <div className={sourceName}>{source}</div>
+                      <div className={sourceStats}>
+                                                    <span className={sourceCount}>{stats.productCount} шт.</span>
+                        <span className={sourcePercentage}>{stats.percentage}%</span>
+                        <div className={progressBar}>
                           <div 
-                            className={styles.progressFill} 
-                            style={{ width: `${stats.percentage}%` }}
+                            className={progressFill} 
+                            style={{ '--progress-width': `${stats.percentage}%` } as React.CSSProperties}
                           />
                         </div>
                       </div>
@@ -505,9 +505,9 @@ export default function AdminPage() {
             </div>
 
                         {/* Топ товары по категориям */}
-            <div className={styles.statsCard}>
+            <div className={statsCard}>
               <h3>Топ товары по цене в категориях</h3>
-              <div className={styles.topProductsByCategory}>
+              <div className={topProductsByCategory}>
                 {Object.entries(parsingStats.topProductsByCategory || {}).map(([category, products]) => {
                   const currentPage = currentCategoryPage[category] || 0
                   const itemsPerPage = 2
@@ -517,15 +517,15 @@ export default function AdminPage() {
                   const totalPages = Math.ceil((products || []).length / itemsPerPage)
                   
                   return (
-                    <div key={category} className={styles.categorySection}>
-                      <h4 className={styles.categoryTitle}>{category}</h4>
-                      <div className={styles.topProductsTable}>
+                    <div key={category} className={categorySection}>
+                      <h4 className={categoryTitle}>{category}</h4>
+                      <div className={topProductsTable}>
                         {currentProducts.map((product, index) => (
-                          <div key={product.id || index} className={styles.productRow}>
-                            <div className={styles.productRank}>#{startIndex + index + 1}</div>
-                            <div className={styles.productInfo}>
-                              <div className={styles.productName}>{product.name}</div>
-                              <div className={styles.productMeta}>
+                          <div key={product.id || index} className={productRow}>
+                            <div className={productRank}>#{startIndex + index + 1}</div>
+                            <div className={productInfo}>
+                              <div className={productName}>{product.name}</div>
+                              <div className={productMeta}>
                                 {product.source} • {(() => {
                                   try {
                                     const dateValue = product.created_at || product.createdAt;
@@ -538,27 +538,27 @@ export default function AdminPage() {
                                 })()}
                               </div>
                             </div>
-                            <div className={styles.productPrice}>{product.price?.toLocaleString()}₽</div>
+                            <div className={productPrice}>{product.price?.toLocaleString()}₽</div>
                           </div>
                         ))}
                       </div>
                       
                       {totalPages > 1 && (
-                        <div className={styles.pagination}>
+                        <div className={pagination}>
                           <button 
                             onClick={() => prevCategoryPage(category)}
                             disabled={currentPage === 0}
-                            className={styles.paginationButton}
+                            className={paginationButton}
                           >
                             ←
                           </button>
-                          <span className={styles.paginationInfo}>
+                          <span className={paginationInfo}>
                             {currentPage + 1} из {totalPages}
                           </span>
                           <button 
                             onClick={() => nextCategoryPage(category)}
                             disabled={currentPage === totalPages - 1}
-                            className={styles.paginationButton}
+                            className={paginationButton}
                           >
                             →
                           </button>
@@ -571,28 +571,28 @@ export default function AdminPage() {
             </div>
 
             {/* Распределение цен */}
-            <div className={styles.statsCard}>
+            <div className={statsCard}>
               <h3>Распределение по ценам</h3>
-              <div className={styles.priceDistribution}>
+              <div className={priceDistribution}>
                 {Object.entries(parsingStats.priceDistribution || {}).map(([range, count]) => {
                   const totalProducts = Object.values(parsingStats.priceDistribution || {}).reduce((sum: number, val: number) => sum + val, 0);
                   const percentage = totalProducts > 0 ? Math.round((count / totalProducts) * 100) : 0;
                   const maxCount = Math.max(...Object.values(parsingStats.priceDistribution || {}));
                   
                   return (
-                    <div key={range} className={styles.priceRange}>
-                      <div className={styles.priceLabel}>
+                    <div key={range} className={priceRange}>
+                      <div className={priceLabel}>
                         {range.replace(/(\d+)/g, (match) => parseInt(match).toLocaleString('ru-RU'))}₽
                       </div>
-                      <div className={styles.priceBar}>
+                      <div className={priceBar}>
                         <div 
-                          className={styles.priceBarFill}
+                          className={priceBarFill}
                           style={{ 
-                            width: `${maxCount > 0 ? (count / maxCount) * 100 : 0}%` 
-                          }}
+                            '--bar-width': `${maxCount > 0 ? (count / maxCount) * 100 : 0}%` 
+                          } as React.CSSProperties}
                         />
                       </div>
-                      <div className={styles.priceCount}>
+                      <div className={priceCount}>
                         {count.toLocaleString('ru-RU')} ({percentage}%)
                       </div>
                     </div>
@@ -602,33 +602,33 @@ export default function AdminPage() {
             </div>
 
             {/* История парсинга */}
-            <div className={styles.statsCard}>
+            <div className={statsCard}>
               <h3>История парсинга (7 дней)</h3>
-              <div className={styles.historyChart}>
+              <div className={historyChart}>
                 {(parsingStats.parsingHistory || []).length > 0 ? (
                   (parsingStats.parsingHistory || []).map((day, index) => {
                     const maxCount = Math.max(...(parsingStats.parsingHistory || []).map(d => d.count), 1);
                     const heightPercent = maxCount > 0 ? Math.max(10, (day.count / maxCount) * 80) : 10;
                     
                     return (
-                      <div key={index} className={styles.historyDay}>
-                        <div className={styles.historyDate}>
+                      <div key={index} className={historyDay}>
+                        <div className={historyDate}>
                           {new Date(day.date).toLocaleDateString('ru-RU', { weekday: 'short', day: 'numeric' })}
                         </div>
-                        <div className={styles.historyBar}>
+                        <div className={historyBar}>
                           <div 
-                            className={styles.historyBarFill}
+                            className={historyBarFill}
                             style={{ 
-                              height: `${heightPercent}%` 
-                            }}
+                              '--bar-height': `${heightPercent}%` 
+                            } as React.CSSProperties}
                           />
                         </div>
-                        <div className={styles.historyCount}>{day.count}</div>
+                        <div className={historyCount}>{day.count}</div>
                       </div>
                     );
                   })
                 ) : (
-                  <div className={styles.noDataMessage}>
+                  <div className={noDataMessage}>
                     Нет данных за последние 7 дней
                   </div>
                 )}
@@ -636,20 +636,20 @@ export default function AdminPage() {
             </div>
           </>
         ) : (
-          <div className={styles.loading}>Загрузка статистики парсинга...</div>
+          <div className={loading}>Загрузка статистики парсинга...</div>
         )}
       </div>
 
-      <div className={styles.section}>
+      <div className={section}>
         <h2>Управление категориями</h2>
-        <div className={styles.configGrid}>
+        <div className={configGrid}>
           {Object.entries(status.config).map(([category, queries]) => {
             const isActive = status.activeCategories?.[category] || false
             return (
-              <div key={category} className={`${styles.configCard} ${isActive ? styles.activeCard : styles.inactiveCard}`}>
+              <div key={category} className={`${configCard} ${isActive ? activeCard : inactiveCard}`}>
                 <h3>{category}</h3>
                 <p>Запросы: {queries.join(', ')}</p>
-                <div className={styles.categoryToggle}>
+                <div className={categoryToggle}>
                   <label>
                     <input
                       type="checkbox"

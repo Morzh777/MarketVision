@@ -1,11 +1,13 @@
-// SCSS переменные для использования в миксинах
-$color-bg: #181A20;
-$color-bg-light: #20232B;
-$color-bg-dark: #181A20;
-$color-bg-header: #20232B;
-$color-bg-active: #23272F;
-$color-bg-card: #20232B;
-$color-bg-overlay: rgba(24, 26, 32, 0.9);
+// SCSS переменные для мобильного дизайна MarketVision
+// Основные цвета фона
+$color-bg: #212121;                    // Основной темный фон
+$color-bg-light: #2a2a2a;              // Светлый фон для карточек
+$color-bg-dark: #1a1a1a;               // Очень темный фон
+$color-bg-header: #212121;             // Темный фон заголовка
+$color-bg-active: #f5f5f5;             // Активный фон
+$color-bg-card: #2a2a2a;               // Фон карточек
+$color-bg-overlay: rgba(0, 0, 0, 0.5); // Фон оверлеев
+$color-bg-search: #2a2a2a;             // Фон поисковой строки
 
 // Цвета текста
 $color-text: #E5E7EB;

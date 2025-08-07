@@ -12,7 +12,7 @@ export async function GET(
   try {
     const { query } = await params;
     const decodedQuery = decodeURIComponent(query);
-    const endpoint = `${API_ROUTES.PRODUCTS_BY_QUERY.path.replace('[query]', encodeURIComponent(decodedQuery))}`;
+    const endpoint = `/api/products-by-query/${encodeURIComponent(decodedQuery)}`;
     
     console.log('[MarketVision API] Products by query endpoint:', endpoint);
     

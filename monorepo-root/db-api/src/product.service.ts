@@ -325,7 +325,7 @@ export class ProductService {
     );
 
     try {
-      // Получаем историю цен с группировкой по датам
+      // Получаем историю цен напрямую
       const priceHistory = await this.prisma.priceHistory.findMany({
         where: {
           query: query,
@@ -333,36 +333,18 @@ export class ProductService {
         orderBy: {
           created_at: 'desc',
         },
-        take: limit * 3, // Берем больше записей для группировки
+        take: limit, // Берем точно limit записей
       });
 
       console.log(
         `[getPriceHistoryByQuery] Found ${priceHistory.length} records for query: "${query}"`,
       );
 
-      // Берем последние РАЗНЫЕ цены (убираем дубликаты по цене)
-      const uniquePrices = new Map<
-        number,
-        { price: number; created_at: Date }
-      >();
-
-      for (const record of priceHistory) {
-        if (!uniquePrices.has(record.price)) {
-          uniquePrices.set(record.price, {
-            price: record.price,
-            created_at: record.created_at,
-          });
-        }
-      }
-
-      // Преобразуем в массив, сортируем по дате и берем нужное количество
-      const result = Array.from(uniquePrices.values())
-        .sort((a, b) => b.created_at.getTime() - a.created_at.getTime()) // Сортируем по дате (новые сначала)
-        .slice(0, limit)
-        .map((record) => ({
-          price: record.price,
-          created_at: record.created_at.toISOString(),
-        }));
+      // Преобразуем в нужный формат
+      const result = priceHistory.map((record) => ({
+        price: record.price,
+        created_at: record.created_at.toISOString(),
+      }));
 
       console.log(`[getPriceHistoryByQuery] First record:`, result[0]);
       console.log(
