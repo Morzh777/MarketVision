@@ -1,7 +1,7 @@
 // 🎯 КОНФИГУРАЦИЯ КАТЕГОРИЙ И ПЛАТФОРМ
 // Централизованное управление всеми категориями и их параметрами
 
-import { CategoryConfig } from '../interfaces/category-config.interface';
+import { CategoryConfig } from '../services/interfaces/category-config.interface';
 
 // Константы категорий для валидаторов
 export const CATEGORY_NAMES = {

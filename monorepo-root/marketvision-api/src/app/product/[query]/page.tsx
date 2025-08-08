@@ -65,7 +65,15 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
             // Устанавливаем историю цен из того же ответа
             if (responseData.priceHistory) {
               console.log('Setting price history from response:', responseData.priceHistory);
+              console.log('Price history details:', {
+                length: responseData.priceHistory.length,
+                first: responseData.priceHistory[0],
+                last: responseData.priceHistory[responseData.priceHistory.length - 1],
+                all: responseData.priceHistory
+              });
               setPriceHistory(responseData.priceHistory);
+            } else {
+              console.log('No price history in response');
             }
           } else {
             console.log('No products found in response');

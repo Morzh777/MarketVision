@@ -82,7 +82,8 @@ export abstract class ProductValidatorBase {
     if (!rules) {
       return this.createResult(false, 'unknown-category', 0.1);
     }
-    return this.validateProductStandard(query, productName, rules);
+    // Важно: используем категорийную реализацию, а не всегда стандартную
+    return this.validateProduct(query, productName, rules);
   }
 
   /**

@@ -14,11 +14,11 @@ const PriceTrendGraph: React.FC<PriceTrendGraphProps> = ({
   const getPath = () => {
     switch (trend) {
       case 'up':
-        return 'M2 12 L6 8 L10 10 L14 6 L18 4 L22 2';
+        return 'M2 14 L6 10 L10 12 L14 8 L18 6 L22 4 L26 2';
       case 'down':
-        return 'M2 2 L6 6 L10 4 L14 8 L18 10 L22 12';
+        return 'M2 2 L6 6 L10 4 L14 8 L18 10 L22 12 L26 14';
       default:
-        return 'M2 6 L6 8 L10 6 L14 8 L18 6 L22 8';
+        return 'M2 8 L6 10 L10 8 L14 10 L18 8 L22 10 L26 8';
     }
   };
 
@@ -37,7 +37,7 @@ const PriceTrendGraph: React.FC<PriceTrendGraphProps> = ({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 14"
+      viewBox="0 0 28 16"
       fill="none"
       className={`${className} ${getTrendClass()}`}
       xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const PriceTrendGraph: React.FC<PriceTrendGraphProps> = ({
       <path
         d={getPath()}
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

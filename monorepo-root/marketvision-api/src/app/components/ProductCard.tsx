@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import '../styles/components/product-card.scss';
 
-import { RUBLE_SYMBOL, formatPrice, formatPriceRange } from '../utils/currency';
+import { RUBLE, formatPrice, formatPriceRange } from '../utils/currency';
 
 import CartIcon from './CartIcon';
 import PriceHistory from './PriceHistory';
@@ -35,11 +35,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   priceHistory = [], 
   priceChangePercent 
 }) => {
+  console.log('ProductCard received priceHistory:', priceHistory);
+  console.log('ProductCard received priceChangePercent:', priceChangePercent);
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
     if (typeof priceChangePercent === 'number') {
-      if (priceChangePercent > 0.1) return 'up';
-      if (priceChangePercent < -0.1) return 'down';
-      return 'stable';
+          if (priceChangePercent > 0.1) return 'up';
+    if (priceChangePercent < -0.1) return 'down';
+    return 'stable';
     }
 
     if (!priceHistory || priceHistory.length < 2) return 'stable';
@@ -52,9 +54,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
     
     const recentPrices = validPrices.slice(-2);
     const firstPrice = recentPrices[0];
-    const lastPrice = recentPrices[validPrices.length - 1];
+    const lastPrice = recentPrices[1];
     
     const change = ((lastPrice - firstPrice) / firstPrice) * 100;
+    
+    console.log('Price trend calculation:', {
+      firstPrice,
+      lastPrice,
+      change,
+      priceHistory: priceHistory.length,
+      validPrices: validPrices.length,
+      priceChangePercent,
+      trend: change > 0.1 ? 'up' : change < -0.1 ? 'down' : 'stable'
+    });
     
     if (change > 0.1) return 'up';
     if (change < -0.1) return 'down';
@@ -155,11 +167,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   rel="noopener noreferrer"
                   className="productCard__price productCard__price_link"
                 >
-                  {formatPrice(product.price)} {RUBLE_SYMBOL}
+                  {formatPrice(product.price)} {RUBLE}
                 </a>
               ) : (
                 <span className="productCard__price">
-                  {formatPrice(product.price)} {RUBLE_SYMBOL}
+                  {formatPrice(product.price)} {RUBLE}
                 </span>
               )}
             </div>
@@ -167,10 +179,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Тренд цены */}
           <div className="productCard__trendSection">
-            <span className="productCard__trendLabel">Тренд</span>
             <PriceTrendGraph 
               className="productCard__trendIcon" 
-              size={16} 
+              size={24} 
               trend={getPriceTrend()} 
             />
           </div>
@@ -191,7 +202,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   </span>
                 )}
                 <span className="productCard__marketPrice">
-                  {formatPrice(product.mean)} {RUBLE_SYMBOL}
+                  {formatPrice(product.mean)} {RUBLE}
                 </span>
 
               </div>
