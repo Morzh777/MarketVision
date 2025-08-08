@@ -126,7 +126,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* Информация о товаре */}
       <div className="productCard__infoSection">
         {/* Название товара */}
-        <div className="productCard__nameSection">
           {product.product_url ? (
             <a
               href={product.product_url}
@@ -139,7 +138,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           ) : (
             <h2 className="productCard__name">{product.name}</h2>
           )}
-        </div>
+
       </div>
 
       {/* Блок с ценами и статистикой */}

@@ -52,4 +52,8 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Размеры
-$sidebar-width: 360px; 
+$sidebar-width: 360px;
+
+// Скроллбар - скрываем везде
+$scrollbar-width: 0;
+$scrollbar-height: 0; 

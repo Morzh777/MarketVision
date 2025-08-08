@@ -64,6 +64,10 @@
   
   // Размеры
   --sidebar-width: 360px;
+  
+  // Скроллбар - скрываем везде
+  --scrollbar-width: 0;
+  --scrollbar-height: 0;
 }
 
 @media (prefers-color-scheme: light) {
@@ -97,6 +101,17 @@
 }
 
 // Global styles
+html {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);
@@ -105,6 +120,14 @@ body {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
 }
 
 // Предотвращение CLS для изображений
@@ -125,23 +148,58 @@ img {
   color: white;
 }
 
-// Scrollbar styles
+// Scrollbar styles - скрываем везде
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-light);
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-secondary);
+::-webkit-scrollbar-corner {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+::-webkit-scrollbar-button {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+::-webkit-scrollbar-resizer {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 // Focus styles

@@ -11,10 +11,6 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
   const listRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   // Touch scroll handlers для мобильных устройств
   const handleTouchStart = () => {
     setIsScrolling(true);
@@ -98,7 +94,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
       </div>
       
       <div 
-        className="priceHistory__list" 
+        className="priceHistory__list"
         ref={listRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

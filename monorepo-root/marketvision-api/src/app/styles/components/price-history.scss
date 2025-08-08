@@ -10,6 +10,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
+  
+  // Убеждаемся, что скроллбар скрыт на всех уровнях
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
 }
 
 .priceHistory__header {
@@ -19,6 +31,8 @@
   gap: 8px;
   margin-bottom: 16px;
   width: 100%;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .priceHistory__titleRow {
@@ -27,7 +41,9 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  max-width: 300px;
+  max-width: 100%; // Убираем ограничение
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .priceHistory__title {
@@ -37,7 +53,11 @@
   color: var(--color-text);
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   line-height: 1.2;
-  flex-shrink: 0;
+  flex-shrink: 0; // Не сжимается
+  min-width: 0; // Позволяет сжиматься при необходимости
+  overflow: hidden; // Скрываем переполнение
+  text-overflow: ellipsis; // Добавляем многоточие
+  white-space: nowrap; // Не переносим текст
 }
 
 .priceHistory__dropdown {
@@ -137,29 +157,67 @@
   gap: 0;
   max-height: 200px;
   overflow-y: auto;
+  overflow-x: hidden; // Скрываем горизонтальный скролл
   position: relative;
   width: 100%;
   max-width: 300px;
+  min-width: 0; // Позволяет элементу сжиматься
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
   
+  // Полностью удаляем скроллбар
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
   
   &::-webkit-scrollbar-track {
-    background: transparent;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
   
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
   
-  &::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
+  &::-webkit-scrollbar-corner {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  &::-webkit-scrollbar-button {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  &::-webkit-scrollbar-resizer {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 }
 
@@ -175,9 +233,10 @@
   z-index: 0;
   cursor: pointer;
   width: 100%;
-  max-width: 250px;
+  max-width: 100%; // Убираем ограничение в 250px
+  min-width: 0; // Позволяет элементу сжиматься
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
   
   &:last-child {
     border-bottom: none;
@@ -194,6 +253,11 @@
   font-weight: 400;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   line-height: 1.2;
+  flex-shrink: 0; // Не сжимается
+  min-width: 0; // Позволяет сжиматься при необходимости
+  overflow: hidden; // Скрываем переполнение
+  text-overflow: ellipsis; // Добавляем многоточие
+  white-space: nowrap; // Не переносим текст
 }
 
 .priceHistory__price {
@@ -202,6 +266,11 @@
   color: var(--color-mono);
   font-family: monospace;
   line-height: 1.2;
+  flex-shrink: 0; // Не сжимается
+  min-width: 0; // Позволяет сжиматься при необходимости
+  overflow: hidden; // Скрываем переполнение
+  text-overflow: ellipsis; // Добавляем многоточие
+  white-space: nowrap; // Не переносим текст
   
   &_empty {
     color: var(--color-text-secondary);

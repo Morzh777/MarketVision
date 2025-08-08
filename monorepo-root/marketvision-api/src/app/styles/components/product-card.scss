@@ -4,24 +4,24 @@
 
 .productCard {
   background: var(--color-bg);
-  display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  max-height: 100vh;
+
   overflow: hidden;
   position: relative;
+  min-width: 0; // Позволяет сжиматься
 }
 
 .productCard__imageSection {
   position: relative;
-  padding: 0;
+  padding: 16px; // Добавляем отступы
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--color-bg-light);
   border-bottom: 1px solid var(--color-border);
   height: 250px;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 
@@ -29,9 +29,10 @@
 .productCard__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; // Заполняет весь блок
+  object-position: center; // Центрирует изображение
   border-radius: 12px;
+  min-width: 0; // Позволяет сжиматься
 }
 
 .productCard__imageOverlay {
@@ -88,6 +89,8 @@
   flex-direction: column;
   gap: 12px;
   overflow-y: auto;
+  overflow-x: hidden; // Скрываем горизонтальный скролл
+  min-width: 0; // Позволяет сжиматься
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   -webkit-overflow-scrolling: touch;
@@ -116,14 +119,16 @@
 
 .productCard__name {
   @include heading-large;
-  line-height: 1.4;
+  @include text-left;
   margin: 0;
   text-decoration: none;
   word-break: break-word;
-  text-align: center;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
+  text-overflow: ellipsis; // Добавляем многоточие
   
   &:hover {
-    color: var(--color-blue);
+    @include text-blue;
   }
 }
 
@@ -131,10 +136,13 @@
   position: absolute;
   bottom: 4px;
   left: 16px;
+  right: 16px; // Добавляем правый отступ
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   z-index: 10;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__tag {
@@ -143,10 +151,12 @@
   padding: 10px 20px;
   border-radius: 24px;
   @include tag-base;
+  @include truncate; // Используем миксин для обрезки текста
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   pointer-events: none;
   user-select: none;
+  min-width: 0; // Позволяет сжиматься
   
   &.productCard__tag_source {
     &.productCard__tag_wb {
@@ -180,18 +190,14 @@
     @include uppercase;
     @include tracking-wide;
   }
-  
-  // Убираем hover эффекты - теги не интерактивные
-  // &:hover {
-  //   transform: translateY(-1px);
-  //   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  // }
 }
 
 .productCard__pricingSection {
   padding: 16px 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__priceBlock {
@@ -200,12 +206,16 @@
   justify-content: space-between;
   margin-bottom: 16px;
   padding: 16px 0;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__priceRow {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__priceIcon {
@@ -217,18 +227,22 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__price {
-  font-size: 24px;
+  @include text-3xl;
   @include font-bold;
   @include text-primary;
+  @include truncate; // Используем миксин для обрезки текста
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   text-decoration: none;
+  min-width: 0; // Позволяет сжиматься
   
   &.productCard__price_link {
     &:hover {
-      color: var(--color-blue);
+      @include text-blue;
     }
   }
 }
@@ -247,15 +261,15 @@
 
 .productCard__trendIcon {
   &.trend-up {
-    color: var(--color-red);
+    @include text-red;
   }
   
   &.trend-down {
-    color: var(--color-green);
+    @include text-green;
   }
   
   &.trend-stable {
-    color: var(--color-text-secondary);
+    @include text-secondary;
   }
 }
 
@@ -264,6 +278,8 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 16px;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
 }
 
 .productCard__stat {
@@ -273,6 +289,8 @@
   padding: 12px 0;
   border-bottom: 1px solid var(--color-border);
   transition: all 0.2s;
+  min-width: 0; // Позволяет сжиматься
+  overflow: hidden; // Скрываем переполнение
   
   &:last-child {
     border-bottom: none;
@@ -286,6 +304,8 @@
 .productCard__statLabel {
   @include tag-base;
   @include text-secondary;
+  @include truncate; // Используем миксин для обрезки текста
+  min-width: 0; // Позволяет сжиматься
 }
 
 .productCard__statValue {
@@ -295,11 +315,13 @@
   @include text-base;
   @include font-semibold;
   @include text-primary;
+  @include truncate; // Используем миксин для обрезки текста
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  min-width: 0; // Позволяет сжиматься
 }
 
 .productCard__marketPrice {
-  color: var(--color-text);
+  @include text-primary;
 }
 
 .productCard__priceDiff {
@@ -323,12 +345,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 20px;
   gap: 8px;
-  width: 100%;
   padding: 16px 24px;
   border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
+  @include text-lg;
+  @include font-bold;
   text-decoration: none;
   transition: all 0.2s;
   color: white;
@@ -385,6 +407,18 @@
   border-top: 1px solid var(--color-border);
   flex: 1;
   overflow: hidden;
+  min-width: 0; // Позволяет сжиматься
+  width: 100%; // Гарантируем полную ширину
+  
+  // Убеждаемся, что скроллбар скрыт
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    display: none !important;
+  }
 }
 
 .productCard__empty {
@@ -420,6 +454,8 @@
   .productCard__imageSection {
     padding: 12px;
     min-height: 180px;
+    min-width: 0; // Позволяет сжиматься
+    overflow: hidden; // Скрываем переполнение
   }
   
   .productCard__imageContainer {
@@ -433,7 +469,7 @@
   }
   
   .productCard__name {
-    font-size: 18px;
+    @include text-xl;
   }
   
   .productCard__tags {
@@ -443,10 +479,7 @@
   
   .productCard__tag {
     padding: 6px 12px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    @include tag-small;
   }
   
   .productCard__pricingSection {
@@ -459,7 +492,7 @@
   }
   
   .productCard__price {
-    font-size: 22px;
+    @include text-2xl;
   }
   
   .productCard__stats {
@@ -473,7 +506,7 @@
   
   .productCard__shopButton {
     padding: 14px 20px;
-    font-size: 15px;
+    @include text-base;
   }
   
   .productCard__priceHistory {
@@ -503,7 +536,7 @@
   }
   
   .productCard__name {
-    font-size: 16px;
+    @include text-lg;
   }
   
   .productCard__tags {
@@ -529,7 +562,7 @@
   }
   
   .productCard__price {
-    font-size: 20px;
+    @include text-xl;
   }
   
   .productCard__stats {
@@ -543,7 +576,7 @@
   
   .productCard__shopButton {
     padding: 12px 16px;
-    font-size: 14px;
+    @include text-xl;
   }
   
   .productCard__priceHistory {

@@ -35,6 +35,10 @@
   font-size: 22px;
   line-height: 1.3;
 }
+@mixin text-4xl {
+  font-size: 30px;
+  line-height: 1.3;
+}
 
 // Веса шрифтов
 @mixin font-normal {
