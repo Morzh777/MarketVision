@@ -473,8 +473,8 @@ export default function AdminPage() {
                       <div className={categoryName}>{category}</div>
                       <div className={categoryStats}>
                         <span>{stats.productCount} шт.</span>
-                        <span>Средняя цена: {stats.avgPrice?.toLocaleString() || 0}₽</span>
-                        <span>От {stats.priceRange?.min?.toLocaleString() || 0}₽ до {stats.priceRange?.max?.toLocaleString() || 0}₽</span>
+                        <span>Средняя цена: {stats.avgPrice?.toLocaleString() || 0}&#8381;</span>
+<span>От {stats.priceRange?.min?.toLocaleString() || 0}&#8381; до {stats.priceRange?.max?.toLocaleString() || 0}&#8381;</span>
                         <span>Обновлено: {new Date(stats.lastParsed).toLocaleDateString('ru-RU')}</span>
                       </div>
                     </div>
@@ -538,7 +538,7 @@ export default function AdminPage() {
                                 })()}
                               </div>
                             </div>
-                            <div className={productPrice}>{product.price?.toLocaleString()}₽</div>
+                            <div className={productPrice}>{product.price?.toLocaleString()}&#8381;</div>
                           </div>
                         ))}
                       </div>
@@ -582,7 +582,7 @@ export default function AdminPage() {
                   return (
                     <div key={range} className={priceRange}>
                       <div className={priceLabel}>
-                        {range.replace(/(\d+)/g, (match) => parseInt(match).toLocaleString('ru-RU'))}₽
+                        {range.replace(/(\d+)/g, (match) => parseInt(match).toLocaleString('ru-RU'))}&#8381;
                       </div>
                       <div className={priceBar}>
                         <div 

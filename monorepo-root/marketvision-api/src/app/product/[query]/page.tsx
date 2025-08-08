@@ -99,10 +99,10 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
     if (!touchStart || !touchEnd) return;
     
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe) {
-      // Свайп влево - закрываем страницу
+    if (isRightSwipe) {
+      // Свайп справа налево - закрываем страницу
       router.back();
     }
   };

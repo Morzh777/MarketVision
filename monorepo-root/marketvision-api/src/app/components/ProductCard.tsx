@@ -2,6 +2,8 @@ import Image from 'next/image';
 
 import '../styles/components/product-card.scss';
 
+import { RUBLE_SYMBOL, formatPrice, formatPriceRange } from '../utils/currency';
+
 import CartIcon from './CartIcon';
 import PriceHistory from './PriceHistory';
 import PriceTrendGraph from './PriceTrendGraph';
@@ -59,9 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     return 'stable';
   };
 
-  const formatPrice = (price: number): string => {
-    return Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u2009');
-  };
+
 
   const getPriceDifference = (): { percentage: number; isPositive: boolean } | null => {
     if (!product?.mean || product.price === product.mean) return null;
@@ -155,11 +155,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   rel="noopener noreferrer"
                   className="productCard__price productCard__price_link"
                 >
-                  {formatPrice(product.price)} ₽
+                  {formatPrice(product.price)} {RUBLE_SYMBOL}
                 </a>
               ) : (
                 <span className="productCard__price">
-                  {formatPrice(product.price)} ₽
+                  {formatPrice(product.price)} {RUBLE_SYMBOL}
                 </span>
               )}
             </div>
@@ -183,16 +183,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <div className="productCard__stat">
               <span className="productCard__statLabel">Рыночная цена</span>
               <div className="productCard__statValue">
-                <span className="productCard__marketPrice">
-                  {formatPrice(product.mean)} ₽
-                </span>
-                {priceDiff && (
+              {priceDiff && (
                   <span className={`productCard__priceDiff ${
                     priceDiff.isPositive ? 'productCard__priceDiff_positive' : 'productCard__priceDiff_negative'
                   }`}>
                     {priceDiff.isPositive ? '+' : '-'}{priceDiff.percentage}%
                   </span>
                 )}
+                <span className="productCard__marketPrice">
+                  {formatPrice(product.mean)} {RUBLE_SYMBOL}
+                </span>
+
               </div>
             </div>
           )}
@@ -202,29 +203,30 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <div className="productCard__stat">
               <span className="productCard__statLabel">Диапазон цен</span>
               <span className="productCard__statValue">
-                {formatPrice(product.min)} - {formatPrice(product.max)} ₽
+                {formatPriceRange(product.min, product.max)}
               </span>
             </div>
           )}
         </div>
 
-        {/* Кнопка перехода в магазин */}
-        {product.product_url && (
-          <div className="productCard__actions">
-            <a
-              href={product.product_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`productCard__shopButton productCard__shopButton_${product.source}`}
-            >
-              <span>Перейти в магазин</span>
-              <svg className="productCard__buttonIcon" width="14" height="14" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        )}
       </div>
+
+      {/* Кнопка перехода в магазин */}
+      {product.product_url && (
+        <div className="productCard__actions">
+          <a
+            href={product.product_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`productCard__shopButton productCard__shopButton_${product.source}`}
+          >
+            <span>Перейти в магазин</span>
+            <svg className="productCard__buttonIcon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      )}
 
       {/* История цен */}
       <div className="productCard__priceHistory">

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import '../styles/components/price-history.scss';
+import { RUBLE_SYMBOL } from '../utils/currency';
 
 interface PriceHistoryProps {
   priceHistory: Array<{ price: number | null; created_at: string }>;
@@ -104,7 +105,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
           <div key={index} className="priceHistory__item">
             <span className="priceHistory__date">{item.label}</span>
             <span className={`priceHistory__price ${!item.price ? 'priceHistory__price_empty' : ''}`}>
-              {item.price ? `${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽` : '—'}
+              {item.price ? `${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${RUBLE_SYMBOL}` : '—'}
             </span>
           </div>
         ))}

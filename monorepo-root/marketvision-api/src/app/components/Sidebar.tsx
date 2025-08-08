@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 
 import type { PopularQuery } from '../types/market';
 import { createSearchVariants } from '../utils/transliteration';
+import { RUBLE_SYMBOL } from '../utils/currency';
 
 import '../styles/components/sidebar.scss';
 
@@ -177,7 +178,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               </div>
               
               {/* Цена */}
-              <span className="sidebar__item-price">{q.minPrice.toLocaleString('ru-RU')}₽</span>
+              <span className="sidebar__item-price">{q.minPrice.toLocaleString('ru-RU')}{RUBLE_SYMBOL}</span>
               
               {/* Процент изменения */}
               <span className={`sidebar__item-percent ${q.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>
