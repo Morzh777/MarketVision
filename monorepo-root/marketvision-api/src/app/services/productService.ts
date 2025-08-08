@@ -72,8 +72,29 @@ export class ProductService {
   }
 
   static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
+    const CACHE_KEY = 'popularQueriesCache';
+    const CACHE_TTL_MS = 3 * 60 * 1000; // 3 минуты
+
     try {
-      return await ApiService.getPopularQueries();
+      // Пробуем взять из sessionStorage
+      if (typeof window !== 'undefined') {
+        const raw = sessionStorage.getItem(CACHE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as { updatedAt: number; data: any[] };
+          if (parsed && Array.isArray(parsed.data) && Date.now() - parsed.updatedAt < CACHE_TTL_MS) {
+            return parsed.data as any[];
+          }
+        }
+      }
+
+      // Фолбэк: запрос к API и запись в кэш
+      const data = await ApiService.getPopularQueries();
+      if (typeof window !== 'undefined') {
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify({ updatedAt: Date.now(), data }));
+        } catch {}
+      }
+      return data;
     } catch (error) {
       console.error('Error fetching popular queries:', error);
       return [];

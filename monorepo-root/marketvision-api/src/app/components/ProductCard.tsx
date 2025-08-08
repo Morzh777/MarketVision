@@ -39,9 +39,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   console.log('ProductCard received priceChangePercent:', priceChangePercent);
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
     if (typeof priceChangePercent === 'number') {
-          if (priceChangePercent > 0.1) return 'up';
-    if (priceChangePercent < -0.1) return 'down';
-    return 'stable';
+      if (priceChangePercent > 0.1) return 'up';
+      if (priceChangePercent < -0.1) return 'down';
+      return 'stable';
     }
 
     if (!priceHistory || priceHistory.length < 2) return 'stable';
@@ -96,6 +96,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   }
 
   const priceDiff = getPriceDifference();
+  const trendPercent = typeof priceChangePercent === 'number' ? priceChangePercent : null;
 
   return (
     <div className="productCard">
@@ -194,12 +195,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <div className="productCard__stat">
               <span className="productCard__statLabel">Рыночная цена</span>
               <div className="productCard__statValue">
-              {priceDiff && (
-                  <span className={`productCard__priceDiff ${
-                    priceDiff.isPositive ? 'productCard__priceDiff_positive' : 'productCard__priceDiff_negative'
-                  }`}>
-                    {priceDiff.isPositive ? '+' : '-'}{priceDiff.percentage}%
+                {trendPercent !== null ? (
+                  <span className={`productCard__priceDiff ${trendPercent > 0 ? 'productCard__priceDiff_positive' : 'productCard__priceDiff_negative'}`}>
+                    {trendPercent > 0 ? '+' : ''}{trendPercent.toFixed(1)}%
                   </span>
+                ) : (
+                  priceDiff && (
+                    <span className={`productCard__priceDiff ${
+                      priceDiff.isPositive ? 'productCard__priceDiff_positive' : 'productCard__priceDiff_negative'
+                    }`}>
+                      {priceDiff.isPositive ? '+' : '-'}{priceDiff.percentage}%
+                    </span>
+                  )
                 )}
                 <span className="productCard__marketPrice">
                   {formatPrice(product.mean)} {RUBLE}

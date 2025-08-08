@@ -8,7 +8,6 @@ import Sidebar from './components/Sidebar';
 import { useQuerySorting } from './hooks/useQuerySorting';
 import { ProductService } from './services/productService';
 import './styles/components/page.scss';
-import type { Product } from './types/market';
 
 const LoadingFallback = () => (
   <div className="loading">
@@ -20,7 +19,7 @@ const LoadingFallback = () => (
 export default function Home() {
   const [popularQueries, setPopularQueries] = useState<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>>([]);
   const [selectedQuery, setSelectedQuery] = useState<string>('');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  // Ранее использовалось для превью продукта на главной; сейчас не требуется
   const [isLoading, setIsLoading] = useState(true);
   
   const { sortedQueries, sortOrder, sortPercentOrder, handleSortPriceClick, handleSortPercentClick } = useQuerySorting(popularQueries);
@@ -35,6 +34,14 @@ export default function Home() {
         
         // Изображения теперь приходят с сервера в getPopularQueries
         setPopularQueries(queries);
+        // Кэшируем проценты изменения цены для использования на странице продукта
+        try {
+          const normalizeQuery = (s: string) => decodeURIComponent(s).toLowerCase().replace(/\s+/g, ' ').trim();
+          const pctMap = Object.fromEntries(
+            queries.map((q: { query: string; priceChangePercent: number }) => [normalizeQuery(q.query), q.priceChangePercent])
+          );
+          sessionStorage.setItem('popularQueryPctMap', JSON.stringify({ updatedAt: Date.now(), map: pctMap }));
+        } catch {}
         // Убираем автоматический выбор первого запроса
       } catch (error) {
         console.error('Error fetching popular queries:', error);
@@ -46,47 +53,8 @@ export default function Home() {
     fetchPopularQueries();
   }, []);
 
-  // Загружаем продукты по выбранному query только при явном выборе пользователя
-  useEffect(() => {
-    const fetchProductsByQuery = async () => {
-      console.log('Page useEffect triggered:', { selectedQuery, hasQuery: !!selectedQuery });
-      
-      if (!selectedQuery) {
-        console.log('Page: Clearing selected product - no query selected');
-        setSelectedProduct(null);
-        return;
-      }
-      
-      try {
-        console.log('Page: Fetching products for query:', selectedQuery);
-        const { products, marketStats } = await ProductService.getProductsByQuery(selectedQuery);
-        console.log('Fetched products by query:', { products, marketStats });
-        
-        // Выбираем продукт с наиболее репрезентативной ценой
-        if (products.length > 0) {
-          // Сортируем продукты по цене и выбираем медианный
-          const sortedProducts = [...products].sort((a, b) => a.price - b.price);
-          const medianIndex = Math.floor(sortedProducts.length / 2);
-          const selectedProductData = sortedProducts[medianIndex];
-          
-          const productWithStats = {
-            ...selectedProductData,
-            min: marketStats?.min,
-            max: marketStats?.max,
-            mean: marketStats?.mean,
-            median: marketStats?.median,
-            iqr: marketStats?.iqr
-          };
-          console.log('Page: Setting selected product:', productWithStats);
-          setSelectedProduct(productWithStats);
-        }
-      } catch (error) {
-        console.error('Error fetching products by query:', error);
-      }
-    };
-
-    fetchProductsByQuery();
-  }, [selectedQuery]);
+  // Превью по выбранному запросу на главной не используем —
+  // чтобы избежать лишних запросов при навигации в карточку
 
   if (isLoading) {
     return <LoadingFallback />;
