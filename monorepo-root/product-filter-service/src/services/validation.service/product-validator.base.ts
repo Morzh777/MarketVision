@@ -20,6 +20,11 @@ export interface ValidationRules {
   product?: any;
 }
 
+export interface StrictTokenMatchOptions {
+  disallowPrevAlnum?: boolean;
+  disallowNextLetter?: boolean;
+}
+
 export type ProductCategory = string; // Динамически берется из CategoryConfigService.getAllCategories()
 
 @Injectable()
@@ -135,6 +140,37 @@ export abstract class ProductValidatorBase {
    */
   protected normalize(str: string): string {
     return str.toLowerCase().replace(/\s+/g, '');
+  }
+
+  /**
+   * Строгая проверка наличия токена в названии.
+   * Условия по умолчанию:
+   *  - перед токеном не должно быть буквы/цифры
+   *  - сразу после токена не должно быть буквы ("B760M" не пройдёт для запроса "B760")
+   */
+  protected isStrictTokenMatch(
+    productName: string,
+    token: string,
+    options: StrictTokenMatchOptions = { disallowPrevAlnum: true, disallowNextLetter: true }
+  ): boolean {
+    const nameLower = productName.toLowerCase();
+    const queryToken = token.toLowerCase().trim();
+
+    const idx = nameLower.indexOf(queryToken);
+    if (idx === -1) return false;
+
+    const prevChar = idx > 0 ? nameLower[idx - 1] : '';
+    const nextChar = idx + queryToken.length < nameLower.length ? nameLower[idx + queryToken.length] : '';
+
+    if (options.disallowPrevAlnum && /[a-z0-9]/.test(prevChar)) {
+      return false;
+    }
+
+    if (options.disallowNextLetter && /[a-z]/.test(nextChar)) {
+      return false;
+    }
+
+    return true;
   }
 
   /**

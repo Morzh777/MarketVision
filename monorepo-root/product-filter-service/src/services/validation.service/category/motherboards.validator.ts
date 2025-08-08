@@ -39,22 +39,7 @@ export class MotherboardsValidator extends ProductValidatorBase {
     const chipsetTokens = this.getOtherModels();
     const isChipsetQuery = chipsetTokens.includes(normalizedQuery);
     if (isChipsetQuery) {
-      const idx = nameLower.indexOf(normalizedQuery);
-      if (idx === -1) {
-        return this.createResult(false, 'no-match', 0.8);
-      }
-      const prevChar = idx > 0 ? nameLower[idx - 1] : '';
-      const nextChar = idx + normalizedQuery.length < nameLower.length
-        ? nameLower[idx + normalizedQuery.length]
-        : '';
-
-      const isPrevAlnum = /[a-z0-9]/.test(prevChar);
-      const isNextLetter = /[a-z]/.test(nextChar);
-      // Разрешённые разделители после токена (пробел, дефис, слэш, запятая, точка, скобки)
-      const isNextAllowedSeparator = /[\s\-/,\.()\[\]]/.test(nextChar) || nextChar === '';
-
-      // Если сразу до токена есть буква/цифра или сразу после токена буква — отклоняем
-      if (isPrevAlnum || (isNextLetter && !isNextAllowedSeparator)) {
+      if (!this.isStrictTokenMatch(name, normalizedQuery)) {
         return this.createResult(false, 'chipset-strict-mismatch', 0.95);
       }
     }
