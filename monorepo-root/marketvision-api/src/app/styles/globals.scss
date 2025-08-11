@@ -223,3 +223,13 @@ img {
     padding: 0.5rem;
   }
 } 
+
+/* Глобально скрываем все скроллбары */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari/Opera */
+} 

@@ -19,10 +19,22 @@ const LoadingFallback = () => (
 export default function Home() {
   const [popularQueries, setPopularQueries] = useState<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>>([]);
   const [selectedQuery, setSelectedQuery] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   // Ранее использовалось для превью продукта на главной; сейчас не требуется
   const [isLoading, setIsLoading] = useState(true);
   
   const { sortedQueries, sortOrder, sortPercentOrder, handleSortPriceClick, handleSortPercentClick } = useQuerySorting(popularQueries);
+
+  // Загружаем сохраненную категорию при монтировании
+  useEffect(() => {
+    const savedCategory = sessionStorage.getItem('sidebarSelectedCategory');
+    if (savedCategory) setSelectedCategory(savedCategory);
+  }, []);
+
+  // Сохраняем выбранную категорию при изменении
+  useEffect(() => {
+    sessionStorage.setItem('sidebarSelectedCategory', selectedCategory);
+  }, [selectedCategory]);
 
   // Загружаем популярные запросы при монтировании
   useEffect(() => {
@@ -71,6 +83,8 @@ export default function Home() {
           sortPercentOrder={sortPercentOrder}
           onSortPrice={handleSortPriceClick}
           onSortPercent={handleSortPercentClick}
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
         />
       </div>
     </ErrorBoundary>

@@ -16,6 +16,8 @@ interface SidebarProps {
   sortPercentOrder: 'asc' | 'desc' | null;
   onSortPrice: () => void;
   onSortPercent: () => void;
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
 }
 
 const SortAscIcon = () => (
@@ -49,15 +51,30 @@ const Sidebar: React.FC<SidebarProps> = ({
   sortOrder, 
   sortPercentOrder, 
   onSortPrice, 
-  onSortPercent
+  onSortPercent,
+  selectedCategory,
+  onSelectCategory
 }) => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
   const handleOpenCategories = () => setIsCategoryOpen(true);
   const handleCloseCategories = () => setIsCategoryOpen(false);
+
+  // Загружаем сохраненное состояние при монтировании
+  useEffect(() => {
+    const savedSearch = sessionStorage.getItem('sidebarSearchQuery');
+    const savedCategory = sessionStorage.getItem('sidebarSelectedCategory');
+    
+    if (savedSearch) setSearchQuery(savedSearch);
+    if (savedCategory && onSelectCategory) onSelectCategory(savedCategory);
+  }, [onSelectCategory]);
+
+  // Сохраняем состояние поиска при изменении
+  useEffect(() => {
+    sessionStorage.setItem('sidebarSearchQuery', searchQuery);
+  }, [searchQuery]);
 
   useEffect(() => {
     if (!isCategoryOpen) return;
@@ -169,7 +186,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   type="button"
                   className={`sidebar__filter-item ${selectedCategory === 'all' ? 'active' : ''}`}
                   onClick={() => {
-                    setSelectedCategory('all');
+                    onSelectCategory('all');
                     handleCloseCategories();
                   }}
                 >
@@ -181,7 +198,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     type="button"
                     className={`sidebar__filter-item ${selectedCategory === cat ? 'active' : ''}`}
                     onClick={() => {
-                      setSelectedCategory(cat);
+                      onSelectCategory(cat);
                       handleCloseCategories();
                     }}
                   >
