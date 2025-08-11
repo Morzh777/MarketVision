@@ -25,15 +25,33 @@ export default function Home() {
   
   const { sortedQueries, sortOrder, sortPercentOrder, handleSortPriceClick, handleSortPercentClick } = useQuerySorting(popularQueries);
 
-  // Загружаем сохраненную категорию при монтировании
+  // Восстанавливаем категорию из URL (?cat=) или sessionStorage
   useEffect(() => {
+    try {
+      const url = new URL(window.location.href);
+      const urlCat = url.searchParams.get('cat');
+      if (urlCat) {
+        setSelectedCategory(urlCat);
+        sessionStorage.setItem('sidebarSelectedCategory', urlCat);
+        return;
+      }
+    } catch {}
     const savedCategory = sessionStorage.getItem('sidebarSelectedCategory');
     if (savedCategory) setSelectedCategory(savedCategory);
   }, []);
 
-  // Сохраняем выбранную категорию при изменении
+  // Сохраняем выбранную категорию и обновляем URL без перезагрузки
   useEffect(() => {
-    sessionStorage.setItem('sidebarSelectedCategory', selectedCategory);
+    try {
+      sessionStorage.setItem('sidebarSelectedCategory', selectedCategory);
+      const url = new URL(window.location.href);
+      if (selectedCategory === 'all') {
+        url.searchParams.delete('cat');
+      } else {
+        url.searchParams.set('cat', selectedCategory);
+      }
+      window.history.replaceState(null, '', url.toString());
+    } catch {}
   }, [selectedCategory]);
 
   // Загружаем популярные запросы при монтировании

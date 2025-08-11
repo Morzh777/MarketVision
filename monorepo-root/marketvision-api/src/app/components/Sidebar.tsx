@@ -120,6 +120,10 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   // При выборе запроса
   const handleSelectQuery = (query: string) => {
+    try {
+      sessionStorage.setItem('sidebarSelectedCategory', selectedCategory);
+      sessionStorage.setItem('sidebarSearchQuery', searchQuery);
+    } catch {}
     onSelectQuery(query);
     // Переходим на страницу продукта
     router.push(`/product/${encodeURIComponent(query)}`);
