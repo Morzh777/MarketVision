@@ -68,9 +68,9 @@
   // Символы валют
   --currency-ruble: "&#8381;";
   
-  // Скроллбар - скрываем везде
-  --scrollbar-width: 0;
-  --scrollbar-height: 0;
+  // Скроллбар
+  --scrollbar-width: 8px;
+  --scrollbar-height: 8px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -105,14 +105,7 @@
 
 // Global styles
 html {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
+  /* не скрываем скроллбары глобально */
 }
 
 body {
@@ -123,14 +116,7 @@ body {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
+  /* не скрываем скроллбары глобально */
 }
 
 // Предотвращение CLS для изображений
@@ -151,59 +137,7 @@ img {
   color: white;
 }
 
-// Scrollbar styles - скрываем везде
-* {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-
-::-webkit-scrollbar {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-::-webkit-scrollbar-track {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-::-webkit-scrollbar-thumb {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-::-webkit-scrollbar-corner {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-::-webkit-scrollbar-button {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-::-webkit-scrollbar-resizer {
-  width: 0 !important;
-  height: 0 !important;
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
+/* Удалены глобальные правила, скрывающие скроллбары */
 
 // Focus styles
 *:focus-visible {

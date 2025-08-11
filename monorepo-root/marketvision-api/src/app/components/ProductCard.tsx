@@ -3,10 +3,10 @@ import Image from 'next/image';
 import '../styles/components/product-card.scss';
 
 import { RUBLE, formatPrice, formatPriceRange } from '../utils/currency';
+import { decodeHtmlEntities } from '../utils/html';
 
 import CartIcon from './CartIcon';
 import PriceHistory from './PriceHistory';
-import PriceTrendGraph from './PriceTrendGraph';
 
 interface ProductCardProps {
   product: {
@@ -128,11 +128,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           )}
           
-          {product.category && (
-            <div className="productCard__tag productCard__tag_category">
-              {product.category}
-            </div>
-          )}
+          {/* Тег тренда после категории */}
+          {(() => {
+            const trend = getPriceTrend();
+            const label = trend === 'up' ? 'Тренд ↑' : trend === 'down' ? 'Тренд ↓' : 'Тренд ~';
+            return (
+              <div className={`productCard__tag productCard__tag_trend productCard__tag_trend_${trend}`}>
+                {label}
+              </div>
+            );
+          })()}
         </div>
       </div>
 
@@ -146,18 +151,19 @@ const ProductCard: React.FC<ProductCardProps> = ({
               rel="noopener noreferrer"
               className="productCard__name"
             >
-              {product.name}
+              {decodeHtmlEntities(product.name)}
             </a>
           ) : (
-            <h2 className="productCard__name">{product.name}</h2>
+            <h2 className="productCard__name">{decodeHtmlEntities(product.name)}</h2>
           )}
 
       </div>
 
       {/* Блок с ценами и статистикой */}
       <div className="productCard__pricingSection">
-        {/* Основная цена */}
+        {/* Блок с трендом и ценой  */}
         <div className="productCard__priceBlock">
+          <span className="productCard__priceLabel">Текущая цена</span>
           <div className="productCard__priceRow">
             <CartIcon className="productCard__priceIcon" size={20} />
             <div className="productCard__priceContent">
@@ -176,15 +182,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </span>
               )}
             </div>
-          </div>
-
-          {/* Тренд цены */}
-          <div className="productCard__trendSection">
-            <PriceTrendGraph 
-              className="productCard__trendIcon" 
-              size={24} 
-              trend={getPriceTrend()} 
-            />
           </div>
         </div>
 
@@ -225,11 +222,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               </span>
             </div>
           )}
-        </div>
-
-      </div>
-
-      {/* Кнопка перехода в магазин */}
+                {/* Кнопка перехода в магазин */}
       {product.product_url && (
         <div className="productCard__actions">
           <a
@@ -245,6 +238,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </a>
         </div>
       )}
+        </div>
+
+      </div>
+
+
 
       {/* История цен */}
       <div className="productCard__priceHistory">

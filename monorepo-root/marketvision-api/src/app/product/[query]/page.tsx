@@ -125,7 +125,11 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
                 last: responseData.priceHistory[responseData.priceHistory.length - 1],
                 all: responseData.priceHistory
               });
-              setPriceHistory(responseData.priceHistory);
+              // Берем последние 5 (бек уже вернёт distinct)
+              const sorted = [...responseData.priceHistory]
+                .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+                .slice(0, 5);
+              setPriceHistory(sorted);
               // Тренд берём из кэша (как в сайдбаре). Если кэша нет — не пересчитываем тут.
             } else {
               console.log('No price history in response');

@@ -49,7 +49,7 @@
   background: none;
   border: none;
   color: var(--color-text);
-  font-size: 14px;
+  @include text-base; // 14px
   outline: none;
   padding: 12px 0;
 }
@@ -80,19 +80,92 @@
 }
 
 .sidebar__header {
-  padding: 10px 12px;
+  padding: 8px 0;
   display: flex;
   align-items: center;
-  gap: 12px;
+  @include text-lg; // 16px
+  @include font-semibold;
+  @include text-secondary;
+}image.png
 
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-secondary);
+.sidebar__title { display: none; }
+
+.sidebar__filter-btn {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  @include text-lg;
+  @include font-medium;
+  @include text-primary;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.sidebar__title {
-  flex: 1;
+.sidebar__filter-caret { transition: transform 0.2s ease; }
+.sidebar__filter-caret.open { transform: rotate(90deg); }
+
+.sidebar__filter-item {
+  width: 100%;
   text-align: left;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  @include text-base;
+  @include text-primary;
+}
+.sidebar__filter-item.active, .sidebar__filter-item:hover { background: var(--color-bg-active); }
+
+/* Overlay & Drawer */
+.sidebar__filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  z-index: 1400;
+  display: flex;
+}
+
+.sidebar__filter-drawer {
+  width: 280px;
+  max-width: 80%;
+  height: 100%;
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  transform: translateX(-100%);
+  animation: drawerIn 0.25s ease forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__filter-drawer-header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  @include text-lg;
+}
+
+.sidebar__filter-close {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  @include text-lg;
+}
+
+.sidebar__filter-drawer-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+@keyframes drawerIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
 .sidebar__sort-btn {
@@ -100,15 +173,19 @@
   border: none;
   color: var(--color-text-secondary);
   cursor: pointer;
-  padding: 4px 8px;
+
   border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
+  @include text-lg; // 16px
+  @include font-medium;
   transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 4px;
 }
+
+/* выравниваем заголовки по колонкам списка */
+.sidebar__sort-btn--price { margin-left: auto; min-width: 120px; justify-content: flex-end; }
+.sidebar__sort-btn--percent { justify-content: flex-end; }
 
 .sidebar__sort-btn:hover {
   background: var(--color-bg-active);
@@ -190,9 +267,9 @@
 
 .sidebar__item-name {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text);
+  @include text-base; // 14px
+  @include font-medium;
+  @include text-primary;
   margin-bottom: 2px;
   white-space: nowrap;
   overflow: hidden;
@@ -200,9 +277,9 @@
 }
 
 .sidebar__item-price {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text);
+  @include text-base; // 14px
+  @include font-semibold;
+  @include text-primary;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   min-width: 60px;
   text-align: right;
@@ -310,47 +387,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-// Мобильные стили
-@media (max-width: 767px) {
-  .sidebar__item {
-    padding: 10px 12px;
-    gap: 10px;
-  }
-  
-  .sidebar__item-avatar {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .sidebar__item-name {
-    font-size: 13px;
-  }
-  
-  .sidebar__item-price {
-    font-size: 12px;
-    min-width: 50px;
-  }
-  
-  .sidebar__item-percent {
-    font-size: 12px;
-    min-width: 40px;
-  }
-  
-  .sidebar__product-card-content {
-    height: calc(100vh - 70px);
-    padding: 12px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .sidebar__product-card-header {
-    padding: 12px;
-  }
-  
-  .sidebar__product-card-title {
-    font-size: 16px;
-  }
-}
 
 // Гамбургер меню
 .sidebar__hamburger {

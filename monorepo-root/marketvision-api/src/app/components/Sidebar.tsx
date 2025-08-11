@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import React, { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
+import React, { useState, useMemo, useEffect } from 'react';
 
 import type { PopularQuery } from '../types/market';
-import { createSearchVariants } from '../utils/transliteration';
 import { RUBLE } from '../utils/currency';
+import { createSearchVariants } from '../utils/transliteration';
 
 import '../styles/components/sidebar.scss';
 
@@ -54,23 +54,52 @@ const Sidebar: React.FC<SidebarProps> = ({
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
+  const handleOpenCategories = () => setIsCategoryOpen(true);
+  const handleCloseCategories = () => setIsCategoryOpen(false);
+
+  useEffect(() => {
+    if (!isCategoryOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsCategoryOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isCategoryOpen]);
 
 
 
   // Фильтрация продуктов по поисковому запросу с транслитерацией
-  const filteredQueries = useMemo(() => {
-    if (!searchQuery.trim()) return popularQueries;
-    
-    const searchVariants = createSearchVariants(searchQuery);
-    
-    return popularQueries.filter((query: PopularQuery) => {
-      const queryText = query.query.toLowerCase();
-      
-      return searchVariants.some(variant => 
-        queryText.includes(variant)
-      );
+  const categories: string[] = useMemo(() => {
+    const set = new Set<string>();
+    popularQueries.forEach((q) => {
+      const c = (q as unknown as { category?: string }).category;
+      if (c) set.add(c);
     });
-  }, [popularQueries, searchQuery]);
+    return Array.from(set).sort();
+  }, [popularQueries]);
+
+  const filteredQueries = useMemo(() => {
+    const byCategory =
+      selectedCategory === 'all'
+        ? popularQueries
+        : popularQueries.filter(
+            (q) =>
+              (q as unknown as { category?: string }).category ===
+              selectedCategory,
+          );
+
+    if (!searchQuery.trim()) return byCategory;
+
+    const searchVariants = createSearchVariants(searchQuery);
+    return byCategory.filter((query: PopularQuery) => {
+      const queryText = query.query.toLowerCase();
+      return searchVariants.some((variant) => queryText.includes(variant));
+    });
+  }, [popularQueries, selectedCategory, searchQuery]);
 
   // При выборе запроса
   const handleSelectQuery = (query: string) => {
@@ -119,12 +148,55 @@ const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar__header">
-        <span className="sidebar__title">Популярные запросы</span>
+        <button
+          type="button"
+          className="sidebar__filter-btn"
+          onClick={handleOpenCategories}
+        >
+          {selectedCategory === 'all' ? 'Все запросы' : selectedCategory}
+          <span className={`sidebar__filter-caret ${isCategoryOpen ? 'open' : ''}`}>▸</span>
+        </button>
+        {/* Overlay + Drawer */}
+        {isCategoryOpen && (
+          <div className="sidebar__filter-overlay" onClick={handleCloseCategories}>
+            <div className="sidebar__filter-drawer" onClick={(e) => e.stopPropagation()}>
+              <div className="sidebar__filter-drawer-header">
+                <span>Выберите категорию</span>
+                <button type="button" className="sidebar__filter-close" onClick={handleCloseCategories}>✕</button>
+              </div>
+              <div className="sidebar__filter-drawer-list">
+                <button
+                  type="button"
+                  className={`sidebar__filter-item ${selectedCategory === 'all' ? 'active' : ''}`}
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    handleCloseCategories();
+                  }}
+                >
+                  Все запросы
+                </button>
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    className={`sidebar__filter-item ${selectedCategory === cat ? 'active' : ''}`}
+                    onClick={() => {
+                      setSelectedCategory(cat);
+                      handleCloseCategories();
+                    }}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
         <button
           type="button"
           onClick={onSortPrice}
           className={
-            'sidebar__sort-btn' + (sortOrder ? ' sidebar__sort-btn--active' : '')
+            'sidebar__sort-btn sidebar__sort-btn--price' + (sortOrder ? ' sidebar__sort-btn--active' : '')
           }
         >
           Мин. цена
@@ -135,7 +207,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           type="button"
           onClick={onSortPercent}
           className={
-            'sidebar__sort-btn' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')
+            'sidebar__sort-btn sidebar__sort-btn--percent' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')
           }
         >
           Изм. %

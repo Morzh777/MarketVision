@@ -325,7 +325,8 @@ export class ProductService {
     );
 
     try {
-      // Получаем историю цен напрямую
+      // Получаем историю цен напрямую (берём больше, чтобы отфильтровать повторы)
+      const take = Math.max(limit * 5, limit);
       const priceHistory = await this.prisma.priceHistory.findMany({
         where: {
           query: query,
@@ -333,18 +334,35 @@ export class ProductService {
         orderBy: {
           created_at: 'desc',
         },
-        take: limit, // Берем точно limit записей
+        take, // берём с запасом
       });
 
       console.log(
         `[getPriceHistoryByQuery] Found ${priceHistory.length} records for query: "${query}"`,
       );
 
-      // Преобразуем в нужный формат
-      const result = priceHistory.map((record) => ({
-        price: record.price,
-        created_at: record.created_at.toISOString(),
-      }));
+      // Преобразуем и оставляем только последние N уникальных цен (по отличию от предыдущей)
+      const distinct: Array<{ price: number | null; created_at: string }> = [];
+      let lastPrice: number | undefined = undefined;
+      for (const record of priceHistory) {
+        // Приведение Prisma.Decimal | number к number через Number()
+        const current: number = Number(
+          (record as unknown as { price: unknown }).price,
+        );
+        if (!Number.isFinite(current)) {
+          continue;
+        }
+        if (lastPrice === undefined || current !== lastPrice) {
+          distinct.push({
+            price: current,
+            created_at: record.created_at.toISOString(),
+          });
+          lastPrice = current;
+        }
+        if (distinct.length >= limit) break;
+      }
+
+      const result = distinct;
 
       console.log(`[getPriceHistoryByQuery] First record:`, result[0]);
       console.log(
@@ -352,7 +370,7 @@ export class ProductService {
         result[result.length - 1],
       );
       console.log(
-        `[getPriceHistoryByQuery] Returning ${result.length} records`,
+        `[getPriceHistoryByQuery] Returning ${result.length} distinct records`,
       );
 
       return result;
@@ -372,10 +390,11 @@ export class ProductService {
       id: string;
       priceChangePercent: number;
       image_url: string;
+      category?: string;
     }>
   > {
     console.log('[ProductService] getPopularQueries called');
-    
+
     // Получаем все уникальные запросы с фильтрацией по цене и непустому запросу
     const queries = await this.prisma.product.findMany({
       select: {
@@ -392,7 +411,11 @@ export class ProductService {
       distinct: ['query'],
     });
 
-    console.log('[ProductService] Found queries:', queries.length, queries.map(q => q.query));
+    console.log(
+      '[ProductService] Found queries:',
+      queries.length,
+      queries.map((q) => q.query),
+    );
 
     // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
     const result = await Promise.all(
@@ -437,14 +460,23 @@ export class ProductService {
           }
         }
 
-        const item = {
+        const item: {
+          query: string;
+          minPrice: number;
+          id: string;
+          priceChangePercent: number;
+          image_url: string;
+          category?: string;
+        } = {
           query: query,
           minPrice: latestProduct.price,
           id: latestProduct.id,
           priceChangePercent: priceChangePercent,
           image_url: latestProduct.image_url || '',
+          category: (latestProduct as unknown as { category?: string })
+            .category,
         };
-        
+
         console.log('[ProductService] Created item for query:', query, item);
         return item;
       }),
@@ -462,8 +494,12 @@ export class ProductService {
         image_url: string;
       } => item !== null,
     );
-    
-    console.log('[ProductService] Final result:', filteredResult.length, 'items');
+
+    console.log(
+      '[ProductService] Final result:',
+      filteredResult.length,
+      'items',
+    );
     return filteredResult;
   }
 

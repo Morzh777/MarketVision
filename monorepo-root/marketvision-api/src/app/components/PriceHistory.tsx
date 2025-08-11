@@ -11,6 +11,9 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
   const [isClient, setIsClient] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [canScroll, setCanScroll] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [atBottom, setAtBottom] = useState(false);
 
   // Устанавливаем isClient в true после монтирования компонента
   useEffect(() => {
@@ -32,12 +35,29 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
     setIsScrolling(false);
   };
 
-  // Форматируем данные для отображения - берем последние 10 записей
+  // Обновляем состояние скролла, чтобы показывать/прятать градиенты
+  const updateScrollState = () => {
+    const el = listRef.current;
+    if (!el) return;
+    const scrollable = el.scrollHeight > el.clientHeight + 1; // с запасом для субпикселей
+    setCanScroll(scrollable);
+    setAtTop(el.scrollTop <= 0);
+    setAtBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 1);
+  };
+
+  const handleScroll = () => {
+    updateScrollState();
+  };
+
+  // Форматируем данные для отображения - берем последние 5 записей (новые → старые)
   const formatPriceData = () => {
-    // Берем последние 10 записей из истории
-    const last10Records = priceHistory.slice(-10);
-    
-    return last10Records.map(item => {
+    // Сортируем по дате по убыванию и берем первые 5
+    const sorted = [...priceHistory]
+      .filter(i => i && i.created_at)
+      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+      .slice(0, 5);
+
+    return sorted.map(item => {
       const date = new Date(item.created_at);
       const day = date.getDate().toString().padStart(2, '0');
       const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -58,12 +78,25 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
 
   const priceData = formatPriceData();
 
+  useEffect(() => {
+    updateScrollState();
+    const onResize = () => updateScrollState();
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', onResize);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', onResize);
+      }
+    };
+  }, [priceHistory]);
+
   if (!isClient) {
     return (
       <div className="priceHistory">
         <div className="priceHistory__header">
           <div className="priceHistory__titleRow">
-            <h3 className="priceHistory__title">История цен</h3>
+              <h3 className="priceHistory__title">История изменения цен</h3>
           </div>
         </div>
         <div className="priceHistory__list">
@@ -81,7 +114,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
       <div className="priceHistory">
         <div className="priceHistory__header">
           <div className="priceHistory__titleRow">
-            <h3 className="priceHistory__title">История цен</h3>
+            <h3 className="priceHistory__title">История изменения цен</h3>
           </div>
         </div>
         <div className="priceHistory__empty">
@@ -95,16 +128,17 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
     <div className="priceHistory">
       <div className="priceHistory__header">
         <div className="priceHistory__titleRow">
-          <h3 className="priceHistory__title">История цен</h3>
+          <h3 className="priceHistory__title">История изменения цен</h3>
         </div>
       </div>
       
       <div 
-        className="priceHistory__list"
+        className={`priceHistory__list ${canScroll ? 'is-scrollable' : ''} ${atTop ? 'at-top' : ''} ${atBottom ? 'at-bottom' : ''}`}
         ref={listRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onScroll={handleScroll}
       >
         {priceData.map((item, index) => (
           <div key={index} className="priceHistory__item">

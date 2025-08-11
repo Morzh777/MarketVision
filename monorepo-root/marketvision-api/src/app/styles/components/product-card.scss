@@ -191,6 +191,25 @@
     @include uppercase;
     @include tracking-wide;
   }
+
+  &.productCard__tag_trend {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    
+    &.productCard__tag_trend_up {
+      border-color: var(--color-red);
+      color: var(--color-red);
+    }
+    &.productCard__tag_trend_down {
+      border-color: var(--color-green);
+      color: var(--color-green);
+    }
+    &.productCard__tag_trend_stable {
+      border-color: var(--color-text-secondary);
+      color: var(--color-text-secondary);
+    }
+  }
 }
 
 .productCard__pricingSection {
@@ -214,8 +233,14 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto; // уводим цену вправо
   min-width: 0; // Позволяет сжиматься
   overflow: hidden; // Скрываем переполнение
+}
+.productCard__priceLabel {
+  @include text-lg; // 16px
+  @include text-secondary;
+  margin-right: 12px;
 }
 
 .productCard__priceIcon {
@@ -249,7 +274,7 @@
 
 .productCard__trendSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* label left, graph right */
   align-items: center;
   gap: 8px;
 }
@@ -332,8 +357,8 @@
 }
 
 .productCard__actions {
-  padding: 8px;
-  margin-top: 12px;
+  padding: 0;
+  margin-top: 16px;
 }
 
 .productCard__shopButton {
@@ -350,8 +375,8 @@
   transition: all 0.2s;
   color: white;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  overflow: visible;
+  box-shadow: none;
   
   &:hover {
     transform: translateY(-2px);
@@ -391,29 +416,23 @@
   flex-shrink: 0;
   transition: transform 0.2s;
 }
+.productCard__shopButton span {
+  @include text-2xl; // 20px
+}
 
 .productCard__shopButton:hover .productCard__buttonIcon {
   transform: translateX(2px);
 }
 
 .productCard__priceHistory {
-  padding: 16px 0;
   border-top: 1px solid var(--color-border);
   border-top: 1px solid var(--color-border);
   flex: 1;
-  overflow: hidden;
+  overflow: hidden; // контейнер
   min-width: 0; // Позволяет сжиматься
   width: 100%; // Гарантируем полную ширину
   
-  // Убеждаемся, что скроллбар скрыт
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-  }
+  // Не скрываем скроллбар у дочернего списка истории
 }
 
 .productCard__empty {
