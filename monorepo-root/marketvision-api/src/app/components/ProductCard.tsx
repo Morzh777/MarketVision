@@ -35,8 +35,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
   priceHistory = [], 
   priceChangePercent 
 }) => {
-  console.log('ProductCard received priceHistory:', priceHistory);
-  console.log('ProductCard received priceChangePercent:', priceChangePercent);
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
     if (typeof priceChangePercent === 'number') {
       if (priceChangePercent > 0.1) return 'up';
@@ -57,16 +55,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const lastPrice = recentPrices[1];
     
     const change = ((lastPrice - firstPrice) / firstPrice) * 100;
-    
-    console.log('Price trend calculation:', {
-      firstPrice,
-      lastPrice,
-      change,
-      priceHistory: priceHistory.length,
-      validPrices: validPrices.length,
-      priceChangePercent,
-      trend: change > 0.1 ? 'up' : change < -0.1 ? 'down' : 'stable'
-    });
     
     if (change > 0.1) return 'up';
     if (change < -0.1) return 'down';
