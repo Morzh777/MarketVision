@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
 import '../../styles/components/auth-form.scss'
+import { SearchIcon, LockIcon } from '../../components/Icons'
 
 interface LoginFormProps {
   onSuccess?: () => void

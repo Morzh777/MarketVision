@@ -40,7 +40,6 @@
   @include text-xl; // 18px
   @include font-semibold;
   @include text-primary;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   flex-shrink: 0; // Не сжимается
   min-width: 0; // Позволяет сжиматься при необходимости
   overflow: hidden; // Скрываем переполнение
@@ -67,7 +66,6 @@
   @include text-sm;
   @include font-normal;
   @include text-secondary;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   cursor: pointer;
   transition: color 0.15s ease;
   white-space: nowrap;
@@ -119,7 +117,6 @@
   @include text-sm;
   @include font-normal;
   @include text-secondary;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   cursor: pointer;
   transition: all 0.15s ease;
   
@@ -199,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: 4px 0;
   background: none;
   border-bottom: none; // убираем полоски между элементами
   transition: none;
@@ -218,7 +215,6 @@
   @include text-lg; // 16px
   @include font-normal;
   @include text-secondary;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
   flex-shrink: 0; // Не сжимается
   min-width: 0; // Позволяет сжиматься при необходимости
   overflow: hidden; // Скрываем переполнение
@@ -226,11 +222,13 @@
   white-space: nowrap; // Не переносим текст
 }
 
+// Общие элементы ценовой строки — не задаём локальные шрифты, используем глобальные
+// Удалены локальные переопределения шрифта для элементов ценовой строки
+
 .priceHistory__price {
   @include text-lg; // 16px
   @include font-normal;
   color: var(--color-mono);
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   flex-shrink: 0; // Не сжимается
   min-width: 0; // Позволяет сжиматься при необходимости
   overflow: hidden; // Скрываем переполнение
@@ -240,7 +238,6 @@
   &_empty {
     @include text-secondary;
     @include font-normal;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
     @include text-sm;
   }
 }
@@ -254,4 +251,12 @@
     margin: 0;
     @include text-base;
   }
+}
+
+.priceHistory__trendGraph {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
 }

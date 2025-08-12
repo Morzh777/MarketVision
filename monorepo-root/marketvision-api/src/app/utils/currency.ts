@@ -13,12 +13,14 @@ export const RUBLE = '\u20BD';
 
 // Форматирование цены с символом рубля
 export const formatPriceWithRuble = (price: number): string => {
-  return `${Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A')} ${RUBLE}`;
+  // Используем неразрывный пробел для разделения тысяч
+  return `${Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0')} ${RUBLE}`;
 };
 
 // Форматирование цены без символа рубля
 export const formatPrice = (price: number): string => {
-  return Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A');
+  // Используем неразрывный пробел для разделения тысяч
+  return Math.round(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00A0');
 };
 
 // Форматирование диапазона цен

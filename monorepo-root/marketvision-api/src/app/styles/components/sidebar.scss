@@ -289,7 +289,6 @@
   @include text-base; // 14px
   @include font-semibold;
   @include text-primary;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   min-width: 60px;
   text-align: right;
 }

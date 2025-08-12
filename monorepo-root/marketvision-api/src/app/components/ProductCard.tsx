@@ -6,7 +6,9 @@ import { RUBLE, formatPrice, formatPriceRange } from '../utils/currency';
 import { decodeHtmlEntities } from '../utils/html';
 
 import CartIcon from './CartIcon';
+import { TrendUpChartIcon, TrendDownChartIcon } from './Icons';
 import PriceHistory from './PriceHistory';
+import PriceHistoryChart from './PriceHistoryChart';
 
 interface ProductCardProps {
   product: {
@@ -28,12 +30,13 @@ interface ProductCardProps {
   } | null;
   priceHistory?: Array<{ price: number | null; created_at: string }>;
   priceChangePercent?: number;
+  onBack?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ 
   product, 
   priceHistory = [], 
-  priceChangePercent 
+  priceChangePercent
 }) => {
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
     if (typeof priceChangePercent === 'number') {
@@ -107,25 +110,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <span>Нет фото</span>
           </div>
         )}
+
+        {/* Кнопки поверх изображения убраны (перенесены в верхнюю панель) */}
         
-        {/* Теги поверх изображения */}
+          {/* Теги поверх изображения */}
         <div className="productCard__tags">
           {product.source && (
             <div className={`productCard__tag productCard__tag_source productCard__tag_${product.source}`}>
               {product.source.toUpperCase()}
             </div>
           )}
-          
-          {/* Тег тренда после категории */}
-          {(() => {
-            const trend = getPriceTrend();
-            const label = trend === 'up' ? 'Тренд ↑' : trend === 'down' ? 'Тренд ↓' : 'Тренд ~';
-            return (
-              <div className={`productCard__tag productCard__tag_trend productCard__tag_trend_${trend}`}>
-                {label}
-              </div>
-            );
-          })()}
         </div>
       </div>
 
@@ -153,8 +147,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="productCard__priceBlock">
           <span className="productCard__priceLabel">Текущая цена</span>
           <div className="productCard__priceRow">
-            <CartIcon className="productCard__priceIcon" size={20} />
             <div className="productCard__priceContent">
+              <div className="productCard__priceLine">
+                {(() => {
+                  const trend = getPriceTrend();
+                  if (trend === 'stable') return null;
+                  const Icon = trend === 'up' ? TrendUpChartIcon : TrendDownChartIcon;
+                  return <Icon className={`productCard__trendIcon trend-${trend}`} size={16} />;
+                })()}
               {product.product_url ? (
                 <a
                   href={product.product_url}
@@ -169,6 +169,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                   {formatPrice(product.price)} {RUBLE}
                 </span>
               )}
+              </div>
             </div>
           </div>
         </div>
@@ -219,10 +220,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             rel="noopener noreferrer"
             className={`productCard__shopButton productCard__shopButton_${product.source}`}
           >
-            <span>Перейти в магазин</span>
-            <svg className="productCard__buttonIcon" width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <CartIcon className="productCard__buttonIcon" size={16} />
+            <span className="productCard__shopButtonText">Перейти в магазин</span>
           </a>
         </div>
       )}
@@ -235,6 +234,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
       {/* История цен */}
       <div className="productCard__priceHistory">
         <PriceHistory priceHistory={priceHistory} />
+        {priceHistory && priceHistory.length > 0 && (
+          <div style={{ marginTop: 12 }}>
+            <PriceHistoryChart data={priceHistory} />
+          </div>
+        )}
       </div>
     </div>
   );

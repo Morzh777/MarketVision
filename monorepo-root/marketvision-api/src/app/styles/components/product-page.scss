@@ -16,15 +16,8 @@
   touch-action: pan-y;
 }
 
-.productPage__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  flex-shrink: 0;
-}
+// Убираем верхнюю полоску, кнопки перенесены на картинку
+.productPage__header { display: none; }
 
 .productPage__button {
   background: none;
@@ -47,6 +40,88 @@
   }
 }
 
+// Оверлейные кнопки поверх изображения
+.productPage__overlayBtn {
+  position: absolute;
+  top: 8px;
+  z-index: 20;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.productPage__overlayBtn_back { left: 8px; }
+
+// Ряд иконок справа
+.productPage__overlayRowRight {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.productPage__overlayBtn_icon {
+  width: auto;
+  height: auto;
+  padding: 6px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+// Верхняя панель действий
+.productPage__topBar {
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+}
+
+.productPage__topBarLeft,
+.productPage__topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productPage__topBarButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+// Гарантированный размер иконок поверх изображения
+.productPage__overlayBtn svg,
+.productPage__overlayBtn_icon svg {
+  width: 28px;
+  height: 28px;
+}
+
 .productPage__title {
   margin: 0;
   font-size: 22px;
@@ -58,10 +133,10 @@
 }
 
 .productPage__content {
+  padding: 0 8px;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-top: 8px;
 }
 
 .productPage__loading {

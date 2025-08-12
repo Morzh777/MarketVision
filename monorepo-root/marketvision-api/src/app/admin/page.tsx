@@ -426,7 +426,7 @@ export default function AdminPage() {
                 <h3>Общие показатели</h3>
                 <div className={statsGridNew}>
                   <div className={statItem}>
-                    <span className={statValue}>{parsingStats.totalProducts.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A')}</span>
+                    <span className={statValue}>{parsingStats.totalProducts.toLocaleString('ru-RU')}</span>
                     <span className={statLabel}>Всего товаров</span>
                   </div>
                   <div className={statItem}>
@@ -473,8 +473,8 @@ export default function AdminPage() {
                       <div className={categoryName}>{category}</div>
                       <div className={categoryStats}>
                         <span>{stats.productCount} шт.</span>
-                        <span>Средняя цена: {stats.avgPrice?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A') || 0}&#8381;</span>
-<span>От {stats.priceRange?.min?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A') || 0}&#8381; до {stats.priceRange?.max?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A') || 0}&#8381;</span>
+                        <span>Средняя цена: {stats.avgPrice != null ? `${stats.avgPrice.toLocaleString('ru-RU')}&#8381;` : '0&#8381;'}</span>
+                        <span>От {stats.priceRange?.min != null ? `${stats.priceRange.min.toLocaleString('ru-RU')}&#8381;` : '0&#8381;'} до {stats.priceRange?.max != null ? `${stats.priceRange.max.toLocaleString('ru-RU')}&#8381;` : '0&#8381;'}</span>
                         <span>Обновлено: {new Date(stats.lastParsed).toLocaleDateString('ru-RU')}</span>
                       </div>
                     </div>

@@ -3,8 +3,10 @@ import { useRouter } from 'next/navigation';
 import React, { useState, useMemo, useEffect } from 'react';
 
 import type { PopularQuery } from '../types/market';
-import { RUBLE } from '../utils/currency';
+import { RUBLE, formatPrice } from '../utils/currency';
 import { createSearchVariants } from '../utils/transliteration';
+
+import { SortAscIcon, SortDescIcon, SearchIcon } from './Icons';
 
 import '../styles/components/sidebar.scss';
 
@@ -20,27 +22,7 @@ interface SidebarProps {
   onSelectCategory: (category: string) => void;
 }
 
-const SortAscIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar__sorticon">
-    <path d="M2 3H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M2 6H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M2 9H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-const SortDescIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar__sorticon">
-    <path d="M2 3H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M2 6H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M2 9H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-const SearchIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="sidebar__searchIcon">
-    <path d="M11.5 11.5L14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M7 13A6 6 0 1 0 7 1a6 6 0 0 0 0 12z" stroke="currentColor" strokeWidth="1.5"/>
-  </svg>
-);
+// Icons are now imported from a single source './Icons'
 
 
 
@@ -271,7 +253,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               </div>
               
               {/* Цена */}
-                              <span className="sidebar__item-price">{q.minPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A')}{RUBLE}</span>
+              <span className="sidebar__item-price">{`${formatPrice(q.minPrice)} ${RUBLE}`}</span>
               
               {/* Процент изменения */}
               <span className={`sidebar__item-percent ${q.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>

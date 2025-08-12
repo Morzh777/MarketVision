@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState, use } from 'react';
 
 import ProductCard from '../../components/ProductCard';
+import { ArrowLeftIcon, HeartIcon, ShareIcon } from '../../components/Icons';
 import { Product } from '../../types/market';
 import '../../styles/components/product-page.scss';
 
@@ -179,17 +180,17 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
     const isRightSwipe = distance < -minSwipeDistance;
 
     if (isRightSwipe) {
-      // Свайп справа налево - закрываем страницу
-      router.back();
+      // Свайп справа налево - возвращаемся на главную
+      router.push('/');
     }
   };
 
   const handleBackClick = () => {
-    router.back();
+    router.push('/');
   };
 
   const handleCloseClick = () => {
-    router.back();
+    router.push('/');
   };
 
 
@@ -228,6 +229,22 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
         </button>
       </div>
 
+      <div className="productPage__topBar">
+        <div className="productPage__topBarLeft">
+          <button className="productPage__topBarButton" onClick={handleBackClick} aria-label="Назад">
+            <ArrowLeftIcon size={28} />
+          </button>
+        </div>
+        <div className="productPage__topBarRight">
+          <button className="productPage__topBarButton" aria-label="Избранное">
+            <HeartIcon size={26} />
+          </button>
+          <button className="productPage__topBarButton" aria-label="Поделиться">
+            <ShareIcon size={26} />
+          </button>
+        </div>
+      </div>
+
       <div className="productPage__content">
         {loading ? (
           <div className="productPage__loading">
@@ -238,6 +255,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
             product={product} 
             priceHistory={priceHistory}
             priceChangePercent={priceChangePercent}
+            onBack={handleBackClick}
           />
         ) : (
           <div className="productPage__loading">

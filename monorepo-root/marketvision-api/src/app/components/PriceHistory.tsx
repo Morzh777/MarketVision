@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import '../styles/components/price-history.scss';
-import { RUBLE } from '../utils/currency';
+import PriceTrendGraph from './PriceTrendGraph';
+import { RUBLE, formatPrice } from '../utils/currency';
 
 interface PriceHistoryProps {
   priceHistory: Array<{ price: number | null; created_at: string }>;
@@ -77,6 +78,14 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
   };
 
   const priceData = formatPriceData();
+  const trend = (() => {
+    if (priceData.length < 2) return 'stable' as const;
+    const first = priceData[priceData.length - 1].price ?? 0;
+    const last = priceData[0].price ?? 0;
+    if (last > first) return 'up' as const;
+    if (last < first) return 'down' as const;
+    return 'stable' as const;
+  })();
 
   useEffect(() => {
     updateScrollState();
@@ -132,7 +141,8 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
         </div>
       </div>
       
-      <div 
+
+      <div
         className={`priceHistory__list ${canScroll ? 'is-scrollable' : ''} ${atTop ? 'at-top' : ''} ${atBottom ? 'at-bottom' : ''}`}
         ref={listRef}
         onTouchStart={handleTouchStart}
@@ -144,11 +154,12 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ priceHistory }) => {
           <div key={index} className="priceHistory__item">
             <span className="priceHistory__date">{item.label}</span>
             <span className={`priceHistory__price ${!item.price ? 'priceHistory__price_empty' : ''}`}>
-              {item.price ? `${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u200A')} ${RUBLE}` : '—'}
+              {item.price ? `${formatPrice(item.price)} ${RUBLE}` : '—'}
             </span>
           </div>
         ))}
       </div>
+
     </div>
   );
 };

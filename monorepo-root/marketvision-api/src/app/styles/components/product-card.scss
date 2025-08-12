@@ -135,8 +135,8 @@
 
 .productCard__tags {
   position: absolute;
-  bottom: 4px;
-  left: 16px;
+  bottom: 8px;
+  left: 8px;
   right: 16px; // Добавляем правый отступ
   display: flex;
   flex-wrap: wrap;
@@ -224,7 +224,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding-bottom: 8px;
   min-width: 0; // Позволяет сжиматься
   overflow: hidden; // Скрываем переполнение
 }
@@ -237,8 +237,15 @@
   min-width: 0; // Позволяет сжиматься
   overflow: hidden; // Скрываем переполнение
 }
+
+.productCard__priceLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .productCard__priceLabel {
-  @include text-lg; // 16px
+  @include text-base;
+  @include font-semibold;
   @include text-secondary;
   margin-right: 12px;
 }
@@ -261,7 +268,6 @@
   @include font-bold;
   @include text-primary;
   @include truncate; // Используем миксин для обрезки текста
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   text-decoration: none;
   min-width: 0; // Позволяет сжиматься
   
@@ -301,7 +307,7 @@
 .productCard__stats {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+
   overflow: hidden; // Скрываем переполнение
 }
 
@@ -335,7 +341,6 @@
   @include font-semibold;
   @include text-primary;
   @include truncate; // Используем миксин для обрезки текста
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   min-width: 0; // Позволяет сжиматься
 }
 
@@ -364,7 +369,7 @@
 .productCard__shopButton {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; // центрируем и иконку, и текст
   height: 20px;
   gap: 8px;
   padding: 16px 24px;
@@ -416,8 +421,9 @@
   flex-shrink: 0;
   transition: transform 0.2s;
 }
-.productCard__shopButton span {
-  @include text-2xl; // 20px
+.productCard__shopButtonText {
+  @include text-lg;
+  text-align: center;
 }
 
 .productCard__shopButton:hover .productCard__buttonIcon {
@@ -457,5 +463,7 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+// Локальные шрифты не задаём — используем глобальные настройки из globals.scss
 
 
