@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./styles/globals.scss";
 
 // Импортируем планировщик парсинга (запускается автоматически в production)
-import "./services/parsingScheduler";
+// parsingScheduler removed during cleanup
 
 const montserrat = Montserrat({
   variable: "--font-app-sans",

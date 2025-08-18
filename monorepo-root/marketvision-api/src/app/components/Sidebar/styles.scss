@@ -1,6 +1,6 @@
-@import '../base/variables';
-@import '../base/mixins';
-@import '../base/typography';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/typography';
 
 .sidebar {
   background: var(--color-bg);
@@ -88,7 +88,7 @@
   @include text-lg; // 16px
   @include font-semibold;
   @include text-secondary;
-}image.png
+}
 
 .sidebar__title { display: none; }
 

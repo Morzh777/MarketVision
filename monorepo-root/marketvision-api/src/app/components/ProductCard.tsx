@@ -5,10 +5,8 @@ import '../styles/components/product-card.scss';
 import { RUBLE, formatPrice, formatPriceRange } from '../utils/currency';
 import { decodeHtmlEntities } from '../utils/html';
 
-import CartIcon from './CartIcon';
-import { TrendUpChartIcon, TrendDownChartIcon } from './Icons';
+import { CartIcon, TrendUpChartIcon, TrendDownChartIcon } from './Icons';
 import PriceHistory from './PriceHistory';
-import PriceHistoryChart from './PriceHistoryChart';
 
 interface ProductCardProps {
   product: {
@@ -233,12 +231,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* История цен */}
       <div className="productCard__priceHistory">
-        <PriceHistory priceHistory={priceHistory} />
-        {priceHistory && priceHistory.length > 0 && (
-          <div style={{ marginTop: 12 }}>
-            <PriceHistoryChart data={priceHistory} />
-          </div>
-        )}
+        <PriceHistory
+          priceHistory={priceHistory}
+          query={product.query || product.name}
+          source={product.source}
+        />
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+# Project-specific
+monorepo-root/marketvision-api/DEV_GUIDE_NEXT.md
 # --- Node.js ---
 node_modules/
 *.log

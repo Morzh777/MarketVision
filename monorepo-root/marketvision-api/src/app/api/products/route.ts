@@ -22,4 +22,5 @@ export async function GET(request: Request) {
     console.error('Error fetching products:', error);
     return createErrorResponse(API_ROUTES.PRODUCTS.errorMessage);
   }
-} 
+}
+

@@ -215,7 +215,7 @@ export class AdminCommand {
 
   // Открыть Mini App
   private async openMiniApp(chatId: string) {
-    const webAppUrl = 'https://a846814ae0190971759ab515816af559.serveo.net'; // Локальный домен для тестирования
+    const webAppUrl = process.env.WEB_APP_URL || 'https://marketvisionpro.ru';
     
     const keyboard = {
       inline_keyboard: [
