@@ -98,6 +98,11 @@ typings/
 jest-coverage/
 **/jest-coverage/
 
+# --- TLS & Certificates ---
+monorepo-root/tls/
+*.key
+*.crt
+
 # --- ML Service (вынесен в отдельный репо) ---
 monorepo-root/ml-training-service/ .cursor/rules/
 
