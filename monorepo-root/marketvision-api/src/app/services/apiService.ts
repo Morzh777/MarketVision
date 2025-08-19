@@ -1,4 +1,5 @@
 import type { Product, PriceHistory } from '../types/market';
+import { API_CONFIG } from '@/config/settings';
 
 interface DbProduct {
   id: string;
@@ -21,7 +22,7 @@ interface MarketStats {
 }
 
 // Используем локальные API роуты Next.js
-const API_URL = '/api';
+const API_URL = API_CONFIG.LOCAL_API_BASE_URL;
 
 export class ApiService {
     static async getProducts(query?: string): Promise<{

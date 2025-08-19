@@ -10,21 +10,21 @@ services:
       - "3006:3006"
     environment:
       - NODE_ENV=development
-      - PORT=3006
-      - PRODUCT_FILTER_URL=http://marketvision-product-aggregator:3001
       - NODE_TLS_REJECT_UNAUTHORIZED=0
     volumes:
       - ./src:/usr/src/app/src
       - ./package.json:/usr/src/app/package.json
       - ./package-lock.json:/usr/src/app/package-lock.json
-      - ./next.config.js:/usr/src/app/next.config.js
+      - ./next.config.ts:/usr/src/app/next.config.ts
       - ./tsconfig.json:/usr/src/app/tsconfig.json
       - ./logs:/usr/src/app/logs
       - /usr/src/app/node_modules
     restart: unless-stopped
     command: npm run dev
     networks:
-      - marketvision-net
+      marketvision-net:
+        aliases:
+          - marketvision-frontend
 
 networks:
   marketvision-net:

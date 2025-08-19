@@ -48,7 +48,7 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 # Копируем скомпилированный код из этапа сборки
 COPY --from=builder /usr/src/app/.next ./.next
 COPY --from=builder /usr/src/app/public ./public
-COPY --from=builder /usr/src/app/next.config.js ./
+COPY --from=builder /usr/src/app/next.config.ts ./
 COPY --from=builder /usr/src/app/package*.json ./
 
 # Копируем node_modules (только production)

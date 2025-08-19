@@ -1,11 +1,6 @@
 export default () => ({
-  port: parseInt(process.env.PORT ?? '3003', 10),
+  // оставляем только URL базы из окружения, всё остальное в settings.ts
   database: {
-    url:
-      process.env.DATABASE_URL ||
-      'postgresql://postgres:postgres@localhost:5432/marketvision',
-  },
-  grpc: {
-    url: process.env.GRPC_URL || '0.0.0.0:50051',
+    url: process.env.DATABASE_URL as string,
   },
 });

@@ -11,18 +11,11 @@ import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiClient } from './grpc-clients/db-api.client';
 import { ValidationServiceModule } from './services/validation.service/validation.service.module';
-
-// Прямые gRPC подключения для внутренних сервисов (внутри Docker сети)
-const WB_API_ADDRESS = process.env.WB_API_ADDRESS || 'marketvision-wb-parser:3000';
-const OZON_API_ADDRESS = process.env.OZON_API_ADDRESS || 'marketvision-ozon-parser:3002';
-const DB_API_ADDRESS = process.env.DB_API_ADDRESS || 'marketvision-database-api:50051';
+import { WB_API_ADDRESS, OZON_API_ADDRESS, DB_API_ADDRESS } from './config/settings';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-    }),
+    ConfigModule.forRoot({ isGlobal: true }),
     ValidationServiceModule,
   ],
   controllers: [ProductsController],

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
-const DB_API_URL = process.env.DB_API_URL || "http://localhost:3003";
+import { API_CONFIG } from "@/config/settings";
+
+const DB_API_URL = `${API_CONFIG.EXTERNAL_API_BASE_URL}`;
 
 async function fetchFromDB(endpoint: string) {
   try {

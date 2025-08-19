@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 
-// Конфигурация API - захардкожено для простоты
-const API_BASE_URL = 'http://marketvision-nginx-proxy';
+import { API_CONFIG, CORS_CONFIG } from '@/config/settings';
+
+// Все через Nginx (внутренний порт 8080 с настроенными location)
+const API_BASE_URL = API_CONFIG.EXTERNAL_API_BASE_URL;
 
 // Типы для API роутов
 export interface ApiRouteConfig {
@@ -77,9 +79,9 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
 
 // Общие заголовки для всех ответов
 export const COMMON_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Origin': CORS_CONFIG.ALLOWED_ORIGINS.join(', '),
+  'Access-Control-Allow-Methods': CORS_CONFIG.ALLOWED_METHODS.join(', '),
+  'Access-Control-Allow-Headers': CORS_CONFIG.ALLOWED_HEADERS.join(', '),
 };
 
 // Утилиты для создания ответов

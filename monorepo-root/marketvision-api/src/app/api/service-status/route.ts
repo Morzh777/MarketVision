@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 
+import { API_CONFIG } from "@/config/settings";
+
 const services = {
-  "db-api": process.env.DB_API_URL || "http://localhost:3003",
-  "product-filter-service": process.env.PRODUCT_FILTER_SERVICE_URL || "http://localhost:3001",
-  "wb-api": process.env.WB_API_URL || "http://localhost:3006",
-  "ozon-api": process.env.OZON_API_URL || "http://localhost:3005",
+  "db-api": `${API_CONFIG.EXTERNAL_API_BASE_URL}/api`,
+  "product-filter-service": `${API_CONFIG.EXTERNAL_API_BASE_URL}/products`,
+  "wb-api": API_CONFIG.WB_API_URL,
+  "ozon-api": API_CONFIG.OZON_API_URL,
 };
 
 async function checkServiceHealth(name: string, url: string) {

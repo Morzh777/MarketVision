@@ -2,6 +2,8 @@ import '../../styles/components/product-page.scss';
 
 import Link from 'next/link';
 
+import { API_CONFIG } from '@/config/settings';
+
 import { ArrowLeftIcon, HeartIcon, ShareIcon } from '../../components/Icons';
 import ProductCard from '../../components/ProductCard';
 
@@ -10,7 +12,7 @@ interface ServerProps { params: Promise<{ query: string }> }
 export default async function ProductPage({ params }: ServerProps) {
   const { query } = await params;
   const decodedQuery = decodeURIComponent(query);
-  const base = process.env.NEXT_PUBLIC_API_URL || 'http://marketvision-nginx-proxy';
+  const base = API_CONFIG.EXTERNAL_API_BASE_URL;
   // 1) Получаем сам продукт из общего списка (без строгого фильтра по цене)
   let productListRes: Response | null = null;
   try {
