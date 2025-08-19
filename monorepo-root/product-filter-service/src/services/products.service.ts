@@ -7,6 +7,7 @@ import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
 import { DbApiClient } from '../grpc-clients/db-api.client';
 import { PhotoService } from './photo.service';
+import { CategoryConfigService } from '../config/categories.config';
 
 
 @Injectable()
@@ -81,9 +82,10 @@ export class ProductsService {
     }
     t = Date.now();
 
-    // Подменяем category на человекочитаемое название перед сохранением
+    // Подменяем category на агрегированное человеко‑читаемое название (не ломаем валидаторы: они работают по исходному ключу)
     for (const product of groupedProducts) {
-      product.category = request.category;
+      const aggregated = CategoryConfigService.getSuperCategoryDisplay(request.category);
+      product.category = aggregated || CategoryConfigService.getCategoryDisplay(request.category) || request.category;
       if (product.source === 'wb') {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
       }
@@ -105,6 +107,9 @@ export class ProductsService {
         // Находим самый дешевый продукт для этого query
         const cheapest = products.reduce((min, p) => (p.price < min.price ? p : min), products[0]);
         const stats = cheapest.marketStats;
+        const aggregatedCheapest = CategoryConfigService.getSuperCategoryDisplay(cheapest.category)
+          || CategoryConfigService.getCategoryDisplay(cheapest.category)
+          || cheapest.category;
         const market_stats = stats ? {
           min: stats.min,
           max: stats.max,
@@ -112,14 +117,21 @@ export class ProductsService {
           median: stats.median,
           iqr: stats.iqr,
           query: cheapest.query,
-          category: cheapest.category,
+          // Сохраняем агрегированное RU-имя категории (Игровые приставки/Смартфоны/и т.п.)
+          category: aggregatedCheapest,
           source: cheapest.source,
           total_count: products.length,
           product_id: cheapest.id,
-          created_at: new Date().toISOString()
+          created_at: new Date().toISOString(),
+          // Новое поле: агрегированная категория для хранения (например, "Игровые приставки")
+          super_category: CategoryConfigService.getSuperCategoryDisplay(cheapest.category)
         } : undefined;
+        const cheapestForSave = {
+          ...cheapest,
+          category: aggregatedCheapest,
+        };
         const dbResult = await this.dbApiClient.batchCreateProducts({
-          products: [cheapest],
+          products: [cheapestForSave],
           market_stats
         });
         this.logger.log(`💾 Сохранено в БД: ${dbResult.inserted} товаров`);

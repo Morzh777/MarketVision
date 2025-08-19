@@ -1,3 +1,5 @@
+import { LOG_LEVEL, LOG_FILE } from "./settings";
+
 export const environmentConfig = {
   // Токен для аутентификации с Ozon API
   OZON_API_TOKEN: process.env.OZON_API_TOKEN,
@@ -12,6 +14,6 @@ export const environmentConfig = {
   PORT: process.env.PORT,
   
   // Настройки логирования
-  LOG_LEVEL: process.env.LOG_LEVEL,
-  LOG_FILE: process.env.LOG_FILE
+  LOG_LEVEL: LOG_LEVEL,
+  LOG_FILE: LOG_FILE, 
 };

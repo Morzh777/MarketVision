@@ -1,12 +1,12 @@
 // CSS переменные уже доступны глобально через globals.scss
 
 .page {
+  padding: 8px;
   min-height: 100vh;
   background: var(--color-bg-light);
   display: flex;
   flex-direction: column;
   transition: var(--transition-default);
-  padding-top: 0;
 }
 
 @media (prefers-color-scheme: dark) {
