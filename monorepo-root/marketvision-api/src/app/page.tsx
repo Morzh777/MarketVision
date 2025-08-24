@@ -1,8 +1,10 @@
 import './styles/components/page.scss';
 import './components/Sidebar/styles.scss';
 import './components/PriceHistory/styles.scss';
-import Sidebar from './components/Sidebar';
 import { API_CONFIG } from '@/config/settings';
+
+import Sidebar from './components/Sidebar';
+import UserNav from './components/UserNav';
 
 async function getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
   // Ходим напрямую в nginx → DB API, минуя Next API
@@ -18,6 +20,7 @@ export default async function Home() {
   return (
     <div className="page">
       <Sidebar popularQueries={popularQueries} />
+      <UserNav />
     </div>
   );
 }

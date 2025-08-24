@@ -6,7 +6,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import type { PopularQuery } from '../../types/market';
 import { RUBLE, formatPrice } from '../../utils/currency';
 import { createSearchVariants } from '../../utils/transliteration';
-import { SearchIcon, SortAscIcon, SortDescIcon } from '../Icons';
+import { SortAscIcon, SortDescIcon } from '../Icons';
+import SearchBar from '../SearchBar';
 
 interface Props {
   popularQueries: PopularQuery[];
@@ -15,7 +16,6 @@ interface Props {
 export default function Client({ popularQueries }: Props) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [selectedQuery, setSelectedQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -32,6 +32,7 @@ export default function Client({ popularQueries }: Props) {
   useEffect(() => {
     sessionStorage.setItem('sidebarSearchQuery', searchQuery);
   }, [searchQuery]);
+
 
   useEffect(() => {
     if (!isCategoryOpen) return;
@@ -83,94 +84,72 @@ export default function Client({ popularQueries }: Props) {
 
   return (
     <aside className="sidebar">
-      {/* Поиск */}
-      <div className="sidebar__search">
-        <div className={`sidebar__search-container ${isSearchFocused ? 'sidebar__search-container--focused' : ''}`}>
-          <div className="sidebar__search-icon">
-            <SearchIcon />
-          </div>
-          <input
-            type="text"
-            placeholder="Поиск по запросам"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setIsSearchFocused(true)}
-            onBlur={() => setIsSearchFocused(false)}
-            className="sidebar__search-input"
-          />
-          {searchQuery && (
-            <button type="button" onClick={() => setSearchQuery('')} className="sidebar__search-clear">
-              ✕
-            </button>
-          )}
-          <button className={`sidebar__hamburger ${isSearchFocused ? 'sidebar__hamburger--hidden' : ''}`} aria-label="Открыть меню">
-            <span className="sidebar__hamburger-line"></span>
-            <span className="sidebar__hamburger-line"></span>
-            <span className="sidebar__hamburger-line"></span>
-          </button>
-        </div>
-      </div>
-
       <div className="sidebar__header">
-        <button type="button" className="sidebar__filter-btn" onClick={() => setIsCategoryOpen(true)}>
-          {selectedCategory === 'all' ? 'Все запросы' : selectedCategory}
-          <span className={`sidebar__filter-caret ${isCategoryOpen ? 'open' : ''}`}>▸</span>
-        </button>
-        {isCategoryOpen && (
-          <div className="sidebar__filter-overlay" onClick={() => setIsCategoryOpen(false)}>
-            <div className="sidebar__filter-drawer" onClick={(e) => e.stopPropagation()}>
-              <div className="sidebar__filter-drawer-header">
-                <span>Выберите категорию</span>
-                <button type="button" className="sidebar__filter-close" onClick={() => setIsCategoryOpen(false)}>
-                  ✕
-                </button>
-              </div>
-              <div className="sidebar__filter-drawer-list">
-                <button
-                  type="button"
-                  className={`sidebar__filter-item ${selectedCategory === 'all' ? 'active' : ''}`}
-                  onClick={() => {
-                    setSelectedCategory('all');
-                    setIsCategoryOpen(false);
-                  }}
-                >
-                  Все запросы
-                </button>
-                {categories.map((cat) => (
+        {/* Поиск */}
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+
+        <div className="sidebar__controls">
+          <button type="button" className="sidebar__filter-btn" onClick={() => setIsCategoryOpen(true)}>
+            <span className="sidebar__filter-label">{selectedCategory === 'all' ? 'Все запросы' : selectedCategory}</span>
+            <span className={`sidebar__filter-caret ${isCategoryOpen ? 'open' : ''}`}>▸</span>
+          </button>
+          {isCategoryOpen && (
+            <div className="sidebar__filter-overlay" onClick={() => setIsCategoryOpen(false)}>
+              <div className="sidebar__filter-drawer" onClick={(e) => e.stopPropagation()}>
+                <div className="sidebar__filter-drawer-header">
+                  <span>Выберите категорию</span>
+                  <button type="button" className="sidebar__filter-close" onClick={() => setIsCategoryOpen(false)}>
+                    ✕
+                  </button>
+                </div>
+                <div className="sidebar__filter-drawer-list">
                   <button
-                    key={cat}
                     type="button"
-                    className={`sidebar__filter-item ${selectedCategory === cat ? 'active' : ''}`}
+                    className={`sidebar__filter-item ${selectedCategory === 'all' ? 'active' : ''}`}
                     onClick={() => {
-                      setSelectedCategory(cat);
+                      setSelectedCategory('all');
                       setIsCategoryOpen(false);
                     }}
                   >
-                    {cat}
+                    Все запросы
                   </button>
-                ))}
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      type="button"
+                      className={`sidebar__filter-item ${selectedCategory === cat ? 'active' : ''}`}
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setIsCategoryOpen(false);
+                      }}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-        <button
-          type="button"
-          onClick={() => setSortOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
-          className={'sidebar__sort-btn sidebar__sort-btn--price' + (sortOrder ? ' sidebar__sort-btn--active' : '')}
-        >
-          Мин. цена
-          {sortOrder === 'asc' && <SortAscIcon />}
-          {sortOrder === 'desc' && <SortDescIcon />}
-        </button>
-        <button
-          type="button"
-          onClick={() => setSortPercentOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
-          className={'sidebar__sort-btn sidebar__sort-btn--percent' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')}
-        >
-          Изм. %
-          {sortPercentOrder === 'asc' && <SortAscIcon />}
-          {sortPercentOrder === 'desc' && <SortDescIcon />}
-        </button>
+          )}
+
+          <button
+            type="button"
+            onClick={() => setSortOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
+            className={'sidebar__sort-btn sidebar__sort-btn--price' + (sortOrder ? ' sidebar__sort-btn--active' : '')}
+          >
+            Мин. цена
+            {sortOrder === 'asc' && <SortAscIcon />}
+            {sortOrder === 'desc' && <SortDescIcon />}
+          </button>
+          <button
+            type="button"
+            onClick={() => setSortPercentOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
+            className={'sidebar__sort-btn sidebar__sort-btn--percent' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')}
+          >
+            Изм. %
+            {sortPercentOrder === 'asc' && <SortAscIcon />}
+            {sortPercentOrder === 'desc' && <SortDescIcon />}
+          </button>
+        </div>
       </div>
 
       <ul className="sidebar__list">

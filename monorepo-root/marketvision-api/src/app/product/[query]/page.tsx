@@ -1,11 +1,8 @@
-import '../../styles/components/product-page.scss';
-
-import Link from 'next/link';
+import '../../components/ProductPage/styles.scss';
 
 import { API_CONFIG } from '@/config/settings';
 
-import { ArrowLeftIcon, HeartIcon, ShareIcon } from '../../components/Icons';
-import ProductCard from '../../components/ProductCard';
+import ProductPageClient from '../../components/ProductPage';
 
 interface ServerProps { params: Promise<{ query: string }> }
 
@@ -74,27 +71,11 @@ export default async function ProductPage({ params }: ServerProps) {
 
   // Без нормализации: ищем только по исходной строке из URL
 
-    return (
-      <div className="productPage">
-      <div className="productPage__topBar">
-        <div className="productPage__topBarLeft">
-          <Link className="productPage__topBarButton" href="/" aria-label="Назад">
-            <ArrowLeftIcon size={28} />
-          </Link>
-        </div>
-        <div className="productPage__topBarRight">
-          <button className="productPage__topBarButton" aria-label="Избранное">
-            <HeartIcon size={26} />
-          </button>
-          <button className="productPage__topBarButton" aria-label="Поделиться">
-            <ShareIcon size={26} />
-          </button>
-        </div>
-      </div>
-
+  return (
+    <div className="productPage">
       <div className="productPage__content">
         {product ? (
-          <ProductCard product={product} priceHistory={priceHistory} />
+          <ProductPageClient product={product} priceHistory={priceHistory} decodedQuery={decodedQuery} />
         ) : (
           <div className="productPage__loading">
             <p>Товар не найден</p>

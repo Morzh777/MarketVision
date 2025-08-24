@@ -9,85 +9,36 @@
   width: 100%;
   height: 100vh;
   max-height: 100vh;
-}
-
-.sidebar__search {
-  padding: 0 16px 16px;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.sidebar__search-container {
   position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  /* Убираем анимации чтобы не было "заплывания" */
-  transition: none;
-  gap: 12px;
-  padding-right: 8px;
+  --sidebar-header-height: 130px; /* увеличил, чтобы список не ехал под хедер */
+  padding-top: var(--sidebar-header-height);
 }
 
-.sidebar__search-container--focused {
-  background: var(--color-bg-active);
-  border-color: var(--color-blue);
-  box-shadow: 0 0 0 2px rgba(0, 91, 255, 0.2);
-}
-
-.sidebar__search-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: var(--color-text-secondary);
-  flex-shrink: 0;
-}
-
-.sidebar__search-input {
-  flex: 1;
-  background: none;
-  border: none;
-  color: var(--color-text);
-  @include text-base; // 14px
-  outline: none;
-  padding: 12px 0;
-}
-
-.sidebar__search-input::placeholder {
-  color: var(--color-text-secondary);
-}
-
-.sidebar__search-clear {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 12px;
-  /* Убираем анимацию */
-  transition: none;
-  margin-right: 8px;
-}
-
-.sidebar__search-clear:hover {
-  background: var(--color-bg-active);
-  color: var(--color-text);
-}
+// SearchBar styles moved to components/SearchBar/styles.scss
 
 .sidebar__header {
-  padding: 8px 0;
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  padding: 8px 12px;
+  height: var(--sidebar-header-height); /* синхронизировано с отступом контейнера */
+
+  gap: 8px;
   align-items: center;
   @include text-lg; // 16px
   @include font-semibold;
   @include text-secondary;
+}
+
+.sidebar__controls {
+  padding: 8px 0;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .sidebar__title { display: none; }
@@ -104,6 +55,25 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  max-width: 100%;
+}
+
+.sidebar__filter-label {
+  display: inline-block;
+  max-width: 100%;
+  @include truncate; // одно-строчное обрезание с троеточием
+}
+
+@media (max-width: 397px) {
+  .sidebar__filter-label {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 348px) {
+  .sidebar__filter-label {
+    max-width: 140px;
+  }
 }
 
 .sidebar__filter-caret { transition: transform 0.2s ease; }
@@ -171,6 +141,7 @@
 }
 
 .sidebar__sort-btn {
+  padding: 0;
   background: none;
   border: none;
   color: var(--color-text-secondary);
@@ -206,11 +177,12 @@
 }
 
 .sidebar__list {
+  padding-top: 0; /* верхний отступ задаёт контейнер через padding-top */
   flex: 1;
   overflow-y: auto;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 var(--usernav-height);
   /* Скрываем скроллбар */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -228,6 +200,7 @@
   cursor: pointer;
   transition: all 0.2s;
   border-bottom: 1px solid var(--color-border);
+
 }
 
 .sidebar__item:hover {

@@ -1,0 +1,42 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.sidebar__usernav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1500;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+
+  background: var(--color-bg);
+  box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.2);
+  height: auto;
+}
+
+.sidebar__usernav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  padding: 6px;
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.sidebar__usernav-btn:hover,
+.sidebar__usernav-btn:focus-visible {
+  color: var(--color-blue);
+}
+
+.sidebar__usernav-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+

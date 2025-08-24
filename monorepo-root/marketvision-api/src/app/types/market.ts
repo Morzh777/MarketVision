@@ -36,6 +36,10 @@ export interface Product {
   category?: string;
 }
 
+// UI-тип без дублирования: берём Product и делаем все поля опциональными,
+// кроме обязательных для отображения (name, price)
+export type ProductView = Partial<Product> & Pick<Product, 'name' | 'price'>;
+
 export interface PopularQuery {
   query: string;
   minPrice: number;

@@ -2,6 +2,7 @@
 @import 'base/index';
 @import '../components/Sidebar/styles';
 @import '../components/PriceHistory/styles';
+@import '../components/UserNav/styles';
 
 // CSS переменные для темизации
 :root {
@@ -66,6 +67,7 @@
   
   // Размеры
   --sidebar-width: 360px;
+  --usernav-height: 84px; // высота фиксированной нижней панели
   
   // Символы валют
   --currency-ruble: "&#8381;";
