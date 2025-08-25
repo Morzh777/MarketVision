@@ -23,10 +23,8 @@
   right: 0;
   z-index: 100;
   background: var(--color-bg);
-  padding: 8px 12px;
+  padding: 8px 12px 0 12px;
   height: var(--sidebar-header-height); /* синхронизировано с отступом контейнера */
-
-  gap: 8px;
   align-items: center;
   @include text-lg; // 16px
   @include font-semibold;
@@ -34,7 +32,7 @@
 }
 
 .sidebar__controls {
-  padding: 8px 0;
+  padding-top: 8px;
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
