@@ -77,3 +77,12 @@ model TelegramUser {
   
   @@map("telegram_users")
 }
+
+model Favorite {
+  id              Int      @id @default(autoincrement())
+  telegram_user_id Int      @map("telegram_user_id")
+  query           String   // Поисковый запрос
+  created_at      DateTime @default(now()) @map("created_at")
+  
+  @@map("favorites")
+}

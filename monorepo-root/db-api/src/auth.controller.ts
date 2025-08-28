@@ -47,6 +47,105 @@ export class AuthController {
     }
   }
 
+  @Get('telegram/:telegram_id')
+  async getTelegramUser(@Param('telegram_id') telegramId: string) {
+    try {
+      const user = await this.userService.getTelegramUser(telegramId);
+      if (!user) {
+        return {
+          success: false,
+          message: 'Пользователь не найден',
+        };
+      }
+      return {
+        success: true,
+        message: 'Telegram пользователь найден',
+        user,
+      };
+    } catch (error) {
+      console.error('Ошибка получения telegram пользователя:', error);
+      return {
+        success: false,
+        message: 'Ошибка получения пользователя',
+      };
+    }
+  }
+
+  @Post('favorites/add')
+  async addToFavorites(@Body() body: { telegram_id: string; query: string }) {
+    try {
+      const favorite = await this.userService.addToFavorites(body.telegram_id, body.query);
+      return {
+        success: true,
+        message: 'Добавлено в избранное',
+        favorite,
+      };
+    } catch (error) {
+      console.error('Ошибка добавления в избранное:', error);
+      return {
+        success: false,
+        message: 'Ошибка добавления в избранное',
+      };
+    }
+  }
+
+  @Post('favorites/remove')
+  async removeFromFavorites(@Body() body: { telegram_id: string; query: string }) {
+    try {
+      const result = await this.userService.removeFromFavorites(body.telegram_id, body.query);
+      return {
+        success: true,
+        message: 'Удалено из избранного',
+        result,
+      };
+    } catch (error) {
+      console.error('Ошибка удаления из избранного:', error);
+      return {
+        success: false,
+        message: 'Ошибка удаления из избранного',
+      };
+    }
+  }
+
+  @Get('favorites/:telegram_id')
+  async getFavorites(@Param('telegram_id') telegramId: string) {
+    try {
+      const favorites = await this.userService.getFavorites(telegramId);
+      return {
+        success: true,
+        message: 'Избранное получено',
+        favorites,
+      };
+    } catch (error) {
+      console.error('Ошибка получения избранного:', error);
+      return {
+        success: false,
+        message: 'Ошибка получения избранного',
+      };
+    }
+  }
+
+  @Get('favorites/:telegram_id/check/:query')
+  async checkFavorite(
+    @Param('telegram_id') telegramId: string,
+    @Param('query') query: string,
+  ) {
+    try {
+      const isFavorite = await this.userService.isFavorite(telegramId, query);
+      return {
+        success: true,
+        message: 'Статус избранного получен',
+        isFavorite,
+      };
+    } catch (error) {
+      console.error('Ошибка проверки избранного:', error);
+      return {
+        success: false,
+        message: 'Ошибка проверки избранного',
+      };
+    }
+  }
+
   @Get('users/:username')
   async getUser(@Param('username') username: string) {
     const user = await this.userService.getUserByUsername(username);

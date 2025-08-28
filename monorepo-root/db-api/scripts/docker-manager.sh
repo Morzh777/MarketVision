@@ -129,8 +129,41 @@ case "$1" in
     ./scripts/disaster-recovery.sh
     ;;
     
+  "update-schema")
+    echo "🔄 Безопасное обновление схемы базы данных..."
+    echo "⚠️  ВНИМАНИЕ: Это обновит схему БД без потери данных!"
+    echo "   - Применит новые миграции"
+    echo "   - Пересоберет API с новой схемой"
+    echo "   - Сохранит все существующие данные"
+    read -p "Продолжить? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+      echo "❌ Обновление отменено"
+      exit 1
+    fi
+    
+    echo "🔄 Шаг 1: Синхронизация схемы с базой данных..."
+    docker exec marketvision-database-api npx prisma db push
+    
+    echo "🔄 Шаг 2: Создание миграции на основе изменений..."
+    docker exec marketvision-database-api npx prisma migrate dev --name schema_update_$(date +%Y%m%d_%H%M%S) --create-only
+    
+    echo "🔄 Шаг 3: Применение миграции..."
+    docker exec marketvision-database-api npx prisma migrate deploy
+    
+    echo "🔄 Шаг 4: Генерация Prisma Client..."
+    docker exec marketvision-database-api npx prisma generate
+    
+    echo "🔄 Шаг 5: Пересборка API с новой схемой..."
+    ./scripts/docker-manager.sh start-api
+    
+    echo "✅ Схема базы данных успешно обновлена!"
+    echo "✅ API пересобран с новой схемой!"
+    echo "✅ Все данные сохранены!"
+    ;;
+    
   *)
-    echo "📋 Использование: $0 {start-db|stop-db|init-db|reset-db|start-api|stop-api|start-all|stop-all|logs-api|logs-db|status|backup|list-backups|restore <file>|disaster-recovery}"
+    echo "📋 Использование: $0 {start-db|stop-db|init-db|reset-db|start-api|stop-api|start-all|stop-all|logs-api|logs-db|status|backup|list-backups|restore <file>|disaster-recovery|update-schema}"
     echo ""
     echo "Команды:"
     echo "  start-db    - Запустить только PostgreSQL"
@@ -148,5 +181,6 @@ case "$1" in
     echo "  list-backups - Показать список бэкапов"
     echo "  restore <file> - Восстановить из бэкапа"
     echo "  disaster-recovery - ПОЛНОЕ восстановление из последнего бэкапа"
+    echo "  update-schema - Безопасное обновление схемы БД без потери данных"
     ;;
 esac 
