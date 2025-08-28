@@ -9,14 +9,11 @@ COPY package*.json ./
 RUN npm ci --only=production
 RUN apk add --no-cache curl
 
-# Копируем Prisma схему (для кэширования генерации)
-COPY prisma ./prisma/
-
-# Генерируем Prisma клиент (кэшируется отдельно)
-RUN npx prisma generate
-
-# Копируем исходный код
+# Копируем все файлы
 COPY . .
+
+# Генерируем Prisma клиент (после копирования схемы)
+RUN npx prisma generate
 
 # Собираем приложение (кэшируется отдельно)
 RUN npm run build

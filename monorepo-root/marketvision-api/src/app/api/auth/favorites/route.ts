@@ -1,0 +1,1 @@
+export {} // legacy route removed

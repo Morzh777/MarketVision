@@ -1,5 +1,6 @@
 import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import { UserService } from './services/userService';
+import { TelegramInitDto } from './dto/telegram.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -26,6 +27,24 @@ export class AuthController {
   async init() {
     await this.userService.createAdmin();
     return { success: true, message: 'Админ создан' };
+  }
+
+  @Post('telegram')
+  async saveTelegramUser(@Body() telegramUser: TelegramInitDto) {
+    try {
+      const user = await this.userService.saveTelegramUser(telegramUser);
+      return {
+        success: true,
+        message: 'Telegram пользователь сохранен',
+        user,
+      };
+    } catch (error) {
+      console.error('Ошибка сохранения telegram пользователя:', error);
+      return {
+        success: false,
+        message: 'Ошибка сохранения пользователя',
+      };
+    }
   }
 
   @Get('users/:username')

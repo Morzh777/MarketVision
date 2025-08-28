@@ -1,14 +1,25 @@
 import 'dotenv/config';
 import TelegramBot from 'node-telegram-bot-api';
+import fetch from 'node-fetch';
 
 const TOKEN = process.env.TG_BOT_TOKEN!;
+// URL мини-приложения (Next.js UI)
+const WEB_APP_URL = "https://crazy-taxis-drum.loca.lt";
+// Прокси через Nginx внутри docker-сети (порт 8080 для внутренних запросов)
+const GATEWAY_URL = 'http://marketvision-nginx-proxy:8080';
 
 if (!TOKEN) {
   console.error('❌ Не указан TG_BOT_TOKEN в переменных окружения');
   process.exit(1);
 }
 
+if (!WEB_APP_URL) {
+  console.error('❌ Не указан WEB_APP_URL в переменных окружения');
+  process.exit(1);
+}
+
 console.log('🤖 Запуск Telegram бота...');
+console.log('🔗 WEB_APP_URL:', WEB_APP_URL);
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 
@@ -33,13 +44,26 @@ bot.onText(/\/reset/, (msg) => {
 bot.onText(/\/app/, (msg) => {
   const chatId = msg.chat.id;
   
+  // Логируем информацию о пользователе
+  if (msg.from) {
+    console.log('💾 Пользователь запускает приложение:', {
+      telegram_id: msg.from.id,
+      username: msg.from.username,
+      first_name: msg.from.first_name,
+      last_name: msg.from.last_name
+    });
+    
+    // Отправляем запрос на сохранение пользователя
+    saveTelegramUser(msg.from);
+  }
+  
   // Создаем inline keyboard с кнопкой для открытия приложения
   const keyboard = {
     inline_keyboard: [
       [{
         text: '🚀 Запустить MarketVision',
         web_app: {
-          url: "https://new-clowns-lose.loca.lt"
+          url: WEB_APP_URL
         }
       }]
     ]
@@ -50,6 +74,37 @@ bot.onText(/\/app/, (msg) => {
     { reply_markup: keyboard }
   );
 });
+
+// Функция сохранения telegram пользователя
+async function saveTelegramUser(from: TelegramBot.User) {
+  try {
+    const userData = {
+      id: from.id.toString()
+    };
+
+    console.log('💾 Отправляем данные пользователя в API:', userData);
+
+    // Отправляем запрос через Nginx (внутренняя сеть)
+    const url = `${GATEWAY_URL.replace(/\/$/, '')}/api/auth/telegram`;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log('✅ Пользователь сохранен через gateway:', result);
+    } else {
+      const errText = await response.text().catch(() => '');
+      console.error('❌ Ошибка сохранения пользователя через gateway:', url, response.status, response.statusText, errText);
+    }
+  } catch (error) {
+    console.error('❌ Ошибка при сохранении пользователя:', error);
+  }
+}
 
 // Обработчик для web_app_data (когда пользователь нажимает на кнопку Mini App)
 bot.on('web_app_data', (msg) => {

@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  telegram-bot-dev:
+    build:
+      context: .
+      target: development
+    container_name: marketvision-telegram-bot-dev
+    environment:
+      - NODE_ENV=development
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./package.json:/usr/src/app/package.json
+      - ./package-lock.json:/usr/src/app/package-lock.json
+      - ./nodemon.json:/usr/src/app/nodemon.json
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    command: npm run dev
+    networks:
+      marketvision-net:
+        aliases:
+          - marketvision-telegram-bot
+
+networks:
+  marketvision-net:
+    external: true
+
+

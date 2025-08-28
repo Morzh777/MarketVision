@@ -67,8 +67,13 @@ model User {
 }
 
 model TelegramUser {
-  id        String   @id // Telegram User ID как строка
-  createdAt DateTime @default(now()) @map("created_at")
+  id           Int       @id @default(autoincrement())
+  telegram_id  String    @unique @map("telegram_id")
+  username     String?
+  first_name   String?
+  last_name    String?
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
   
   @@map("telegram_users")
 }

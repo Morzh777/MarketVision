@@ -3,7 +3,7 @@ import { IsString, IsOptional, MinLength } from 'class-validator';
 export class TelegramInitDto {
   @IsString()
   @MinLength(1)
-  telegram_id!: string;
+  id!: string; // Telegram User ID as string (matches database telegram_id field)
 
   @IsOptional()
   @IsString()
@@ -27,4 +27,3 @@ export class FavoriteAddDto {
   @MinLength(1)
   query!: string;
 }
-

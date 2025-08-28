@@ -7,7 +7,7 @@
     "dist/**/*",
     "node_modules/**/*"
   ],
-  "exec": "ts-node src/main.ts",
+  "exec": "node --loader ts-node/esm src/main.ts",
   "env": {
     "NODE_ENV": "development",
     "DEV_MODE": "true"
