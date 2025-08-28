@@ -20,7 +20,12 @@ export async function GET(request: Request) {
     const response = await fetchFromExternalApi(endpoint);
     const data = await response.json();
     
-    return createSuccessResponse(data);
+    const successResponse = createSuccessResponse(data);
+    
+    // Добавляем заголовки кеширования
+    successResponse.headers.set('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=300');
+    
+    return successResponse;
   } catch (error) {
     console.error('Error fetching price history by query:', error);
     return createErrorResponse(API_ROUTES.PRICE_HISTORY_BY_QUERY.errorMessage);

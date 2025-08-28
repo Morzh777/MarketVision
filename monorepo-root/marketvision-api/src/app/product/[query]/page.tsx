@@ -13,7 +13,10 @@ export default async function ProductPage({ params }: ServerProps) {
   // 1) Получаем сам продукт из общего списка (без строгого фильтра по цене)
   let productListRes: Response | null = null;
   try {
-    productListRes = await fetch(`${base}/api/products?query=${encodeURIComponent(decodedQuery)}`, { cache: 'no-store' });
+    productListRes = await fetch(`${base}/api/products?query=${encodeURIComponent(decodedQuery)}`, { 
+      cache: 'force-cache',
+      next: { revalidate: 600 } // 10 минут
+    });
   } catch {
     productListRes = null;
   }
@@ -48,7 +51,10 @@ export default async function ProductPage({ params }: ServerProps) {
 
   // 2) Отдельно подтягиваем статистику и историю цен
   try {
-    const resStats = await fetch(`${base}/api/products-by-query/${encodeURIComponent(decodedQuery)}`, { cache: 'no-store' });
+    const resStats = await fetch(`${base}/api/products-by-query/${encodeURIComponent(decodedQuery)}`, { 
+      cache: 'force-cache',
+      next: { revalidate: 600 } // 10 минут
+    });
     if (resStats.ok) {
       const d = await resStats.json();
       const ms = d?.marketStats;

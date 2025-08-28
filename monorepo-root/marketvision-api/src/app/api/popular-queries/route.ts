@@ -1,3 +1,5 @@
+import { addCacheHeaders, POPULAR_QUERIES_CACHE } from '@/utils/cache';
+
 import { 
   fetchFromExternalApi, 
   createSuccessResponse, 
@@ -21,8 +23,10 @@ export async function GET() {
       queries: data.map((q: PopularQuery) => q.query)
     });
     
+    const successResponse = createSuccessResponse(data);
     
-    return createSuccessResponse(data);
+    // Добавляем заголовки кеширования
+    return addCacheHeaders(successResponse, POPULAR_QUERIES_CACHE);
   } catch (error) {
     console.error('Error fetching popular queries:', error);
     return createErrorResponse(API_ROUTES.POPULAR_QUERIES.errorMessage);

@@ -9,7 +9,10 @@ import UserNav from './components/UserNav';
 async function getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
   // Ходим напрямую в nginx → DB API, минуя Next API
   const base = API_CONFIG.EXTERNAL_API_BASE_URL;
-  const res = await fetch(`${base}/api/products/popular-queries`, { cache: 'no-store' });
+  const res = await fetch(`${base}/api/products/popular-queries`, { 
+    cache: 'force-cache',
+    next: { revalidate: 600 } // 10 минут
+  });
   if (!res.ok) return [];
   return res.json();
 }

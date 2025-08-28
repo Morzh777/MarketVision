@@ -1,7 +1,6 @@
 import js from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
-import importPlugin from 'eslint-plugin-import';
 
 export default [
   js.configs.recommended,
@@ -12,41 +11,28 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+        project: './tsconfig.json',
       },
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        global: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setImmediate: 'readonly',
+        clearImmediate: 'readonly',
+      }
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      import: importPlugin,
     },
     rules: {
       ...tseslint.configs.recommended.rules,
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index'
-          ],
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true
-          }
-        }
-      ],
-      'import/no-unresolved': 'error',
-      'import/no-duplicates': 'error'
-    },
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true
-        }
-      }
     }
   }
 ]; 

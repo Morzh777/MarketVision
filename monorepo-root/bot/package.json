@@ -1,7 +1,8 @@
 {
   "name": "wb-telegram-bot",
   "version": "1.0.0",
-  "description": "Telegram-бот для получения данных с WB и Ozon с чистой архитектурой",
+  "description": "Telegram-бот для получения данных с WB и Ozon",
+  "type": "module",
   "main": "dist/main.js",
   "scripts": {
     "dev": "nodemon --watch src --ext ts,js --exec ts-node src/main.ts",
@@ -13,11 +14,11 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "node-fetch": "^2.7.0",
-    "node-telegram-bot-api": "^0.61.0",
-    "sharp": "^0.33.5"
+    "node-telegram-bot-api": "^0.61.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
+    "@types/node": "^20.14.10",
     "@types/node-fetch": "^2.6.12",
     "@types/node-telegram-bot-api": "^0.64.9",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
