@@ -39,7 +39,7 @@ bot.onText(/\/app/, (msg) => {
       [{
         text: '🚀 Запустить MarketVision',
         web_app: {
-          url: process.env.WEB_APP_URL || 'https://brave-feet-give.loca.lt'
+          url: "https://new-clowns-lose.loca.lt"
         }
       }]
     ]

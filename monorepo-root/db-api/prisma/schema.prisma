@@ -65,3 +65,10 @@ model User {
 
   @@map("users")
 }
+
+model TelegramUser {
+  id        String   @id // Telegram User ID как строка
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  @@map("telegram_users")
+}
