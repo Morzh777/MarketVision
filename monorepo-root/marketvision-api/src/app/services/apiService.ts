@@ -1,5 +1,6 @@
-import type { Product, PriceHistory } from '../types/market';
 import { API_CONFIG } from '@/config/settings';
+
+import type { Product, PriceHistory } from '../types/market';
 
 interface DbProduct {
   id: string;
@@ -47,8 +48,6 @@ export class ApiService {
         }
       }
 
-      console.log('API Response:', { products: allProductsData.products, marketStats });
-
       return {
         products: allProductsData.products.map((product: DbProduct) => ({
           ...product,
@@ -56,13 +55,13 @@ export class ApiService {
           max: marketStats?.max,
           mean: marketStats?.mean,
           median: marketStats?.median,
-          iqr: marketStats?.iqr
+          iqr: marketStats?.iqr,
         })),
-        marketStats
+        marketStats,
       };
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      return { products: [] };
+    } catch {
+      console.error('Error fetching products');
+      return { products: [], marketStats: undefined };
     }
   }
 
@@ -80,69 +79,42 @@ export class ApiService {
       return data.products.map((product: DbProduct) => ({
         ...product
       }));
-    } catch (error) {
-      console.error('Error fetching deals:', error);
+    } catch {
+      console.error('Error fetching deals');
       return [];
     }
   }
-
-
 
   static async getPriceHistoryByQuery(query: string, limit: number = 10): Promise<PriceHistory> {
     try {
       const response = await fetch(
-        `${API_URL}/products/price-history-by-query?query=${encodeURIComponent(query)}&limit=${limit}`
+        `${API_URL}/products/price-history-by-query/${encodeURIComponent(query)}?limit=${limit}`,
       );
-      
+
       if (!response.ok) {
-        throw new Error(`Failed to fetch price history by query: ${response.status} ${response.statusText}`);
+        throw new Error('Failed to fetch price history');
       }
 
-      // Проверяем, что ответ не пустой
-      const responseText = await response.text();
-      if (!responseText || responseText.trim() === '') {
-        console.warn('Empty response from price history API');
-        return [];
-      }
-
-      let data: Array<{ price: number; created_at: string }>;
-      try {
-        data = JSON.parse(responseText);
-      } catch (parseError) {
-        console.error('Failed to parse JSON response:', responseText, parseError);
-        return [];
-      }
-      
-      if (!Array.isArray(data)) {
-        console.warn('Response is not an array:', data);
-        return [];
-      }
-      
-      return data.map(item => ({
-        price: item.price,
-        created_at: item.created_at
-      }));
-    } catch (error) {
-      console.error('Error fetching price history by query:', error);
+      const data = await response.json();
+      return data.priceHistory || [];
+    } catch {
+      console.error('Error fetching price history by query');
       return [];
     }
   }
 
-  static async getProduct(id: string): Promise<Product | null> {
+  static async getProduct(id: string): Promise<DbProduct | null> {
     try {
       const response = await fetch(`${API_URL}/products/${id}`);
-      
       if (!response.ok) {
-        throw new Error('Failed to fetch product');
+        return null;
       }
 
       const product: DbProduct = await response.json();
       
-      return {
-        ...product
-      };
-    } catch (error) {
-      console.error('Error fetching product:', error);
+      return product;
+    } catch {
+      console.error('Error fetching product');
       return null;
     }
   }
@@ -174,11 +146,14 @@ export class ApiService {
         throw new Error('Failed to fetch products by query');
       }
       const data = await response.json();
-      console.log('Products by query response:', data);
-      return data;
-    } catch (error) {
-      console.error('Error fetching products by query:', error);
-      return { products: [] };
+      
+      return {
+        products: data.products || [],
+        marketStats: data.marketStats
+      };
+    } catch {
+      console.error('Error fetching products by query');
+      return { products: [], marketStats: undefined };
     }
   }
 
@@ -189,8 +164,8 @@ export class ApiService {
         throw new Error('Failed to fetch products with pagination');
       }
       return await response.json();
-    } catch (error) {
-      console.error('Error fetching products with pagination:', error);
+    } catch {
+      console.error('Error fetching products with pagination');
       return { products: [], total: 0, hasMore: false };
     }
   }

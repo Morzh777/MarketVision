@@ -1,11 +1,12 @@
-import { addCacheHeaders, POPULAR_QUERIES_CACHE } from '@/utils/cache';
 import { NextRequest } from 'next/server';
+
+import { addCacheHeaders, POPULAR_QUERIES_CACHE } from '@/utils/cache';
 
 import { 
   fetchFromExternalApi, 
-  createSuccessResponse, 
-  createErrorResponse,
-  API_ROUTES 
+  API_ROUTES,
+  createSuccessResponse,
+  createErrorResponse
 } from '../routes.config';
 
 interface PopularQuery {
@@ -38,8 +39,8 @@ export async function GET(request: NextRequest) {
     
     // Добавляем заголовки кеширования
     return addCacheHeaders(successResponse, POPULAR_QUERIES_CACHE);
-  } catch (error) {
-    console.error('Error fetching popular queries:', error);
+  } catch {
+    console.error('Error fetching popular queries');
     return createErrorResponse(API_ROUTES.POPULAR_QUERIES.errorMessage);
   }
 } 

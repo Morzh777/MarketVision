@@ -25,8 +25,8 @@ export async function GET(
     successResponse.headers.set('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=300');
     
     return successResponse;
-  } catch (error) {
-    console.error('Error fetching products by query:', error);
+  } catch {
+    console.error('Error fetching products by query');
     return createErrorResponse(API_ROUTES.PRODUCTS_BY_QUERY.errorMessage);
   }
 } 

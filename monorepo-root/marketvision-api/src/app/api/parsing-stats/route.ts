@@ -17,9 +17,8 @@ async function fetchFromDB(endpoint: string) {
     }
 
     return await response.json();
-  } catch (error) {
-    console.error(`❌ Ошибка запроса к ${endpoint}:`, error);
-    throw error;
+  } catch {
+    throw new Error(`Failed to fetch from ${endpoint}`);
   }
 }
 
@@ -62,8 +61,8 @@ export async function GET() {
         'Expires': '0'
       }
     });
-  } catch (error) {
-    console.error("❌ Ошибка получения статистики:", error);
+  } catch {
+    console.error("❌ Ошибка получения статистики");
     
     return NextResponse.json({
       totalProducts: 0,
@@ -79,10 +78,10 @@ export async function GET() {
         "25000-50000": 0,
         "50000-100000": 0,
         "100000+": 0
-             },
-       topProductsByCategory: {},
-       parsingHistory: [],
-       lastUpdate: new Date().toISOString(),
+      },
+      topProductsByCategory: {},
+      parsingHistory: [],
+      lastUpdate: new Date().toISOString(),
       error: "Ошибка загрузки статистики"
     }, { 
       status: 500,

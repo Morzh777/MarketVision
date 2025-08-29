@@ -92,7 +92,6 @@ export default function Client({ onHelpClick }: Props) {
             `/?filter=favorites&telegram_id=${telegramId}` : 
             '/?filter=favorites';
           
-          console.log('🔍 UserNav: Переход на избранное с telegram_id:', telegramId, 'URL:', favoritesUrl);
           router.push(favoritesUrl);
         }}
       >

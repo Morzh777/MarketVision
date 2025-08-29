@@ -20,8 +20,8 @@ export class ProductService {
     try {
       const result = await ApiService.getProducts(query);
       return result;
-    } catch (error) {
-      console.error('Error fetching products:', error);
+    } catch {
+      console.error('Error fetching products');
       return { products: [] };
     }
   }
@@ -29,8 +29,8 @@ export class ProductService {
   static async getDeals(): Promise<Product[]> {
     try {
       return await ApiService.getDeals();
-    } catch (error) {
-      console.error('Error fetching deals:', error);
+    } catch {
+      console.error('Error fetching deals');
       return [];
     }
   }
@@ -43,20 +43,17 @@ export class ProductService {
       // Проверяем кэш
       const cached = priceHistoryCache.get(cacheKey);
       if (cached && (now - cached.timestamp) < CACHE_DURATION) {
-        console.log('ProductService: Using cached price history for:', query);
         return cached.data;
       }
       
-      console.log('ProductService.getPriceHistoryByQuery called with:', { query, limit });
       const result = await ApiService.getPriceHistoryByQuery(query, limit);
-      console.log('ProductService.getPriceHistoryByQuery result:', result);
       
       // Сохраняем в кэш
       priceHistoryCache.set(cacheKey, { data: result, timestamp: now });
       
       return result;
-    } catch (error) {
-      console.error('Error fetching price history by query:', error);
+    } catch {
+      console.error('Error fetching price history by query');
       return [];
     }
   }
@@ -65,8 +62,8 @@ export class ProductService {
     try {
       const { products } = await this.getProducts();
       return products.find((item: Product) => item.name === name);
-    } catch (error) {
-      console.error('Error finding product by name:', error);
+    } catch {
+      console.error('Error finding product by name');
       return undefined;
     }
   }
@@ -80,9 +77,9 @@ export class ProductService {
       if (typeof window !== 'undefined') {
         const raw = sessionStorage.getItem(CACHE_KEY);
         if (raw) {
-          const parsed = JSON.parse(raw) as { updatedAt: number; data: any[] };
+          const parsed = JSON.parse(raw) as { updatedAt: number; data: Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }> };
           if (parsed && Array.isArray(parsed.data) && Date.now() - parsed.updatedAt < CACHE_TTL_MS) {
-            return parsed.data as any[];
+            return parsed.data;
           }
         }
       }
@@ -95,8 +92,8 @@ export class ProductService {
         } catch {}
       }
       return data;
-    } catch (error) {
-      console.error('Error fetching popular queries:', error);
+    } catch {
+      console.error('Error fetching popular queries');
       return [];
     }
   }
@@ -104,8 +101,8 @@ export class ProductService {
   static async getProductsByQuery(query: string): Promise<{ products: Product[]; marketStats?: MarketStats }> {
     try {
       return await ApiService.getProductsByQuery(query);
-    } catch (error) {
-      console.error('Error fetching products by query:', error);
+    } catch {
+      console.error('Error fetching products by query');
       return { products: [] };
     }
   }
@@ -113,8 +110,8 @@ export class ProductService {
   static async getProductsWithPagination(page: number = 1, limit: number = 10): Promise<{ products: Product[]; total: number; hasMore: boolean }> {
     try {
       return await ApiService.getProductsWithPagination(page, limit);
-    } catch (error) {
-      console.error('Error fetching products with pagination:', error);
+    } catch {
+      console.error('Error fetching products with pagination');
       return { products: [], total: 0, hasMore: false };
     }
   }

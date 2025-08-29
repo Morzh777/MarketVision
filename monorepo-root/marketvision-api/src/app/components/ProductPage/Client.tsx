@@ -54,51 +54,30 @@ export default function Client({ product, priceHistory, decodedQuery, telegram_i
 
   // Проверяем статус избранного при загрузке
   useEffect(() => {
-    console.log('🔍 ProductPage: Проверяем статус избранного', {
-      decodedQuery,
-      isAuthenticated,
-      authLoading
-    });
-    
     if (decodedQuery && isAuthenticated) {
-      console.log('✅ ProductPage: Пользователь авторизован, проверяем избранное');
       checkFavorite(decodedQuery).then((favorite) => {
-        console.log('❤️ ProductPage: Статус избранного:', favorite);
         setIsFavorite(favorite);
         setIsFavoriteLoading(false);
       });
     } else if (!isAuthenticated && !authLoading) {
-      console.log('❌ ProductPage: Пользователь не авторизован');
       setIsFavoriteLoading(false);
     }
   }, [decodedQuery, isAuthenticated, authLoading, checkFavorite]);
 
   // Обработчик переключения избранного
   const handleFavoriteToggle = async () => {
-    console.log('🖱️ ProductPage: Клик по сердечку', {
-      decodedQuery,
-      isAuthenticated,
-      isFavorite
-    });
-    
     if (!decodedQuery || !isAuthenticated) {
-      console.log('❌ ProductPage: Нельзя добавить в избранное - не авторизован или нет query');
       return;
     }
     
     setIsFavoriteLoading(true);
     try {
-      console.log('🔄 ProductPage: Вызываем toggleFavorite для query:', decodedQuery);
       const success = await toggleFavorite(decodedQuery);
-      console.log('🔄 ProductPage: Результат переключения избранного:', success);
       if (success) {
         setIsFavorite(!isFavorite);
-        console.log('✅ ProductPage: Избранное успешно переключено, новый статус:', !isFavorite);
-      } else {
-        console.log('❌ ProductPage: Не удалось переключить избранное');
       }
-    } catch (error) {
-      console.error('❌ ProductPage: Ошибка переключения избранного:', error);
+    } catch {
+      // Ошибка переключения избранного
     } finally {
       setIsFavoriteLoading(false);
     }

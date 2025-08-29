@@ -107,7 +107,7 @@ export async function GET() {
     return NextResponse.json(
       { 
         error: "Failed to check services status",
-        message: error instanceof Error ? error.message : "Unknown error"
+        message: "Unknown error"
       },
       { status: 500 }
     );

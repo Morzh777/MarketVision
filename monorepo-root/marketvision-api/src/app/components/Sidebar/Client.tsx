@@ -142,18 +142,9 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
       }
     }
     
-    console.log('🔍 Sidebar: Переход на ProductPage с telegram_id:', telegramId, {
-      fromProps: telegram_id,
-      fromLocalStorage: typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null,
-      fromCookies: typeof window !== 'undefined' ? document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1] : null,
-      fromUrl: typeof window !== 'undefined' && window.location.pathname === '/' ? new URLSearchParams(window.location.search).get('telegram_id') : null
-    });
-    
     const productUrl = telegramId ? 
       `/product/${encodeURIComponent(query)}?telegram_id=${telegramId}` : 
       `/product/${encodeURIComponent(query)}`;
-    
-    console.log('🔍 Sidebar: URL для перехода:', productUrl);
     router.push(productUrl);
   };
 
