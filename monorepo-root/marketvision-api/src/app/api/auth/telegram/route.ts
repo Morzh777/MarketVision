@@ -1,65 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+import { API_CONFIG } from '@/config/settings'
+
+// Сохранение Telegram пользователя
 export async function POST(request: NextRequest) {
   try {
-    const { telegram_id } = await request.json()
+    const body = await request.json()
     
-    if (!telegram_id) {
-      return NextResponse.json(
-        { success: false, message: 'telegram_id обязателен' },
-        { status: 400 }
-      )
-    }
-
-    // Проверяем существование пользователя в базе через db-api
-    const userResponse = await fetch(`${process.env.DB_API_URL || 'http://marketvision-database-api:3004'}/api/auth/telegram`, {
+    // Сохраняем Telegram пользователя через nginx прокси к db-api
+    const base = API_CONFIG.EXTERNAL_API_BASE_URL
+    const response = await fetch(`${base}/auth/telegram`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ telegram_id }),
+      body: JSON.stringify(body),
     })
 
-    if (!userResponse.ok) {
-      return NextResponse.json(
-        { success: false, message: 'Ошибка проверки пользователя' },
-        { status: 500 }
-      )
+    const result = await response.json()
+
+    if (!response.ok) {
+      return NextResponse.json(result, { status: response.status })
     }
 
-    const userData = await userResponse.json()
-    
-    if (!userData.success) {
-      return NextResponse.json(
-        { success: false, message: 'Пользователь не найден' },
-        { status: 404 }
-      )
-    }
-
-    // Создаем сессию пользователя
-    const response = NextResponse.json({
-      success: true,
-      message: 'Пользователь авторизован',
-      user: {
-        telegram_id: userData.user.telegram_id,
-        username: userData.user.username,
-        first_name: userData.user.first_name,
-        last_name: userData.user.last_name,
-      }
-    })
-
-    // Устанавливаем cookie для авторизации
-    response.cookies.set('telegram_id', telegram_id, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7, // 7 дней
-    })
-
-    return response
-
+    return NextResponse.json(result)
   } catch (error) {
-    console.error('Ошибка авторизации:', error)
+    console.error('Ошибка сохранения Telegram пользователя:', error)
     return NextResponse.json(
       { success: false, message: 'Внутренняя ошибка сервера' },
       { status: 500 }
@@ -67,52 +33,27 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// Проверка Telegram аутентификации
 export async function GET(request: NextRequest) {
   try {
-    // Получаем telegram_id из cookie
-    const telegram_id = request.cookies.get('telegram_id')?.value
-    
-    if (!telegram_id) {
-      return NextResponse.json(
-        { success: false, message: 'Пользователь не авторизован' },
-        { status: 401 }
-      )
-    }
-
-    // Проверяем существование пользователя
-    const userResponse = await fetch(`${process.env.DB_API_URL || 'http://marketvision-database-api:3004'}/api/auth/telegram`, {
-      method: 'POST',
+    // Проверяем Telegram аутентификацию через nginx прокси к db-api
+    const base = API_CONFIG.EXTERNAL_API_BASE_URL
+    const response = await fetch(`${base}/auth/telegram`, {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        'Cookie': request.headers.get('cookie') || '',
       },
-      body: JSON.stringify({ telegram_id }),
     })
 
-    if (!userResponse.ok) {
-      // Удаляем невалидный cookie
-      const response = NextResponse.json(
-        { success: false, message: 'Пользователь не найден' },
-        { status: 404 }
-      )
-      response.cookies.delete('telegram_id')
-      return response
+    const result = await response.json()
+
+    if (!response.ok) {
+      return NextResponse.json(result, { status: response.status })
     }
 
-    const userData = await userResponse.json()
-    
-    return NextResponse.json({
-      success: true,
-      message: 'Пользователь авторизован',
-      user: {
-        telegram_id: userData.user.telegram_id,
-        username: userData.user.username,
-        first_name: userData.user.first_name,
-        last_name: userData.user.last_name,
-      }
-    })
-
+    return NextResponse.json(result)
   } catch (error) {
-    console.error('Ошибка проверки авторизации:', error)
+    console.error('Ошибка проверки Telegram аутентификации:', error)
     return NextResponse.json(
       { success: false, message: 'Внутренняя ошибка сервера' },
       { status: 500 }

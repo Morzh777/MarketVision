@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import type { PopularQuery } from '../../types/market';
@@ -11,27 +11,65 @@ import SearchBar from '../SearchBar';
 
 interface Props {
   popularQueries: PopularQuery[];
+  favoriteQueries: PopularQuery[];
+  initialFilter?: string;
+  initialCategory?: string;
+  telegram_id?: string;
 }
 
-export default function Client({ popularQueries }: Props) {
+export default function Client({ popularQueries, favoriteQueries, initialFilter, initialCategory, telegram_id }: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
-  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory || 'all');
   const [selectedQuery, setSelectedQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
   const [sortPercentOrder, setSortPercentOrder] = useState<'asc' | 'desc' | null>(null);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(initialFilter === 'favorites');
+
+  // Мониторим изменения URL для обновления данных
+  useEffect(() => {
+    const currentFilter = searchParams.get('filter');
+    if (currentFilter === 'favorites' && !showFavoritesOnly) {
+      // Если вернулись на страницу с фильтром favorites, обновляем страницу
+      router.refresh();
+    }
+  }, [searchParams, showFavoritesOnly, router]);
+
+  // Обновляем страницу при изменении фильтра избранного
+  useEffect(() => {
+    if (showFavoritesOnly) {
+      // При включении фильтра избранного обновляем страницу для получения свежих данных
+      router.refresh();
+    }
+  }, [showFavoritesOnly, router]);
 
   useEffect(() => {
     const savedSearch = sessionStorage.getItem('sidebarSearchQuery');
     const savedCategory = sessionStorage.getItem('sidebarSelectedCategory');
+    const savedShowFavoritesOnly = sessionStorage.getItem('sidebarShowFavoritesOnly');
+    
     if (savedSearch) setSearchQuery(savedSearch);
     if (savedCategory) setSelectedCategory(savedCategory);
+    if (savedShowFavoritesOnly === 'true') setShowFavoritesOnly(true);
   }, []);
+
+  // Устанавливаем начальное состояние фильтра избранного
+  useEffect(() => {
+    if (initialFilter === 'favorites') {
+      setShowFavoritesOnly(true);
+      setSelectedCategory('all');
+    }
+  }, [initialFilter]);
 
   useEffect(() => {
     sessionStorage.setItem('sidebarSearchQuery', searchQuery);
   }, [searchQuery]);
+
+  useEffect(() => {
+    sessionStorage.setItem('sidebarShowFavoritesOnly', showFavoritesOnly.toString());
+  }, [showFavoritesOnly]);
 
 
   useEffect(() => {
@@ -51,18 +89,24 @@ export default function Client({ popularQueries }: Props) {
   }, [popularQueries]);
 
   const filteredQueries = useMemo(() => {
-    const byCategory =
-      selectedCategory === 'all'
-        ? popularQueries
-        : popularQueries.filter((q) => (q as unknown as { category?: string }).category === selectedCategory);
+    // Выбираем источник данных: все запросы или только избранные
+    const sourceQueries = showFavoritesOnly ? favoriteQueries : popularQueries;
+    let list = sourceQueries;
+    
+    // Фильтр по категории (только если не выбрано "Избранное")
+    if (!showFavoritesOnly && selectedCategory !== 'all') {
+      list = list.filter((q: PopularQuery) => (q as unknown as { category?: string }).category === selectedCategory);
+    }
 
-    let list = byCategory;
+    // Фильтр по поиску
     if (searchQuery.trim()) {
       const searchVariants = createSearchVariants(searchQuery);
-      list = byCategory.filter((q: PopularQuery) =>
+      list = list.filter((q: PopularQuery) =>
         searchVariants.some((v) => q.query.toLowerCase().includes(v))
       );
     }
+    
+    // Сортировка
     if (sortOrder) {
       list = [...list].sort((a, b) => (sortOrder === 'asc' ? a.minPrice - b.minPrice : b.minPrice - a.minPrice));
     } else if (sortPercentOrder) {
@@ -71,7 +115,7 @@ export default function Client({ popularQueries }: Props) {
       );
     }
     return list;
-  }, [popularQueries, selectedCategory, searchQuery, sortOrder, sortPercentOrder]);
+  }, [popularQueries, favoriteQueries, selectedCategory, searchQuery, sortOrder, sortPercentOrder, showFavoritesOnly]);
 
   const handleSelectQuery = (query: string) => {
     try {
@@ -79,7 +123,57 @@ export default function Client({ popularQueries }: Props) {
       sessionStorage.setItem('sidebarSearchQuery', searchQuery);
     } catch {}
     setSelectedQuery(query);
-    router.push(`/product/${encodeURIComponent(query)}`);
+    
+    // Используем telegram_id из props (приоритет) или из localStorage/cookies
+    let telegramId: string | undefined = telegram_id;
+    if (!telegramId && typeof window !== 'undefined') {
+      // Сначала пробуем из localStorage
+      telegramId = localStorage.getItem('telegram_id') || undefined;
+      
+      // Если нет в localStorage, пробуем из cookies
+      if (!telegramId) {
+        telegramId = document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
+      }
+      
+      // Если нет в cookies, пробуем из URL параметров (если мы на главной)
+      if (!telegramId && window.location.pathname === '/') {
+        const urlParams = new URLSearchParams(window.location.search);
+        telegramId = urlParams.get('telegram_id') || undefined;
+      }
+    }
+    
+    console.log('🔍 Sidebar: Переход на ProductPage с telegram_id:', telegramId, {
+      fromProps: telegram_id,
+      fromLocalStorage: typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null,
+      fromCookies: typeof window !== 'undefined' ? document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1] : null,
+      fromUrl: typeof window !== 'undefined' && window.location.pathname === '/' ? new URLSearchParams(window.location.search).get('telegram_id') : null
+    });
+    
+    const productUrl = telegramId ? 
+      `/product/${encodeURIComponent(query)}?telegram_id=${telegramId}` : 
+      `/product/${encodeURIComponent(query)}`;
+    
+    console.log('🔍 Sidebar: URL для перехода:', productUrl);
+    router.push(productUrl);
+  };
+
+  const handleFavoritesClick = () => {
+    setShowFavoritesOnly(true);
+    setSelectedCategory('all');
+    setIsCategoryOpen(false);
+    // Сохраняем состояние в sessionStorage
+    try {
+      sessionStorage.setItem('sidebarShowFavoritesOnly', 'true');
+      sessionStorage.setItem('sidebarSelectedCategory', 'all');
+    } catch {}
+    
+    // Принудительно обновляем страницу для получения свежих данных избранного
+    // Передаем telegram_id в URL
+    if (telegram_id) {
+      router.push(`/?filter=favorites&telegram_id=${telegram_id}`);
+    } else {
+      router.refresh();
+    }
   };
 
   return (
@@ -90,9 +184,13 @@ export default function Client({ popularQueries }: Props) {
 
         <div className="sidebar__controls">
           <button type="button" className="sidebar__filter-btn" onClick={() => setIsCategoryOpen(true)}>
-            <span className="sidebar__filter-label">{selectedCategory === 'all' ? 'Все запросы' : selectedCategory}</span>
+            <span className="sidebar__filter-label">
+              {showFavoritesOnly ? 'Избранное' : 
+               selectedCategory === 'all' ? 'Все запросы' : selectedCategory}
+            </span>
             <span className={`sidebar__filter-caret ${isCategoryOpen ? 'open' : ''}`}>▸</span>
           </button>
+          
           {isCategoryOpen && (
             <div className="sidebar__filter-overlay" onClick={() => setIsCategoryOpen(false)}>
               <div className="sidebar__filter-drawer" onClick={(e) => e.stopPropagation()}>
@@ -105,10 +203,21 @@ export default function Client({ popularQueries }: Props) {
                 <div className="sidebar__filter-drawer-list">
                   <button
                     type="button"
-                    className={`sidebar__filter-item ${selectedCategory === 'all' ? 'active' : ''}`}
+                    className={`sidebar__filter-item ${selectedCategory === 'all' && !showFavoritesOnly ? 'active' : ''}`}
                     onClick={() => {
                       setSelectedCategory('all');
+                      setShowFavoritesOnly(false);
                       setIsCategoryOpen(false);
+                      // Сохраняем состояние в sessionStorage
+                      try {
+                        sessionStorage.setItem('sidebarSelectedCategory', 'all');
+                        sessionStorage.setItem('sidebarShowFavoritesOnly', 'false');
+                      } catch {}
+                      
+                      // Передаем telegram_id в URL при смене категории
+                      if (telegram_id) {
+                        router.push(`/?telegram_id=${telegram_id}`);
+                      }
                     }}
                   >
                     Все запросы
@@ -117,15 +226,33 @@ export default function Client({ popularQueries }: Props) {
                     <button
                       key={cat}
                       type="button"
-                      className={`sidebar__filter-item ${selectedCategory === cat ? 'active' : ''}`}
+                      className={`sidebar__filter-item ${selectedCategory === cat && !showFavoritesOnly ? 'active' : ''}`}
                       onClick={() => {
                         setSelectedCategory(cat);
+                        setShowFavoritesOnly(false);
                         setIsCategoryOpen(false);
+                        // Сохраняем состояние в sessionStorage
+                        try {
+                          sessionStorage.setItem('sidebarSelectedCategory', cat);
+                          sessionStorage.setItem('sidebarShowFavoritesOnly', 'false');
+                        } catch {}
+                        
+                        // Передаем telegram_id в URL при смене категории
+                        if (telegram_id) {
+                          router.push(`/?category=${cat}&telegram_id=${telegram_id}`);
+                        }
                       }}
                     >
                       {cat}
                     </button>
                   ))}
+                  <button
+                    type="button"
+                    className={`sidebar__filter-item sidebar__filter-item--favorites ${showFavoritesOnly ? 'active' : ''}`}
+                    onClick={handleFavoritesClick}
+                  >
+                    Избранное
+                  </button>
                 </div>
               </div>
             </div>
@@ -133,7 +260,12 @@ export default function Client({ popularQueries }: Props) {
 
           <button
             type="button"
-            onClick={() => setSortOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
+            onClick={() => {
+              if (sortPercentOrder) {
+                setSortPercentOrder(null);
+              }
+              setSortOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'));
+            }}
             className={'sidebar__sort-btn sidebar__sort-btn--price' + (sortOrder ? ' sidebar__sort-btn--active' : '')}
           >
             Мин. цена
@@ -142,7 +274,12 @@ export default function Client({ popularQueries }: Props) {
           </button>
           <button
             type="button"
-            onClick={() => setSortPercentOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'))}
+            onClick={() => {
+              if (sortOrder) {
+                setSortOrder(null);
+              }
+              setSortPercentOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'));
+            }}
             className={'sidebar__sort-btn sidebar__sort-btn--percent' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')}
           >
             Изм. %

@@ -147,9 +147,13 @@ export class ApiService {
     }
   }
 
-  static async getPopularQueries(): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string }>> {
+  static async getPopularQueries(telegram_id?: string): Promise<Array<{ query: string; minPrice: number; id: string; priceChangePercent: number; image_url: string; isFavorite: boolean }>> {
     try {
-      const response = await fetch(`${API_URL}/popular-queries`);
+      const url = telegram_id 
+        ? `${API_URL}/popular-queries?telegram_id=${encodeURIComponent(telegram_id)}`
+        : `${API_URL}/popular-queries`;
+        
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Failed to fetch popular queries');
       }

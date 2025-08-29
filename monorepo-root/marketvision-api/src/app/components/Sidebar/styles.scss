@@ -62,6 +62,11 @@
   @include truncate; // одно-строчное обрезание с троеточием
 }
 
+.sidebar__filter-icon {
+  color: currentColor;
+  flex-shrink: 0;
+}
+
 @media (max-width: 397px) {
   .sidebar__filter-label {
     max-width: 180px;
@@ -88,6 +93,12 @@
   @include text-primary;
 }
 .sidebar__filter-item.active, .sidebar__filter-item:hover { background: var(--color-bg-active); }
+
+.sidebar__filter-item--favorites {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text-title);
+}
 
 /* Overlay & Drawer */
 .sidebar__filter-overlay {
@@ -152,6 +163,19 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  
+  // Убираем обводку при нажатии
+  outline: none;
+  
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 /* выравниваем заголовки по колонкам списка */
@@ -159,12 +183,11 @@
 .sidebar__sort-btn--percent { justify-content: flex-end; }
 
 .sidebar__sort-btn:hover {
-  background: var(--color-bg-active);
+
   color: var(--color-text);
 }
 
 .sidebar__sort-btn--active {
-  background: var(--color-bg-active);
   color: var(--color-text);
 }
 

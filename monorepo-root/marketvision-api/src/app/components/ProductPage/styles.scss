@@ -5,7 +5,7 @@
 .productCard {
   background: var(--color-bg);
   flex-direction: column;
-
+  padding: 8px;
   overflow: hidden;
   position: relative;
   min-width: 0; // Позволяет сжиматься
@@ -471,122 +471,33 @@
 @import '../../styles/base/mixins';
 @import '../../styles/base/typography';
 
+// Стили для ProductPage
 .productPage {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: var(--color-bg);
-  z-index: 1000;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  /* Разрешаем нативный горизонтальный жест назад */
-  touch-action: auto;
-  
-  /* Анимация оттягивания при горизонтальном свайпе */
-  transform: translateX(0);
-  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  
-  /* Анимация при активном свайпе */
-  &:active {
-    transition: transform 0.05s ease-out;
-  }
-  
-  /* Анимация возврата */
-  &:not(:active) {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  
-  /* Состояния для анимации свайпа */
-  &.swipe-left { transform: translateX(-30px); }
-  &.swipe-right { transform: translateX(30px); }
-  &.swipe-reset { transform: translateX(0); }
+  transition: var(--transition-default);
 }
 
 .productPage__content {
-  position: sticky;
-  left: 0;
-  will-change: transform;
-}
-
-// Убираем верхнюю полоску, кнопки перенесены на картинку
-.productPage__header { display: none; }
-
-.productPage__button {
-  background: none;
-  border: none;
-  @include text-4xl;
-  @include font-bold;
-  @include text-primary;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  transition: all 0.2s;
-  
-  &:hover {
-    background: var(--color-bg-light);
-  }
-}
-
-// Оверлейные кнопки поверх изображения
-.productPage__overlayBtn {
-  position: absolute;
-  top: 8px;
-  z-index: 20;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 14px;
-  border: none;
-  background: rgba(255,255,255,0.18);
-  color: #000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-.productPage__overlayBtn_back { left: 8px; }
-
-// Ряд иконок справа
-.productPage__overlayRowRight {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  gap: 10px;
-  z-index: 20;
-}
-
-.productPage__overlayBtn_icon {
-  width: auto;
-  height: auto;
-  padding: 6px;
-  border-radius: 14px;
-  border: none;
-  background: rgba(255,255,255,0.18);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-
+  flex: 1;
+  padding-top: 30px; // Отступ для верхней навигации
+  padding-bottom: 20px; // Отступ для нижней навигации
 }
 
 // Верхняя панель действий
 .productPage__topBar {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 8px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .productPage__topBarLeft,
@@ -602,19 +513,51 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  color: #fff;
+  color: var(--color-text);
   background: transparent;
   border: none;
   padding: 0;
   box-shadow: none;
   outline: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: var(--color-bg-light);
+  }
+  
+  // Стили для сердца
+  svg.heart-filled {
+    fill: #ef4444;
+    color: #ef4444;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  svg.heart-loading {
+    opacity: 0.6;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
-// Гарантированный размер иконок поверх изображения
-.productPage__overlayBtn svg,
-.productPage__overlayBtn_icon svg {
-  width: 28px;
-  height: 28px;
+// Анимация пульсации для загрузки
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 }
 
 .productPage__title {
@@ -627,13 +570,6 @@
   letter-spacing: 0.5px;
 }
 
-.productPage__content {
-  padding: 0 8px;
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
 .productPage__loading {
   display: flex;
   align-items: center;
@@ -643,7 +579,7 @@
   font-size: 16px;
   text-align: center;
   padding: 20px;
-} 
+}
 
 .productPage__swipeIndicator {
   position: fixed;
@@ -663,4 +599,13 @@
   pointer-events: none;
   transition: opacity 120ms ease, transform 120ms ease;
   z-index: 1001;
+}
+
+// UserNav как на главной странице
+.productPage .sidebar__usernav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1500;
 } 

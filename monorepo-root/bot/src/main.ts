@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 const TOKEN = process.env.TG_BOT_TOKEN!;
 // URL мини-приложения (Next.js UI)
-const WEB_APP_URL = "https://crazy-taxis-drum.loca.lt";
+const WEB_APP_URL = "https://rude-stars-relax.loca.lt";
 // Прокси через Nginx внутри docker-сети (порт 8080 для внутренних запросов)
 const GATEWAY_URL = 'http://marketvision-nginx-proxy:8080';
 
@@ -55,37 +55,50 @@ bot.onText(/\/app/, (msg) => {
     
     // Отправляем запрос на сохранение пользователя
     saveTelegramUser(msg.from);
+    
+    // Создаем URL миниаппа с telegram_id
+    const miniAppUrl = `${WEB_APP_URL}?telegram_id=${msg.from.id}`;
+    console.log('🔗 Создаем URL миниаппа:', {
+      WEB_APP_URL,
+      telegram_id: msg.from.id,
+      finalUrl: miniAppUrl
+    });
+    
+    // Создаем inline keyboard с кнопкой для открытия приложения
+    const keyboard = {
+      inline_keyboard: [
+        [{
+          text: '🚀 Запустить MarketVision',
+          web_app: {
+            url: miniAppUrl
+          }
+        }]
+      ]
+    };
+    
+    bot.sendMessage(chatId, 
+      '🚀 Нажмите кнопку ниже, чтобы запустить MarketVision:',
+      { reply_markup: keyboard }
+    );
   }
-  
-  // Создаем inline keyboard с кнопкой для открытия приложения
-  const keyboard = {
-    inline_keyboard: [
-      [{
-        text: '🚀 Запустить MarketVision',
-        web_app: {
-          url: WEB_APP_URL
-        }
-      }]
-    ]
-  };
-  
-  bot.sendMessage(chatId, 
-    '🚀 Нажмите кнопку ниже, чтобы запустить MarketVision:',
-    { reply_markup: keyboard }
-  );
 });
 
 // Функция сохранения telegram пользователя
 async function saveTelegramUser(from: TelegramBot.User) {
   try {
     const userData = {
-      id: from.id.toString()
+      telegram_id: from.id.toString()
     };
 
     console.log('💾 Отправляем данные пользователя в API:', userData);
 
     // Отправляем запрос через Nginx (внутренняя сеть)
     const url = `${GATEWAY_URL.replace(/\/$/, '')}/api/auth/telegram`;
+    console.log('🌐 Отправляем запрос на сохранение пользователя:', {
+      GATEWAY_URL,
+      finalUrl: url,
+      userData
+    });
     const response = await fetch(url, {
       method: 'POST',
       headers: {

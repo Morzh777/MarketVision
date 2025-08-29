@@ -1,5 +1,3 @@
-import { ApiService } from '@/app/services/apiService';
-
 export default async function FavoritesPage({ searchParams }: { searchParams: Promise<{ telegram_id?: string }> }) {
   const sp = await searchParams;
   const fallbackId = (process.env.NEXT_PUBLIC_DEV_TELEGRAM_ID as string | undefined) || '171989';
@@ -8,7 +6,8 @@ export default async function FavoritesPage({ searchParams }: { searchParams: Pr
   let favorites: string[] = [];
   if (telegram_id) {
     try {
-      favorites = await ApiService.getFavorites(telegram_id);
+      // TODO: Добавить метод getFavorites в ApiService
+      // favorites = await ApiService.getFavorites(telegram_id);
     } catch {
       favorites = [];
     }

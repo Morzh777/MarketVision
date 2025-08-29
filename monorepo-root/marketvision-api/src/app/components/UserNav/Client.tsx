@@ -20,18 +20,37 @@ export default function Client({ onHelpClick }: Props) {
       sessionStorage.removeItem('sidebarSelectedCategory');
       sessionStorage.removeItem('sidebarSearchQuery');
       sessionStorage.removeItem('popularQueriesCache');
+      sessionStorage.removeItem('sidebarShowFavoritesOnly'); // Добавляем сброс фильтра избранного
     } catch {}
 
     if (typeof window !== 'undefined') {
+      // Получаем telegram_id для передачи на главную
+      const telegramId = localStorage.getItem('telegram_id') || 
+                        document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
+      
+      // Если мы на главной с фильтром favorites, убираем его
+      if (window.location.pathname === '/' && window.location.search.includes('filter=favorites')) {
+        const newUrl = telegramId ? `/?telegram_id=${telegramId}` : '/';
+        window.location.href = newUrl;
+        return;
+      }
+      
       if (window.location.pathname === '/') {
         window.location.reload();
       } else {
-        window.location.assign('/');
+        const newUrl = telegramId ? `/?telegram_id=${telegramId}` : '/';
+        window.location.assign(newUrl);
       }
       return;
     }
 
-    router.replace('/');
+    // Fallback для SSR
+    const telegramId = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null;
+    if (telegramId) {
+      router.replace(`/?telegram_id=${telegramId}`);
+    } else {
+      router.replace('/');
+    }
     router.refresh();
   };
 
@@ -61,7 +80,21 @@ export default function Client({ onHelpClick }: Props) {
         type="button"
         className="sidebar__usernav-btn"
         aria-label="Избранное"
-        onClick={() => router.push('/favorites')}
+        onClick={() => {
+          // Получаем telegram_id для передачи на страницу избранного
+          let telegramId = null;
+          if (typeof window !== 'undefined') {
+            telegramId = localStorage.getItem('telegram_id') || 
+                         document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
+          }
+          
+          const favoritesUrl = telegramId ? 
+            `/?filter=favorites&telegram_id=${telegramId}` : 
+            '/?filter=favorites';
+          
+          console.log('🔍 UserNav: Переход на избранное с telegram_id:', telegramId, 'URL:', favoritesUrl);
+          router.push(favoritesUrl);
+        }}
       >
         <HeartIcon size={20} />
       </button>

@@ -1,4 +1,5 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Req } from '@nestjs/common';
+import { Request } from 'express';
 import { UserService } from './services/userService';
 import { TelegramInitDto } from './dto/telegram.dto';
 
@@ -43,6 +44,58 @@ export class AuthController {
       return {
         success: false,
         message: 'Ошибка сохранения пользователя',
+      };
+    }
+  }
+
+  @Get('telegram')
+  async checkTelegramAuth(@Req() request: Request) {
+    try {
+      // Получаем telegram_id из cookie
+      const cookies = request.headers.cookie;
+      if (!cookies) {
+        return {
+          success: false,
+          message: 'Cookie не найдены',
+        };
+      }
+
+      // Парсим cookie для получения telegram_id
+      const cookiePairs = cookies
+        .split(';')
+        .map((pair) => pair.trim().split('='));
+      const telegramIdCookie = cookiePairs.find(
+        ([key]) => key === 'telegram_id',
+      );
+
+      if (!telegramIdCookie || !telegramIdCookie[1]) {
+        return {
+          success: false,
+          message: 'telegram_id не найден в cookie',
+        };
+      }
+
+      const telegramId = telegramIdCookie[1];
+
+      // Проверяем, существует ли пользователь
+      const user = await this.userService.getTelegramUser(telegramId);
+      if (!user) {
+        return {
+          success: false,
+          message: 'Пользователь не найден',
+        };
+      }
+
+      return {
+        success: true,
+        message: 'Пользователь авторизован',
+        user,
+      };
+    } catch (error) {
+      console.error('Ошибка проверки авторизации:', error);
+      return {
+        success: false,
+        message: 'Ошибка проверки авторизации',
       };
     }
   }

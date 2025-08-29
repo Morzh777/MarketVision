@@ -19,6 +19,15 @@ const englishToRussianMap: Record<string, string> = {
 };
 
 /**
+ * Нормализует query для избранного - приводит к единому формату
+ * Например: "rtx 5070", "RTX 5070", "Rtx 5070" -> "rtx 5070"
+ */
+export function normalizeQueryForFavorites(query: string): string {
+  // Приводим к нижнему регистру для единообразия
+  return query.toLowerCase();
+}
+
+/**
  * Транслитерирует текст с русской раскладки на английскую
  * Например: "зшрщту" -> "iphone"
  */

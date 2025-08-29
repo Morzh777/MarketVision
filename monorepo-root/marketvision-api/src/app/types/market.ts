@@ -46,6 +46,7 @@ export interface PopularQuery {
   id: string;
   priceChangePercent: number;
   image_url: string; // Картинка товара для аватара
+  isFavorite: boolean; // Статус избранного для пользователя
 }
 
 export interface PriceHistoryItem {

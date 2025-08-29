@@ -46,10 +46,10 @@ export class ProductController {
   }
 
   @Get('popular-queries')
-  async getPopularQueries() {
-    console.log('[ProductController] getPopularQueries called');
+  async getPopularQueries(@Query('telegram_id') telegram_id?: string) {
+    console.log('[ProductController] getPopularQueries called with telegram_id:', telegram_id);
     try {
-      const result = await this.productService.getPopularQueries();
+      const result = await this.productService.getPopularQueries(telegram_id);
       console.log('[ProductController] getPopularQueries result:', result);
       return result;
     } catch (error) {

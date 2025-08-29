@@ -1,4 +1,5 @@
 import { addCacheHeaders, POPULAR_QUERIES_CACHE } from '@/utils/cache';
+import { NextRequest } from 'next/server';
 
 import { 
   fetchFromExternalApi, 
@@ -10,17 +11,27 @@ import {
 interface PopularQuery {
   query: string;
   count?: number;
+  isFavorite?: boolean;
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    console.log('[MarketVision API] Fetching popular queries from DB API...');
-    const response = await fetchFromExternalApi(API_ROUTES.POPULAR_QUERIES.path);
+    const { searchParams } = new URL(request.url);
+    const telegram_id = searchParams.get('telegram_id');
+    
+    console.log('[MarketVision API] Fetching popular queries from DB API...', { telegram_id });
+    
+    // Формируем URL с telegram_id если он передан
+    const url = telegram_id 
+      ? `${API_ROUTES.POPULAR_QUERIES.path}?telegram_id=${encodeURIComponent(telegram_id)}`
+      : API_ROUTES.POPULAR_QUERIES.path;
+      
+    const response = await fetchFromExternalApi(url);
     const data = await response.json();
     
     console.log('[MarketVision API] Received data from DB API:', {
       totalQueries: data.length,
-      queries: data.map((q: PopularQuery) => q.query)
+      queries: data.map((q: PopularQuery) => ({ query: q.query, isFavorite: q.isFavorite }))
     });
     
     const successResponse = createSuccessResponse(data);

@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from 'next/server'
 
 import { API_CONFIG } from '@/config/settings'
 
-// Проверка статуса избранного по telegram_id и query из query параметров
-export async function GET(request: NextRequest) {
+// Проверка статуса избранного по telegram_id и query
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ telegram_id: string; query: string }> }
+) {
   try {
-    const { searchParams } = new URL(request.url)
-    const telegram_id = searchParams.get('telegram_id')
-    const query = searchParams.get('query')
-
+    const { telegram_id, query } = await params
+    
     if (!telegram_id) {
       return NextResponse.json(
         { success: false, message: 'telegram_id обязателен' },

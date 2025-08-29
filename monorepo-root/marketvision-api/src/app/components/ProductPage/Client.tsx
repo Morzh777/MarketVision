@@ -2,15 +2,18 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
+import { useAuth } from '../../../hooks/useAuth';
+import { useFavorites } from '../../../hooks/useFavorites';
 import { RUBLE, formatPrice, formatPriceRange } from '../../utils/currency';
 import { decodeHtmlEntities } from '../../utils/html';
 import BackButton from '../BackButton';
 import { ArrowLeftIcon, CartIcon, HeartIcon, ShareIcon, TrendDownChartIcon, TrendUpChartIcon } from '../Icons';
 import './styles.scss';
 import PriceHistory from '../PriceHistory';
+import UserNav from '../UserNav';
 
 type PricePoint = { price: number | null; created_at: string };
 
@@ -34,15 +37,72 @@ export interface ProductPageClientProps {
   } | null;
   priceHistory: PricePoint[];
   decodedQuery: string;
+  telegram_id?: string;
 }
 
-export default function Client({ product, priceHistory, decodedQuery }: ProductPageClientProps) {
+export default function Client({ product, priceHistory, decodedQuery, telegram_id }: ProductPageClientProps) {
   const router = useRouter();
   const [swipeVisible, setSwipeVisible] = useState(false);
   const [swipeProgress, setSwipeProgress] = useState(0);
+  const { checkFavorite, toggleFavorite } = useFavorites();
+  const { isAuthenticated, isLoading: authLoading } = useAuth(telegram_id);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavoriteLoading, setIsFavoriteLoading] = useState(true);
 
   const THRESHOLD = 80;     // порог для возврата (px)
   const ANGLE_GUARD = 10;   // насколько горизонталь должна превосходить вертикаль (px)
+
+  // Проверяем статус избранного при загрузке
+  useEffect(() => {
+    console.log('🔍 ProductPage: Проверяем статус избранного', {
+      decodedQuery,
+      isAuthenticated,
+      authLoading
+    });
+    
+    if (decodedQuery && isAuthenticated) {
+      console.log('✅ ProductPage: Пользователь авторизован, проверяем избранное');
+      checkFavorite(decodedQuery).then((favorite) => {
+        console.log('❤️ ProductPage: Статус избранного:', favorite);
+        setIsFavorite(favorite);
+        setIsFavoriteLoading(false);
+      });
+    } else if (!isAuthenticated && !authLoading) {
+      console.log('❌ ProductPage: Пользователь не авторизован');
+      setIsFavoriteLoading(false);
+    }
+  }, [decodedQuery, isAuthenticated, authLoading, checkFavorite]);
+
+  // Обработчик переключения избранного
+  const handleFavoriteToggle = async () => {
+    console.log('🖱️ ProductPage: Клик по сердечку', {
+      decodedQuery,
+      isAuthenticated,
+      isFavorite
+    });
+    
+    if (!decodedQuery || !isAuthenticated) {
+      console.log('❌ ProductPage: Нельзя добавить в избранное - не авторизован или нет query');
+      return;
+    }
+    
+    setIsFavoriteLoading(true);
+    try {
+      console.log('🔄 ProductPage: Вызываем toggleFavorite для query:', decodedQuery);
+      const success = await toggleFavorite(decodedQuery);
+      console.log('🔄 ProductPage: Результат переключения избранного:', success);
+      if (success) {
+        setIsFavorite(!isFavorite);
+        console.log('✅ ProductPage: Избранное успешно переключено, новый статус:', !isFavorite);
+      } else {
+        console.log('❌ ProductPage: Не удалось переключить избранное');
+      }
+    } catch (error) {
+      console.error('❌ ProductPage: Ошибка переключения избранного:', error);
+    } finally {
+      setIsFavoriteLoading(false);
+    }
+  };
 
   const handlers = useSwipeable({
     onSwiping: (e) => {
@@ -77,19 +137,7 @@ export default function Client({ product, priceHistory, decodedQuery }: ProductP
   });
 
   return (
-    <div className="productPage" {...handlers}>
-      {swipeVisible && (
-        <div
-          className="productPage__swipeIndicator"
-          style={{
-            opacity: 0.2 + 0.8 * swipeProgress,
-            transform: `translateY(-50%) scale(${0.9 + 0.2 * swipeProgress})`,
-          }}
-        >
-          <ArrowLeftIcon size={22} />
-        </div>
-      )}
-
+    <>
       <div className="productPage__topBar">
         <div className="productPage__topBarLeft">
           <BackButton className="productPage__topBarButton" ariaLabel="Назад">
@@ -97,8 +145,17 @@ export default function Client({ product, priceHistory, decodedQuery }: ProductP
           </BackButton>
         </div>
         <div className="productPage__topBarRight">
-          <button className="productPage__topBarButton" aria-label="Избранное">
-            <HeartIcon size={26} />
+          <button 
+            className="productPage__topBarButton" 
+            aria-label={isFavorite ? "Убрать из избранного" : "Добавить в избранное"}
+            onClick={handleFavoriteToggle}
+            disabled={isFavoriteLoading || !isAuthenticated}
+            title={!isAuthenticated ? "Войдите через Telegram для добавления в избранное" : ""}
+          >
+            <HeartIcon 
+              size={26} 
+              className={`${isFavorite ? 'heart-filled' : ''} ${isFavoriteLoading ? 'heart-loading' : ''}`}
+            />
           </button>
           <button className="productPage__topBarButton" aria-label="Поделиться">
             <ShareIcon size={26} />
@@ -106,17 +163,33 @@ export default function Client({ product, priceHistory, decodedQuery }: ProductP
         </div>
       </div>
 
-      <div className="productPage__content">
-        {product ? (
-          <InlineProductCard product={product} priceHistory={priceHistory} />
-        ) : (
-          <div className="productPage__loading">
-            <p>Товар не найден</p>
-            <p>Query: {decodedQuery}</p>
+      <div className="productPage" {...handlers}>
+        {swipeVisible && (
+          <div
+            className="productPage__swipeIndicator"
+            style={{
+              opacity: 0.2 + 0.8 * swipeProgress,
+              transform: `translateY(-50%) scale(${0.9 + 0.2 * swipeProgress})`,
+            }}
+          >
+            <ArrowLeftIcon size={22} />
           </div>
         )}
+
+        <div className="productPage__content">
+          {product ? (
+            <InlineProductCard product={product} priceHistory={priceHistory} />
+          ) : (
+            <div className="productPage__loading">
+              <p>Товар не найден</p>
+              <p>Query: {decodedQuery}</p>
+            </div>
+          )}
+        </div>
+        
+        <UserNav />
       </div>
-    </div>
+    </>
   );
 }
 
@@ -262,10 +335,8 @@ function InlineProductCard({
       </div>
 
       <div className="productCard__priceHistory">
-    <PriceHistory priceHistory={priceHistory} query={product?.query} source={product?.source} />
-</div>
+        <PriceHistory priceHistory={priceHistory} query={product?.query} source={product?.source} />
+      </div>
     </div>
   );
 }
-
-

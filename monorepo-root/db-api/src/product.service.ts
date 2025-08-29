@@ -383,7 +383,7 @@ export class ProductService {
   /**
    * Получает популярные запросы с ценой репрезентативного товара и процентом изменения
    */
-  async getPopularQueries(): Promise<
+  async getPopularQueries(telegram_id?: string): Promise<
     Array<{
       query: string;
       minPrice: number;
@@ -391,9 +391,10 @@ export class ProductService {
       priceChangePercent: number;
       image_url: string;
       category?: string;
+      isFavorite: boolean;
     }>
   > {
-    console.log('[ProductService] getPopularQueries called');
+    console.log('[ProductService] getPopularQueries called with telegram_id:', telegram_id);
 
     // Получаем все уникальные запросы с фильтрацией по цене и непустому запросу
     const queries = await this.prisma.product.findMany({
@@ -416,6 +417,27 @@ export class ProductService {
       queries.length,
       queries.map((q) => q.query),
     );
+
+    // Если передан telegram_id, получаем избранные запросы пользователя
+    let userFavorites: string[] = [];
+    if (telegram_id) {
+      try {
+        const user = await this.prisma.telegramUser.findUnique({
+          where: { telegram_id: telegram_id },
+        });
+        
+        if (user) {
+          const favorites = await this.prisma.favorite.findMany({
+            where: { telegram_user_id: user.id },
+            select: { query: true },
+          });
+          userFavorites = favorites.map(f => f.query);
+          console.log('[ProductService] User favorites:', userFavorites);
+        }
+      } catch (error) {
+        console.error('[ProductService] Error getting user favorites:', error);
+      }
+    }
 
     // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
     const result = await Promise.all(
@@ -467,6 +489,7 @@ export class ProductService {
           priceChangePercent: number;
           image_url: string;
           category?: string;
+          isFavorite: boolean;
         } = {
           query: query,
           minPrice: latestProduct.price,
@@ -475,32 +498,15 @@ export class ProductService {
           image_url: latestProduct.image_url || '',
           category: (latestProduct as unknown as { category?: string })
             .category,
+          isFavorite: userFavorites.includes(query),
         };
 
-        console.log('[ProductService] Created item for query:', query, item);
         return item;
       }),
     );
 
     // Фильтруем null значения и возвращаем результат
-    const filteredResult = result.filter(
-      (
-        item,
-      ): item is {
-        query: string;
-        minPrice: number;
-        id: string;
-        priceChangePercent: number;
-        image_url: string;
-      } => item !== null,
-    );
-
-    console.log(
-      '[ProductService] Final result:',
-      filteredResult.length,
-      'items',
-    );
-    return filteredResult;
+    return result.filter((item): item is NonNullable<typeof item> => item !== null);
   }
 
   /**
