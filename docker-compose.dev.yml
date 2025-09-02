@@ -1,0 +1,212 @@
+version: '3.8'
+
+services:
+  # ===============================================
+  # DEV MODE SERVICES (с hot reload)
+  # ===============================================
+
+  # Frontend (Next.js) - DEV MODE
+  marketvision-api:
+    build:
+      context: ./monorepo-root/marketvision-api
+      target: development
+    container_name: marketvision-frontend-dev
+    ports:
+      - "3006:3006"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://marketvision:password@postgres:5432/marketvision
+    volumes:
+      - ./monorepo-root/marketvision-api/src:/usr/src/app/src
+      - ./monorepo-root/marketvision-api/public:/usr/src/app/public
+      - ./monorepo-root/marketvision-api/package.json:/usr/src/app/package.json
+      - ./monorepo-root/marketvision-api/package-lock.json:/usr/src/app/package-lock.json
+      - ./monorepo-root/marketvision-api/tsconfig.json:/usr/src/app/tsconfig.json
+      - ./monorepo-root/marketvision-api/next.config.ts:/usr/src/app/next.config.ts
+      - ./monorepo-root/marketvision-api/logs:/usr/src/app/logs
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    depends_on:
+      - postgres
+      - db-api
+    command: npm run dev
+
+    # Product Filter Service - DEV MODE
+  product-filter-service:
+    build:
+      context: ./monorepo-root/product-filter-service
+      target: development
+    container_name: marketvision-product-filter-dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - WB_API_URL=marketvision-wb-parser:3000
+      - OZON_API_URL=marketvision-ozon-parser:3002
+      - DB_API_URL=marketvision-database-api:50051
+      - GRPC_USE_SSL=false
+      - OZON_API_TOKEN=marketvision_secret_token_2024
+      - WB_API_TOKEN=marketvision_secret_token_2024
+      - DB_API_TOKEN=marketvision_secret_token_2024
+      - PORT=3001
+      - LOG_LEVEL=debug
+    volumes:
+      - ./monorepo-root/product-filter-service/src:/usr/src/app/src
+      - ./monorepo-root/product-filter-service/package.json:/usr/src/app/package.json
+      - ./monorepo-root/product-filter-service/package-lock.json:/usr/src/app/package-lock.json
+      - ./monorepo-root/product-filter-service/tsconfig.json:/usr/src/app/tsconfig.json
+      - ./monorepo-root/product-filter-service/nest-cli.json:/usr/src/app/nest-cli.json
+      - ./monorepo-root/product-filter-service/proto:/usr/src/app/proto
+      - ./monorepo-root/product-filter-service/logs:/usr/src/app/logs
+      - /usr/src/app/node_modules
+    depends_on:
+      - db-api
+      - marketvision-wb-parser
+      - marketvision-ozon-parser
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    command: npm run start:dev
+
+  # Telegram Bot - DEV MODE
+  bot:
+    build:
+      context: ./monorepo-root/bot
+      target: development
+    container_name: marketvision-telegram-bot-dev
+    environment:
+      - NODE_ENV=development
+      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+    volumes:
+      - ./monorepo-root/bot/src:/usr/src/app/src
+      - ./monorepo-root/bot/package.json:/usr/src/app/package.json
+      - ./monorepo-root/bot/package-lock.json:/usr/src/app/package-lock.json
+      - /usr/src/app/node_modules
+    depends_on:
+      - db-api
+      - product-filter-service
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    command: npm run dev
+
+  # ===============================================
+  # PRODUCTION MODE SERVICES (стабильные)
+  # ===============================================
+
+  # Database API - PRODUCTION
+  db-api:
+    build: ./monorepo-root/db-api
+    container_name: marketvision-database-api
+    ports:
+      - "3004:3004"  # REST API
+      - "50051:50051"  # gRPC
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://marketvision:password@postgres:5432/marketvision
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # WB Parser - PRODUCTION
+  marketvision-wb-parser:
+    build: ./monorepo-root/wb-api
+    container_name: marketvision-wb-parser
+    ports:
+      - "3000:3000"  # gRPC
+      - "3003:3003"  # HTTP health check
+    environment:
+      - NODE_ENV=production
+      - WB_API_TOKEN=marketvision_secret_token_2024
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Ozon Parser - PRODUCTION
+  marketvision-ozon-parser:
+    build: ./monorepo-root/ozon-api
+    container_name: marketvision-ozon-parser
+    ports:
+      - "3002:3002"  # gRPC
+      - "3005:3005"  # HTTP health check
+    environment:
+      - NODE_ENV=production
+      - DISPLAY=:99
+      - CHROME_BIN=/usr/bin/google-chrome
+      - CHROMEDRIVER_PATH=/usr/local/bin/chromedriver
+      - OZON_API_TOKEN=marketvision_secret_token_2024
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    shm_size: '2gb'
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PostgreSQL - PRODUCTION
+  postgres:
+    image: postgres:15-alpine
+    container_name: marketvision-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: marketvision
+      POSTGRES_USER: marketvision
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U marketvision"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Nginx Proxy - DEV
+  nginx:
+    image: nginx:alpine
+    container_name: marketvision-nginx-dev
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d/default.dev.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - marketvision-api
+      - db-api
+      - product-filter-service
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+
+volumes:
+  postgres_data:
+
+networks:
+  marketvision-net:
+    driver: bridge

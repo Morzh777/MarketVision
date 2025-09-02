@@ -3,13 +3,14 @@ import { OzonApiClient } from '../grpc-clients/ozon-api.client';
 import { WbApiClient } from '../grpc-clients/wb-api.client';
 import { ProductRequestDto } from '../dto/product-request.dto';
 import { fileLogger } from '../utils/logger';
-import { CategoryConfigService } from '../config/categories.config';
+import { DbConfigService } from './db-config.service';
 
 @Injectable()
 export class ProductAggregatorService {
   constructor(
     private readonly ozonApiClient: OzonApiClient,
     private readonly wbApiClient: WbApiClient,
+    private readonly dbConfigService: DbConfigService,
   ) {}
 
   /**
@@ -50,21 +51,31 @@ export class ProductAggregatorService {
       let success = false;
       for (let attempt = 1; attempt <= 3; attempt++) {
         try {
-          // Для WB подставляем правильный xsubject
+          // Получаем конфигурацию из БД
           let category = request.category;
           let extra: any = {};
           if (source === 'wb') {
-            category = CategoryConfigService.getWbCategory(request.category) || request.category;
-            extra.categoryKey = request.category; // Теперь передаём categoryKey для WB API
-          }
-          if (source === 'ozon') {
-            category = CategoryConfigService.getOzonCategory(request.category) || request.category;
+            const wbCategoryId = await this.dbConfigService.getWbCategoryId(request.category);
+            category = wbCategoryId || request.category;
             extra.categoryKey = request.category;
-            const platformId = CategoryConfigService.getPlatformForQuery(query);
+            const platformId = await this.dbConfigService.getPlatformIdForQuery(request.category, query, 'wb');
             if (platformId) {
               extra.platform_id = platformId;
             }
-            const exactmodels = CategoryConfigService.getExactModelsForQuery(query);
+            const exactmodels = await this.dbConfigService.getExactModelsForQuery(request.category, query, 'wb');
+            if (exactmodels) {
+              extra.exactmodels = exactmodels;
+            }
+          }
+          if (source === 'ozon') {
+            const ozonCategoryId = await this.dbConfigService.getOzonCategoryId(request.category);
+            category = ozonCategoryId || request.category;
+            extra.categoryKey = request.category;
+            const platformId = await this.dbConfigService.getPlatformIdForQuery(request.category, query, 'ozon');
+            if (platformId) {
+              extra.platform_id = platformId;
+            }
+            const exactmodels = await this.dbConfigService.getExactModelsForQuery(request.category, query, 'ozon');
             if (exactmodels) {
               extra.exactmodels = exactmodels;
             }

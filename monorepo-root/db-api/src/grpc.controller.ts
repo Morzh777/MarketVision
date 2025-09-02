@@ -1,11 +1,15 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { ProductService } from './product.service';
+import { CategoriesService } from './categories.service';
 import type { ProductForService, MarketStats } from './types/product.types';
 
 @Controller()
 export class GrpcController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(
+    private readonly productService: ProductService,
+    private readonly categoriesService: CategoriesService,
+  ) {}
 
   private toStr(value: unknown): string {
     if (typeof value === 'string') return value;
@@ -110,5 +114,60 @@ export class GrpcController {
     }
 
     return { inserted, history: inserted };
+  }
+
+  @GrpcMethod('RawProductService', 'GetCategoryConfig')
+  async getCategoryConfig(data: { categoryKey: string }) {
+    console.log('[gRPC] GetCategoryConfig called with:', data);
+    const category = await this.categoriesService.getCategoryByKey(
+      data.categoryKey,
+    );
+    console.log('[gRPC] Category from DB:', category);
+    const result = {
+      category: category
+        ? {
+            key: category.key,
+            display: category.display,
+            ozon_id: category.ozon_id || '',
+            wb_id: category.wb_id || '',
+          }
+        : null,
+    };
+    console.log('[gRPC] Returning:', result);
+    return result;
+  }
+
+  @GrpcMethod('RawProductService', 'GetQueriesForCategory')
+  async getQueriesForCategory(data: { categoryKey: string }) {
+    console.log('[gRPC] GetQueriesForCategory called with:', data);
+    const queries = await this.categoriesService.getQueriesForCategory(
+      data.categoryKey,
+    );
+    console.log('[gRPC] Queries from service:', queries);
+    const result = {
+      queries: queries.map((q: any) => ({
+        query: q.query,
+        platform_id: q.platform_id || '',
+        exactmodels: q.exactmodels || '',
+        platform: q.platform,
+      })),
+    };
+    console.log('[gRPC] Returning queries:', result);
+    return result;
+  }
+
+  @GrpcMethod('RawProductService', 'GetAllCategories')
+  async getAllCategories() {
+    console.log('[gRPC] GetAllCategories called');
+    const categories = await this.categoriesService.listCategories();
+    console.log('[gRPC] Categories from DB:', categories.length);
+    return {
+      categories: categories.map((cat: any) => ({
+        key: cat.key,
+        display: cat.display,
+        ozon_id: cat.ozon_id || '',
+        wb_id: cat.wb_id || '',
+      })),
+    };
   }
 }

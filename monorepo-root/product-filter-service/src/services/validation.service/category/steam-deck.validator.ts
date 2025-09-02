@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
+
 
 @Injectable()
 export class SteamDeckValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'steam_deck';
+
   private readonly STEAM_DECK_RULES: ValidationRules = {
 
     accessoryWords: [
@@ -22,11 +24,11 @@ export class SteamDeckValidator extends ProductValidatorBase {
     ]
   };
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.STEAM_DECK ? this.STEAM_DECK_RULES : null;
+    return category === this.CATEGORY_KEY ? this.STEAM_DECK_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.STEAM_DECK;
+    return this.CATEGORY_KEY;
   }
 
   protected getOtherModels(): string[] {

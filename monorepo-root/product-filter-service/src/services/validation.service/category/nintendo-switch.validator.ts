@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
+
 
 @Injectable()
 export class NintendoSwitchValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'nintendo_switch';
+
   private readonly NINTENDO_SWITCH_RULES: ValidationRules = {
     accessoryWords: [
       'контроллер', 'джойстик', 'кабель', 'шнур', 'зарядка', 'подставка', 'чехол',
@@ -16,11 +18,11 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.NINTENDO_SWITCH ? this.NINTENDO_SWITCH_RULES : null;
+    return category === this.CATEGORY_KEY ? this.NINTENDO_SWITCH_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.NINTENDO_SWITCH;
+    return this.CATEGORY_KEY;
   }
 
   protected getOtherModels(): string[] {

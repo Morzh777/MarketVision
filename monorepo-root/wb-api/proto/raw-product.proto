@@ -5,6 +5,8 @@ package raw_product;
 service RawProductService {
   rpc GetRawProducts(GetRawProductsRequest) returns (GetRawProductsResponse);
   rpc BatchCreateProducts (BatchCreateProductsRequest) returns (BatchCreateProductsResponse);
+  rpc GetCategoryConfig(GetCategoryConfigRequest) returns (GetCategoryConfigResponse);
+  rpc GetQueriesForCategory(GetQueriesForCategoryRequest) returns (GetQueriesForCategoryResponse);
 }
 
 message GetRawProductsRequest {
@@ -53,4 +55,34 @@ message BatchCreateProductsRequest {
 
 message BatchCreateProductsResponse {
   int32 inserted = 1;
+}
+
+message GetCategoryConfigRequest {
+  string categoryKey = 1;
+}
+
+message Category {
+  string key = 1;
+  string display = 2;
+  string ozon_id = 3;
+  string wb_id = 4;
+}
+
+message GetCategoryConfigResponse {
+  Category category = 1;
+}
+
+message GetQueriesForCategoryRequest {
+  string categoryKey = 1;
+}
+
+message QueryConfig {
+  string query = 1;
+  string platform_id = 2;
+  string exactmodels = 3;
+  string platform = 4;
+}
+
+message GetQueriesForCategoryResponse {
+  repeated QueryConfig queries = 1;
 } 

@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
+
 
 @Injectable()
 export class PlaystationValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'playstation';
+
   private readonly PLAYSTATION_RULES: ValidationRules = {
     accessoryWords: [
       'контроллер', 'джойстик', 'dualsense', 'dualshock',
@@ -17,11 +19,11 @@ export class PlaystationValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.PLAYSTATION ? this.PLAYSTATION_RULES : null;
+    return category === this.CATEGORY_KEY ? this.PLAYSTATION_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.PLAYSTATION;
+    return this.CATEGORY_KEY;
   }
 
   protected getOtherModels(): string[] {

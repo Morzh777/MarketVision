@@ -74,6 +74,23 @@ export const API_ROUTES: Record<string, ApiRouteConfig> = {
       query: ['page', 'limit']
     },
     errorMessage: 'Failed to fetch products with pagination'
+  },
+  
+  CATEGORIES: {
+    path: '/api/categories',
+    method: 'GET',
+    description: 'Получение всех категорий',
+    errorMessage: 'Failed to fetch categories'
+  },
+  
+  CATEGORIES_QUERIES: {
+    path: '/api/categories/queries',
+    method: 'GET',
+    description: 'Получение запросов для категории',
+    parameters: {
+      query: ['categoryKey']
+    },
+    errorMessage: 'Failed to fetch category queries'
   }
 };
 

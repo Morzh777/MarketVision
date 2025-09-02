@@ -3,6 +3,7 @@
 @import '../components/Sidebar/styles';
 @import '../components/PriceHistory/styles';
 @import '../components/UserNav/styles';
+@import '../components/admin/styles';
 
 // CSS переменные для темизации
 :root {
@@ -43,9 +44,7 @@
   --color-green-bg: rgba(34, 197, 94, 0.1);
   --color-green-border: rgba(34, 197, 94, 0.2);
   
-  // Градиенты
-  --color-gradient-fade: rgba(24, 26, 32, 0.9);
-  --color-gradient-fade-transparent: rgba(24, 26, 32, 0);
+
   
   // Анимации
   --transition-default: all 0.3s ease;
@@ -96,8 +95,7 @@
     --color-border: #E5E7EB;
     --color-border-card: #F3F4F6;
     
-    --color-gradient-fade: rgba(255, 255, 255, 0.9);
-    --color-gradient-fade-transparent: rgba(255, 255, 255, 0);
+
     
     // Цвета фонов для светлой темы
     --color-card-bg: #FFFFFF;
@@ -216,7 +214,7 @@ img {
 // Глобальные стили для страниц авторизации
 .auth-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,5 +1,4 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { CategoryConfigService } from '../../config/categories.config';
 
 export interface ValidationResult {
   isValid: boolean;
@@ -25,7 +24,7 @@ export interface StrictTokenMatchOptions {
   disallowNextLetter?: boolean;
 }
 
-export type ProductCategory = string; // Динамически берется из CategoryConfigService.getAllCategories()
+export type ProductCategory = string;
 
 @Injectable()
 export abstract class ProductValidatorBase {

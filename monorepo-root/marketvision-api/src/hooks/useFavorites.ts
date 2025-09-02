@@ -18,7 +18,6 @@ export function useFavorites() {
   // Получение избранного
   const getFavorites = async (): Promise<void> => {
     if (!isAuthenticated || !user?.telegram_id) {
-      console.log('❌ Пользователь не авторизован для получения избранного')
       return
     }
 
@@ -33,8 +32,8 @@ export function useFavorites() {
           setFavorites(data.favorites)
         }
       }
-    } catch (error) {
-      console.error('Ошибка получения избранного:', error)
+    } catch {
+      // Игнорируем ошибки
     } finally {
       setIsLoading(false)
     }
@@ -43,22 +42,12 @@ export function useFavorites() {
   // Добавление в избранное
   const addToFavorites = async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
-      console.log('❌ useFavorites: Пользователь не авторизован для добавления в избранное', {
-        isAuthenticated,
-        user,
-        telegram_id: user?.telegram_id
-      })
       return false
     }
 
     try {
       // Нормализуем query для избранного
       const normalizedQuery = normalizeQueryForFavorites(query)
-      console.log('🔍 useFavorites: Нормализация query:', { 
-        original: query, 
-        normalized: normalizedQuery,
-        telegram_id: user.telegram_id
-      })
 
       const response = await fetch('/api/auth/favorites', {
         method: 'POST',
@@ -77,8 +66,7 @@ export function useFavorites() {
         }
       }
       return false
-    } catch (error) {
-      console.error('Ошибка добавления в избранное:', error)
+    } catch {
       return false
     }
   }
@@ -86,14 +74,12 @@ export function useFavorites() {
   // Удаление из избранного
   const removeFromFavorites = async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
-      console.log('❌ Пользователь не авторизован для удаления из избранного')
       return false
     }
 
     try {
       // Нормализуем query для избранного
       const normalizedQuery = normalizeQueryForFavorites(query)
-      console.log('🔍 useFavorites: Нормализация query для удаления:', { original: query, normalized: normalizedQuery })
 
       const response = await fetch('/api/auth/favorites', {
         method: 'DELETE',
@@ -112,8 +98,7 @@ export function useFavorites() {
         }
       }
       return false
-    } catch (error) {
-      console.error('Ошибка удаления из избранного:', error)
+    } catch {
       return false
     }
   }
@@ -121,22 +106,12 @@ export function useFavorites() {
   // Проверка статуса избранного
   const checkFavorite = async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
-      console.log('❌ useFavorites: Пользователь не авторизован для проверки избранного', {
-        isAuthenticated,
-        user,
-        telegram_id: user?.telegram_id
-      })
       return false
     }
 
     try {
       // Нормализуем query для избранного
       const normalizedQuery = normalizeQueryForFavorites(query)
-      console.log('🔍 useFavorites: Нормализация query для проверки:', { 
-        original: query, 
-        normalized: normalizedQuery,
-        telegram_id: user.telegram_id
-      })
 
       // Используем path-параметры согласно маршруту Next API
       const response = await fetch(`/api/auth/favorites/${user.telegram_id}/check/${encodeURIComponent(normalizedQuery)}`)
@@ -146,8 +121,7 @@ export function useFavorites() {
         return data.success && data.isFavorite
       }
       return false
-    } catch (error) {
-      console.error('Ошибка проверки избранного:', error)
+    } catch {
       return false
     }
   }

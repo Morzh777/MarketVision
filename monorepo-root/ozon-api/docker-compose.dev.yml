@@ -1,19 +1,29 @@
 version: '3.8'
 
 services:
-  ozon-api:
-    build: .
-    container_name: marketvision-ozon-parser
+  ozon-api-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: marketvision-ozon-parser-dev
     ports:
       - "3002:3002"  # gRPC
       - "3005:3005"  # HTTP health check
     environment:
+      - NODE_ENV=development
       - DISPLAY=:99
       - CHROME_BIN=/usr/bin/google-chrome
       - CHROMEDRIVER_PATH=/usr/local/bin/chromedriver
-      - OZON_API_TOKEN=${OZON_API_TOKEN}
-    env_file:
-      - .env
+      - OZON_API_TOKEN=marketvision_secret_token_2024
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    shm_size: '2gb'
+    command: python src/main.py
+    networks:
+      marketvision-net:
+        aliases:
+          - marketvision-ozon-parser
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3005/health"]
@@ -21,11 +31,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    shm_size: '2gb'
-    networks:
-      - marketvision-net
 
 networks:
   marketvision-net:

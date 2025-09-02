@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
 
 @Injectable()
 export class MotherboardsValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'motherboards';
+
   private readonly MOTHERBOARDS_RULES: ValidationRules = {
     accessoryWords: [
       'кабель', 'шлейф', 'термопаста', 'винт', 'шуруп', 'крепление', 'подставка',
@@ -15,11 +16,11 @@ export class MotherboardsValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.MOTHERBOARDS ? this.MOTHERBOARDS_RULES : null;
+    return category === this.CATEGORY_KEY ? this.MOTHERBOARDS_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.MOTHERBOARDS;
+    return this.CATEGORY_KEY;
   }
 
   protected getOtherModels(): string[] {

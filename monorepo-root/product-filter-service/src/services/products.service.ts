@@ -5,9 +5,8 @@ import { ValidationFactoryService } from './validation.service/validation-factor
 import { ProductGroupingService } from './product-grouping.service';
 import { ProductNormalizerService } from './product-normalizer.service';
 import { ProductResponse } from '../types/product.types';
-import { DbApiClient } from '../grpc-clients/db-api.client';
+import { DbApiHttpClient } from '../http-clients/db-api.client';
 import { PhotoService } from './photo.service';
-import { CategoryConfigService } from '../config/categories.config';
 
 
 @Injectable()
@@ -19,7 +18,7 @@ export class ProductsService {
     private readonly validationFactory: ValidationFactoryService,
     private readonly grouper: ProductGroupingService,
     private readonly normalizer: ProductNormalizerService,
-    private readonly dbApiClient: DbApiClient,
+    private readonly dbApiClient: DbApiHttpClient,
     private readonly photoService: PhotoService,
   ) {}
 
@@ -82,10 +81,8 @@ export class ProductsService {
     }
     t = Date.now();
 
-    // Подменяем category на агрегированное человеко‑читаемое название (не ломаем валидаторы: они работают по исходному ключу)
+    // Оставляем category как есть (из DB API)
     for (const product of groupedProducts) {
-      const aggregated = CategoryConfigService.getSuperCategoryDisplay(request.category);
-      product.category = aggregated || CategoryConfigService.getCategoryDisplay(request.category) || request.category;
       if (product.source === 'wb') {
         product.image_url = await this.photoService.findProductPhoto(product.id) || product.image_url;
       }
@@ -107,9 +104,7 @@ export class ProductsService {
         // Находим самый дешевый продукт для этого query
         const cheapest = products.reduce((min, p) => (p.price < min.price ? p : min), products[0]);
         const stats = cheapest.marketStats;
-        const aggregatedCheapest = CategoryConfigService.getSuperCategoryDisplay(cheapest.category)
-          || CategoryConfigService.getCategoryDisplay(cheapest.category)
-          || cheapest.category;
+        const aggregatedCheapest = cheapest.category; // Используем category как есть из DB API
         const market_stats = stats ? {
           min: stats.min,
           max: stats.max,
@@ -123,8 +118,8 @@ export class ProductsService {
           total_count: products.length,
           product_id: cheapest.id,
           created_at: new Date().toISOString(),
-          // Новое поле: агрегированная категория для хранения (например, "Игровые приставки")
-          super_category: CategoryConfigService.getSuperCategoryDisplay(cheapest.category)
+          // Новое поле: агрегированная категория для хранения
+          super_category: null // Пока убираем, можно добавить позже через DB API
         } : undefined;
         const cheapestForSave = {
           ...cheapest,

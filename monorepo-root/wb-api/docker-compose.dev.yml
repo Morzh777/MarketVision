@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  wb-api-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder  # Используем builder stage для dev
+    container_name: marketvision-wb-parser-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - GRPC_PORT=3000
+      - WB_API_TOKEN=marketvision_secret_token_2024
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start:dev
+    networks:
+      marketvision-net:
+        aliases:
+          - marketvision-wb-parser
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  marketvision-net:
+    external: true

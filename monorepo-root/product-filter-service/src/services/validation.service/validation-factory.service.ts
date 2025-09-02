@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ProductCategory } from './product-validator.base';
-import { CategoryConfigService } from '../../config/categories.config';
+import { DbApiHttpClient } from '../../http-clients/db-api.client';
 import { MotherboardsValidator } from './category/motherboards.validator';
 import { ProcessorsValidator } from './category/processors.validator';
 import { VideocardsValidator } from './category/videocards.validator';
@@ -19,11 +19,12 @@ export class ValidationFactoryService {
     private readonly nintendoSwitchValidator: NintendoSwitchValidator,
     private readonly steamDeckValidator: SteamDeckValidator,
     private readonly iphoneValidator: IphoneValidator,
+    private readonly dbApiClient: DbApiHttpClient,
   ) {}
 
-  getValidator(category: ProductCategory): ProductValidatorBase {
-    // Проверяем, что категория существует в конфигурации
-    const validCategories = CategoryConfigService.getAllCategories();
+  async getValidator(category: ProductCategory): Promise<ProductValidatorBase> {
+    // Проверяем, что категория существует в DB API
+    const validCategories = await this.getAllCategories();
     if (!validCategories.includes(category)) {
       throw new Error(`Неизвестная категория: ${category}. Допустимые: ${validCategories.join(', ')}`);
     }
@@ -49,26 +50,37 @@ export class ValidationFactoryService {
   }
 
   async validateProducts(products: any[], category: ProductCategory) {
-    const validator = this.getValidator(category);
+    const validator = await this.getValidator(category);
     return validator.groupAndValidateByQuery(products, category);
   }
 
   async validateSingleProduct(query: string, productName: string, category: ProductCategory) {
-    const validator = this.getValidator(category);
+    const validator = await this.getValidator(category);
     return validator.validateSingleProduct(query, productName, category);
   }
 
   /**
-   * Получить все доступные категории из конфигурации
+   * Получить все доступные категории из DB API
    */
-  getAllCategories(): string[] {
-    return CategoryConfigService.getAllCategories();
+  async getAllCategories(): Promise<string[]> {
+    try {
+      // Получаем все категории из DB API
+      const categoriesResponse = await this.dbApiClient.getAllCategories();
+      // DB API возвращает массив категорий напрямую
+      return Array.isArray(categoriesResponse) 
+        ? categoriesResponse.map(cat => cat.key) 
+        : categoriesResponse.categories?.map(cat => cat.key) || [];
+    } catch (error) {
+      console.error('Ошибка получения категорий из DB API:', error);
+      return [];
+    }
   }
 
   /**
-   * Проверить, существует ли категория
+   * Проверить, существует ли категория в DB API
    */
-  hasCategory(category: string): boolean {
-    return CategoryConfigService.hasCategory(category);
+  async hasCategory(category: string): Promise<boolean> {
+    const categories = await this.getAllCategories();
+    return categories.includes(category);
   }
 } 

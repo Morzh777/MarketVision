@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
+import { DbApiHttpClient } from '../../http-clients/db-api.client';
 import { ProductValidatorBase } from './product-validator.base';
 import { MotherboardsValidator } from './category/motherboards.validator';
 import { ProcessorsValidator } from './category/processors.validator';
@@ -9,6 +10,7 @@ import { SteamDeckValidator } from './category/steam-deck.validator';
 import { IphoneValidator } from './category/iphone.validator';
 import { ValidationFactoryService } from './validation-factory.service';
 
+@Global()
 @Module({
   providers: [
     MotherboardsValidator,
@@ -18,6 +20,7 @@ import { ValidationFactoryService } from './validation-factory.service';
     NintendoSwitchValidator,
     SteamDeckValidator,
     IphoneValidator,
+    DbApiHttpClient,
     ValidationFactoryService,
   ],
   exports: [

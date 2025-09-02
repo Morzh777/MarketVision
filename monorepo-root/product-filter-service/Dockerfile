@@ -12,6 +12,16 @@ RUN npm install
 # Копируем исходный код
 COPY . .
 
+# Development target
+FROM node:18-alpine AS development
+RUN apk add --no-cache curl
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3001
+CMD ["npm", "run", "start:dev"]
+
 # Собираем TypeScript проект
 RUN npm run build
 

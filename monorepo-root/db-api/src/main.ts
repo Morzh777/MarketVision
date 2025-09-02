@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 import { CORS_ORIGINS, GRPC_BIND_URL, REST_PORT } from './config/settings';
+import { Request, Response, NextFunction } from 'express';
 
 async function bootstrap() {
   // Создаем основное приложение для REST API
@@ -14,6 +15,14 @@ async function bootstrap() {
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  });
+
+  // Добавляем логирование всех запросов
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    console.log('Query params:', req.query);
+    console.log('Body:', req.body);
+    next();
   });
 
   // Создаем gRPC микросервис
@@ -45,4 +54,4 @@ async function bootstrap() {
   console.log('- gRPC: ' + grpcUrl);
 }
 
-bootstrap();
+void bootstrap();

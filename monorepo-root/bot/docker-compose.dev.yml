@@ -10,6 +10,8 @@ services:
       - NODE_ENV=development
       - NODE_TLS_REJECT_UNAUTHORIZED=0
       - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+    env_file:
+      - .env
     volumes:
       - ./src:/usr/src/app/src
       - ./package.json:/usr/src/app/package.json

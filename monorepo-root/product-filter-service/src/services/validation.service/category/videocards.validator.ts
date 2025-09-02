@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
 
 @Injectable()
 export class VideocardsValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'videocards';
+
   private readonly VIDEOCARDS_RULES: ValidationRules = {
-    
+
     accessoryWords: [
       'кабель', 'шлейф', 'термопаста', 'винт', 'шуруп', 'крепление', 'подставка',
       'кулер', 'радиатор', 'вентилятор', 'блок питания', 'память', 'ssd', 'hdd',
@@ -13,11 +14,11 @@ export class VideocardsValidator extends ProductValidatorBase {
     ]
   };
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.VIDEOCARDS ? this.VIDEOCARDS_RULES : null;
+    return category === this.CATEGORY_KEY ? this.VIDEOCARDS_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.VIDEOCARDS;
+    return this.CATEGORY_KEY;
   }
 
 

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  product-filter-dev:
+    build:
+      context: .
+      target: development
+    container_name: marketvision-product-filter-dev
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - WB_API_URL=marketvision-wb-parser:3000
+      - OZON_API_URL=marketvision-ozon-parser:3002
+      - DB_API_URL=marketvision-database-api-dev:50051
+      - GRPC_USE_SSL=false
+      - OZON_API_TOKEN=marketvision_secret_token_2024
+      - WB_API_TOKEN=marketvision_secret_token_2024
+      - DB_API_TOKEN=marketvision_secret_token_2024
+      - PORT=3001
+      - LOG_LEVEL=debug
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./package.json:/usr/src/app/package.json
+      - ./package-lock.json:/usr/src/app/package-lock.json
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
+      - ./logs:/usr/src/app/logs
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    command: npm run start:dev
+    networks:
+      marketvision-net:
+        aliases:
+          - marketvision-product-filter
+
+networks:
+  marketvision-net:
+    external: true

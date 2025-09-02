@@ -9,19 +9,19 @@ export const SERVICE_PORT = 3006;
 // API configuration
 export const API_CONFIG = {
   // Base URL for external API calls (used in routes.config.ts)
-  EXTERNAL_API_BASE_URL: 'http://marketvision-nginx-proxy:8080',
-  
+  EXTERNAL_API_BASE_URL: 'http://marketvision-nginx-dev:80',
+
   // Local API base URL for internal calls
   LOCAL_API_BASE_URL: '/api',
-  
+
   // Product filter service URL
-  PRODUCT_FILTER_URL: 'http://marketvision-product-aggregator:3001',
-  
+  PRODUCT_FILTER_URL: 'http://marketvision-product-filter-dev:3001',
+
   // DB API REST URL (internal Docker network)
   DB_API_URL: 'http://marketvision-database-api:3004',
-  
-  // Public API URL for external access
-  NEXT_PUBLIC_API_URL: 'http://marketvision-nginx-proxy:8080',
+
+  // Public API URL for external access (для клиента - localhost)
+  NEXT_PUBLIC_API_URL: 'http://localhost:80',
 
   // Parsers
   WB_API_URL: 'http://marketvision-wb-parser:3000',

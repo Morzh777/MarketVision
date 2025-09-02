@@ -45,7 +45,6 @@ export function useAuth(initialTelegramId?: string) {
   // Если передан initialTelegramId, используем его
   useEffect(() => {
     if (initialTelegramId) {
-      console.log('🔧 useAuth: Используем переданный telegram_id:', initialTelegramId)
       localStorage.setItem('telegram_id', initialTelegramId)
       setClientCookie('telegram_id_client', initialTelegramId)
       setAuthState({
@@ -58,36 +57,9 @@ export function useAuth(initialTelegramId?: string) {
   }, [initialTelegramId])
 
   useEffect(() => {
-    console.log('🔄 useAuth: useEffect сработал', {
-      searchParams: Object.fromEntries(searchParams.entries()),
-      searchParamsSize: searchParams.size,
-      hasTelegramId: searchParams.has('telegram_id'),
-      telegramIdValue: searchParams.get('telegram_id'),
-      timestamp: new Date().toISOString()
-    })
-    
-    // Дополнительная диагностика для Telegram мини-приложения
-    if (typeof window !== 'undefined') {
-      console.log('🔍 useAuth: Дополнительная диагностика:', {
-        location: window.location.href,
-        hash: window.location.hash,
-        search: window.location.search,
-        userAgent: navigator.userAgent,
-        referrer: document.referrer
-      })
-      
-      // Проверяем все возможные источники Telegram ID
-      const allParams = new URLSearchParams(window.location.search)
-      const hashParams = new URLSearchParams(window.location.hash.substring(1))
-      
-      console.log('🔍 useAuth: Все URL параметры:', Object.fromEntries(allParams.entries()))
-      console.log('🔍 useAuth: Hash параметры:', Object.fromEntries(hashParams.entries()))
-    }
-    
     // Проверяем localStorage при загрузке
     const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
     if (telegramIdFromStorage) {
-      console.log('✅ useAuth: Найден telegram_id в localStorage при загрузке:', telegramIdFromStorage)
       setClientCookie('telegram_id_client', telegramIdFromStorage)
       setAuthState({
         user: { telegram_id: telegramIdFromStorage },
@@ -103,10 +75,8 @@ export function useAuth(initialTelegramId?: string) {
 
   // Дополнительный useEffect для проверки localStorage при первой загрузке
   useEffect(() => {
-    console.log('🔄 useAuth: Первая загрузка - проверяем localStorage')
     const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
     if (telegramIdFromStorage) {
-      console.log('✅ useAuth: Найден telegram_id в localStorage при первой загрузке:', telegramIdFromStorage)
       setClientCookie('telegram_id_client', telegramIdFromStorage)
       setAuthState({
         user: { telegram_id: telegramIdFromStorage },
@@ -119,12 +89,9 @@ export function useAuth(initialTelegramId?: string) {
   }, [])
 
   const checkAuth = async (): Promise<void> => {
-    console.log('🚀 useAuth: checkAuth вызван')
-    
     // 1) URL параметр
     const telegramIdFromUrl = searchParams.get('telegram_id')
     if (telegramIdFromUrl) {
-      console.log('✅ useAuth: Найден telegram_id в URL:', telegramIdFromUrl)
       localStorage.setItem('telegram_id', telegramIdFromUrl)
       setClientCookie('telegram_id_client', telegramIdFromUrl)
       setAuthState({
@@ -140,7 +107,6 @@ export function useAuth(initialTelegramId?: string) {
     for (const param of possibleParams) {
       const value = searchParams.get(param)
       if (value) {
-        console.log(`🔍 useAuth: Найден параметр ${param}:`, value)
         // Пытаемся извлечь ID из различных форматов
         let telegramId = value
         
@@ -149,13 +115,11 @@ export function useAuth(initialTelegramId?: string) {
           const parsed = JSON.parse(value)
           if (parsed.id || parsed.user_id || parsed.telegram_id) {
             telegramId = parsed.id || parsed.user_id || parsed.telegram_id
-            console.log('✅ useAuth: Извлечен telegram_id из JSON:', telegramId)
           }
         } catch {
           // Если не JSON, проверяем на числовой ID
           if (/^\d+$/.test(value)) {
             telegramId = value
-            console.log('✅ useAuth: Найден числовой telegram_id:', telegramId)
           }
         }
         
@@ -175,7 +139,6 @@ export function useAuth(initialTelegramId?: string) {
     // 3) localStorage (повторная проверка на случай первой загрузки без URL)
     const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
     if (telegramIdFromStorage) {
-      console.log('✅ useAuth: Найден telegram_id в localStorage:', telegramIdFromStorage)
       setClientCookie('telegram_id_client', telegramIdFromStorage)
       
       // Обновляем URL чтобы сервер мог получить telegram_id
@@ -183,7 +146,6 @@ export function useAuth(initialTelegramId?: string) {
         const newUrl = new URL(window.location.href)
         newUrl.searchParams.set('telegram_id', telegramIdFromStorage)
         window.history.replaceState({}, '', newUrl.toString())
-        console.log('🔧 useAuth: Обновлен URL с telegram_id из localStorage:', newUrl.toString())
       }
       
       setAuthState({
@@ -197,7 +159,6 @@ export function useAuth(initialTelegramId?: string) {
     // 4) Клиентский cookie (устанавливается edge middleware)
     const telegramIdFromCookie = getClientCookie('telegram_id_client')
     if (telegramIdFromCookie) {
-      console.log('✅ useAuth: Найден telegram_id в cookie:', telegramIdFromCookie)
       localStorage.setItem('telegram_id', telegramIdFromCookie)
       
       // Обновляем URL чтобы сервер мог получить telegram_id
@@ -205,7 +166,6 @@ export function useAuth(initialTelegramId?: string) {
         const newUrl = new URL(window.location.href)
         newUrl.searchParams.set('telegram_id', telegramIdFromCookie)
         window.history.replaceState({}, '', newUrl.toString())
-        console.log('🔧 useAuth: Обновлен URL с telegram_id из cookie:', newUrl.toString())
       }
       
       setAuthState({
@@ -223,24 +183,19 @@ export function useAuth(initialTelegramId?: string) {
       const tgWebAppData = hashParams.get('tgWebAppData')
       
       if (tgWebAppData) {
-        console.log('🔍 useAuth: Найден tgWebAppData в hash:', tgWebAppData)
-        
         try {
           // Парсим tgWebAppData
           const decodedData = decodeURIComponent(tgWebAppData)
-          console.log('🔍 useAuth: Декодированный tgWebAppData:', decodedData)
           
           // Ищем user параметр
           const userMatch = decodedData.match(/user=([^&]+)/)
           if (userMatch) {
             const userData = decodeURIComponent(userMatch[1])
-            console.log('🔍 useAuth: Найден user параметр:', userData)
             
             try {
               const user = JSON.parse(userData)
               if (user.id) {
                 const telegramId = user.id.toString()
-                console.log('✅ useAuth: Извлечен telegram_id из tgWebAppData:', telegramId)
                 
                 localStorage.setItem('telegram_id', telegramId)
                 setClientCookie('telegram_id_client', telegramId)
@@ -250,7 +205,6 @@ export function useAuth(initialTelegramId?: string) {
                   const newUrl = new URL(window.location.href)
                   newUrl.searchParams.set('telegram_id', telegramId)
                   window.history.replaceState({}, '', newUrl.toString())
-                  console.log('🔧 useAuth: Обновлен URL с telegram_id:', newUrl.toString())
                 }
                 
                 setAuthState({
@@ -260,12 +214,12 @@ export function useAuth(initialTelegramId?: string) {
                 })
                 return
               }
-            } catch (parseError) {
-              console.log('⚠️ useAuth: Ошибка парсинга user JSON:', parseError)
+            } catch {
+              // Игнорируем ошибки парсинга
             }
           }
-        } catch (decodeError) {
-          console.log('⚠️ useAuth: Ошибка декодирования tgWebAppData:', decodeError)
+        } catch {
+          // Игнорируем ошибки декодирования
         }
       }
       
@@ -273,7 +227,6 @@ export function useAuth(initialTelegramId?: string) {
       const telegramIdFromHash = hashParams.get('telegram_id') || hashParams.get('user_id') || hashParams.get('id')
       
       if (telegramIdFromHash) {
-        console.log('✅ useAuth: Найден telegram_id в hash:', telegramIdFromHash)
         localStorage.setItem('telegram_id', telegramIdFromHash)
         setClientCookie('telegram_id_client', telegramIdFromHash)
         setAuthState({
@@ -286,7 +239,6 @@ export function useAuth(initialTelegramId?: string) {
     }
 
     // Нет идентификатора — считаем неавторизованным
-    console.log('❌ useAuth: Пользователь не авторизован')
     setAuthState({
       user: null,
       isAuthenticated: false,
@@ -296,7 +248,6 @@ export function useAuth(initialTelegramId?: string) {
 
   const login = async (telegram_id: string): Promise<boolean> => {
     try {
-      console.log('🔐 useAuth: Локальная авторизация для telegram_id:', telegram_id)
       localStorage.setItem('telegram_id', telegram_id)
       setClientCookie('telegram_id_client', telegram_id)
       setAuthState({
@@ -305,8 +256,7 @@ export function useAuth(initialTelegramId?: string) {
         isLoading: false
       })
       return true
-    } catch (error) {
-      console.error('❌ useAuth: Ошибка локальной авторизации:', error)
+    } catch {
       setAuthState({
         user: null,
         isAuthenticated: false,

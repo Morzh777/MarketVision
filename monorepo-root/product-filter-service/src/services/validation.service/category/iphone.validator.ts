@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
-import { CategoryConfigService, CATEGORY_NAMES } from '../../../config/categories.config';
 
 @Injectable()
 export class IphoneValidator extends ProductValidatorBase {
+  private readonly CATEGORY_KEY = 'iphone';
+
   private readonly IPHONE_RULES: ValidationRules = {
     accessoryWords: [
       'чехол', 'защита', 'стекло', 'кабель', 'шнур', 'зарядка', 'подставка',
@@ -15,11 +16,11 @@ export class IphoneValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    return category === CATEGORY_NAMES.IPHONE ? this.IPHONE_RULES : null;
+    return category === this.CATEGORY_KEY ? this.IPHONE_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return CATEGORY_NAMES.IPHONE;
+    return this.CATEGORY_KEY;
   }
 
   protected getOtherModels(): string[] {

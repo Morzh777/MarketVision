@@ -1,12 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
-  // output   = "../generated/prisma"
 }
 
 datasource db {
@@ -37,29 +30,29 @@ model PriceHistory {
   source     String
   price      Int
   created_at DateTime @default(now()) @map("created_at")
-  product    Product? @relation(fields: [product_id], references: [id], name: "ProductToPriceHistory")
+  product    Product? @relation("ProductToPriceHistory", fields: [product_id], references: [id])
 }
 
 model MarketStats {
-  id              Int      @id @default(autoincrement())
-  product_id      String?
-  query           String
-  category        String
-  source          String
-  min             Int
-  max             Int
-  mean            Float
-  median          Float
-  iqr             Json
-  total_count     Int
-  created_at      DateTime @default(now())
+  id          Int      @id @default(autoincrement())
+  product_id  String?
+  query       String
+  category    String
+  source      String
+  min         Int
+  max         Int
+  mean        Float
+  median      Float
+  iqr         Json
+  total_count Int
+  created_at  DateTime @default(now())
 }
 
 model User {
   id        String   @id @default(cuid())
   username  String   @unique
   password  String
-  role      String   @default("user") // "admin" или "user"
+  role      String   @default("user")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -67,22 +60,98 @@ model User {
 }
 
 model TelegramUser {
-  id           Int       @id @default(autoincrement())
-  telegram_id  String    @unique @map("telegram_id")
-  username     String?
-  first_name   String?
-  last_name    String?
-  createdAt    DateTime  @default(now()) @map("created_at")
-  updatedAt    DateTime  @updatedAt @map("updated_at")
-  
+  id          Int        @id @default(autoincrement())
+  telegram_id String     @unique @map("telegram_id")
+  username    String?
+  first_name  String?
+  last_name   String?
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
+  favorites   Favorite[]
+
   @@map("telegram_users")
 }
 
 model Favorite {
-  id              Int      @id @default(autoincrement())
-  telegram_user_id Int      @map("telegram_user_id")
-  query           String   // Поисковый запрос
-  created_at      DateTime @default(now()) @map("created_at")
-  
+  id               Int          @id @default(autoincrement())
+  telegram_user_id Int          @map("telegram_user_id")
+  query            String
+  created_at       DateTime     @default(now()) @map("created_at")
+  telegram_user    TelegramUser @relation(fields: [telegram_user_id], references: [id], onDelete: Cascade)
+
   @@map("favorites")
+}
+
+model CategoryGroup {
+  id         Int        @id @default(autoincrement())
+  display    String     @unique
+  createdAt  DateTime   @default(now()) @map("created_at")
+  updatedAt  DateTime   @updatedAt @map("updated_at")
+  categories Category[]
+
+  @@map("category_groups")
+}
+
+model Category {
+  id            Int            @id @default(autoincrement())
+  key           String         @unique
+  display       String
+  ozon_id       String?
+  wb_id         String?
+  groupId       Int?
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  group         CategoryGroup? @relation(fields: [groupId], references: [id])
+  minPriceRules MinPriceRule[]
+  queries       QueryConfig[]
+
+  @@map("categories")
+}
+
+model QueryConfig {
+  id          Int      @id @default(autoincrement())
+  query       String
+  platform_id String?
+  exactmodels String?
+  platform    Platform @default(ozon)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+
+  @@unique([query, categoryId, platform])
+  @@map("query_configs")
+}
+
+model MinPriceRule {
+  id           Int             @id @default(autoincrement())
+  model_key    String?
+  query        String?
+  min_price    Int
+  confidence   ConfidenceLevel @default(medium)
+  source       RuleSource      @default(manual)
+  last_updated DateTime        @default(now())
+  createdAt    DateTime        @default(now()) @map("created_at")
+  updatedAt    DateTime        @updatedAt @map("updated_at")
+  categoryId   Int
+  category     Category        @relation(fields: [categoryId], references: [id])
+
+  @@index([categoryId])
+  @@map("min_price_rules")
+}
+
+enum ConfidenceLevel {
+  high
+  medium
+  low
+}
+
+enum RuleSource {
+  manual
+  auto
+}
+
+enum Platform {
+  ozon
+  wb
 }
