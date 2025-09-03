@@ -1,16 +1,55 @@
 import { PrismaClient } from '@prisma/client';
 import { TelegramInitDto } from '../dto/telegram.dto';
 
+export interface User {
+  id: string;
+  username: string;
+  role: string;
+}
+
 const prisma = new PrismaClient();
 
 export class UserService {
   // Простая проверка пользователя
   async validateUser(username: string, password: string) {
+    console.log('🔍 validateUser вызван с:', { username, password: password ? '***' : 'empty' });
+    
     const user = await prisma.user.findUnique({
       where: { username },
     });
 
-    if (!user || user.password !== password) {
+    console.log('🔍 Найденный пользователь:', user ? { id: user.id, username: user.username, role: user.role } : null);
+
+    if (!user) {
+      console.log('❌ Пользователь не найден');
+      return null;
+    }
+
+    if (user.password !== password) {
+      console.log('❌ Неверный пароль');
+      return null;
+    }
+
+    console.log('✅ Пользователь валиден');
+    return {
+      id: user.id,
+      username: user.username,
+      role: user.role,
+    };
+  }
+
+  // Получение пользователя по ID
+  async getUserById(id: string): Promise<User | null> {
+    console.log('🔍 getUserById вызван с:', { id });
+    
+    const user = await prisma.user.findUnique({
+      where: { id },
+    });
+
+    console.log('🔍 Найденный пользователь по ID:', user ? { id: user.id, username: user.username, role: user.role } : null);
+
+    if (!user) {
+      console.log('❌ Пользователь не найден по ID');
       return null;
     }
 

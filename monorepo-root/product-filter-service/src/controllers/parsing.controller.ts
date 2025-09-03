@@ -71,25 +71,12 @@ export class ParsingController {
       const results = [];
       for (const query of queries) {
         this.logger.log(`🔍 Парсинг запроса: "${query.query}" (${query.platform})`);
-                // Используем platform_id из запроса (он уже содержит правильный ID для платформы)
-        const categoryId = query.platform_id;
-        
-        if (!categoryId) {
-          this.logger.warn(`⚠️ Нет ID категории для платформы ${query.platform} в категории ${request.categoryKey}`);
-          results.push({
-            query: query.query,
-            platform: query.platform,
-            products_found: 0,
-            error: `Нет ID категории для платформы ${query.platform}`
-          });
-          continue;
-        }
         
         const queryRequest = {
           queries: [query.query],
           category: request.categoryKey, // Используем ключ категории для валидации
-          platform_id: query.platform_id,
-          exactmodels: query.exactmodels
+          platform_id: query.platform_id || undefined, // platform_id может быть пустым
+          exactmodels: query.exactmodels || undefined // exactmodels может быть пустым
         };
         
         const result = await this.productsService.getProducts(queryRequest);

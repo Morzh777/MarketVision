@@ -81,6 +81,7 @@ message QueryConfig {
   string platform_id = 2;
   string exactmodels = 3;
   string platform = 4;
+  int32 recommended_price = 5;
 }
 
 message GetQueriesForCategoryResponse {

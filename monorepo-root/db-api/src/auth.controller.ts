@@ -3,24 +3,113 @@ import { Request } from 'express';
 import { UserService } from './services/userService';
 import { TelegramInitDto } from './dto/telegram.dto';
 
+interface AuthUser {
+  id: string;
+  username: string;
+  role: string;
+}
+
 @Controller('auth')
 export class AuthController {
   constructor(private userService: UserService) {}
 
+  @Get('verify')
+  async verify(@Req() request: Request) {
+    try {
+      const authHeader = request.headers.authorization;
+      if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return {
+          success: false,
+          message: 'Токен не найден',
+        };
+      }
+
+      const token = authHeader.substring(7);
+
+      // Проверяем, что токен не пустой
+      if (!token) {
+        return {
+          success: false,
+          message: 'Неверный токен',
+        };
+      }
+
+      // Ищем пользователя по id (токену)
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      const user = (await this.userService.getUserById(
+        token,
+      )) as AuthUser | null;
+      if (!user) {
+        return {
+          success: false,
+          message: 'Неверный токен',
+        };
+      }
+
+      return {
+        success: true,
+        message: 'Токен валиден',
+        user: {
+          id: user.id,
+          username: user.username,
+          role: user.role,
+        },
+      };
+    } catch (error) {
+      console.error('Ошибка проверки токена:', error);
+      return {
+        success: false,
+        message: 'Ошибка проверки токена',
+      };
+    }
+  }
+
+  @Post('logout')
+  logout() {
+    try {
+      // В реальном проекте здесь должна быть логика инвалидации токена
+      // Пока что просто возвращаем успех
+      return {
+        success: true,
+        message: 'Выход выполнен успешно',
+      };
+    } catch (error) {
+      console.error('Ошибка выхода:', error);
+      return {
+        success: false,
+        message: 'Ошибка выхода',
+      };
+    }
+  }
+
   @Post('login')
   async login(@Body() body: { username: string; password: string }) {
+    console.log('🔍 Логин запрос:', {
+      username: body.username,
+      password: body.password ? '***' : 'empty',
+    });
+
     const user = await this.userService.validateUser(
       body.username,
       body.password,
     );
 
+    console.log('🔍 Результат validateUser:', user);
+
     if (!user) {
+      console.log('❌ Пользователь не найден или неверный пароль');
       return { success: false, message: 'Неверный логин или пароль' };
     }
+
+    // Используем id как токен
+    const token = user.id;
+
+    console.log('✅ Логин успешен, токен:', token);
 
     return {
       success: true,
       user: { id: user.id, username: user.username, role: user.role },
+      token: token,
     };
   }
 
@@ -127,7 +216,10 @@ export class AuthController {
   @Post('favorites/add')
   async addToFavorites(@Body() body: { telegram_id: string; query: string }) {
     try {
-      const favorite = await this.userService.addToFavorites(body.telegram_id, body.query);
+      const favorite = await this.userService.addToFavorites(
+        body.telegram_id,
+        body.query,
+      );
       return {
         success: true,
         message: 'Добавлено в избранное',
@@ -143,9 +235,14 @@ export class AuthController {
   }
 
   @Post('favorites/remove')
-  async removeFromFavorites(@Body() body: { telegram_id: string; query: string }) {
+  async removeFromFavorites(
+    @Body() body: { telegram_id: string; query: string },
+  ) {
     try {
-      const result = await this.userService.removeFromFavorites(body.telegram_id, body.query);
+      const result = await this.userService.removeFromFavorites(
+        body.telegram_id,
+        body.query,
+      );
       return {
         success: true,
         message: 'Удалено из избранного',

@@ -1,12 +1,15 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
-import Popup from '../Popup';
+import Auth from '../Auth';
 import { QuestionIcon } from '../Icons';
+import LoadingSpinner from '../LoadingSpinner';
+import Popup from '../Popup';
+
 import { useConfirmDialog } from './useConfirmDialog';
 
-// Убрали импорт конфига - теперь все данные только из БД
+
 
 
 
@@ -24,6 +27,7 @@ type QueryCfg = {
   platform_id?: string | null;
   exactmodels?: string | null;
   platform: 'ozon' | 'wb';
+  recommended_price?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -43,11 +47,70 @@ export default function AdminPage({
   const [selectedKey, setSelectedKey] = useState<string>(initialSelectedKey);
   const [queries, setQueries] = useState<QueryCfg[]>(initialQueries);
   const [loading, setLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [currentUser, setCurrentUser] = useState<{ username: string; role: string } | null>(null);
+  
+  // Функция авторизации
+  const handleLogin = async (username: string, password: string): Promise<boolean> => {
+    try {
+      const response = await fetch('http://localhost:80/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success && data.user.role === 'admin') {
+        // Используем id пользователя как токен
+        const token = data.user.id;
+        
+        // Сохраняем токен и пользователя в localStorage
+        localStorage.setItem('auth_token', token);
+        localStorage.setItem('auth_user', JSON.stringify(data.user));
+        
+        setIsAuthenticated(true);
+        setCurrentUser(data.user);
+        return true;
+      }
+      
+      return false;
+    } catch (error) {
+      console.error('Ошибка авторизации:', error);
+      return false;
+    }
+  };
+
+  // Функция выхода
+  const handleLogout = async () => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      if (token) {
+        await fetch('http://localhost:80/api/admin/logout', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+      }
+    } catch (error) {
+      console.error('Ошибка выхода:', error);
+    } finally {
+      // Очищаем localStorage
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('auth_user');
+      setIsAuthenticated(false);
+      setCurrentUser(null);
+    }
+  };
+
   const [form, setForm] = useState({
     query: '', 
     platform_id: '', 
     exactmodels: '', 
-    platform: 'both' as 'both' | 'ozon' | 'wb' 
+    platform: 'both' as 'both' | 'ozon' | 'wb',
+    recommended_price: ''
   });
 
   const [showAddCategory, setShowAddCategory] = useState(false);
@@ -62,6 +125,47 @@ export default function AdminPage({
 
   // Хук для управления диалогом подтверждения
   const { dialogState, showConfirm, handleCancel, handleConfirm } = useConfirmDialog();
+
+  // Проверка авторизации при загрузке
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const token = localStorage.getItem('auth_token');
+        const userStr = localStorage.getItem('auth_user');
+        
+        if (token && userStr) {
+          // Проверяем токен на сервере
+          const response = await fetch('http://localhost:80/api/admin/me', {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+          });
+          
+          const data = await response.json();
+          
+          if (response.ok && data.success && data.user && data.user.role === 'admin') {
+            console.log('Авторизация успешна, пользователь:', data.user);
+            setIsAuthenticated(true);
+            setCurrentUser(data.user);
+          } else {
+            // Токен недействителен, очищаем localStorage
+            localStorage.removeItem('auth_token');
+            localStorage.removeItem('auth_user');
+          }
+        }
+      } catch (error) {
+        console.error('Ошибка проверки авторизации:', error);
+        // Очищаем localStorage при ошибке
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('auth_user');
+      } finally {
+        setIsCheckingAuth(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   const selectedCategory = useMemo(
     () => categories.find((c) => c.key === selectedKey) || null,
@@ -99,11 +203,25 @@ export default function AdminPage({
     
     setLoading(true);
     try {
-      // Если редактируем существующий запрос, сначала удаляем старый
-      if (editingQuery && editingQuery.query !== form.query.trim()) {
-        await fetch(`/api/categories/queries?categoryKey=${encodeURIComponent(selectedKey)}&query=${encodeURIComponent(editingQuery.query)}`, {
-          method: 'DELETE',
-        });
+      // Если редактируем существующий запрос
+      if (editingQuery) {
+        // Обновляем рекомендуемую цену для всех записей этого запроса
+        if (form.recommended_price) {
+          await fetch('/api/categories/queries/recommended-price', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              categoryKey: selectedKey,
+              query: editingQuery.query,
+              recommended_price: parseInt(form.recommended_price),
+            }),
+          });
+        }
+        
+        setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
+        setEditingQuery(null);
+        await reloadQueries(selectedKey);
+        return;
       }
       
       await fetch('/api/categories/queries', {
@@ -115,10 +233,11 @@ export default function AdminPage({
           platform_id: form.platform_id.trim() || null,
           exactmodels: form.exactmodels.trim() || null,
           platform: form.platform,
+          recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
         }),
       });
       
-      setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both' });
+      setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
       setEditingQuery(null);
       await reloadQueries(selectedKey);
     } catch (error) {
@@ -134,16 +253,21 @@ export default function AdminPage({
       query: query.query,
       platform_id: query.platform_id || '',
       exactmodels: query.exactmodels || '',
-      platform: query.platform || 'both'
+      platform: query.platform || 'both',
+      recommended_price: query.recommended_price ? query.recommended_price.toString() : ''
     });
 
   };
 
   const handleCancelEdit = () => {
     setEditingQuery(null);
-    setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both' });
+    setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
 
   };
+
+
+
+
 
   const handleRemoveQuery = async (queryText: string) => {
     if (!selectedKey) return;
@@ -319,11 +443,38 @@ export default function AdminPage({
 
   // Убрали автоматические настройки из конфига - теперь все только из БД
 
+  // Если проверяем авторизацию, показываем загрузку
+  if (isCheckingAuth) {
+    return <LoadingSpinner message="Проверка авторизации..." />;
+  }
+
+  // Если не авторизован, показываем форму авторизации
+  if (!isAuthenticated) {
+    return <Auth onLogin={handleLogin} />;
+  }
+
   return (
     <div className="adminPage">
       <div className="header">
-        <h1 className="header__title">Админ-панель</h1>
-        <p className="header__subtitle">Управление категориями и запросами</p>
+        <div className="header__content">
+          <div className="header__info">
+            <h1 className="header__title">Админ-панель</h1>
+            <p className="header__subtitle">Управление категориями и запросами</p>
+          </div>
+          <div className="header__user">
+            <div className="header__userInfo">
+              <span className="header__username">{currentUser?.username}</span>
+              <span className="header__role">({currentUser?.role})</span>
+            </div>
+            <button 
+              className="header__logoutButton"
+              onClick={handleLogout}
+              title="Выйти из системы"
+            >
+              Выйти
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="grid">
@@ -534,6 +685,19 @@ export default function AdminPage({
                 </div>
               </div>
 
+              {/* Строка с рекомендуемой ценой */}
+              <div className="form__fieldRow">
+                <div className="form__fieldGroup">
+                              <input
+              className="form__fieldInput"
+              type="number"
+              placeholder="Рекомендуемая цена (₽) - опционально"
+              value={form.recommended_price}
+              onChange={(e) => handleFormChange('recommended_price', e.target.value)}
+            />
+                </div>
+              </div>
+
               {/* Строка с выбором платформы */}
               <div className="form__fieldRow">
                 <div className="form__fieldGroup">
@@ -637,6 +801,9 @@ export default function AdminPage({
                               </div>
                               <div className="queryPlatform__detail">
                                 exactmodels: {query.exactmodels || '-'}
+                              </div>
+                              <div className="queryPlatform__detail">
+                                рекомендуемая цена: {query.recommended_price ? `${query.recommended_price.toLocaleString('ru-RU')} ₽` : '-'}
                               </div>
                             </div>
                           </div>

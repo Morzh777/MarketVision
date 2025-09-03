@@ -76,17 +76,15 @@ export class CategoriesService {
       where: { key: categoryKey },
     });
     if (!category) throw new NotFoundException('Category not found');
-    
+
     const queryConfigs = await this.prisma.queryConfig.findMany({
       where: { categoryId: category.id },
     });
 
-    // Обогащаем данные platform_id из категории
-    return queryConfigs.map(config => ({
+    // Возвращаем конфигурации запросов с их platform_id и exactmodels
+    return queryConfigs.map((config) => ({
       ...config,
-      platform_id: config.platform === 'ozon' ? category.ozon_id : 
-                   config.platform === 'wb' ? category.wb_id : 
-                   config.platform_id
+      // platform_id и exactmodels уже есть в config, не нужно их переопределять
     }));
   }
 
@@ -110,8 +108,11 @@ export class CategoriesService {
     platform_id?: string | null;
     exactmodels?: string | null;
     platform?: 'ozon' | 'wb' | 'both';
+    recommended_price?: number | null;
   }) {
-    const cat = await this.prisma.category.findUnique({ where: { key: data.categoryKey } });
+    const cat = await this.prisma.category.findUnique({
+      where: { key: data.categoryKey },
+    });
     if (!cat) throw new NotFoundException('Category not found');
     const targetPlatforms: Array<'ozon' | 'wb'> =
       !data.platform || data.platform === 'both'
@@ -120,7 +121,13 @@ export class CategoriesService {
 
     const results = [] as any[];
     for (const p of targetPlatforms) {
-      const where = { query_categoryId_platform: { query: data.query, categoryId: cat.id, platform: p } } as any;
+      const where = {
+        query_categoryId_platform: {
+          query: data.query,
+          categoryId: cat.id,
+          platform: p,
+        },
+      } as any;
       const res = await this.prisma.queryConfig.upsert({
         where,
         create: {
@@ -129,10 +136,12 @@ export class CategoriesService {
           exactmodels: data.exactmodels ?? null,
           platform: p as any,
           categoryId: cat.id,
+          recommended_price: data.recommended_price ?? null,
         },
         update: {
           platform_id: data.platform_id ?? null,
           exactmodels: data.exactmodels ?? null,
+          recommended_price: data.recommended_price ?? null,
         },
       });
       results.push(res);
@@ -167,12 +176,45 @@ export class CategoriesService {
     return result;
   }
 
+  async updateRecommendedPrice(
+    categoryKey: string,
+    query: string,
+    recommended_price: number | null,
+  ) {
+    console.log('updateRecommendedPrice called with:', {
+      categoryKey,
+      query,
+      recommended_price,
+    });
+    const cat = await this.prisma.category.findUnique({
+      where: { key: categoryKey },
+    });
+    if (!cat) throw new NotFoundException('Category not found');
+
+    const result = await this.prisma.queryConfig.updateMany({
+      where: {
+        query,
+        categoryId: cat.id,
+      },
+      data: {
+        recommended_price,
+      },
+    });
+
+    console.log('updateRecommendedPrice result:', result);
+    return result;
+  }
+
   // MinPrice rules
   async listMinPriceRules(categoryKey?: string) {
     if (categoryKey) {
-      const cat = await this.prisma.category.findUnique({ where: { key: categoryKey } });
+      const cat = await this.prisma.category.findUnique({
+        where: { key: categoryKey },
+      });
       if (!cat) throw new NotFoundException('Category not found');
-      return this.prisma.minPriceRule.findMany({ where: { categoryId: cat.id } });
+      return this.prisma.minPriceRule.findMany({
+        where: { categoryId: cat.id },
+      });
     }
     return this.prisma.minPriceRule.findMany();
   }
@@ -185,7 +227,9 @@ export class CategoriesService {
     confidence?: 'high' | 'medium' | 'low';
     source?: 'manual' | 'auto';
   }) {
-    const cat = await this.prisma.category.findUnique({ where: { key: data.categoryKey } });
+    const cat = await this.prisma.category.findUnique({
+      where: { key: data.categoryKey },
+    });
     if (!cat) throw new NotFoundException('Category not found');
 
     const existing = await this.prisma.minPriceRule.findFirst({
@@ -228,10 +272,21 @@ export class CategoriesService {
       playstation: ['playstation 5', 'playstation 5 pro'],
       nintendo_switch: ['nintendo switch 2'],
       steam_deck: ['steam deck oled'],
-      iphone: ['iphone 16 pro', 'iphone 16', 'iphone 15 pro', 'iphone 15', 'iphone 16 pro max', 'iphone 15 pro max'],
+      iphone: [
+        'iphone 16 pro',
+        'iphone 16',
+        'iphone 15 pro',
+        'iphone 15',
+        'iphone 16 pro max',
+        'iphone 15 pro max',
+      ],
     };
 
-    const results: Array<{ categoryKey: string; created: number; updated: number }> = [];
+    const results: Array<{
+      categoryKey: string;
+      created: number;
+      updated: number;
+    }> = [];
     for (const [categoryKey, queries] of Object.entries(testQueries)) {
       await this.upsertCategory({ key: categoryKey, display: categoryKey });
       let created = 0;

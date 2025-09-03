@@ -111,6 +111,7 @@ export class CategoriesController {
       platform_id?: string | null;
       exactmodels?: string | null;
       platform?: 'ozon' | 'wb' | 'both';
+      recommended_price?: number | null;
     },
   ) {
     return this.service.upsertQueryConfig(body);
@@ -123,6 +124,19 @@ export class CategoriesController {
     console.log('=== POST /categories/queries/remove ===');
     console.log('CategoriesController.removeQueryConfig called with:', body);
     return this.service.removeQueryConfig(body.categoryKey, body.query);
+  }
+
+  @Post('queries/recommended-price')
+  async updateRecommendedPrice(
+    @Body() body: { 
+      categoryKey: string; 
+      query: string; 
+      recommended_price: number | null;
+    },
+  ): Promise<unknown> {
+    console.log('=== POST /categories/queries/recommended-price ===');
+    console.log('CategoriesController.updateRecommendedPrice called with:', body);
+    return this.service.updateRecommendedPrice(body.categoryKey, body.query, body.recommended_price);
   }
 
   @Delete('queries/:query')

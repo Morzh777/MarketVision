@@ -49,6 +49,23 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: ['./src/app/styles'],
   },
+  // Проксирование API запросов к db-api через nginx
+  async rewrites() {
+    return [
+      {
+        source: '/api/categories/:path*',
+        destination: 'http://marketvision-nginx-dev:80/api/categories/:path*',
+      },
+      {
+        source: '/api/auth/:path*',
+        destination: 'http://marketvision-nginx-dev:80/api/auth/:path*',
+      },
+      {
+        source: '/api/authorization/:path*',
+        destination: 'http://marketvision-nginx-dev:80/api/authorization/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

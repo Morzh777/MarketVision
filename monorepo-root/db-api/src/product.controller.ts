@@ -17,7 +17,9 @@ export class ProductController {
   ): Promise<
     BatchCreateResponse & { products_count: number; market_stats: string }
   > {
-    const { products, marketStats } = data;
+    console.log('[DB-API] batchCreateProducts received data:', JSON.stringify(data, null, 2));
+    const { products, marketStats, market_stats } = data;
+    const stats = marketStats || market_stats;
 
     // Конвертируем RawProduct в ProductForService
     const productsForService: ProductForService[] = products.map((product) => ({
@@ -28,15 +30,18 @@ export class ProductController {
 
     const inserted = await this.productService.batchCreate(productsForService);
 
-    if (marketStats) {
-      await this.productService.saveMarketStats(marketStats);
+    if (stats) {
+      console.log('[DB-API] Saving market stats:', JSON.stringify(stats, null, 2));
+      await this.productService.saveMarketStats(stats);
+    } else {
+      console.log('[DB-API] No market stats to save');
     }
 
     return {
       inserted,
       history: 0,
       products_count: inserted,
-      market_stats: 'saved',
+      market_stats: stats ? 'saved' : 'none',
     };
   }
 

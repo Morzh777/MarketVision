@@ -55,29 +55,24 @@ export class ProductAggregatorService {
           let category = request.category;
           let extra: any = {};
           if (source === 'wb') {
+            // Для WB API category - это wb_id (число)
             const wbCategoryId = await this.dbConfigService.getWbCategoryId(request.category);
             category = wbCategoryId || request.category;
             extra.categoryKey = request.category;
-            const platformId = await this.dbConfigService.getPlatformIdForQuery(request.category, query, 'wb');
-            if (platformId) {
-              extra.platform_id = platformId;
-            }
-            const exactmodels = await this.dbConfigService.getExactModelsForQuery(request.category, query, 'wb');
-            if (exactmodels) {
-              extra.exactmodels = exactmodels;
-            }
+            // WB API не использует platform_id и exactmodels
           }
           if (source === 'ozon') {
+            // Для Ozon API category - это ozon_id (строка, category_slug)
             const ozonCategoryId = await this.dbConfigService.getOzonCategoryId(request.category);
             category = ozonCategoryId || request.category;
             extra.categoryKey = request.category;
-            const platformId = await this.dbConfigService.getPlatformIdForQuery(request.category, query, 'ozon');
-            if (platformId) {
-              extra.platform_id = platformId;
+            
+            // platform_id и exactmodels - дополнительные параметры для Ozon API
+            if (request.platform_id) {
+              extra.platform_id = request.platform_id;
             }
-            const exactmodels = await this.dbConfigService.getExactModelsForQuery(request.category, query, 'ozon');
-            if (exactmodels) {
-              extra.exactmodels = exactmodels;
+            if (request.exactmodels) {
+              extra.exactmodels = request.exactmodels;
             }
           }
           const response = await client.filterProducts({

@@ -109,15 +109,16 @@ model Category {
 }
 
 model QueryConfig {
-  id          Int      @id @default(autoincrement())
-  query       String
-  platform_id String?
-  exactmodels String?
-  platform    Platform @default(ozon)
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-  categoryId  Int
-  category    Category @relation(fields: [categoryId], references: [id])
+  id               Int      @id @default(autoincrement())
+  query            String
+  platform_id      String?
+  exactmodels      String?
+  platform         Platform @default(ozon)
+  recommended_price Int?    @map("recommended_price") // Recommended price in RUB
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+  categoryId       Int
+  category         Category @relation(fields: [categoryId], references: [id])
 
   @@unique([query, categoryId, platform])
   @@map("query_configs")

@@ -52,6 +52,7 @@ export interface MarketStats {
 export interface BatchCreateRequest {
   products: RawProduct[];
   marketStats?: MarketStats;
+  market_stats?: MarketStats;
 }
 
 export interface BatchCreateResponse {

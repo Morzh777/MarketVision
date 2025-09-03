@@ -4,6 +4,8 @@
 @import '../components/PriceHistory/styles';
 @import '../components/UserNav/styles';
 @import '../components/admin/styles';
+@import '../components/Auth/styles';
+@import '../components/LoadingSpinner/styles';
 
 // CSS переменные для темизации
 :root {
@@ -106,8 +108,6 @@
 }
 
 // Global styles
-html {}
-
 body {
   margin: 0;
   padding: 0;

@@ -14,6 +14,7 @@ type QueryCfg = {
   platform_id?: string | null;
   exactmodels?: string | null;
   platform: 'ozon' | 'wb';
+  recommended_price?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -35,3 +36,6 @@ export default function AdminPage({
     />
   );
 }
+
+// Экспорты для использования в других компонентах
+export { useConfirmDialog } from './useConfirmDialog';

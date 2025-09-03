@@ -188,7 +188,7 @@ export class ProductService {
     try {
       await this.prisma.marketStats.create({
         data: {
-          product_id: stats.productId,
+          product_id: (stats as any).product_id || stats.productId,
           query: stats.query,
           category: stats.category,
           source: stats.source,
@@ -197,7 +197,7 @@ export class ProductService {
           mean: stats.mean,
           median: stats.median,
           iqr: stats.iqr,
-          total_count: stats.totalCount,
+          total_count: (stats as any).total_count || stats.totalCount,
           created_at: stats.createdAt ? new Date(stats.createdAt) : undefined,
         },
       });
@@ -394,7 +394,10 @@ export class ProductService {
       isFavorite: boolean;
     }>
   > {
-    console.log('[ProductService] getPopularQueries called with telegram_id:', telegram_id);
+    console.log(
+      '[ProductService] getPopularQueries called with telegram_id:',
+      telegram_id,
+    );
 
     // Получаем все уникальные запросы с фильтрацией по цене и непустому запросу
     const queries = await this.prisma.product.findMany({
@@ -425,13 +428,13 @@ export class ProductService {
         const user = await this.prisma.telegramUser.findUnique({
           where: { telegram_id: telegram_id },
         });
-        
+
         if (user) {
           const favorites = await this.prisma.favorite.findMany({
             where: { telegram_user_id: user.id },
             select: { query: true },
           });
-          userFavorites = favorites.map(f => f.query);
+          userFavorites = favorites.map((f) => f.query);
           console.log('[ProductService] User favorites:', userFavorites);
         }
       } catch (error) {
@@ -442,7 +445,7 @@ export class ProductService {
     // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
     const result = await Promise.all(
       queries.map(async ({ query }) => {
-        // Берем последний товар по этому query (самый свежий)
+        // Берем последний товар по этому query (самый свежий) с JOIN к Category
         const latestProduct = await this.prisma.product.findFirst({
           where: {
             query: query,
@@ -451,6 +454,21 @@ export class ProductService {
             created_at: 'desc', // Берем самый свежий
           },
         });
+
+        // Получаем нормализованное название категории
+        let categoryKey = '';
+        if (latestProduct) {
+          const category = await this.prisma.category.findFirst({
+            where: {
+              OR: [
+                { ozon_id: latestProduct.category },
+                { wb_id: latestProduct.category },
+              ],
+            },
+            select: { display: true },
+          });
+          categoryKey = category?.display || latestProduct.category;
+        }
 
         if (!latestProduct) {
           console.log('[ProductService] No latest product for query:', query);
@@ -496,8 +514,7 @@ export class ProductService {
           id: latestProduct.id,
           priceChangePercent: priceChangePercent,
           image_url: latestProduct.image_url || '',
-          category: (latestProduct as unknown as { category?: string })
-            .category,
+          category: categoryKey,
           isFavorite: userFavorites.includes(query),
         };
 
@@ -506,7 +523,9 @@ export class ProductService {
     );
 
     // Фильтруем null значения и возвращаем результат
-    return result.filter((item): item is NonNullable<typeof item> => item !== null);
+    return result.filter(
+      (item): item is NonNullable<typeof item> => item !== null,
+    );
   }
 
   /**
