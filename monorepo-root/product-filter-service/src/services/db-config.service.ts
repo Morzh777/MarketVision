@@ -87,7 +87,10 @@ export class DbConfigService {
    */
   async getExactModelsForQuery(categoryKey: string, query: string, platform: string): Promise<string | null> {
     const queries = await this.getQueriesForCategory(categoryKey);
+    console.log(`🔍 DEBUG - Ищем exactmodels для: "${query}" platform: "${platform}"`);
+    console.log(`🔍 DEBUG - Доступные queries:`, queries.map(q => ({query: q.query, platform: q.platform, exactmodels: q.exactmodels})));
     const queryConfig = queries.find(q => q.query === query && q.platform === platform);
+    console.log(`🔍 DEBUG - Найденный queryConfig:`, queryConfig);
     return queryConfig?.exactmodels || null;
   }
 }

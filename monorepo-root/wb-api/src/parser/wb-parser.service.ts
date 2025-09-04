@@ -17,6 +17,7 @@ interface WildberriesApiClient {
   searchProducts(
     query: string,
     xsubject: number,
+    exactmodels?: string,
   ): Promise<WildberriesProduct[]>;
 }
 
@@ -29,13 +30,25 @@ export class WbParserService {
     private readonly wbApiClient: WildberriesApiClient = new WildberriesApiClientImpl(),
   ) {}
 
-  async parseProducts(query: string, category: string): Promise<RawProduct[]> {
+  async parseProducts(
+    query: string,
+    category: string,
+    platform_id?: string,
+    exactmodels?: string,
+  ): Promise<RawProduct[]> {
     try {
       this.logger.log(`🔍 Парсинг WB: ${query} (${category})`);
+      if (exactmodels) {
+        this.logger.log(`🎯 Exact Models: ${exactmodels}`);
+      }
 
       const xsubject = this.validateAndParseCategory(category);
 
-      const products = await this.wbApiClient.searchProducts(query, xsubject);
+      const products = await this.wbApiClient.searchProducts(
+        query,
+        xsubject,
+        exactmodels,
+      );
 
       if (!products || products.length === 0) {
         this.logger.log(`⚠️ "${query}": товары не найдены`);

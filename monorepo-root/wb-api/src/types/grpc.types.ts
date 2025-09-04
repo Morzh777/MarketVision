@@ -5,7 +5,8 @@ import { RawProduct } from './raw-product.interface';
 export interface GetRawProductsRequest {
   query: string;
   category: string;
-  categoryKey?: string;
+  platform_id?: string;
+  exactmodels?: string;
   auth_token: string;
 }
 

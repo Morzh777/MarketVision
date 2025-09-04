@@ -26,6 +26,8 @@ type QueryCfg = {
   query: string;
   platform_id?: string | null;
   exactmodels?: string | null;
+  wb_platform_id?: string | null;
+  wb_exactmodels?: string | null;
   platform: 'ozon' | 'wb';
   recommended_price?: number | null;
   createdAt: string;
@@ -114,6 +116,8 @@ export default function AdminPage({
     query: '', 
     platform_id: '', 
     exactmodels: '', 
+    wb_platform_id: '',
+    wb_exactmodels: '',
     platform: 'both' as 'both' | 'ozon' | 'wb',
     recommended_price: ''
   });
@@ -229,20 +233,65 @@ export default function AdminPage({
         });
         
         // Затем создаем новые записи с обновленными данными
-        await fetch('/api/categories/queries', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
+        // Создаем записи для обеих платформ, если есть соответствующие данные
+        const queriesToCreate = [];
+        
+        // Ozon запрос
+        if (form.platform_id.trim() || form.exactmodels.trim()) {
+          queriesToCreate.push({
             categoryKey: selectedKey,
             query: form.query.trim(),
             platform_id: form.platform_id.trim() || null,
             exactmodels: form.exactmodels.trim() || null,
-            platform: form.platform,
+            platform: 'ozon',
             recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-          }),
-        });
+          });
+        }
         
-        setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
+        // WB запрос
+        if (form.wb_platform_id.trim() || form.wb_exactmodels.trim()) {
+          queriesToCreate.push({
+            categoryKey: selectedKey,
+            query: form.query.trim(),
+            wb_platform_id: form.wb_platform_id.trim() || null,
+            wb_exactmodels: form.wb_exactmodels.trim() || null,
+            platform: 'wb',
+            recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+          });
+        }
+        
+        // Если нет специфичных настроек, создаем для обеих платформ
+        if (queriesToCreate.length === 0) {
+          queriesToCreate.push(
+            {
+              categoryKey: selectedKey,
+              query: form.query.trim(),
+              platform_id: null,
+              exactmodels: null,
+              platform: 'ozon',
+              recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+            },
+            {
+              categoryKey: selectedKey,
+              query: form.query.trim(),
+              wb_platform_id: null,
+              wb_exactmodels: null,
+              platform: 'wb',
+              recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+            }
+          );
+        }
+        
+        // Создаем все запросы
+        for (const queryData of queriesToCreate) {
+          await fetch('/api/categories/queries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(queryData),
+          });
+        }
+        
+        setForm({ query: '', platform_id: '', exactmodels: '', wb_platform_id: '', wb_exactmodels: '', platform: 'both', recommended_price: '' });
         setEditingQuery(null);
         await reloadQueries(selectedKey);
         return;
@@ -257,12 +306,14 @@ export default function AdminPage({
           query: form.query.trim(),
           platform_id: form.platform_id.trim() || null,
           exactmodels: form.exactmodels.trim() || null,
+          wb_platform_id: form.wb_platform_id.trim() || null,
+          wb_exactmodels: form.wb_exactmodels.trim() || null,
           platform: form.platform,
           recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
         }),
       });
       
-      setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
+      setForm({ query: '', platform_id: '', exactmodels: '', wb_platform_id: '', wb_exactmodels: '', platform: 'both', recommended_price: '' });
       setEditingQuery(null);
       await reloadQueries(selectedKey);
     } catch (error) {
@@ -278,16 +329,16 @@ export default function AdminPage({
       query: query.query,
       platform_id: query.platform_id || '',
       exactmodels: query.exactmodels || '',
+      wb_platform_id: query.wb_platform_id || '',
+      wb_exactmodels: query.wb_exactmodels || '',
       platform: query.platform || 'both',
       recommended_price: query.recommended_price ? query.recommended_price.toString() : ''
     });
-
   };
 
   const handleCancelEdit = () => {
     setEditingQuery(null);
-    setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
-
+    setForm({ query: '', platform_id: '', exactmodels: '', wb_platform_id: '', wb_exactmodels: '', platform: 'both', recommended_price: '' });
   };
 
 
@@ -331,7 +382,7 @@ export default function AdminPage({
         let result;
         try {
           result = await response.json();
-        } catch (jsonError) {
+        } catch {
           result = { error: `HTTP ${response.status}: ${response.statusText}` };
         }
         
@@ -903,7 +954,7 @@ export default function AdminPage({
             )}
 
             <div className="form__fields">
-              {/* Строка с вводом запроса */}
+              {/* Строка с запросом и ценой */}
               <div className="form__fieldRow">
                 <div className="form__fieldGroup">
                   <input
@@ -913,58 +964,74 @@ export default function AdminPage({
                     onChange={(e) => handleFormChange('query', e.target.value)}
                   />
                 </div>
-              </div>
-
-              {/* Строка с дополнительными настройками */}
-              <div className="form__fieldRow">
                 <div className="form__fieldGroup">
                   <input
                     className="form__fieldInput"
-                    placeholder="Platform ID (Ozon) - опционально"
-                    value={form.platform_id}
-                    onChange={(e) => handleFormChange('platform_id', e.target.value)}
-                  />
-                </div>
-
-                <div className="form__fieldGroup">
-                  <input
-                    className="form__fieldInput"
-                    placeholder="Exact Models (Ozon) - опционально"
-                    value={form.exactmodels}
-                    onChange={(e) => handleFormChange('exactmodels', e.target.value)}
+                    type="number"
+                    placeholder="Цена (₽)"
+                    value={form.recommended_price}
+                    onChange={(e) => handleFormChange('recommended_price', e.target.value)}
                   />
                 </div>
               </div>
 
-              {/* Строка с рекомендуемой ценой */}
-              <div className="form__fieldRow">
-                <div className="form__fieldGroup">
-                              <input
-              className="form__fieldInput"
-              type="number"
-              placeholder="Рекомендуемая цена (₽) - опционально"
-              value={form.recommended_price}
-              onChange={(e) => handleFormChange('recommended_price', e.target.value)}
-            />
+              {/* Разделитель */}
+              <div className="form__divider">
+                <span className="form__dividerText">Настройки платформ</span>
+              </div>
+
+              {/* Настройки для Ozon */}
+              <div className="form__platformSection">
+                <div className="form__platformHeader">
+                  <span className="form__platformIcon">🔵</span>
+                  <span className="form__platformTitle">Ozon</span>
+                </div>
+                <div className="form__fieldRow">
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Platform ID (Ozon) - опционально"
+                      value={form.platform_id}
+                      onChange={(e) => handleFormChange('platform_id', e.target.value)}
+                    />
+                  </div>
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Exact Models (Ozon) - опционально"
+                      value={form.exactmodels}
+                      onChange={(e) => handleFormChange('exactmodels', e.target.value)}
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Строка с выбором платформы */}
-              <div className="form__fieldRow">
-                <div className="form__fieldGroup">
-                  <select
-                    id="platform-select"
-                    name="platform"
-                    className="form__fieldSelect"
-                    value={form.platform}
-                    onChange={(e) => handleFormChange('platform', e.target.value as 'ozon' | 'wb' | 'both')}
-                  >
-                    <option value="both">Ozon + WB</option>
-                    <option value="ozon">Только Ozon</option>
-                    <option value="wb">Только WB</option>
-                  </select>
+              {/* Настройки для WB */}
+              <div className="form__platformSection">
+                <div className="form__platformHeader">
+                  <span className="form__platformIcon">🟣</span>
+                  <span className="form__platformTitle">WildBerries</span>
+                </div>
+                <div className="form__fieldRow">
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Platform ID (WB) - опционально"
+                      value={form.wb_platform_id || ''}
+                      onChange={(e) => handleFormChange('wb_platform_id', e.target.value)}
+                    />
+                  </div>
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Exact Models (WB) - опционально"
+                      value={form.wb_exactmodels || ''}
+                      onChange={(e) => handleFormChange('wb_exactmodels', e.target.value)}
+                    />
+                  </div>
                 </div>
               </div>
+
             </div>
 
 

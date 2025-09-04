@@ -16,13 +16,18 @@ export class WbApiClient extends BaseGrpcClient<any> {
     }
     
     const requestWithAuth = {
-      ...request,
+      query: request.query,
+      category: request.category,
+      platform_id: request.platform_id || request.extra?.platform_id,
+      exactmodels: request.exactmodels,
       auth_token: authToken
     };
     
     console.log('📤 Отправляем запрос:', {
       query: requestWithAuth.query,
-      category: requestWithAuth.category
+      category: requestWithAuth.category,
+      platform_id: requestWithAuth.platform_id,
+      exactmodels: requestWithAuth.exactmodels
     });
 
     return new Promise((resolve, reject) => {

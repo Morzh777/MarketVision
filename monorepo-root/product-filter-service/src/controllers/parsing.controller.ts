@@ -71,6 +71,8 @@ export class ParsingController {
       const results = [];
       for (const query of queries) {
         this.logger.log(`🔍 Парсинг запроса: "${query.query}" (${query.platform})`);
+        this.logger.log(`📱 Platform ID: ${query.platform_id || 'не указан'}`);
+        this.logger.log(`🎯 Exact Models: ${query.exactmodels || 'не указаны'}`);
         
         const queryRequest = {
           queries: [query.query],

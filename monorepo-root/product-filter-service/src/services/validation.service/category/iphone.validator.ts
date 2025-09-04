@@ -26,10 +26,10 @@ export class IphoneValidator extends ProductValidatorBase {
   protected getOtherModels(): string[] {
     return [
       // Текущее и недавние поколения
-      'iphone15', 'iphone14', 'iphone13', 'iphone12', 'iphone11',
-      'iphone15pro', 'iphone14pro', 'iphone13pro', 'iphone12pro', 'iphone11pro',
-      'iphone15promax', 'iphone14promax', 'iphone13promax', 'iphone12promax', 'iphone11promax',
-      'iphone15plus', 'iphone14plus', 'iphone13mini', 'iphone12mini',
+      'iphone16', 'iphone15', 'iphone14', 'iphone13', 'iphone12', 'iphone11',
+      'iphone16pro', 'iphone15pro', 'iphone14pro', 'iphone13pro', 'iphone12pro', 'iphone11pro',
+      'iphone16promax', 'iphone15promax', 'iphone14promax', 'iphone13promax', 'iphone12promax', 'iphone11promax',
+      'iphone16plus', 'iphone15plus', 'iphone14plus', 'iphone13mini', 'iphone12mini',
       // Старые модели, часто встречающиеся в описаниях и вводящие в заблуждение
       'iphonexr', 'iphonexs', 'iphonexsmax', 'iphonex',
       'iphone8', 'iphone8plus', 'iphone7', 'iphone7plus',
@@ -56,8 +56,7 @@ export class IphoneValidator extends ProductValidatorBase {
       console.log(`🚨 iPhone скам-товар: "${name}" - цена: ${rules.product.price}₽, рекомендованная: ${rules.recommendedPrice}₽, толерантность: ${rules.dynamicTolerance || 0.3}`);
     }
 
-    // Используем стандартную валидацию, которая теперь включает проверку цены
-    // Важно: передаем все правила включая данные о цене
+    // Используем стандартную валидацию, которая включает проверку соответствия запроса
     return this.validateProductStandard(query, name, rules);
   }
 } 

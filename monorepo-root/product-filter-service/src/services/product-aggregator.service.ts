@@ -20,16 +20,27 @@ export class ProductAggregatorService {
    */
   async fetchAllProducts(request: ProductRequestDto): Promise<any[]> {
     fileLogger.log(`Агрегация товаров из WB и Ozon для ${request.queries.length} запросов`);
-    const [wbProducts, ozonProducts] = await Promise.all([
-      this.getProductsFromApi(request, this.wbApiClient, 'wb'),
-      this.getProductsFromApi(request, this.ozonApiClient, 'ozon')
-    ]);
     
-    // Логируем количество товаров от каждого API
-    fileLogger.log(`📊 WB API: ${wbProducts.length} товаров`);
-    fileLogger.log(`📊 Ozon API: ${ozonProducts.length} товаров`);
+    // Обрабатываем каждый запрос отдельно
+    const allProducts = [];
+    for (const query of request.queries) {
+      const singleRequest = {
+        ...request,
+        queries: [query]
+      };
+      
+      const [wbProducts, ozonProducts] = await Promise.all([
+        this.getProductsFromApi(singleRequest, this.wbApiClient, 'wb'),
+        this.getProductsFromApi(singleRequest, this.ozonApiClient, 'ozon')
+      ]);
+      
+      allProducts.push(...wbProducts, ...ozonProducts);
+    }
     
-    return [...wbProducts, ...ozonProducts];
+    // Логируем общее количество товаров
+    fileLogger.log(`📊 Всего получено: ${allProducts.length} товаров`);
+    
+    return allProducts;
   }
 
   /**
@@ -59,7 +70,12 @@ export class ProductAggregatorService {
             const wbCategoryId = await this.dbConfigService.getWbCategoryId(request.category);
             category = wbCategoryId || request.category;
             extra.categoryKey = request.category;
-            // WB API не использует platform_id и exactmodels
+            
+            // Получаем exactmodels для конкретного запроса из БД
+            const queryExactmodels = await this.dbConfigService.getExactModelsForQuery(request.category, query, 'wb');
+            if (queryExactmodels) {
+              extra.exactmodels = queryExactmodels;
+            }
           }
           if (source === 'ozon') {
             // Для Ozon API category - это ozon_id (строка, category_slug)
@@ -75,13 +91,16 @@ export class ProductAggregatorService {
               extra.exactmodels = request.exactmodels;
             }
           }
+          console.log(`🔍 DEBUG - request.exactmodels: "${request.exactmodels}"`);
+          console.log(`🔍 DEBUG - extra.exactmodels: "${extra.exactmodels}"`);
+          
           const response = await client.filterProducts({
             query,
             all_queries: [query],
             category,
-            ...extra,
-            exclude_keywords: request.exclude_keywords || [],
-            ...(request.exactmodels ? { exactmodels: request.exactmodels } : {}) // <-- прокидываем exactmodels
+            exactmodels: request.exactmodels || extra.exactmodels,
+            platform_id: request.platform_id || extra.platform_id,
+            exclude_keywords: request.exclude_keywords || []
           });
           if (response.products && Array.isArray(response.products) && response.products.length > 0) {
             const productsWithSource = response.products.map((product: any) => ({

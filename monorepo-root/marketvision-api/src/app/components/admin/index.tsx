@@ -13,6 +13,8 @@ type QueryCfg = {
   query: string;
   platform_id?: string | null;
   exactmodels?: string | null;
+  wb_platform_id?: string | null;
+  wb_exactmodels?: string | null;
   platform: 'ozon' | 'wb';
   recommended_price?: number | null;
   createdAt: string;

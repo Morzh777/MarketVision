@@ -38,16 +38,16 @@ class RateLimiter {
   isAllowed(clientId: string): boolean {
     const now = Date.now();
     const clientRequests = this.requests.get(clientId) || [];
-    
+
     // Удаляем старые запросы
     const validRequests = clientRequests.filter(
-      timestamp => now - timestamp < this.windowMs
+      (timestamp) => now - timestamp < this.windowMs,
     );
-    
+
     if (validRequests.length >= this.maxRequests) {
       return false;
     }
-    
+
     // Добавляем текущий запрос
     validRequests.push(now);
     this.requests.set(clientId, validRequests);
@@ -58,7 +58,7 @@ class RateLimiter {
     const now = Date.now();
     const clientRequests = this.requests.get(clientId) || [];
     const validRequests = clientRequests.filter(
-      timestamp => now - timestamp < this.windowMs
+      (timestamp) => now - timestamp < this.windowMs,
     );
     return Math.max(0, this.maxRequests - validRequests.length);
   }
@@ -106,11 +106,11 @@ export class GrpcServerService implements OnModuleInit {
   ): Promise<void> {
     try {
       const request: GetRawProductsRequest = call.request;
-      const { query, category, categoryKey, auth_token } = request;
+      const { query, category, platform_id, exactmodels, auth_token } = request;
 
       // Получаем IP клиента для rate limiting
       const clientIp = call.getPeer().split(':')[0] || 'unknown';
-      
+
       // Проверяем rate limiting
       if (!this.rateLimiter.isAllowed(clientIp)) {
         const remaining = this.rateLimiter.getRemainingRequests(clientIp);
@@ -157,14 +157,29 @@ export class GrpcServerService implements OnModuleInit {
       }
 
       this.logger.log(`🔍 WB API: ${query} (${category}) от ${clientIp}`);
+      this.logger.log(`📋 Полный запрос: ${JSON.stringify(request)}`);
+      this.logger.log(
+        `🎯 DEBUG - exactmodels из request: "${request.exactmodels}"`,
+      );
+      this.logger.log(
+        `🎯 DEBUG - exactmodels из деструктуризации: "${exactmodels}"`,
+      );
+      if (platform_id) {
+        this.logger.log(`📱 Platform ID: ${platform_id}`);
+      }
+      if (exactmodels) {
+        this.logger.log(`🎯 Exact Models: ${exactmodels}`);
+      }
 
       const products = await this.wbParserService.parseProducts(
         query,
         category,
+        platform_id,
+        exactmodels,
       );
 
-      // Используем categoryKey для возврата в ответе (как в тесте)
-      const responseCategory = categoryKey || category;
+      // Используем category для возврата в ответе
+      const responseCategory = category;
 
       const responseProducts = products.map((product) => ({
         ...product,
