@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { ProductsController } from './controllers/products.controller';
 import { HealthController } from './controllers/health.controller';
 import { ParsingController } from './controllers/parsing.controller';
@@ -12,12 +13,15 @@ import { ProductGroupingService } from './services/product-grouping.service';
 import { ProductNormalizerService } from './services/product-normalizer.service';
 import { DbApiHttpClient } from './http-clients/db-api.client';
 import { DbConfigService } from './services/db-config.service';
+import { CategoriesService } from './services/categories.service';
+import { PriceUpdateService } from './services/price-update.service';
 import { ValidationServiceModule } from './services/validation.service/validation.service.module';
 import { WB_API_ADDRESS, OZON_API_ADDRESS, DB_API_ADDRESS } from './config/settings';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    ScheduleModule.forRoot(),
     ValidationServiceModule,
   ],
   controllers: [ProductsController, HealthController, ParsingController],
@@ -28,6 +32,8 @@ import { WB_API_ADDRESS, OZON_API_ADDRESS, DB_API_ADDRESS } from './config/setti
     ProductNormalizerService,
     PhotoService,
     DbConfigService,
+    CategoriesService,
+    PriceUpdateService,
     {
       provide: WbApiClient,
       useValue: new WbApiClient(WB_API_ADDRESS),

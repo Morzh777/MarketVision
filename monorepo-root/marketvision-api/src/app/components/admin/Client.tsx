@@ -48,8 +48,13 @@ export default function AdminPage({
   const [queries, setQueries] = useState<QueryCfg[]>(initialQueries);
   const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const [currentUser, setCurrentUser] = useState<{ username: string; role: string } | null>(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [showLoadingOverlay, setShowLoadingOverlay] = useState(false);
+  const [showParsingPopup, setShowParsingPopup] = useState(false);
+  const [parsingResult, setParsingResult] = useState<{ success: boolean; message: string; data?: unknown } | null>(null);
+  const [parsingProgress, setParsingProgress] = useState(0);
+  const [parsingStage, setParsingStage] = useState<'starting' | 'parsing' | 'completing'>('starting');
   
   // Функция авторизации
   const handleLogin = async (username: string, password: string): Promise<boolean> => {
@@ -115,6 +120,7 @@ export default function AdminPage({
 
   const [showAddCategory, setShowAddCategory] = useState(false);
   const [editingQuery, setEditingQuery] = useState<QueryCfg | null>(null);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [expandedQueries, setExpandedQueries] = useState<Set<string>>(new Set());
   const [categoryForm, setCategoryForm] = useState({
     key: '',
@@ -126,15 +132,41 @@ export default function AdminPage({
   // Хук для управления диалогом подтверждения
   const { dialogState, showConfirm, handleCancel, handleConfirm } = useConfirmDialog();
 
-  // Проверка авторизации при загрузке
+  const reloadQueries = useCallback(async (key: string) => {
+    try {
+      const res = await fetch(`/api/categories/queries?categoryKey=${encodeURIComponent(key)}`, { 
+        cache: 'no-store' 
+      });
+      const data = await res.json();
+      setQueries(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error('Ошибка загрузки запросов:', error);
+    }
+  }, []);
+
+  const reloadCategories = useCallback(async () => {
+    try {
+      const res = await fetch('/api/categories', { cache: 'no-store' });
+      const data = await res.json();
+
+      setCategories(Array.isArray(data) ? data : []);
+      if (!selectedKey && Array.isArray(data) && data.length) {
+        setSelectedKey(data[0].key);
+      }
+    } catch (error) {
+      console.error('Ошибка загрузки категорий:', error);
+    }
+  }, [selectedKey]);
+
+  // Проверка авторизации при монтировании компонента
   useEffect(() => {
     const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('auth_token');
-        const userStr = localStorage.getItem('auth_user');
-        
-        if (token && userStr) {
-          // Проверяем токен на сервере
+      const token = localStorage.getItem('auth_token');
+      const userStr = localStorage.getItem('auth_user');
+      
+      if (token && userStr) {
+        try {
+          // Проверяем токен на сервере для безопасности
           const response = await fetch('http://localhost:80/api/admin/me', {
             method: 'GET',
             headers: {
@@ -153,50 +185,31 @@ export default function AdminPage({
             localStorage.removeItem('auth_token');
             localStorage.removeItem('auth_user');
           }
+        } catch (error) {
+          console.error('Ошибка проверки авторизации:', error);
+          // Очищаем localStorage при ошибке
+          localStorage.removeItem('auth_token');
+          localStorage.removeItem('auth_user');
         }
-      } catch (error) {
-        console.error('Ошибка проверки авторизации:', error);
-        // Очищаем localStorage при ошибке
-        localStorage.removeItem('auth_token');
-        localStorage.removeItem('auth_user');
-      } finally {
-        setIsCheckingAuth(false);
       }
+      
+      setIsCheckingAuth(false);
     };
 
     checkAuth();
   }, []);
 
+  // Загружаем запросы при смене категории
+  useEffect(() => {
+    if (selectedKey && isAuthenticated) {
+      reloadQueries(selectedKey);
+    }
+  }, [selectedKey, isAuthenticated, reloadQueries]);
+
   const selectedCategory = useMemo(
     () => categories.find((c) => c.key === selectedKey) || null,
     [categories, selectedKey]
   );
-
-  const reloadCategories = useCallback(async () => {
-    try {
-      const res = await fetch('/api/categories', { cache: 'no-store' });
-      const data = await res.json();
-
-      setCategories(Array.isArray(data) ? data : []);
-      if (!selectedKey && Array.isArray(data) && data.length) {
-        setSelectedKey(data[0].key);
-      }
-    } catch (error) {
-      console.error('Ошибка загрузки категорий:', error);
-    }
-  }, [selectedKey]);
-
-  const reloadQueries = async (key: string) => {
-    try {
-      const res = await fetch(`/api/categories/queries?categoryKey=${encodeURIComponent(key)}`, { 
-        cache: 'no-store' 
-      });
-      const data = await res.json();
-      setQueries(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error('Ошибка загрузки запросов:', error);
-    }
-  };
 
   const handleAddQuery = async () => {
     if (!selectedKey || !form.query.trim()) return;
@@ -205,18 +218,29 @@ export default function AdminPage({
     try {
       // Если редактируем существующий запрос
       if (editingQuery) {
-        // Обновляем рекомендуемую цену для всех записей этого запроса
-        if (form.recommended_price) {
-          await fetch('/api/categories/queries/recommended-price', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              categoryKey: selectedKey,
-              query: editingQuery.query,
-              recommended_price: parseInt(form.recommended_price),
-            }),
-          });
-        }
+        // Сначала удаляем старые записи для этого запроса
+        await fetch('/api/categories/queries', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            categoryKey: selectedKey,
+            query: editingQuery.query,
+          }),
+        });
+        
+        // Затем создаем новые записи с обновленными данными
+        await fetch('/api/categories/queries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            categoryKey: selectedKey,
+            query: form.query.trim(),
+            platform_id: form.platform_id.trim() || null,
+            exactmodels: form.exactmodels.trim() || null,
+            platform: form.platform,
+            recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+          }),
+        });
         
         setForm({ query: '', platform_id: '', exactmodels: '', platform: 'both', recommended_price: '' });
         setEditingQuery(null);
@@ -224,6 +248,7 @@ export default function AdminPage({
         return;
       }
       
+      // Создаем новый запрос
       await fetch('/api/categories/queries', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -284,18 +309,32 @@ export default function AdminPage({
     }
     
     setLoading(true);
+    setShowLoadingOverlay(true);
     try {
       console.log('Deleting query:', { selectedKey, queryText });
       
-      const response = await fetch(`/api/categories/queries/${encodeURIComponent(queryText)}?categoryKey=${encodeURIComponent(selectedKey)}`, {
-        method: 'DELETE',
+      const response = await fetch(`/api/categories/queries/remove`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          categoryKey: selectedKey,
+          query: queryText
+        }),
       });
       
       console.log('Delete response status:', response.status);
       if (response.ok) {
         await reloadQueries(selectedKey);
       } else {
-        const result = await response.json().catch(() => ({}));
+        let result;
+        try {
+          result = await response.json();
+        } catch (jsonError) {
+          result = { error: `HTTP ${response.status}: ${response.statusText}` };
+        }
+        
         console.error('Ошибка сервера при удалении:', {
           status: response.status,
           result
@@ -306,6 +345,7 @@ export default function AdminPage({
       console.error('Ошибка удаления запроса:', error);
     } finally {
       setLoading(false);
+      setShowLoadingOverlay(false);
     }
   };
 
@@ -384,8 +424,62 @@ export default function AdminPage({
   };
 
   const handleEditCategory = (category: Category) => {
-    // Пока просто показываем алерт, можно расширить функциональность
-    alert(`Редактирование категории "${category.display}" (key: ${category.key})`);
+    setEditingCategory(category);
+    setCategoryForm({
+      key: category.key,
+      display: category.display,
+      ozon_id: category.ozon_id || '',
+      wb_id: category.wb_id || ''
+    });
+  };
+
+  const handleSaveCategory = async () => {
+    if (!editingCategory || !categoryForm.key.trim() || !categoryForm.display.trim()) {
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/categories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: categoryForm.key.trim(),
+          display: categoryForm.display.trim(),
+          ozon_id: categoryForm.ozon_id.trim() || null,
+          wb_id: categoryForm.wb_id.trim() || null,
+        }),
+      });
+
+      if (response.ok) {
+        // Обновляем локальное состояние
+        setCategories(prev => prev.map(cat => 
+          cat.id === editingCategory.id 
+            ? { ...cat, key: categoryForm.key.trim(), display: categoryForm.display.trim(), ozon_id: categoryForm.ozon_id.trim() || null, wb_id: categoryForm.wb_id.trim() || null }
+            : cat
+        ));
+
+        setEditingCategory(null);
+        setCategoryForm({ key: '', display: '', ozon_id: '', wb_id: '' });
+        
+        // Перезагружаем категории для синхронизации с сервером
+        await reloadCategories();
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Ошибка сервера при сохранении:', errorData);
+        alert(`Ошибка сохранения: ${errorData.message || 'Неизвестная ошибка'}`);
+      }
+    } catch (error) {
+      console.error('Ошибка сохранения категории:', error);
+      alert('Ошибка при сохранении категории');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCancelEditCategory = () => {
+    setEditingCategory(null);
+    setCategoryForm({ key: '', display: '', ozon_id: '', wb_id: '' });
   };
 
   const handleFormChange = (field: string, value: string) => {
@@ -410,46 +504,138 @@ export default function AdminPage({
 
   const handleStartParsing = async () => {
     if (!selectedKey) {
-      alert('Выберите категорию для парсинга');
+      setParsingResult({ success: false, message: 'Выберите категорию для парсинга' });
+      setShowParsingPopup(true);
       return;
     }
 
     setLoading(true);
-    try {
-      console.log('Запуск парсинга для категории:', selectedKey);
+    setShowParsingPopup(true);
+    setParsingResult(null);
+    setParsingProgress(0);
+    setParsingStage('starting');
+    
+    let progressInterval: NodeJS.Timeout | null = null;
+    let apiResponse: { success: boolean; message: string; data?: { queries_processed?: number; total_products_found?: number } } | null = null;
+    let isApiReady = false;
+    
+    // Запускаем независимую анимацию
+    const startAnimation = async () => {
+      // Этап 1: "Запуск парсинга..." (1 секунда)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setParsingStage('parsing');
       
-      const response = await fetch('/api/parsing/trigger', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ categoryKey: selectedKey }),
-      });
+      // Этап 2: "Парсинг..." с прогресс-баром
+      progressInterval = setInterval(() => {
+        setParsingProgress(prev => {
+          // Если API готов, ускоряем загрузку
+          if (isApiReady && prev < 90) {
+            return prev + Math.random() * 20 + 10; // Быстрое заполнение
+          }
+          // Обычная скорость
+          if (prev >= 95) {
+            if (progressInterval) clearInterval(progressInterval);
+            return 95;
+          }
+          return prev + Math.random() * 3 + 1; // Медленное заполнение
+        });
+      }, 200);
+    };
+    
+    // Запускаем API запрос
+    const apiCall = async () => {
+      try {
+        console.log('Запуск парсинга для категории:', selectedKey);
+        
+        const response = await fetch('/api/parsing/trigger', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ categoryKey: selectedKey }),
+        });
 
-      const result = await response.json();
+        const result = await response.json();
+        apiResponse = result;
+        isApiReady = true; // Сигнализируем что API готов
+        
+        return result;
+      } catch (error) {
+        console.error('Ошибка при запуске парсинга:', error);
+        apiResponse = { success: false, message: 'Ошибка при запуске парсинга' };
+        isApiReady = true;
+        return apiResponse;
+      }
+    };
+    
+    try {
+      // Запускаем анимацию
+      startAnimation();
       
-      if (result.success) {
-        alert(`Парсинг запущен успешно!\nОбработано запросов: ${result.data?.queries_processed || 0}\nНайдено товаров: ${result.data?.total_products_found || 0}`);
+      // Ждем API ответ
+      await apiCall();
+      
+      // Очищаем интервал сразу после получения ответа
+      if (progressInterval) clearInterval(progressInterval);
+      
+      // Устанавливаем прогресс на 90+ если он еще не достигнут
+      setParsingProgress(prev => Math.max(prev, 90));
+      
+      // Небольшая задержка для плавности
+      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // Этап 3: Завершение анимации
+      setParsingStage('completing');
+      setParsingProgress(100);
+      
+      // Задержка для красивого завершения
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Показываем результат
+      if (apiResponse) {
+        const response = apiResponse as { success: boolean; message: string; data?: { queries_processed?: number; total_products_found?: number } };
+        if (response.success) {
+          setParsingResult({
+            success: true,
+            message: `Парсинг завершен успешно!\nОбработано запросов: ${response.data?.queries_processed || 0}\nНайдено товаров: ${response.data?.total_products_found || 0}`,
+            data: response.data
+          });
+        } else {
+          setParsingResult({
+            success: false,
+            message: `Ошибка при запуске парсинга: ${response.message}`
+          });
+        }
       } else {
-        alert(`Ошибка при запуске парсинга: ${result.message}`);
+        setParsingResult({
+          success: false,
+          message: 'Ошибка при запуске парсинга: Неизвестная ошибка'
+        });
       }
     } catch (error) {
-      console.error('Ошибка при запуске парсинга:', error);
-      alert('Ошибка при запуске парсинга');
+      console.error('Ошибка:', error);
+      if (progressInterval) clearInterval(progressInterval);
+      setParsingResult({
+        success: false,
+        message: 'Ошибка при запуске парсинга'
+      });
     } finally {
       setLoading(false);
     }
   };
 
-
+  const handleCloseParsingPopup = () => {
+    setShowParsingPopup(false);
+    setParsingResult(null);
+    setParsingProgress(0);
+    setParsingStage('starting');
+  };
 
   // Убрали автоматические настройки из конфига - теперь все только из БД
 
-  // Если проверяем авторизацию, показываем загрузку
-  if (isCheckingAuth) {
-    return <LoadingSpinner message="Проверка авторизации..." />;
-  }
 
-  // Если не авторизован, показываем форму авторизации
-  if (!isAuthenticated) {
+  // Убираем ранний return - админка показывается всегда, загрузчик поверх неё
+
+  // Если не авторизован И НЕ проверяем авторизацию, показываем форму авторизации
+  if (!isAuthenticated && !isCheckingAuth) {
     return <Auth onLogin={handleLogin} />;
   }
 
@@ -550,6 +736,71 @@ export default function AdminPage({
               >
                 {loading ? 'Создание...' : 'Создать категорию'}
               </button>
+            </div>
+          )}
+
+          {editingCategory && (
+            <div className="form">
+              <h3 className="form__title">Редактирование категории &quot;{editingCategory.display}&quot;</h3>
+
+              <div className="form__fields">
+                <div className="form__fieldRow">
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Ключ категории (например: videocards)"
+                      value={categoryForm.key}
+                      onChange={(e) => handleCategoryFormChange('key', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Отображаемое название (например: Видеокарты)"
+                      value={categoryForm.display}
+                      onChange={(e) => handleCategoryFormChange('display', e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="form__fieldRow">
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="Ozon ID (опционально)"
+                      value={categoryForm.ozon_id}
+                      onChange={(e) => handleCategoryFormChange('ozon_id', e.target.value)}
+                    />
+                  </div>
+
+                  <div className="form__fieldGroup">
+                    <input
+                      className="form__fieldInput"
+                      placeholder="WB ID (опционально)"
+                      value={categoryForm.wb_id}
+                      onChange={(e) => handleCategoryFormChange('wb_id', e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="form__buttons">
+                <button
+                  className="form__button form__button--secondary"
+                  onClick={handleCancelEditCategory}
+                  disabled={loading}
+                >
+                  Отмена
+                </button>
+                <button
+                  className="form__button"
+                  disabled={loading || !categoryForm.key.trim() || !categoryForm.display.trim()}
+                  onClick={handleSaveCategory}
+                >
+                  {loading ? 'Сохранение...' : 'Сохранить изменения'}
+                </button>
+              </div>
             </div>
           )}
 
@@ -833,6 +1084,66 @@ export default function AdminPage({
         onConfirm={handleConfirm}
         onCancel={handleCancel}
       />
+      
+      {showLoadingOverlay && (
+        <div className="admin__loading-overlay">
+          <LoadingSpinner 
+            message="Загрузка..." 
+            size="medium" 
+            variant="overlay" 
+            isVisible={showLoadingOverlay} 
+          />
+        </div>
+      )}
+      
+      {isCheckingAuth && (
+        <div className="admin__loading-overlay">
+          <LoadingSpinner 
+            message="Загрузка..." 
+            size="medium" 
+            variant="overlay" 
+            isVisible={isCheckingAuth} 
+          />
+        </div>
+      )}
+      
+      {showParsingPopup && (
+        <div className="admin__parsing-popup">
+          <div className="admin__parsing-content">
+            {!parsingResult ? (
+              <LoadingSpinner 
+                message={
+                  parsingStage === 'starting' ? 'Запуск парсинга...' :
+                  parsingStage === 'parsing' ? 'Парсинг...' :
+                  'Завершение...'
+                }
+                size="medium" 
+                variant="overlay" 
+                isVisible={true}
+                showProgress={parsingStage === 'parsing' || parsingStage === 'completing'}
+                progress={parsingProgress}
+              />
+            ) : (
+              <div className="admin__parsing-result">
+                <div className={`admin__parsing-icon ${parsingResult.success ? 'success' : 'error'}`}>
+                  {parsingResult.success ? '✅' : '❌'}
+                </div>
+                <div className="admin__parsing-message">
+                  {parsingResult.message.split('\n').map((line, index) => (
+                    <div key={index}>{line}</div>
+                  ))}
+                </div>
+                <button 
+                  className="admin__parsing-close"
+                  onClick={handleCloseParsingPopup}
+                >
+                  Закрыть
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -51,6 +51,13 @@ export class IphoneValidator extends ProductValidatorBase {
       return this.createResult(false, 'iphone-styled-legacy-model', 0.95);
     }
 
+    // Отладочная информация для проверки цены (только для скам-товаров)
+    if (rules.product?.price && rules.recommendedPrice && rules.product.price < rules.recommendedPrice * 0.5) {
+      console.log(`🚨 iPhone скам-товар: "${name}" - цена: ${rules.product.price}₽, рекомендованная: ${rules.recommendedPrice}₽, толерантность: ${rules.dynamicTolerance || 0.3}`);
+    }
+
+    // Используем стандартную валидацию, которая теперь включает проверку цены
+    // Важно: передаем все правила включая данные о цене
     return this.validateProductStandard(query, name, rules);
   }
 } 

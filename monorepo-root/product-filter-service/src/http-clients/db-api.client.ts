@@ -94,4 +94,78 @@ export class DbApiHttpClient {
       throw error;
     }
   }
+
+  async getRecommendedPricesForQueries(queries: string[], categoryKey: string): Promise<Map<string, number>> {
+    console.log('[TO DB-API] getRecommendedPricesForQueries queries:', queries, 'categoryKey:', categoryKey);
+    try {
+      const response = await fetch(`${this.baseURL}/categories/${categoryKey}/queries`);
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      console.log('[FROM DB-API] Queries response:', data);
+      
+      // Создаем Map с рекомендованными ценами для каждого запроса
+      const recommendedPrices = new Map<string, number>();
+      
+      if (data.queries && Array.isArray(data.queries)) {
+        data.queries.forEach((queryConfig: any) => {
+          if (queryConfig.recommended_price && queryConfig.recommended_price > 0) {
+            recommendedPrices.set(queryConfig.query, queryConfig.recommended_price);
+          }
+        });
+      }
+      
+      console.log('[FROM DB-API] Recommended prices map:', Object.fromEntries(recommendedPrices));
+      return recommendedPrices;
+    } catch (error) {
+      console.error('[FROM DB-API] Error:', error.message);
+      throw error;
+    }
+  }
+
+  async getPriceHistory(query: string, limit: number = 50): Promise<Array<{ price: number; created_at: string }>> {
+    console.log('[TO DB-API] getPriceHistory query:', query, 'limit:', limit);
+    try {
+      const response = await fetch(`${this.baseURL}/products/price-history-by-query?query=${encodeURIComponent(query)}&limit=${limit}`);
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      console.log('[FROM DB-API] Price history response:', data);
+      return data || [];
+    } catch (error) {
+      console.error('[FROM DB-API] Error:', error.message);
+      throw error;
+    }
+  }
+
+  async getMarketStats(query: string): Promise<{
+    min: number;
+    max: number;
+    mean: number;
+    median: number;
+    total_count: number;
+    created_at: string;
+  } | null> {
+    console.log('[TO DB-API] getMarketStats query:', query);
+    try {
+      const response = await fetch(`${this.baseURL}/products/products-by-query/${encodeURIComponent(query)}`);
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      console.log('[FROM DB-API] Market stats response:', data);
+      return data.marketStats || null;
+    } catch (error) {
+      console.error('[FROM DB-API] Error:', error.message);
+      throw error;
+    }
+  }
 }

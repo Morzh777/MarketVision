@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ValidationResult, ValidationRules } from '../product-validator.base';
 
-
 @Injectable()
 export class NintendoSwitchValidator extends ProductValidatorBase {
-  private readonly CATEGORY_KEY = 'nintendo_switch';
-
   private readonly NINTENDO_SWITCH_RULES: ValidationRules = {
     accessoryWords: [
       'контроллер', 'джойстик', 'кабель', 'шнур', 'зарядка', 'подставка', 'чехол',
@@ -18,11 +15,11 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   };
 
   protected getCategoryRules(category: string): ValidationRules {
-    return category === this.CATEGORY_KEY ? this.NINTENDO_SWITCH_RULES : null;
+    return category === 'nintendo_switch' ? this.NINTENDO_SWITCH_RULES : null;
   }
 
   protected getValidatorCategory(): string {
-    return this.CATEGORY_KEY;
+    return 'nintendo_switch';
   }
 
   protected getOtherModels(): string[] {
@@ -34,6 +31,7 @@ export class NintendoSwitchValidator extends ProductValidatorBase {
   }
 
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
+    // Используем стандартную валидацию, которая теперь включает проверку цены
     return this.validateProductStandard(query, name, rules);
   }
 } 

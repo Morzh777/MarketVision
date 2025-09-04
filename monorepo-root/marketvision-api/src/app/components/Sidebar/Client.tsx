@@ -7,6 +7,7 @@ import type { PopularQuery } from '../../types/market';
 import { RUBLE, formatPrice } from '../../utils/currency';
 import { createSearchVariants } from '../../utils/transliteration';
 import { SortAscIcon, SortDescIcon } from '../Icons';
+import LoadingSpinner from '../LoadingSpinner';
 import SearchBar from '../SearchBar';
 
 interface Props {
@@ -27,6 +28,7 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
   const [sortPercentOrder, setSortPercentOrder] = useState<'asc' | 'desc' | null>(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(initialFilter === 'favorites');
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Мониторим изменения URL для обновления данных
   useEffect(() => {
@@ -36,6 +38,11 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
       router.refresh();
     }
   }, [searchParams, showFavoritesOnly, router]);
+
+  // Сбрасываем состояние загрузки при изменении URL
+  useEffect(() => {
+    setIsNavigating(false);
+  }, [searchParams]);
 
   // Обновляем страницу при изменении фильтра избранного
   useEffect(() => {
@@ -123,28 +130,9 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
       sessionStorage.setItem('sidebarSearchQuery', searchQuery);
     } catch {}
     setSelectedQuery(query);
+    setIsNavigating(true);
     
-    // Используем telegram_id из props (приоритет) или из localStorage/cookies
-    let telegramId: string | undefined = telegram_id;
-    if (!telegramId && typeof window !== 'undefined') {
-      // Сначала пробуем из localStorage
-      telegramId = localStorage.getItem('telegram_id') || undefined;
-      
-      // Если нет в localStorage, пробуем из cookies
-      if (!telegramId) {
-        telegramId = document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
-      }
-      
-      // Если нет в cookies, пробуем из URL параметров (если мы на главной)
-      if (!telegramId && window.location.pathname === '/') {
-        const urlParams = new URLSearchParams(window.location.search);
-        telegramId = urlParams.get('telegram_id') || undefined;
-      }
-    }
-    
-    const productUrl = telegramId ? 
-      `/product/${encodeURIComponent(query)}?telegram_id=${telegramId}` : 
-      `/product/${encodeURIComponent(query)}`;
+    const productUrl = `/product/${encodeURIComponent(query)}`;
     router.push(productUrl);
   };
 
@@ -169,6 +157,16 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
 
   return (
     <aside className="sidebar">
+      {isNavigating && (
+        <div className="sidebar__loading-overlay">
+          <LoadingSpinner 
+            message="Загрузка..." 
+            size="medium" 
+            variant="overlay" 
+            isVisible={isNavigating} 
+          />
+        </div>
+      )}
       <div className="sidebar__header">
         {/* Поиск */}
         <SearchBar value={searchQuery} onChange={setSearchQuery} />

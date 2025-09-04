@@ -24,33 +24,22 @@ export default function Client({ onHelpClick }: Props) {
     } catch {}
 
     if (typeof window !== 'undefined') {
-      // Получаем telegram_id для передачи на главную
-      const telegramId = localStorage.getItem('telegram_id') || 
-                        document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
-      
       // Если мы на главной с фильтром favorites, убираем его
       if (window.location.pathname === '/' && window.location.search.includes('filter=favorites')) {
-        const newUrl = telegramId ? `/?telegram_id=${telegramId}` : '/';
-        window.location.href = newUrl;
+        window.location.href = '/';
         return;
       }
       
       if (window.location.pathname === '/') {
         window.location.reload();
       } else {
-        const newUrl = telegramId ? `/?telegram_id=${telegramId}` : '/';
-        window.location.assign(newUrl);
+        window.location.assign('/');
       }
       return;
     }
 
     // Fallback для SSR
-    const telegramId = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null;
-    if (telegramId) {
-      router.replace(`/?telegram_id=${telegramId}`);
-    } else {
-      router.replace('/');
-    }
+    router.replace('/');
     router.refresh();
   };
 
@@ -81,18 +70,7 @@ export default function Client({ onHelpClick }: Props) {
         className="sidebar__usernav-btn"
         aria-label="Избранное"
         onClick={() => {
-          // Получаем telegram_id для передачи на страницу избранного
-          let telegramId = null;
-          if (typeof window !== 'undefined') {
-            telegramId = localStorage.getItem('telegram_id') || 
-                         document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
-          }
-          
-          const favoritesUrl = telegramId ? 
-            `/?filter=favorites&telegram_id=${telegramId}` : 
-            '/?filter=favorites';
-          
-          router.push(favoritesUrl);
+          router.push('/?filter=favorites');
         }}
       >
         <HeartIcon size={20} />

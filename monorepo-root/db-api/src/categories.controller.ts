@@ -51,6 +51,7 @@ export class CategoriesController {
         platform_id: q.platform_id || '',
         exactmodels: q.exactmodels || '',
         platform: q.platform,
+        recommended_price: q.recommended_price || null,
       })),
     };
     console.log('[REST] Returning queries:', result);

@@ -16,15 +16,7 @@ export default function BackButton({ className, ariaLabel, children }: Props) {
     if (typeof window !== 'undefined' && window.history.length > 1) {
       router.back();
     } else {
-      // При переходе на главную передаем telegram_id если он есть
-      const telegramId = localStorage.getItem('telegram_id') || 
-                        document.cookie.split('; ').find(row => row.startsWith('telegram_id_client='))?.split('=')[1];
-      
-      if (telegramId) {
-        router.push(`/?telegram_id=${telegramId}`);
-      } else {
-        router.push('/');
-      }
+      router.push('/');
     }
   };
 

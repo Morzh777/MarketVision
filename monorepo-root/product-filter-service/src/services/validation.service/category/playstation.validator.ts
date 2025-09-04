@@ -35,6 +35,7 @@ export class PlaystationValidator extends ProductValidatorBase {
   }
 
   protected validateProduct(query: string, name: string, rules: ValidationRules): ValidationResult {
+    // Используем стандартную валидацию, которая теперь включает проверку цены
     return this.validateProductStandard(query, name, rules);
   }
 } 

@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { ProductValidatorBase, ProductCategory } from './product-validator.base';
 import { DbApiHttpClient } from '../../http-clients/db-api.client';
+import { TrendAnalysisService } from '../trend-analysis.service';
+import { CategoriesService } from '../categories.service';
 import { MotherboardsValidator } from './category/motherboards.validator';
 import { ProcessorsValidator } from './category/processors.validator';
 import { VideocardsValidator } from './category/videocards.validator';
@@ -20,11 +22,13 @@ export class ValidationFactoryService {
     private readonly steamDeckValidator: SteamDeckValidator,
     private readonly iphoneValidator: IphoneValidator,
     private readonly dbApiClient: DbApiHttpClient,
+    private readonly trendAnalysisService: TrendAnalysisService,
+    private readonly categoriesService: CategoriesService,
   ) {}
 
   async getValidator(category: ProductCategory): Promise<ProductValidatorBase> {
     // Проверяем, что категория существует в DB API
-    const validCategories = await this.getAllCategories();
+    const validCategories = await this.categoriesService.getAllCategories();
     if (!validCategories.includes(category)) {
       throw new Error(`Неизвестная категория: ${category}. Допустимые: ${validCategories.join(', ')}`);
     }
@@ -51,7 +55,47 @@ export class ValidationFactoryService {
 
   async validateProducts(products: any[], category: ProductCategory) {
     const validator = await this.getValidator(category);
-    return validator.groupAndValidateByQuery(products, category);
+    
+    // Получаем рекомендованные цены для всех запросов
+    const queries = [...new Set(products.map(p => p.query))];
+    const recommendedPrices = await this.dbApiClient.getRecommendedPricesForQueries(queries, category);
+    
+    // Создаем Map с адаптированными ценами и толерантностью
+    const adaptedPrices = new Map<string, { price: number; tolerance: number }>();
+    
+    // Анализируем тренды и адаптируем цены для каждого запроса
+    for (const query of queries) {
+      const originalPrice = recommendedPrices.get(query);
+      if (originalPrice) {
+        try {
+          const trendResult = await this.trendAnalysisService.adaptRecommendedPrice(
+            query, 
+            originalPrice, 
+            category
+          );
+          
+          adaptedPrices.set(query, {
+            price: trendResult.adaptedRecommendedPrice,
+            tolerance: trendResult.dynamicTolerance
+          });
+          
+          // Логируем если цена была адаптирована
+          if (trendResult.shouldUpdate) {
+            console.log(`🔄 Адаптация цены для "${query}": ${originalPrice}₽ → ${trendResult.adaptedRecommendedPrice}₽ (${trendResult.trend.direction} ${trendResult.trend.percentage.toFixed(2)}%)`);
+          }
+        } catch (error) {
+          console.error(`❌ Ошибка адаптации цены для "${query}":`, error);
+          // Используем оригинальную цену при ошибке
+          adaptedPrices.set(query, {
+            price: originalPrice,
+            tolerance: 0.3
+          });
+        }
+      }
+    }
+    
+    // Передаем адаптированные цены в валидатор
+    return validator.groupAndValidateByQuery(products, category, adaptedPrices);
   }
 
   async validateSingleProduct(query: string, productName: string, category: ProductCategory) {
@@ -63,24 +107,13 @@ export class ValidationFactoryService {
    * Получить все доступные категории из DB API
    */
   async getAllCategories(): Promise<string[]> {
-    try {
-      // Получаем все категории из DB API
-      const categoriesResponse = await this.dbApiClient.getAllCategories();
-      // DB API возвращает массив категорий напрямую
-      return Array.isArray(categoriesResponse) 
-        ? categoriesResponse.map(cat => cat.key) 
-        : categoriesResponse.categories?.map(cat => cat.key) || [];
-    } catch (error) {
-      console.error('Ошибка получения категорий из DB API:', error);
-      return [];
-    }
+    return this.categoriesService.getAllCategories();
   }
 
   /**
    * Проверить, существует ли категория в DB API
    */
   async hasCategory(category: string): Promise<boolean> {
-    const categories = await this.getAllCategories();
-    return categories.includes(category);
+    return this.categoriesService.hasCategory(category);
   }
 } 

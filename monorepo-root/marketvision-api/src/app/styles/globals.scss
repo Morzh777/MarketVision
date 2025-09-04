@@ -118,6 +118,12 @@ body {
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  // Умная прокрутка на мобильных устройствах
+  @media (max-width: 768px) {
+    height: 100vh;
+    min-height: 100vh;
+  }
 }
 
 // Предотвращение CLS для изображений
@@ -233,4 +239,12 @@ img {
 
 *::-webkit-scrollbar {
   display: none !important; /* Chrome/Safari/Opera */
+}
+
+/* Умная прокрутка на мобильных устройствах */
+@media (max-width: 768px) {
+  html {
+    height: 100vh;
+    min-height: 100vh;
+  }
 } 

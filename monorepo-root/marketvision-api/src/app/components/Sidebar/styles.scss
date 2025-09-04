@@ -7,11 +7,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh; // Изменяем на min-height чтобы контент мог растягиваться
   position: relative;
   --sidebar-header-height: 130px; /* увеличил, чтобы список не ехал под хедер */
   padding-top: var(--sidebar-header-height);
+  
+  // Умная прокрутка на мобильных устройствах
+  @media (max-width: 768px) {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden; // Основной контейнер не прокручивается
+  }
 }
 
 // SearchBar styles moved to components/SearchBar/styles.scss
@@ -29,6 +35,11 @@
   @include text-lg; // 16px
   @include font-semibold;
   @include text-secondary;
+  
+  // Умная прокрутка на мобильных устройствах
+  @media (max-width: 768px) {
+    // Header может прокручиваться
+  }
 }
 
 .sidebar__controls {
@@ -199,8 +210,8 @@
 
 .sidebar__list {
   padding-top: 0; /* верхний отступ задаёт контейнер через padding-top */
-  flex: 1;
-  overflow-y: auto;
+  flex: 0 1 auto; // Изменяем flex чтобы список подстраивался под содержимое
+  overflow-y: visible; // Убираем скролл когда элементов мало
   list-style: none;
   margin: 0;
   padding: 0 0 var(--usernav-height);
@@ -210,6 +221,13 @@
   
   &::-webkit-scrollbar {
     display: none; /* Chrome/Safari/Opera */
+  }
+  
+  // Умная прокрутка на мобильных устройствах
+  @media (max-width: 768px) {
+    overflow-y: auto; // Разрешаем вертикальную прокрутку при необходимости
+    overflow-x: hidden; // Скрываем горизонтальную прокрутку
+    -webkit-overflow-scrolling: touch; // Плавная прокрутка на iOS
   }
 }
 
@@ -366,27 +384,16 @@
 }
 
 .sidebar__loading-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
-  backdrop-filter: blur(2px);
-}
-
-.sidebar__loading-overlay p {
-  color: var(--color-text-secondary);
-  font-size: 14px;
-  margin: 0;
-  padding: 12px 24px;
-  background: var(--color-bg);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
 }
 
 

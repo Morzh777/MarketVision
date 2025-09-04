@@ -1,5 +1,7 @@
 import { Module, Global } from '@nestjs/common';
 import { DbApiHttpClient } from '../../http-clients/db-api.client';
+import { TrendAnalysisService } from '../trend-analysis.service';
+import { CategoriesService } from '../categories.service';
 import { ProductValidatorBase } from './product-validator.base';
 import { MotherboardsValidator } from './category/motherboards.validator';
 import { ProcessorsValidator } from './category/processors.validator';
@@ -21,6 +23,8 @@ import { ValidationFactoryService } from './validation-factory.service';
     SteamDeckValidator,
     IphoneValidator,
     DbApiHttpClient,
+    TrendAnalysisService,
+    CategoriesService,
     ValidationFactoryService,
   ],
   exports: [
@@ -31,6 +35,9 @@ import { ValidationFactoryService } from './validation-factory.service';
     NintendoSwitchValidator,
     SteamDeckValidator,
     IphoneValidator,
+    DbApiHttpClient,
+    TrendAnalysisService,
+    CategoriesService,
     ValidationFactoryService,
   ],
 })

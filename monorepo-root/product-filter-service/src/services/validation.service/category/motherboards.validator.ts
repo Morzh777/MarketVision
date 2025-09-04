@@ -45,6 +45,7 @@ export class MotherboardsValidator extends ProductValidatorBase {
       }
     }
 
+    // Используем стандартную валидацию, которая теперь включает проверку цены
     return this.validateProductStandard(query, name, rules);
   }
 } 

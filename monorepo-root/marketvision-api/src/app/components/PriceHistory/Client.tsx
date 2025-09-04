@@ -36,10 +36,10 @@ export default function PriceHistoryChart({ data, query, source }: { data: Point
     let xMin: number | undefined;
     let xMax: number | undefined;
     if (period === 'day' && sorted.length > 0) {
+      const firstTs = new Date(sorted[0].created_at);
       const lastTs = new Date(sorted[sorted.length - 1].created_at);
-      const startOfDay = new Date(lastTs);
-      startOfDay.setHours(0, 0, 0, 0);
-      xMin = startOfDay.getTime();
+      // Начинаем с первого времени данных, а не с начала дня
+      xMin = firstTs.getTime();
       xMax = lastTs.getTime();
     }
 
