@@ -19,12 +19,45 @@ class RawProductServiceStub(object):
                 request_serializer=raw__product__pb2.GetRawProductsRequest.SerializeToString,
                 response_deserializer=raw__product__pb2.GetRawProductsResponse.FromString,
                 )
+        self.BatchCreateProducts = channel.unary_unary(
+                '/raw_product.RawProductService/BatchCreateProducts',
+                request_serializer=raw__product__pb2.BatchCreateProductsRequest.SerializeToString,
+                response_deserializer=raw__product__pb2.BatchCreateProductsResponse.FromString,
+                )
+        self.GetCategoryConfig = channel.unary_unary(
+                '/raw_product.RawProductService/GetCategoryConfig',
+                request_serializer=raw__product__pb2.GetCategoryConfigRequest.SerializeToString,
+                response_deserializer=raw__product__pb2.GetCategoryConfigResponse.FromString,
+                )
+        self.GetQueriesForCategory = channel.unary_unary(
+                '/raw_product.RawProductService/GetQueriesForCategory',
+                request_serializer=raw__product__pb2.GetQueriesForCategoryRequest.SerializeToString,
+                response_deserializer=raw__product__pb2.GetQueriesForCategoryResponse.FromString,
+                )
 
 
 class RawProductServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetRawProducts(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BatchCreateProducts(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCategoryConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQueriesForCategory(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +70,21 @@ def add_RawProductServiceServicer_to_server(servicer, server):
                     servicer.GetRawProducts,
                     request_deserializer=raw__product__pb2.GetRawProductsRequest.FromString,
                     response_serializer=raw__product__pb2.GetRawProductsResponse.SerializeToString,
+            ),
+            'BatchCreateProducts': grpc.unary_unary_rpc_method_handler(
+                    servicer.BatchCreateProducts,
+                    request_deserializer=raw__product__pb2.BatchCreateProductsRequest.FromString,
+                    response_serializer=raw__product__pb2.BatchCreateProductsResponse.SerializeToString,
+            ),
+            'GetCategoryConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCategoryConfig,
+                    request_deserializer=raw__product__pb2.GetCategoryConfigRequest.FromString,
+                    response_serializer=raw__product__pb2.GetCategoryConfigResponse.SerializeToString,
+            ),
+            'GetQueriesForCategory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQueriesForCategory,
+                    request_deserializer=raw__product__pb2.GetQueriesForCategoryRequest.FromString,
+                    response_serializer=raw__product__pb2.GetQueriesForCategoryResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +110,56 @@ class RawProductService(object):
         return grpc.experimental.unary_unary(request, target, '/raw_product.RawProductService/GetRawProducts',
             raw__product__pb2.GetRawProductsRequest.SerializeToString,
             raw__product__pb2.GetRawProductsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BatchCreateProducts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/raw_product.RawProductService/BatchCreateProducts',
+            raw__product__pb2.BatchCreateProductsRequest.SerializeToString,
+            raw__product__pb2.BatchCreateProductsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCategoryConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/raw_product.RawProductService/GetCategoryConfig',
+            raw__product__pb2.GetCategoryConfigRequest.SerializeToString,
+            raw__product__pb2.GetCategoryConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetQueriesForCategory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/raw_product.RawProductService/GetQueriesForCategory',
+            raw__product__pb2.GetQueriesForCategoryRequest.SerializeToString,
+            raw__product__pb2.GetQueriesForCategoryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

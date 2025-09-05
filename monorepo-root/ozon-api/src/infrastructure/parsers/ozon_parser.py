@@ -148,21 +148,32 @@ class OzonParser:
         print(f"🔎 Получен exactmodels: {exactmodels}")
 
         # Параметры запроса (приведены в соответствие с рабочей ссылкой)
-        url_param = f"/category/{category_slug}/?__rr=1&category_was_predicted=true&deny_category_prediction=true&from_global=true&page=1&sorting=price&text={encoded_query}"
+        url_param = f"/category/{category_slug}/?__rr=1&category_was_predicted=true&deny_category_prediction=true&from_global=true&page=1&sorting=price&text={encoded_query}&"
 
         # Добавляем платформу если указана
         if platform_id:
-            url_param += f"&opened=platform&platform={platform_id}"
+            url_param += platform_id
             print(f"🎮 Добавляем платформу: {platform_id}")
         else:
             print(f"⚠️ platform_id не указан или пустой")
-        # Добавляем exactmodels если указан
+        # Добавляем exactmodels если указан (универсальное поле для любых параметров модели)
         if exactmodels:
-            url_param += f"&exactmodels={exactmodels}"
-            print(f"🔎 Добавляем exactmodels: {exactmodels}")
+            url_param += exactmodels
+            print(f"🔎 Добавляем параметр модели: {exactmodels}")
 
-        # Строим URL (кодируем только url параметр)
-        full_url = f"{base_url}?url={urllib.parse.quote(url_param)}"
+        # Очищаем URL от лишних символов
+        url_param = url_param.strip()
+        
+        # Строим URL (кодируем только url параметр, но не кодируем ?)
+        # Разделяем путь и параметры
+        if '?' in url_param:
+            path_part, query_part = url_param.split('?', 1)
+            encoded_path = urllib.parse.quote(path_part)
+            encoded_query = urllib.parse.quote(query_part, safe='=&')
+            full_url = f"{base_url}?url={encoded_path}?{encoded_query}"
+        else:
+            full_url = f"{base_url}?url={urllib.parse.quote(url_param)}"
+        
         print(f"[OZON-API] FINAL URL: {full_url}")
         return full_url
 

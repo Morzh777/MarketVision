@@ -72,7 +72,8 @@ export default function Client({ product, priceHistory, decodedQuery, telegram_i
     
     setIsFavoriteLoading(true);
     try {
-      const success = await toggleFavorite(decodedQuery);
+      // Передаем текущий статус, чтобы избежать повторной проверки
+      const success = await toggleFavorite(decodedQuery, isFavorite);
       if (success) {
         setIsFavorite(!isFavorite);
       }

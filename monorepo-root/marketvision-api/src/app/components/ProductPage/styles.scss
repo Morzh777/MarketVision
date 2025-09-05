@@ -4,36 +4,35 @@
 
 .productCard {
   background: var(--color-bg);
+  display: flex;
   flex-direction: column;
   padding: 8px;
   overflow: hidden;
   position: relative;
-  min-width: 0; // Позволяет сжиматься
+  min-width: 0;
 }
 
 .productCard__imageSection {
   border-radius: 16px;
   position: relative;
-  padding: 16px; // Добавляем отступы
+  padding: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--color-bg-light);
   border-bottom: 1px solid var(--color-border);
   height: 250px;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
 }
-
-
 
 .productCard__image {
   width: 100%;
   height: 100%;
-  object-fit: cover; // Заполняет весь блок
-  object-position: center; // Центрирует изображение
+  object-fit: cover;
+  object-position: center;
   border-radius: 12px;
-  min-width: 0; // Позволяет сжиматься
+  min-width: 0;
 }
 
 .productCard__imageOverlay {
@@ -90,8 +89,8 @@
   flex-direction: column;
   gap: 12px;
   overflow-y: auto;
-  overflow-x: hidden; // Скрываем горизонтальный скролл
-  min-width: 0; // Позволяет сжиматься
+  overflow-x: hidden;
+  min-width: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   -webkit-overflow-scrolling: touch;
@@ -124,9 +123,9 @@
   margin: 0;
   text-decoration: none;
   word-break: break-word;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
-  text-overflow: ellipsis; // Добавляем многоточие
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
   &:hover {
     @include text-blue;
@@ -137,13 +136,13 @@
   position: absolute;
   bottom: 8px;
   left: 8px;
-  right: 16px; // Добавляем правый отступ
+  right: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   z-index: 10;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
 }
 
 .productCard__tag {
@@ -152,12 +151,12 @@
   padding: 5px 15px;
   border-radius: 24px;
   @include tag-base;
-  @include truncate; // Используем миксин для обрезки текста
+  @include truncate;
   backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   pointer-events: none;
   user-select: none;
-  min-width: 0; // Позволяет сжиматься
+  min-width: 0;
   
   &.productCard__tag_source {
     &.productCard__tag_wb {
@@ -213,11 +212,11 @@
 }
 
 .productCard__pricingSection {
-  padding:8px;
+  padding: 8px;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
 }
 
 .productCard__priceBlock {
@@ -225,17 +224,17 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 8px;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
 }
 
 .productCard__priceRow {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto; // уводим цену вправо
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  margin-left: auto;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .productCard__priceLine {
@@ -259,17 +258,17 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
 }
 
 .productCard__price {
   @include text-3xl;
   @include font-bold;
   @include text-primary;
-  @include truncate; // Используем миксин для обрезки текста
+  @include truncate;
   text-decoration: none;
-  min-width: 0; // Позволяет сжиматься
+  min-width: 0;
   
   &.productCard__price_link {
     &:hover {
@@ -280,7 +279,7 @@
 
 .productCard__trendSection {
   display: flex;
-  flex-direction: row; /* label left, graph right */
+  flex-direction: row;
   align-items: center;
   gap: 8px;
 }
@@ -307,8 +306,7 @@
 .productCard__stats {
   display: flex;
   flex-direction: column;
-
-  overflow: hidden; // Скрываем переполнение
+  overflow: hidden;
 }
 
 .productCard__stat {
@@ -316,8 +314,8 @@
   align-items: center;
   justify-content: space-between;
   transition: all 0.2s;
-  min-width: 0; // Позволяет сжиматься
-  overflow: hidden; // Скрываем переполнение
+  min-width: 0;
+  overflow: hidden;
   
   &:hover {
     background: var(--color-bg-active);
@@ -329,8 +327,8 @@
   @include font-semibold;
   @include text-secondary;
   @include tracking-wide;
-  @include truncate; // Используем миксин для обрезки текста
-  min-width: 0; // Позволяет сжиматься
+  @include truncate;
+  min-width: 0;
 }
 
 .productCard__statValue {
@@ -340,8 +338,8 @@
   @include text-base;
   @include font-semibold;
   @include text-primary;
-  @include truncate; // Используем миксин для обрезки текста
-  min-width: 0; // Позволяет сжиматься
+  @include truncate;
+  min-width: 0;
 }
 
 .productCard__marketPrice {
@@ -369,7 +367,7 @@
 .productCard__shopButton {
   display: flex;
   align-items: center;
-  justify-content: center; // центрируем и иконку, и текст
+  justify-content: center;
   height: 20px;
   gap: 8px;
   padding: 16px 24px;
@@ -432,13 +430,10 @@
 
 .productCard__priceHistory {
   border-top: 1px solid var(--color-border);
-  border-top: 1px solid var(--color-border);
   flex: 1;
-  overflow: hidden; // контейнер
-  min-width: 0; // Позволяет сжиматься
-  width: 100%; // Гарантируем полную ширину
-  
-  // Не скрываем скроллбар у дочернего списка истории
+  overflow: hidden;
+  min-width: 0;
+  width: 100%;
 }
 
 .productCard__empty {
@@ -466,11 +461,6 @@
 
 // Локальные шрифты не задаём — используем глобальные настройки из globals.scss
 
-
-@import '../../styles/base/variables';
-@import '../../styles/base/mixins';
-@import '../../styles/base/typography';
-
 // Стили для ProductPage
 .productPage {
   min-height: 100vh;
@@ -481,11 +471,10 @@
 
 .productPage__content {
   flex: 1;
-  padding-top: 30px; // Отступ для верхней навигации
-  padding-bottom: 20px; // Отступ для нижней навигации
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
-// Верхняя панель действий
 .productPage__topBar {
   position: fixed;
   top: 0;
@@ -548,7 +537,6 @@
   }
 }
 
-// Анимация пульсации для загрузки
 @keyframes pulse {
   0%, 100% {
     opacity: 0.6;
@@ -602,11 +590,3 @@
   z-index: 1001;
 }
 
-// UserNav как на главной странице
-.productPage .sidebar__usernav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1500;
-} 

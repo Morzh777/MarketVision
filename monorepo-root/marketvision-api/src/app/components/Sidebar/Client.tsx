@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import type { PopularQuery } from '../../types/market';
 import { RUBLE, formatPrice } from '../../utils/currency';
@@ -15,42 +15,81 @@ interface Props {
   favoriteQueries: PopularQuery[];
   initialFilter?: string;
   initialCategory?: string;
-  telegram_id?: string;
 }
 
-export default function Client({ popularQueries, favoriteQueries, initialFilter, initialCategory, telegram_id }: Props) {
+// Простой компонент без мемоизации для максимальной производительности
+const SidebarItem = ({ query, onSelect, isSelected }: { query: PopularQuery; onSelect: (query: string) => void; isSelected: boolean }) => (
+  <li className={`sidebar__item ${isSelected ? 'sidebar__item--active' : ''}`} onClick={() => onSelect(query.query)}>
+    <div className="sidebar__item-avatar">
+      {query.image_url ? (
+        <Image src={query.image_url} alt={query.query} width={32} height={32} className="sidebar__item-avatar-img" />
+      ) : (
+        <div className="sidebar__item-avatar-inner">{query.query.charAt(0).toUpperCase()}</div>
+      )}
+    </div>
+    <div className="sidebar__item-content">
+      <span className="sidebar__item-name">{query.query}</span>
+    </div>
+    <span className="sidebar__item-price">{formatPrice(query.minPrice)} {RUBLE}</span>
+    <span className={`sidebar__item-percent ${query.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>
+      {query.priceChangePercent > 0 ? '+' : ''}{query.priceChangePercent.toFixed(1)}%
+    </span>
+  </li>
+);
+
+export default function Client({ popularQueries, favoriteQueries, initialFilter, initialCategory }: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory || 'all');
-  const [selectedQuery, setSelectedQuery] = useState('');
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
   const [sortPercentOrder, setSortPercentOrder] = useState<'asc' | 'desc' | null>(null);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(initialFilter === 'favorites');
-  const [isNavigating, setIsNavigating] = useState(false);
+  const [isNavigating] = useState(false);
+  const [selectedQuery, setSelectedQuery] = useState('');
 
-  // Мониторим изменения URL для обновления данных
+  // Отслеживаем скролл для показа скроллбара
   useEffect(() => {
-    const currentFilter = searchParams.get('filter');
-    if (currentFilter === 'favorites' && !showFavoritesOnly) {
-      // Если вернулись на страницу с фильтром favorites, обновляем страницу
-      router.refresh();
-    }
-  }, [searchParams, showFavoritesOnly, router]);
+    const listElement = document.querySelector('.sidebar__list');
+    if (!listElement) return;
 
-  // Сбрасываем состояние загрузки при изменении URL
-  useEffect(() => {
-    setIsNavigating(false);
-  }, [searchParams]);
+    let scrollTimeout: NodeJS.Timeout;
 
-  // Обновляем страницу при изменении фильтра избранного
-  useEffect(() => {
-    if (showFavoritesOnly) {
-      // При включении фильтра избранного обновляем страницу для получения свежих данных
-      router.refresh();
-    }
-  }, [showFavoritesOnly, router]);
+    const handleScroll = () => {
+      listElement.classList.add('scrolling');
+      
+      // Скрываем скроллбар через 1 секунду после остановки скролла
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        listElement.classList.remove('scrolling');
+      }, 1000);
+    };
+
+    listElement.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      listElement.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
+  // Убираем лишние useEffect'ы для производительности
+  // useEffect(() => {
+  //   const currentFilter = searchParams.get('filter');
+  //   if (currentFilter === 'favorites' && !showFavoritesOnly) {
+  //     router.refresh();
+  //   }
+  // }, [searchParams, showFavoritesOnly, router]);
+
+  // useEffect(() => {
+  //   setIsNavigating(false);
+  // }, [searchParams]);
+
+  // useEffect(() => {
+  //   if (showFavoritesOnly) {
+  //     router.refresh();
+  //   }
+  // }, [showFavoritesOnly, router]);
 
   useEffect(() => {
     const savedSearch = sessionStorage.getItem('sidebarSearchQuery');
@@ -70,13 +109,14 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
     }
   }, [initialFilter]);
 
-  useEffect(() => {
-    sessionStorage.setItem('sidebarSearchQuery', searchQuery);
-  }, [searchQuery]);
+  // Убираем лишние sessionStorage операции для производительности
+  // useEffect(() => {
+  //   sessionStorage.setItem('sidebarSearchQuery', searchQuery);
+  // }, [searchQuery]);
 
-  useEffect(() => {
-    sessionStorage.setItem('sidebarShowFavoritesOnly', showFavoritesOnly.toString());
-  }, [showFavoritesOnly]);
+  // useEffect(() => {
+  //   sessionStorage.setItem('sidebarShowFavoritesOnly', showFavoritesOnly.toString());
+  // }, [showFavoritesOnly]);
 
 
   useEffect(() => {
@@ -124,17 +164,11 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
     return list;
   }, [popularQueries, favoriteQueries, selectedCategory, searchQuery, sortOrder, sortPercentOrder, showFavoritesOnly]);
 
-  const handleSelectQuery = (query: string) => {
-    try {
-      sessionStorage.setItem('sidebarSelectedCategory', selectedCategory);
-      sessionStorage.setItem('sidebarSearchQuery', searchQuery);
-    } catch {}
+  const handleSelectQuery = useCallback((query: string) => {
     setSelectedQuery(query);
-    setIsNavigating(true);
-    
     const productUrl = `/product/${encodeURIComponent(query)}`;
     router.push(productUrl);
-  };
+  }, [router]);
 
   const handleFavoritesClick = () => {
     setShowFavoritesOnly(true);
@@ -146,13 +180,8 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
       sessionStorage.setItem('sidebarSelectedCategory', 'all');
     } catch {}
     
-    // Принудительно обновляем страницу для получения свежих данных избранного
-    // Передаем telegram_id в URL
-    if (telegram_id) {
-      router.push(`/?filter=favorites&telegram_id=${telegram_id}`);
-    } else {
-      router.refresh();
-    }
+    // Переходим на страницу избранного без telegram_id в URL
+    router.push('/?filter=favorites');
   };
 
   return (
@@ -203,10 +232,8 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
                         sessionStorage.setItem('sidebarShowFavoritesOnly', 'false');
                       } catch {}
                       
-                      // Передаем telegram_id в URL при смене категории
-                      if (telegram_id) {
-                        router.push(`/?telegram_id=${telegram_id}`);
-                      }
+                      // Переходим на главную страницу
+                      router.push('/');
                     }}
                   >
                     Все запросы
@@ -226,10 +253,8 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
                           sessionStorage.setItem('sidebarShowFavoritesOnly', 'false');
                         } catch {}
                         
-                        // Передаем telegram_id в URL при смене категории
-                        if (telegram_id) {
-                          router.push(`/?category=${cat}&telegram_id=${telegram_id}`);
-                        }
+                        // Переходим на страницу категории
+                        router.push(`/?category=${cat}`);
                       }}
                     >
                       {cat}
@@ -249,12 +274,12 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
 
           <button
             type="button"
-            onClick={() => {
+            onClick={useCallback(() => {
               if (sortPercentOrder) {
                 setSortPercentOrder(null);
               }
               setSortOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'));
-            }}
+            }, [sortPercentOrder])}
             className={'sidebar__sort-btn sidebar__sort-btn--price' + (sortOrder ? ' sidebar__sort-btn--active' : '')}
           >
             Мин. цена
@@ -263,12 +288,12 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
           </button>
           <button
             type="button"
-            onClick={() => {
+            onClick={useCallback(() => {
               if (sortOrder) {
                 setSortOrder(null);
               }
               setSortPercentOrder((p) => (p === 'asc' ? 'desc' : p === 'desc' ? null : 'asc'));
-            }}
+            }, [sortOrder])}
             className={'sidebar__sort-btn sidebar__sort-btn--percent' + (sortPercentOrder ? ' sidebar__sort-btn--active' : '')}
           >
             Изм. %
@@ -280,27 +305,7 @@ export default function Client({ popularQueries, favoriteQueries, initialFilter,
 
       <ul className="sidebar__list">
         {filteredQueries.map((q: PopularQuery) => (
-          <li
-            key={q.id}
-            className={'sidebar__item' + (selectedQuery === q.query ? ' sidebar__item--active' : '')}
-            onClick={() => handleSelectQuery(q.query)}
-          >
-            <div className="sidebar__item-avatar">
-              {q.image_url ? (
-                <Image src={q.image_url} alt={q.query} width={32} height={32} className="sidebar__item-avatar-img" />
-              ) : (
-                <div className="sidebar__item-avatar-inner">{q.query.charAt(0).toUpperCase()}</div>
-              )}
-            </div>
-            <div className="sidebar__item-content">
-              <span className="sidebar__item-name">{q.query}</span>
-            </div>
-            <span className="sidebar__item-price">{`${formatPrice(q.minPrice)} ${RUBLE}`}</span>
-            <span className={`sidebar__item-percent ${q.priceChangePercent <= 0 ? 'sidebar__item-percent--green' : 'sidebar__item-percent--red'}`}>
-              {q.priceChangePercent > 0 ? '+' : ''}
-              {q.priceChangePercent.toFixed(1)}%
-            </span>
-          </li>
+          <SidebarItem key={q.id} query={q} onSelect={handleSelectQuery} isSelected={selectedQuery === q.query} />
         ))}
       </ul>
 

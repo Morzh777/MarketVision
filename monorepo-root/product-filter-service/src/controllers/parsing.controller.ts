@@ -19,6 +19,33 @@ export class ParsingController {
   ) {}
 
   /**
+   * Очистка кэша после парсинга
+   */
+  private async clearCache(): Promise<void> {
+    try {
+      // Очищаем кэш через MarketVision API
+      const response = await fetch('http://marketvision-frontend-dev:3006/api/cache/clear', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.message || 'Cache clear failed');
+      }
+    } catch (error) {
+      this.logger.error(`❌ Ошибка очистки кэша: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
    * Запуск парсинга для категории
    * POST /parsing/trigger
    * 
@@ -67,24 +94,32 @@ export class ParsingController {
 
       this.logger.log(`📋 Конфигурация категории: WB ID=${categoryConfig.wb_id}, Ozon ID=${categoryConfig.ozon_id}`);
 
-      // 3. Запускаем парсинг для каждого запроса
-      const results = [];
+      // 3. Группируем запросы по уникальным query и запускаем парсинг
+      const uniqueQueries = new Map();
       for (const query of queries) {
-        this.logger.log(`🔍 Парсинг запроса: "${query.query}" (${query.platform})`);
-        this.logger.log(`📱 Platform ID: ${query.platform_id || 'не указан'}`);
-        this.logger.log(`🎯 Exact Models: ${query.exactmodels || 'не указаны'}`);
+        if (!uniqueQueries.has(query.query)) {
+          uniqueQueries.set(query.query, []);
+        }
+        uniqueQueries.get(query.query).push(query);
+      }
+      
+      this.logger.log(`📋 Найдено ${uniqueQueries.size} уникальных запросов для парсинга`);
+      
+      const results = [];
+      for (const [queryText, queryConfigs] of uniqueQueries) {
+        this.logger.log(`🔍 Парсинг запроса: "${queryText}" (${queryConfigs.length} конфигураций)`);
         
         const queryRequest = {
-          queries: [query.query],
+          queries: [queryText],
           category: request.categoryKey, // Используем ключ категории для валидации
-          platform_id: query.platform_id || undefined, // platform_id может быть пустым
-          exactmodels: query.exactmodels || undefined // exactmodels может быть пустым
+          platform_id: undefined, // Будет определено в ProductAggregatorService
+          exactmodels: undefined // Будет определено в ProductAggregatorService
         };
         
         const result = await this.productsService.getProducts(queryRequest);
         results.push({
-          query: query.query,
-          platform: query.platform,
+          query: queryText,
+          platforms: queryConfigs.map(q => q.platform).join(', '),
           products_found: result.products.length
         });
       }
@@ -93,6 +128,15 @@ export class ParsingController {
       const totalProducts = results.reduce((sum, r) => sum + r.products_found, 0);
       
       this.logger.log(`✅ Парсинг завершен за ${processingTime}ms, обработано ${queries.length} запросов, найдено ${totalProducts} товаров`);
+      
+      // 4. Очищаем кэш после успешного парсинга
+      try {
+        this.logger.log(`🧹 Очищаем кэш после парсинга...`);
+        await this.clearCache();
+        this.logger.log(`✅ Кэш успешно очищен`);
+      } catch (cacheError) {
+        this.logger.warn(`⚠️ Не удалось очистить кэш: ${cacheError.message}`);
+      }
       
       return {
         success: true,

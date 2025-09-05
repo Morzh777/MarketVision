@@ -1,8 +1,8 @@
 "use client";
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { HeartIcon, HomeIcon, HomeSolidIcon, QuestionIcon } from '../Icons';
+import { HeartIcon, HeartSolidIcon, HomeIcon, HomeSolidIcon, QuestionIcon } from '../Icons';
 
 export interface Props {
   onHelpClick?: () => void;
@@ -14,6 +14,41 @@ export default function Client({ onHelpClick }: Props) {
   const isHome = pathname === '/';
   const [homePressed, setHomePressed] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isFavoritesActive, setIsFavoritesActive] = useState(false);
+  
+  // Проверяем, активен ли фильтр избранного
+  useEffect(() => {
+    const checkFavorites = () => {
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const isFavoritesFromURL = urlParams.get('filter') === 'favorites';
+        
+        // Также проверяем sessionStorage для синхронизации с Sidebar
+        const isFavoritesFromStorage = sessionStorage.getItem('sidebarShowFavoritesOnly') === 'true';
+        
+        setIsFavoritesActive(isFavoritesFromURL || isFavoritesFromStorage);
+      }
+    };
+    
+    checkFavorites();
+    
+    // Слушаем изменения URL
+    const handlePopState = () => checkFavorites();
+    window.addEventListener('popstate', handlePopState);
+    
+    // Слушаем изменения sessionStorage для синхронизации с Sidebar
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'sidebarShowFavoritesOnly') {
+        checkFavorites();
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const goHome = (): void => {
     try {
@@ -23,9 +58,18 @@ export default function Client({ onHelpClick }: Props) {
       sessionStorage.removeItem('sidebarShowFavoritesOnly'); // Добавляем сброс фильтра избранного
     } catch {}
 
+    // Сбрасываем состояние избранного
+    setIsFavoritesActive(false);
+
     if (typeof window !== 'undefined') {
       // Если мы на главной с фильтром favorites, убираем его
       if (window.location.pathname === '/' && window.location.search.includes('filter=favorites')) {
+        window.location.href = '/';
+        return;
+      }
+      
+      // Если мы на главной и показываем избранное через sessionStorage, перезагружаем
+      if (window.location.pathname === '/' && sessionStorage.getItem('sidebarShowFavoritesOnly') === 'true') {
         window.location.href = '/';
         return;
       }
@@ -54,7 +98,7 @@ export default function Client({ onHelpClick }: Props) {
     <nav className="sidebar__usernav" aria-label="User navigation">
       <button
         type="button"
-        className={`sidebar__usernav-btn${isHome ? ' sidebar__usernav-btn--active' : ''}`}
+        className="sidebar__usernav-btn"
         aria-label="Главная"
         onPointerDown={() => setHomePressed(true)}
         onPointerUp={() => setHomePressed(false)}
@@ -62,7 +106,7 @@ export default function Client({ onHelpClick }: Props) {
         onBlur={() => setHomePressed(false)}
         onClick={goHome}
       >
-        {homePressed || isHome ? <HomeSolidIcon size={20} /> : <HomeIcon size={20} />}
+        {homePressed || (isHome && !isFavoritesActive) ? <HomeSolidIcon size={20} /> : <HomeIcon size={20} />}
       </button>
 
       <button
@@ -70,10 +114,11 @@ export default function Client({ onHelpClick }: Props) {
         className="sidebar__usernav-btn"
         aria-label="Избранное"
         onClick={() => {
+          setIsFavoritesActive(true);
           router.push('/?filter=favorites');
         }}
       >
-        <HeartIcon size={20} />
+        {isFavoritesActive ? <HeartSolidIcon size={20} /> : <HeartIcon size={20} />}
       </button>
 
       <button

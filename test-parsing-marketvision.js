@@ -45,6 +45,20 @@ async function testParsingThroughMarketVision() {
           console.log(`  ${i + 1}. "${r.query}" (${r.platform}): ${r.products_found} товаров`);
         });
       }
+      
+      // Очищаем кэш после парсинга
+      console.log(`\n🧹 Очищаем кэш после парсинга...`);
+      try {
+        const cacheResponse = await fetch(`${MARKETVISION_API_URL}/cache/clear`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          agent: new https.Agent({ rejectUnauthorized: false })
+        });
+        const cacheResult = await cacheResponse.json();
+        console.log(`✅ Кэш очищен:`, cacheResult.message);
+      } catch (cacheError) {
+        console.log(`⚠️ Ошибка очистки кэша:`, cacheError.message);
+      }
     } else {
       console.log(`❌ Ошибка при запуске парсинга: ${result.message}`);
     }

@@ -445,14 +445,16 @@ export class ProductService {
     // Для каждого запроса находим репрезентативный товар и рассчитываем процент изменения
     const result = await Promise.all(
       queries.map(async ({ query }) => {
-        // Берем последний товар по этому query (самый свежий) с JOIN к Category
+        // Берем самый свежий товар для этого query (после последнего парсинга)
         const latestProduct = await this.prisma.product.findFirst({
           where: {
             query: query,
           },
-          orderBy: {
-            created_at: 'desc', // Берем самый свежий
-          },
+          orderBy: [
+            { created_at: 'desc' }, // Сначала по времени (самый свежий)
+            { price: 'asc' }, // Затем по цене (минимальная)
+            { source: 'asc' } // Затем по источнику (ozon < wb)
+          ],
         });
 
         // Получаем нормализованное название категории
@@ -548,7 +550,7 @@ export class ProductService {
     } | null;
     priceHistory: Array<{ price: number | null; created_at: string }>;
   }> {
-    // Берем последний продукт по query (как в getPopularQueries)
+    // Берем самый свежий продукт по query (после последнего парсинга)
     const latestProduct = await this.prisma.product.findFirst({
       where: {
         query: query,
@@ -556,9 +558,11 @@ export class ProductService {
           gte: 1000,
         },
       },
-      orderBy: {
-        created_at: 'desc', // Берем самый свежий
-      },
+      orderBy: [
+        { created_at: 'desc' }, // Сначала по времени (самый свежий)
+        { price: 'asc' }, // Затем по цене (минимальная)
+        { source: 'asc' } // Затем по источнику (ozon < wb)
+      ],
     });
 
     let products: Product[] = [];

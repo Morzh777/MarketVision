@@ -2,6 +2,19 @@ import { cookies } from 'next/headers';
 
 import '../../components/ProductPage/styles.scss';
 
+// Кэширование на клиенте (1 минута для быстрого обновления)
+export const revalidate = 60; // 1 минута
+
+export async function generateMetadata({ params }: { params: Promise<{ query: string }> }) {
+  const { query } = await params;
+  const decodedQuery = decodeURIComponent(query);
+  
+  return {
+    title: `${decodedQuery} - MarketVision`,
+    description: `Актуальные цены на ${decodedQuery}`
+  };
+}
+
 import { API_CONFIG } from '@/config/settings';
 
 import ProductPageClient from '../../components/ProductPage';
@@ -16,11 +29,6 @@ export default async function ProductPage({ params, searchParams }: ServerProps)
   const resolvedSearchParams = await searchParams;
   const decodedQuery = decodeURIComponent(query);
   
-  console.log('🔍 ProductPage: Все параметры:', {
-    params: { query },
-    searchParams: resolvedSearchParams,
-    decodedQuery
-  });
   
   // Получаем telegram_id из URL параметров (приоритет) или из cookies
   const cookieStore = await cookies();
@@ -28,21 +36,12 @@ export default async function ProductPage({ params, searchParams }: ServerProps)
                      cookieStore.get('telegram_id_client')?.value || 
                      cookieStore.get('telegram_id')?.value;
   
-  console.log('🔍 ProductPage: Получаем telegram_id:', telegram_id, {
-    fromUrl: resolvedSearchParams.telegram_id,
-    fromCookie: cookieStore.get('telegram_id_client')?.value || cookieStore.get('telegram_id')?.value,
-    allCookies: Object.fromEntries(
-      cookieStore.getAll().map(cookie => [cookie.name, cookie.value])
-    )
-  });
-  
   const base = API_CONFIG.EXTERNAL_API_BASE_URL;
   // 1) Получаем сам продукт из общего списка (без строгого фильтра по цене)
   let productListRes: Response | null = null;
   try {
     productListRes = await fetch(`${base}/api/products?query=${encodeURIComponent(decodedQuery)}`, { 
-      cache: 'force-cache',
-      next: { revalidate: 600 } // 10 минут
+      next: { revalidate: 60 } // 1 минута кэш
     });
   } catch {
     productListRes = null;
@@ -79,8 +78,7 @@ export default async function ProductPage({ params, searchParams }: ServerProps)
   // 2) Отдельно подтягиваем статистику и историю цен
   try {
     const resStats = await fetch(`${base}/api/products-by-query/${encodeURIComponent(decodedQuery)}`, { 
-      cache: 'force-cache',
-      next: { revalidate: 600 } // 10 минут
+      next: { revalidate: 60 } // 1 минута кэш
     });
     if (resStats.ok) {
       const d = await resStats.json();

@@ -4,6 +4,16 @@ import './components/PriceHistory/styles.scss';
 
 import { cookies } from 'next/headers';
 
+// Кэширование на клиенте (1 минута для быстрого обновления)
+export const revalidate = 60; // 1 минута
+
+export async function generateMetadata() {
+  return {
+    title: 'MarketVision - Актуальные цены',
+    description: 'Мониторинг цен на компьютерные комплектующие'
+  };
+}
+
 import { API_CONFIG } from '@/config/settings';
 
 import Sidebar from './components/Sidebar';
@@ -18,8 +28,7 @@ async function getPopularQueries(telegram_id?: string): Promise<Array<{ query: s
     : `${base}/api/products/popular-queries`;
 
   const res = await fetch(url, {
-    cache: 'force-cache',
-    next: { revalidate: 600 } // 10 минут
+    next: { revalidate: 60 } // 1 минута кэш
   });
   if (!res.ok) return [];
   return res.json();
@@ -34,10 +43,9 @@ async function getFavoriteQueries(telegram_id?: string): Promise<Array<{ query: 
   try {
     // Получаем избранные запросы пользователя
     const base = API_CONFIG.EXTERNAL_API_BASE_URL;
-    const timestamp = Date.now(); // Добавляем timestamp для принудительного обновления
-    const favoritesResponse = await fetch(`${base}/auth/favorites/${telegram_id}?t=${timestamp}`, {
-      cache: 'no-store', // Убираем кеш для избранного
-      next: { revalidate: 0 } // Отключаем revalidate
+
+    const favoritesResponse = await fetch(`${base}/auth/favorites/${telegram_id}`, {
+      next: { revalidate: 60 } // 1 минута кэш
     });
 
     if (!favoritesResponse.ok) {
@@ -54,9 +62,8 @@ async function getFavoriteQueries(telegram_id?: string): Promise<Array<{ query: 
       favoritesData.favorites.map(async (favorite: { query: string }) => {
 
         // Получаем информацию о продукте по query
-        const productResponse = await fetch(`${base}/api/products/products-by-query/${encodeURIComponent(favorite.query)}?t=${timestamp}`, {
-          cache: 'no-store', // Убираем кеш для продуктов избранного
-          next: { revalidate: 0 } // Отключаем revalidate
+        const productResponse = await fetch(`${base}/api/products/products-by-query/${encodeURIComponent(favorite.query)}`, {
+          next: { revalidate: 60 } // 1 минута кэш
         });
 
         if (!productResponse.ok) {

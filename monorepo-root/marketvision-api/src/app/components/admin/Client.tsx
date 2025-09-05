@@ -210,6 +210,14 @@ export default function AdminPage({
     }
   }, [selectedKey, isAuthenticated, reloadQueries]);
 
+  // Сбрасываем форму редактирования при смене категории
+  useEffect(() => {
+    if (editingQuery) {
+      setEditingQuery(null);
+      setForm({ query: '', platform_id: '', exactmodels: '', wb_platform_id: '', wb_exactmodels: '', platform: 'both', recommended_price: '' });
+    }
+  }, [selectedKey]);
+
   const selectedCategory = useMemo(
     () => categories.find((c) => c.key === selectedKey) || null,
     [categories, selectedKey]
@@ -236,51 +244,26 @@ export default function AdminPage({
         // Создаем записи для обеих платформ, если есть соответствующие данные
         const queriesToCreate = [];
         
-        // Ozon запрос
-        if (form.platform_id.trim() || form.exactmodels.trim()) {
-          queriesToCreate.push({
-            categoryKey: selectedKey,
-            query: form.query.trim(),
-            platform_id: form.platform_id.trim() || null,
-            exactmodels: form.exactmodels.trim() || null,
-            platform: 'ozon',
-            recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-          });
-        }
+        // Ozon запрос - ВСЕГДА создаем
+        queriesToCreate.push({
+          categoryKey: selectedKey,
+          query: form.query.trim(),
+          platform_id: form.platform_id.trim() || null,
+          exactmodels: form.exactmodels.trim() || null,
+          platform: 'ozon',
+          recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+        });
         
-        // WB запрос
-        if (form.wb_platform_id.trim() || form.wb_exactmodels.trim()) {
-          queriesToCreate.push({
-            categoryKey: selectedKey,
-            query: form.query.trim(),
-            wb_platform_id: form.wb_platform_id.trim() || null,
-            wb_exactmodels: form.wb_exactmodels.trim() || null,
-            platform: 'wb',
-            recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-          });
-        }
+        // WB запрос - ВСЕГДА создаем
+        queriesToCreate.push({
+          categoryKey: selectedKey,
+          query: form.query.trim(),
+          platform_id: form.wb_platform_id.trim() || null,
+          exactmodels: form.wb_exactmodels.trim() || null,
+          platform: 'wb',
+          recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+        });
         
-        // Если нет специфичных настроек, создаем для обеих платформ
-        if (queriesToCreate.length === 0) {
-          queriesToCreate.push(
-            {
-              categoryKey: selectedKey,
-              query: form.query.trim(),
-              platform_id: null,
-              exactmodels: null,
-              platform: 'ozon',
-              recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-            },
-            {
-              categoryKey: selectedKey,
-              query: form.query.trim(),
-              wb_platform_id: null,
-              wb_exactmodels: null,
-              platform: 'wb',
-              recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-            }
-          );
-        }
         
         // Создаем все запросы
         for (const queryData of queriesToCreate) {
@@ -297,21 +280,37 @@ export default function AdminPage({
         return;
       }
       
-      // Создаем новый запрос
-      await fetch('/api/categories/queries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          categoryKey: selectedKey,
-          query: form.query.trim(),
-          platform_id: form.platform_id.trim() || null,
-          exactmodels: form.exactmodels.trim() || null,
-          wb_platform_id: form.wb_platform_id.trim() || null,
-          wb_exactmodels: form.wb_exactmodels.trim() || null,
-          platform: form.platform,
-          recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
-        }),
+      // Создаем новый запрос - ВСЕГДА добавляем для обеих платформ
+      const queriesToCreate = [];
+      
+      // Ozon запрос - ВСЕГДА добавляем
+      queriesToCreate.push({
+        categoryKey: selectedKey,
+        query: form.query.trim(),
+        platform_id: form.platform_id.trim() || null,
+        exactmodels: form.exactmodels.trim() || null,
+        platform: 'ozon',
+        recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
       });
+      
+      // WB запрос - ВСЕГДА добавляем
+      queriesToCreate.push({
+        categoryKey: selectedKey,
+        query: form.query.trim(),
+        platform_id: form.wb_platform_id.trim() || null,
+        exactmodels: form.wb_exactmodels.trim() || null,
+        platform: 'wb',
+        recommended_price: form.recommended_price ? parseInt(form.recommended_price) : null,
+      });
+      
+      // Создаем все запросы
+      for (const queryData of queriesToCreate) {
+        await fetch('/api/categories/queries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(queryData),
+        });
+      }
       
       setForm({ query: '', platform_id: '', exactmodels: '', wb_platform_id: '', wb_exactmodels: '', platform: 'both', recommended_price: '' });
       setEditingQuery(null);
@@ -323,16 +322,20 @@ export default function AdminPage({
     }
   };
 
-  const handleEditQuery = (query: QueryCfg) => {
-    setEditingQuery(query);
+  const handleEditQuery = (queryGroup: QueryCfg[]) => {
+    // Объединяем данные из всех запросов группы (Ozon + WB)
+    const ozonQuery = queryGroup.find(q => q.platform === 'ozon');
+    const wbQuery = queryGroup.find(q => q.platform === 'wb');
+    
+    setEditingQuery(queryGroup[0]); // Используем первый запрос как основной
     setForm({
-      query: query.query,
-      platform_id: query.platform_id || '',
-      exactmodels: query.exactmodels || '',
-      wb_platform_id: query.wb_platform_id || '',
-      wb_exactmodels: query.wb_exactmodels || '',
-      platform: query.platform || 'both',
-      recommended_price: query.recommended_price ? query.recommended_price.toString() : ''
+      query: queryGroup[0].query,
+      platform_id: ozonQuery?.platform_id || '',
+      exactmodels: ozonQuery?.exactmodels || '',
+      wb_platform_id: wbQuery?.platform_id || '',
+      wb_exactmodels: wbQuery?.exactmodels || '',
+      platform: 'both' as 'both' | 'ozon' | 'wb', // Всегда 'both' для редактирования
+      recommended_price: queryGroup[0].recommended_price ? queryGroup[0].recommended_price.toString() : ''
     });
   };
 
@@ -1092,7 +1095,7 @@ export default function AdminPage({
                         <button
                           className="queryItem__editButton"
                           disabled={loading}
-                          onClick={() => handleEditQuery(queryGroup[0])}
+                          onClick={() => handleEditQuery(queryGroup)}
                         >
                           Редактировать
                         </button>

@@ -1,46 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useCallback } from 'react'
 
 import { normalizeQueryForFavorites } from '../app/utils/transliteration'
 
 import { useAuth } from './useAuth'
 
-interface Favorite {
-  id: number
-  query: string
-  created_at: string
-}
-
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<Favorite[]>([])
-  const [isLoading, setIsLoading] = useState(false)
   const { user, isAuthenticated } = useAuth()
 
-  // Получение избранного
-  const getFavorites = async (): Promise<void> => {
-    if (!isAuthenticated || !user?.telegram_id) {
-      return
-    }
-
-    try {
-      setIsLoading(true)
-      // Используем правильный роут с telegram_id
-      const response = await fetch(`/api/auth/favorites/${user.telegram_id}`)
-      
-      if (response.ok) {
-        const data = await response.json()
-        if (data.success) {
-          setFavorites(data.favorites)
-        }
-      }
-    } catch {
-      // Игнорируем ошибки
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   // Добавление в избранное
-  const addToFavorites = async (query: string): Promise<boolean> => {
+  const addToFavorites = useCallback(async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
       return false
     }
@@ -59,20 +27,16 @@ export function useFavorites() {
 
       if (response.ok) {
         const data = await response.json()
-        if (data.success) {
-          // Обновляем список избранного
-          await getFavorites()
-          return true
-        }
+        return data.success
       }
       return false
     } catch {
       return false
     }
-  }
+  }, [isAuthenticated, user?.telegram_id])
 
   // Удаление из избранного
-  const removeFromFavorites = async (query: string): Promise<boolean> => {
+  const removeFromFavorites = useCallback(async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
       return false
     }
@@ -91,20 +55,16 @@ export function useFavorites() {
 
       if (response.ok) {
         const data = await response.json()
-        if (data.success) {
-          // Обновляем список избранного
-          await getFavorites()
-          return true
-        }
+        return data.success
       }
       return false
     } catch {
       return false
     }
-  }
+  }, [isAuthenticated, user?.telegram_id])
 
   // Проверка статуса избранного
-  const checkFavorite = async (query: string): Promise<boolean> => {
+  const checkFavorite = useCallback(async (query: string): Promise<boolean> => {
     if (!isAuthenticated || !user?.telegram_id) {
       return false
     }
@@ -124,33 +84,24 @@ export function useFavorites() {
     } catch {
       return false
     }
-  }
+  }, [isAuthenticated, user?.telegram_id])
 
   // Переключение избранного (добавить/удалить)
-  const toggleFavorite = async (query: string): Promise<boolean> => {
-    const isFavorite = await checkFavorite(query)
+  const toggleFavorite = useCallback(async (query: string, currentStatus?: boolean): Promise<boolean> => {
+    // Если статус уже известен, используем его, иначе проверяем
+    const isFavorite = currentStatus !== undefined ? currentStatus : await checkFavorite(query)
     
     if (isFavorite) {
       return await removeFromFavorites(query)
     } else {
       return await addToFavorites(query)
     }
-  }
-
-  // Загружаем избранное при инициализации и изменении авторизации
-  useEffect(() => {
-    if (isAuthenticated && user?.telegram_id) {
-      getFavorites()
-    }
-  }, [isAuthenticated, user?.telegram_id])
+  }, [checkFavorite, addToFavorites, removeFromFavorites])
 
   return {
-    favorites,
-    isLoading,
     addToFavorites,
     removeFromFavorites,
     checkFavorite,
     toggleFavorite,
-    getFavorites,
   }
 }

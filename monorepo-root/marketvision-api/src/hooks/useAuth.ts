@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface User {
   telegram_id: string
@@ -42,53 +42,7 @@ export function useAuth(initialTelegramId?: string) {
     }
   }
 
-  // Если передан initialTelegramId, используем его
-  useEffect(() => {
-    if (initialTelegramId) {
-      localStorage.setItem('telegram_id', initialTelegramId)
-      setClientCookie('telegram_id_client', initialTelegramId)
-      setAuthState({
-        user: { telegram_id: initialTelegramId },
-        isAuthenticated: true,
-        isLoading: false
-      })
-      return
-    }
-  }, [initialTelegramId])
-
-  useEffect(() => {
-    // Проверяем localStorage при загрузке
-    const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
-    if (telegramIdFromStorage) {
-      setClientCookie('telegram_id_client', telegramIdFromStorage)
-      setAuthState({
-        user: { telegram_id: telegramIdFromStorage },
-        isAuthenticated: true,
-        isLoading: false
-      })
-      return
-    }
-    
-    // Если нет в localStorage - проверяем URL и cookie
-    checkAuth()
-  }, [searchParams])
-
-  // Дополнительный useEffect для проверки localStorage при первой загрузке
-  useEffect(() => {
-    const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
-    if (telegramIdFromStorage) {
-      setClientCookie('telegram_id_client', telegramIdFromStorage)
-      setAuthState({
-        user: { telegram_id: telegramIdFromStorage },
-        isAuthenticated: true,
-        isLoading: false
-      })
-    } else {
-      setAuthState(prev => ({ ...prev, isLoading: false }))
-    }
-  }, [])
-
-  const checkAuth = async (): Promise<void> => {
+  const checkAuth = useCallback(async (): Promise<void> => {
     // 1) URL параметр
     const telegramIdFromUrl = searchParams.get('telegram_id')
     if (telegramIdFromUrl) {
@@ -141,13 +95,6 @@ export function useAuth(initialTelegramId?: string) {
     if (telegramIdFromStorage) {
       setClientCookie('telegram_id_client', telegramIdFromStorage)
       
-      // Обновляем URL чтобы сервер мог получить telegram_id
-      if (typeof window !== 'undefined' && window.location.search !== `?telegram_id=${telegramIdFromStorage}`) {
-        const newUrl = new URL(window.location.href)
-        newUrl.searchParams.set('telegram_id', telegramIdFromStorage)
-        window.history.replaceState({}, '', newUrl.toString())
-      }
-      
       setAuthState({
         user: { telegram_id: telegramIdFromStorage },
         isAuthenticated: true,
@@ -160,13 +107,6 @@ export function useAuth(initialTelegramId?: string) {
     const telegramIdFromCookie = getClientCookie('telegram_id_client')
     if (telegramIdFromCookie) {
       localStorage.setItem('telegram_id', telegramIdFromCookie)
-      
-      // Обновляем URL чтобы сервер мог получить telegram_id
-      if (typeof window !== 'undefined' && window.location.search !== `?telegram_id=${telegramIdFromCookie}`) {
-        const newUrl = new URL(window.location.href)
-        newUrl.searchParams.set('telegram_id', telegramIdFromCookie)
-        window.history.replaceState({}, '', newUrl.toString())
-      }
       
       setAuthState({
         user: { telegram_id: telegramIdFromCookie },
@@ -199,13 +139,6 @@ export function useAuth(initialTelegramId?: string) {
                 
                 localStorage.setItem('telegram_id', telegramId)
                 setClientCookie('telegram_id_client', telegramId)
-                
-                // Обновляем URL чтобы сервер мог получить telegram_id
-                if (typeof window !== 'undefined' && window.location.search !== `?telegram_id=${telegramId}`) {
-                  const newUrl = new URL(window.location.href)
-                  newUrl.searchParams.set('telegram_id', telegramId)
-                  window.history.replaceState({}, '', newUrl.toString())
-                }
                 
                 setAuthState({
                   user: { telegram_id: telegramId },
@@ -244,7 +177,38 @@ export function useAuth(initialTelegramId?: string) {
       isAuthenticated: false,
       isLoading: false
     })
-  }
+  }, [searchParams])
+
+  // Если передан initialTelegramId, используем его
+  useEffect(() => {
+    if (initialTelegramId) {
+      localStorage.setItem('telegram_id', initialTelegramId)
+      setClientCookie('telegram_id_client', initialTelegramId)
+      setAuthState({
+        user: { telegram_id: initialTelegramId },
+        isAuthenticated: true,
+        isLoading: false
+      })
+      return
+    }
+  }, [initialTelegramId])
+
+  useEffect(() => {
+    // Проверяем localStorage при загрузке
+    const telegramIdFromStorage = typeof window !== 'undefined' ? localStorage.getItem('telegram_id') : null
+    if (telegramIdFromStorage) {
+      setClientCookie('telegram_id_client', telegramIdFromStorage)
+      setAuthState({
+        user: { telegram_id: telegramIdFromStorage },
+        isAuthenticated: true,
+        isLoading: false
+      })
+      return
+    }
+    
+    // Если нет в localStorage - проверяем URL и cookie
+    checkAuth()
+  }, [searchParams, checkAuth])
 
   const login = async (telegram_id: string): Promise<boolean> => {
     try {

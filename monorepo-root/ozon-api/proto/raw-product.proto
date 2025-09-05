@@ -13,7 +13,7 @@ message GetRawProductsRequest {
   string query = 1;
   string category = 2; // 'videocards', 'processors', 'motherboards'
   string platform_id = 3; // ID платформы (например, '101858153' для Nintendo)
-  string exactmodels = 4; // <-- новое поле для фильтрации по модели
+  string exactmodels = 4; // Универсальное поле модели (gpuseries=101784393 или exactmodels=101218714)
   string auth_token = 5; // Токен для аутентификации
 }
 

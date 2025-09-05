@@ -1236,11 +1236,14 @@
 
 // Скрываем стрелочки у полей с типом number
 .form__fieldInput[type="number"] {
+  appearance: textfield; /* Стандартное свойство */
   -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: textfield; /* WebKit */
   
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
   }
 }

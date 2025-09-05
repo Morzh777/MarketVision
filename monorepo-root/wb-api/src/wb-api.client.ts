@@ -55,7 +55,7 @@ export class WildberriesApiClientImpl implements WildberriesApiClient {
 
     // Добавляем exactmodels как есть из базы данных
     if (exactmodels) {
-      url += exactmodels;
+      url += `&${exactmodels}`;
     }
 
     this.logger.log(`[WB-API] FINAL URL: ${url}`);

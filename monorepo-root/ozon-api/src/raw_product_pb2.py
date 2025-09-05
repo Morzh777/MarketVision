@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11raw-product.proto\x12\x0braw_product\"v\n\x15GetRawProductsRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x13\n\x0bplatform_id\x18\x03 \x01(\t\x12\x13\n\x0b\x65xactmodels\x18\x04 \x01(\t\x12\x12\n\nauth_token\x18\x05 \x01(\t\"\x8e\x01\n\nRawProduct\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05price\x18\x03 \x01(\x05\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x13\n\x0bproduct_url\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x06 \x01(\t\x12\x0e\n\x06source\x18\x07 \x01(\t\x12\r\n\x05query\x18\x08 \x01(\t\"h\n\x16GetRawProductsResponse\x12)\n\x08products\x18\x01 \x03(\x0b\x32\x17.raw_product.RawProduct\x12\x13\n\x0btotal_count\x18\x02 \x01(\x05\x12\x0e\n\x06source\x18\x03 \x01(\t2n\n\x11RawProductService\x12Y\n\x0eGetRawProducts\x12\".raw_product.GetRawProductsRequest\x1a#.raw_product.GetRawProductsResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11raw-product.proto\x12\x0braw_product\"v\n\x15GetRawProductsRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x13\n\x0bplatform_id\x18\x03 \x01(\t\x12\x13\n\x0b\x65xactmodels\x18\x04 \x01(\t\x12\x12\n\nauth_token\x18\x05 \x01(\t\"\x8e\x01\n\nRawProduct\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05price\x18\x03 \x01(\x05\x12\x11\n\timage_url\x18\x04 \x01(\t\x12\x13\n\x0bproduct_url\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x06 \x01(\t\x12\x0e\n\x06source\x18\x07 \x01(\t\x12\r\n\x05query\x18\x08 \x01(\t\"h\n\x16GetRawProductsResponse\x12)\n\x08products\x18\x01 \x03(\x0b\x32\x17.raw_product.RawProduct\x12\x13\n\x0btotal_count\x18\x02 \x01(\x05\x12\x0e\n\x06source\x18\x03 \x01(\t\"\xc0\x01\n\x0bMarketStats\x12\r\n\x05query\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x0b\n\x03min\x18\x04 \x01(\x05\x12\x0b\n\x03max\x18\x05 \x01(\x05\x12\x0c\n\x04mean\x18\x06 \x01(\x02\x12\x0e\n\x06median\x18\x07 \x01(\x02\x12\x0b\n\x03iqr\x18\x08 \x03(\x05\x12\x13\n\x0btotal_count\x18\t \x01(\x05\x12\x12\n\nproduct_id\x18\n \x01(\t\x12\x12\n\ncreated_at\x18\x0b \x01(\t\"w\n\x1a\x42\x61tchCreateProductsRequest\x12)\n\x08products\x18\x01 \x03(\x0b\x32\x17.raw_product.RawProduct\x12.\n\x0cmarket_stats\x18\x02 \x01(\x0b\x32\x18.raw_product.MarketStats\"/\n\x1b\x42\x61tchCreateProductsResponse\x12\x10\n\x08inserted\x18\x01 \x01(\x05\"/\n\x18GetCategoryConfigRequest\x12\x13\n\x0b\x63\x61tegoryKey\x18\x01 \x01(\t\"H\n\x08\x43\x61tegory\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0f\n\x07\x64isplay\x18\x02 \x01(\t\x12\x0f\n\x07ozon_id\x18\x03 \x01(\t\x12\r\n\x05wb_id\x18\x04 \x01(\t\"D\n\x19GetCategoryConfigResponse\x12\'\n\x08\x63\x61tegory\x18\x01 \x01(\x0b\x32\x15.raw_product.Category\"3\n\x1cGetQueriesForCategoryRequest\x12\x13\n\x0b\x63\x61tegoryKey\x18\x01 \x01(\t\"X\n\x0bQueryConfig\x12\r\n\x05query\x18\x01 \x01(\t\x12\x13\n\x0bplatform_id\x18\x02 \x01(\t\x12\x13\n\x0b\x65xactmodels\x18\x03 \x01(\t\x12\x10\n\x08platform\x18\x04 \x01(\t\"J\n\x1dGetQueriesForCategoryResponse\x12)\n\x07queries\x18\x01 \x03(\x0b\x32\x18.raw_product.QueryConfig2\xac\x03\n\x11RawProductService\x12Y\n\x0eGetRawProducts\x12\".raw_product.GetRawProductsRequest\x1a#.raw_product.GetRawProductsResponse\x12h\n\x13\x42\x61tchCreateProducts\x12\'.raw_product.BatchCreateProductsRequest\x1a(.raw_product.BatchCreateProductsResponse\x12\x62\n\x11GetCategoryConfig\x12%.raw_product.GetCategoryConfigRequest\x1a&.raw_product.GetCategoryConfigResponse\x12n\n\x15GetQueriesForCategory\x12).raw_product.GetQueriesForCategoryRequest\x1a*.raw_product.GetQueriesForCategoryResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,6 +26,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_RAWPRODUCT']._serialized_end=297
   _globals['_GETRAWPRODUCTSRESPONSE']._serialized_start=299
   _globals['_GETRAWPRODUCTSRESPONSE']._serialized_end=403
-  _globals['_RAWPRODUCTSERVICE']._serialized_start=405
-  _globals['_RAWPRODUCTSERVICE']._serialized_end=515
+  _globals['_MARKETSTATS']._serialized_start=406
+  _globals['_MARKETSTATS']._serialized_end=598
+  _globals['_BATCHCREATEPRODUCTSREQUEST']._serialized_start=600
+  _globals['_BATCHCREATEPRODUCTSREQUEST']._serialized_end=719
+  _globals['_BATCHCREATEPRODUCTSRESPONSE']._serialized_start=721
+  _globals['_BATCHCREATEPRODUCTSRESPONSE']._serialized_end=768
+  _globals['_GETCATEGORYCONFIGREQUEST']._serialized_start=770
+  _globals['_GETCATEGORYCONFIGREQUEST']._serialized_end=817
+  _globals['_CATEGORY']._serialized_start=819
+  _globals['_CATEGORY']._serialized_end=891
+  _globals['_GETCATEGORYCONFIGRESPONSE']._serialized_start=893
+  _globals['_GETCATEGORYCONFIGRESPONSE']._serialized_end=961
+  _globals['_GETQUERIESFORCATEGORYREQUEST']._serialized_start=963
+  _globals['_GETQUERIESFORCATEGORYREQUEST']._serialized_end=1014
+  _globals['_QUERYCONFIG']._serialized_start=1016
+  _globals['_QUERYCONFIG']._serialized_end=1104
+  _globals['_GETQUERIESFORCATEGORYRESPONSE']._serialized_start=1106
+  _globals['_GETQUERIESFORCATEGORYRESPONSE']._serialized_end=1180
+  _globals['_RAWPRODUCTSERVICE']._serialized_start=1183
+  _globals['_RAWPRODUCTSERVICE']._serialized_end=1611
 # @@protoc_insertion_point(module_scope)
