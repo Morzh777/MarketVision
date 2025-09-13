@@ -17,9 +17,8 @@ interface Props {
 async function getProduct(query: string): Promise<Product | null> {
   try {
     const decodedQuery = decodeURIComponent(query)
-
     // Используем тот же роут что и в marketvision-api
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PRODUCTS}?query=${encodeURIComponent(decodedQuery)}`, {
+    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PRODUCTS}?query=${decodedQuery}`, {
       next: { revalidate: 60 }
     })
 
@@ -51,15 +50,9 @@ async function getProduct(query: string): Promise<Product | null> {
   }
 }
 
-// Общая функция для получения данных страницы
-async function getPageData(query: string) {
-  const product = await getProduct(query)
-  return { product }
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { query } = await params
-  const { product } = await getPageData(query)
+  const product = await getProduct(query)
   
   return {
     title: product ? `${product.name} - MarketVision` : 'MarketVision - Аналитика цен',
@@ -75,8 +68,8 @@ export default async function ProductPage({ params }: Props) {
   const cookieStore = await cookies()
   const telegram_id = cookieStore.get('telegram_id')?.value
 
-  // Получаем данные страницы один раз
-  const { product } = await getPageData(query)
+  // Получаем данные продукта
+  const product = await getProduct(query)
   
   if (!product) {
     notFound()
@@ -84,30 +77,22 @@ export default async function ProductPage({ params }: Props) {
   
   // Функция для определения тренда цены
   const getPriceTrend = (): 'up' | 'down' | 'stable' => {
-    if (!product.priceChangePercent) {
-      return 'stable'
-    }
-
-    const change = product.priceChangePercent
-    // Если цена выросла - красная стрелка вверх
+    const change = product.priceChangePercent || 0
+    
     if (change > 0) {
       return 'up'
     }
-    // Если цена упала - зеленая стрелка вниз
     if (change < 0) {
       return 'down'
     }
-    // Если не изменилась - стабильно
     return 'stable'
   }
-  
-  const marketStats = product.marketStats!
 
   // Проверяем статус избранного на сервере
   let isFavorite = false
   if (telegram_id) {
     try {
-      const favoriteResponse = await fetch(`${API_BASE_URL}/auth/favorites/${telegram_id}/check/${encodeURIComponent(decodedQuery)}`)
+      const favoriteResponse = await fetch(`${API_BASE_URL}/api/auth/favorites/check?telegram_id=${telegram_id}&query=${encodeURIComponent(decodedQuery)}`)
       if (favoriteResponse.ok) {
         const favoriteData = await favoriteResponse.json()
         isFavorite = favoriteData.success && favoriteData.isFavorite
@@ -117,23 +102,8 @@ export default async function ProductPage({ params }: Props) {
     }
   }
 
-  const nameElement = product.product_url ? (
-    <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="productCard__name">
-      {decodeHtmlEntities(product.name)}
-    </a>
-  ) : (
-    <h2 className="productCard__name">{decodeHtmlEntities(product.name)}</h2>
-  );
-
+  const formattedPrice = product.price.toLocaleString().replace(/,/g, ' ')
   const trend = getPriceTrend()
-
-  const priceElement = product.product_url ? (
-    <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="productCard__price productCard__price_link">
-      {product.price.toLocaleString().replace(/,/g, ' ')} ₽
-    </a>
-  ) : (
-    <span className="productCard__price">{product.price.toLocaleString().replace(/,/g, ' ')} ₽</span>
-  );
   
   return (
     <div className="productPage">
@@ -167,7 +137,15 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="productCard__infoSection">{nameElement}</div>
+        <div className="productCard__infoSection">
+          {product.product_url ? (
+            <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="productCard__name">
+              {decodeHtmlEntities(product.name)}
+            </a>
+          ) : (
+            <h2 className="productCard__name">{decodeHtmlEntities(product.name)}</h2>
+          )}
+        </div>
 
         <div className="productCard__pricingSection">
           <div className="productCard__priceBlock">
@@ -182,7 +160,13 @@ export default async function ProductPage({ params }: Props) {
                       <TrendDownChartIcon className={`productCard__trendIcon trend-${trend}`} size={16} />
                     )
                   )}
-                  {priceElement}
+                  {product.product_url ? (
+                    <a href={product.product_url} target="_blank" rel="noopener noreferrer" className="productCard__price productCard__price_link">
+                      {formattedPrice} ₽
+                    </a>
+                  ) : (
+                    <span className="productCard__price">{formattedPrice} ₽</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -192,13 +176,15 @@ export default async function ProductPage({ params }: Props) {
             <div className="productCard__stat">
               <span className="productCard__statLabel">Рыночная цена</span>
               <div className="productCard__statValue">
-                <span className="productCard__marketPrice">{marketStats.mean.toLocaleString().replace(/,/g, ' ')} ₽</span>
+                <span className="productCard__marketPrice">{product.marketStats!.mean.toLocaleString().replace(/,/g, ' ')} ₽</span>
               </div>
             </div>
 
             <div className="productCard__stat">
               <span className="productCard__statLabel">Диапазон цен</span>
-              <span className="productCard__statValue">{marketStats.min.toLocaleString().replace(/,/g, ' ')} - {marketStats.max.toLocaleString().replace(/,/g, ' ')} ₽</span>
+              <span className="productCard__statValue">
+                {product.marketStats!.min.toLocaleString().replace(/,/g, ' ')} - {product.marketStats!.max.toLocaleString().replace(/,/g, ' ')} ₽
+              </span>
             </div>
 
             <div className="productCard__actions">

@@ -13,6 +13,8 @@ import { PrismaService } from './services/prisma.service';
 import { CategoriesModule } from './categories.module';
 import { CategoriesController } from './controllers/categories.controller';
 import { QueriesController } from './controllers/queries.controller';
+import { FavoritesController } from './controllers/favorites.controller';
+import { FavoritesService } from './services/favorites.service';
 import { QueriesModule } from './queries.module';
 import { AuthModule } from './auth.module';
 import { JWT_SECRET } from './config/settings';
@@ -43,7 +45,14 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     HealthController,
     CategoriesController,
     QueriesController,
+    FavoritesController,
   ],
-  providers: [JwtService, ProductService, PrismaService, JwtStrategy],
+  providers: [
+    JwtService,
+    ProductService,
+    PrismaService,
+    FavoritesService,
+    JwtStrategy,
+  ],
 })
 export class AppModule {}

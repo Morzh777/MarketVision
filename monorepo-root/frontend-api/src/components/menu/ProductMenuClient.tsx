@@ -43,12 +43,17 @@ export default function ProductMenuClient({ query, telegram_id, initialIsFavorit
     
     setIsFavoriteLoading(true)
     try {
-      // Используем DELETE для удаления, POST для добавления
-      const method = isFavorite ? 'DELETE' : 'POST'
-      console.log('🔍 Making favorites request:', { method, telegram_id: effectiveTelegramId, query })
+      console.log('🔍 Making favorites request:', { 
+        action: isFavorite ? 'remove' : 'add', 
+        endpoint: isFavorite ? '/api/auth/favorites/remove' : '/api/auth/favorites/add',
+        telegram_id: effectiveTelegramId, 
+        query 
+      })
       
-      const response = await fetch('/api/auth/favorites', {
-        method,
+      // Используем правильные роуты для добавления/удаления из избранного
+      const endpoint = isFavorite ? '/api/auth/favorites/remove' : '/api/auth/favorites/add'
+      const response = await fetch(endpoint, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           telegram_id: effectiveTelegramId, 
@@ -57,9 +62,11 @@ export default function ProductMenuClient({ query, telegram_id, initialIsFavorit
       })
       
       console.log('📡 API Response:', {
-        method,
+        endpoint,
         status: response.status,
-        ok: response.ok
+        statusText: response.statusText,
+        ok: response.ok,
+        headers: Object.fromEntries(response.headers.entries())
       })
       
       if (response.ok) {
@@ -68,10 +75,17 @@ export default function ProductMenuClient({ query, telegram_id, initialIsFavorit
         setIsFavorite(!isFavorite)
       } else {
         try {
-          const error = await response.json()
-          console.error('❌ API Error:', error)
+          const responseText = await response.text()
+          console.error('❌ API Error Response Text:', responseText)
+          
+          if (responseText) {
+            const error = JSON.parse(responseText)
+            console.error('❌ API Error:', error)
+          } else {
+            console.error('❌ API Error: Empty response body')
+          }
         } catch (parseError) {
-          console.error('❌ API Error (could not parse):', response.status, response.statusText)
+          console.error('❌ API Error (could not parse):', response.status, response.statusText, parseError)
         }
       }
     } catch (error) {
