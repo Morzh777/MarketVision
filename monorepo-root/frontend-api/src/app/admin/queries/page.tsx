@@ -19,7 +19,7 @@ export default async function QueriesPage({
 
   try {
     const response = await fetch('http://marketvision-nginx-dev/api/categories', {
-      next: { revalidate: 300 } // Кэшируем на 5 минут
+      next: { revalidate: 0 } // Не кэшируем для актуальных данных
     })
 
     if (response.ok) {

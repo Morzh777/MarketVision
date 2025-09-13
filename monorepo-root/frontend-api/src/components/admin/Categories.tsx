@@ -91,7 +91,8 @@ export default function Categories({ categories, authToken }: CategoriesProps) {
 
       if (result.success) {
         console.log('✅ Категория успешно удалена')
-        window.location.reload() // Reload to show changes
+        // Принудительно обновляем страницу для получения актуальных данных
+        window.location.href = window.location.href
       } else {
         console.error('❌ Ошибка удаления категории:', result.error)
         alert(result.error || 'Ошибка сервера')

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import React from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { PAGES } from '@/config/pages.config'
 import { ChevronDownIcon } from '@/components/ui/Icons'
@@ -21,7 +21,6 @@ export default function CategoryMenuClient({
   const router = useRouter()
   const selectedCategory = searchParams.get('category') || 'all'
   const showFavorites = searchParams.get('filter') === 'favorites'
-  const [isOpen, setIsOpen] = useState(false)
   
   const getDisplayText = () => {
     if (showFavorites) return 'Избранное'
@@ -40,7 +39,6 @@ export default function CategoryMenuClient({
     
     if (isCurrentlyOpen) {
       drawer.classList.add('closing')
-      setIsOpen(false)
       document.body.style.overflow = ''
       document.documentElement.style.overflow = ''
       
@@ -50,7 +48,6 @@ export default function CategoryMenuClient({
       }, 300)
     } else {
       overlay.style.display = 'block'
-      setIsOpen(true)
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
     }
@@ -65,7 +62,6 @@ export default function CategoryMenuClient({
     drawer.classList.add('closing')
     document.body.style.overflow = ''
     document.documentElement.style.overflow = ''
-    setIsOpen(false)
     
     setTimeout(() => {
       overlay.style.display = 'none'
