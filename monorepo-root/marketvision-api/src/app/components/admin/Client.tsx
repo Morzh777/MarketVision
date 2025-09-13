@@ -138,8 +138,14 @@ export default function AdminPage({
 
   const reloadQueries = useCallback(async (key: string) => {
     try {
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('auth_token');
+      
       const res = await fetch(`/api/categories/queries?categoryKey=${encodeURIComponent(key)}`, { 
-        cache: 'no-store' 
+        cache: 'no-store',
+        headers: {
+          ...(token && { 'Authorization': `Bearer ${token}` })
+        }
       });
       const data = await res.json();
       setQueries(Array.isArray(data) ? data : []);
@@ -150,7 +156,15 @@ export default function AdminPage({
 
   const reloadCategories = useCallback(async () => {
     try {
-      const res = await fetch('/api/categories', { cache: 'no-store' });
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('auth_token');
+      
+      const res = await fetch('/api/categories', { 
+        cache: 'no-store',
+        headers: {
+          ...(token && { 'Authorization': `Bearer ${token}` })
+        }
+      });
       const data = await res.json();
 
       setCategories(Array.isArray(data) ? data : []);
@@ -231,9 +245,13 @@ export default function AdminPage({
       // Если редактируем существующий запрос
       if (editingQuery) {
         // Сначала удаляем старые записи для этого запроса
+        const token = localStorage.getItem('auth_token');
         await fetch('/api/categories/queries', {
           method: 'DELETE',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            ...(token && { 'Authorization': `Bearer ${token}` })
+          },
           body: JSON.stringify({
             categoryKey: selectedKey,
             query: editingQuery.query,
@@ -413,9 +431,16 @@ export default function AdminPage({
     setLoading(true);
     try {
       console.log('Sending POST request to API');
+      
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('auth_token');
+      
       const response = await fetch('/api/categories', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          ...(token && { 'Authorization': `Bearer ${token}` })
+        },
         body: JSON.stringify({
           key: categoryForm.key.trim(),
           display: categoryForm.display.trim(),
@@ -453,8 +478,14 @@ export default function AdminPage({
     setLoading(true);
     try {
       console.log('Deleting category:', categoryKey);
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('auth_token');
+      
       const response = await fetch(`/api/categories/${encodeURIComponent(categoryKey)}`, {
         method: 'DELETE',
+        headers: {
+          ...(token && { 'Authorization': `Bearer ${token}` })
+        }
       });
       
       console.log('Delete response status:', response.status);
@@ -494,9 +525,15 @@ export default function AdminPage({
 
     setLoading(true);
     try {
+      // Получаем токен из localStorage
+      const token = localStorage.getItem('auth_token');
+      
       const response = await fetch('/api/categories', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          ...(token && { 'Authorization': `Bearer ${token}` })
+        },
         body: JSON.stringify({
           key: categoryForm.key.trim(),
           display: categoryForm.display.trim(),
@@ -863,7 +900,7 @@ export default function AdminPage({
               console.log('Category data:', category);
               return (
               <div
-                key={category.id}
+                key={category.id || category.key || Math.random()}
                 className={`categoryItem ${
                   selectedKey === category.key ? 'categoryItem--active' : ''
                 }`}
@@ -1199,8 +1236,8 @@ export default function AdminPage({
                   {parsingResult.success ? '✅' : '❌'}
                 </div>
                 <div className="admin__parsing-message">
-                  {parsingResult.message.split('\n').map((line, index) => (
-                    <div key={index}>{line}</div>
+                  {parsingResult.message.split('\n').map((line) => (
+                    <div key={`${line}-${Math.random()}`}>{line}</div>
                   ))}
                 </div>
                 <button 

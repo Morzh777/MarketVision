@@ -34,6 +34,36 @@ services:
       - db-api
     command: npm run dev
 
+  # Frontend API (Next.js) - DEV MODE
+  frontend-api:
+    build:
+      context: ./monorepo-root/frontend-api
+      target: development
+    container_name: marketvision-frontend-api-dev
+    ports:
+      - "3010:3010"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost/api
+      - NEXT_PUBLIC_DB_API_URL=http://localhost:3004
+      - NEXTAUTH_SECRET=your-secret-key-change-in-production
+      - NEXTAUTH_URL=http://localhost:3010
+    volumes:
+      - ./monorepo-root/frontend-api/src:/usr/src/app/src
+      - ./monorepo-root/frontend-api/public:/usr/src/app/public
+      - ./monorepo-root/frontend-api/package.json:/usr/src/app/package.json
+      - ./monorepo-root/frontend-api/package-lock.json:/usr/src/app/package-lock.json
+      - ./monorepo-root/frontend-api/tsconfig.json:/usr/src/app/tsconfig.json
+      - ./monorepo-root/frontend-api/next.config.ts:/usr/src/app/next.config.ts
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
+    restart: unless-stopped
+    networks:
+      - marketvision-net
+    depends_on:
+      - db-api
+    command: npm run dev
+
     # Product Filter Service - DEV MODE
   product-filter-service:
     build:
@@ -199,6 +229,7 @@ services:
       - ./nginx/conf.d/proxy_common.conf:/etc/nginx/conf.d/proxy_common.conf:ro
     depends_on:
       - marketvision-api
+      - frontend-api
       - db-api
       - product-filter-service
     restart: unless-stopped

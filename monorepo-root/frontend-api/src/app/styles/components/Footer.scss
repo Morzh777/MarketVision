@@ -1,0 +1,11 @@
+@use '../base/variables' as *;
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}

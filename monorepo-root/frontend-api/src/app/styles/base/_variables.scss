@@ -1,0 +1,68 @@
+// SCSS переменные для MarketVision Frontend API (темная тема как в MarketVision API)
+// Основные цвета фона
+$color-bg: #181A20;                   // Основной темный фон (как в MarketVision API)
+$color-bg-light: #20232B;             // Светлый фон для карточек
+$color-bg-dark: #181A20;              // Темный фон
+$color-bg-header: #20232B;            // Фон заголовка
+$color-bg-active: #23272F;            // Активный фон
+$color-bg-card: #20232B;              // Фон карточек
+$color-bg-overlay: rgba(24, 26, 32, 0.9); // Фон оверлеев
+$color-bg-search: #20232B;            // Фон поисковой строки
+
+// Цвета текста
+$color-text: #E5E7EB;                 // Основной текст (светлый)
+$color-text-light: #F3F4F6;          // Светлый текст
+$color-text-secondary: #9CA3AF;      // Вторичный текст
+$color-text-secondary-dark: #9CA3AF; // Темный вторичный текст
+$color-text-title: #F3F4F6;          // Заголовки (светлые)
+$color-text-title-dark: #E5E7EB;     // Темные заголовки
+$color-text-marquee: #F3F4F6;        // Текст маркизы
+$color-text-marquee-secondary: #D1D5DB; // Вторичный текст маркизы
+
+// Границы
+$color-border: #23272F;               // Границы (темные)
+$color-border-dark: #23272F;          // Темные границы
+$color-border-card: #23272F;          // Границы карточек
+
+// Семантические цвета (как в MarketVision API)
+$color-green: #22C55E;                // Зеленый (успех)
+$color-red: #EF4444;                  // Красный (ошибка)
+$color-blue: #005bff;                 // Синий (ссылки)
+$color-blue-dark: #0047cc;            // Темный синий
+$color-purple: #cb11ab;               // Фиолетовый (Wildberries)
+$color-purple-dark: #a80f8a;         // Темный фиолетовый
+$color-purple-darker: #8a0d73;       // Очень темный фиолетовый
+$color-mono: #E5E7EB;                 // Моноширинный текст (светлый)
+$color-mono-dark: #D1D5DB;            // Темный моноширинный
+
+// Градиенты и тени
+$color-gradient-fade: rgba(24,26,32,0.8); // Градиент затухания
+$color-gradient-fade-transparent: rgba(24,26,32,0.0); // Прозрачный градиент
+$color-shadow: rgba(0,0,0,0.04);     // Тень
+$color-shadow-card: 0 1px 2px 0 rgba(0,0,0,0.04); // Тень карточек
+
+// Размеры
+$sidebar-width: 360px;                // Ширина сайдбара
+
+// Анимации
+$transition-default: all 0.3s ease;
+$transition-fast: all 0.2s ease;
+
+// Размеры шрифтов
+$font-size-xs: 11px;
+$font-size-sm: 12px;
+$font-size-base: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-2xl: 22px;
+$font-size-3xl: 26px;
+
+// Веса шрифтов
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+// Скроллбар
+$scrollbar-width: 4px;
+$scrollbar-height: 4px;
+

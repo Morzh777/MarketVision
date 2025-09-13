@@ -105,7 +105,7 @@ export default async function Home({
   const resolvedSearchParams = await searchParams;
   const cookieStore = await cookies();
   const telegram_id = resolvedSearchParams.telegram_id ||
-                     cookieStore.get('telegram_id_client')?.value ||
+                     cookieStore.get('telegram_id')?.value ||
                      cookieStore.get('telegram_id')?.value;
 
   const popularQueries = await getPopularQueries(telegram_id);

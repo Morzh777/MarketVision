@@ -1,0 +1,112 @@
+@use '../base/variables' as *;
+@use '../base/typography' as *;
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  
+  // Убираем все анимации
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+.not-found__title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  
+  // Убираем все анимации
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.not-found__description {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.5;
+  text-align: center;
+  
+  // Убираем все анимации
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.not-found__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 8px;
+  cursor: pointer;
+  text-align: center;
+  
+  // Убираем все анимации и выделения
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  &:hover {
+    color: white;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .not-found {
+    padding: 1rem;
+    min-height: 50vh;
+  }
+  
+  .not-found__title {
+    font-size: 2.5rem;
+  }
+  
+  .not-found__description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .not-found__button {
+    font-size: 0.8125rem;
+  }
+}

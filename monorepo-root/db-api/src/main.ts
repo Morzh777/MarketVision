@@ -4,10 +4,14 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 import { CORS_ORIGINS, GRPC_BIND_URL, REST_PORT } from './config/settings';
 import { Request, Response, NextFunction } from 'express';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   // Создаем основное приложение для REST API
   const app = await NestFactory.create(AppModule);
+
+  // Настраиваем cookie-parser для работы с cookies
+  app.use(cookieParser());
 
   // Настраиваем CORS для REST API
   app.enableCors({

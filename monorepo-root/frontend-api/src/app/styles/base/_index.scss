@@ -1,0 +1,7 @@
+// Базовые стили для MarketVision Frontend API
+@use '_variables' as *;
+@use '_mixins' as *;
+@use '_typography' as *;
+
+// Компоненты
+@use '../components/Categories';

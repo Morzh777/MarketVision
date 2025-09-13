@@ -1,0 +1,155 @@
+/* Импорт стилей компонентов */
+@import './styles/components/LoginForm.scss';
+@import './styles/components/Admin.scss';
+@import './styles/components/Categories.scss';
+@import './styles/components/loading-overlay.scss';
+@import './styles/components/admin-menu.scss';
+
+:root {
+  --background: #181A20;
+  --foreground: #E5E7EB;
+  
+  /* Основные цвета (темная тема как в MarketVision API) */
+  --color-bg: #181A20;
+  --color-bg-light: #20232B;
+  --color-bg-dark: #181A20;
+  --color-bg-header: #20232B;
+  --color-bg-active: #23272F;
+  --color-bg-card: #20232B;
+  --color-bg-overlay: rgba(24, 26, 32, 0.9);
+  
+  /* Границы */
+  --color-border: #23272F;
+  --color-border-dark: #23272F;
+  --color-border-card: #23272F;
+  
+  /* Текст */
+  --color-text: #E5E7EB;
+  --color-text-light: #F3F4F6;
+  --color-text-secondary: #9CA3AF;
+  --color-text-secondary-dark: #9CA3AF;
+  --color-text-title: #F3F4F6;
+  --color-text-title-dark: #E5E7EB;
+  
+  /* Семантические цвета */
+  --color-green: #22C55E;
+  --color-red: #EF4444;
+  --color-blue: #005bff;
+  --color-blue-dark: #0047cc;
+  --color-purple: #cb11ab;
+  --color-purple-dark: #a80f8a;
+  --color-purple-darker: #8a0d73;
+  --color-mono: #E5E7EB;
+  --color-mono-dark: #D1D5DB;
+  
+  /* Градиенты и тени */
+  --color-gradient-fade: rgba(24,26,32,0.8);
+  --color-gradient-fade-transparent: rgba(24,26,32,0.0);
+  --color-shadow: rgba(0,0,0,0.04);
+  --color-shadow-card: 0 1px 2px 0 rgba(0,0,0,0.04);
+  
+  /* Размеры */
+  --sidebar-width: 360px;
+  
+  /* Размеры шрифтов */
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 26px;
+  
+  /* Веса шрифтов */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #181A20;
+    --foreground: #E5E7EB;
+    
+    --color-bg: #181A20;
+    --color-bg-light: #20232B;
+    --color-bg-header: #20232B;
+    --color-bg-active: #23272F;
+    --color-bg-card: #20232B;
+    --color-bg-overlay: rgba(24, 26, 32, 0.9);
+    --color-border: #23272F;
+    --color-border-card: #23272F;
+    --color-text: #E5E7EB;
+    --color-text-secondary: #9CA3AF;
+    --color-text-title: #F3F4F6;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-app-sans), 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Стили для тестовых данных */
+.login-page__test-credentials {
+  background: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.login-page__test-credentials p {
+  margin: 4px 0;
+}
+
+.login-page__test-credentials code {
+  background: #e0f2fe;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #0369a1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .login-page__test-credentials {
+    background: #1e3a8a;
+    border-color: #3b82f6;
+  }
+  
+  .login-page__test-credentials code {
+    background: #1e40af;
+    color: #93c5fd;
+  }
+}
+

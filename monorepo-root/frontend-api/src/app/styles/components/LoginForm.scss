@@ -1,0 +1,121 @@
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--color-shadow-card);
+
+  &__field {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-title);
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__error {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 12px;
+    color: var(--color-red);
+  }
+
+  &__error-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid var(--color-red);
+    border-radius: 6px;
+    color: var(--color-red);
+    font-size: 14px;
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: var(--color-blue-dark);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-light);
+  padding: 1rem;
+
+  &__container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text-title);
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+  }
+}

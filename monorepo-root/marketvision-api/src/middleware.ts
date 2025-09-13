@@ -17,14 +17,7 @@ export function middleware(request: NextRequest) {
       maxAge: 60 * 60 * 24 * 7, // 7 дней
       path: '/',
     })
-    // Клиентское cookie для чтения на фронте (дублируем)
-    response.cookies.set('telegram_id_client', telegramId, {
-      httpOnly: false,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7,
-      path: '/',
-    })
+    // telegram_id уже доступен для JavaScript (httpOnly: false)
     
     console.log('✅ Middleware: Установлены cookies для telegram_id:', telegramId)
     return response

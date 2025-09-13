@@ -33,7 +33,7 @@ export default async function ProductPage({ params, searchParams }: ServerProps)
   // Получаем telegram_id из URL параметров (приоритет) или из cookies
   const cookieStore = await cookies();
   const telegram_id = resolvedSearchParams.telegram_id || 
-                     cookieStore.get('telegram_id_client')?.value || 
+                     cookieStore.get('telegram_id')?.value || 
                      cookieStore.get('telegram_id')?.value;
   
   const base = API_CONFIG.EXTERNAL_API_BASE_URL;

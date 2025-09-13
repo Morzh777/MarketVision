@@ -23,4 +23,7 @@ export const CORS_ORIGINS: string[] = [
   'http://*.serveo.net',
 ];
 
-
+// JWT Configuration (базовая настройка)
+export const JWT_SECRET =
+  process.env.JWT_SECRET ||
+  'marketvision-super-secret-key-change-in-production';

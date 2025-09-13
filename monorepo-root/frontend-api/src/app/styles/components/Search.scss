@@ -1,0 +1,64 @@
+@use '../base/variables' as *;
+@use '../base/typography' as *;
+
+.search {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.search__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0 16px;
+  height: 48px;
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &--focused {
+    border-color: var(--color-border);
+  }
+}
+
+.search__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-secondary);
+  margin-left: 16px;
+  flex-shrink: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  order: 2;
+
+  .search__input-wrapper--focused & {
+    order: 1;
+    margin-left: 0;
+    margin-right: 16px;
+  }
+}
+
+.search__input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  @include text-base;
+  outline: none;
+  padding: 0;
+  height: 100%;
+  order: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .search__input-wrapper--focused & {
+    order: 2;
+  }
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+    transition: opacity 0.3s ease;
+  }
+}
+

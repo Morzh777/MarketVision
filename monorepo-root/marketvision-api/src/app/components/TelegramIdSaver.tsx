@@ -12,7 +12,7 @@ export default function TelegramIdSaver({ telegram_id }: Props) {
       localStorage.setItem('telegram_id', telegram_id);
       
       // Также устанавливаем cookie для совместимости
-      document.cookie = `telegram_id_client=${telegram_id}; path=/; max-age=${60 * 60 * 24 * 7}`;
+      document.cookie = `telegram_id=${telegram_id}; path=/; max-age=${60 * 60 * 24 * 7}`;
     }
   }, [telegram_id]);
 

@@ -118,10 +118,11 @@ body {
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: auto;
   
   // Умная прокрутка на мобильных устройствах
   @media (max-width: 768px) {
-    height: 100vh;
     min-height: 100vh;
   }
 }
@@ -231,20 +232,19 @@ img {
   }
 } 
 
-/* Глобально скрываем все скроллбары */
-* {
+/* Скрываем скроллбары только для элементов с классом .hide-scrollbar */
+.hide-scrollbar {
   scrollbar-width: none !important; /* Firefox */
   -ms-overflow-style: none !important; /* IE/Edge */
 }
 
-*::-webkit-scrollbar {
+.hide-scrollbar::-webkit-scrollbar {
   display: none !important; /* Chrome/Safari/Opera */
 }
 
 /* Умная прокрутка на мобильных устройствах */
 @media (max-width: 768px) {
   html {
-    height: 100vh;
     min-height: 100vh;
   }
 } 

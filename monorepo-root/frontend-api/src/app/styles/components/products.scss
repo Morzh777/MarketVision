@@ -1,0 +1,176 @@
+@use '../base/variables' as *;
+@use '../base/typography' as *;
+
+.products-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 130px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  
+  // Убираем ВСЕ анимации глобально
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+.products__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  
+  // Убираем выделение при клике
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  // Предотвращаем двойное срабатывание и оптимизируем производительность
+  pointer-events: auto;
+  touch-action: manipulation;
+  will-change: transform;
+  transform: translateZ(0); // Создаем композитный слой для GPU ускорения
+  
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.products__item-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Убираем все анимации
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.products__item-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.products__item-avatar-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-blue);
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.products__item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.products__item-name {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  // Убираем все анимации и выделения
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: none !important;
+  animation: none !important;
+  
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  &:active {
+    outline: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+
+.products__item-price {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  min-width: 60px;
+  text-align: right;
+  
+  // Убираем все анимации
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.products__item-percent {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  min-width: 45px;
+  text-align: right;
+  
+  // Убираем все анимации
+  transition: none !important;
+  animation: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.products__item-percent--green {
+  color: var(--color-green);
+}
+
+.products__item-percent--red {
+  color: var(--color-red);
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .products-list {
+    gap: 0;
+  }
+}

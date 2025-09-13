@@ -2,9 +2,9 @@ import 'dotenv/config';
 import TelegramBot from 'node-telegram-bot-api';
 import fetch from 'node-fetch';
 
-const TOKEN = process.env.TG_BOT_TOKEN!;
+const TOKEN = "8055367223:AAFWLKg1wwRwwn81jSVzq9OuKMS1qxo0rtM";
 // URL мини-приложения (Next.js UI)
-const WEB_APP_URL = "https://rude-stars-relax.loca.lt";
+const WEB_APP_URL = "https://marketvision.loca.lt";
 // Прокси через Nginx внутри docker-сети (порт 8080 для внутренних запросов)
 const GATEWAY_URL = 'http://marketvision-nginx-proxy:8080';
 
