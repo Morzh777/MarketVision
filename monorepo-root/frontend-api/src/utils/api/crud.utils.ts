@@ -204,45 +204,6 @@ export const categoryApi = {
     getRecords({ endpoint: '/categories' })
 }
 
-/**
- * Специализированные функции для запросов
- */
-export const queryApi = {
-  create: (data: CrudData, authToken: string) => 
-    createRecord(data, { endpoint: '/queries', authToken }),
-  
-  update: (id: string, data: CrudData, authToken: string) => 
-    updateRecord(id, data, { endpoint: '/queries', authToken }),
-  
-  delete: (id: string, authToken: string) => 
-    deleteRecord(id, { endpoint: '/queries', authToken }),
-  
-  getAll: () => 
-    getRecords({ endpoint: '/queries' })
-}
-
-// Специализированная функция для получения запросов по категории (клиент)
-export async function getQueriesForCategory(categoryKey: string): Promise<unknown[]> {
-  try {
-    // Используем локальный API роут вместо прямого обращения к nginx
-    const url = `/api/queries/category/${categoryKey}`
-    console.log('🔍 getQueriesForCategory URL:', url)
-    
-    const response = await fetch(url)
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    
-    const data = await response.json()
-    // API роут возвращает массив напрямую, а не объект с полем queries
-    return Array.isArray(data) ? data : []
-  } catch (error) {
-    console.error('Ошибка получения запросов:', error)
-    throw error
-  }
-}
-
 // Функция для получения запросов на сервере (SSR)
 export async function getQueriesForCategoryServer(categoryKey: string): Promise<unknown[]> {
   try {
@@ -277,3 +238,198 @@ export async function getQueriesForCategoryServer(categoryKey: string): Promise<
     throw error
   }
 }
+
+// Функция для создания запроса (клиент)
+export async function createQuery(data: CrudData): Promise<CrudResponse> {
+  try {
+    console.log('🔍 createQuery - исходные данные:', data)
+    
+    // Преобразуем данные в формат, ожидаемый DB API
+    const queryData = {
+      categoryKey: data.category, // DB API ожидает categoryKey, а не category
+      query: data.query,
+      platform: data.platform || 'both', // DB API ожидает 'both' для создания обеих платформ
+      recommended_price: data.recommended_price || null,
+      // Отдельные данные для каждой платформы
+      ozon_platform: data.ozon_platform || null,
+      ozon_exact: data.ozon_exact || null,
+      wb_platform: data.wb_platform || null,
+      wb_exact: data.wb_exact || null,
+    }
+    
+    console.log('🔍 createQuery - преобразованные данные:', queryData)
+    
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    }
+    
+    const response = await fetch('/api/admin/queries', {
+      method: 'POST',
+      headers,
+      credentials: 'include', // Передаем cookies
+      body: JSON.stringify(queryData),
+    })
+
+    const result = await response.json()
+    console.log('🔍 createQuery - ответ от API:', { status: response.status, result })
+
+    if (response.ok) {
+      return {
+        success: true,
+        data: result,
+        message: 'Запрос успешно создан'
+      }
+    }
+
+    return {
+      success: false,
+      error: result.error || 'Ошибка создания запроса'
+    }
+  } catch (error) {
+    console.error('Ошибка создания запроса:', error)
+    return {
+      success: false,
+      error: 'Ошибка подключения к серверу'
+    }
+  }
+}
+
+// Функция для обновления запроса (клиент)
+export async function updateQuery(id: string, data: CrudData): Promise<CrudResponse> {
+  try {
+    console.log('🔍 updateQuery - ID:', id, 'данные:', data)
+    
+    // Используем групповое обновление по названию запроса и категории
+    const query = data.query
+    const oldQuery = data.oldQuery || data.query // Если есть старое название, используем его для поиска
+    const categoryKey = data.categoryKey || data.category
+    
+    // Преобразуем данные в формат, ожидаемый DB API
+    const queryData = {
+      query: query, // Новое название запроса
+      ozon_platform: data.ozon_platform || null,
+      ozon_exact: data.ozon_exact || null,
+      wb_platform: data.wb_platform || null,
+      wb_exact: data.wb_exact || null,
+      recommended_price: data.recommended_price || null,
+    }
+    
+    console.log('🔍 updateQuery - преобразованные данные:', queryData)
+    
+    if (!query || !categoryKey) {
+      return {
+        success: false,
+        error: 'Недостаточно данных для обновления (query и categoryKey обязательны)'
+      }
+    }
+    
+    // Используем старое название для поиска записей, если оно есть
+    const searchQuery = oldQuery || query
+    
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    }
+    
+    const response = await fetch(`/api/admin/queries/query/${encodeURIComponent(searchQuery)}?categoryKey=${categoryKey}`, {
+      method: 'PUT',
+      headers,
+      credentials: 'include', // Передаем cookies
+      body: JSON.stringify(queryData),
+    })
+
+    const result = await response.json()
+    console.log('🔍 updateQuery - ответ от API:', { status: response.status, result })
+
+    if (response.ok) {
+      return {
+        success: true,
+        data: result,
+        message: 'Запрос успешно обновлен'
+      }
+    }
+
+    return {
+      success: false,
+      error: result.error || 'Ошибка обновления запроса'
+    }
+  } catch (error) {
+    console.error('Ошибка обновления запроса:', error)
+    return {
+      success: false,
+      error: 'Ошибка подключения к серверу'
+    }
+  }
+}
+
+// Функция для удаления запроса (клиент)
+export async function deleteQuery(id: string, queryName?: string, categoryKey?: string): Promise<CrudResponse> {
+  try {
+    console.log('🔍 deleteQuery - ID:', id, 'queryName:', queryName, 'categoryKey:', categoryKey)
+    
+    let query = queryName
+    let category = categoryKey
+    
+    // Если не переданы название и категория, пытаемся получить их по ID
+    if (!query || !category) {
+      console.log('🔍 Получаем информацию о запросе по ID')
+      const getResponse = await fetch(`/api/admin/queries/${id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!getResponse.ok) {
+        console.log('❌ Не удалось получить информацию о запросе по ID')
+        return {
+          success: false,
+          error: 'Не удалось получить информацию о запросе'
+        }
+      }
+
+      const queryInfo = await getResponse.json()
+      console.log('🔍 Информация о запросе для удаления:', queryInfo)
+      query = queryInfo.query
+      category = queryInfo.category.key
+    }
+
+    if (!query || !category) {
+      console.log('❌ Недостаточно данных для удаления')
+      return {
+        success: false,
+        error: 'Недостаточно данных для удаления'
+      }
+    }
+
+    // Удаляем все записи с этим названием запроса в категории
+    const response = await fetch(`/api/admin/queries/path/${encodeURIComponent(query)}?categoryKey=${category}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    const result = await response.json()
+    console.log('🔍 deleteQuery - ответ от API:', { status: response.status, result })
+
+    if (response.ok) {
+      return {
+        success: true,
+        data: result,
+        message: 'Запрос успешно удален'
+      }
+    }
+
+    return {
+      success: false,
+      error: result.error || 'Ошибка удаления запроса'
+    }
+  } catch (error) {
+    console.error('Ошибка удаления запроса:', error)
+    return {
+      success: false,
+      error: 'Ошибка подключения к серверу'
+    }
+  }
+}
+

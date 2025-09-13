@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react'
 import type { QueryConfig, Category, CreateQueryRequest } from '@/shared/types/queries.interface'
 import type { EditingQuery } from '@/shared/types/modal.interface'
-import { queryApi } from '@/utils/api/crud.utils'
+import { createQuery, updateQuery, deleteQuery } from '@/utils/api/crud.utils'
 import AddModal from './AddModal'
 import ConfirmModal from './ConfirmModal'
 import CustomSelect from '@/components/ui/CustomSelect'
@@ -20,27 +20,33 @@ interface GroupedQuery {
 
 
 // Функция для обрезки длинного текста до 10 символов
-const truncateText = (text: string, maxLength: number = 10): string => {
-  if (text.length <= maxLength) {
-    return text
+const truncateText = (text: string | undefined, maxLength: number = 10): string => {
+  if (!text || text.length <= maxLength) {
+    return text || ''
   }
   return text.substring(0, maxLength) + '...'
 }
 
 const groupQueriesByName = (queries: QueryConfig[]): GroupedQuery[] => {
   const grouped = queries.reduce((acc, query) => {
+    // Проверяем, что query и query.query существуют
+    if (!query || !query.query) {
+      console.warn('⚠️ Пропускаем запрос с отсутствующими данными:', query)
+      return acc
+    }
+
     const existing = acc.find(group => group.query.toLowerCase() === query.query.toLowerCase())
     if (existing) {
       existing.platforms.push(query)
       // Обновляем дату последнего изменения
-      if (new Date(query.updatedAt) > new Date(existing.latestUpdated)) {
+      if (query.updatedAt && new Date(query.updatedAt) > new Date(existing.latestUpdated)) {
         existing.latestUpdated = query.updatedAt
       }
     } else {
       acc.push({
         query: query.query,
         platforms: [query],
-        latestUpdated: query.updatedAt
+        latestUpdated: query.updatedAt || query.createdAt || new Date().toISOString()
       })
     }
     return acc
@@ -71,7 +77,6 @@ export default function QueriesClient({
   const [isAdding, setIsAdding] = useState(false)
   const [editingQuery, setEditingQuery] = useState<EditingQuery | null>(null)
   const [deletingQuery, setDeletingQuery] = useState<QueryConfig | null>(null)
-  const [isDeleting, setIsDeleting] = useState(false)
 
   // Обновляем queries при изменении selectedCategoryKey
   React.useEffect(() => {
@@ -99,42 +104,135 @@ export default function QueriesClient({
         throw new Error('Требуется авторизация')
       }
       
-      const result = await queryApi.create(queryData, authToken)
+      console.log('🔍 Добавление запроса:', queryData)
       
-      if (result && 'data' in result) {
-        const newQueries = [...queries, result.data as QueryConfig]
+      // Добавляем categoryKey из выбранной категории
+      const queryDataWithCategory = {
+        ...queryData,
+        category: selectedCategoryKey
+      }
+      
+      console.log('🔍 Данные с категорией:', queryDataWithCategory)
+      
+      const result = await createQuery(queryDataWithCategory)
+      console.log('🔍 Результат создания запроса:', result)
+      
+      if (result.success && result.data) {
+        console.log('🔍 Данные созданного запроса:', result.data)
+        
+        // DB API возвращает массив запросов (для обеих платформ)
+        const createdQueries = Array.isArray(result.data) ? result.data : [result.data]
+        const newQueries = [...queries, ...createdQueries as QueryConfig[]]
         setQueries(newQueries)
         setIsAdding(false)
+        console.log('✅ Запрос успешно добавлен, обновлен список:', newQueries.length, 'запросов')
+      } else {
+        console.error('❌ Ошибка добавления запроса:', result.error)
+        alert(result.error || 'Ошибка добавления запроса')
       }
     } catch (error) {
       console.error('Ошибка добавления запроса:', error)
+      alert('Ошибка добавления запроса')
     } finally {
       setLoading(false)
     }
   }
 
-
-  const handleDelete = async (id: string) => {
+  const handleEdit = async (queryData: CreateQueryRequest) => {
     try {
-      setIsDeleting(true)
-      const authToken = localStorage.getItem('authToken')
+      setLoading(true)
+      
       if (!authToken) {
         throw new Error('Требуется авторизация')
       }
-
-      await queryApi.delete(id, authToken)
       
-      const newQueries = queries.filter(q => q.id.toString() !== id)
-      setQueries(newQueries)
-      setDeletingQuery(null)
+      if (!editingQuery) {
+        throw new Error('Нет данных для редактирования')
+      }
+      
+      console.log('🔍 Редактирование запроса:', editingQuery.id, queryData)
+      
+      // Добавляем categoryKey из выбранной категории
+      const queryDataWithCategory = {
+        ...queryData,
+        query: queryData.query, // Используем новое название запроса из формы
+        oldQuery: editingQuery.query, // Старое название для поиска записей
+        category: selectedCategoryKey,
+        categoryKey: selectedCategoryKey // Дублируем для совместимости
+      }
+      
+      console.log('🔍 Данные с категорией:', queryDataWithCategory)
+      
+      const result = await updateQuery(editingQuery.id.toString(), queryDataWithCategory)
+      console.log('🔍 Результат обновления запроса:', result)
+      
+      if (result.success && result.data) {
+        console.log('🔍 Данные обновленных запросов:', result.data)
+        
+        // DB API возвращает массив обновленных запросов (для обеих платформ)
+        const updatedQueriesArray = Array.isArray(result.data) ? result.data : [result.data]
+        
+        // Обновляем все записи с одинаковым названием запроса
+        const updatedQueries = queries.map(q => {
+          const updatedQuery = updatedQueriesArray.find(uq => uq.id === q.id)
+          return updatedQuery ? { ...q, ...updatedQuery } : q
+        })
+        
+        setQueries(updatedQueries)
+        setEditingQuery(null)
+        console.log('✅ Все записи запроса успешно обновлены')
+      } else {
+        console.error('❌ Ошибка обновления запроса:', result.error)
+        alert(result.error || 'Ошибка обновления запроса')
+      }
     } catch (error) {
-      console.error('Ошибка удаления запроса:', error)
+      console.error('Ошибка обновления запроса:', error)
+      alert('Ошибка обновления запроса')
     } finally {
-      setIsDeleting(false)
+      setLoading(false)
     }
   }
 
-
+  const handleDelete = async (id: string) => {
+    try {
+      setLoading(true)
+      
+      if (!authToken) {
+        throw new Error('Требуется авторизация')
+      }
+      
+      console.log('🔍 Удаление запроса:', id)
+      
+      // Находим запрос, который нужно удалить, чтобы получить его название
+      const queryToDelete = queries.find(q => q.id.toString() === id)
+      if (!queryToDelete) {
+        throw new Error('Запрос не найден')
+      }
+      
+      console.log('🔍 Удаляем все записи с названием:', queryToDelete.query)
+      
+      const result = await deleteQuery(id, queryToDelete.query, selectedCategoryKey)
+      console.log('🔍 Результат удаления запроса:', result)
+      
+      if (result.success) {
+        console.log('✅ Все записи запроса успешно удалены')
+        
+        // Удаляем ВСЕ записи с одинаковым названием запроса из списка
+        const updatedQueries = queries.filter(q => q.query !== queryToDelete.query)
+        setQueries(updatedQueries)
+        setDeletingQuery(null)
+        console.log('✅ Все записи запроса удалены из списка:', queryToDelete.query)
+      } else {
+        console.error('❌ Ошибка удаления запроса:', result.error)
+        alert(result.error || 'Ошибка удаления запроса')
+      }
+    } catch (error) {
+      console.error('Ошибка удаления запроса:', error)
+      alert('Ошибка удаления запроса')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   if (loading) {
     return (
@@ -198,16 +296,28 @@ export default function QueriesClient({
                   <div className="query-card__actions">
                     <button 
                       onClick={() => {
-                        // Берем первый запрос из группы для редактирования
+                        // Собираем данные из обеих платформ для редактирования
+                        const ozonQuery = group.platforms.find(p => p.platform === 'ozon')
+                        const wbQuery = group.platforms.find(p => p.platform === 'wb')
                         const firstQuery = group.platforms[0]
+                        
+                        console.log('🔍 Данные для редактирования:')
+                        console.log('🔍 group.platforms:', group.platforms)
+                        console.log('🔍 ozonQuery:', ozonQuery)
+                        console.log('🔍 wbQuery:', wbQuery)
+                        console.log('🔍 firstQuery:', firstQuery)
+                        
                         setEditingQuery({
                           id: firstQuery.id,
                           query: firstQuery.query,
-                          platform: firstQuery.platform,
-                          platform_id: firstQuery.platform_id || '',
-                          exactmodels: firstQuery.exactmodels || '',
-                          wb_platform_id: firstQuery.wb_platform_id || '',
-                          wb_exactmodels: firstQuery.wb_exactmodels || '',
+                          platform: 'both',
+                          // Данные для Ozon (из записи с platform === 'ozon')
+                          ozon_platform: ozonQuery?.platform_id || '',
+                          ozon_exact: ozonQuery?.exactmodels || '',
+                          // Данные для WB (из записи с platform === 'wb')
+                          wb_platform: wbQuery?.platform_id || '',
+                          wb_exact: wbQuery?.exactmodels || '',
+                          // Общие данные
                           recommended_price: firstQuery.recommended_price || 0,
                           categoryKey: selectedCategoryKey,
                           createdAt: firstQuery.createdAt,
@@ -256,7 +366,7 @@ export default function QueriesClient({
           selectedCategoryKey={selectedCategoryKey}
           editingQuery={editingQuery}
           onAdd={() => {}}
-          onAddQuery={handleAdd}
+          onAddQuery={handleEdit}
           onClose={() => setEditingQuery(null)}
           isOpen={!!editingQuery}
         />
@@ -268,7 +378,7 @@ export default function QueriesClient({
           message={`Вы уверены, что хотите удалить запрос "${deletingQuery.query}" для платформы ${deletingQuery.platform}?`}
           onConfirm={() => handleDelete(deletingQuery.id.toString())}
           onClose={() => setDeletingQuery(null)}
-          isLoading={isDeleting}
+          isLoading={loading}
           isOpen={!!deletingQuery}
         />
       )}

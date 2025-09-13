@@ -5,8 +5,11 @@ export interface QueryConfig {
   query: string;
   platform_id?: string | null;
   exactmodels?: string | null;
-  wb_platform_id?: string | null;
-  wb_exactmodels?: string | null;
+  // Отдельные поля для каждой платформы
+  ozon_platform?: string | null;
+  ozon_exact?: string | null;
+  wb_platform?: string | null;
+  wb_exact?: string | null;
   platform: 'ozon' | 'wb' | 'both';
   recommended_price?: number | null;
   createdAt: string;
@@ -22,13 +25,14 @@ export interface Category {
 
 export interface CreateQueryRequest {
   query: string;
-  platform_id?: string;
-  exactmodels?: string;
-  wb_platform_id?: string;
-  wb_exactmodels?: string;
   platform: 'ozon' | 'wb' | 'both';
   recommended_price?: number;
   categoryKey: string;
+  // Отдельные поля для каждой платформы
+  ozon_platform?: string;
+  ozon_exact?: string;
+  wb_platform?: string;
+  wb_exact?: string;
   [key: string]: string | number | boolean | null | undefined;
 }
 

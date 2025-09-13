@@ -28,9 +28,10 @@ export class QueriesController {
   @Get('category/:categoryKey')
   async getQueriesForCategoryFilter(@Param('categoryKey') categoryKey: string) {
     console.log('[REST] getQueriesForCategoryFilter called with:', categoryKey);
-    const queries = await this.queriesService.getQueriesForCategory(categoryKey);
+    const queries =
+      await this.queriesService.getQueriesForCategory(categoryKey);
     console.log('[REST] Queries from service:', queries);
-    
+
     interface QueryItem {
       id: number;
       query: string;
@@ -73,10 +74,13 @@ export class QueriesController {
       id?: number;
       categoryKey: string;
       query: string;
-      platform_id?: string | null;
-      exactmodels?: string | null;
       platform?: 'ozon' | 'wb' | 'both';
       recommended_price?: number | null;
+      // Отдельные данные для каждой платформы
+      ozon_platform?: string | null;
+      ozon_exact?: string | null;
+      wb_platform?: string | null;
+      wb_exact?: string | null;
     },
   ): Promise<QueryConfigResult | QueryConfigResult[]> {
     console.log('POST /queries controller called with:', body);
@@ -103,7 +107,6 @@ export class QueriesController {
     return this.queriesService.upsertQueryConfig(body);
   }
 
-
   /**
    * Удаляет конфигурацию запроса
    */
@@ -123,7 +126,10 @@ export class QueriesController {
     }
 
     const token = authHeader.substring(7);
-    console.log('🔍 Проверяем токен для удаления:', token ? 'present' : 'missing');
+    console.log(
+      '🔍 Проверяем токен для удаления:',
+      token ? 'present' : 'missing',
+    );
 
     // Валидируем JWT токен
     const decoded = this.jwtService.validateToken(token);
@@ -132,7 +138,10 @@ export class QueriesController {
       throw new UnauthorizedException('Невалидный токен авторизации');
     }
 
-    console.log('✅ JWT токен валиден для удаления, пользователь:', decoded.username);
+    console.log(
+      '✅ JWT токен валиден для удаления, пользователь:',
+      decoded.username,
+    );
 
     return this.queriesService.removeQueryConfig(body.categoryKey, body.query);
   }
@@ -167,7 +176,10 @@ export class QueriesController {
       throw new UnauthorizedException('Невалидный токен авторизации');
     }
 
-    console.log('✅ JWT токен валиден для обновления цены, пользователь:', decoded.username);
+    console.log(
+      '✅ JWT токен валиден для обновления цены, пользователь:',
+      decoded.username,
+    );
 
     return this.queriesService.updateRecommendedPrice(
       body.categoryKey,
@@ -177,30 +189,30 @@ export class QueriesController {
   }
 
   /**
-   * Обновляет конфигурацию запроса по ID
+   * Обновляет все конфигурации запроса по названию и категории
    */
-  @Put(':id')
-  async updateQueryConfigById(
+  @Put('query/:query')
+  async updateQueryConfigsByQuery(
     @Req() request: Request,
-    @Param('id') id: string,
+    @Param('query') query: string,
+    @Query('categoryKey') categoryKey: string,
     @Body()
     body: {
-      query: string;
-      platform_id?: string | null;
-      exactmodels?: string | null;
-      platform?: 'ozon' | 'wb' | 'both';
+      query?: string;
+      oldQuery?: string;
+      ozon_platform?: string | null;
+      ozon_exact?: string | null;
+      wb_platform?: string | null;
+      wb_exact?: string | null;
       recommended_price?: number | null;
     },
-  ): Promise<QueryConfigResult> {
-    console.log('=== PUT /queries/:id ===');
-    console.log('QueriesController.updateQueryConfigById called with:', { id, body });
-    
-    // Валидация ID
-    const numericId = parseInt(id);
-    if (isNaN(numericId)) {
-      console.log('❌ Invalid ID:', id);
-      throw new BadRequestException('Invalid query ID');
-    }
+  ): Promise<QueryConfigResult[]> {
+    console.log('=== PUT /queries/query/:query ===');
+    console.log('QueriesController.updateQueryConfigsByQuery called with:', {
+      query,
+      categoryKey,
+      body,
+    });
 
     // Проверяем авторизацию
     const authHeader = request.headers.authorization;
@@ -216,50 +228,17 @@ export class QueriesController {
       throw new UnauthorizedException('Невалидный токен авторизации');
     }
 
-    console.log('✅ JWT токен валиден для обновления запроса, пользователь:', decoded.username);
+    console.log(
+      '✅ JWT токен валиден для обновления запросов, пользователь:',
+      decoded.username,
+    );
 
-    return this.queriesService.updateQueryConfigById({
-      id: numericId,
+    return this.queriesService.updateQueryConfigsByQuery({
+      categoryKey,
+      query: body.query || decodeURIComponent(query), // Используем query из body, если есть
+      oldQuery: body.oldQuery || decodeURIComponent(query), // Используем oldQuery из body, если есть
       ...body,
     });
-  }
-
-  /**
-   * Удаляет конфигурацию запроса по ID
-   */
-  @Delete(':id')
-  async removeQueryConfigById(
-    @Req() request: Request,
-    @Param('id') id: string,
-  ): Promise<{ success: boolean; message: string }> {
-    console.log('=== DELETE /queries/:id ===');
-    console.log('QueriesController.removeQueryConfigById called with id:', id);
-    
-    // Валидация ID
-    const numericId = parseInt(id);
-    if (isNaN(numericId)) {
-      console.log('❌ Invalid ID:', id);
-      throw new BadRequestException('Invalid query ID');
-    }
-
-    // Проверяем авторизацию
-    const authHeader = request.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      console.log('❌ Authorization header missing or invalid');
-      throw new UnauthorizedException('Токен авторизации не найден');
-    }
-
-    const token = authHeader.substring(7);
-    const decoded = this.jwtService.validateToken(token);
-    if (!decoded) {
-      console.log('❌ Токен невалиден');
-      throw new UnauthorizedException('Невалидный токен авторизации');
-    }
-
-    console.log('✅ JWT токен валиден для удаления запроса, пользователь:', decoded.username);
-
-    await this.queriesService.removeQueryConfigById(numericId);
-    return { success: true, message: 'Query config deleted successfully' };
   }
 
   /**
@@ -271,7 +250,7 @@ export class QueriesController {
   ): Promise<QueryConfigResult | null> {
     console.log('=== GET /queries/:id ===');
     console.log('QueriesController.getQueryConfigById called with id:', id);
-    
+
     // Валидация ID
     const numericId = parseInt(id);
     if (isNaN(numericId)) {
@@ -289,12 +268,14 @@ export class QueriesController {
   async removeQueryConfigByPath(
     @Param('query') query: string,
     @Query('categoryKey') categoryKey: string,
-  ): Promise<unknown> {
+  ): Promise<{ success: boolean; message: string }> {
     console.log('=== DELETE /queries/path/:query ===');
     console.log('QueriesController.removeQueryConfigByPath called with:', {
       query,
       categoryKey,
     });
-    return this.queriesService.removeQueryConfig(categoryKey, query);
+
+    await this.queriesService.removeQueryConfig(categoryKey, query);
+    return { success: true, message: 'Query configs deleted successfully' };
   }
 }

@@ -69,6 +69,15 @@ export class CategoriesController {
     return result;
   }
 
+  // Получение запросов для категории (для product-filter-service)
+  @Get(':categoryKey/queries')
+  async getQueriesForCategory(@Param('categoryKey') categoryKey: string) {
+    console.log('[REST] getQueriesForCategory called with:', categoryKey);
+    const queries = await this.queriesService.listQueryConfigs(categoryKey);
+    console.log('[REST] Found queries for category:', queries.length);
+    return { queries };
+  }
+
   // Groups
   @Get('groups')
   listGroups() {

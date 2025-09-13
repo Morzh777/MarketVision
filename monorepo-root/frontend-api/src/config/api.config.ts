@@ -8,6 +8,11 @@ class ApiConfig {
     return process.env.NEXT_PUBLIC_API_BASE_URL || 'http://marketvision-nginx-dev/api'
   }
 
+  // Product Filter Service URL
+  private get productFilterUrl() {
+    return process.env.PRODUCT_FILTER_URL || 'http://marketvision-product-filter-dev:3001'
+  }
+
   // Публичные API
   PRODUCTS = {
     POPULAR_QUERIES: () => `${this.baseUrl}/products/popular-queries`,
@@ -33,6 +38,11 @@ class ApiConfig {
   SYSTEM = {
     HEALTH: () => `${this.baseUrl}/health`,
     STATUS: () => `${this.baseUrl}/status`,
+  }
+
+  // Парсинг API
+  PARSING = {
+    TRIGGER: () => `${this.productFilterUrl}/parsing/trigger`,
   }
 
   // Утилиты для построения URL с параметрами

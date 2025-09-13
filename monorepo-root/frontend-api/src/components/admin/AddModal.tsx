@@ -41,10 +41,10 @@ export default function AddModal({
     defaultValues: {
       query: '',
       platform: 'both',
-      platform_id: '',
-      exactmodels: '',
-      wb_platform_id: '',
-      wb_exactmodels: '',
+      ozon_platform: '',
+      ozon_exact: '',
+      wb_platform: '',
+      wb_exact: '',
       recommended_price: '',
       categoryKey: selectedCategoryKey
     }
@@ -57,10 +57,10 @@ export default function AddModal({
       queryForm.reset({
         query: '',
         platform: 'both',
-        platform_id: '',
-        exactmodels: '',
-        wb_platform_id: '',
-        wb_exactmodels: '',
+        ozon_platform: '',
+        ozon_exact: '',
+        wb_platform: '',
+        wb_exact: '',
         recommended_price: '',
         categoryKey: selectedCategoryKey
       })
@@ -88,10 +88,10 @@ export default function AddModal({
         queryForm.reset({
           query: editingQuery.query,
           platform: 'both', // Всегда обе платформы
-          platform_id: editingQuery.platform_id || '',
-          exactmodels: editingQuery.exactmodels || '',
-          wb_platform_id: editingQuery.wb_platform_id || '',
-          wb_exactmodels: editingQuery.wb_exactmodels || '',
+          ozon_platform: editingQuery.ozon_platform || '',
+          ozon_exact: editingQuery.ozon_exact || '',
+          wb_platform: editingQuery.wb_platform || '',
+          wb_exact: editingQuery.wb_exact || '',
           recommended_price: editingQuery.recommended_price?.toString() || '',
           categoryKey: selectedCategoryKey
         })
@@ -100,10 +100,10 @@ export default function AddModal({
         queryForm.reset({
           query: '',
           platform: 'both',
-          platform_id: '',
-          exactmodels: '',
-          wb_platform_id: '',
-          wb_exactmodels: '',
+          ozon_platform: '',
+          ozon_exact: '',
+          wb_platform: '',
+          wb_exact: '',
           recommended_price: '',
           categoryKey: selectedCategoryKey
         })
@@ -135,10 +135,10 @@ export default function AddModal({
       const queryData = {
         query: data.query.trim(),
         platform: data.platform,
-        platform_id: data.platform_id?.trim() || undefined,
-        exactmodels: data.exactmodels?.trim() || undefined,
-        wb_platform_id: data.wb_platform_id?.trim() || undefined,
-        wb_exactmodels: data.wb_exactmodels?.trim() || undefined,
+        ozon_platform: data.ozon_platform?.trim() || undefined,
+        ozon_exact: data.ozon_exact?.trim() || undefined,
+        wb_platform: data.wb_platform?.trim() || undefined,
+        wb_exact: data.wb_exact?.trim() || undefined,
         recommended_price: data.recommended_price ? Number(data.recommended_price) : undefined,
         categoryKey: data.categoryKey
       }
@@ -274,13 +274,13 @@ export default function AddModal({
                 <label className="modal__label">
                   Ozon Platform ID
                   <input
-                    {...queryForm.register('platform_id')}
+                    {...queryForm.register('ozon_platform')}
                     type="text"
-                    className={`modal__input ${queryForm.formState.errors.platform_id ? 'modal__input--error' : ''}`}
+                    className={`modal__input ${queryForm.formState.errors.ozon_platform ? 'modal__input--error' : ''}`}
                     placeholder=""
                   />
-                  {queryForm.formState.errors.platform_id && (
-                    <span className="modal__error">{queryForm.formState.errors.platform_id.message}</span>
+                  {queryForm.formState.errors.ozon_platform && (
+                    <span className="modal__error">{queryForm.formState.errors.ozon_platform.message}</span>
                   )}
                 </label>
               </div>
@@ -289,7 +289,7 @@ export default function AddModal({
                 <label className="modal__label">
                   Ozon Exact Models
                   <input
-                    {...queryForm.register('exactmodels')}
+                    {...queryForm.register('ozon_exact')}
                     type="text"
                     className="modal__input"
                     placeholder=""
@@ -301,13 +301,13 @@ export default function AddModal({
                 <label className="modal__label">
                   WB Platform ID
                   <input
-                    {...queryForm.register('wb_platform_id')}
+                    {...queryForm.register('wb_platform')}
                     type="text"
-                    className={`modal__input ${queryForm.formState.errors.wb_platform_id ? 'modal__input--error' : ''}`}
+                    className={`modal__input ${queryForm.formState.errors.wb_platform ? 'modal__input--error' : ''}`}
                     placeholder=""
                   />
-                  {queryForm.formState.errors.wb_platform_id && (
-                    <span className="modal__error">{queryForm.formState.errors.wb_platform_id.message}</span>
+                  {queryForm.formState.errors.wb_platform && (
+                    <span className="modal__error">{queryForm.formState.errors.wb_platform.message}</span>
                   )}
                 </label>
               </div>
@@ -316,7 +316,7 @@ export default function AddModal({
                 <label className="modal__label">
                   WB Exact Models
                   <input
-                    {...queryForm.register('wb_exactmodels')}
+                    {...queryForm.register('wb_exact')}
                     type="text"
                     className="modal__input"
                     placeholder=""

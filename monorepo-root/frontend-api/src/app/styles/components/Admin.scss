@@ -84,3 +84,22 @@
   }
 }
 
+.admin-page {
+  &__header {
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text-title);
+    margin: 0 0 8px 0;
+  }
+
+  &__description {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+}
+

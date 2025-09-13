@@ -10,6 +10,16 @@ export interface QueryConfigResult {
   recommended_price?: number | null;
   createdAt: string;
   updatedAt: string;
+  category?: {
+    id: number;
+    key: string;
+    display: string;
+    ozon_id?: string | null;
+    wb_id?: string | null;
+    groupId?: number | null;
+    createdAt: string;
+    updatedAt: string;
+  };
 }
 
 @Injectable()
@@ -19,7 +29,9 @@ export class QueriesService {
   /**
    * Получает запросы для категории
    */
-  async getQueriesForCategory(categoryKey: string): Promise<QueryConfigResult[]> {
+  async getQueriesForCategory(
+    categoryKey: string,
+  ): Promise<QueryConfigResult[]> {
     const category = await this.prisma.category.findUnique({
       where: { key: categoryKey },
     });
@@ -48,10 +60,13 @@ export class QueriesService {
     id?: number;
     categoryKey: string;
     query: string;
-    platform_id?: string | null;
-    exactmodels?: string | null;
     platform?: 'ozon' | 'wb' | 'both';
     recommended_price?: number | null;
+    // Отдельные данные для каждой платформы
+    ozon_platform?: string | null;
+    ozon_exact?: string | null;
+    wb_platform?: string | null;
+    wb_exact?: string | null;
   }): Promise<QueryConfigResult | QueryConfigResult[]> {
     console.log('upsertQueryConfig called with:', data);
 
@@ -77,15 +92,24 @@ export class QueriesService {
         throw new NotFoundException('Query not found');
       }
 
+      // Определяем данные для обновления в зависимости от платформы
+      const updateData: any = {
+        query: data.query,
+        recommended_price: data.recommended_price ?? null,
+      };
+
+      if (existingQuery.platform === 'ozon') {
+        updateData.platform_id = data.ozon_platform ?? null;
+        updateData.exactmodels = data.ozon_exact ?? null;
+      } else if (existingQuery.platform === 'wb') {
+        updateData.platform_id = data.wb_platform ?? null;
+        updateData.exactmodels = data.wb_exact ?? null;
+      }
+
       // Обновляем запрос
       const res = await this.prisma.queryConfig.update({
         where: { id: data.id },
-        data: {
-          query: data.query,
-          platform_id: data.platform_id ?? null,
-          exactmodels: data.exactmodels ?? null,
-          recommended_price: data.recommended_price ?? null,
-        },
+        data: updateData,
       });
 
       results.push({
@@ -111,14 +135,22 @@ export class QueriesService {
         });
 
         if (existing) {
-          // Обновляем существующий
+          // Обновляем существующий с правильными данными для платформы
+          const updateData: any = {
+            recommended_price: data.recommended_price ?? null,
+          };
+
+          if (platform === 'ozon') {
+            updateData.platform_id = data.ozon_platform ?? null;
+            updateData.exactmodels = data.ozon_exact ?? null;
+          } else if (platform === 'wb') {
+            updateData.platform_id = data.wb_platform ?? null;
+            updateData.exactmodels = data.wb_exact ?? null;
+          }
+
           const res = await this.prisma.queryConfig.update({
             where: { id: existing.id },
-            data: {
-              platform_id: data.platform_id ?? null,
-              exactmodels: data.exactmodels ?? null,
-              recommended_price: data.recommended_price ?? null,
-            },
+            data: updateData,
           });
 
           results.push({
@@ -132,16 +164,24 @@ export class QueriesService {
             updatedAt: res.updatedAt.toISOString(),
           });
         } else {
-          // Создаем новый
+          // Создаем новый с правильными данными для платформы
+          const createData: any = {
+            query: data.query,
+            platform: platform,
+            recommended_price: data.recommended_price ?? null,
+            categoryId: cat.id,
+          };
+
+          if (platform === 'ozon') {
+            createData.platform_id = data.ozon_platform ?? null;
+            createData.exactmodels = data.ozon_exact ?? null;
+          } else if (platform === 'wb') {
+            createData.platform_id = data.wb_platform ?? null;
+            createData.exactmodels = data.wb_exact ?? null;
+          }
+
           const res = await this.prisma.queryConfig.create({
-            data: {
-              query: data.query,
-              platform_id: data.platform_id ?? null,
-              exactmodels: data.exactmodels ?? null,
-              platform: platform,
-              recommended_price: data.recommended_price ?? null,
-              categoryId: cat.id,
-            },
+            data: createData,
           });
 
           results.push({
@@ -161,6 +201,42 @@ export class QueriesService {
     return results.length === 1 ? results[0] : results;
   }
 
+  /**
+   * Получает конфигурацию запроса по ID
+   */
+  async getQueryConfigById(id: number): Promise<QueryConfigResult> {
+    console.log('getQueryConfigById called with:', { id });
+
+    const config = await this.prisma.queryConfig.findUnique({
+      where: { id },
+      include: { category: true },
+    });
+
+    if (!config) {
+      throw new NotFoundException('Query config not found');
+    }
+
+    return {
+      id: config.id,
+      query: config.query,
+      platform: config.platform,
+      platform_id: config.platform_id,
+      exactmodels: config.exactmodels,
+      recommended_price: config.recommended_price,
+      createdAt: config.createdAt.toISOString(),
+      updatedAt: config.updatedAt.toISOString(),
+      category: {
+        id: config.category.id,
+        key: config.category.key,
+        display: config.category.display,
+        ozon_id: config.category.ozon_id,
+        wb_id: config.category.wb_id,
+        groupId: config.category.groupId,
+        createdAt: config.category.createdAt.toISOString(),
+        updatedAt: config.category.updatedAt.toISOString(),
+      },
+    };
+  }
 
   /**
    * Удаляет конфигурацию запроса
@@ -239,80 +315,82 @@ export class QueriesService {
   }
 
   /**
-   * Обновляет конфигурацию запроса по ID
+   * Обновляет все конфигурации запроса по названию и категории
    */
-  async updateQueryConfigById(data: {
-    id: number;
+  async updateQueryConfigsByQuery(data: {
+    categoryKey: string;
     query: string;
-    platform_id?: string | null;
-    exactmodels?: string | null;
-    platform?: 'ozon' | 'wb' | 'both';
+    oldQuery?: string; // Старое название для поиска записей
+    ozon_platform?: string | null;
+    ozon_exact?: string | null;
+    wb_platform?: string | null;
+    wb_exact?: string | null;
     recommended_price?: number | null;
-  }): Promise<QueryConfigResult> {
-    console.log('updateQueryConfigById called with:', data);
-    
-    // Проверяем, что запрос существует
-    const existing = await this.prisma.queryConfig.findUnique({ where: { id: data.id } });
-    if (!existing) {
-      throw new NotFoundException('Query config not found');
+  }): Promise<QueryConfigResult[]> {
+    console.log('updateQueryConfigsByQuery called with:', data);
+
+    // Находим категорию
+    const cat = await this.prisma.category.findUnique({
+      where: { key: data.categoryKey },
+    });
+    if (!cat) {
+      throw new NotFoundException('Category not found');
     }
 
-    // Обновляем запрос
-    const result = await this.prisma.queryConfig.update({
-      where: { id: data.id },
-      data: {
-        query: data.query,
-        platform_id: data.platform_id ?? null,
-        exactmodels: data.exactmodels ?? null,
-        platform: data.platform === 'both' ? 'ozon' : (data.platform ?? 'ozon'),
-        recommended_price: data.recommended_price ?? null,
+    // Находим все записи с этим названием запроса в категории
+    // Используем старое название для поиска, если оно есть
+    const searchQuery = data.oldQuery || data.query;
+    const existingConfigs = await this.prisma.queryConfig.findMany({
+      where: {
+        query: searchQuery,
+        categoryId: cat.id,
       },
     });
-    
-    console.log('updateQueryConfigById result:', result);
-    return {
-      id: result.id,
-      query: result.query,
-      platform_id: result.platform_id,
-      exactmodels: result.exactmodels,
-      platform: result.platform,
-      recommended_price: result.recommended_price,
-      createdAt: result.createdAt.toISOString(),
-      updatedAt: result.updatedAt.toISOString(),
-    };
-  }
 
-  /**
-   * Удаляет конфигурацию запроса по ID
-   */
-  async removeQueryConfigById(id: number): Promise<void> {
-    console.log('removeQueryConfigById called with id:', id);
-    
-    const existing = await this.prisma.queryConfig.findUnique({ where: { id } });
-    if (!existing) {
-      throw new NotFoundException('Query config not found');
+    if (existingConfigs.length === 0) {
+      throw new NotFoundException('Query configs not found');
     }
 
-    await this.prisma.queryConfig.delete({ where: { id } });
-    console.log('Query config deleted successfully');
-  }
+    const results: QueryConfigResult[] = [];
 
-  /**
-   * Получает конфигурацию запроса по ID
-   */
-  async getQueryConfigById(id: number): Promise<QueryConfigResult | null> {
-    const config = await this.prisma.queryConfig.findUnique({ where: { id } });
-    if (!config) return null;
+    // Обновляем каждую запись в зависимости от платформы
+    for (const config of existingConfigs) {
+      const updateData: {
+        query?: string;
+        recommended_price: number | null;
+        platform_id?: string | null;
+        exactmodels?: string | null;
+      } = {
+        query: data.query, // Обновляем название запроса
+        recommended_price: data.recommended_price ?? null,
+      };
 
-    return {
-      id: config.id,
-      query: config.query,
-      platform_id: config.platform_id,
-      exactmodels: config.exactmodels,
-      platform: config.platform,
-      recommended_price: config.recommended_price,
-      createdAt: config.createdAt.toISOString(),
-      updatedAt: config.updatedAt.toISOString(),
-    };
+      if (config.platform === 'ozon') {
+        updateData.platform_id = data.ozon_platform ?? null;
+        updateData.exactmodels = data.ozon_exact ?? null;
+      } else if (config.platform === 'wb') {
+        updateData.platform_id = data.wb_platform ?? null;
+        updateData.exactmodels = data.wb_exact ?? null;
+      }
+
+      const result = await this.prisma.queryConfig.update({
+        where: { id: config.id },
+        data: updateData,
+      });
+
+      results.push({
+        id: result.id,
+        query: result.query,
+        platform_id: result.platform_id,
+        exactmodels: result.exactmodels,
+        platform: result.platform,
+        recommended_price: result.recommended_price,
+        createdAt: result.createdAt.toISOString(),
+        updatedAt: result.updatedAt.toISOString(),
+      });
+    }
+
+    console.log('updateQueryConfigsByQuery results:', results);
+    return results;
   }
 }

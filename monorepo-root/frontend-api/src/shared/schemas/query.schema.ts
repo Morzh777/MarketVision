@@ -20,7 +20,7 @@ export const querySchema = z.object({
       errorMap: () => ({ message: 'Выберите корректную платформу' })
     }),
   
-  platform_id: z
+  ozon_platform: z
     .string()
     .optional()
     .refine((val) => !val || val.length >= 2, 'Ozon Platform ID должен содержать минимум 2 символа')
@@ -28,7 +28,7 @@ export const querySchema = z.object({
     .refine((val) => !val || !/[<>\"'&]/.test(val), 'Ozon Platform ID содержит недопустимые символы')
     .refine((val) => !val || !FORBIDDEN_WORDS.some(word => val.toLowerCase().includes(word)), 'Ozon Platform ID содержит недопустимые слова'),
   
-  exactmodels: z
+  ozon_exact: z
     .string()
     .optional()
     .refine((val) => !val || val.length >= 2, 'Ozon Exact Models должен содержать минимум 2 символа')
@@ -36,7 +36,7 @@ export const querySchema = z.object({
     .refine((val) => !val || !/[<>\"'&]/.test(val), 'Ozon Exact Models содержит недопустимые символы')
     .refine((val) => !val || !FORBIDDEN_WORDS.some(word => val.toLowerCase().includes(word)), 'Ozon Exact Models содержит недопустимые слова'),
   
-  wb_platform_id: z
+  wb_platform: z
     .string()
     .optional()
     .refine((val) => !val || val.length >= 1, 'WB Platform ID должен содержать минимум 1 символ')
@@ -44,7 +44,7 @@ export const querySchema = z.object({
     .refine((val) => !val || !/[<>\"'&]/.test(val), 'WB Platform ID содержит недопустимые символы')
     .refine((val) => !val || !FORBIDDEN_WORDS.some(word => val.toLowerCase().includes(word)), 'WB Platform ID содержит недопустимые слова'),
   
-  wb_exactmodels: z
+  wb_exact: z
     .string()
     .optional()
     .refine((val) => !val || val.length >= 2, 'WB Exact Models должен содержать минимум 2 символа')
