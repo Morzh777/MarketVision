@@ -60,5 +60,16 @@
     color: var(--color-text-secondary);
     transition: opacity 0.3s ease;
   }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background: var(--color-bg-light);
+    
+    &::placeholder {
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+  }
 }
 

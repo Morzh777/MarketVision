@@ -133,53 +133,24 @@
   }
 }
 
-// Sort buttons styles
-.header__sort-btn {
-  padding: 0;
-  background: none;
-  border: none;
+// Sort labels styles (неактивные заголовки)
+.header__sort-label {
   color: var(--color-text-secondary);
-  cursor: pointer;
-  border-radius: 4px;
   @include text-lg;
   @include font-medium;
   display: flex;
   align-items: center;
   gap: 4px;
-  
-  // Убираем квадратное выделение при клике
-  outline: none !important;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-  
-  &:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
-  &:active {
-    outline: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    -webkit-tap-highlight-color: transparent;
-  }
-}
-
-.header__sort-btn--active {
-  color: var(--color-text);
 }
 
 /* выравниваем заголовки по колонкам списка */
-.header__sort-btn--price { 
+.header__sort-label--price { 
   margin-left: auto; 
   min-width: 120px; 
   justify-content: flex-end; 
 }
 
-.header__sort-btn--percent { 
+.header__sort-label--percent { 
   justify-content: flex-end; 
 }

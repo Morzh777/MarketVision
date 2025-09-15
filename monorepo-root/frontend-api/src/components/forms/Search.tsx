@@ -17,30 +17,34 @@ export default function Search() {
   }, [searchParams])
 
   const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setSearchQuery(value)
+    // Поиск отключен - не обрабатываем ввод
+    // const value = e.target.value
+    // setSearchQuery(value)
   }, [])
 
   const handleKeyPress = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      const params = new URLSearchParams(searchParams.toString())
-      
-      if (searchQuery.trim()) {
-        params.set('search', searchQuery.trim())
-      } else {
-        params.delete('search')
-      }
-      
-      router.push(`/?${params.toString()}`)
-    }
+    // Поиск отключен - не обрабатываем нажатия
+    // if (e.key === 'Enter') {
+    //   const params = new URLSearchParams(searchParams.toString())
+    //   
+    //   if (searchQuery.trim()) {
+    //     params.set('search', searchQuery.trim())
+    //   } else {
+    //     params.delete('search')
+    //   }
+    //   
+    //   router.push(`/?${params.toString()}`)
+    // }
   }, [searchQuery, searchParams, router])
 
   const handleFocus = useCallback(() => {
-    setIsFocused(true)
+    // Поиск отключен - не обрабатываем фокус
+    // setIsFocused(true)
   }, [])
 
   const handleBlur = useCallback(() => {
-    setIsFocused(false)
+    // Поиск отключен - не обрабатываем блюр
+    // setIsFocused(false)
   }, [])
 
   return (
@@ -48,12 +52,11 @@ export default function Search() {
       <div className={`search__input-wrapper ${isFocused ? 'search__input-wrapper--focused' : ''}`}>
         <input
           type="text"
-          className="search__input"
-          placeholder={isFocused ? "" : "Умный поиск"}
-          value={searchQuery}
-          onChange={handleInputChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          className="search__input search__input--disabled"
+          placeholder="В разработке"
+          value=""
+          disabled
+          readOnly
         />
         <SearchIcon className="search__icon" />
       </div>
