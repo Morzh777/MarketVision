@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api'
+import { createApiUrl, API_ENDPOINTS } from '@/constants/api'
 import CategoryMenuClient from './CategoryMenuClient'
 
 interface Category {
@@ -11,7 +11,7 @@ export default async function CategoryMenu() {
   let categories: Category[] = []
   
   try {
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.CATEGORIES}`, {
+    const response = await fetch(createApiUrl(API_ENDPOINTS.CATEGORIES), {
       next: { revalidate: 300 } // Кэшируем на 5 минут
     })
     

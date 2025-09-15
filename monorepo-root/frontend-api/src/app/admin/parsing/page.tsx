@@ -3,6 +3,7 @@ import ParsingClient from './components/ParsingClient'
 import LogoutButton from '@/components/admin/UserProfile'
 import AdminMenu from '@/components/admin/Menu'
 import { cookies } from 'next/headers'
+import { createInternalApiUrl } from '@/constants/api'
 import '@/app/styles/components/Admin.scss'
 
 export default async function ParsingPage() {
@@ -14,7 +15,7 @@ export default async function ParsingPage() {
   const authToken = cookieStore.get('auth')?.value || ''
 
   try {
-    const response = await fetch('http://marketvision-nginx-dev/api/categories', {
+    const response = await fetch(createInternalApiUrl('/api/categories'), {
       next: { revalidate: 0 } // Не кэшируем для актуальных данных
     })
 

@@ -2,12 +2,27 @@
 
 // Функция для определения правильного базового URL
 export const getApiBaseUrl = (): string => {
-  // Если выполняется на сервере (SSR/SSG)
-  if (typeof window === 'undefined') {
-    return 'http://marketvision-nginx-dev'
+  // В браузере используем относительные URL
+  if (typeof window !== 'undefined') {
+    return ''
   }
-  // Если выполняется в браузере - используем относительные URL
-  return ''
+  
+  // На сервере (SSR) используем полный URL
+  return 'http://marketvision-nginx-dev'
+}
+
+// Универсальная функция для создания API URL
+export const createApiUrl = (endpoint: string): string => {
+  const baseUrl = getApiBaseUrl()
+  return `${baseUrl}${endpoint}`
+}
+
+// URL для внутренних API роутов (всегда полный URL)
+export const INTERNAL_API_URL = 'http://marketvision-nginx-dev'
+
+// Функция для создания URL в API роутах
+export const createInternalApiUrl = (endpoint: string): string => {
+  return `${INTERNAL_API_URL}${endpoint}`
 }
 
 export const API_BASE_URL = getApiBaseUrl()

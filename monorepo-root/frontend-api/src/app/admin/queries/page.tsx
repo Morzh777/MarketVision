@@ -3,6 +3,7 @@ import LogoutButton from '@/components/admin/UserProfile'
 import AdminMenu from '@/components/admin/Menu'
 import type { Category } from '@/shared/types/categories.interface'
 import { cookies } from 'next/headers'
+import { createInternalApiUrl } from '@/constants/api'
 
 // Серверный компонент - загружает данные на сервере
 export default async function QueriesPage({
@@ -18,7 +19,7 @@ export default async function QueriesPage({
   const authToken = cookieStore.get('auth')?.value || ''
 
   try {
-    const response = await fetch('http://marketvision-nginx-dev/api/categories', {
+    const response = await fetch(createInternalApiUrl('/api/categories'), {
       next: { revalidate: 0 } // Не кэшируем для актуальных данных
     })
 

@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 import { API } from '@/config'
 
@@ -16,7 +17,7 @@ export async function POST(request: NextRequest) {
     console.log(`🚀 Frontend API: Отправляем указание на парсинг категории ${categoryKey}`)
 
     // Отправляем указание на парсинг в Product-Filter сервис через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/parsing/trigger', {
+    const response = await fetch(`${INTERNAL_API_URL}/api/parsing/trigger`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

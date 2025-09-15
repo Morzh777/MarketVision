@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { INTERNAL_API_URL } from '@/constants/api'
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,7 +17,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Отправляем запрос в db-api через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/admin/refresh', {
+    const response = await fetch(`${INTERNAL_API_URL}/api/admin/refresh`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

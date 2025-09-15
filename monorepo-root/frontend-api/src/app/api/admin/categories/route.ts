@@ -1,9 +1,10 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {
   try {
     // Получаем категории из db-api через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/categories', {
+    const response = await fetch(`${INTERNAL_API_URL}/api/categories`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Отправляем запрос в db-api через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/categories', {
+    const response = await fetch(`${INTERNAL_API_URL}/api/categories`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

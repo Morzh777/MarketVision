@@ -1,4 +1,4 @@
-import { API_ENDPOINTS, API_BASE_URL } from '@/constants/api'
+import { API_ENDPOINTS, createApiUrl } from '@/constants/api'
 
 export interface CrudResponse<T = unknown> {
   success: boolean
@@ -24,7 +24,7 @@ export async function createRecord<T = unknown>(
   options: CrudOptions
 ): Promise<CrudResponse<T>> {
   try {
-    const url = `${API_BASE_URL}${API_ENDPOINTS.ADMIN}${options.endpoint}`
+    const url = createApiUrl(`${API_ENDPOINTS.ADMIN}${options.endpoint}`)
     console.log('🔄 createRecord URL:', url)
     console.log('🔄 createRecord data:', data)
     console.log('🔄 createRecord authToken:', options.authToken ? 'present' : 'missing')
@@ -74,7 +74,7 @@ export async function updateRecord<T = unknown>(
   options: CrudOptions
 ): Promise<CrudResponse<T>> {
   try {
-    const url = `${API_BASE_URL}${API_ENDPOINTS.ADMIN}${options.endpoint}/${id}`
+    const url = createApiUrl(`${API_ENDPOINTS.ADMIN}${options.endpoint}/${id}`)
     console.log('🔄 updateRecord called:', { id, data, url })
     
     const response = await fetch(url, {
@@ -119,7 +119,7 @@ export async function deleteRecord<T = unknown>(
   options: CrudOptions
 ): Promise<CrudResponse<T>> {
   try {
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.ADMIN}${options.endpoint}/${id}`, {
+    const response = await fetch(createApiUrl(`${API_ENDPOINTS.ADMIN}${options.endpoint}/${id}`), {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ export async function getRecords<T = unknown>(
   options: Omit<CrudOptions, 'authToken'>
 ): Promise<CrudResponse<T[]>> {
   try {
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.ADMIN}${options.endpoint}`, {
+    const response = await fetch(createApiUrl(`${API_ENDPOINTS.ADMIN}${options.endpoint}`), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -208,7 +208,7 @@ export const categoryApi = {
 export async function getQueriesForCategoryServer(categoryKey: string): Promise<unknown[]> {
   try {
     // На сервере обращаемся напрямую к nginx
-    const url = `http://marketvision-nginx-dev/api/admin/queries?categoryKey=${categoryKey}`
+    const url = createApiUrl(`/api/admin/queries?categoryKey=${categoryKey}`)
     console.log('🔍 getQueriesForCategoryServer URL:', url)
     
     const response = await fetch(url, {

@@ -4,6 +4,7 @@ import { useRef, useCallback, memo } from 'react'
 import '@/app/styles/components/products.scss'
 import { PAGES } from '@/config/pages.config'
 import type { Products } from '@/shared/types/products.interface'
+import { useSmartSearch } from '@/hooks/useSmartSearch'
 
 interface Props {
   products: Products[]
@@ -13,6 +14,7 @@ interface Props {
 
 function Products({ products, className = '', telegram_id: _telegram_id }: Props) {
   const lastClickTime = useRef<number>(0)
+  const { searchResults, hasSearchQuery } = useSmartSearch(products)
   
   const handleClick = useCallback((e: React.MouseEvent) => {
     const now = Date.now()
@@ -27,10 +29,21 @@ function Products({ products, className = '', telegram_id: _telegram_id }: Props
   if (!Array.isArray(products)) {
     return <div>Ошибка: products не является массивом</div>
   }
+
+  // Если есть поисковый запрос и нет результатов
+  if (hasSearchQuery && searchResults.length === 0) {
+    return (
+      <div className="search-empty">
+        <div className="search-empty__icon">🔍</div>
+        <div className="search-empty__title">Ничего не найдено</div>
+        <div className="search-empty__text">Попробуйте изменить поисковый запрос</div>
+      </div>
+    )
+  }
   
   return (
     <ul className={`products-list ${className}`}>
-      {products.map((product) => (
+      {searchResults.map((product) => (
         <Link 
           key={product.query} 
           href={PAGES.PRODUCT(product.query)}

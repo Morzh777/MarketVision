@@ -1,11 +1,12 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 /**
  * Конфигурация переменных окружения
  */
 
 export const config = {
   // API
-  API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://marketvision-nginx-dev/api',
-  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://marketvision-nginx-dev',
+  API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || `${INTERNAL_API_URL}/api`,
+  API_URL: process.env.NEXT_PUBLIC_API_URL || INTERNAL_API_URL,
   
   // Auth
   JWT_SECRET: process.env.JWT_SECRET || 'your-secret-key',

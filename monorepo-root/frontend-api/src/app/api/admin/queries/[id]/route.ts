@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/admin/queries/[id] - получение информации о запросе по ID
@@ -16,10 +17,10 @@ export async function GET(
       return NextResponse.json({ error: 'Токен авторизации не найден' }, { status: 401 })
     }
 
-    console.log('🔍 Отправляем запрос в db-api:', `http://marketvision-nginx-dev/api/admin/queries/${id}`)
+    console.log('🔍 Отправляем запрос в db-api:', `${INTERNAL_API_URL}/api/admin/queries/${id}`)
 
     // Отправляем запрос в db-api через nginx
-    const response = await fetch(`http://marketvision-nginx-dev/api/admin/queries/${id}`, {
+    const response = await fetch(`${INTERNAL_API_URL}/api/admin/queries/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

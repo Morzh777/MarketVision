@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createInternalApiUrl } from '@/constants/api'
 
 export async function GET() {
   try {
     // Получаем запросы из db-api через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/admin/queries', {
+    const response = await fetch(createInternalApiUrl('/api/admin/queries'), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -35,10 +36,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Токен авторизации не найден' }, { status: 401 })
     }
 
-    console.log('🔍 Отправляем запрос в db-api:', 'http://marketvision-nginx-dev/api/admin/queries')
+    console.log('🔍 Отправляем запрос в db-api:', createInternalApiUrl('/api/admin/queries'))
 
     // Отправляем запрос в db-api через nginx
-    const response = await fetch('http://marketvision-nginx-dev/api/admin/queries', {
+    const response = await fetch(createInternalApiUrl('/api/admin/queries'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

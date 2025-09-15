@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function PUT(
@@ -15,7 +16,7 @@ export async function PUT(
     }
 
     // Отправляем PUT запрос в db-api через nginx
-    const response = await fetch(`http://marketvision-nginx-dev/api/categories/${id}`, {
+    const response = await fetch(`${INTERNAL_API_URL}/api/categories/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export async function DELETE(
     }
 
     // Отправляем DELETE запрос в db-api через nginx
-    const response = await fetch(`http://marketvision-nginx-dev/api/categories/${id}`, {
+    const response = await fetch(`${INTERNAL_API_URL}/api/categories/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

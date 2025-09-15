@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 /**
  * Конфигурация API роутов
  */
@@ -5,7 +6,7 @@
 class ApiConfig {
   // Базовый URL API
   private get baseUrl() {
-    return process.env.NEXT_PUBLIC_API_BASE_URL || 'http://marketvision-nginx-dev/api'
+    return process.env.NEXT_PUBLIC_API_BASE_URL || `${INTERNAL_API_URL}/api`
   }
 
   // Product Filter Service URL

@@ -5,35 +5,6 @@ services:
   # DEV MODE SERVICES (с hot reload)
   # ===============================================
 
-  # Frontend (Next.js) - DEV MODE
-  marketvision-api:
-    build:
-      context: ./monorepo-root/marketvision-api
-      target: development
-    container_name: marketvision-frontend-dev
-    ports:
-      - "3006:3006"
-    environment:
-      - NODE_ENV=development
-      - DATABASE_URL=postgresql://marketvision:password@postgres:5432/marketvision
-    volumes:
-      - ./monorepo-root/marketvision-api/src:/usr/src/app/src
-      - ./monorepo-root/marketvision-api/public:/usr/src/app/public
-      - ./monorepo-root/marketvision-api/package.json:/usr/src/app/package.json
-      - ./monorepo-root/marketvision-api/package-lock.json:/usr/src/app/package-lock.json
-      - ./monorepo-root/marketvision-api/tsconfig.json:/usr/src/app/tsconfig.json
-      - ./monorepo-root/marketvision-api/next.config.ts:/usr/src/app/next.config.ts
-      - ./monorepo-root/marketvision-api/logs:/usr/src/app/logs
-      - /usr/src/app/node_modules
-      - /usr/src/app/.next
-    restart: unless-stopped
-    networks:
-      - marketvision-net
-    depends_on:
-      - postgres
-      - db-api
-    command: npm run dev
-
   # Frontend API (Next.js) - DEV MODE
   frontend-api:
     build:
@@ -228,7 +199,6 @@ services:
       - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./nginx/conf.d/proxy_common.conf:/etc/nginx/conf.d/proxy_common.conf:ro
     depends_on:
-      - marketvision-api
       - frontend-api
       - db-api
       - product-filter-service

@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function DELETE(
@@ -23,10 +24,10 @@ export async function DELETE(
       return NextResponse.json({ error: 'Токен авторизации не найден' }, { status: 401 })
     }
 
-    console.log('🔍 Отправляем запрос в db-api:', `http://marketvision-nginx-dev/api/admin/queries/path/${encodeURIComponent(query)}?categoryKey=${categoryKey}`)
+    console.log('🔍 Отправляем запрос в db-api:', `${INTERNAL_API_URL}/api/admin/queries/path/${encodeURIComponent(query)}?categoryKey=${categoryKey}`)
 
     // Отправляем запрос в db-api через nginx
-    const response = await fetch(`http://marketvision-nginx-dev/api/admin/queries/path/${encodeURIComponent(query)}?categoryKey=${categoryKey}`, {
+    const response = await fetch(`${INTERNAL_API_URL}/api/admin/queries/path/${encodeURIComponent(query)}?categoryKey=${categoryKey}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

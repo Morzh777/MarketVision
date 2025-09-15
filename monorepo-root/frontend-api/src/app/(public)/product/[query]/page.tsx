@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { cookies } from 'next/headers'
-import { API_BASE_URL, API_ENDPOINTS } from '@/constants/api'
+import { createApiUrl, API_ENDPOINTS } from '@/constants/api'
 import type { Product } from '@/shared/types/products.interface'
 import { decodeHtmlEntities } from '@/utils/html'
 import ProductMenu from '@/components/menu/ProductMenu'
@@ -18,7 +18,7 @@ async function getProduct(query: string): Promise<Product | null> {
   try {
     const decodedQuery = decodeURIComponent(query)
     // Используем тот же роут что и в marketvision-api
-    const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.PRODUCTS}?query=${decodedQuery}`, {
+    const response = await fetch(createApiUrl(`${API_ENDPOINTS.PRODUCTS}?query=${decodedQuery}`), {
       next: { revalidate: 60 }
     })
 
@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: Props) {
   let isFavorite = false
   if (telegram_id) {
     try {
-      const favoriteResponse = await fetch(`${API_BASE_URL}/api/auth/favorites/check?telegram_id=${telegram_id}&query=${encodeURIComponent(decodedQuery)}`)
+      const favoriteResponse = await fetch(createApiUrl(`/api/auth/favorites/check?telegram_id=${telegram_id}&query=${encodeURIComponent(decodedQuery)}`))
       if (favoriteResponse.ok) {
         const favoriteData = await favoriteResponse.json()
         isFavorite = favoriteData.success && favoriteData.isFavorite

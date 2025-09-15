@@ -1,3 +1,4 @@
+import { INTERNAL_API_URL } from '@/constants/api'
 import { NextRequest, NextResponse } from 'next/server'
 
 // PUT /api/admin/queries/query/[query] - обновление всех запросов с одинаковым названием
@@ -24,10 +25,10 @@ export async function PUT(
       return NextResponse.json({ error: 'Токен авторизации не найден' }, { status: 401 })
     }
 
-    console.log('🔍 Отправляем запрос в db-api:', `http://marketvision-nginx-dev/api/admin/queries/query/${encodeURIComponent(query)}?categoryKey=${categoryKey}`)
+    console.log('🔍 Отправляем запрос в db-api:', `${INTERNAL_API_URL}/api/admin/queries/query/${encodeURIComponent(query)}?categoryKey=${categoryKey}`)
 
     // Отправляем запрос в db-api через nginx
-    const response = await fetch(`http://marketvision-nginx-dev/api/admin/queries/query/${encodeURIComponent(query)}?categoryKey=${categoryKey}`, {
+    const response = await fetch(`${INTERNAL_API_URL}/api/admin/queries/query/${encodeURIComponent(query)}?categoryKey=${categoryKey}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

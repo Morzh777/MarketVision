@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createInternalApiUrl } from '@/constants/api'
 
 export async function GET(request: NextRequest) {
   try {
@@ -8,7 +9,7 @@ export async function GET(request: NextRequest) {
     const telegram_id = searchParams.get('telegram_id')
 
     // Проксируем запрос на Nginx
-    const nginxUrl = `http://marketvision-nginx-dev:80/api/products/popular-queries?limit=${limit}&offset=${offset}${telegram_id ? `&telegram_id=${telegram_id}` : ''}`
+    const nginxUrl = createInternalApiUrl(`/api/products/popular-queries?limit=${limit}&offset=${offset}${telegram_id ? `&telegram_id=${telegram_id}` : ''}`)
     
     const response = await fetch(nginxUrl)
     const data = await response.json()

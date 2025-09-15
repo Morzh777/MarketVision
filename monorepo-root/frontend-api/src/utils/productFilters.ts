@@ -1,4 +1,4 @@
-import { API_BASE_URL, API_ENDPOINTS, PAGINATION } from '@/constants/api'
+import { createApiUrl, API_ENDPOINTS, PAGINATION } from '@/constants/api'
 
 interface FilterParams {
   category?: string
@@ -7,19 +7,21 @@ interface FilterParams {
 }
 
 export function buildProductApiUrl(params: FilterParams, limit: number = PAGINATION.DEFAULT_LIMIT, offset: number = PAGINATION.DEFAULT_OFFSET): string {
-  let url = `${API_BASE_URL}${API_ENDPOINTS.POPULAR_QUERIES}?limit=${limit}&offset=${offset}`
+  // Создаем базовый URL с параметрами
+  let endpoint = `${API_ENDPOINTS.POPULAR_QUERIES}?limit=${limit}&offset=${offset}`
   
   // Добавляем фильтр категории если он есть
   if (params.category && params.category !== 'all') {
-    url += `&category=${params.category}`
+    endpoint += `&category=${params.category}`
   }
   
   // Если фильтр избранного, добавляем параметры
   if (params.filter === 'favorites' && params.telegram_id) {
-    url += `&filter=favorites&telegram_id=${params.telegram_id}`
+    endpoint += `&filter=favorites&telegram_id=${params.telegram_id}`
   }
   
-  return url
+  // Используем универсальную функцию для создания URL
+  return createApiUrl(endpoint)
 }
 
 export function getFilterParams(searchParams: { [key: string]: string | string[] | undefined }): FilterParams {

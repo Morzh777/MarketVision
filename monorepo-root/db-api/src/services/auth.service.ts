@@ -2,6 +2,7 @@ import { Injectable, HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { LoginDto, LoginResponseDto } from '../dto/login.dto';
 import { JwtService, User } from './jwt.service';
 import { PrismaService } from './prisma.service';
+import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class AuthService {
@@ -141,8 +142,9 @@ export class AuthService {
         return null;
       }
 
-      // Проверяем пароль (в реальном проекте используйте bcrypt)
-      if (user.password !== password) {
+      // Проверяем пароль с помощью bcrypt
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
         this.logger.warn(`❌ Неверный пароль для пользователя: ${login}`);
         return null;
       }
